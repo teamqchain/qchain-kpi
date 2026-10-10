@@ -1,0 +1,28 @@
+{
+  "host_offset_ns": -45181003,
+  "host_offset_unc_ns": 53791000,
+  "native_p_rate": 2528978.64690443,
+  "native_e_rate": 489309.066615172,
+  "host_logical_cpus": 8,
+  "host_monitor_period_s": 5,
+  "host": {
+    "runtime": "colima-vz",
+    "host_os": "macOS 27.0.1 (26A434)",
+    "host_cpu": "Apple M1",
+    "host_mem_gb": "8",
+    "docker": "29.5.2",
+    "colima": "0.10.3",
+    "lima": "2.2.1",
+    "vm_cpus": "4",
+    "vm_mem_gb": "4",
+    "container_mem": "3g",
+    "container_cpuset": "1",
+    "power": "AC",
+    "battery_pct": "90",
+    "cooling": "unstated",
+    "low_power_mode": "0",
+    "thermal_at_start": "0",
+    "launcher": "run.sh 1",
+    "native_go": "go1.24.13"
+  }
+}
