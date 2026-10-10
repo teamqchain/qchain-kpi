@@ -429,7 +429,8 @@ func (b *batch) checkStop() (int, error, bool) {
 		return b.stopped("stopped by signal"), nil, true
 	}
 	if _, err := os.Stat(filepath.Join(b.c.Out, fileStop)); err == nil {
-		os.Rename(filepath.Join(b.c.Out, fileStop), filepath.Join(b.c.Out, fmt.Sprintf("STOP.done-s%d", b.sess.N)))
+		// The launcher's file is owned by root; it is removed (the journal records the stop).
+		os.Remove(filepath.Join(b.c.Out, fileStop))
 		return b.stopped("stopped by STOP file"), nil, true
 	}
 	return 0, nil, false

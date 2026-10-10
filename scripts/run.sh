@@ -431,6 +431,7 @@ case "$cmd" in
     [ -n "$rid" ] || die "stop needs a run id"
     [ "$(docker inspect -f '{{.State.Running}}' "kpi-run-$rid" 2>/dev/null)" = "true" ] || die "kpi-run-$rid is not running"
     tmp="$(mktemp "${TMPDIR:-/tmp}/kpi-stop.XXXXXX")"
+    chmod 644 "$tmp"
     docker cp "$tmp" "kpi-run-$rid:/out/STOP" >/dev/null
     rm -f "$tmp"
     note "requested a graceful stop of $rid: it stops after the current block"

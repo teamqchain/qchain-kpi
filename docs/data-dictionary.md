@@ -33,7 +33,6 @@ The folder holds only allow-listed facts: no host name, user name, path outside 
 | `monitor/host-s<N>-<seq>.csv` (+ `.ok`) | launcher | Host monitor samples of session N, delivered every minute (see below). A chunk is read only once its `.ok` marker exists. |
 | `calibration.json` | kpi-batch (trial only) | The machine's thresholds derived from this trial (see `docs/methodology.md`). |
 | `estimate.json` | kpi-batch (trial only) | Projected hours and raw-data size of every main plan on this machine. |
-| `STOP.done-s<N>` | kpi-batch | Present if session N was stopped with `run.sh stop`. |
 | `SHA256SUMS` | kpi-batch | SHA-256 of every file above (`shasum -c` format). Written last. |
 | `console.txt` | launcher | Everything kpi-batch printed, over all sessions (`docker logs`). |
 | `launcher/` | launcher | Per session N: `session-sN.json` (what was delivered to the batch), `clock-offset-sN.txt`, `native-canary-sN-plain.json` and `native-canary-sN-background.json` (Mac core references), `host-monitor-sN.csv` (every monitor row), `preflight-sN.txt` (preflight problems; `forced` if `--force` was used). |
