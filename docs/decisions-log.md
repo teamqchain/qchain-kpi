@@ -24,3 +24,23 @@ The decisions about the study itself (scope, machines, run rules, thresholds) ar
 | 10 Oct | `run.sh` starts Colima automatically if it is down (user choice, option 2) | The Colima VM does not survive a Mac sleep, and the Mac sleeps whenever it is idle between runs (sleep log: idle and clamshell sleeps on 10 Oct). The launcher restarts it with the study settings: vz, 4 CPUs, 4 GiB, no mounts. |
 | 10 Oct | **macOS background analysis services are paused during every Mac run** (user decision). The services are `mediaanalysisd`, `photoanalysisd`, `spotlightknowledged` (and its importer and updater), `suggestd`, `duetexpertd`, `knowledge-agent` and `knowledgeconstructiond`. They are paused with SIGSTOP at session start (re-checked every 10 s) and resumed with SIGCONT on every exit path; the PIDs and names are logged in `launcher/bg-paused-s<N>.txt`. | Four Mac trials on 10 Oct were dominated by these services. They run whenever the Mac is idle on mains power, which are exactly the test conditions. Switching off Siri, the Spotlight suggestions, the Spotlight app results and Live Text, and pausing Spotlight indexing, did not stop them. In the fourth trial, Photos analysis used up to 2 cores and drove the fanless Mac to thermal pressure level 1: other CPU had a median of 34%, 224 of 357 attempts were flagged and 60 blocks were exhausted. |
 | 11 Oct | **The launcher switches Wi-Fi off for the run and back on at the end** (user idea). It switches off after the image build, before the session starts, because the build needs the internet and the measurement does not. It restores Wi-Fi when the script ends on every exit path (normal end, error, Ctrl-C, closed Terminal), and only if Wi-Fi was on before. It is the Mac only: the VM must stay reachable over SSH and Obeid's laptop is operated over AnyDesk (phase 1b decides what, if anything, to do there). | It makes the per-run manual step unnecessary and removes App Store, iCloud and update traffic from the measurement without changing any setting permanently. The 10 Oct trial with Wi-Fi off was the clean one. |
+
+## Record of the Mac trials of 10 Oct 2026 (issue and fix)
+
+Five Mac trials were run on 10 Oct. Only the last one is kept (`results/mac/20261010-1819_...`); the other four were deleted on 11 Oct (user decision), because they were diagnostic runs and not results. This record keeps what they showed.
+
+**Problem.** macOS background analysis services (the Spotlight AI "knowledge" indexer `spotlightknowledged` and Photos analysis `mediaanalysisd`, plus smaller ones) ran whenever the Mac was idle on mains power, which are exactly the test conditions. They used up to about two of the eight cores. The "other CPU" quality rule (limit 5%) therefore flagged blocks, and flagged blocks are repeated up to twice.
+
+| Trial | What was different | Flagged attempts | Notes |
+|---|---|---|---|
+| 1 (run id 1301) | first trial, VS Code and the display in use | 76 of 264 | the monitor could not yet name the process |
+| 2 (run id 1404) | hands-off, monitor names the process | 227 of 356 | median other CPU high; `spotlightknowledged` in about 85% of the noisy samples |
+| 3 (run id 1526) | Spotlight indexing off (`mdutil`) | 149 of 317 | 25 blocks without a clean attempt; not enough |
+| 4 (run id 1700) | Siri, Spotlight suggestions and app results, Live Text switched off | 224 of 357 | median other CPU 34%, thermal pressure on 81 samples (fanless Mac), 60 blocks without a clean attempt, over an hour |
+| 5 (run id 1819, kept) | the launcher pauses the services and Wi-Fi is off | 1 of 194 | median other CPU 1.1%, no thermal pressure, no block without a clean attempt, about 25 minutes |
+
+**What did not help:** switching off Siri, Spotlight suggestions and results, Live Text and Spotlight file indexing. Those switches stop features, not the background work already queued (about 305,000 items had been processed and thousands were still waiting).
+
+**Fix:** `scripts/run.sh` pauses the services during every Mac run and resumes them at the end, and switches Wi-Fi off for the run after the image build.
+
+**Side finding:** for 25 cells measured both in noisy and in clean attempts, the block medians were identical (median difference 0.000%, range -0.6% to +1.8%; spread among clean attempts 0.9%). The background load cost time and flags, not accuracy, because the benchmark is pinned to one core. The 5% rule was kept anyway (a relaxed rule was not approved).

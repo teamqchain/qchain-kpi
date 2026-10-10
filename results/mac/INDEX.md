@@ -5,5 +5,4 @@
 | 20261010-0820_mac-m1_colima-vz_b1-prod | smoke-quick | smoke | done | 56 | 9 | 41f46fdb3bfa | 1130858519070354549 |
 | 20261010-0829_mac-m1_colima-vz_b1-prod | smoke | smoke | done | 276 | 134 | ea613ad55641 | 8295809241605981177 |
 | 20261010-1204_mac-m1_colima-vz_b1-prod | smoke-quick | smoke | done | 56 | 8 | 3a38c815937e | 13806275032942736343 |
-| 20261010-1301_mac-m1_colima-vz_b1-prod | trial | trial | done | 264 | 76 | 8ba726b467e8 | 17226883852676691973 |
-| 20261010-1404_mac-m1_colima-vz_b1-prod | trial | trial | done | 356 | 227 | 19fa28ece369 | 367180570681112529 |
+| 20261010-1819_mac-m1_colima-vz_b1-prod | trial | trial | done | 194 | 1 | cffe9e7e7e3a | 6079708947166078027 |

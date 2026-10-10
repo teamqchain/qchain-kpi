@@ -1,0 +1,39 @@
+{
+  "machine": "mac-m1",
+  "trial_run": "20261010-1819_mac-m1_colima-vz_b1-prod",
+  "plans": [
+    {
+      "plan": "e1",
+      "file": "e1.json",
+      "blocks": 450,
+      "hours": 5.182569778581144,
+      "prep_hours": 0.5054866212541664,
+      "canary_hours": 0.013325575773032743,
+      "by_experiment_hours": {
+        "E1": 4.663757581553946
+      },
+      "raw_mb": 12.138827612365128
+    },
+    {
+      "plan": "e10",
+      "file": "e10.json",
+      "blocks": 15,
+      "hours": 0.025255127374077778,
+      "prep_hours": 0.00018220448749999997,
+      "canary_hours": 0.0009532081282444446,
+      "by_experiment_hours": {
+        "E10": 0.024119714758333334
+      },
+      "raw_mb": 0.940484680722313
+    }
+  ],
+  "total_hours": 5.207824905955222,
+  "total_raw_mb": 13.079312293087442,
+  "assumptions": [
+    "probe medians from the trial (cold call excluded)",
+    "per-block fixed overhead 0.12 s (median of the trial)",
+    "raw data 2.06 bytes per sample row (trial average, gzip)",
+    "input-set generation per (algorithm, repetition) = key generation + P x (sign + verify) or P x (encaps + decaps)",
+    "repeats and diagnostic re-runs are not included"
+  ]
+}
