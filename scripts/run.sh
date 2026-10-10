@@ -241,6 +241,8 @@ pause_bg() { # logfile
   done
 }
 resume_bg() { pkill -CONT -f "$BG_PATTERN" 2>/dev/null || true; }
+bg_early_log="$(mktemp "${TMPDIR:-/tmp}/kpi-bg.XXXXXX")"
+pause_early() { pause_bg "$bg_early_log"; bg_paused=1; }
 
 # Wi-Fi is switched off for the run itself, after the image has been built (the
 # build needs the internet; the measurement does not) and switched back on when
@@ -283,6 +285,7 @@ wifi_restore() {
 cleanup() {
   if [ "$bg_paused" = 1 ]; then resume_bg; bg_paused=0; fi
   wifi_restore
+  rm -f "$bg_early_log" 2>/dev/null || true
 }
 trap cleanup EXIT
 trap 'cleanup; exit 129' HUP
@@ -306,6 +309,8 @@ run_session() {
   : > "$work/empty.ok"
   "$repo/scripts/monitor-mac.sh" "$work" "$PERIOD_S" "$ROWS_PER_CHUNK" "$$" >/dev/null &
   monpid=$!
+  cat "$bg_early_log" >> "$persist/bg-paused-s$n.txt" 2>/dev/null || true
+  : > "$bg_early_log"
   pause_bg "$persist/bg-paused-s$n.txt"
   bg_paused=1
   wifi_off "$persist/wifi-s$n.txt"
@@ -474,9 +479,14 @@ case "$cmd" in
     ensure_colima
     build_image "$variant" "$commit" "$rebuild"
     tag="$image_tag"
+    # The macOS background services wake up as soon as the Mac is idle (for
+    # example during the cool-down) and would fail the quiet-machine check, so
+    # they are paused from here on (the session logs them; cleanup resumes them).
+    pause_early
     if [ "$built" = 1 ] && [ "$kind" != "smoke" ]; then
-      note "cooling down for 120 s after the image build"
+      note "cooling down for 120 s after the image build (background services paused)"
       sleep 120
+      pause_early
     fi
     preflight "$kind"
     imageid="$(docker image inspect -f '{{.Id}}' "$tag")"
@@ -511,6 +521,7 @@ case "$cmd" in
     [ "$(docker inspect -f '{{index .Config.Labels "org.qchain.kpi"}}' "kpi-run-$rid")" = "1" ] || die "kpi-run-$rid is not a KPI container"
     [ "$(docker inspect -f '{{.State.Running}}' "kpi-run-$rid")" = "false" ] || die "kpi-run-$rid is already running"
     kind="$(docker inspect -f '{{index .Config.Labels "org.qchain.kpi.kind"}}' "kpi-run-$rid")"
+    pause_early
     preflight "$kind"
     run_session "$rid"
     finish_run "$rid" "$session_code"
