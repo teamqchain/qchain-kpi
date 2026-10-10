@@ -68,6 +68,7 @@ sub close_chunk {
 }
 
 my ($ts, $user, $sys, $idle, $excl) = (undef, undef, undef, undef, 0);
+my ($topcmd, $topcpu) = ("", 0);   # busiest process that is not excluded (diagnosis only)
 my ($samples, $lpm, $tl, $ac, $pct) = (0, 0, -1, -1, -1);
 
 # Thermal pressure, power source and Low Power Mode, read at the moment top
@@ -93,8 +94,13 @@ sub finish_sample {
     my $other = $user + $sys - $excl / $ncpu;
     $other = 0 if $other < 0;
     my $throttle = $tl < 0 ? -1 : ($tl > 0 ? 1 : 0);
-    my $row = sprintf("%s,%.3f,%d,%d,%d,user=%.2f;sys=%.2f;excluded_core_pct=%.1f;thermal_level=%d;battery_pct=%d\n",
-        $ts, $other, $throttle, $ac, $lpm, $user, $sys, $excl, $tl, $pct);
+    my $who = "";
+    if ($other > 5 && $topcmd ne "") {
+        (my $c = $topcmd) =~ s/[;,\r\n]/_/g;
+        $who = sprintf(";busiest_other=%s:%.1f", $c, $topcpu);
+    }
+    my $row = sprintf("%s,%.3f,%d,%d,%d,user=%.2f;sys=%.2f;excluded_core_pct=%.1f;thermal_level=%d;battery_pct=%d%s\n",
+        $ts, $other, $throttle, $ac, $lpm, $user, $sys, $excl, $tl, $pct, $who);
     open_chunk() unless $fh;
     print $fh $row;
     print $all $row;
@@ -108,6 +114,7 @@ while (my $line = <STDIN>) {
         my ($s, $us) = gettimeofday();
         $ts = sprintf("%d%06d000", $s, $us);
         ($user, $sys, $idle, $excl) = (undef, undef, undef, 0);
+        ($topcmd, $topcpu) = ("", 0);
         read_power();
         next;
     }
@@ -117,7 +124,8 @@ while (my $line = <STDIN>) {
     }
     if ($line =~ /^\s*(\d+)\s+(.+?)\s+([\d.]+)\s*$/) {
         my ($pid, $cmd, $cpu) = ($1, $2, $3);
-        $excl += $cpu if $excl_pid{$pid} || $cmd =~ $excl_cmd;
+        if ($excl_pid{$pid} || $cmd =~ $excl_cmd) { $excl += $cpu; }
+        elsif ($cpu > $topcpu) { ($topcmd, $topcpu) = ($cmd, $cpu); }
     }
 }
 finish_sample();
