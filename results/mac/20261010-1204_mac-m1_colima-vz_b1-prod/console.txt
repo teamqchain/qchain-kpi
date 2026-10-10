@@ -1,0 +1,83 @@
+[16:04:46] canary 1 (start): 2515167 hashes/s, ratio 1.0000 P-like
+[16:04:46] prepared ml-dsa-44.probe: P=6 in 0.0s
+[16:04:46] 1/56 probe.ml-dsa-44.keygen.r1.a1 probe p50 32.50us (n=5) first 987.26us
+[16:04:46] 2/56 probe.ml-dsa-44.sign.r1.a1 probe p50 84.99us (n=5) first 1.136ms
+[16:04:46] 3/56 probe.ml-dsa-44.verify.r1.a1 probe p50 29.16us (n=5) first 52.75us
+[16:04:46] prepared falcon-512.probe: P=6 in 0.0s
+[16:04:46] 4/56 probe.falcon-512.keygen.r1.a1 probe p50 4.733ms (n=5) first 5.703ms
+[16:04:46] 5/56 probe.falcon-512.sign.r1.a1 probe p50 149.61us (n=5) first 1.039ms
+[16:04:46] 6/56 probe.falcon-512.verify.r1.a1 probe p50 22.21us (n=5) first 35.62us
+[16:04:46] prepared ml-kem-768.probe: P=6 in 0.0s
+[16:04:46] 7/56 probe.ml-kem-768.keygen.r1.a1 probe p50 14.46us (n=5) first 892.81us
+[16:04:46] 8/56 probe.ml-kem-768.encaps.r1.a1 probe p50 14.58us (n=5) first 864.31us
+[16:04:46] 9/56 probe.ml-kem-768.decaps.r1.a1 probe p50 16.08us (n=5) first 33.37us
+[16:04:46] prepared ecdsa-p256.probe: P=6 in 0.0s
+[16:04:46] 10/56 probe.ecdsa-p256.keygen.r1.a1 probe p50 28.37us (n=5) first 410.09us
+[16:04:46] 11/56 probe.ecdsa-p256.sign.r1.a1 probe p50 20.29us (n=5) first 354.64us
+[16:04:47] 12/56 probe.ecdsa-p256.verify.r1.a1 probe p50 56.91us (n=5) first 89.20us
+[16:04:47] prepared rsa3072-pss.probe: P=6 in 0.2s
+[16:04:50] 13/56 probe.rsa3072-pss.keygen.r1.a1 probe p50 457.833ms (n=5) first 537.525ms
+[16:04:50] stopped by STOP file; the batch can be resumed
+[16:05:01] resuming 20261010-1204_mac-m1_colima-vz_b1-prod: 43 block(s) queued, 13 done, 0 temporary file(s) removed
+[16:05:02] canary 2 (resume): 2528306 hashes/s, ratio 1.0052 P-like
+[16:05:02] 14/56 probe.rsa3072-pss.sign.r1.a1 probe p50 1.601ms (n=5) first 2.712ms
+[16:05:02] 15/56 probe.rsa3072-pss.verify.r1.a1 probe p50 35.16us (n=5) first 79.58us
+[16:05:02] prepared dhkem-x25519.probe: P=6 in 0.0s
+[16:05:02] 16/56 probe.dhkem-x25519.keygen.r1.a1 probe p50 31.58us (n=5) first 392.14us
+[16:05:02] 17/56 probe.dhkem-x25519.encaps.r1.a1 probe p50 67.62us (n=5) first 403.35us
+[16:05:02] 18/56 probe.dhkem-x25519.decaps.r1.a1 probe p50 40.75us (n=5) first 81.12us
+[16:05:04] prepared rsa3072-pss.r1: P=8 in 1.3s
+[16:05:04] stopped by signal (current block discarded; it re-runs on resume); the batch can be resumed
+[16:05:15] resuming 20261010-1204_mac-m1_colima-vz_b1-prod: 38 block(s) queued, 18 done, 0 temporary file(s) removed
+[16:05:17] canary 3 (resume): 2502066 hashes/s, ratio 0.9948 P-like
+[16:05:20] 19/56 E1.rsa3072-pss.keygen.r1.a1 slow p50 487.206ms (n=3) first 220.545ms
+[16:05:20] prepared dhkem-x25519.r1: P=8 in 0.0s
+[16:05:20] 20/56 E1.dhkem-x25519.keygen.r1.a1 fast p50 31.66us (n=200) first 408.11us
+[16:05:20] prepared falcon-512.r1: P=8 in 0.0s
+[16:05:21] 21/56 E1.falcon-512.keygen.r1.a1 slow p50 4.838ms (n=192) first 5.242ms
+[16:05:21] 22/56 E1.rsa3072-pss.verify.r1.a1 fast p50 33.33us (n=200) first 81.75us
+[16:05:21] prepared ecdsa-p256.r1: P=8 in 0.0s
+[16:05:21] 23/56 E1.ecdsa-p256.sign.r1.a1 fast p50 20.12us (n=200) first 348.36us
+[16:05:21] 24/56 E1.dhkem-x25519.decaps.r1.a1 fast p50 37.73us (n=200) first 109.00us
+[16:05:21] prepared ml-kem-768.r1: P=8 in 0.0s
+[16:05:21] 25/56 E1.ml-kem-768.decaps.r1.a1 fast p50 17.62us (n=200) first 33.96us
+[16:05:21] 26/56 E1.ecdsa-p256.verify.r1.a1 fast p50 54.83us (n=200) first 94.08us
+[16:05:21] prepared ml-dsa-44.r1: P=8 in 0.0s
+[16:05:21] 27/56 E1.ml-dsa-44.sign.r1.a1 fast p50 60.89us (n=200) first 882.42us
+[16:05:21] 28/56 E1.ecdsa-p256.keygen.r1.a1 fast p50 27.69us (n=200) first 425.85us
+[16:05:21] 29/56 E1.dhkem-x25519.encaps.r1.a1 fast p50 68.75us (n=200) first 420.69us
+[16:05:21] 30/56 E10.ml-dsa-44.sign.r1.a1 fast p50 66.95us (n=200) first 964.54us
+[16:05:21] 31/56 E1.falcon-512.sign.r1.a1 fast p50 146.14us (n=200) first 1.054ms
+[16:05:21] 32/56 E1.ml-kem-768.keygen.r1.a1 fast p50 14.21us (n=200) first 902.96us
+[16:05:21] 33/56 E1.ml-dsa-44.keygen.r1.a1 fast p50 35.91us (n=200) first 941.54us
+[16:05:21] 34/56 E1.ml-dsa-44.verify.r1.a1 fast p50 28.08us (n=200) first 45.00us
+[16:05:21] 35/56 E1.ml-kem-768.encaps.r1.a1 fast p50 14.12us (n=200) first 925.75us
+[16:05:22] 36/56 E1.rsa3072-pss.sign.r1.a1 slow p50 1.608ms (n=613) first 2.495ms
+[16:05:22] 37/56 E1.falcon-512.verify.r1.a1 fast p50 20.50us (n=200) first 40.37us
+[16:05:22] prepared ecdsa-p256.r2: P=8 in 0.0s
+[16:05:22] 38/56 E1.ecdsa-p256.keygen.r2.a1 fast p50 28.35us (n=200) first 383.86us
+[16:05:22] prepared dhkem-x25519.r2: P=8 in 0.0s
+[16:05:22] 39/56 E1.dhkem-x25519.decaps.r2.a1 fast p50 37.62us (n=200) first 74.20us
+[16:05:22] prepared ml-kem-768.r2: P=8 in 0.0s
+[16:05:22] 40/56 E1.ml-kem-768.decaps.r2.a1 fast p50 15.92us (n=200) first 34.37us
+[16:05:22] prepared ml-dsa-44.r2: P=8 in 0.0s
+[16:05:22] 41/56 E1.ml-dsa-44.verify.r2.a1 fast p50 28.00us (n=200) first 52.33us
+[16:05:23] prepared rsa3072-pss.r2: P=8 in 0.6s
+[16:05:24] 42/56 E1.rsa3072-pss.sign.r2.a1 slow p50 1.613ms (n=612) first 2.510ms
+[16:05:24] prepared falcon-512.r2: P=8 in 0.0s
+[16:05:25] 43/56 E1.falcon-512.keygen.r2.a1 slow p50 4.829ms (n=191) first 8.629ms
+[16:05:25] 44/56 E1.ecdsa-p256.sign.r2.a1 fast p50 20.04us (n=200) first 401.23us
+[16:05:25] 45/56 E1.ml-kem-768.keygen.r2.a1 fast p50 14.08us (n=200) first 871.21us
+[16:05:25] 46/56 E1.dhkem-x25519.encaps.r2.a1 fast p50 67.35us (n=200) first 410.02us
+[16:05:25] 47/56 E1.rsa3072-pss.verify.r2.a1 fast p50 33.37us (n=200) first 83.75us
+[16:05:25] 48/56 E1.ml-kem-768.encaps.r2.a1 fast p50 14.79us (n=200) first 888.67us
+[16:05:25] 49/56 E10.ml-dsa-44.sign.r2.a1 fast p50 59.87us (n=200) first 968.58us
+[16:05:28] 50/56 E1.rsa3072-pss.keygen.r2.a1 slow p50 364.765ms (n=3) first 169.867ms
+[16:05:28] 51/56 E1.falcon-512.verify.r2.a1 fast p50 20.21us (n=200) first 45.96us
+[16:05:28] 52/56 E1.ml-dsa-44.sign.r2.a1 fast p50 72.04us (n=200) first 1.013ms
+[16:05:28] 53/56 E1.ecdsa-p256.verify.r2.a1 fast p50 55.85us (n=200) first 94.66us
+[16:05:28] 54/56 E1.dhkem-x25519.keygen.r2.a1 fast p50 31.58us (n=200) first 386.94us
+[16:05:28] 55/56 E1.falcon-512.sign.r2.a1 fast p50 145.28us (n=200) first 1.043ms
+[16:05:28] 56/56 E1.ml-dsa-44.keygen.r2.a1 fast p50 34.33us (n=200) first 940.41us
+[16:05:29] canary 4 (end): 2532901 hashes/s, ratio 1.0071 P-like
+[16:05:29] batch complete: 56 attempt(s); 85 file(s) in SHA256SUMS
