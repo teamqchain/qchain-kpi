@@ -1,0 +1,99 @@
+{
+  "schema": 1,
+  "run_id": "20261010-0829_mac-m1_colima-vz_b1-prod",
+  "machine": "mac-m1",
+  "plan": {
+    "name": "smoke",
+    "kind": "smoke",
+    "description": "Pipeline test, never used for results: every algorithm and operation through input preparation, the probe pass, E1 and E10, with tiny budgets (fast: 10 warm-up + 200 samples; slow: 1 s and at least 3 samples) and 2 repetitions.",
+    "sha256": "d7f55e146b1c6f2161e9ea1b7f595748b5c2e1bf4c32e330bf05b8066295b0e9",
+    "reps": 2,
+    "canary_every_s": 120,
+    "planned_blocks": 276
+  },
+  "seed": 8295809241605981177,
+  "image_id": "sha256:00a44d6fbe3337d11789029a3e232f9b0d6fe452e16fb07ef605d26107f08630",
+  "harness_commit": "ea613ad556413fa7535973399788aea680365ac5",
+  "go": "go1.24.13",
+  "build": {
+    "arch": "aarch64",
+    "cmake": "cmake version 3.25.1",
+    "gcc": "12.2.0",
+    "liboqs_commit": "5a1a854b0dc9f2141bdc771c555ee60c37950183",
+    "liboqs_tag": "0.16.0",
+    "variant": "b1-prod",
+    "variant_flags": "-DOQS_DIST_BUILD=ON"
+  },
+  "apt_sources": {
+    "builder": "snapshot.debian.org 20261009T000000Z",
+    "runtime": "snapshot.debian.org 20261009T000000Z"
+  },
+  "thresholds": {
+    "file_sha256": "fd444fe7f46a83f47cd260931f05891a21546fc310d8a4abb551b4b9776fe4c1",
+    "calibrated": false,
+    "values": {
+      "calibrated_from": "",
+      "steal_pct": 2,
+      "other_pct": 5,
+      "drift_frac": 0.03,
+      "canary_frac": 0.03,
+      "e10_margin": {},
+      "classification": {}
+    }
+  },
+  "container": {
+    "cpu_max": "max 100000",
+    "cpuset": "[1]",
+    "gomaxprocs": "1",
+    "memory_max": "3221225472",
+    "memory_swap_max": "0",
+    "net_interfaces": "lo",
+    "out_free_gb": "56.8",
+    "tz": "Asia/Dubai"
+  },
+  "host": {
+    "battery_pct": "90",
+    "colima": "0.10.3",
+    "container_cpuset": "1",
+    "container_mem": "3g",
+    "cooling": "unstated",
+    "docker": "29.5.2",
+    "host_cpu": "Apple M1",
+    "host_mem_gb": "8",
+    "host_os": "macOS 27.0.1 (26A434)",
+    "launcher": "run.sh 1",
+    "lima": "2.2.1",
+    "low_power_mode": "0",
+    "native_go": "go1.24.13",
+    "power": "AC",
+    "runtime": "colima-vz",
+    "thermal_at_start": "0",
+    "vm_cpus": "4",
+    "vm_mem_gb": "4"
+  },
+  "sessions": [
+    {
+      "n": 1,
+      "started_utc": "2026-10-10T08:29:31Z",
+      "start_unix_ns": 1791620971675282919,
+      "host_offset_ns": -45181003,
+      "native_p_rate": 2528978.64690443,
+      "native_e_rate": 489309.066615172
+    }
+  ],
+  "status": "done",
+  "started_utc": "2026-10-10T08:29:31Z",
+  "updated_utc": "2026-10-10T08:35:39Z",
+  "counts": {
+    "attempts": 276,
+    "blocks": 186,
+    "blocks_with_headline": 52,
+    "drift_flags": 14,
+    "flagged_attempts": 134,
+    "probe_blocks": 90
+  },
+  "notes": [
+    "smoke plan: pipeline test with tiny budgets; never used for results",
+    "thresholds are the approved starting values (machine not yet calibrated)"
+  ]
+}
