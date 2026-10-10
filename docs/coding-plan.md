@@ -202,7 +202,7 @@ qchain-kpi/
   - ≥ 10 GB free;
   - no running container except ours (non-ours are counted, not named, except QChain names on the VM).
 - **Strictness:** `smoke` records but does not enforce the quiet-machine checks; `trial`/`main` enforce all. Mac trial/main are started by you from Terminal with VS Code closed.
-- **Mac:** Colima `vz` 4 CPU/4 GB; on AC (refuse on battery; warn < 98 %); thermal pressure 0; no Teams/Chrome/VS Code/OneDrive; Spotlight/`fileproviderd` quiet; Low Power Mode off; `caffeinate -i -s`.
+- **Mac:** Colima `vz` 4 CPU/4 GB (the launcher starts it if it is down); on AC (refuse on battery; warn < 98 %); **(added 10-11 Oct) the launcher pauses the macOS background analysis services and switches Wi-Fi off for the run after the image build, and restores both when the script ends**; thermal pressure 0; no Teams/Chrome/VS Code/OneDrive; Spotlight/`fileproviderd` quiet; Low Power Mode off; `caffeinate -i -s`.
 - **VM:** GitHub runner, IPFS, MySQL inactive; steal baseline; self-relaunch in `tmux` (or `setsid nohup`) under `systemd-inhibit --what=sleep:idle`.
 - **Windows (PS 5.1, ASCII-only):** `powershell -ExecutionPolicy Bypass -File …`; on AC; `SetThreadExecutionState` for the run only; files written with BOM-less UTF-8 + LF via `[IO.File]`; `$LASTEXITCODE` checked; no `2>&1` on Docker; no PS7 syntax.
 - **After:** copy-out, checksum verification, INDEX row, `docker rm` + `docker volume rm` (ours), print commit/push commands. Pushes stay manual and happen after each night. On the VM, push from VS Code's terminal, since its GitHub login works only there.

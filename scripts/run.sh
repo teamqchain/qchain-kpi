@@ -242,6 +242,52 @@ pause_bg() { # logfile
 }
 resume_bg() { pkill -CONT -f "$BG_PATTERN" 2>/dev/null || true; }
 
+# Wi-Fi is switched off for the run itself, after the image has been built (the
+# build needs the internet; the measurement does not) and switched back on when
+# the script ends, on every exit path. It is restored only if it was on before.
+# While it is off nothing can sync, update or download during a measurement
+# (decision 11 Oct). It needs no admin rights.
+wifi_dev=""
+wifi_cut=0
+bg_paused=0
+wifi_off() { # logfile
+  local dev out
+  dev="$(networksetup -listallhardwareports | awk '/Hardware Port: Wi-Fi/{getline; print $2; exit}')"
+  [ -n "$dev" ] || { note "no Wi-Fi device found; nothing to switch off"; return 0; }
+  out="$(networksetup -getairportpower "$dev" 2>&1 || true)"
+  if [[ "$out" == *": On" ]]; then
+    wifi_dev="$dev"
+    if networksetup -setairportpower "$dev" off >/dev/null 2>&1; then
+      wifi_cut=1
+      printf '%s Wi-Fi (%s) switched off\n' "$(date -u +%H:%M:%S)" "$dev" >> "$1"
+      note "Wi-Fi switched off for this run (it is switched back on when the script ends)"
+    else
+      note "warning: could not switch Wi-Fi off; the run continues with Wi-Fi on"
+    fi
+  else
+    note "Wi-Fi was already off; it stays off"
+  fi
+}
+wifi_restore() {
+  if [ "$wifi_cut" = 1 ]; then
+    wifi_cut=0
+    if networksetup -setairportpower "$wifi_dev" on >/dev/null 2>&1; then
+      note "Wi-Fi switched back on"
+    else
+      note "WARNING: could not switch Wi-Fi back on; run: networksetup -setairportpower $wifi_dev on"
+    fi
+  fi
+}
+
+# Everything this script changes temporarily is undone here, on every exit path.
+cleanup() {
+  if [ "$bg_paused" = 1 ]; then resume_bg; bg_paused=0; fi
+  wifi_restore
+}
+trap cleanup EXIT
+trap 'cleanup; exit 129' HUP
+trap 'cleanup; exit 143' TERM
+
 # run_session RID: one start or resume, from session.json to the batch's exit.
 # Sets session_code to the batch's exit code.
 session_code=""
@@ -260,10 +306,9 @@ run_session() {
   : > "$work/empty.ok"
   "$repo/scripts/monitor-mac.sh" "$work" "$PERIOD_S" "$ROWS_PER_CHUNK" "$$" >/dev/null &
   monpid=$!
-  trap 'resume_bg' EXIT
-  trap 'resume_bg; exit 129' HUP
-  trap 'resume_bg; exit 143' TERM
   pause_bg "$persist/bg-paused-s$n.txt"
+  bg_paused=1
+  wifi_off "$persist/wifi-s$n.txt"
   note "paused macOS background analysis services for this run (resumed automatically at the end)"
   ( while :; do deliver_chunks "$work" "$rid" "$n"; pause_bg "$persist/bg-paused-s$n.txt"; sleep 10; done ) >/dev/null 2>&1 &
   delpid=$!
@@ -297,6 +342,7 @@ run_session() {
 
   kill "$delpid" 2>/dev/null || true
   resume_bg
+  bg_paused=0
   note "resumed the paused macOS background services"
   kill "$monpid" 2>/dev/null || true
   wait "$monpid" 2>/dev/null || true

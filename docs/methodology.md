@@ -33,6 +33,7 @@ This file describes what the harness does when it measures. It is written from t
   - `TZ=Asia/Dubai`, as in production.
   - The orchestrator refuses trial and main plans if any of this is not so.
 - **Host background services (Mac).** The macOS background analysis services (Photos analysis, the Spotlight AI indexer and the suggestion services) are paused with SIGSTOP for the duration of every run and resumed afterwards. They run whenever the Mac is idle on mains power and otherwise used up to two cores and caused thermal pressure. The paused services are logged with every run.
+- **Network (Mac).** After the image has been built (the build needs the internet), the launcher switches Wi-Fi off for the run and switches it back on when the script ends on any exit path (only if it was on before). Nothing can then sync, update or download during a measurement. The container itself never has a network. The VM stays on the network (it is controlled over SSH) and the Windows laptop is controlled over AnyDesk, so this applies to the Mac only.
 - **Thread and memory settings.** The measuring goroutine is locked to its OS thread. Measuring processes raise their `oom_score_adj` to the maximum, so the kernel would kill a measuring process, never the orchestrator.
 - **Input sets** are made by a separate, untimed `kpi-prim prep` process, once per (algorithm, repetition):
   - **Contents:** keys from the libraries' own randomness, plus a fixed pool of P messages and their signatures, or P ciphertexts and their shared secrets.

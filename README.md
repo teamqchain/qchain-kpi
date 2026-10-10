@@ -59,6 +59,7 @@ scripts/run.sh status
 - Teams, Chrome, Edge, VS Code and OneDrive closed;
 - automatic macOS updates off (they could restart the Mac mid-run);
 - (done by the launcher) macOS background analysis services (Photos analysis, Spotlight AI indexing, suggestions) are paused for the run and resumed at the end;
+- (done by the launcher) Wi-Fi is switched off once the image is built and switched back on when the script ends (only if it was on before);
 - the host CPU quiet;
 - at least 10 GB free;
 - the harness committed.
