@@ -220,6 +220,28 @@ deliver_chunks() { # workdir rid session
 
 persist_dir() { printf '%s\n' "$HOME/Library/Application Support/qchain-kpi/$1"; }
 
+# macOS background analysis services (Photos analysis, the Spotlight AI
+# indexer, suggestions) run whenever the Mac is idle on mains power, which are
+# exactly the test conditions. In the 10 Oct trials they used up to two cores
+# and caused thermal pressure even with their settings switched off. They are
+# paused (SIGSTOP) for the duration of a session and resumed (SIGCONT) on every
+# exit path (decision 10 Oct). They run as the user, so no admin rights are
+# needed; a logout or restart resumes them as well.
+BG_PATTERN='/(mediaanalysisd|photoanalysisd|spotlightknowledged|spotlightknowledged[.]importer|spotlightknowledged[.]updater|suggestd|duetexpertd|knowledge-agent|knowledgeconstructiond)( |$)'
+pause_bg() { # logfile
+  local pid name
+  for pid in $(pgrep -f "$BG_PATTERN" 2>/dev/null); do
+    if [ "$(ps -o stat= -p "$pid" 2>/dev/null | cut -c1)" != "T" ]; then
+      name="$(ps -o comm= -p "$pid" 2>/dev/null)"
+      name="${name##*/}"
+      if kill -STOP "$pid" 2>/dev/null; then
+        printf '%s paused %s %s\n' "$(date -u +%H:%M:%S)" "$pid" "$name" >> "$1"
+      fi
+    fi
+  done
+}
+resume_bg() { pkill -CONT -f "$BG_PATTERN" 2>/dev/null || true; }
+
 # run_session RID: one start or resume, from session.json to the batch's exit.
 # Sets session_code to the batch's exit code.
 session_code=""
@@ -238,7 +260,12 @@ run_session() {
   : > "$work/empty.ok"
   "$repo/scripts/monitor-mac.sh" "$work" "$PERIOD_S" "$ROWS_PER_CHUNK" "$$" >/dev/null &
   monpid=$!
-  ( while :; do deliver_chunks "$work" "$rid" "$n"; sleep 10; done ) >/dev/null 2>&1 &
+  trap 'resume_bg' EXIT
+  trap 'resume_bg; exit 129' HUP
+  trap 'resume_bg; exit 143' TERM
+  pause_bg "$persist/bg-paused-s$n.txt"
+  note "paused macOS background analysis services for this run (resumed automatically at the end)"
+  ( while :; do deliver_chunks "$work" "$rid" "$n"; pause_bg "$persist/bg-paused-s$n.txt"; sleep 10; done ) >/dev/null 2>&1 &
   delpid=$!
   disown "$delpid"
 
@@ -269,6 +296,8 @@ run_session() {
   fi
 
   kill "$delpid" 2>/dev/null || true
+  resume_bg
+  note "resumed the paused macOS background services"
   kill "$monpid" 2>/dev/null || true
   wait "$monpid" 2>/dev/null || true
   deliver_chunks "$work" "$rid" "$n"

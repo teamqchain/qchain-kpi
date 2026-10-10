@@ -32,6 +32,7 @@ This file describes what the harness does when it measures. It is written from t
   - an unprivileged user;
   - `TZ=Asia/Dubai`, as in production.
   - The orchestrator refuses trial and main plans if any of this is not so.
+- **Host background services (Mac).** The macOS background analysis services (Photos analysis, the Spotlight AI indexer and the suggestion services) are paused with SIGSTOP for the duration of every run and resumed afterwards. They run whenever the Mac is idle on mains power and otherwise used up to two cores and caused thermal pressure. The paused services are logged with every run.
 - **Thread and memory settings.** The measuring goroutine is locked to its OS thread. Measuring processes raise their `oom_score_adj` to the maximum, so the kernel would kill a measuring process, never the orchestrator.
 - **Input sets** are made by a separate, untimed `kpi-prim prep` process, once per (algorithm, repetition):
   - **Contents:** keys from the libraries' own randomness, plus a fixed pool of P messages and their signatures, or P ciphertexts and their shared secrets.
