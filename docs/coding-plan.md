@@ -7,7 +7,7 @@
 - E11 grid: **each stage once per setting it depends on**.
 
 ## Context
-Plan v3.5 (`~/Desktop/QChain_Project_Context/QChain_KPI/KPI_Benchmarking_Plan.md`) fixes *what* to measure: 30 algorithms (25 PQC + 5 classical), experiments E0–E14, 3 machines, quality controls and canary. This plan fixes *how the code is built*: an independent harness in a **private repo `teamqchain/qchain-kpi`** (merged into the public repo as `kpi-benchmarking/` after publication). It measures the 30 algorithms the way QChain's backend and wallet use them, records every sample, flags or repeats noisy measurements, and produces data the paper can be written from. Nothing in the main repo is imported or modified.
+Plan v3.6 (`plan.md` in this folder) fixes *what* to measure: 30 algorithms (25 PQC + 5 classical), experiments E0–E14, 3 machines, quality controls and canary. This plan fixes *how the code is built*: an independent harness in a **private repo `teamqchain/qchain-kpi`** (merged into the public repo as `kpi-benchmarking/` after publication). It measures the 30 algorithms the way QChain's backend and wallet use them, records every sample, flags or repeats noisy measurements, and produces data the paper can be written from. Nothing in the main repo is imported or modified.
 
 ## 1. Facts verified in the repo (what we mirror)
 | Production fact | Source |

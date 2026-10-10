@@ -1,9 +1,9 @@
 # QChain PQC KPI Benchmarking: Consolidated Plan
 
-**Version 3.6, 10 October 2026.** Status: **coding plan approved (10 Oct); coding in progress.** The implementation design is in `KPI_Coding_Plan.md` (same folder); where the two differ, the coding plan's §13 refinements apply. Code and results live in the private repo `teamqchain/qchain-kpi` (not a branch of the public repo). Machine specifications: §6 and `memory/qchain_kpi_test_machines.md`.
+**Version 3.6, 10 October 2026.** Status: **coding plan approved (10 Oct); coding in progress.** The implementation design is in `coding-plan.md` (same folder); where the two differ, the coding plan's §13 refinements apply. Code and results live in the private repo `teamqchain/qchain-kpi` (not a branch of the public repo). Machine specifications: §6 and `memory/qchain_kpi_test_machines.md`.
 
 Gantt task "PQC KPI Benchmarking": Maqqavi and Nihal, 27 Sep to 24 Oct. Co-authors of the resulting paper: all four team members.
-When coding starts, this file is copied to `kpi-benchmarking/docs/plan.md`.
+**This copy lives in the harness repo as `docs/plan.md`; it is the planning snapshot and the decision log (§19). Where it disagrees with `docs/methodology.md`, `docs/data-dictionary.md` or `docs/decisions-log.md`, those describe what the code does and win.** Sections 11–13 and 15–16 were written before the private repo existed: the layout is now the one in `README.md`, results are committed from each machine's clone of `qchain-kpi` (not a `kpi-benchmarking` branch of the public repo), and the container is pinned with `--cpuset-cpus` only, with no `--cpus` quota. The literature PDFs mentioned in §17 stay outside the repo.
 
 ---
 
