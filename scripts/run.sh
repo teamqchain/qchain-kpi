@@ -8,7 +8,10 @@
 #   scripts/run.sh status
 #
 # The launcher only prepares and supervises; all measurement and
-# orchestration logic is Go inside the image (coding plan §2, §9). It:
+# orchestration logic is Go inside the image (coding plan §2, §9). The
+# container is pinned to one CPU with --cpuset-cpus and has NO CPU-time quota
+# (--cpus): a quota equal to the pinned CPU throttles a busy process every few
+# periods (measured 29 of 100 periods, ~1.8 ms each; decision of 10 Oct). It:
 #   - refuses to start on a machine that is not ready (trial and main plans;
 #     smoke plans only warn), unless --force is given (recorded);
 #   - builds the image from a clean commit and labels it with that commit;
@@ -385,7 +388,7 @@ case "$cmd" in
     docker create --init --name "kpi-run-$rid" --stop-timeout 30 \
       --label org.qchain.kpi=1 --label "org.qchain.kpi.run=$rid" --label "org.qchain.kpi.plan=$plan" \
       --label "org.qchain.kpi.kind=$kind" --label "org.qchain.kpi.machine=$machine" \
-      --network none --cpuset-cpus=1 --cpus=1 --memory="$cmem" --memory-swap="$cmem" -e GOMAXPROCS=1 \
+      --network none --cpuset-cpus=1 --memory="$cmem" --memory-swap="$cmem" -e GOMAXPROCS=1 \
       --mount "type=volume,src=kpi-out-$rid,dst=/out" \
       "$tag" run --plan "/opt/kpi/plans/$plan.json" --run-id "$rid" --machine "$machine" \
       --seed "$seed" --image-id "$imageid" >/dev/null

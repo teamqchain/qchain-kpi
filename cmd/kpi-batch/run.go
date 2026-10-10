@@ -311,7 +311,14 @@ func preflight(out string) (map[string]string, []string) {
 	if swap != "0" {
 		problems = append(problems, fmt.Sprintf("swap is allowed (memory.swap.max %q)", swap))
 	}
-	facts["cpu_max"] = readTrim("/sys/fs/cgroup/cpu.max")
+	// Pinning gives the container exactly one CPU. A CPU-time quota on top
+	// (docker --cpus) throttles a fully busy process every few periods
+	// (measured 10 Oct: 29 of 100 periods, ~1.8 ms each), so none may be set.
+	cpuMax := readTrim("/sys/fs/cgroup/cpu.max")
+	facts["cpu_max"] = cpuMax
+	if f := strings.Fields(cpuMax); len(f) == 0 || f[0] != "max" {
+		problems = append(problems, fmt.Sprintf("a CPU-time quota is set (cpu.max %q); pin with --cpuset-cpus only, without --cpus", cpuMax))
+	}
 	if os.Getuid() == 0 {
 		problems = append(problems, "running as root")
 	}
