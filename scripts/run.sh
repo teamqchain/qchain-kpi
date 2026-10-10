@@ -56,6 +56,18 @@ json_str() { local s="${1//\\/}"; s="${s//\"/}"; printf '"%s"' "$s"; }
 
 # ------------------------------------------------------------------ checks
 
+# The Colima VM does not survive a Mac sleep (it is stopped after wake), and the
+# Mac sleeps whenever it is idle between runs. Start it again if it is down,
+# with the study's settings (decision 10 Oct).
+ensure_colima() {
+  local out
+  out="$(colima status 2>&1 || true)"
+  if [[ "$out" == *"is not running"* ]]; then
+    note "Colima is not running (the Mac probably slept); starting it"
+    colima start --vm-type vz --cpus 4 --memory 4 --mount none >&2 || die "colima start failed"
+  fi
+}
+
 problems=()
 problem() { problems+=("$1"); }
 
@@ -384,6 +396,7 @@ case "$cmd" in
     [ -f "$planfile" ] || die "no plan plans/$plan.json"
     kind="$(json_get "$planfile" kind)"
     commit="$(repo_commit)"
+    ensure_colima
     build_image "$variant" "$commit" "$rebuild"
     tag="$image_tag"
     if [ "$built" = 1 ] && [ "$kind" != "smoke" ]; then
@@ -418,6 +431,7 @@ case "$cmd" in
         *) die "unknown option $1" ;;
       esac
     done
+    ensure_colima
     docker inspect "kpi-run-$rid" >/dev/null 2>&1 || die "no container kpi-run-$rid"
     [ "$(docker inspect -f '{{index .Config.Labels "org.qchain.kpi"}}' "kpi-run-$rid")" = "1" ] || die "kpi-run-$rid is not a KPI container"
     [ "$(docker inspect -f '{{.State.Running}}' "kpi-run-$rid")" = "false" ] || die "kpi-run-$rid is already running"
