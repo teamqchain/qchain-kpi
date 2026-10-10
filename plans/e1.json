@@ -1,0 +1,10 @@
+{
+  "name": "e1",
+  "kind": "main",
+  "description": "E1 primitive latency: all 30 algorithms, every operation (keygen, sign/verify or encaps/decaps), L1 reuse arm, one fresh process per block, 5 repetitions, approved budgets (fast: 1,000 warm-up + 10,000 samples; slow: at least 60 s and 30 samples).",
+  "reps": 5,
+  "canary_every_s": 600,
+  "items": [
+    {"exp": "E1", "algs": ["all"]}
+  ]
+}

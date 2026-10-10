@@ -1,0 +1,5 @@
+{
+  "version": 1,
+  "formulas": "drift_frac = max(0.03, 2*d95) where d95 = 95th percentile of |rep median / median of rep medians - 1| over all trial (alg,op) cells; canary_frac = max(0.03, 3*robustSD(canary_t/canary_first - 1)); e10_margin[set] = max(0.02, 2*F) where F = |mean| + 90% t-half-width of the per-rep log(median issuer / median issuer-again); classification = fast if the probe median < 1 ms, else slow; batch[alg/op/arm] = ceil(100 * effective timer resolution / probe median) when the probe median is below 100x the resolution, else 1; steal_pct = 2, other_pct = 5 (approved starting values; not recalibrated)",
+  "machines": {}
+}

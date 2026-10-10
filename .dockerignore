@@ -1,0 +1,14 @@
+# The image needs only the Go module, the C sources, the run plans, the
+# thresholds, the test data and the docker/ helper scripts.
+.git
+.gitignore
+.gitattributes
+.DS_Store
+**/.DS_Store
+bin/
+scratch/
+results/
+analysis/
+docs/
+scripts/
+README.md

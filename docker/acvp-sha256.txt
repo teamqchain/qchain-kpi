@@ -1,0 +1,12 @@
+# NIST ACVP test vectors used by liboqs 0.16.0's tests/test_acvp_vectors.py
+# (URL root: https://raw.githubusercontent.com/usnistgov/ACVP-Server/refs/tags/v1.1.0.41/gen-val/json-files/).
+# SHA-256 pinned on 2026-10-10. The image build downloads each file once,
+# verifies it against this list, and serves the verified copy to liboqs's tests.
+e2d53b623c3ff79a52695d72ed10595ee1743ad6260ed0a3ff89d51bb5d474eb  ML-KEM-encapDecap-FIPS203/internalProjection.json
+80a2f859ecdebdba349a55fd3ccb1b8b33ee9c0eab08b171f0ed1a6e3bb45fb9  ML-KEM-keyGen-FIPS203/internalProjection.json
+6027a0ad263de2fa4a96a6bc086b17daa494dcadeb4a51e31b1258225c1d382f  ML-DSA-keyGen-FIPS204/internalProjection.json
+9217e65242588b63fb8169cd64d1d92f6611cf41380802d7e043fffc07b0562a  ML-DSA-sigGen-FIPS204/internalProjection.json
+85827fd9f058d617b956301d342f2792d66ff188987ccce87f014f0bdb282457  ML-DSA-sigVer-FIPS204/internalProjection.json
+d7c53a1b6450087047b57aae83a5a51a0ac89ecdb23ebe071e83fbb69ae9d920  SLH-DSA-keyGen-FIPS205/internalProjection.json
+62b42e7c27fda5de8a94aba2943ae413b59b6ea08141f3bc035b1eceae235dba  SLH-DSA-sigGen-FIPS205/internalProjection.json
+a013fc2104f4ed4799d96d51141f65b965969b2cf10646626a021b6d456ce792  SLH-DSA-sigVer-FIPS205/internalProjection.json

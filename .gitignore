@@ -1,0 +1,15 @@
+# Local build output and scratch work (never part of the study's record).
+/bin/
+/scratch/
+*.tmp
+
+# OS / editor noise.
+.DS_Store
+.vscode/
+.idea/
+
+# Python analysis environment (phase 2).
+/analysis/.venv/
+__pycache__/
+
+# NOTE: results/ is deliberately NOT ignored: every run is committed.

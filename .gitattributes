@@ -1,0 +1,10 @@
+# Every text file is stored and checked out with LF line endings, on every OS.
+# Windows clones (Obeid's laptop) would otherwise get CRLF, which breaks shell
+# scripts copied into Linux containers. PowerShell 5.1 reads LF scripts fine.
+* text=auto eol=lf
+
+# Binary data.
+*.gz   binary
+*.png  binary
+*.pdf  binary
+*.zip  binary

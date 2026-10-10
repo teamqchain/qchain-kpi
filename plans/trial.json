@@ -1,0 +1,14 @@
+{
+  "name": "trial",
+  "kind": "trial",
+  "description": "Calibration run (coding plan section 8): probe pass for all 30 algorithms and operations (freezes fast/slow and feeds the runtime estimate); E10 for the three ML-DSA sets with 5 repetitions (A/A noise floor); E1 with 5 repetitions for ML-DSA-44, ML-KEM-768, Ed25519 and X25519 and Falcon-512 sign/verify, and 3 repetitions for SLH-DSA-SHA2-128f and HQC-1 (drift limit); canary every 5 minutes (canary limit). Approved budgets.",
+  "reps": 5,
+  "canary_every_s": 300,
+  "items": [
+    {"exp": "probe", "algs": ["all"]},
+    {"exp": "E10", "algs": ["ML-DSA"]},
+    {"exp": "E1", "algs": ["ml-dsa-44", "ml-kem-768", "ed25519", "dhkem-x25519"]},
+    {"exp": "E1", "algs": ["falcon-512"], "ops": ["sign", "verify"]},
+    {"exp": "E1", "algs": ["slh-dsa-sha2-128f", "hqc-1"], "reps": 3}
+  ]
+}

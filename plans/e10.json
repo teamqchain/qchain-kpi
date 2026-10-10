@@ -1,0 +1,10 @@
+{
+  "name": "e10",
+  "kind": "main",
+  "description": "E10 issuer/holder equivalence for ML-DSA-44/65/87: three interleaved signing arms per block (issuer: commitment hash with the issuer key; holder: presentation payload hash with the holder key; issuer-again: a second commitment pool with the issuer key, the A/A arm), 5 repetitions, approved budgets.",
+  "reps": 5,
+  "canary_every_s": 600,
+  "items": [
+    {"exp": "E10", "algs": ["ML-DSA"]}
+  ]
+}
