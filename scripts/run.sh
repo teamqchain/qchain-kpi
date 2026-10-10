@@ -57,23 +57,25 @@ problems=()
 problem() { problems+=("$1"); }
 
 preflight() { # kind
-  local kind="$1" n free_kb busy app
+  local kind="$1" n free_kb busy app out
   problems=()
   docker info >/dev/null 2>&1 || die "Docker is not reachable (is Colima running?)"
   [ "$(docker context show)" = "colima" ] || problem "docker context is not colima"
-  colima status 2>&1 | grep -q "Virtualization.Framework" || problem "Colima is not running with --vm-type vz"
+  out="$(colima status 2>&1 || true)"
+  [[ "$out" == *"Virtualization.Framework"* ]] || problem "Colima is not running with --vm-type vz"
   colima list 2>/dev/null | awk 'NR==2{ if ($4 != "4" || $5 != "4GiB") exit 1 }' || problem "Colima VM is not 4 CPUs / 4 GiB"
   free_kb="$(df -Pk "$repo" | awk 'NR==2{print $4}')"
   [ "$free_kb" -ge 10485760 ] || problem "less than 10 GB free on the disk of the repository"
   n="$(docker ps -q | wc -l | tr -d ' ')"
   [ "$n" = "0" ] || problem "$n container(s) running; none may run during a batch"
-  if pmset -g batt | head -n 1 | grep -q "AC Power"; then :; else problem "on battery power"; fi
+  out="$(pmset -g batt)"
+  [[ "$out" == *"AC Power"* ]] || problem "on battery power"
   n="$(pmset -g batt | grep -Eo '[0-9]+%' | head -n 1 | tr -d '%')"
   if [ -n "$n" ] && [ "$n" -lt 98 ]; then
     note "warning: battery at $n% (plan: 100%; use 'Charge to Full Now' in the battery menu)"
   fi
   [ "$(notifyutil -g com.apple.system.thermalpressurelevel | awk '{print $2}')" = "0" ] || problem "thermal pressure is above nominal"
-  pmset -g | grep -Eq 'lowpowermode[[:space:]]+1' && problem "Low Power Mode is on"
+  [ "$(pmset -g | awk '/lowpowermode/{print $2}')" != "1" ] || problem "Low Power Mode is on"
   for app in "MSTeams" "Microsoft Teams" "Google Chrome" "Microsoft Edge" "Code" "OneDrive"; do
     if pgrep -xq "$app"; then problem "$app is running (close it during trial and main runs)"; fi
   done
@@ -157,7 +159,7 @@ write_session() { # file offset unc p e cooling
   lpm="$(pmset -g | awk '/lowpowermode/{print $2}')"
   therm="$(notifyutil -g com.apple.system.thermalpressurelevel | awk '{print $2}')"
   batt="$(pmset -g batt | grep -Eo '[0-9]+%' | head -n 1 | tr -d '%')"
-  if pmset -g batt | head -n 1 | grep -q "AC Power"; then power=AC; else power=battery; fi
+  if [[ "$(pmset -g batt)" == *"AC Power"* ]]; then power=AC; else power=battery; fi
   {
     printf '{\n'
     printf '  "host_offset_ns": %s,\n  "host_offset_unc_ns": %s,\n' "$2" "$3"
@@ -188,7 +190,7 @@ deliver_chunks() { # workdir rid session
     name="host-s$s-${base##*/host-}"
     if docker cp "$base.csv" "kpi-run-$rid:/out/monitor/$name.csv" >/dev/null 2>&1 &&
        docker cp "$w/empty.ok" "kpi-run-$rid:/out/monitor/$name.ok" >/dev/null 2>&1; then
-      mv "$r" "$base.delivered"
+      mv "$r" "$base.delivered" 2>/dev/null || true
     fi
   done
 }
@@ -199,7 +201,7 @@ persist_dir() { printf '%s\n' "$HOME/Library/Application Support/qchain-kpi/$1";
 # Sets session_code to the batch's exit code.
 session_code=""
 run_session() {
-  local rid="$1" tag persist n work offs offset unc refs p e monpid delpid cafpid
+  local rid="$1" tag persist n work offs offset unc refs p e monpid delpid cafpid started
   tag="$(docker inspect -f '{{.Config.Image}}' "kpi-run-$rid")"
   persist="$(persist_dir "$rid")"
   mkdir -p "$persist"
@@ -222,15 +224,23 @@ run_session() {
   monpid=$!
   ( while :; do deliver_chunks "$work" "$rid" "$n"; sleep 10; done ) >/dev/null 2>&1 &
   delpid=$!
+  disown "$delpid"
   caffeinate -i -s -w "$$" >/dev/null 2>&1 &
   cafpid=$!
+  disown "$cafpid"
 
   trap 'note "interrupt: the batch discards its current block and stops; resume with: scripts/run.sh resume '"$rid"'"' INT
   note "starting batch $rid (session $n); stop gracefully with: scripts/run.sh stop $rid"
-  docker start -a --sig-proxy=true "kpi-run-$rid" >&2 || true
+  started="$(docker inspect -f '{{.State.StartedAt}}' "kpi-run-$rid")"
+  # -a attaches the batch's output and forwards signals (Ctrl-C) to it.
+  docker start -a "kpi-run-$rid" >&2 || true
   while [ "$(docker inspect -f '{{.State.Running}}' "kpi-run-$rid")" = "true" ]; do sleep 2; done
   trap - INT
-  session_code="$(docker inspect -f '{{.State.ExitCode}}' "kpi-run-$rid")"
+  if [ "$(docker inspect -f '{{.State.StartedAt}}' "kpi-run-$rid")" = "$started" ]; then
+    session_code=start-failed
+  else
+    session_code="$(docker inspect -f '{{.State.ExitCode}}' "kpi-run-$rid")"
+  fi
 
   kill "$delpid" 2>/dev/null || true
   kill "$monpid" 2>/dev/null || true
@@ -296,6 +306,9 @@ finish_run() { # rid code
   persist="$(persist_dir "$rid")"
   case "$code" in
     0) ;;
+    start-failed)
+      note "the batch container did not start (see the messages above); kpi-run-$rid and kpi-out-$rid were kept"
+      return 1 ;;
     5)
       note "batch stopped and can be resumed: scripts/run.sh resume $rid"
       return 0 ;;
