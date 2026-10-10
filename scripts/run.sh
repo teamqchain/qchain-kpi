@@ -79,8 +79,16 @@ preflight() { # kind
   fi
   [ "$(notifyutil -g com.apple.system.thermalpressurelevel | awk '{print $2}')" = "0" ] || problem "thermal pressure is above nominal"
   [ "$(pmset -g | awk '/lowpowermode/{print $2}')" != "1" ] || problem "Low Power Mode is on"
+  # macOS must not download or install an update (and restart) during the study.
+  for key in AutomaticallyInstallMacOSUpdates AutomaticDownload; do
+    out="$(defaults read /Library/Preferences/com.apple.SoftwareUpdate "$key" 2>/dev/null || true)"
+    [ "$out" != "1" ] || problem "automatic macOS updates are on ($key); turn off 'Download new updates when available' and 'Install macOS updates' in System Settings > General > Software Update > Automatic updates"
+  done
+  out="$(defaults read /Library/Preferences/com.apple.commerce AutoUpdate 2>/dev/null || true)"
+  [ "$out" != "1" ] || note "note: App Store apps update automatically; their downloads can disturb a run"
   for app in "MSTeams" "Microsoft Teams" "Google Chrome" "Microsoft Edge" "Code" "OneDrive"; do
-    if pgrep -xq "$app"; then problem "$app is running (close it during trial and main runs)"; fi
+    # -a: macOS pgrep otherwise skips its own ancestors (e.g. VS Code when run from its terminal).
+    if pgrep -a -x -q "$app"; then problem "$app is running (close it during trial and main runs)"; fi
   done
   busy="$(top -l 3 -s 2 -n 0 | awk '/^CPU usage/{u=$3; s=$5} END{gsub("%","",u); gsub("%","",s); printf "%.0f", u+s}')"
   [ "$busy" -le 10 ] || problem "host CPU busy at ${busy}% over 6 s (machine not quiet)"
@@ -213,6 +221,15 @@ run_session() {
   if [ "${#problems[@]}" -gt 0 ]; then printf '%s\n' "${problems[@]}" > "$persist/preflight-s$n.txt"; else : > "$persist/preflight-s$n.txt"; fi
   [ "$force" = 1 ] && echo "forced" >> "$persist/preflight-s$n.txt"
 
+  # The host monitor starts first, so it is warmed up (top's first samples are
+  # discarded) and delivering before the batch's first block.
+  : > "$work/empty.ok"
+  "$repo/scripts/monitor-mac.sh" "$work" "$PERIOD_S" "$ROWS_PER_CHUNK" "$$" >/dev/null &
+  monpid=$!
+  ( while :; do deliver_chunks "$work" "$rid" "$n"; sleep 10; done ) >/dev/null 2>&1 &
+  delpid=$!
+  disown "$delpid"
+
   offs="$(measure_offset "$tag")"
   offset="${offs% *}"; unc="${offs#* }"
   note "host-to-container clock offset ${offset} ns (+/- ${unc} ns)"
@@ -222,12 +239,6 @@ run_session() {
   write_session "$persist/session-s$n.json" "$offset" "$unc" "$p" "$e" "$cooling"
   docker cp "$persist/session-s$n.json" "kpi-run-$rid:/out/session.json" >/dev/null
 
-  : > "$work/empty.ok"
-  "$repo/scripts/monitor-mac.sh" "$work" "$PERIOD_S" "$ROWS_PER_CHUNK" "$$" >/dev/null &
-  monpid=$!
-  ( while :; do deliver_chunks "$work" "$rid" "$n"; sleep 10; done ) >/dev/null 2>&1 &
-  delpid=$!
-  disown "$delpid"
   caffeinate -i -s -w "$$" >/dev/null 2>&1 &
   cafpid=$!
   disown "$cafpid"
