@@ -1280,3 +1280,35 @@ utc_ns,event,key,detail
 1791687846826513994,block_done,E1.slh-dsa-sha2-128s.sign.r5.a2,
 1791687848332966350,canary,,36 end ratio 0.99228 P-like
 1791687893597423071,batch_done,,503 attempt(s)
+1791689992461183926,extension_queued,E1.hqc-3.encaps.r3.a4,"block had 3 attempt(s), none clean"
+1791689992462355299,extension_queued,E1.slh-dsa-sha2-128f.sign.r2.a4,"block had 3 attempt(s), none clean"
+1791689992463263136,extension_queued,E1.slh-dsa-sha2-256f.sign.r2.a4,"block had 3 attempt(s), none clean"
+1791689992463619292,extension_queued,E1.slh-dsa-shake-256f.verify.r5.a4,"block had 3 attempt(s), none clean"
+1791689992465381910,session_start,,session 2; host offset 62549266 ns
+1791689992611293293,e0,,e0-s2.json
+1791689994119744815,canary,,37 extend ratio 0.99182 P-like
+1791689997103157073,prep,hqc-3.r3,pool 256 e10 false 2969136566 ns
+1791689997103869258,block_start,E1.hqc-3.encaps.r3.a4,slow
+1791690147658734740,block_done,E1.hqc-3.encaps.r3.a4,
+1791690153333035381,prep,slh-dsa-sha2-128f.r2,pool 256 e10 false 5658134354 ns
+1791690153333572946,block_start,E1.slh-dsa-sha2-128f.sign.r2.a4,slow
+1791690217262482144,block_done,E1.slh-dsa-sha2-128f.sign.r2.a4,
+1791690235632347833,prep,slh-dsa-sha2-256f.r2,pool 256 e10 false 18332185206 ns
+1791690235632877610,block_start,E1.slh-dsa-sha2-256f.sign.r2.a4,slow
+1791690297768061715,block_done,E1.slh-dsa-sha2-256f.sign.r2.a4,
+1791690321433720894,prep,slh-dsa-shake-256f.r5,pool 256 e10 false 23628620083 ns
+1791690321434448238,block_start,E1.slh-dsa-shake-256f.verify.r5.a4,slow
+1791690381912255153,block_done,E1.slh-dsa-shake-256f.verify.r5.a4,
+1791690383419179273,canary,,38 end ratio 0.99190 P-like
+1791690423757798708,queued,E1.slh-dsa-sha2-128f.sign.r2.a5,repeat:other; position 0
+1791690423759897117,queued,E1.slh-dsa-sha2-256f.sign.r2.a5,repeat:other; position 1
+1791690423767283880,block_start,E1.slh-dsa-sha2-128f.sign.r2.a5,slow
+1791690487606636933,block_done,E1.slh-dsa-sha2-128f.sign.r2.a5,
+1791690487607073006,block_start,E1.slh-dsa-sha2-256f.sign.r2.a5,slow
+1791690549693570008,block_done,E1.slh-dsa-sha2-256f.sign.r2.a5,
+1791690551200656172,canary,,39 end ratio 0.97448 P-like
+1791690606457716722,queued,E1.slh-dsa-sha2-128f.sign.r2.a6,repeat:other; position 0
+1791690606466701852,block_start,E1.slh-dsa-sha2-128f.sign.r2.a6,slow
+1791690670393433375,block_done,E1.slh-dsa-sha2-128f.sign.r2.a6,
+1791690671899813309,canary,,40 end ratio 0.99230 P-like
+1791690727209535639,batch_done,,510 attempt(s)

@@ -6,8 +6,8 @@
   "plan_kind": "main",
   "plan_hash": "cb88aa8bd47025816de6c45ebc943cb1b7a73634774a615ffe50c61150f8bdc6",
   "seed": 17688358702639011963,
-  "image_id": "sha256:857ea5d64960f4d4232cae19c524e3a2f00b10b526e65850fe2bbd44bfe23f02",
-  "harness_commit": "4804fcc6480eb61c3783dedefb83c5004551eb16",
+  "image_id": "sha256:268e87d1cdf92cc4b75638a217bfa774618d4da62649f67155a22e11820fc2a9",
+  "harness_commit": "e7b09d36fd05c229cdd2272c61a6207d0906b952",
   "thresholds_hash": "71d78bc49d80ce4ac87f00acb67f313270e18681759e4203eea72092fcff0a83",
   "started_utc": "2026-10-10T20:57:30Z",
   "status": "done",
@@ -19,9 +19,17 @@
       "host_offset_ns": 25601324,
       "native_p_rate": 2572650.99205454,
       "native_e_rate": 412966.636992348
+    },
+    {
+      "n": 2,
+      "started_utc": "2026-10-11T03:39:52Z",
+      "start_unix_ns": 1791689992446604387,
+      "host_offset_ns": 62549266,
+      "native_p_rate": 2572532.04506219,
+      "native_e_rate": 413381.09319422
     }
   ],
-  "planned_blocks": 450,
+  "planned_blocks": 454,
   "queue": [],
   "done": [
     "E1.ml-dsa-65.keygen.r1.a1",
@@ -526,7 +534,14 @@
     "E1.slh-dsa-shake-192s.keygen.r2.a2",
     "E1.slh-dsa-sha2-128s.sign.r5.a1",
     "E1.slh-dsa-shake-192s.keygen.r5.a2",
-    "E1.slh-dsa-sha2-128s.sign.r5.a2"
+    "E1.slh-dsa-sha2-128s.sign.r5.a2",
+    "E1.hqc-3.encaps.r3.a4",
+    "E1.slh-dsa-sha2-128f.sign.r2.a4",
+    "E1.slh-dsa-sha2-256f.sign.r2.a4",
+    "E1.slh-dsa-shake-256f.verify.r5.a4",
+    "E1.slh-dsa-sha2-128f.sign.r2.a5",
+    "E1.slh-dsa-sha2-256f.sign.r2.a5",
+    "E1.slh-dsa-sha2-128f.sign.r2.a6"
   ],
   "classification": {},
   "requeued": {
@@ -548,6 +563,8 @@
     "E1.slh-dsa-sha2-128f.sign.r1.a1": true,
     "E1.slh-dsa-sha2-128f.sign.r2.a1": true,
     "E1.slh-dsa-sha2-128f.sign.r2.a2": true,
+    "E1.slh-dsa-sha2-128f.sign.r2.a4": true,
+    "E1.slh-dsa-sha2-128f.sign.r2.a5": true,
     "E1.slh-dsa-sha2-128s.keygen.r1.a1": true,
     "E1.slh-dsa-sha2-128s.sign.r3.a1": true,
     "E1.slh-dsa-sha2-128s.sign.r5.a1": true,
@@ -559,6 +576,7 @@
     "E1.slh-dsa-sha2-192s.sign.r3.a2": true,
     "E1.slh-dsa-sha2-256f.sign.r2.a1": true,
     "E1.slh-dsa-sha2-256f.sign.r2.a2": true,
+    "E1.slh-dsa-sha2-256f.sign.r2.a4": true,
     "E1.slh-dsa-sha2-256f.verify.r3.a1": true,
     "E1.slh-dsa-shake-128f.keygen.r1.a1": true,
     "E1.slh-dsa-shake-128f.keygen.r5.a1": true,
@@ -586,9 +604,9 @@
     "E1.slh-dsa-shake-256f.keygen.r5": true,
     "E1.slh-dsa-shake-256s.sign.r1": true
   },
-  "canary_seq": 36,
+  "canary_seq": 40,
   "first_canary_rate": 2584722.153867401,
-  "last_canary_unix_ns": 1791687848328653591,
+  "last_canary_unix_ns": 1791690671895728894,
   "preps": {
     "dhkem-p256.r1": {
       "pool": 256,
@@ -921,10 +939,10 @@
     },
     "hqc-3.r3": {
       "pool": 256,
-      "prep_ns": 3009646467,
-      "fingerprint": "9a770172ea7d2311",
+      "prep_ns": 2969136566,
+      "fingerprint": "167760f4e70c3678",
       "e10": false,
-      "session": 1
+      "session": 2
     },
     "hqc-3.r4": {
       "pool": 256,
@@ -1229,10 +1247,10 @@
     },
     "slh-dsa-sha2-128f.r2": {
       "pool": 256,
-      "prep_ns": 5655495382,
-      "fingerprint": "26eb19f5d2a32090",
+      "prep_ns": 5658134354,
+      "fingerprint": "9b326fb7077b5fbf",
       "e10": false,
-      "session": 1
+      "session": 2
     },
     "slh-dsa-sha2-128f.r3": {
       "pool": 256,
@@ -1369,10 +1387,10 @@
     },
     "slh-dsa-sha2-256f.r2": {
       "pool": 256,
-      "prep_ns": 18336787321,
-      "fingerprint": "f30cefb3a317fd9c",
+      "prep_ns": 18332185206,
+      "fingerprint": "c85615890a844ef2",
       "e10": false,
-      "session": 1
+      "session": 2
     },
     "slh-dsa-sha2-256f.r3": {
       "pool": 256,
@@ -1600,10 +1618,10 @@
     },
     "slh-dsa-shake-256f.r5": {
       "pool": 256,
-      "prep_ns": 23538669538,
-      "fingerprint": "bde41ebc78e3f061",
+      "prep_ns": 23628620083,
+      "fingerprint": "ae310f28f9bed2d4",
       "e10": false,
-      "session": 1
+      "session": 2
     },
     "slh-dsa-shake-256s.r1": {
       "pool": 64,
@@ -1640,6 +1658,36 @@
       "e10": false,
       "session": 1
     }
+  },
+  "extensions": [
+    {
+      "session": 2,
+      "blocks": [
+        "E1.hqc-3.encaps.r3",
+        "E1.slh-dsa-sha2-128f.sign.r2",
+        "E1.slh-dsa-sha2-256f.sign.r2",
+        "E1.slh-dsa-shake-256f.verify.r5"
+      ],
+      "old_image_id": "sha256:857ea5d64960f4d4232cae19c524e3a2f00b10b526e65850fe2bbd44bfe23f02",
+      "old_harness_commit": "4804fcc6480eb61c3783dedefb83c5004551eb16",
+      "new_image_id": "sha256:268e87d1cdf92cc4b75638a217bfa774618d4da62649f67155a22e11820fc2a9",
+      "new_harness_commit": "e7b09d36fd05c229cdd2272c61a6207d0906b952",
+      "orchestrator_files_changed": [
+        "cmd/kpi-batch/calibrate.go",
+        "cmd/kpi-batch/extend.go",
+        "cmd/kpi-batch/extend_test.go",
+        "cmd/kpi-batch/manifest.go",
+        "cmd/kpi-batch/run.go",
+        "cmd/kpi-batch/state.go",
+        "cmd/kpi-batch/verdict.go"
+      ]
+    }
+  ],
+  "extension_base": {
+    "E1.hqc-3.encaps.r3": 3,
+    "E1.slh-dsa-sha2-128f.sign.r2": 3,
+    "E1.slh-dsa-sha2-256f.sign.r2": 3,
+    "E1.slh-dsa-shake-256f.verify.r5": 3
   },
   "cell_reps": {
     "E1.dhkem-p256.decaps": 5,

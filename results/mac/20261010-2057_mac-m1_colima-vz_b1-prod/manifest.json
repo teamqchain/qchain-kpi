@@ -9,11 +9,11 @@
     "sha256": "cb88aa8bd47025816de6c45ebc943cb1b7a73634774a615ffe50c61150f8bdc6",
     "reps": 5,
     "canary_every_s": 600,
-    "planned_blocks": 450
+    "planned_blocks": 454
   },
   "seed": 17688358702639011963,
-  "image_id": "sha256:857ea5d64960f4d4232cae19c524e3a2f00b10b526e65850fe2bbd44bfe23f02",
-  "harness_commit": "4804fcc6480eb61c3783dedefb83c5004551eb16",
+  "image_id": "sha256:268e87d1cdf92cc4b75638a217bfa774618d4da62649f67155a22e11820fc2a9",
+  "harness_commit": "e7b09d36fd05c229cdd2272c61a6207d0906b952",
   "go": "go1.24.13",
   "build": {
     "arch": "aarch64",
@@ -155,7 +155,7 @@
     "memory_max": "3221225472",
     "memory_swap_max": "0",
     "net_interfaces": "lo",
-    "out_free_gb": "55.1",
+    "out_free_gb": "54.9",
     "tz": "Asia/Dubai"
   },
   "host": {
@@ -163,7 +163,7 @@
     "colima": "0.10.3",
     "container_cpuset": "1",
     "container_mem": "3g",
-    "cooling": "USB fan cooling pad",
+    "cooling": "unstated",
     "docker": "29.5.2",
     "host_cpu": "Apple M1",
     "host_mem_gb": "8",
@@ -186,19 +186,55 @@
       "host_offset_ns": 25601324,
       "native_p_rate": 2572650.99205454,
       "native_e_rate": 412966.636992348
+    },
+    {
+      "n": 2,
+      "started_utc": "2026-10-11T03:39:52Z",
+      "start_unix_ns": 1791689992446604387,
+      "host_offset_ns": 62549266,
+      "native_p_rate": 2572532.04506219,
+      "native_e_rate": 413381.09319422
     }
   ],
   "status": "done",
   "started_utc": "2026-10-10T20:57:30Z",
-  "updated_utc": "2026-10-11T03:04:53Z",
+  "updated_utc": "2026-10-11T03:52:07Z",
   "counts": {
-    "attempts": 503,
+    "attempts": 510,
     "blocks": 450,
-    "blocks_with_headline": 446,
+    "blocks_with_headline": 450,
     "diagnostic_attempts": 12,
     "drift_flags": 13,
-    "exhausted_blocks": 4,
-    "flagged_attempts": 46,
-    "repeat_attempts": 41
-  }
+    "flagged_attempts": 49,
+    "repeat_attempts": 48
+  },
+  "notes": [
+    "session 2 extended this run: blocks E1.hqc-3.encaps.r3, E1.slh-dsa-sha2-128f.sign.r2, E1.slh-dsa-sha2-256f.sign.r2, E1.slh-dsa-shake-256f.verify.r5 had no clean attempt and were run again (attempt numbers continue); input sets were regenerated (same message seeds, new keys)",
+    "image 857ea5d64960 -\u003e 268e87d1cdf9, harness commit 4804fcc6480e -\u003e e7b09d36fd05 (measuring sources verified identical by the launcher)",
+    "orchestrator (cmd/kpi-batch) files that differ from the original run's commit: cmd/kpi-batch/calibrate.go, cmd/kpi-batch/extend.go, cmd/kpi-batch/extend_test.go, cmd/kpi-batch/manifest.go, cmd/kpi-batch/run.go, cmd/kpi-batch/state.go, cmd/kpi-batch/verdict.go (they implement the extension; decisions for runs that are not extended are unchanged)"
+  ],
+  "extensions": [
+    {
+      "session": 2,
+      "blocks": [
+        "E1.hqc-3.encaps.r3",
+        "E1.slh-dsa-sha2-128f.sign.r2",
+        "E1.slh-dsa-sha2-256f.sign.r2",
+        "E1.slh-dsa-shake-256f.verify.r5"
+      ],
+      "old_image_id": "sha256:857ea5d64960f4d4232cae19c524e3a2f00b10b526e65850fe2bbd44bfe23f02",
+      "old_harness_commit": "4804fcc6480eb61c3783dedefb83c5004551eb16",
+      "new_image_id": "sha256:268e87d1cdf92cc4b75638a217bfa774618d4da62649f67155a22e11820fc2a9",
+      "new_harness_commit": "e7b09d36fd05c229cdd2272c61a6207d0906b952",
+      "orchestrator_files_changed": [
+        "cmd/kpi-batch/calibrate.go",
+        "cmd/kpi-batch/extend.go",
+        "cmd/kpi-batch/extend_test.go",
+        "cmd/kpi-batch/manifest.go",
+        "cmd/kpi-batch/run.go",
+        "cmd/kpi-batch/state.go",
+        "cmd/kpi-batch/verdict.go"
+      ]
+    }
+  ]
 }
