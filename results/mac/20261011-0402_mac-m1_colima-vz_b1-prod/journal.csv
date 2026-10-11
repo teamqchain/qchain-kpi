@@ -1,0 +1,55 @@
+utc_ns,event,key,detail
+1791691365099087353,session_start,,session 1; host offset 84012022 ns
+1791691365255482866,e0,,e0-s1.json
+1791691366764654154,canary,,1 start ratio 1.00000 P-like
+1791691366837756418,prep,ml-dsa-65.r1,pool 256 e10 true 61216335 ns
+1791691366839354576,block_start,E10.ml-dsa-65.sign.r1.a1,fast
+1791691372640483980,block_done,E10.ml-dsa-65.sign.r1.a1,
+1791691372692973014,prep,ml-dsa-44.r1,pool 256 e10 true 45306544 ns
+1791691372693769116,block_start,E10.ml-dsa-44.sign.r1.a1,fast
+1791691376486095339,block_done,E10.ml-dsa-44.sign.r1.a1,
+1791691376577138795,prep,ml-dsa-87.r1,pool 256 e10 true 79852887 ns
+1791691376578004903,block_start,E10.ml-dsa-87.sign.r1.a1,fast
+1791691385056553721,block_done,E10.ml-dsa-87.sign.r1.a1,
+1791691385148340346,prep,ml-dsa-87.r2,pool 256 e10 true 82088518 ns
+1791691385149042287,block_start,E10.ml-dsa-87.sign.r2.a1,fast
+1791691394923035142,block_done,E10.ml-dsa-87.sign.r2.a1,
+1791691394992820898,prep,ml-dsa-65.r2,pool 256 e10 true 60882502 ns
+1791691394993362752,block_start,E10.ml-dsa-65.sign.r2.a1,fast
+1791691400791146496,block_done,E10.ml-dsa-65.sign.r2.a1,
+1791691400845264840,prep,ml-dsa-44.r2,pool 256 e10 true 46784679 ns
+1791691400846145941,block_start,E10.ml-dsa-44.sign.r2.a1,fast
+1791691404623164572,block_done,E10.ml-dsa-44.sign.r2.a1,
+1791691404711602956,prep,ml-dsa-87.r3,pool 256 e10 true 80078983 ns
+1791691404712470813,block_start,E10.ml-dsa-87.sign.r3.a1,fast
+1791691413236588668,block_done,E10.ml-dsa-87.sign.r3.a1,
+1791691413288793969,prep,ml-dsa-44.r3,pool 256 e10 true 45143334 ns
+1791691413289451182,block_start,E10.ml-dsa-44.sign.r3.a1,fast
+1791691417064538238,block_done,E10.ml-dsa-44.sign.r3.a1,
+1791691417133677776,prep,ml-dsa-65.r3,pool 256 e10 true 60554999 ns
+1791691417134170529,block_start,E10.ml-dsa-65.sign.r3.a1,fast
+1791691422918967020,block_done,E10.ml-dsa-65.sign.r3.a1,
+1791691422987462547,prep,ml-dsa-65.r4,pool 256 e10 true 60194388 ns
+1791691422987967961,block_start,E10.ml-dsa-65.sign.r4.a1,fast
+1791691428792389426,block_done,E10.ml-dsa-65.sign.r4.a1,
+1791691428884983522,prep,ml-dsa-87.r4,pool 256 e10 true 82118961 ns
+1791691428885532956,block_start,E10.ml-dsa-87.sign.r4.a1,fast
+1791691437383677429,block_done,E10.ml-dsa-87.sign.r4.a1,
+1791691437436510916,prep,ml-dsa-44.r4,pool 256 e10 true 46475667 ns
+1791691437437565221,block_start,E10.ml-dsa-44.sign.r4.a1,fast
+1791691441238176300,block_done,E10.ml-dsa-44.sign.r4.a1,
+1791691441330539263,prep,ml-dsa-87.r5,pool 256 e10 true 81508558 ns
+1791691441331314833,block_start,E10.ml-dsa-87.sign.r5.a1,fast
+1791691449845273603,block_done,E10.ml-dsa-87.sign.r5.a1,
+1791691449915568646,prep,ml-dsa-65.r5,pool 256 e10 true 62456506 ns
+1791691449916025001,block_start,E10.ml-dsa-65.sign.r5.a1,fast
+1791691455784706487,block_done,E10.ml-dsa-65.sign.r5.a1,
+1791691455836894130,prep,ml-dsa-44.r5,pool 256 e10 true 45469754 ns
+1791691455837421866,block_start,E10.ml-dsa-44.sign.r5.a1,fast
+1791691459625283407,block_done,E10.ml-dsa-44.sign.r5.a1,
+1791691461131750422,canary,,2 end ratio 0.98220 P-like
+1791691491161668008,queued,E10.ml-dsa-87.sign.r2.a2,diagnostic:drift 0.2821 > 0.0416; position 0
+1791691491165969689,block_start,E10.ml-dsa-87.sign.r2.a2,fast
+1791691499641007929,block_done,E10.ml-dsa-87.sign.r2.a2,
+1791691501147114958,canary,,3 end ratio 0.99780 P-like
+1791691556216442630,batch_done,,16 attempt(s)

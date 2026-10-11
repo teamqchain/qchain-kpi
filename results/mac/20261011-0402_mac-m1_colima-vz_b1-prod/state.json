@@ -1,0 +1,168 @@
+{
+  "schema": 1,
+  "run_id": "20261011-0402_mac-m1_colima-vz_b1-prod",
+  "machine": "mac-m1",
+  "plan_name": "e10",
+  "plan_kind": "main",
+  "plan_hash": "59b261d41f4e15f5589377d15eef3d60e850e2a75c56559c164ad4e97409e3bb",
+  "seed": 270772320901579716,
+  "image_id": "sha256:268e87d1cdf92cc4b75638a217bfa774618d4da62649f67155a22e11820fc2a9",
+  "harness_commit": "e7b09d36fd05c229cdd2272c61a6207d0906b952",
+  "thresholds_hash": "71d78bc49d80ce4ac87f00acb67f313270e18681759e4203eea72092fcff0a83",
+  "started_utc": "2026-10-11T04:02:45Z",
+  "status": "done",
+  "sessions": [
+    {
+      "n": 1,
+      "started_utc": "2026-10-11T04:02:45Z",
+      "start_unix_ns": 1791691365096597932,
+      "host_offset_ns": 84012022,
+      "native_p_rate": 2573525.63684257,
+      "native_e_rate": 412394.30710039
+    }
+  ],
+  "planned_blocks": 15,
+  "queue": [],
+  "done": [
+    "E10.ml-dsa-65.sign.r1.a1",
+    "E10.ml-dsa-44.sign.r1.a1",
+    "E10.ml-dsa-87.sign.r1.a1",
+    "E10.ml-dsa-87.sign.r2.a1",
+    "E10.ml-dsa-65.sign.r2.a1",
+    "E10.ml-dsa-44.sign.r2.a1",
+    "E10.ml-dsa-87.sign.r3.a1",
+    "E10.ml-dsa-44.sign.r3.a1",
+    "E10.ml-dsa-65.sign.r3.a1",
+    "E10.ml-dsa-65.sign.r4.a1",
+    "E10.ml-dsa-87.sign.r4.a1",
+    "E10.ml-dsa-44.sign.r4.a1",
+    "E10.ml-dsa-87.sign.r5.a1",
+    "E10.ml-dsa-65.sign.r5.a1",
+    "E10.ml-dsa-44.sign.r5.a1",
+    "E10.ml-dsa-87.sign.r2.a2"
+  ],
+  "classification": {},
+  "requeued": {},
+  "diagnosed": {
+    "E10.ml-dsa-87.sign.r2": true
+  },
+  "canary_seq": 3,
+  "first_canary_rate": 2563709.327735565,
+  "last_canary_unix_ns": 1791691501143311778,
+  "preps": {
+    "ml-dsa-44.r1": {
+      "pool": 256,
+      "prep_ns": 45306544,
+      "fingerprint": "da2726a6d0aab757",
+      "e10": true,
+      "session": 1
+    },
+    "ml-dsa-44.r2": {
+      "pool": 256,
+      "prep_ns": 46784679,
+      "fingerprint": "fe7e9def30227917",
+      "e10": true,
+      "session": 1
+    },
+    "ml-dsa-44.r3": {
+      "pool": 256,
+      "prep_ns": 45143334,
+      "fingerprint": "febf4f450ec1ab6c",
+      "e10": true,
+      "session": 1
+    },
+    "ml-dsa-44.r4": {
+      "pool": 256,
+      "prep_ns": 46475667,
+      "fingerprint": "12e1ac331ebbc4d9",
+      "e10": true,
+      "session": 1
+    },
+    "ml-dsa-44.r5": {
+      "pool": 256,
+      "prep_ns": 45469754,
+      "fingerprint": "8c2903a150ef8e9f",
+      "e10": true,
+      "session": 1
+    },
+    "ml-dsa-65.r1": {
+      "pool": 256,
+      "prep_ns": 61216335,
+      "fingerprint": "3908656a86104952",
+      "e10": true,
+      "session": 1
+    },
+    "ml-dsa-65.r2": {
+      "pool": 256,
+      "prep_ns": 60882502,
+      "fingerprint": "12074e88ff77bd45",
+      "e10": true,
+      "session": 1
+    },
+    "ml-dsa-65.r3": {
+      "pool": 256,
+      "prep_ns": 60554999,
+      "fingerprint": "81bd33a75605c66d",
+      "e10": true,
+      "session": 1
+    },
+    "ml-dsa-65.r4": {
+      "pool": 256,
+      "prep_ns": 60194388,
+      "fingerprint": "b8d19069f93e9ae5",
+      "e10": true,
+      "session": 1
+    },
+    "ml-dsa-65.r5": {
+      "pool": 256,
+      "prep_ns": 62456506,
+      "fingerprint": "fd27972aa8e0dd3d",
+      "e10": true,
+      "session": 1
+    },
+    "ml-dsa-87.r1": {
+      "pool": 256,
+      "prep_ns": 79852887,
+      "fingerprint": "fc03f78a9c59d665",
+      "e10": true,
+      "session": 1
+    },
+    "ml-dsa-87.r2": {
+      "pool": 256,
+      "prep_ns": 82088518,
+      "fingerprint": "e2fd330048a3b175",
+      "e10": true,
+      "session": 1
+    },
+    "ml-dsa-87.r3": {
+      "pool": 256,
+      "prep_ns": 80078983,
+      "fingerprint": "a638d8823b8f4723",
+      "e10": true,
+      "session": 1
+    },
+    "ml-dsa-87.r4": {
+      "pool": 256,
+      "prep_ns": 82118961,
+      "fingerprint": "eab99b01696863d3",
+      "e10": true,
+      "session": 1
+    },
+    "ml-dsa-87.r5": {
+      "pool": 256,
+      "prep_ns": 81508558,
+      "fingerprint": "588d3079767b9506",
+      "e10": true,
+      "session": 1
+    }
+  },
+  "cell_reps": {
+    "E10.ml-dsa-44.sign": 5,
+    "E10.ml-dsa-65.sign": 5,
+    "E10.ml-dsa-87.sign": 5
+  },
+  "vm_cpus": 4,
+  "host_cpus": 8,
+  "host_period_ns": 5000000000,
+  "canary_every_s": 600
+}
