@@ -91,7 +91,8 @@ func (b *batch) extendBlocks(ids []string, oldImage, oldCommit string) error {
 	}
 	b.st.Planned += len(ids)
 	b.st.Extensions = append(b.st.Extensions, Extension{Session: b.sess.N, Blocks: ids,
-		OldImageID: oldImage, OldHarnessCmt: oldCommit, NewImageID: b.c.ImageID, NewHarnessCmt: buildinfo.HarnessCommit})
+		OldImageID: oldImage, OldHarnessCmt: oldCommit, NewImageID: b.c.ImageID, NewHarnessCmt: buildinfo.HarnessCommit,
+		OrchestratorChanged: parseBlockList(b.c.OrchChanged)})
 	return nil
 }
 
@@ -115,6 +116,10 @@ func extensionNotes(st *State) []string {
 		if e.OldImageID != e.NewImageID || e.OldHarnessCmt != e.NewHarnessCmt {
 			out = append(out, "image "+shortID(e.OldImageID)+" -> "+shortID(e.NewImageID)+", harness commit "+shortID(e.OldHarnessCmt)+" -> "+shortID(e.NewHarnessCmt)+
 				" (measuring sources verified identical by the launcher)")
+		}
+		if len(e.OrchestratorChanged) > 0 {
+			out = append(out, "orchestrator (cmd/kpi-batch) files that differ from the original run's commit: "+strings.Join(e.OrchestratorChanged, ", ")+
+				" (they implement the extension; decisions for runs that are not extended are unchanged)")
 		}
 	}
 	return out

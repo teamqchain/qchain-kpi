@@ -569,10 +569,14 @@ case "$cmd" in
     [ "$machine" = "mac-m1" ] || die "this launcher runs on mac-m1 only"
     commit="$(repo_commit)"
     git -C "$repo" cat-file -e "$old_commit^{commit}" 2>/dev/null || die "the run's harness commit $old_commit is not in this repository"
-    if ! git -C "$repo" diff --quiet "$old_commit" -- cmd internal docker plans config go.mod go.sum; then
-      die "the measuring sources (cmd, internal, docker, plans, config, go.mod) changed since $old_commit; the run cannot be extended"
+    # Everything that produces the numbers must be identical. The orchestrator
+    # (cmd/kpi-batch) may differ, because it is the part that implements the
+    # extension; its changed files are recorded in the run's manifest.
+    if ! git -C "$repo" diff --quiet "$old_commit" -- cmd/kpi-prim cmd/kpi-env cmd/kpi-canary-native internal docker plans config go.mod go.sum; then
+      die "the measuring sources (cmd/kpi-prim, cmd/kpi-env, cmd/kpi-canary-native, internal, docker, plans, config, go.mod) changed since $old_commit; the run cannot be extended"
     fi
-    note "measuring sources are identical to those of the run ($old_commit)"
+    orch_changed="$(git -C "$repo" diff --name-only "$old_commit" -- cmd/kpi-batch | tr '\n' ',' | sed 's/,$//')"
+    note "measuring sources are identical to those of the run ($old_commit); orchestrator files that differ: ${orch_changed:-none}"
     mkdir -p "$repo/scratch/backup"
     rm -rf "$repo/scratch/backup/$rid"
     cp -R "$folder" "$repo/scratch/backup/$rid"
@@ -596,7 +600,8 @@ case "$cmd" in
       --network none --cpuset-cpus=1 --memory="$cmem" --memory-swap="$cmem" -e GOMAXPROCS=1 \
       --mount "type=volume,src=kpi-out-$rid,dst=/out" \
       "$tag" run --plan "/opt/kpi/plans/$plan.json" --run-id "$rid" --machine "$machine" \
-      --seed "$seed" --image-id "$imageid" --extend "$blocks" --allow-rebuild >/dev/null
+      --seed "$seed" --image-id "$imageid" --extend "$blocks" --allow-rebuild \
+      --orchestrator-changed "$orch_changed" >/dev/null
     # The finished run goes back into the volume (without the launcher's own files,
     # which are re-added at the end) and the volume is handed to the unprivileged user.
     prep="$(mktemp -d "${TMPDIR:-/tmp}/kpi-ext.XXXXXX")"

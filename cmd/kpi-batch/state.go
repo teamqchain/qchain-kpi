@@ -60,6 +60,9 @@ type Extension struct {
 	OldHarnessCmt  string   `json:"old_harness_commit,omitempty"`
 	NewImageID     string   `json:"new_image_id,omitempty"`
 	NewHarnessCmt  string   `json:"new_harness_commit,omitempty"`
+	// OrchestratorChanged lists the cmd/kpi-batch files that differ from the
+	// original run's commit (the launcher verified that no measuring source differs).
+	OrchestratorChanged []string `json:"orchestrator_files_changed,omitempty"`
 }
 
 // PrepRec records one generated input set.

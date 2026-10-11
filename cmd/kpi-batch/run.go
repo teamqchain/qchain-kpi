@@ -62,6 +62,7 @@ type runConfig struct {
 	CoverWaitS     int
 	Extend         string // comma-separated block ids of a finished run to run again
 	AllowRebuild   bool   // with Extend: the image and harness commit may differ (sources verified by the launcher)
+	OrchChanged    string // with Extend: cmd/kpi-batch files that differ from the original run (from git, comma-separated)
 }
 
 type batch struct {
@@ -107,6 +108,7 @@ func cmdRun(args []string) (int, error) {
 	fs.IntVar(&c.MonitorStaleS, "monitor-stale-s", 180, "trial/main: stop if no host sample is newer than this")
 	fs.IntVar(&c.CoverWaitS, "cover-wait-s", 240, "at the end, wait up to this long for host samples to cover the last block")
 	fs.StringVar(&c.Extend, "extend", "", "extend a finished run: block ids (E1.alg.op.rN, comma-separated) that have no clean attempt")
+	fs.StringVar(&c.OrchChanged, "orchestrator-changed", "", "with --extend: cmd/kpi-batch files that differ from the original run's commit (recorded)")
 	fs.BoolVar(&c.AllowRebuild, "allow-rebuild", false, "with --extend: accept a different image and harness commit (recorded)")
 	if err := fs.Parse(args); err != nil {
 		return exitUsage, err
