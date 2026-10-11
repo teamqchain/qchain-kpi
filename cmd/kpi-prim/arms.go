@@ -17,6 +17,17 @@ type armSet struct {
 	hasBytes bool                // the output size varies, so the raw file gets a bytes column
 	after    func() (int, error) // deferred correctness checks; returns the number of keys fully exercised
 	closers  []func()
+	// resets[k] (optional) restores arm k's state between calls outside the
+	// timed region (E2c init/clean, E2 reinit with a secret key). Check
+	// already does it during sampling; the allocation count needs it too.
+	resets []func() error
+}
+
+func (s *armSet) resetOf(k int) func() error {
+	if k < len(s.resets) {
+		return s.resets[k]
+	}
+	return nil
 }
 
 func (s *armSet) close() {

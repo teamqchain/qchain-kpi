@@ -63,10 +63,16 @@ func cmdBlock(args []string) error {
 			return fmt.Errorf("block: E10 is ML-DSA sign only")
 		}
 		firstLabel = "first" // several arms share the process
+	case "E2", "E2c", "probe-E2":
+		if !a.HasOp(b.Op) {
+			return fmt.Errorf("block: %s has no operation %q", a.ID, b.Op)
+		}
+		firstLabel = "first"
 	default:
 		return fmt.Errorf("block: experiment %q not implemented", b.Exp)
 	}
-	if b.Exp != "probe" && b.Mode != string(timing.Fast) && b.Mode != string(timing.Slow) {
+	probe := proto.IsProbe(b.Exp)
+	if !probe && b.Mode != string(timing.Fast) && b.Mode != string(timing.Slow) {
 		return fmt.Errorf("block %s: mode %q must be fast or slow", b.Key(), b.Mode)
 	}
 
@@ -74,7 +80,7 @@ func cmdBlock(args []string) error {
 	procsetup.MicroGC()
 
 	prepRep := b.Rep
-	if b.Exp == "probe" {
+	if probe {
 		prepRep = proto.ProbeRep
 	}
 	p, err := inputs.Load(proto.PrepPath(sp.PrepDir, a.ID, prepRep))
@@ -87,19 +93,34 @@ func cmdBlock(args []string) error {
 
 	// Build the arms. Nothing here runs a cryptographic operation.
 	var set *armSet
-	if b.Exp == "E10" {
+	switch b.Exp {
+	case "E10":
 		if !p.HasE10() {
 			return fmt.Errorf("block: prep %s r%d has no E10 pools", a.ID, b.Rep)
 		}
 		set, err = e10Arms(a, p)
-	} else {
+	case "E2":
+		set, err = e2Arms(a, b.Op, p, b.Seed, sp.Batch)
+	case "E2c":
+		set, err = e2cArms(a, b.Op, p, sp.Batch)
+	case "probe-E2":
+		// Every E2 and E2c arm, unbatched: the probe pass decides the batches.
+		var e2, e2c *armSet
+		if e2, err = e2Arms(a, b.Op, p, b.Seed, nil); err == nil {
+			if e2c, err = e2cArms(a, b.Op, p, nil); err != nil {
+				e2.close()
+			} else {
+				set = mergeSets(e2, e2c)
+			}
+		}
+	default:
 		set, err = e1Arms(a, b.Op, p, b.Seed)
 	}
 	if err != nil {
 		return err
 	}
 	defer set.close()
-	if b.Exp != "probe" {
+	if !probe {
 		for k := range set.arms {
 			if n := sp.Batch[set.arms[k].Name]; n > 1 {
 				set.arms[k].Batch = n
@@ -115,7 +136,7 @@ func cmdBlock(args []string) error {
 	}
 
 	var cfg timing.Config
-	if b.Exp != "probe" {
+	if !probe {
 		if cfg, err = proto.Budget(b.Profile, timing.Mode(b.Mode), b.Seed, firstLabel); err != nil {
 			return err
 		}
@@ -143,20 +164,24 @@ func cmdBlock(args []string) error {
 	t0 := time.Now()
 
 	var res timing.Result
-	var probeNS []int64
-	if b.Exp == "probe" {
-		var first int64
-		first, probeNS, err = timing.Probe(set.arms[0], proto.ProbeCalls)
-		if err == nil {
-			cfg.Sink(prefix+set.arms[0].Name, first, 0)
-			for _, d := range probeNS {
-				cfg.Sink(set.arms[0].Name, d, 0)
+	probeNS := make([][]int64, len(set.arms))
+	if probe {
+		// Each arm in turn: its first call, then ProbeCalls calls.
+		for k, arm := range set.arms {
+			var first int64
+			first, probeNS[k], err = timing.Probe(arm, proto.ProbeCalls)
+			if err != nil {
+				break
 			}
-			pf := make([]float64, len(probeNS))
-			for i, d := range probeNS {
+			cfg.Sink(prefix+arm.Name, first, 0)
+			for _, d := range probeNS[k] {
+				cfg.Sink(arm.Name, d, 0)
+			}
+			pf := make([]float64, len(probeNS[k]))
+			for i, d := range probeNS[k] {
 				pf[i] = float64(d)
 			}
-			res = timing.Result{Arms: []timing.ArmResult{{Name: set.arms[0].Name, Batch: 1, FirstNS: first, PerOpNS: pf}}}
+			res.Arms = append(res.Arms, timing.ArmResult{Name: arm.Name, Batch: 1, FirstNS: first, PerOpNS: pf})
 		}
 	} else {
 		res, err = timing.Run(set.arms, cfg)
@@ -181,9 +206,9 @@ func cmdBlock(args []string) error {
 	}
 	heap := make([]float64, len(set.arms))
 	allocs := make([]float64, len(set.arms))
-	if b.Exp != "probe" {
+	if !probe {
 		for k, arm := range set.arms {
-			if heap[k], allocs[k], err = timing.AllocsPerOp(arm, allocCalls, 1<<20); err != nil {
+			if heap[k], allocs[k], err = allocsPerOp(arm, set.resetOf(k), allocCalls, 1<<20); err != nil {
 				return err
 			}
 		}
@@ -204,8 +229,8 @@ func cmdBlock(args []string) error {
 	if b.Exp == "E10" {
 		header["holder_prep_id"] = p.HolderFingerprint
 	}
-	if b.Exp == "probe" {
-		header["budget"] = fmt.Sprintf("cold call + %d calls", proto.ProbeCalls)
+	if probe {
+		header["budget"] = fmt.Sprintf("%s call + %d calls per arm", firstLabel, proto.ProbeCalls)
 	} else {
 		bi, _ := json.Marshal(proto.Info(cfg))
 		header["budget"] = string(bi)
@@ -236,7 +261,7 @@ func cmdBlock(args []string) error {
 		GOMAXPROCS: runtime.GOMAXPROCS(0), OOMAdj: oomSet, Pool: p.P, PrepID: p.Fingerprint,
 		KeysChecked: keysChecked, Rows: nrows, RawSHA256: sum,
 	}
-	if b.Exp != "probe" {
+	if !probe {
 		out.Budget = proto.Info(cfg)
 	}
 	for k, ar := range res.Arms {
@@ -245,13 +270,38 @@ func cmdBlock(args []string) error {
 			Stats: stats.Summarize(ar.PerOpNS, proto.BootReps, b.Seed^uint64(k+1)), SumNS: ar.SumNS,
 			MinBytes: ar.MinBytes, MaxBytes: ar.MaxBytes, HeapBytesOp: heap[k], AllocsOp: allocs[k],
 		}
-		if b.Exp == "probe" {
-			s.ProbeNS = probeNS
+		if probe {
+			s.ProbeNS = probeNS[k]
 			s.Stats = stats.Summarize(ar.PerOpNS, 0, 0)
 		}
 		out.Arms = append(out.Arms, s)
 	}
 	return emit(out)
+}
+
+// allocsPerOp is timing.AllocsPerOp for arms whose state must be restored
+// between calls (reset): each call is measured on its own and the state is
+// restored outside the measurement.
+func allocsPerOp(a timing.Arm, reset func() error, n, start int) (float64, float64, error) {
+	if reset == nil {
+		return timing.AllocsPerOp(a, n, start)
+	}
+	runtime.GC()
+	var bytesTotal, allocsTotal uint64
+	var before, after runtime.MemStats
+	for i := 0; i < n; i++ {
+		runtime.ReadMemStats(&before)
+		if _, err := a.Call(start + i); err != nil {
+			return 0, 0, err
+		}
+		runtime.ReadMemStats(&after)
+		bytesTotal += after.TotalAlloc - before.TotalAlloc
+		allocsTotal += after.Mallocs - before.Mallocs
+		if err := reset(); err != nil {
+			return 0, 0, err
+		}
+	}
+	return float64(bytesTotal) / float64(n), float64(allocsTotal) / float64(n), nil
 }
 
 func intsCSV(xs []int) string {

@@ -99,3 +99,64 @@ type DecapsulatorReuse interface {
 	Decaps(ct []byte) ([]byte, error)
 	Close()
 }
+
+// ---------------------------------------------------------------- E2 objects
+
+// ObjKind is the kind of library object an operation needs.
+type ObjKind int
+
+const (
+	Keyless ObjKind = iota // key generation
+	Public                 // verify, encaps
+	Private                // sign, decaps
+)
+
+// KindOf returns the object kind an operation needs.
+func KindOf(op string) ObjKind {
+	switch op {
+	case "sign", "decaps":
+		return Private
+	case "verify", "encaps":
+		return Public
+	}
+	return Keyless
+}
+
+// SigObject is one reusable slot for a library object of a signature
+// algorithm (E2): a liboqs Signature, or an OpenSSL key object. It is
+// allocated once, before timing; Open and Close create and destroy the library
+// object inside it, so they can be timed without a Go allocation.
+type SigObject interface {
+	// Open creates the library object: liboqs Init, or loading the key into
+	// an OpenSSL key object. For liboqs a Private object keeps the sk slice
+	// it is given and Close zeroes it, so the caller passes a copy it does
+	// not need afterwards. Open performs no cryptographic operation.
+	Open(kind ObjKind, sk, pk []byte) error
+	// Keygen returns the new key pair. For liboqs the secret key aliases the
+	// object's internal buffer and is zeroed by Close: copy it first.
+	Keygen() (pk, sk []byte, err error)
+	Sign(msg []byte) ([]byte, error)
+	Verify(msg, sig []byte) (bool, error)
+	// Close destroys the library object (liboqs Clean, or freeing the OpenSSL
+	// key object). The slot can be opened again.
+	Close()
+}
+
+// KEMObject is the KEM counterpart of SigObject.
+type KEMObject interface {
+	Open(kind ObjKind, sk, pk []byte) error
+	Keygen() (pk, sk []byte, err error)
+	Encaps() (ct, ss []byte, err error)
+	Decaps(ct []byte) ([]byte, error)
+	Close()
+}
+
+// SigObjects is implemented by every signature algorithm (E2).
+type SigObjects interface {
+	NewSigObject() SigObject
+}
+
+// KEMObjects is implemented by every KEM (E2).
+type KEMObjects interface {
+	NewKEMObject() KEMObject
+}

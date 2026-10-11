@@ -35,7 +35,7 @@ const (
 
 // Item is one entry of a plan.
 type Item struct {
-	Exp     string   `json:"exp"`               // "probe", "E1", "E10"
+	Exp     string   `json:"exp"`               // "probe", "probe-E2", "E1", "E10", "E2", "E2c"
 	Algs    []string `json:"algs"`              // selectors (see algs.Expand)
 	Ops     []string `json:"ops,omitempty"`     // default: every op of the algorithm
 	Reps    int      `json:"reps,omitempty"`    // default: Plan.Reps
@@ -80,7 +80,7 @@ func Load(path string) (*Plan, error) {
 	}
 	for i, it := range p.Items {
 		switch it.Exp {
-		case "probe", "E1", "E10":
+		case "probe", "probe-E2", "E1", "E10", "E2", "E2c":
 		default:
 			return nil, fmt.Errorf("plan %s item %d: experiment %q not implemented in this phase", path, i, it.Exp)
 		}
@@ -116,7 +116,7 @@ type Block struct {
 	ID      string `json:"id"` // identity without attempt, e.g. "E1.ml-dsa-44.sign.r3"
 	Exp     string `json:"exp"`
 	Alg     string `json:"alg"`
-	Op      string `json:"op"` // keygen|sign|verify|encaps|decaps (E1, probe); "sign" (E10)
+	Op      string `json:"op"` // keygen|sign|verify|encaps|decaps (E1, E2, E2c, probes); "sign" (E10)
 	Rep     int    `json:"rep"`
 	Attempt int    `json:"attempt"`
 	Profile string `json:"profile"`
@@ -159,7 +159,7 @@ func Expand(p *Plan, batchSeed uint64) ([]Block, error) {
 		if reps == 0 {
 			reps = p.Reps
 		}
-		if it.Exp == "probe" {
+		if IsProbe(it.Exp) {
 			reps = 1
 		}
 		if reps > maxReps {
@@ -201,7 +201,7 @@ func Expand(p *Plan, batchSeed uint64) ([]Block, error) {
 		// the blocks that follow); everything else is shuffled per rep.
 		var probes, rest []Block
 		for _, b := range round {
-			if b.Exp == "probe" {
+			if IsProbe(b.Exp) {
 				probes = append(probes, b)
 			} else {
 				rest = append(rest, b)
@@ -214,6 +214,9 @@ func Expand(p *Plan, batchSeed uint64) ([]Block, error) {
 	}
 	return out, nil
 }
+
+// IsProbe reports whether an experiment is a probe pass (calibration only).
+func IsProbe(exp string) bool { return exp == "probe" || exp == "probe-E2" }
 
 func validOp(a algs.Alg, op string) bool {
 	for _, o := range a.Ops() {

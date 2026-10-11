@@ -19,14 +19,16 @@ Every copied file starts with a header that names its source.
 | `internal/qchain/crypto_prod.go` | `offchain/crypto.go` lines 29–80 (`sigName`, `pqcSign`, `pqcVerify`, `sha3Hex`) | `sigName` is a `var` instead of a `const`, so the harness can select the signature algorithm (`SetSignatureAlgorithm`). Production hard-codes ML-DSA-44. |
 | `internal/qchain/config_prod.go` | `offchain/config.go` line 22 (`import _ "time/tzdata"`) and lines 102–110 (`mustLoadLocation`) | trimmed imports |
 | `internal/qchain/chain_prod.go` | `offchain/chain.go` lines 42–76 (`ChainCredential`, `ChainHolder`) and 277–301 (`dubaiDate`, `isExpired`, `effectiveStatus`) | trimmed imports |
+| `internal/qchain/kem_prod.go` | `offchain/kem.go`, entire file (`kemName`, `kemGenerateKeypair`, `kemEncap`, `kemDecap`, `deriveKey`, the AES-GCM helpers) | package clause only. `kemName` is already a `var` in production; the harness selects the KEM with `SetKEMAlgorithm`. Added 11 Oct for E2 (the rest of the file serves E11). |
 
-Phase 1c (E11) adds the rest:
-- from `offchain/`: `envelope.go`, `kem.go` and `verification.go`, plus the activation, retrieval and presentation request checks in `mobile.go`;
+E11 adds the rest:
+- from `offchain/`: `envelope.go` and `verification.go`, plus the activation, retrieval and presentation request checks in `mobile.go`;
 - from the keygen tool: `decryptEnvelope`.
 
 The same rules apply to them. `scripts/check-sync.sh` (phase 1c) compares every copy with the main repository and reports any difference other than the edits listed here.
 
 **Harness mirrors (not copies, written for the harness):**
+- **`internal/qchain/prod.go`:** exported entry points to the copied functions for E2's prod arm, plus `ProdSigKeygen`, a mirror of production's signature key generation. Production has no function for it: the steps are inline in the keygen tool (`offchain/cmd/keygen/main.go` lines 162–174, the `dsa` case, and the same steps at lines 222–238 @ 9026aba). The mirror keeps their order (`Init` with no key, `GenerateKeyPair`, `ExportSecretKey`, hex-encode both keys, deferred `Clean`), takes the algorithm from `sigName`, and returns errors instead of calling `log.Fatalf`.
 - **`internal/qchain/payload.go`:** a Go mirror of the wallet's presentation payload (Dart, `UI_App/lib/services/crypto_service.dart`, `buildSignedDisclosedPayload`, lines 619–673 @ 9026aba). It builds the payload as sorted, compact JSON with no HTML escaping. Timestamps follow the format of Dart's `DateTime.toIso8601String()` for local time. Synthetic attribute values are ASCII alphanumerics only, so Go and Dart encode them identically.
 - **`internal/qchain/messages.go`:** generators of realistic inputs, built with the copied functions:
   - attributes `field01…`, 16-character values, 16-byte salts;

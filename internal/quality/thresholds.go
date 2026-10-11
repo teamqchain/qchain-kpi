@@ -29,10 +29,14 @@ type Machine struct {
 	OtherPct       float64            `json:"other_pct"`
 	DriftFrac      float64            `json:"drift_frac"`
 	CanaryFrac     float64            `json:"canary_frac"`
-	E10Margin      map[string]float64 `json:"e10_margin"`     // per ML-DSA parameter set
-	Class          map[string]string  `json:"classification"` // "<alg>/<op>" -> "fast" | "slow"
+	E10Margin      map[string]float64 `json:"e10_margin"`      // per ML-DSA parameter set
+	Class          map[string]string  `json:"classification"`  // "<alg>/<op>" -> "fast" | "slow"
 	Batch          map[string]int     `json:"batch,omitempty"` // "<alg>/<op>/<arm>" -> calls per sample
-	Inputs         map[string]float64 `json:"calibration_inputs,omitempty"` // d95, canary robust SD, A/A floors
+	// BatchCalibratedFrom records the add-on trials (probe passes of arms
+	// that the machine's first trial did not cover) whose batch sizes were
+	// merged into Batch: experiment -> trial run id. E2 main runs need "E2".
+	BatchCalibratedFrom map[string]string  `json:"batch_calibrated_from,omitempty"`
+	Inputs              map[string]float64 `json:"calibration_inputs,omitempty"` // d95, canary robust SD, A/A floors
 }
 
 // File is config/thresholds.json.

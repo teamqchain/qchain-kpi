@@ -91,3 +91,40 @@ func TestEffectiveStatusUsesDubaiCalendar(t *testing.T) {
 		t.Fatalf("status %s", s)
 	}
 }
+
+// TestProdFunctionsRoundTrip runs the copied production functions (and the
+// signature key-generation mirror) end to end for a non-default algorithm,
+// so the parameterisation through sigName and kemName is exercised.
+func TestProdFunctionsRoundTrip(t *testing.T) {
+	SetSignatureAlgorithm("ML-DSA-65")
+	SetKEMAlgorithm("ML-KEM-1024")
+	defer SetSignatureAlgorithm("ML-DSA-44")
+	defer SetKEMAlgorithm("ML-KEM-768")
+	pkHex, skHex, err := ProdSigKeygen()
+	if err != nil || len(pkHex) != 2*1952 || len(skHex) != 2*4032 {
+		t.Fatalf("ML-DSA-65 key pair: %d/%d hex characters (%v)", len(pkHex), len(skHex), err)
+	}
+	msg := sha3Hex("payload")
+	sigHex, err := ProdSign(msg, skHex)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if ok, err := ProdVerify(msg, sigHex, pkHex); err != nil || !ok {
+		t.Fatalf("production verify rejected its own signature (%v)", err)
+	}
+	if ok, _ := ProdVerify(sha3Hex("other"), sigHex, pkHex); ok {
+		t.Fatal("production verify accepted a signature over another message")
+	}
+	kpk, ksk, err := ProdKEMKeygen()
+	if err != nil || len(kpk) != 2*1568 {
+		t.Fatalf("ML-KEM-1024 key pair: %d hex characters (%v)", len(kpk), err)
+	}
+	ctHex, ssHex, err := ProdKEMEncap(kpk)
+	if err != nil {
+		t.Fatal(err)
+	}
+	ss2, err := ProdKEMDecap(ctHex, ksk)
+	if err != nil || ss2 != ssHex {
+		t.Fatalf("production KEM round trip failed (%v)", err)
+	}
+}

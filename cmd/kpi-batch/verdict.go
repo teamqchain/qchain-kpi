@@ -116,7 +116,7 @@ func evaluate(in evalInput) []*Verdict {
 	nFirst := map[string]int{}
 	for _, r := range in.Results {
 		b := r.Block
-		if b.Attempt != 1 || b.Diagnostic || (b.Exp != "E1" && b.Exp != "E10") {
+		if b.Attempt != 1 || b.Diagnostic || !proto.Measured(b.Exp) {
 			continue
 		}
 		c := b.Cell()
@@ -211,7 +211,7 @@ func evaluate(in evalInput) []*Verdict {
 			v.External = append(v.External, "core")
 		}
 		// Drift against the frozen reference.
-		if r.Block.Exp == "E1" || r.Block.Exp == "E10" {
+		if proto.Measured(r.Block.Exp) {
 			for _, a := range r.Arms {
 				rv, ok := ref[refKey(r.Block.Cell(), a.Name)]
 				if !ok {
@@ -258,7 +258,7 @@ func decideBase(kind string, vs []*Verdict, batchSeed uint64, requeued, diagnose
 	var ids []string
 	for _, v := range vs {
 		b := v.Res.Block
-		if b.Exp == "probe" {
+		if proto.IsProbe(b.Exp) {
 			continue
 		}
 		if _, ok := byID[b.ID]; !ok {
@@ -378,7 +378,7 @@ func qualityRows(vs []*Verdict) [][]string {
 		} else if v.Drift {
 			drift = "yes"
 		}
-		if b.Exp == "probe" {
+		if proto.IsProbe(b.Exp) {
 			drift = "n/a"
 		}
 		rows = append(rows, []string{v.Res.Key, b.ID, b.Exp, b.Alg, b.Op, strconv.Itoa(b.Rep), strconv.Itoa(b.Attempt),

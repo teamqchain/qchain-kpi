@@ -28,6 +28,11 @@ type Calibration struct {
 	Formulas   string           `json:"formulas"`
 	Thresholds *quality.Machine `json:"thresholds"`
 	Notes      []string         `json:"notes,omitempty"`
+	// AddOn is set for an add-on trial ("E2"): it probes arms that the
+	// machine's first trial did not cover and adds only their batch sizes.
+	// Thresholds is then the machine's committed section with those batch
+	// sizes added; nothing else changes.
+	AddOn string `json:"add_on,omitempty"`
 }
 
 func cmdCalibrate(args []string) error {
@@ -82,6 +87,82 @@ func calibrateRun(dir, machine string, trialTH *quality.Machine) error {
 
 func finite(x float64) bool { return !math.IsNaN(x) && !math.IsInf(x, 0) }
 
+// calibrateE2AddOn derives the batch sizes of the E2 and E2c arms from an
+// add-on trial's probe-E2 pass, with the same rule as the first trial
+// (quality.FormulaText): batch = ceil(100 * effective timer resolution / probe
+// median) for arms whose probe median is below 100x the resolution. The reuse
+// arm is skipped: it is E1's arm, batched (or not) by the first trial. Every
+// other threshold is copied unchanged from the machine's committed section,
+// which is what this trial ran with.
+func calibrateE2AddOn(dir, machine string, st *State, vs []*Verdict, base *quality.Machine) (*Calibration, error) {
+	if base == nil || base.CalibratedFrom == "" {
+		return nil, fmt.Errorf("calibrate: the add-on trial %s ran without calibrated thresholds for %s", st.RunID, machine)
+	}
+	raw, err := json.Marshal(base)
+	if err != nil {
+		return nil, err
+	}
+	m := &quality.Machine{}
+	if err := json.Unmarshal(raw, m); err != nil {
+		return nil, err
+	}
+	if m.Batch == nil {
+		m.Batch = map[string]int{}
+	}
+	if m.Inputs == nil {
+		m.Inputs = map[string]float64{}
+	}
+	if m.BatchCalibratedFrom == nil {
+		m.BatchCalibratedFrom = map[string]string{}
+	}
+	m.BatchCalibratedFrom["E2"] = st.RunID
+	cal := &Calibration{Machine: machine, TrialRun: st.RunID, Formulas: quality.FormulaText, Thresholds: m, AddOn: "E2",
+		Notes: []string{"add-on calibration: only the batch sizes of the E2 and E2c arms are new; every other value is the machine's committed thresholds, unchanged"}}
+
+	res, err := timerResolution(dir)
+	if err != nil {
+		return nil, fmt.Errorf("calibrate: %w", err)
+	}
+	m.Inputs["e2_timer_effective_resolution_ns"] = res
+	seen := map[string]bool{}
+	probes := 0
+	for _, v := range vs {
+		r := v.Res
+		if r.Block.Exp != "probe-E2" || r.Block.Attempt != 1 {
+			continue
+		}
+		probes++
+		k := r.Block.Alg + "/" + r.Block.Op
+		seen[k] = true
+		for _, a := range r.Arms {
+			if a.Name == proto.ArmReuse || len(a.ProbeNS) == 0 {
+				continue
+			}
+			xs := make([]float64, len(a.ProbeNS))
+			for i, x := range a.ProbeNS {
+				xs[i] = float64(x)
+			}
+			med := stats.Median(xs)
+			if med > 0 && med < 100*res {
+				m.Batch[k+"/"+a.Name] = int(math.Ceil(100 * res / med))
+			}
+		}
+	}
+	m.Inputs["e2_probe_blocks"] = float64(probes)
+	var missing []string
+	for _, a := range algs.All() {
+		for _, op := range a.Ops() {
+			if !seen[a.ID+"/"+op] {
+				missing = append(missing, a.ID+"/"+op)
+			}
+		}
+	}
+	if len(missing) > 0 {
+		cal.Notes = append(cal.Notes, "no probe-E2 for: "+strings.Join(missing, ", "))
+	}
+	return cal, nil
+}
+
 // timerResolution reads the effective timer resolution from the run's E0.
 func timerResolution(dir string) (float64, error) {
 	raw, err := os.ReadFile(filepath.Join(dir, dirEnv, "e0-s1.json"))
@@ -119,6 +200,14 @@ func calibrate(dir, machine string, trialTH *quality.Machine) (*Calibration, err
 	}
 	vs := evaluate(in)
 	decideBase(st.PlanKind, vs, st.Seed, copyMap(st.Requeued), copyMap(st.Diagnosed), st.Base) // marks headline attempts
+
+	exps := map[string]bool{}
+	for _, v := range vs {
+		exps[v.Res.Block.Exp] = true
+	}
+	if exps["probe-E2"] && !exps["probe"] {
+		return calibrateE2AddOn(dir, machine, st, vs, trialTH)
+	}
 
 	cal := &Calibration{Machine: machine, TrialRun: st.RunID, Formulas: quality.FormulaText}
 	m := quality.Defaults()

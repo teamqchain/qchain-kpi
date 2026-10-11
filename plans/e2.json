@@ -1,0 +1,11 @@
+{
+  "name": "e2",
+  "kind": "main",
+  "description": "E2 integration cost: for all 30 algorithms and every operation, (1) an E2 block with three interleaved arms: reuse (the long-lived library object, as E1), reinit (a fresh library object per call: create, operate, destroy) and prod (QChain's production function, hex in and hex out; copied verbatim for the post-quantum algorithms, the same pattern on OpenSSL for the classical ones); and (2) an E2c block with the components prod adds, each on its own and batched where shorter than 100x the timer resolution: hex decoding of inputs, object creation (init), object destruction (clean), hex encoding of outputs. One fresh process per block, 5 repetitions, approved budgets (E2c blocks are always fast).",
+  "reps": 5,
+  "canary_every_s": 600,
+  "items": [
+    {"exp": "E2", "algs": ["all"]},
+    {"exp": "E2c", "algs": ["all"]}
+  ]
+}

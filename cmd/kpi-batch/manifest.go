@@ -124,7 +124,7 @@ func (b *batch) finalManifest() error {
 	headline := map[string]bool{}
 	for _, v := range vs {
 		bl := v.Res.Block
-		if bl.Exp == "probe" {
+		if proto.IsProbe(bl.Exp) {
 			c["probe_blocks"]++
 			continue
 		}

@@ -103,12 +103,23 @@ func loadTrialFacts(dir string) (*trialFacts, error) {
 	wall := map[string]int64{}
 	for _, r := range results {
 		k := r.Block.Alg + "/" + r.Block.Op
-		if r.Block.Exp == "probe" && len(r.Arms) == 1 {
-			xs := make([]float64, len(r.Arms[0].ProbeNS))
-			for i, x := range r.Arms[0].ProbeNS {
-				xs[i] = float64(x)
+		if proto.IsProbe(r.Block.Exp) {
+			// probe: the reuse arm (alg/op); probe-E2: every arm (alg/op/arm).
+			for _, a := range r.Arms {
+				xs := make([]float64, len(a.ProbeNS))
+				for i, x := range a.ProbeNS {
+					xs[i] = float64(x)
+				}
+				if len(xs) == 0 {
+					continue
+				}
+				f.med[k+"/"+a.Name] = stats.Median(xs)
+				if a.Name == proto.ArmReuse {
+					if _, ok := f.med[k]; !ok || r.Block.Exp == "probe" {
+						f.med[k] = f.med[k+"/"+a.Name]
+					}
+				}
 			}
-			f.med[k] = stats.Median(xs)
 			continue
 		}
 		wall[r.Key] = r.WallNS
@@ -220,16 +231,28 @@ func estimate(dir, plansDir, machine string) (*Estimate, error) {
 			case "encaps":
 				check = get(bl.Alg + "/decaps")
 			}
-			arms := []string{proto.ArmReuse}
-			if bl.Exp == "E10" {
-				arms = []string{proto.ArmIssuer, proto.ArmHolder, proto.ArmIssuerAgain}
+			mode := th.Class[k]
+			if bl.Exp == "E2c" {
+				mode = "fast"
 			}
 			bs := f.overheadNS / 1e9
-			for _, arm := range arms {
-				s, r := armSeconds(med, check, th.Class[k], th.Batch[k+"/"+arm])
+			for _, arm := range proto.ArmsOf(bl.Exp, a, bl.Op) {
+				am, ac := med, check
+				if v, ok := f.med[k+"/"+arm]; ok && (bl.Exp == "E2" || bl.Exp == "E2c") {
+					am = v
+				}
+				if bl.Exp == "E2c" {
+					// Components check cheaply; init/clean restore their
+					// object outside the timing (about one more call).
+					ac = 0
+					if arm == proto.ArmInit || arm == proto.ArmClean {
+						ac = am
+					}
+				}
+				s, r := armSeconds(am, ac, mode, th.Batch[k+"/"+arm])
 				bs += s
 				rows += r
-				if bl.Op == "keygen" {
+				if bl.Op == "keygen" && bl.Exp != "E2c" {
 					// Deferred full checks of every 50th key (at least 3).
 					n := math.Max(3, r/50)
 					if a.Track == algs.Sig {

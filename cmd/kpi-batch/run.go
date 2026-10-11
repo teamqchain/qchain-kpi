@@ -150,9 +150,13 @@ func newBatch(c runConfig) (*batch, int, error) {
 	if err != nil {
 		return nil, exitUsage, err
 	}
+	needE2Batch := false
 	for _, bl := range blocks {
-		if bl.Exp == "E1" || bl.Exp == "E10" {
+		if proto.Measured(bl.Exp) {
 			b.cellReps[bl.Cell()]++
+		}
+		if bl.Exp == "E2" || bl.Exp == "E2c" {
+			needE2Batch = true
 		}
 		if bl.Exp == "E10" {
 			b.e10Algs[bl.Alg] = true
@@ -161,6 +165,9 @@ func newBatch(c runConfig) (*batch, int, error) {
 	if p.Kind == plan.KindMain {
 		if missing := b.missingClassification(blocks); len(missing) > 0 {
 			return nil, exitRefused, fmt.Errorf("run: thresholds for %s lack the classification of %s", c.Machine, strings.Join(missing, ", "))
+		}
+		if needE2Batch && th.BatchCalibratedFrom["E2"] == "" {
+			return nil, exitRefused, fmt.Errorf("run: thresholds for %s have no E2 batch sizes; run the trial-e2 plan and merge its calibration first", c.Machine)
 		}
 	}
 
@@ -374,7 +381,7 @@ func (b *batch) missingClassification(blocks []plan.Block) []string {
 	seen := map[string]bool{}
 	var out []string
 	for _, bl := range blocks {
-		if bl.Exp == "probe" {
+		if proto.IsProbe(bl.Exp) || bl.Exp == "E2c" { // E2c blocks are always fast
 			continue
 		}
 		k := bl.Alg + "/" + bl.Op
@@ -708,8 +715,13 @@ func (b *batch) evaluate(final bool) (int, error) {
 // ------------------------------------------------------------------ blocks
 
 func (b *batch) modeFor(bl plan.Block) (string, error) {
-	if bl.Exp == "probe" {
+	if proto.IsProbe(bl.Exp) {
 		return "", nil
+	}
+	if bl.Exp == "E2c" {
+		// The components (hex coding, object creation and destruction) are
+		// all short; batching keeps every sample above the timer's resolution.
+		return string(timing.Fast), nil
 	}
 	k := bl.Alg + "/" + bl.Op
 	var m string
@@ -725,15 +737,11 @@ func (b *batch) modeFor(bl plan.Block) (string, error) {
 }
 
 func (b *batch) batchFor(bl plan.Block) map[string]int {
-	if b.p.Kind != plan.KindMain || bl.Exp == "probe" {
+	if b.p.Kind != plan.KindMain || proto.IsProbe(bl.Exp) {
 		return nil
 	}
 	out := map[string]int{}
-	arms := []string{proto.ArmReuse}
-	if bl.Exp == "E10" {
-		arms = []string{proto.ArmIssuer, proto.ArmHolder, proto.ArmIssuerAgain}
-	}
-	for _, arm := range arms {
+	for _, arm := range proto.ArmsOf(bl.Exp, algs.MustByID(bl.Alg), bl.Op) {
 		if n := b.th.Batch[bl.Alg+"/"+bl.Op+"/"+arm]; n > 1 {
 			out[arm] = n
 		}
@@ -746,7 +754,7 @@ var prepHeader = []string{"utc_ns", "session", "alg", "rep", "pool", "e10", "pre
 // ensurePrep generates the input set of a block if it does not exist yet.
 func (b *batch) ensurePrep(bl plan.Block) error {
 	rep := bl.Rep
-	if bl.Exp == "probe" {
+	if proto.IsProbe(bl.Exp) {
 		rep = proto.ProbeRep
 	}
 	path := proto.PrepPath(b.c.PrepDir, bl.Alg, rep)

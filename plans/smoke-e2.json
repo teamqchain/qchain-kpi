@@ -1,0 +1,13 @@
+{
+  "name": "smoke-e2",
+  "kind": "smoke",
+  "description": "Pipeline test of E2, never used for results: every algorithm and operation through the probe pass, the E2 probe pass, E2 and E2c, with tiny budgets (fast: 10 warm-up + 200 samples; slow: 1 s and at least 3 samples) and 1 repetition.",
+  "reps": 1,
+  "canary_every_s": 120,
+  "items": [
+    {"exp": "probe", "algs": ["all"]},
+    {"exp": "probe-E2", "algs": ["all"]},
+    {"exp": "E2", "algs": ["all"], "profile": "smoke"},
+    {"exp": "E2c", "algs": ["all"], "profile": "smoke"}
+  ]
+}

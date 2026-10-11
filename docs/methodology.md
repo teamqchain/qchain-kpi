@@ -64,7 +64,7 @@ This file describes what the harness does when it measures. It is written from t
 
 The **smoke** profile (pipeline tests only) shrinks the budgets: fast is 10 warm-up + 200 samples; slow is 1 s and at least 3 samples.
 
-## 4. Experiments in phase 1a
+## 4. Experiments
 
 - **E0 (every session)** is `kpi-env`: CPU, kernel, mitigations, clock source, timer resolution and overhead, cgroup limits, versions, the liboqs build record and runtime CPU-feature detection, a `crypto/rand` benchmark, and the algorithm sizes.
 - **E1:** every algorithm and operation with the reuse arm, 5 repetitions.
@@ -73,7 +73,15 @@ The **smoke** profile (pipeline tests only) shrinks the budgets: fast is 10 warm
   - **holder:** presentation-payload hashes (N = 10, k = 5 disclosed), signed with a separate holder key;
   - **issuer-again:** a second, independent pool of commitment hashes, signed with the issuer key. This is the A/A arm: it differs from *issuer* only in its messages.
   - **Equivalence** is tested offline with TOST on the paired per-repetition log-ratio of medians: n = 5, and the 90 % t-interval must lie inside ± the machine's margin.
-- **Probe pass (trial):** for every algorithm and operation, a cold call plus 5 calls. It freezes the classification and feeds the runtime estimate.
+- **E2 (integration cost):** for every algorithm and operation, two blocks per repetition, 5 repetitions:
+  - **E2 block:** three interleaved arms in one process, each with the full approved budget:
+    - **reuse:** the library's long-lived object, the same code as E1;
+    - **reinit:** a fresh library object for every call: create it, run the operation, destroy it. For liboqs this is `Init`, the operation and `Clean`; for OpenSSL, loading the key into a key object, the operation and freeing the object. liboqs-go keeps the secret-key slice given to `Init` and `Clean` zeroes it, so every `Init` gets its own copy, restored outside the timed region. After key generation the secret key is copied before `Clean` (production does the same implicitly by hex-encoding it first);
+    - **prod:** QChain's production function itself, hex strings in and out. For the post-quantum algorithms these are the backend's functions copied verbatim (`pqcSign`, `pqcVerify`, `kemGenerateKeypair`, `kemEncap`, `kemDecap`), with only the algorithm name as a parameter; signature key generation mirrors the keygen tool's inline steps (see `docs/provenance.md`). The classical algorithms have no production code, so their prod arm applies the same pattern to OpenSSL: hex-decode, fresh key object, operation, hex-encode.
+    - A classical key generation already creates a new key object on every call, so its reuse and reinit arms would be the same code; it has only reuse and prod.
+  - **E2c block (components):** the steps that separate prod from reuse, each on its own: hex decoding of the inputs (`hex-decode-sk`, `-pk`, `-sig`, `-ct`), creating the library object (`init`), destroying it (`clean`), and hex encoding of the outputs (`hex-encode-pk`, `-sk`, `-sig`, `-ct`, `-ss`). Which components an operation has is fixed in `internal/proto/e2.go`. E2c blocks are always fast mode; components shorter than 100× the timer resolution are timed in batches. `init` and `clean` are timed separately: for `init` the objects created during a sample are destroyed outside the timed region, for `clean` they are created beforehand.
+  - **Batch sizes** for the new arms come from an add-on trial (`plans/trial-e2.json`, see section 6).
+- **Probe pass (trial):** for every algorithm and operation, a cold call plus 5 calls. It freezes the classification and feeds the runtime estimate. The **probe-E2 pass** (add-on trial) does the same for every E2 and E2c arm: a first call plus 5 calls per arm, unbatched.
 - **Canary:** SHA3-256 throughput over 15 windows of 100 ms, in pure Go (independent of the liboqs build). It runs at the start of every session, every 10 minutes (5 in the trial) and at the end.
 
 ## 5. Quality control (`cmd/kpi-batch/verdict.go`)
@@ -109,6 +117,7 @@ The formulas are fixed in code (`quality.FormulaText`) and committed before any 
 - **E10 margin per parameter set** = max(2 %, 2F), where F = |mean| + the 90 % t half-width of the per-repetition log(issuer median ÷ issuer-again median).
 - **Fast/slow classification:** from the probe pass.
 - **Batch sizes:** from the probe medians and E0's timer resolution.
+- **Add-on trials.** An experiment that adds arms the first trial did not probe gets a short add-on trial on each machine before its first main run: E2's `trial-e2` probes every E2 and E2c arm and derives **only their batch sizes**, with the same rule. Its `calibration.json` is the machine's committed section with those batch sizes added and `batch_calibrated_from.E2` set; nothing else changes. It is reviewed, merged and committed like the first calibration. E2 main runs refuse to start without it.
 - **Steal and other-CPU limits** keep the approved starting values (2 % and 5 %).
 
 Each machine's section is merged into `config/thresholds.json` and committed before that machine's first main run, and never changed afterwards.
