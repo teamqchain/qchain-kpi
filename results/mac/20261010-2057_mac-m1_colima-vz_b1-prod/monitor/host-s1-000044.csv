@@ -1,0 +1,13 @@
+utc_ns,other_pct,throttle,on_ac,alert,detail
+1791668446156121000,0.735,0,1,0,user=12.69;sys=0.62;excluded_core_pct=100.6;thermal_level=0;battery_pct=100
+1791668451184734000,0.705,0,1,0,user=12.61;sys=0.67;excluded_core_pct=100.6;thermal_level=0;battery_pct=100
+1791668456213717000,0.982,0,1,0,user=12.83;sys=0.74;excluded_core_pct=100.7;thermal_level=0;battery_pct=100
+1791668461264367000,1.300,0,1,0,user=13.11;sys=0.74;excluded_core_pct=100.4;thermal_level=0;battery_pct=100
+1791668466293628000,1.060,0,1,0,user=12.90;sys=0.81;excluded_core_pct=101.2;thermal_level=0;battery_pct=100
+1791668471323083000,1.540,0,1,0,user=12.90;sys=1.19;excluded_core_pct=100.4;thermal_level=0;battery_pct=100
+1791668476352923000,0.805,0,1,0,user=12.71;sys=0.67;excluded_core_pct=100.6;thermal_level=0;battery_pct=100
+1791668481383019000,0.650,0,1,0,user=12.61;sys=0.59;excluded_core_pct=100.4;thermal_level=0;battery_pct=100
+1791668486412050000,0.785,0,1,0,user=12.64;sys=0.72;excluded_core_pct=100.6;thermal_level=0;battery_pct=100
+1791668491441985000,3.688,0,1,0,user=14.49;sys=1.76;excluded_core_pct=100.5;thermal_level=0;battery_pct=100
+1791668496470993000,1.483,0,1,0,user=13.13;sys=0.94;excluded_core_pct=100.7;thermal_level=0;battery_pct=100
+1791668501500455000,7.952,0,1,0,user=18.70;sys=1.79;excluded_core_pct=100.3;thermal_level=0;battery_pct=100;busiest_other=AddressBookSourc:44.1
