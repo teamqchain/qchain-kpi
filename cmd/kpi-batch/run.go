@@ -60,6 +60,8 @@ type runConfig struct {
 	MaxBlockS      int
 	MonitorStaleS  int
 	CoverWaitS     int
+	Extend         string // comma-separated block ids of a finished run to run again
+	AllowRebuild   bool   // with Extend: the image and harness commit may differ (sources verified by the launcher)
 }
 
 type batch struct {
@@ -78,6 +80,8 @@ type batch struct {
 	cur      atomic.Pointer[exec.Cmd]
 	stopSig  atomic.Bool
 	lastEnd  int64 // end of the most recent block (container clock)
+
+	extendFrom identity // image and harness commit the run was made with (extension only)
 
 	container map[string]string // preflight facts (manifest)
 	host      map[string]string // allow-listed host facts (manifest)
@@ -102,6 +106,8 @@ func cmdRun(args []string) (int, error) {
 	fs.IntVar(&c.MaxBlockS, "max-block-s", 2700, "safety limit for one block")
 	fs.IntVar(&c.MonitorStaleS, "monitor-stale-s", 180, "trial/main: stop if no host sample is newer than this")
 	fs.IntVar(&c.CoverWaitS, "cover-wait-s", 240, "at the end, wait up to this long for host samples to cover the last block")
+	fs.StringVar(&c.Extend, "extend", "", "extend a finished run: block ids (E1.alg.op.rN, comma-separated) that have no clean attempt")
+	fs.BoolVar(&c.AllowRebuild, "allow-rebuild", false, "with --extend: accept a different image and harness commit (recorded)")
 	if err := fs.Parse(args); err != nil {
 		return exitUsage, err
 	}
@@ -203,13 +209,24 @@ func newBatch(c runConfig) (*batch, int, error) {
 		if err != nil {
 			return nil, exitRefused, err
 		}
-		if pr := resumeProblems(st.identity(), now); len(pr) > 0 {
+		cmp := now
+		if c.Extend != "" && c.AllowRebuild {
+			cmp = withoutBuild(now, st.identity())
+		}
+		if pr := resumeProblems(st.identity(), cmp); len(pr) > 0 {
 			return nil, exitRefused, fmt.Errorf("run: refusing to resume: %s", strings.Join(pr, "; "))
 		}
-		if st.Status == "done" {
+		switch {
+		case c.Extend == "" && st.Status == "done":
 			return nil, exitRefused, errors.New("run: this batch is already complete")
+		case c.Extend != "" && st.Status != "done":
+			return nil, exitRefused, fmt.Errorf("run: only a finished run can be extended (status %q); resume it instead", st.Status)
 		}
 		b.st = st
+		b.extendFrom = identity{ImageID: st.ImageID, HarnessCommit: st.HarnessCommit}
+		if c.Extend != "" {
+			b.st.ImageID, b.st.HarnessCommit = c.ImageID, buildinfo.HarnessCommit
+		}
 		n, err := cleanTemp(c.Out)
 		if err != nil {
 			return nil, exitFailed, err
@@ -233,6 +250,11 @@ func newBatch(c runConfig) (*batch, int, error) {
 	b.st.Sessions = append(b.st.Sessions, b.sess)
 	b.st.CellReps, b.st.VMCPUs, b.st.HostCPUs = b.cellReps, b.vmCPUs, b.hostCPUs
 	b.st.HostPeriodNS, b.st.CanaryEveryS = b.periodNS, p.CanaryEveryS
+	if c.Extend != "" {
+		if err := b.extendBlocks(parseBlockList(c.Extend), b.extendFrom.ImageID, b.extendFrom.HarnessCommit); err != nil {
+			return nil, exitRefused, err
+		}
+	}
 	b.st.Status = "running"
 	b.st.StatusDetail = ""
 	if err := b.st.save(c.Out); err != nil {
@@ -389,6 +411,9 @@ func (b *batch) run() (int, error) {
 	if b.sess.N > 1 {
 		reason = "resume"
 	}
+	if b.c.Extend != "" {
+		reason = "extend"
+	}
 	if err := b.canary(reason); err != nil {
 		return b.stopOrFail(err)
 	}
@@ -505,6 +530,10 @@ func (b *batch) captureEnv() error {
 	envDir := filepath.Join(b.c.Out, dirEnv)
 	if b.sess.N == 1 {
 		if err := copyDir(b.c.BuildInfo, filepath.Join(envDir, "build-info")); err != nil {
+			return fmt.Errorf("copy build records: %w", err)
+		}
+	} else if b.c.Extend != "" && b.c.AllowRebuild {
+		if err := copyDir(b.c.BuildInfo, extendBuildInfoDir(b.c.Out, b.sess.N)); err != nil {
 			return fmt.Errorf("copy build records: %w", err)
 		}
 	}
@@ -654,7 +683,7 @@ func (b *batch) evaluate(final bool) (int, error) {
 		return 0, err
 	}
 	vs := evaluate(in)
-	ds := decide(b.p.Kind, vs, b.c.Seed, b.st.Requeued, b.st.Diagnosed)
+	ds := decideBase(b.p.Kind, vs, b.c.Seed, b.st.Requeued, b.st.Diagnosed, b.st.Base)
 	for _, d := range ds {
 		d.Block.Mode = ""
 		pos := insertAt(b.c.Seed, d.Block.Key(), len(b.st.Queue))

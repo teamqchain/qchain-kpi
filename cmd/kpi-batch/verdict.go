@@ -246,6 +246,13 @@ type decision struct {
 // queue (coding plan §8 attempt policy). requeued/diagnosed record what was
 // already queued, so a decision is never taken twice.
 func decide(kind string, vs []*Verdict, batchSeed uint64, requeued, diagnosed map[string]bool) []decision {
+	return decideBase(kind, vs, batchSeed, requeued, diagnosed, nil)
+}
+
+// decideBase is decide for runs that were extended: base[id] is the number of
+// attempts a block already had when it was extended, so its cap of
+// maxAttempts counts only the attempts made since.
+func decideBase(kind string, vs []*Verdict, batchSeed uint64, requeued, diagnosed map[string]bool, base map[string]int) []decision {
 	byID := map[string][]*Verdict{}
 	maxAtt := map[string]int{}
 	var ids []string
@@ -299,7 +306,7 @@ func decide(kind string, vs []*Verdict, batchSeed uint64, requeued, diagnosed ma
 			continue
 		}
 		switch {
-		case head == nil && !undecided && last.flagged() && len(att) < maxAttempts:
+		case head == nil && !undecided && last.flagged() && len(att)-base[id] < maxAttempts:
 			if !requeued[last.Res.Key] {
 				nb := last.Res.Block
 				nb.Attempt = maxAtt[id] + 1
@@ -310,7 +317,7 @@ func decide(kind string, vs []*Verdict, batchSeed uint64, requeued, diagnosed ma
 				maxAtt[id] = nb.Attempt
 			}
 			last.Action = "repeat"
-		case head == nil && !undecided && last.flagged() && len(att) >= maxAttempts:
+		case head == nil && !undecided && last.flagged() && len(att)-base[id] >= maxAttempts:
 			last.Action = "exhausted"
 		case head != nil && kind == plan.KindMain && head.Drift && !head.DriftPending:
 			if !diagnosed[id] {

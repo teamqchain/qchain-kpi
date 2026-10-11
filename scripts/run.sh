@@ -4,6 +4,7 @@
 #   scripts/run.sh start --plan NAME --machine ID [--variant b1-prod] [--seed N]
 #                        [--cooling TEXT] [--rebuild] [--force]
 #   scripts/run.sh resume RUN_ID
+#   scripts/run.sh extend RUN_ID --blocks ID[,ID...]   # run blocks without a clean attempt again, inside the finished run
 #   scripts/run.sh stop RUN_ID        # graceful: stops after the current block
 #   scripts/run.sh status
 #
@@ -227,7 +228,7 @@ persist_dir() { printf '%s\n' "$HOME/Library/Application Support/qchain-kpi/$1";
 # paused (SIGSTOP) for the duration of a session and resumed (SIGCONT) on every
 # exit path (decision 10 Oct). They run as the user, so no admin rights are
 # needed; a logout or restart resumes them as well.
-BG_PATTERN='/(mediaanalysisd|photoanalysisd|spotlightknowledged|spotlightknowledged[.]importer|spotlightknowledged[.]updater|suggestd|duetexpertd|knowledge-agent|knowledgeconstructiond)( |$)'
+BG_PATTERN='/(mediaanalysisd|photoanalysisd|spotlightknowledged|spotlightknowledged[.]importer|spotlightknowledged[.]updater|suggestd|duetexpertd|knowledge-agent|knowledgeconstructiond|AddressBookSourceSync)( |$)'
 pause_bg() { # logfile
   local pid name
   for pid in $(pgrep -f "$BG_PATTERN" 2>/dev/null); do
@@ -294,6 +295,8 @@ trap 'cleanup; exit 143' TERM
 # run_session RID: one start or resume, from session.json to the batch's exit.
 # Sets session_code to the batch's exit code.
 session_code=""
+extending=0       # 1 while extending a finished run (see the extend command)
+extend_folder=""  # results folder of the run being extended
 run_session() {
   local rid="$1" tag persist n work offs offset unc refs p e monpid delpid cafpid started
   tag="$(docker inspect -f '{{.Config.Image}}' "kpi-run-$rid")"
@@ -429,15 +432,27 @@ finish_run() { # rid code
   esac
   stage="$repo/scratch/staging/$rid"
   dest="$repo/results/$osdir/$rid"
-  [ ! -e "$dest" ] || die "$dest already exists"
+  if [ "$extending" != 1 ]; then [ ! -e "$dest" ] || die "$dest already exists"; fi
   rm -rf "$stage"; mkdir -p "$stage"
   docker cp "kpi-run-$rid:/out/." "$stage/" >/dev/null
-  docker logs "kpi-run-$rid" > "$stage/console.txt" 2>&1 || true
+  if [ "$extending" = 1 ]; then
+    { cat "$extend_folder/console.txt" 2>/dev/null || true
+      printf '\n=== extension session (blocks without a clean attempt) ===\n'
+      docker logs "kpi-run-$rid" 2>&1 || true; } > "$stage/console.txt"
+  else
+    docker logs "kpi-run-$rid" > "$stage/console.txt" 2>&1 || true
+  fi
   mkdir -p "$stage/launcher"
   cp "$persist"/* "$stage/launcher/"
   ( cd "$stage" && shasum -a 256 -c --quiet SHA256SUMS ) || die "SHA256SUMS verification failed in scratch/staging/$rid (container kept)"
   privacy_scan "$stage" || die "privacy scan failed: nothing was moved into results/ (scratch/staging/$rid; container kept)"
   mkdir -p "$(dirname "$dest")"
+  if [ "$extending" = 1 ]; then
+    # The original folder is kept in scratch/backup/ (made before the extension) and in git.
+    rm -rf "$dest"
+    grep -v -F "| $rid |" "$repo/results/$osdir/INDEX.md" > "$repo/results/$osdir/INDEX.md.new" || true
+    mv "$repo/results/$osdir/INDEX.md.new" "$repo/results/$osdir/INDEX.md"
+  fi
   mv "$stage" "$dest"
   index_row "$dest" "$rid"
   docker rm "kpi-run-$rid" >/dev/null
@@ -450,7 +465,7 @@ finish_run() { # rid code
 # ------------------------------------------------------------------- main
 
 cmd="${1:-}"
-[ -n "$cmd" ] || die "usage: run.sh start|resume|stop|status ..."
+[ -n "$cmd" ] || die "usage: run.sh start|resume|extend|stop|status ..."
 shift
 force=0
 cooling="unstated"
@@ -523,6 +538,80 @@ case "$cmd" in
     kind="$(docker inspect -f '{{index .Config.Labels "org.qchain.kpi.kind"}}' "kpi-run-$rid")"
     pause_early
     preflight "$kind"
+    run_session "$rid"
+    finish_run "$rid" "$session_code"
+    ;;
+  extend)
+    rid="${1:-}"
+    [ -n "$rid" ] || die "extend needs a run id"
+    shift
+    blocks=""
+    while [ $# -gt 0 ]; do
+      case "$1" in
+        --blocks) blocks="$2"; shift 2 ;;
+        --cooling) cooling="$2"; shift 2 ;;
+        --force) force=1; shift ;;
+        *) die "unknown option $1" ;;
+      esac
+    done
+    [ -n "$blocks" ] || die "extend needs --blocks ID[,ID...] (for example E1.hqc-3.encaps.r3)"
+    folder="$repo/results/$osdir/$rid"
+    [ -d "$folder" ] || die "no results folder $folder"
+    ( cd "$folder" && shasum -a 256 -c --quiet SHA256SUMS ) || die "the SHA256SUMS of $rid does not verify"
+    [ "$(json_get "$folder/manifest.json" status)" = "done" ] || die "only a finished run can be extended"
+    kind="$(json_get "$folder/manifest.json" plan kind)"
+    [ "$kind" = "main" ] || die "only main runs can be extended (this one is $kind)"
+    plan="$(json_get "$folder/manifest.json" plan name)"
+    seed="$(json_get "$folder/manifest.json" seed)"
+    machine="$(json_get "$folder/manifest.json" machine)"
+    variant="$(json_get "$folder/manifest.json" build variant)"
+    old_commit="$(json_get "$folder/manifest.json" harness_commit)"
+    [ "$machine" = "mac-m1" ] || die "this launcher runs on mac-m1 only"
+    commit="$(repo_commit)"
+    git -C "$repo" cat-file -e "$old_commit^{commit}" 2>/dev/null || die "the run's harness commit $old_commit is not in this repository"
+    if ! git -C "$repo" diff --quiet "$old_commit" -- cmd internal docker plans config go.mod go.sum; then
+      die "the measuring sources (cmd, internal, docker, plans, config, go.mod) changed since $old_commit; the run cannot be extended"
+    fi
+    note "measuring sources are identical to those of the run ($old_commit)"
+    mkdir -p "$repo/scratch/backup"
+    rm -rf "$repo/scratch/backup/$rid"
+    cp -R "$folder" "$repo/scratch/backup/$rid"
+    note "backup of the finished run: scratch/backup/$rid"
+    ensure_colima
+    build_image "$variant" "$commit" 0
+    tag="$image_tag"
+    pause_early
+    if [ "$built" = 1 ]; then
+      note "cooling down for 120 s after the image build (background services paused)"
+      sleep 120
+      pause_early
+    fi
+    preflight "$kind"
+    imageid="$(docker image inspect -f '{{.Id}}' "$tag")"
+    ! docker inspect "kpi-run-$rid" >/dev/null 2>&1 || die "container kpi-run-$rid already exists"
+    docker volume create --label org.qchain.kpi=1 "kpi-out-$rid" >/dev/null
+    docker create --init --name "kpi-run-$rid" --stop-timeout 30 \
+      --label org.qchain.kpi=1 --label "org.qchain.kpi.run=$rid" --label "org.qchain.kpi.plan=$plan" \
+      --label "org.qchain.kpi.kind=$kind" --label "org.qchain.kpi.machine=$machine" \
+      --network none --cpuset-cpus=1 --memory="$cmem" --memory-swap="$cmem" -e GOMAXPROCS=1 \
+      --mount "type=volume,src=kpi-out-$rid,dst=/out" \
+      "$tag" run --plan "/opt/kpi/plans/$plan.json" --run-id "$rid" --machine "$machine" \
+      --seed "$seed" --image-id "$imageid" --extend "$blocks" --allow-rebuild >/dev/null
+    # The finished run goes back into the volume (without the launcher's own files,
+    # which are re-added at the end) and the volume is handed to the unprivileged user.
+    prep="$(mktemp -d "${TMPDIR:-/tmp}/kpi-ext.XXXXXX")"
+    cp -R "$folder/." "$prep/"
+    rm -rf "$prep/launcher" "$prep/console.txt"
+    docker cp "$prep/." "kpi-run-$rid:/out/" >/dev/null
+    rm -rf "$prep"
+    docker run --rm --network none --user root --entrypoint /bin/chown \
+      --mount "type=volume,src=kpi-out-$rid,dst=/out" "$tag" -R kpi:kpi /out
+    persist="$(persist_dir "$rid")"
+    rm -rf "$persist"; mkdir -p "$persist"
+    cp "$folder/launcher/"* "$persist/"
+    extending=1
+    extend_folder="$folder"
+    note "extending run $rid with: $blocks (image $tag)"
     run_session "$rid"
     finish_run "$rid" "$session_code"
     ;;

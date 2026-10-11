@@ -128,3 +128,12 @@ Each machine's section is merged into `config/thresholds.json` and committed bef
   2. it verifies `SHA256SUMS`;
   3. it scans every file for the machine's identifying text;
   4. only then does it move the folder into `results/`.
+
+## 8. Extending a finished run
+
+A block can end with no clean attempt: all 3 attempts were flagged for an external cause, usually a short burst of macOS system activity during a long (over a minute) operation. Instead of running a second plan, `run.sh extend <run-id> --blocks ...` runs just those blocks again **inside the same run folder**:
+
+- **Same rules.** The blocks run under the same plan, thresholds, seed derivation and quality rules. The attempt numbers continue (a4, a5, a6), and each extended block gets a fresh budget of 3 attempts. Only blocks without a headline attempt can be extended.
+- **Same code.** The launcher refuses unless `cmd/`, `internal/`, `docker/`, `plans/`, `config/` and `go.mod` are identical to the run's harness commit (checked with git). The image and harness commit may then differ, because the launcher scripts and docs change between commits; both old and new values are recorded.
+- **Recorded, not hidden.** The extension is session 2 in the manifest (`sessions`, `extensions`, `notes`), the state, the journal (`extension_queued`) and `console.txt`. A new E0 and canary are captured (`env/e0-s2.json`, `env/build-info-s2/`). Input sets are regenerated: the same message seeds, new keys.
+- **Safety.** Before anything starts, the finished run is copied to `scratch/backup/<run-id>` (it is also in git). The new folder replaces the old one only after its checksums verify and the privacy scan is clean.

@@ -28,6 +28,7 @@ The folder holds only allow-listed facts: no host name, user name, path outside 
 | `canary.jsonl`, `canary.csv` | kpi-batch | One row per canary run (see below). |
 | `prep.csv` | kpi-batch | One row per generated input set: `utc_ns,session,alg,rep,pool,e10,prep_ns,fingerprint` (`rep` 0 = the probe pass's small set). |
 | `raw/<exp>/<alg>/<op>-r<rep>-a<attempt>.csv.gz` | kpi-prim | Every timed call of one attempt (see below). |
+| `env/build-info-s<N>/` | image build | Build records of the image used by an extension session N (see methodology section 8). |
 | `env/e0-s<N>.json` | kpi-env | E0 environment capture at the start of session N (see below). |
 | `env/build-info/` | image build | Records made while the image was built: `oqs-build.txt`, `oqs-CMakeCache.txt`, `oqsconfig.h`, `oqs-cmake.txt`, `oqs-ninja.txt`, `oqs-gate.txt` (liboqs correctness gate), `acvp-sha256-check.txt`, `go-test.txt`, `go-version.txt`, `apt-source-*.txt`, `dpkg-*.tsv`. |
 | `monitor/host-s<N>-<seq>.csv` (+ `.ok`) | launcher | Host monitor samples of session N, delivered every minute (see below). A chunk is read only once its `.ok` marker exists. |

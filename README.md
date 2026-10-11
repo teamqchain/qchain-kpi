@@ -49,6 +49,7 @@ scripts/run.sh start --plan smoke --machine mac-m1          # pipeline test (tin
 scripts/run.sh start --plan trial --machine mac-m1 --cooling "USB fan cooling pad"
 scripts/run.sh stop  <run-id>      # graceful: finishes the current block, then stops
 scripts/run.sh resume <run-id>     # continue a stopped or interrupted batch
+scripts/run.sh extend <run-id> --blocks E1.alg.op.rN[,...]   # run blocks that ended without a clean attempt again, inside the finished run
 scripts/run.sh status
 ```
 

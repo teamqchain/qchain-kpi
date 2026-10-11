@@ -37,6 +37,7 @@ type Manifest struct {
 	UpdatedUTC    string            `json:"updated_utc"`
 	Counts        map[string]int    `json:"counts,omitempty"`
 	Notes         []string          `json:"notes,omitempty"`
+	Extensions    []Extension       `json:"extensions,omitempty"`
 }
 
 type ManifestPlan struct {
@@ -90,6 +91,8 @@ func (b *batch) manifest() Manifest {
 			}
 		}
 	}
+	m.Extensions = b.st.Extensions
+	m.Notes = append(m.Notes, extensionNotes(b.st)...)
 	if b.p.Kind == plan.KindSmoke {
 		m.Notes = append(m.Notes, "smoke plan: pipeline test with tiny budgets; never used for results")
 	}
@@ -115,7 +118,7 @@ func (b *batch) finalManifest() error {
 		return err
 	}
 	vs := evaluate(in)
-	decide(b.p.Kind, vs, b.c.Seed, copyMap(b.st.Requeued), copyMap(b.st.Diagnosed))
+	decideBase(b.p.Kind, vs, b.c.Seed, copyMap(b.st.Requeued), copyMap(b.st.Diagnosed), b.st.Base)
 	c := map[string]int{"attempts": len(vs)}
 	ids := map[string]bool{}
 	headline := map[string]bool{}

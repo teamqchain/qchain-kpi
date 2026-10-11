@@ -38,12 +38,28 @@ type State struct {
 	FirstCanary    float64            `json:"first_canary_rate"`
 	LastCanaryNS   int64              `json:"last_canary_unix_ns"`
 	Preps          map[string]PrepRec `json:"preps"`
+	// Extensions: blocks that had no clean attempt were run again in a later
+	// session of the same run (see extend.go). Base[id] is the number of
+	// non-diagnostic attempts the block had when it was extended; the cap of
+	// maxAttempts applies to the attempts made after that point.
+	Extensions []Extension    `json:"extensions,omitempty"`
+	Base       map[string]int `json:"extension_base,omitempty"`
 	// Facts the quality rules need (kept so calibrate can re-run them later).
 	CellReps     map[string]int `json:"cell_reps"`
 	VMCPUs       int            `json:"vm_cpus"`
 	HostCPUs     int            `json:"host_cpus"`
 	HostPeriodNS int64          `json:"host_period_ns"`
 	CanaryEveryS int            `json:"canary_every_s"`
+}
+
+// Extension records one extension of a finished run.
+type Extension struct {
+	Session        int      `json:"session"`
+	Blocks         []string `json:"blocks"`
+	OldImageID     string   `json:"old_image_id,omitempty"`
+	OldHarnessCmt  string   `json:"old_harness_commit,omitempty"`
+	NewImageID     string   `json:"new_image_id,omitempty"`
+	NewHarnessCmt  string   `json:"new_harness_commit,omitempty"`
 }
 
 // PrepRec records one generated input set.

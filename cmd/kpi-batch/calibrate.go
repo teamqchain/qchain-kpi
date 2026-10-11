@@ -118,7 +118,7 @@ func calibrate(dir, machine string, trialTH *quality.Machine) (*Calibration, err
 		return nil, err
 	}
 	vs := evaluate(in)
-	decide(st.PlanKind, vs, st.Seed, copyMap(st.Requeued), copyMap(st.Diagnosed)) // marks headline attempts
+	decideBase(st.PlanKind, vs, st.Seed, copyMap(st.Requeued), copyMap(st.Diagnosed), st.Base) // marks headline attempts
 
 	cal := &Calibration{Machine: machine, TrialRun: st.RunID, Formulas: quality.FormulaText}
 	m := quality.Defaults()
