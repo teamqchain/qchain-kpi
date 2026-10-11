@@ -1,0 +1,52 @@
+{
+  "machine": "mac-m1",
+  "trial_run": "20261011-0456_mac-m1_colima-vz_b1-prod",
+  "plans": [
+    {
+      "plan": "e1",
+      "file": "e1.json",
+      "blocks": 450,
+      "hours": 5.217073856783582,
+      "prep_hours": 0.5038978736930557,
+      "canary_hours": 0.01342156733091452,
+      "by_experiment_hours": {
+        "E1": 4.699754415759611
+      },
+      "raw_mb": 14.6689875
+    },
+    {
+      "plan": "e10",
+      "file": "e10.json",
+      "blocks": 15,
+      "hours": 0.028091387193288894,
+      "prep_hours": 0.00019185358333333335,
+      "canary_hours": 0.0009607257099555557,
+      "by_experiment_hours": {
+        "E10": 0.026938807900000004
+      },
+      "raw_mb": 1.1404725
+    },
+    {
+      "plan": "e2",
+      "file": "e2.json",
+      "blocks": 900,
+      "hours": 14.548274597230142,
+      "prep_hours": 0.5038978736930556,
+      "canary_hours": 0.03823859057678304,
+      "by_experiment_hours": {
+        "E2": 13.888164908297806,
+        "E2c": 0.11797322466249989
+      },
+      "raw_mb": 88.8767375
+    }
+  ],
+  "total_hours": 19.79343984120701,
+  "total_raw_mb": 104.6861975,
+  "assumptions": [
+    "probe medians from the trial (cold call excluded)",
+    "per-block fixed overhead 0.50 s (median of the trial)",
+    "raw data 2.50 bytes per sample row (trial average, gzip)",
+    "input-set generation per (algorithm, repetition) = key generation + P x (sign + verify) or P x (encaps + decaps)",
+    "repeats and diagnostic re-runs are not included"
+  ]
+}
