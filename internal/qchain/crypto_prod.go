@@ -1,6 +1,8 @@
 // Code copied VERBATIM from the QChain backend (main repo, commit 9026aba).
 // Source: offchain/crypto.go lines 29-80 (sigName, pqcSign, pqcVerify, sha3Hex); the IPFS helpers are not needed.
-// Only the package clause changed (main -> qchain) and: the import block lists only what these functions use, and sigName is a var instead of a const.
+// Only the package clause changed (main -> qchain) and: the import block lists only what these functions use, sigName is a var instead of a const,
+// and (decision A, 11 Oct) pqcSign/pqcVerify are renamed pqcSignLiboqs/pqcVerifyLiboqs; dispatch.go defines pqcSign/pqcVerify, which call these
+// unchanged bodies for liboqs algorithms and an OpenSSL twin for the classical ones.
 // Do not edit function bodies here; docs/provenance.md lists every copy and
 // scripts/check-sync.sh compares them with the main repository.
 package qchain
@@ -18,7 +20,7 @@ var sigName = "ML-DSA-44" // const in production; a var here so the harness can 
 
 // pqcSign signs `message` with the provided hex-encoded private key and returns
 // a hex-encoded signature.
-func pqcSign(message, privateKeyHex string) (string, error) {
+func pqcSignLiboqs(message, privateKeyHex string) (string, error) {
 	privKeyBytes, err := hex.DecodeString(privateKeyHex)
 	if err != nil {
 		return "", fmt.Errorf("decoding private key hex: %w", err)
@@ -39,7 +41,7 @@ func pqcSign(message, privateKeyHex string) (string, error) {
 
 // pqcVerify verifies a hex-encoded signature against a message and hex-encoded
 // public key. Verification needs no private key, so Init is called with nil.
-func pqcVerify(message, signatureHex, publicKeyHex string) (bool, error) {
+func pqcVerifyLiboqs(message, signatureHex, publicKeyHex string) (bool, error) {
 	pubKeyBytes, err := hex.DecodeString(publicKeyHex)
 	if err != nil {
 		return false, fmt.Errorf("decoding public key hex: %w", err)

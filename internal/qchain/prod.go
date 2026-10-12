@@ -16,21 +16,23 @@ import (
 func SetKEMAlgorithm(name string) { kemName = name }
 
 // ProdSign is production's pqcSign (offchain/crypto.go).
-func ProdSign(message, privateKeyHex string) (string, error) { return pqcSign(message, privateKeyHex) }
+func ProdSign(message, privateKeyHex string) (string, error) {
+	return pqcSignLiboqs(message, privateKeyHex)
+}
 
 // ProdVerify is production's pqcVerify (offchain/crypto.go).
 func ProdVerify(message, signatureHex, publicKeyHex string) (bool, error) {
-	return pqcVerify(message, signatureHex, publicKeyHex)
+	return pqcVerifyLiboqs(message, signatureHex, publicKeyHex)
 }
 
 // ProdKEMKeygen is production's kemGenerateKeypair (offchain/kem.go).
-func ProdKEMKeygen() (pubHex, secHex string, err error) { return kemGenerateKeypair() }
+func ProdKEMKeygen() (pubHex, secHex string, err error) { return kemGenerateKeypairLiboqs() }
 
 // ProdKEMEncap is production's kemEncap (offchain/kem.go).
-func ProdKEMEncap(pubHex string) (ctHex, ssHex string, err error) { return kemEncap(pubHex) }
+func ProdKEMEncap(pubHex string) (ctHex, ssHex string, err error) { return kemEncapLiboqs(pubHex) }
 
 // ProdKEMDecap is production's kemDecap (offchain/kem.go).
-func ProdKEMDecap(ctHex, secHex string) (string, error) { return kemDecap(ctHex, secHex) }
+func ProdKEMDecap(ctHex, secHex string) (string, error) { return kemDecapLiboqs(ctHex, secHex) }
 
 // ProdSigKeygen MIRRORS production's signature key generation. Production has
 // no function for it: the steps are inline in the keygen tool

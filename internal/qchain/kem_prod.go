@@ -1,6 +1,8 @@
 // Code copied VERBATIM from the QChain backend (main repo, commit 9026aba).
 // Source: offchain/kem.go, entire file.
-// Only the package clause changed (main -> qchain). kemName is already a var in production; the harness selects the KEM with SetKEMAlgorithm.
+// Only the package clause changed (main -> qchain). kemName is already a var in production; the harness selects the KEM with SetKEMAlgorithm/SetSuite.
+// Decision A (11 Oct): kemGenerateKeypair/kemEncap/kemDecap are renamed ...Liboqs; dispatch.go defines the original names, which call these
+// unchanged bodies for liboqs KEMs and an OpenSSL twin for DHKEM.
 // Do not edit function bodies here; docs/provenance.md lists every copy and
 // scripts/check-sync.sh compares them with the main repository.
 package qchain
@@ -58,7 +60,7 @@ func resolveKEMName() string {
 }
 
 // kemGenerateKeypair returns a fresh (publicHex, secretHex) ML-KEM key pair.
-func kemGenerateKeypair() (pubHex, secHex string, err error) {
+func kemGenerateKeypairLiboqs() (pubHex, secHex string, err error) {
 	k := oqs.KeyEncapsulation{}
 	defer k.Clean()
 	if err = k.Init(kemName, nil); err != nil {
@@ -74,7 +76,7 @@ func kemGenerateKeypair() (pubHex, secHex string, err error) {
 
 // kemEncap encapsulates a fresh shared secret to a recipient's public key.
 // Returns (kemCiphertextHex, sharedSecretHex).
-func kemEncap(pubHex string) (kemCtHex, ssHex string, err error) {
+func kemEncapLiboqs(pubHex string) (kemCtHex, ssHex string, err error) {
 	pub, err := hex.DecodeString(pubHex)
 	if err != nil {
 		return "", "", fmt.Errorf("decode KEM public key: %w", err)
@@ -92,7 +94,7 @@ func kemEncap(pubHex string) (kemCtHex, ssHex string, err error) {
 }
 
 // kemDecap recovers the shared secret from a KEM ciphertext using the secret key.
-func kemDecap(kemCtHex, secHex string) (ssHex string, err error) {
+func kemDecapLiboqs(kemCtHex, secHex string) (ssHex string, err error) {
 	ct, err := hex.DecodeString(kemCtHex)
 	if err != nil {
 		return "", fmt.Errorf("decode KEM ciphertext: %w", err)
