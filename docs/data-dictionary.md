@@ -44,7 +44,7 @@ The folder holds only allow-listed facts: no host name, user name, path outside 
 
 | Name | Example | Meaning |
 |---|---|---|
-| block id | `E1.ml-dsa-44.sign.r3` | experiment, algorithm, operation, repetition (experiments `E1`, `E10`, `E2`, `E2c`, `probe`, `probe-E2`) |
+| block id | `E1.ml-dsa-44.sign.r3` | experiment, algorithm, operation, repetition (experiments `E1`, `E10`, `E2`, `E2c`, `E8`, `probe`, `probe-E2`) |
 | attempt key | `E1.ml-dsa-44.sign.r3.a2` | block id + attempt number (`a1` = the first attempt) |
 | cell | `E1.ml-dsa-44.sign` | block id without the repetition |
 | arm | `reuse`, `issuer`, `holder`, `issuer-again`, `reinit`, `prod`, `hex-decode-sk`, `hex-decode-pk`, `hex-decode-sig`, `hex-decode-ct`, `init`, `clean`, `hex-encode-pk`, `hex-encode-sk`, `hex-encode-sig`, `hex-encode-ct`, `hex-encode-ss` | a measured variant inside a block (E2 and E2c arms: `docs/methodology.md` section 4 and `internal/proto/e2.go`) |
@@ -54,6 +54,7 @@ The folder holds only allow-listed facts: no host name, user name, path outside 
   - `keygen`, `encaps`, `decaps` for the 8 KEMs.
   - E10 blocks use `sign`.
   - E2 and E2c blocks use every operation of the algorithm.
+  - E8 blocks use `keygen` and `sign` (signatures) or `keygen` and `encaps` (KEMs); their items are `pk`, `sk`, `sig`, `ct`, `ss`.
   - Probe blocks use `probe` (the reuse arm) or `probe-E2` (every E2 and E2c arm) as the experiment.
 - **Algorithm ids:** as in `internal/algs` (for example `slh-dsa-shake-256s`, `falcon-padded-1024`, `dhkem-x25519`).
 
@@ -152,3 +153,12 @@ The E0 capture contains:
 - a `crypto/rand` 32-byte read benchmark;
 - the 30 algorithms with their sizes;
 - hashes of the build records.
+
+## E8 (sizes)
+
+E8 blocks are not timed, so their files differ:
+- **Raw file** `raw/E8/<alg>/<op>-r1-a1.csv.gz`: header lines as usual (including `items`, `budget` and `encoding`), then `item,bytes`, one row per item in production order (for key generation `pk` then `sk` for each key).
+- **`blocks.csv`:** one row per item (`arm` = `pk`, `sk`, `sig`, `ct` or `ss`); `mode` is `sizes`; the statistics columns (`p50_ns`, `mean_ns`, `min_ns`, `max_ns`, ...) hold **bytes**, not nanoseconds; `n` is the number of items; `min_bytes`/`max_bytes` are the shortest and longest item; `first_label` is empty and `first_ns` is 0.
+- **`quality.csv`:** host and canary facts are recorded, but no flags apply (`external_flags` empty, `drift` = `n/a`), and the first attempt is always the headline.
+- **Encoded sizes:** hex characters = 2 × bytes; JSON string = 2 × bytes + 2.
+

@@ -1,0 +1,10 @@
+{
+  "name": "e8",
+  "kind": "main",
+  "description": "E8 sizes: for all 30 algorithms, one block for key generation (public and secret key lengths) and one for sign (signature lengths) or encaps (ciphertext and shared-secret lengths). Each block produces up to 1,000 keys or 10,000 outputs (at least 100, stopping after 60 s once the minimum is reached) and records the length of every item, so the real distributions of unpadded Falcon and ECDSA (DER) signatures and RSA PKCS#8 private keys are captured. Every output is checked (signatures verified, ciphertexts decapsulated, every 50th key fully exercised). Nothing is timed; one repetition.",
+  "reps": 1,
+  "canary_every_s": 600,
+  "items": [
+    {"exp": "E8", "algs": ["all"]}
+  ]
+}

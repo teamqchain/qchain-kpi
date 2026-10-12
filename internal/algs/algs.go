@@ -37,6 +37,16 @@ func (a Alg) Ops() []string {
 	return []string{"keygen", "encaps", "decaps"}
 }
 
+// SizeOps returns the operations E8 samples output sizes from: key
+// generation (public and secret key) and sign (signature) or encaps
+// (ciphertext and shared secret). Verify and decaps produce no new object.
+func (a Alg) SizeOps() []string {
+	if a.Track == Sig {
+		return []string{"keygen", "sign"}
+	}
+	return []string{"keygen", "encaps"}
+}
+
 // HasOp reports whether op is one of the algorithm's operations.
 func (a Alg) HasOp(op string) bool {
 	for _, o := range a.Ops() {

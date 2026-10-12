@@ -1,0 +1,10 @@
+{
+  "name": "smoke-e8",
+  "kind": "smoke",
+  "description": "Pipeline test of E8, never used for results: every algorithm's size blocks with tiny budgets (20 keys or 50 outputs, at least 5, stopping after 2 s).",
+  "reps": 1,
+  "canary_every_s": 120,
+  "items": [
+    {"exp": "E8", "algs": ["all"], "profile": "smoke"}
+  ]
+}

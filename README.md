@@ -14,8 +14,8 @@ It records every sample, flags noisy measurements and repeats them, and produces
 - **Decisions taken while building the harness:** [docs/decisions-log.md](docs/decisions-log.md)
 
 **Status (11 Oct 2026): Mac-first.**
-- The harness runs E0 (environment), E1 (primitive latency), E2 (integration cost: reuse, reinit, production, and their components), E10 (issuer/holder equivalence for ML-DSA), the probe passes and the canary.
-- The macOS launcher works end to end. Mac results so far: the trial, E1 and E10.
+- The harness runs E0 (environment), E1 (primitive latency), E2 (integration cost: reuse, reinit, production, and their components), E8 (sizes and their distributions), E10 (issuer/holder equivalence for ML-DSA), the probe passes and the canary.
+- The macOS launcher works end to end. Mac results so far: the trial, E1, E10 and E2.
 - Decision of 11 Oct: every remaining experiment is coded for the Mac first (E2, E8, E13's model, E11, E3, E9, E4, E5, E6, E7, E12), each with unit tests and a Mac smoke run, then run one by one. The Windows and Linux launchers wait until those machines are available.
 
 ## How it works
@@ -78,8 +78,8 @@ Pushing is always manual.
 - `smoke-quick`: a few algorithms;
 - `trial`: calibration;
 - `trial-e2`: add-on calibration for E2 (batch sizes of the new arms only), once per machine before its first E2 run;
-- `smoke-e2`: E2 pipeline test;
-- `e1`, `e10`, `e2`: main runs.
+- `smoke-e2`, `smoke-e8`: pipeline tests of E2 and E8;
+- `e1`, `e10`, `e2`, `e8`: main runs.
 
 A machine's first main run needs its calibrated section in `config/thresholds.json`. The trial writes `calibration.json`, which is reviewed, merged and committed before any main run on that machine.
 

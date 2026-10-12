@@ -231,6 +231,32 @@ func estimate(dir, plansDir, machine string) (*Estimate, error) {
 			case "encaps":
 				check = get(bl.Alg + "/decaps")
 			}
+			if proto.SizeOnly(bl.Exp) {
+				// E8: target 1,000 keys or 10,000 outputs, each checked
+				// (verify / decaps); at least 100, stopping after 60 s.
+				cost := med + check
+				target := 10000.0
+				if bl.Op == "keygen" {
+					target = 1000
+				}
+				n := target
+				if cost > 0 {
+					n = math.Min(target, math.Max(100, 60e9/cost))
+				}
+				bs := f.overheadNS/1e9 + n*cost/1e9
+				if bl.Op == "keygen" {
+					sub := math.Max(3, n/50)
+					if a.Track == algs.Sig {
+						bs += sub * (get(bl.Alg+"/sign") + get(bl.Alg+"/verify")) / 1e9
+					} else {
+						bs += sub * (get(bl.Alg+"/encaps") + get(bl.Alg+"/decaps")) / 1e9
+					}
+				}
+				rows += n * float64(len(proto.E8Arms(a, bl.Op)))
+				pe.ByExpHours[bl.Exp] += bs / 3600
+				secs += bs
+				continue
+			}
 			mode := th.Class[k]
 			if bl.Exp == "E2c" {
 				mode = "fast"

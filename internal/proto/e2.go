@@ -98,6 +98,8 @@ func ArmsOf(exp string, a algs.Alg, op string) []string {
 		return E2cArms(a, op)
 	case "probe-E2":
 		return append(E2Arms(a, op), E2cArms(a, op)...)
+	case "E8":
+		return E8Arms(a, op)
 	}
 	return []string{ArmReuse}
 }

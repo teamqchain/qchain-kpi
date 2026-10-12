@@ -210,6 +210,13 @@ func evaluate(in evalInput) []*Verdict {
 		if coreBad {
 			v.External = append(v.External, "core")
 		}
+		if proto.SizeOnly(r.Block.Exp) {
+			// Sizes do not depend on machine noise: no run-quality flags,
+			// no repeats; the first attempt is the result.
+			v.External, v.ExtPending = nil, false
+			out = append(out, v)
+			continue
+		}
 		// Drift against the frozen reference.
 		if proto.Measured(r.Block.Exp) {
 			for _, a := range r.Arms {
@@ -378,7 +385,7 @@ func qualityRows(vs []*Verdict) [][]string {
 		} else if v.Drift {
 			drift = "yes"
 		}
-		if proto.IsProbe(b.Exp) {
+		if proto.IsProbe(b.Exp) || proto.SizeOnly(b.Exp) {
 			drift = "n/a"
 		}
 		rows = append(rows, []string{v.Res.Key, b.ID, b.Exp, b.Alg, b.Op, strconv.Itoa(b.Rep), strconv.Itoa(b.Attempt),

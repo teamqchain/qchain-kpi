@@ -35,7 +35,7 @@ const (
 
 // Item is one entry of a plan.
 type Item struct {
-	Exp     string   `json:"exp"`               // "probe", "probe-E2", "E1", "E10", "E2", "E2c"
+	Exp     string   `json:"exp"`               // "probe", "probe-E2", "E1", "E10", "E2", "E2c", "E8"
 	Algs    []string `json:"algs"`              // selectors (see algs.Expand)
 	Ops     []string `json:"ops,omitempty"`     // default: every op of the algorithm
 	Reps    int      `json:"reps,omitempty"`    // default: Plan.Reps
@@ -80,7 +80,7 @@ func Load(path string) (*Plan, error) {
 	}
 	for i, it := range p.Items {
 		switch it.Exp {
-		case "probe", "probe-E2", "E1", "E10", "E2", "E2c":
+		case "probe", "probe-E2", "E1", "E10", "E2", "E2c", "E8":
 		default:
 			return nil, fmt.Errorf("plan %s item %d: experiment %q not implemented in this phase", path, i, it.Exp)
 		}
@@ -172,6 +172,16 @@ func Expand(p *Plan, batchSeed uint64) ([]Block, error) {
 			}
 			if it.Exp == "E10" {
 				ops = []string{"sign"}
+			}
+			if it.Exp == "E8" {
+				if len(it.Ops) == 0 {
+					ops = a.SizeOps()
+				}
+				for _, op := range ops {
+					if op != "keygen" && op != "sign" && op != "encaps" {
+						return nil, fmt.Errorf("E8 measures keygen, sign and encaps only, not %q", op)
+					}
+				}
 			}
 			for _, op := range ops {
 				if !validOp(a, op) {

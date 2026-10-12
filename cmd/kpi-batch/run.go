@@ -381,7 +381,7 @@ func (b *batch) missingClassification(blocks []plan.Block) []string {
 	seen := map[string]bool{}
 	var out []string
 	for _, bl := range blocks {
-		if proto.IsProbe(bl.Exp) || bl.Exp == "E2c" { // E2c blocks are always fast
+		if proto.IsProbe(bl.Exp) || bl.Exp == "E2c" || proto.SizeOnly(bl.Exp) { // E2c: always fast; E8: not timed
 			continue
 		}
 		k := bl.Alg + "/" + bl.Op
@@ -723,6 +723,9 @@ func (b *batch) modeFor(bl plan.Block) (string, error) {
 		// all short; batching keeps every sample above the timer's resolution.
 		return string(timing.Fast), nil
 	}
+	if proto.SizeOnly(bl.Exp) {
+		return "sizes", nil
+	}
 	k := bl.Alg + "/" + bl.Op
 	var m string
 	if b.p.Kind == plan.KindMain {
@@ -737,7 +740,7 @@ func (b *batch) modeFor(bl plan.Block) (string, error) {
 }
 
 func (b *batch) batchFor(bl plan.Block) map[string]int {
-	if b.p.Kind != plan.KindMain || proto.IsProbe(bl.Exp) {
+	if b.p.Kind != plan.KindMain || proto.IsProbe(bl.Exp) || proto.SizeOnly(bl.Exp) {
 		return nil
 	}
 	out := map[string]int{}
@@ -753,6 +756,9 @@ var prepHeader = []string{"utc_ns", "session", "alg", "rep", "pool", "e10", "pre
 
 // ensurePrep generates the input set of a block if it does not exist yet.
 func (b *batch) ensurePrep(bl plan.Block) error {
+	if proto.SizeOnly(bl.Exp) {
+		return nil // E8 blocks generate their own keys and messages
+	}
 	rep := bl.Rep
 	if proto.IsProbe(bl.Exp) {
 		rep = proto.ProbeRep
@@ -868,6 +874,18 @@ func (b *batch) runBlock(bl plan.Block) error {
 		return err
 	}
 	a0 := res.Arms[0]
+	if proto.SizeOnly(bl.Exp) {
+		var parts []string
+		for _, a := range res.Arms {
+			if a.MinBytes == a.MaxBytes {
+				parts = append(parts, fmt.Sprintf("%s %d B", a.Name, a.MinBytes))
+			} else {
+				parts = append(parts, fmt.Sprintf("%s %d-%d B (median %.0f)", a.Name, a.MinBytes, a.MaxBytes, a.Stats.P50))
+			}
+		}
+		logf("%d/%d %s sizes %s (n=%d)", len(b.st.Done), len(b.st.Done)+len(b.st.Queue), bl.Key(), strings.Join(parts, ", "), a0.Stats.N)
+		return nil
+	}
 	logf("%d/%d %s %s p50 %s (n=%d) first %s", len(b.st.Done), len(b.st.Done)+len(b.st.Queue), bl.Key(), modeLabel(mode),
 		fmtNS(a0.Stats.P50), a0.Stats.N, fmtNS(float64(a0.FirstNS)))
 	return nil

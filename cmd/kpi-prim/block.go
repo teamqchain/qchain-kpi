@@ -68,6 +68,8 @@ func cmdBlock(args []string) error {
 			return fmt.Errorf("block: %s has no operation %q", a.ID, b.Op)
 		}
 		firstLabel = "first"
+	case "E8":
+		return e8Block(sp, a) // sizes only: nothing is timed
 	default:
 		return fmt.Errorf("block: experiment %q not implemented", b.Exp)
 	}
