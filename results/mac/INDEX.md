@@ -12,3 +12,4 @@
 | 20261011-0456_mac-m1_colima-vz_b1-prod | trial-e2 | trial | done | 90 |  | 9360aeda9acc | 9687385041608911823 |
 | 20261011-0514_mac-m1_colima-vz_b1-prod | e2 | main | done | 1018 | 103 | ff5332a62ae9 | 18152910138815576595 |
 | 20261012-0301_mac-m1_colima-vz_b1-prod | smoke-e8 | smoke | done | 60 |  | eeb4c183b861 | 11139214810620684965 |
+| 20261012-0309_mac-m1_colima-vz_b1-prod | e8 | main | done | 60 |  | eeb4c183b861 | 14442144974456058523 |
