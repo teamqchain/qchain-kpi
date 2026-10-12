@@ -1,22 +1,9 @@
 // Package flow is E11: the QChain credential lifecycle measured stage by
-// stage through the copied production code (internal/qchain).
-//
-// A Cell is one stage at one setting. Each stage depends on a subset of the
-// settings, and is measured once per value of those (decision of 10 Oct, and
-// decision D of 12 Oct):
-//
-//	activation   (signature, KEM)           wallet key generation + backend key checks
-//	issuance     (signature, KEM, N, V)     the issuance handler's computation
-//	retrieval    (KEM, N, V)                backend envelope check + wallet decryption
-//	presentation (signature, k, V)          wallet payload + signature + backend request check
-//	verification (signature, KEM, N, k, V)  chain-record decoding + verifyPresentation
-//	chained      (signature, KEM, N, k, V)  the five stages back to back (validation of the sums)
-//
-// N = attributes per credential, k = disclosed attributes, V = bytes per
-// attribute value. Verification depends on the KEM because the holder record
-// the chain returns carries the holder's KEM public key, which the backend
-// decodes. Everything a stage needs that production gets from I/O (the IPFS
-// CID, the chain record) is prepared before timing (decision C).
+// stage through the copied production code (internal/qchain). Cells and the
+// grid are defined in internal/cells; this package prepares a cell's inputs
+// (untimed) and builds its measured arms. Everything a stage needs that
+// production gets from I/O (the IPFS CID, the chain record) is prepared
+// before timing (decision C).
 package flow
 
 import (
@@ -26,29 +13,12 @@ import (
 	"io"
 	"math/rand/v2"
 	"net/http"
-	"strconv"
-	"strings"
 	"time"
 
 	"qchain-kpi/internal/algs"
+	"qchain-kpi/internal/cells"
 	"qchain-kpi/internal/qchain"
 	"qchain-kpi/internal/timing"
-)
-
-// Stages.
-const (
-	Activation   = "activation"
-	Issuance     = "issuance"
-	Retrieval    = "retrieval"
-	Presentation = "presentation"
-	Verification = "verification"
-	Chained      = "chained"
-)
-
-// Arm names of an E11 block.
-const (
-	ArmStage       = "stage"        // the whole stage
-	ArmChainDecode = "chain-decode" // verification only: decoding the chain record, reported separately
 )
 
 // Defaults used where a stage does not depend on an algorithm (the library
@@ -70,132 +40,9 @@ const (
 	issuerIdentity = "x509::CN=issuer1,OU=client,O=Hyperledger,ST=North Carolina,C=US::CN=ca.org1.example.com,O=org1.example.com,L=Durham,ST=North Carolina,C=US"
 )
 
-// Cell is one stage at one setting. Sig or KEM is "" when the stage does not
-// depend on it; N, K and V are 0 when it does not depend on them.
-type Cell struct {
-	Stage    string
-	Sig, KEM string
-	N, K, V  int
-}
-
-// Alg is the block's algorithm field: "sig+kem", or the one algorithm the
-// stage depends on.
-func (c Cell) Alg() string {
-	switch {
-	case c.Sig != "" && c.KEM != "":
-		return c.Sig + "+" + c.KEM
-	case c.Sig != "":
-		return c.Sig
-	}
-	return c.KEM
-}
-
-// Op is the block's operation field: the stage plus the settings it depends on.
-func (c Cell) Op() string {
-	s := c.Stage
-	if c.N > 0 {
-		s += "-n" + strconv.Itoa(c.N)
-	}
-	if c.K > 0 {
-		s += "-k" + strconv.Itoa(c.K)
-	}
-	if c.V > 0 {
-		s += "-v" + strconv.Itoa(c.V)
-	}
-	return s
-}
-
-// ParseCell is the inverse of Alg and Op.
-func ParseCell(alg, op string) (Cell, error) {
-	var c Cell
-	parts := strings.Split(op, "-")
-	c.Stage = parts[0]
-	for _, p := range parts[1:] {
-		if len(p) < 2 {
-			return c, fmt.Errorf("flow: bad operation %q", op)
-		}
-		n, err := strconv.Atoi(p[1:])
-		if err != nil || n < 1 {
-			return c, fmt.Errorf("flow: bad operation %q", op)
-		}
-		switch p[0] {
-		case 'n':
-			c.N = n
-		case 'k':
-			c.K = n
-		case 'v':
-			c.V = n
-		default:
-			return c, fmt.Errorf("flow: bad operation %q", op)
-		}
-	}
-	sig, kem, two := strings.Cut(alg, "+")
-	switch {
-	case two:
-		c.Sig, c.KEM = sig, kem
-	default:
-		a, ok := algs.ByID(alg)
-		if !ok {
-			return c, fmt.Errorf("flow: unknown algorithm %q", alg)
-		}
-		if a.Track == algs.Sig {
-			c.Sig = alg
-		} else {
-			c.KEM = alg
-		}
-	}
-	return c, c.Validate()
-}
-
-// Validate checks that the cell names exactly the settings its stage depends on.
-func (c Cell) Validate() error {
-	need := map[string][5]bool{ // sig, kem, n, k, v
-		Activation:   {true, true, false, false, false},
-		Issuance:     {true, true, true, false, true},
-		Retrieval:    {false, true, true, false, true},
-		Presentation: {true, false, false, true, true},
-		Verification: {true, true, true, true, true},
-		Chained:      {true, true, true, true, true},
-	}
-	w, ok := need[c.Stage]
-	if !ok {
-		return fmt.Errorf("flow: unknown stage %q", c.Stage)
-	}
-	have := [5]bool{c.Sig != "", c.KEM != "", c.N > 0, c.K > 0, c.V > 0}
-	if have != w {
-		return fmt.Errorf("flow: %s needs (sig, kem, N, k, V) = %v, got %v", c.Stage, w, have)
-	}
-	if c.Sig != "" {
-		if a, ok := algs.ByID(c.Sig); !ok || a.Track != algs.Sig {
-			return fmt.Errorf("flow: %q is not a signature algorithm", c.Sig)
-		}
-	}
-	if c.KEM != "" {
-		if a, ok := algs.ByID(c.KEM); !ok || a.Track != algs.KEM {
-			return fmt.Errorf("flow: %q is not a KEM", c.KEM)
-		}
-	}
-	if c.N > 64 || (c.K > 0 && c.N > 0 && c.K > c.N) || c.K > 64 {
-		return fmt.Errorf("flow: N=%d k=%d out of range (N <= 64, k <= N)", c.N, c.K)
-	}
-	return nil
-}
-
-// PoolSize is the number of distinct inputs a block cycles through. Inputs
-// whose preparation needs signatures (verification) use fewer for the slow
-// SLH-DSA "s" sets.
-func PoolSize(c Cell) int {
-	if c.Sig != "" && (c.Stage == Verification || c.Stage == Chained) {
-		if a := algs.MustByID(c.Sig); a.Family == "SLH-DSA" && strings.HasSuffix(a.ID, "s") {
-			return 8
-		}
-	}
-	return 32
-}
-
 // Setup holds one block's prepared inputs and its arms.
 type Setup struct {
-	Cell  Cell
+	Cell  cells.Cell
 	P     int
 	Arms  []timing.Arm
 	After func() (int, error) // deferred checks (issuance envelopes); returns the number fully checked
@@ -244,7 +91,7 @@ func cidFor(rng *rand.Rand) string {
 }
 
 // Prepare builds a block's inputs (untimed) and its arms.
-func Prepare(c Cell, seed uint64) (*Setup, error) {
+func Prepare(c cells.Cell, seed uint64) (*Setup, error) {
 	if err := c.Validate(); err != nil {
 		return nil, err
 	}
@@ -252,20 +99,20 @@ func Prepare(c Cell, seed uint64) (*Setup, error) {
 		return nil, err
 	}
 	rng := rand.New(rand.NewPCG(seed, 0x6b70692d65313121)) // "kpi-e11!"
-	st := &Setup{Cell: c, P: PoolSize(c), After: func() (int, error) { return 0, nil }}
+	st := &Setup{Cell: c, P: cells.PoolSize(c), After: func() (int, error) { return 0, nil }}
 	var err error
 	switch c.Stage {
-	case Activation:
+	case cells.Activation:
 		err = st.activation()
-	case Issuance:
+	case cells.Issuance:
 		err = st.issuance(rng)
-	case Retrieval:
+	case cells.Retrieval:
 		err = st.retrieval(rng)
-	case Presentation:
+	case cells.Presentation:
 		err = st.presentation(rng)
-	case Verification:
+	case cells.Verification:
 		err = st.verification(rng)
-	case Chained:
+	case cells.Chained:
 		err = st.chained(rng)
 	}
 	return st, err
@@ -289,7 +136,7 @@ func activationArm() (timing.Arm, error) {
 	var kemPub, dsaPub string
 	var checkErr error
 	return timing.Arm{
-		Name: ArmStage,
+		Name: cells.ArmStage,
 		Call: func(int) (int, error) {
 			var err error
 			kemPub, _, dsaPub, _, err = qchain.WalletKeygen()
@@ -354,7 +201,7 @@ func (st *Setup) issuance(rng *rand.Rand) error {
 // subset (every 50th, at least 3) are fully decrypted and compared after the
 // timed phase, as for key generation in E1 (a full decryption of every
 // envelope would double the block's wall time).
-func issuanceArm(rng *rand.Rand, c Cell, p int, iss *issuer, h *holderKeys) (timing.Arm, func() (int, error), error) {
+func issuanceArm(rng *rand.Rand, c cells.Cell, p int, iss *issuer, h *holderKeys) (timing.Arm, func() (int, error), error) {
 	infos := make([]string, p)
 	attrs := make([]map[string]string, p)
 	cids := make([]string, p)
@@ -370,7 +217,7 @@ func issuanceArm(rng *rand.Rand, c Cell, p int, iss *issuer, h *holderKeys) (tim
 	var keep []saved
 	var last *qchain.IssueResult
 	arm := timing.Arm{
-		Name: ArmStage,
+		Name: cells.ArmStage,
 		Call: func(i int) (int, error) {
 			var err error
 			last, err = qchain.Issue(infos[i%p], holderID, credentialType, h.kemPub, cids[i%p], issuerOrgID, iss.priv)
@@ -425,7 +272,7 @@ func (st *Setup) retrieval(rng *rand.Rand) error {
 
 // retrievalArm: the backend checks the envelope read from IPFS, the wallet
 // decrypts every field.
-func retrievalArm(rng *rand.Rand, c Cell, p int, h *holderKeys) (timing.Arm, error) {
+func retrievalArm(rng *rand.Rand, c cells.Cell, p int, h *holderKeys) (timing.Arm, error) {
 	envs := make([][]byte, p)
 	want := make([]map[string]string, p)
 	for i := range envs {
@@ -442,7 +289,7 @@ func retrievalArm(rng *rand.Rand, c Cell, p int, h *holderKeys) (timing.Arm, err
 	var fields map[string]any
 	var looks bool
 	return timing.Arm{
-		Name: ArmStage,
+		Name: cells.ArmStage,
 		Call: func(i int) (int, error) {
 			looks = qchain.EnvelopeCheck(envs[i%p])
 			var err error
@@ -505,13 +352,13 @@ func disclosures(rng *rand.Rand, p, k, v int) []disclosure {
 // hiddenFields list is sent empty: the wallet lists the names of the N-k
 // hidden attributes there, but decision D measures presentation without N,
 // and decoding up to 63 short names costs well under a microsecond.
-func presentationArm(rng *rand.Rand, c Cell, p int, h *holderKeys) (timing.Arm, error) {
+func presentationArm(rng *rand.Rand, c cells.Cell, p int, h *holderKeys) (timing.Arm, error) {
 	ds := disclosures(rng, p, c.K, c.V)
 	req := newReusable()
 	var payload, sig string
 	var checkErr error
 	return timing.Arm{
-		Name: ArmStage,
+		Name: cells.ArmStage,
 		Call: func(i int) (int, error) {
 			d := ds[i%p]
 			var err error
@@ -567,7 +414,7 @@ type presented struct {
 	payload, sig        string
 }
 
-func presentations(rng *rand.Rand, c Cell, p int, iss *issuer, h *holderKeys) ([]presented, error) {
+func presentations(rng *rand.Rand, c cells.Cell, p int, iss *issuer, h *holderKeys) ([]presented, error) {
 	out := make([]presented, p)
 	holder := &qchain.ChainHolder{DocType: "holder", ID: holderID, FirstName: "Mohammed", LastName: "Ali",
 		KemPublicKey: h.kemPub, DsaPublicKey: h.dsaPub}
@@ -609,7 +456,7 @@ func presentations(rng *rand.Rand, c Cell, p int, iss *issuer, h *holderKeys) ([
 // verificationArms: the backend decodes the chain's response and runs
 // verifyPresentation ("stage"); the decoding alone is a second arm
 // ("chain-decode"), interleaved in the same process.
-func verificationArms(rng *rand.Rand, c Cell, p int, iss *issuer, h *holderKeys) ([]timing.Arm, error) {
+func verificationArms(rng *rand.Rand, c cells.Cell, p int, iss *issuer, h *holderKeys) ([]timing.Arm, error) {
 	ps, err := presentations(rng, c, p, iss, h)
 	if err != nil {
 		return nil, err
@@ -617,7 +464,7 @@ func verificationArms(rng *rand.Rand, c Cell, p int, iss *issuer, h *holderKeys)
 	var out qchain.VerifyOutcome
 	var cred *qchain.ChainCredential
 	stage := timing.Arm{
-		Name: ArmStage,
+		Name: cells.ArmStage,
 		Call: func(i int) (int, error) {
 			x := ps[i%p]
 			cr, holder, err := qchain.DecodeChainResponse(x.response, x.fabricID)
@@ -635,7 +482,7 @@ func verificationArms(rng *rand.Rand, c Cell, p int, iss *issuer, h *holderKeys)
 		},
 	}
 	decode := timing.Arm{
-		Name: ArmChainDecode,
+		Name: cells.ArmChainDecode,
 		Call: func(i int) (int, error) {
 			x := ps[i%p]
 			var err error
@@ -669,15 +516,15 @@ func (st *Setup) chained(rng *rand.Rand) error {
 	if err != nil {
 		return err
 	}
-	isu, after, err := issuanceArm(rng, Cell{Stage: Issuance, Sig: c.Sig, KEM: c.KEM, N: c.N, V: c.V}, st.P, iss, h)
+	isu, after, err := issuanceArm(rng, cells.Cell{Stage: cells.Issuance, Sig: c.Sig, KEM: c.KEM, N: c.N, V: c.V}, st.P, iss, h)
 	if err != nil {
 		return err
 	}
-	ret, err := retrievalArm(rng, Cell{Stage: Retrieval, KEM: c.KEM, N: c.N, V: c.V}, st.P, h)
+	ret, err := retrievalArm(rng, cells.Cell{Stage: cells.Retrieval, KEM: c.KEM, N: c.N, V: c.V}, st.P, h)
 	if err != nil {
 		return err
 	}
-	pre, err := presentationArm(rng, Cell{Stage: Presentation, Sig: c.Sig, K: c.K, V: c.V}, st.P, h)
+	pre, err := presentationArm(rng, cells.Cell{Stage: cells.Presentation, Sig: c.Sig, K: c.K, V: c.V}, st.P, h)
 	if err != nil {
 		return err
 	}
@@ -687,7 +534,7 @@ func (st *Setup) chained(rng *rand.Rand) error {
 	}
 	steps := []timing.Arm{act, isu, ret, pre, ver[0]}
 	st.Arms = []timing.Arm{{
-		Name: ArmStage,
+		Name: cells.ArmStage,
 		Call: func(i int) (int, error) {
 			for _, s := range steps {
 				if _, err := s.Call(i); err != nil {

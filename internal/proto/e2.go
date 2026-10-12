@@ -1,7 +1,10 @@
 package proto
 
 import (
+	"strings"
+
 	"qchain-kpi/internal/algs"
+	"qchain-kpi/internal/cells"
 	"qchain-kpi/internal/plan"
 )
 
@@ -104,9 +107,29 @@ func ArmsOf(exp string, a algs.Alg, op string) []string {
 	return []string{ArmReuse}
 }
 
+// E11Arms returns the arms of an E11 (or probe-E11) block: the whole stage,
+// plus the chain-record decoding for verification.
+func E11Arms(op string) []string {
+	if strings.HasPrefix(op, cells.Verification+"-") {
+		return []string{cells.ArmStage, cells.ArmChainDecode}
+	}
+	return []string{cells.ArmStage}
+}
+
+// ArmsOfBlock is ArmsOf for any block, including E11 (whose algorithm field
+// names a suite, not one algorithm).
+func ArmsOfBlock(exp, alg, op string) []string {
+	if exp == "E11" || exp == "probe-E11" {
+		return E11Arms(op)
+	}
+	return ArmsOf(exp, algs.MustByID(alg), op)
+}
+
 // IsProbe reports whether an experiment is a probe pass (calibration only).
 func IsProbe(exp string) bool { return plan.IsProbe(exp) }
 
 // Measured reports whether an experiment's blocks are measurements that the
 // drift rule and the headline selection apply to.
-func Measured(exp string) bool { return exp == "E1" || exp == "E10" || exp == "E2" || exp == "E2c" }
+func Measured(exp string) bool {
+	return exp == "E1" || exp == "E10" || exp == "E2" || exp == "E2c" || exp == "E11"
+}

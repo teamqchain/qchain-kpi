@@ -22,6 +22,7 @@ import (
 
 	"qchain-kpi/internal/algs"
 	"qchain-kpi/internal/buildinfo"
+	"qchain-kpi/internal/cells"
 	"qchain-kpi/internal/plan"
 	"qchain-kpi/internal/proto"
 	"qchain-kpi/internal/quality"
@@ -150,13 +151,16 @@ func newBatch(c runConfig) (*batch, int, error) {
 	if err != nil {
 		return nil, exitUsage, err
 	}
-	needE2Batch := false
+	needE2Batch, needE11Class := false, false
 	for _, bl := range blocks {
 		if proto.Measured(bl.Exp) {
 			b.cellReps[bl.Cell()]++
 		}
 		if bl.Exp == "E2" || bl.Exp == "E2c" {
 			needE2Batch = true
+		}
+		if bl.Exp == "E11" {
+			needE11Class = true
 		}
 		if bl.Exp == "E10" {
 			b.e10Algs[bl.Alg] = true
@@ -168,6 +172,9 @@ func newBatch(c runConfig) (*batch, int, error) {
 		}
 		if needE2Batch && th.BatchCalibratedFrom["E2"] == "" {
 			return nil, exitRefused, fmt.Errorf("run: thresholds for %s have no E2 batch sizes; run the trial-e2 plan and merge its calibration first", c.Machine)
+		}
+		if needE11Class && th.ClassCalibratedFrom["E11"] == "" {
+			return nil, exitRefused, fmt.Errorf("run: thresholds for %s have no E11 classification; run the trial-e11 plan and merge its calibration first", c.Machine)
 		}
 	}
 
@@ -740,11 +747,11 @@ func (b *batch) modeFor(bl plan.Block) (string, error) {
 }
 
 func (b *batch) batchFor(bl plan.Block) map[string]int {
-	if b.p.Kind != plan.KindMain || proto.IsProbe(bl.Exp) || proto.SizeOnly(bl.Exp) {
-		return nil
+	if b.p.Kind != plan.KindMain || proto.IsProbe(bl.Exp) || proto.SizeOnly(bl.Exp) || bl.Exp == "E11" {
+		return nil // E11 composites are far above the timer's resolution
 	}
 	out := map[string]int{}
-	for _, arm := range proto.ArmsOf(bl.Exp, algs.MustByID(bl.Alg), bl.Op) {
+	for _, arm := range proto.ArmsOfBlock(bl.Exp, bl.Alg, bl.Op) {
 		if n := b.th.Batch[bl.Alg+"/"+bl.Op+"/"+arm]; n > 1 {
 			out[arm] = n
 		}
@@ -756,8 +763,8 @@ var prepHeader = []string{"utc_ns", "session", "alg", "rep", "pool", "e10", "pre
 
 // ensurePrep generates the input set of a block if it does not exist yet.
 func (b *batch) ensurePrep(bl plan.Block) error {
-	if proto.SizeOnly(bl.Exp) {
-		return nil // E8 blocks generate their own keys and messages
+	if proto.SizeOnly(bl.Exp) || bl.Exp == "E11" || bl.Exp == "probe-E11" {
+		return nil // E8 and E11 blocks prepare their own inputs
 	}
 	rep := bl.Rep
 	if proto.IsProbe(bl.Exp) {
@@ -863,6 +870,9 @@ func (b *batch) runBlock(bl plan.Block) error {
 	}
 	if bl.Exp == "probe" && b.p.Kind != plan.KindMain && len(res.Arms) == 1 {
 		b.st.Class[bl.Alg+"/"+bl.Op] = quality.Classify(res.Arms[0].ProbeNS)
+	}
+	if bl.Exp == "probe-E11" && b.p.Kind != plan.KindMain && len(res.Arms) > 0 {
+		b.st.Class[bl.Alg+"/"+bl.Op] = quality.ClassifyComposite(res.Arms[0].ProbeNS, cells.SlowCompositeNS)
 	}
 	b.lastEnd = res.EndNS
 	b.st.Queue = b.st.Queue[1:]

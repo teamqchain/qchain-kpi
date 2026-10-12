@@ -36,6 +36,9 @@ type Machine struct {
 	// that the machine's first trial did not cover) whose batch sizes were
 	// merged into Batch: experiment -> trial run id. E2 main runs need "E2".
 	BatchCalibratedFrom map[string]string  `json:"batch_calibrated_from,omitempty"`
+	// ClassCalibratedFrom records add-on trials that classified new cells
+	// as fast or slow: experiment -> trial run id. E11 main runs need "E11".
+	ClassCalibratedFrom map[string]string `json:"class_calibrated_from,omitempty"`
 	Inputs              map[string]float64 `json:"calibration_inputs,omitempty"` // d95, canary robust SD, A/A floors
 }
 
@@ -148,6 +151,22 @@ func AAFloor(issuer, issuerAgain []float64) (floor, margin float64) {
 	mean, half := stats.MeanCI90(lr)
 	floor = math.Abs(mean) + half
 	return floor, math.Max(DefaultE10Margin, 2*floor)
+}
+
+// ClassifyComposite is the E11 rule: "slow" when the probe median is at least
+// 30 ms (cells.SlowCompositeNS), else "fast".
+func ClassifyComposite(probeNS []int64, slowNS float64) string {
+	if len(probeNS) == 0 {
+		return ""
+	}
+	xs := make([]float64, len(probeNS))
+	for i, v := range probeNS {
+		xs[i] = float64(v)
+	}
+	if stats.Median(xs) >= slowNS {
+		return "slow"
+	}
+	return "fast"
 }
 
 // Classify returns "fast" when the probe median is below 1 ms.

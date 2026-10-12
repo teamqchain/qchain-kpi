@@ -17,7 +17,9 @@ import (
 
 	"qchain-kpi/internal/algs"
 	"qchain-kpi/internal/buildinfo"
+	"qchain-kpi/internal/cells"
 	"qchain-kpi/internal/classical"
+	"qchain-kpi/internal/flow"
 	"qchain-kpi/internal/inputs"
 	"qchain-kpi/internal/pqc"
 	"qchain-kpi/internal/procsetup"
@@ -48,12 +50,17 @@ func cmdBlock(args []string) error {
 		return fmt.Errorf("block: bad --spec: %w", err)
 	}
 	b := sp.Block
-	a, ok := algs.ByID(b.Alg)
-	if !ok {
-		return fmt.Errorf("block: unknown algorithm %q", b.Alg)
-	}
 	if b.Rep < 1 || b.Attempt < 1 || sp.RawFile == "" || !filepath.IsAbs(sp.RawFile) || sp.PrepDir == "" {
 		return fmt.Errorf("block: incomplete spec %+v", sp)
+	}
+	// E11 blocks name a suite or stage setting, not one algorithm.
+	e11 := b.Exp == "E11" || b.Exp == "probe-E11"
+	var a algs.Alg
+	if !e11 {
+		var ok bool
+		if a, ok = algs.ByID(b.Alg); !ok {
+			return fmt.Errorf("block: unknown algorithm %q", b.Alg)
+		}
 	}
 	firstLabel := "cold"
 	switch b.Exp {
@@ -70,6 +77,8 @@ func cmdBlock(args []string) error {
 		firstLabel = "first"
 	case "E8":
 		return e8Block(sp, a) // sizes only: nothing is timed
+	case "E11", "probe-E11":
+		firstLabel = "first" // the block's own input preparation runs crypto first
 	default:
 		return fmt.Errorf("block: experiment %q not implemented", b.Exp)
 	}
@@ -79,23 +88,48 @@ func cmdBlock(args []string) error {
 	}
 
 	oomSet := procsetup.OOMAdj()
-	procsetup.MicroGC()
 
-	prepRep := b.Rep
-	if probe {
-		prepRep = proto.ProbeRep
-	}
-	p, err := inputs.Load(proto.PrepPath(sp.PrepDir, a.ID, prepRep))
-	if err != nil {
-		return err
-	}
-	if p.Alg != a.ID || p.Rep != prepRep {
-		return fmt.Errorf("block: prep is for %s rep %d, not %s rep %d", p.Alg, p.Rep, a.ID, prepRep)
-	}
-
-	// Build the arms. Nothing here runs a cryptographic operation.
+	// Build the arms. For E1, E2 and E10 nothing here runs a cryptographic
+	// operation; E11 prepares its inputs here (untimed, recorded as prep_ns).
 	var set *armSet
+	var p *inputs.Prep
+	var poolN int
+	var prepID string
+	var prepNS int64
+	var err error
+	if e11 {
+		// Production-like GC for the composites (approved 10 Oct): no MicroGC.
+		c, err := cells.ParseCell(b.Alg, b.Op)
+		if err != nil {
+			return fmt.Errorf("block: %w", err)
+		}
+		t0 := time.Now()
+		fs, err := flow.Prepare(c, b.Seed)
+		if err != nil {
+			return fmt.Errorf("block %s: prepare: %w", b.Key(), err)
+		}
+		prepNS = time.Since(t0).Nanoseconds()
+		set = &armSet{arms: fs.Arms, after: fs.After}
+		poolN = fs.P
+		if err := checkArmOrder(set, proto.E11Arms(b.Op)); err != nil {
+			return fmt.Errorf("block %s: %w", b.Key(), err)
+		}
+	} else {
+		procsetup.MicroGC()
+		prepRep := b.Rep
+		if probe {
+			prepRep = proto.ProbeRep
+		}
+		if p, err = inputs.Load(proto.PrepPath(sp.PrepDir, a.ID, prepRep)); err != nil {
+			return err
+		}
+		if p.Alg != a.ID || p.Rep != prepRep {
+			return fmt.Errorf("block: prep is for %s rep %d, not %s rep %d", p.Alg, p.Rep, a.ID, prepRep)
+		}
+		poolN, prepID = p.P, p.Fingerprint
+	}
 	switch b.Exp {
+	case "E11", "probe-E11":
 	case "E10":
 		if !p.HasE10() {
 			return fmt.Errorf("block: prep %s r%d has no E10 pools", a.ID, b.Rep)
@@ -139,7 +173,12 @@ func cmdBlock(args []string) error {
 
 	var cfg timing.Config
 	if !probe {
-		if cfg, err = proto.Budget(b.Profile, timing.Mode(b.Mode), b.Seed, firstLabel); err != nil {
+		if e11 {
+			cfg, err = proto.BudgetE11(b.Profile, timing.Mode(b.Mode), b.Seed)
+		} else {
+			cfg, err = proto.Budget(b.Profile, timing.Mode(b.Mode), b.Seed, firstLabel)
+		}
+		if err != nil {
 			return err
 		}
 		wall := sp.MaxWall
@@ -222,7 +261,7 @@ func cmdBlock(args []string) error {
 		"rep": strconv.Itoa(b.Rep), "attempt": strconv.Itoa(b.Attempt), "profile": b.Profile,
 		"mode": b.Mode, "seed": strconv.FormatUint(b.Seed, 10), "diagnostic": strconv.FormatBool(b.Diagnostic),
 		"arms": strings.Join(armList, ","), "batch": strings.Join(batchList, ","), "first_label": firstLabel,
-		"pool": strconv.Itoa(p.P), "prep_id": p.Fingerprint, "harness_commit": buildinfo.HarnessCommit,
+		"pool": strconv.Itoa(poolN), "prep_id": prepID, "harness_commit": buildinfo.HarnessCommit,
 		"go": runtime.Version(), "liboqs": pqc.Version(), "openssl": classical.OpenSSLVersion(),
 		"gomaxprocs": strconv.Itoa(runtime.GOMAXPROCS(0)), "cpus": intsCSV(cpus),
 		"start_unix_ns": strconv.FormatInt(startNS, 10),
@@ -230,6 +269,10 @@ func cmdBlock(args []string) error {
 	}
 	if b.Exp == "E10" {
 		header["holder_prep_id"] = p.HolderFingerprint
+	}
+	if e11 {
+		header["prep_ns"] = strconv.FormatInt(prepNS, 10)
+		header["gc"] = "Go default (production-like); no collections forced between samples"
 	}
 	if probe {
 		header["budget"] = fmt.Sprintf("%s call + %d calls per arm", firstLabel, proto.ProbeCalls)
@@ -260,8 +303,8 @@ func cmdBlock(args []string) error {
 	out := proto.Result{
 		Key: b.Key(), Block: b, Truncated: res.Truncated, StartNS: startNS, EndNS: endNS, WallNS: res.WallNS,
 		GCForced: res.GCForced, GCAuto: gc1 - gc0, Quality: quality.Diff(q0, q1, cpus), CPUs: cpus,
-		GOMAXPROCS: runtime.GOMAXPROCS(0), OOMAdj: oomSet, Pool: p.P, PrepID: p.Fingerprint,
-		KeysChecked: keysChecked, Rows: nrows, RawSHA256: sum,
+		GOMAXPROCS: runtime.GOMAXPROCS(0), OOMAdj: oomSet, Pool: poolN, PrepID: prepID,
+		KeysChecked: keysChecked, Rows: nrows, RawSHA256: sum, PrepNS: prepNS,
 	}
 	if !probe {
 		out.Budget = proto.Info(cfg)

@@ -80,6 +80,7 @@ func printEstimate(e *Estimate) {
 // trialFacts are the measurements the estimate is built from.
 type trialFacts struct {
 	med         map[string]float64 // alg/op -> probe median ns
+	prep        map[string]float64 // E11: alg/op -> the block's own input preparation, ns
 	overheadNS  float64            // per-block fixed cost (process, bootstrap, files)
 	bytesPerRow float64
 	cal         *Calibration
@@ -98,12 +99,15 @@ func loadTrialFacts(dir string) (*trialFacts, error) {
 	if err != nil {
 		return nil, err
 	}
-	f := &trialFacts{med: map[string]float64{}, cal: &cal}
+	f := &trialFacts{med: map[string]float64{}, prep: map[string]float64{}, cal: &cal}
 	var rawBytes, rawRows float64
 	wall := map[string]int64{}
 	for _, r := range results {
 		k := r.Block.Alg + "/" + r.Block.Op
 		if proto.IsProbe(r.Block.Exp) {
+			if r.PrepNS > 0 {
+				f.prep[k] = float64(r.PrepNS)
+			}
 			// probe: the reuse arm (alg/op); probe-E2: every arm (alg/op/arm).
 			for _, a := range r.Arms {
 				xs := make([]float64, len(a.ProbeNS))
@@ -221,8 +225,34 @@ func estimate(dir, plansDir, machine string) (*Estimate, error) {
 		var secs, rows float64
 		preps := map[string]bool{}
 		for _, bl := range blocks {
-			a := algs.MustByID(bl.Alg)
 			k := bl.Alg + "/" + bl.Op
+			if bl.Exp == "E11" {
+				// Composites: 20 warm-up calls + 2,000 samples, or the slow
+				// rule (at least 60 s and 30 samples) at 30 ms and above; the
+				// block's own input preparation is untimed but takes wall time.
+				bs := f.overheadNS/1e9 + f.prep[k]/1e9
+				for _, arm := range proto.E11Arms(bl.Op) {
+					med, ok := f.med[k+"/"+arm]
+					if !ok {
+						missing[k+"/"+arm] = true
+						continue
+					}
+					check := 0.25 * med // signature and outcome checks after each call
+					var n float64
+					if th.Class[k] == "slow" {
+						n = math.Max(30, math.Ceil(60e9/med))
+						bs += ((3+n)*med + n*check) / 1e9
+					} else {
+						n = 2000
+						bs += ((20+n)*med + n*check) / 1e9
+					}
+					rows += n + 1
+				}
+				pe.ByExpHours[bl.Exp] += bs / 3600
+				secs += bs
+				continue
+			}
+			a := algs.MustByID(bl.Alg)
 			med := get(k)
 			check := 0.0
 			switch bl.Op {

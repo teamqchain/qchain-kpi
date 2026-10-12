@@ -44,7 +44,7 @@ The folder holds only allow-listed facts: no host name, user name, path outside 
 
 | Name | Example | Meaning |
 |---|---|---|
-| block id | `E1.ml-dsa-44.sign.r3` | experiment, algorithm, operation, repetition (experiments `E1`, `E10`, `E2`, `E2c`, `E8`, `probe`, `probe-E2`) |
+| block id | `E1.ml-dsa-44.sign.r3` | experiment, algorithm, operation, repetition (experiments `E1`, `E10`, `E2`, `E2c`, `E8`, `E11`, `probe`, `probe-E2`, `probe-E11`) |
 | attempt key | `E1.ml-dsa-44.sign.r3.a2` | block id + attempt number (`a1` = the first attempt) |
 | cell | `E1.ml-dsa-44.sign` | block id without the repetition |
 | arm | `reuse`, `issuer`, `holder`, `issuer-again`, `reinit`, `prod`, `hex-decode-sk`, `hex-decode-pk`, `hex-decode-sig`, `hex-decode-ct`, `init`, `clean`, `hex-encode-pk`, `hex-encode-sk`, `hex-encode-sig`, `hex-encode-ct`, `hex-encode-ss` | a measured variant inside a block (E2 and E2c arms: `docs/methodology.md` section 4 and `internal/proto/e2.go`) |
@@ -161,4 +161,15 @@ E8 blocks are not timed, so their files differ:
 - **`blocks.csv`:** one row per item (`arm` = `pk`, `sk`, `sig`, `ct` or `ss`); `mode` is `sizes`; the statistics columns (`p50_ns`, `mean_ns`, `min_ns`, `max_ns`, ...) hold **bytes**, not nanoseconds; `n` is the number of items; `min_bytes`/`max_bytes` are the shortest and longest item; `first_label` is empty and `first_ns` is 0.
 - **`quality.csv`:** host and canary facts are recorded, but no flags apply (`external_flags` empty, `drift` = `n/a`), and the first attempt is always the headline.
 - **Encoded sizes:** hex characters = 2 × bytes; JSON string = 2 × bytes + 2.
+
+## E11 (lifecycle composites)
+
+- **Block ids** name a cell: `E11.<algorithm field>.<operation field>.r<rep>`.
+  - Algorithm field: `<signature>+<KEM>` (activation, issuance, verification, chained), the KEM alone (retrieval) or the signature alone (presentation).
+  - Operation field: the stage and the settings it depends on, for example `issuance-n10-v16`, `presentation-k5-v16`, `verification-n64-k32-v16`, `activation`.
+  - `internal/cells` parses both fields (`ParseCell`).
+- **Arms:** `stage` (the whole stage); verification also has `chain-decode` (decoding the chain's response alone).
+- **Raw header:** as usual, plus `prep_ns` (the block's untimed input preparation) and `gc` (Go's default GC, no collections forced).
+- **`blocks.jsonl`:** `prep_ns` per attempt; `gc_automatic` counts the collections Go ran by itself (expected above 0 for E11, unlike the micro-benchmarks).
+- **Classification:** `classification["<algorithm field>/<operation field>"]` in `config/thresholds.json`, from `trial-e11` (probe median of the whole stage at least 30 ms = slow); `class_calibrated_from.E11` names that trial.
 

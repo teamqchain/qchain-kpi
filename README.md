@@ -78,8 +78,9 @@ Pushing is always manual.
 - `smoke-quick`: a few algorithms;
 - `trial`: calibration;
 - `trial-e2`: add-on calibration for E2 (batch sizes of the new arms only), once per machine before its first E2 run;
-- `smoke-e2`, `smoke-e8`: pipeline tests of E2 and E8;
-- `e1`, `e10`, `e2`, `e8`: main runs.
+- `trial-e11`: add-on calibration for E11 (fast/slow classification of the 991 cells), once per machine before its first E11 run;
+- `smoke-e2`, `smoke-e8`, `smoke-e11`: pipeline tests of E2, E8 and E11;
+- `e1`, `e10`, `e2`, `e8`, `e11`: main runs.
 
 A machine's first main run needs its calibrated section in `config/thresholds.json`. The trial writes `calibration.json`, which is reviewed, merged and committed before any main run on that machine.
 

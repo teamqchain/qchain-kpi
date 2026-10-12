@@ -18,6 +18,7 @@ import (
 	"strings"
 
 	"qchain-kpi/internal/algs"
+	"qchain-kpi/internal/cells"
 )
 
 // Kinds of plan.
@@ -35,7 +36,7 @@ const (
 
 // Item is one entry of a plan.
 type Item struct {
-	Exp     string   `json:"exp"`               // "probe", "probe-E2", "E1", "E10", "E2", "E2c", "E8"
+	Exp     string   `json:"exp"`               // "probe", "probe-E2", "probe-E11", "E1", "E10", "E2", "E2c", "E8", "E11"
 	Algs    []string `json:"algs"`              // selectors (see algs.Expand)
 	Ops     []string `json:"ops,omitempty"`     // default: every op of the algorithm
 	Reps    int      `json:"reps,omitempty"`    // default: Plan.Reps
@@ -80,7 +81,7 @@ func Load(path string) (*Plan, error) {
 	}
 	for i, it := range p.Items {
 		switch it.Exp {
-		case "probe", "probe-E2", "E1", "E10", "E2", "E2c", "E8":
+		case "probe", "probe-E2", "probe-E11", "E1", "E10", "E2", "E2c", "E8", "E11":
 		default:
 			return nil, fmt.Errorf("plan %s item %d: experiment %q not implemented in this phase", path, i, it.Exp)
 		}
@@ -152,7 +153,7 @@ func Expand(p *Plan, batchSeed uint64) ([]Block, error) {
 		exp, alg, op, profile string
 		reps                  int
 	}
-	var cells []cell
+	var cs []cell
 	maxReps := 0
 	for _, it := range p.Items {
 		reps := it.Reps
@@ -164,6 +165,20 @@ func Expand(p *Plan, batchSeed uint64) ([]Block, error) {
 		}
 		if reps > maxReps {
 			maxReps = reps
+		}
+		if it.Exp == "E11" || it.Exp == "probe-E11" {
+			// E11's grid is fixed (internal/cells); the item's algorithms
+			// select the cells whose signature and KEM are all among them.
+			sel := map[string]bool{}
+			for _, a := range mustExpand(it.Algs) {
+				sel[a.ID] = true
+			}
+			for _, c := range cells.Grid() {
+				if (c.Sig == "" || sel[c.Sig]) && (c.KEM == "" || sel[c.KEM]) {
+					cs = append(cs, cell{it.Exp, c.Alg(), c.Op(), it.Profile, reps})
+				}
+			}
+			continue
 		}
 		for _, a := range mustExpand(it.Algs) {
 			ops := it.Ops
@@ -187,7 +202,7 @@ func Expand(p *Plan, batchSeed uint64) ([]Block, error) {
 				if !validOp(a, op) {
 					return nil, fmt.Errorf("%s does not support op %q", a.ID, op)
 				}
-				cells = append(cells, cell{it.Exp, a.ID, op, it.Profile, reps})
+				cs = append(cs, cell{it.Exp, a.ID, op, it.Profile, reps})
 			}
 		}
 	}
@@ -195,7 +210,7 @@ func Expand(p *Plan, batchSeed uint64) ([]Block, error) {
 	seen := map[string]bool{}
 	for rep := 1; rep <= maxReps; rep++ {
 		var round []Block
-		for _, c := range cells {
+		for _, c := range cs {
 			if rep > c.reps {
 				continue
 			}
@@ -226,7 +241,7 @@ func Expand(p *Plan, batchSeed uint64) ([]Block, error) {
 }
 
 // IsProbe reports whether an experiment is a probe pass (calibration only).
-func IsProbe(exp string) bool { return exp == "probe" || exp == "probe-E2" }
+func IsProbe(exp string) bool { return exp == "probe" || exp == "probe-E2" || exp == "probe-E11" }
 
 func validOp(a algs.Alg, op string) bool {
 	for _, o := range a.Ops() {
