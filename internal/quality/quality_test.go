@@ -4,6 +4,7 @@ import (
 	"math"
 	"os"
 	"path/filepath"
+	"strings"
 	"testing"
 	"time"
 )
@@ -112,8 +113,23 @@ func TestCommittedThresholdsFile(t *testing.T) {
 	}
 	for name, m := range f.Machines {
 		if m.CalibratedFrom == "" || m.DriftFrac < DefaultDriftFrac || m.CanaryFrac < DefaultCanaryFrac ||
-			m.StealPct != DefaultStealPct || m.OtherPct != DefaultOtherPct || len(m.Class) != 90 || len(m.E10Margin) != 3 {
+			m.StealPct != DefaultStealPct || m.OtherPct != DefaultOtherPct || len(m.E10Margin) != 3 {
 			t.Fatalf("machine %s: incomplete or out-of-rule section", name)
+		}
+		// The 90 algorithm x operation classifications of the first trial; any
+		// further entries (E11 cells) need the add-on calibration that made them.
+		base := 0
+		for k := range m.Class {
+			alg, op, ok := strings.Cut(k, "/")
+			if ok && !strings.Contains(alg, "+") && (op == "keygen" || op == "sign" || op == "verify" || op == "encaps" || op == "decaps") {
+				base++
+			}
+		}
+		if base != 90 {
+			t.Fatalf("machine %s: %d base classifications, want 90", name, base)
+		}
+		if len(m.Class) > base && m.ClassCalibratedFrom["E11"] == "" {
+			t.Fatalf("machine %s: E11 classifications without class_calibrated_from.E11", name)
 		}
 		for set, v := range m.E10Margin {
 			if v < DefaultE10Margin {

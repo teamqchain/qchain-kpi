@@ -1,0 +1,27 @@
+{
+  "machine": "mac-m1",
+  "trial_run": "20261012-0525_mac-m1_colima-vz_b1-prod",
+  "plans": [
+    {
+      "plan": "e11",
+      "file": "e11.json",
+      "blocks": 4955,
+      "hours": 29.002115480550874,
+      "prep_hours": 0,
+      "canary_hours": 0.07801981067522396,
+      "by_experiment_hours": {
+        "E11": 28.924095669875744
+      },
+      "raw_mb": 36.7274325
+    }
+  ],
+  "total_hours": 29.002115480550874,
+  "total_raw_mb": 36.7274325,
+  "assumptions": [
+    "probe medians from the trial (cold call excluded)",
+    "per-block fixed overhead 0.50 s (median of the trial)",
+    "raw data 2.50 bytes per sample row (trial average, gzip)",
+    "input-set generation per (algorithm, repetition) = key generation + P x (sign + verify) or P x (encaps + decaps)",
+    "repeats and diagnostic re-runs are not included"
+  ]
+}
