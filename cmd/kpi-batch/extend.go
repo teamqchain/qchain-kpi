@@ -84,6 +84,10 @@ func (b *batch) extendBlocks(ids []string, oldImage, oldCommit string) error {
 		nb.Mode = ""
 		nb.Seed = plan.DeriveSeed(b.c.Seed, nb.Key())
 		b.st.Queue = append(b.st.Queue, nb)
+		// The extension attempt is this block's repeat. Marking the attempt it
+		// follows as already repeated stops a checkpoint that runs before the
+		// attempt has finished from queueing the same attempt number again.
+		b.st.Requeued[x.last.Key()] = true
 		b.st.Base[id] = x.attempts
 		if err := b.journal("extension_queued", nb.Key(), fmt.Sprintf("block had %d attempt(s), none clean", x.attempts)); err != nil {
 			return err

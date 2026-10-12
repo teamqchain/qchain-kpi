@@ -135,3 +135,26 @@ func TestExtendIdentityIgnoresOnlyTheBuild(t *testing.T) {
 		t.Fatalf("a changed thresholds file must still refuse: %v", p)
 	}
 }
+
+// A checkpoint that evaluates the run while the extension attempt is still
+// queued must not queue the same attempt number a second time (seen in the E2
+// extension of 12 Oct, where attempt a4 ran twice).
+func TestExtensionAttemptIsNotQueuedTwice(t *testing.T) {
+	b, dir := finishedRun(t)
+	if b.st.Requeued == nil {
+		b.st.Requeued = map[string]bool{}
+	}
+	if err := b.extendBlocks([]string{"E1.ml-dsa-44.sign.r1"}, "", ""); err != nil {
+		t.Fatal(err)
+	}
+	in, err := loadEval(dir, b.st, b.th, true)
+	if err != nil {
+		t.Fatal(err)
+	}
+	ds := decideBase(plan.KindMain, evaluate(in), 5, b.st.Requeued, b.st.Diagnosed, b.st.Base)
+	for _, d := range ds {
+		if d.Block.ID == "E1.ml-dsa-44.sign.r1" {
+			t.Fatalf("the pending extension attempt was queued again: %s", d.Block.Key())
+		}
+	}
+}
