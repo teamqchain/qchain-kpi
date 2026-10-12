@@ -231,3 +231,26 @@ func sortedFieldNames(m map[string]string) []string {
 	sort.Strings(out)
 	return out
 }
+
+// ------------------------------------------------- exported entry points (E11)
+
+// IssuerKeygen generates the issuer's key pair as hex (once per block, untimed):
+// the keygen tool's steps for liboqs, the OpenSSL twin for classical.
+func IssuerKeygen() (pubHex, privHex string, err error) { return sigGenerateKeypair() }
+
+// SigVerify is production's pqcVerify through the dispatcher (correctness
+// checks, untimed).
+func SigVerify(message, signatureHex, publicKeyHex string) (bool, error) {
+	return pqcVerify(message, signatureHex, publicKeyHex)
+}
+
+// CommitAttributes is production's commitAttributes (input preparation).
+func CommitAttributes(attrs map[string]string) (salts, fieldHashes map[string]string, err error) {
+	return commitAttributes(attrs)
+}
+
+// SealEnvelope is production's sealCredentialEnvelope (input preparation for
+// retrieval).
+func SealEnvelope(attrs, salts map[string]string, holderKemPubHex string) ([]byte, error) {
+	return sealCredentialEnvelope(attrs, salts, holderKemPubHex)
+}
