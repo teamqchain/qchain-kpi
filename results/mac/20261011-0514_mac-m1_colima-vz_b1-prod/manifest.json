@@ -9,7 +9,7 @@
     "sha256": "0b3ab8a0ee0fdd0488f247e25ab82f7172a06a5e9b0ff3006a024b6187485f7c",
     "reps": 5,
     "canary_every_s": 600,
-    "planned_blocks": 900
+    "planned_blocks": 903
   },
   "seed": 18152910138815576595,
   "image_id": "sha256:2ea46e98186b46505511c3fee1bcda03ba7b90cacb17b0ba66012c81306ba863",
@@ -470,7 +470,7 @@
     "memory_max": "3221225472",
     "memory_swap_max": "0",
     "net_interfaces": "lo",
-    "out_free_gb": "54.2",
+    "out_free_gb": "54.1",
     "tz": "Asia/Dubai"
   },
   "host": {
@@ -478,7 +478,7 @@
     "colima": "0.10.3",
     "container_cpuset": "1",
     "container_mem": "3g",
-    "cooling": "USB fan cooling pad",
+    "cooling": "unstated",
     "docker": "29.5.2",
     "host_cpu": "Apple M1",
     "host_mem_gb": "8",
@@ -501,19 +501,43 @@
       "host_offset_ns": 56142861,
       "native_p_rate": 2572619.91660584,
       "native_e_rate": 411758.876854934
+    },
+    {
+      "n": 2,
+      "started_utc": "2026-10-12T02:00:35Z",
+      "start_unix_ns": 1791770435759158798,
+      "host_offset_ns": -23359856,
+      "native_p_rate": 2570443.0246858,
+      "native_e_rate": 412075.524517474
     }
   ],
   "status": "done",
   "started_utc": "2026-10-11T05:14:15Z",
-  "updated_utc": "2026-10-12T00:14:56Z",
+  "updated_utc": "2026-10-12T02:42:01Z",
   "counts": {
-    "attempts": 1010,
+    "attempts": 1018,
     "blocks": 900,
-    "blocks_with_headline": 897,
+    "blocks_with_headline": 900,
     "diagnostic_attempts": 16,
     "drift_flags": 19,
-    "exhausted_blocks": 3,
-    "flagged_attempts": 98,
-    "repeat_attempts": 94
-  }
+    "flagged_attempts": 103,
+    "repeat_attempts": 102
+  },
+  "notes": [
+    "session 2 extended this run: blocks E2.hqc-5.encaps.r1, E2.slh-dsa-shake-192f.verify.r2, E2.slh-dsa-shake-192s.verify.r4 had no clean attempt and were run again (attempt numbers continue); input sets were regenerated (same message seeds, new keys)"
+  ],
+  "extensions": [
+    {
+      "session": 2,
+      "blocks": [
+        "E2.hqc-5.encaps.r1",
+        "E2.slh-dsa-shake-192f.verify.r2",
+        "E2.slh-dsa-shake-192s.verify.r4"
+      ],
+      "old_image_id": "sha256:2ea46e98186b46505511c3fee1bcda03ba7b90cacb17b0ba66012c81306ba863",
+      "old_harness_commit": "ff5332a62ae9d1aca0ad5f43bc4f835700bd75e4",
+      "new_image_id": "sha256:2ea46e98186b46505511c3fee1bcda03ba7b90cacb17b0ba66012c81306ba863",
+      "new_harness_commit": "ff5332a62ae9d1aca0ad5f43bc4f835700bd75e4"
+    }
+  ]
 }

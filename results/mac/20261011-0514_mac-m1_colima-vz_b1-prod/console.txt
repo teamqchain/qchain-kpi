@@ -1367,3 +1367,28 @@
 [04:13:48] 1010/1010 E2c.slh-dsa-shake-256s.keygen.r5.a2 fast p50 646ns (n=10000) first 1.83us
 [04:13:50] canary 98 (end): 2519082 hashes/s, ratio 0.9829 P-like
 [04:14:56] batch complete: 1010 attempt(s); 3299 file(s) in SHA256SUMS
+
+=== extension session (blocks without a clean attempt) ===
+[06:00:35] resuming 20261011-0514_mac-m1_colima-vz_b1-prod: 0 block(s) queued, 1010 done, 0 temporary file(s) removed
+[06:00:37] canary 99 (extend): 2565206 hashes/s, ratio 1.0009 P-like
+[06:00:45] prepared hqc-5.r1: P=256 in 7.5s
+[06:08:16] 1011/1013 E2.hqc-5.encaps.r1.a4 slow p50 11.815ms (n=5081) first 13.113ms
+[06:08:28] prepared slh-dsa-shake-192f.r2: P=256 in 11.7s
+[06:11:29] 1012/1013 E2.slh-dsa-shake-192f.verify.r2.a4 slow p50 2.293ms (n=26141) first 2.319ms
+[06:11:31] canary 100 (periodic): 2518051 hashes/s, ratio 0.9825 P-like
+[06:11:31] queued E2.hqc-5.encaps.r1.a5 (repeat:other) at position 0
+[06:11:31] queued E2.slh-dsa-shake-192s.verify.r4.a4 (repeat:other) at position 2
+[06:19:03] 1013/1015 E2.hqc-5.encaps.r1.a5 slow p50 11.808ms (n=5073) first 12.636ms
+[06:20:06] prepared slh-dsa-shake-192s.r4: P=64 in 63.0s
+[06:23:09] 1014/1015 E2.slh-dsa-shake-192s.verify.r4.a4 slow p50 785.57us (n=76219) first 764.37us
+[06:23:11] canary 101 (periodic): 2518198 hashes/s, ratio 0.9825 P-like
+[06:23:11] queued E2.hqc-5.encaps.r1.a6 (repeat:other) at position 1
+[06:23:11] queued E2.slh-dsa-shake-192f.verify.r2.a5 (repeat:other) at position 1
+[06:26:15] 1015/1017 E2.slh-dsa-shake-192s.verify.r4.a4 slow p50 782.90us (n=76477) first 798.85us
+[06:29:16] 1016/1017 E2.slh-dsa-shake-192f.verify.r2.a5 slow p50 2.301ms (n=26044) first 2.389ms
+[06:36:48] 1017/1017 E2.hqc-5.encaps.r1.a6 slow p50 11.795ms (n=5080) first 12.781ms
+[06:36:50] canary 102 (end): 2517692 hashes/s, ratio 0.9823 P-like
+[06:37:56] queued E2.slh-dsa-shake-192s.verify.r4.a5 (repeat:other) at position 0
+[06:40:59] 1018/1018 E2.slh-dsa-shake-192s.verify.r4.a5 slow p50 780.48us (n=76723) first 780.15us
+[06:41:01] canary 103 (end): 2518228 hashes/s, ratio 0.9825 P-like
+[06:42:01] batch complete: 1018 attempt(s); 3405 file(s) in SHA256SUMS

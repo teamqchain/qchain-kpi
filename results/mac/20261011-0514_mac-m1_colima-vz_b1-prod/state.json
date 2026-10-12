@@ -19,9 +19,17 @@
       "host_offset_ns": 56142861,
       "native_p_rate": 2572619.91660584,
       "native_e_rate": 411758.876854934
+    },
+    {
+      "n": 2,
+      "started_utc": "2026-10-12T02:00:35Z",
+      "start_unix_ns": 1791770435759158798,
+      "host_offset_ns": -23359856,
+      "native_p_rate": 2570443.0246858,
+      "native_e_rate": 412075.524517474
     }
   ],
-  "planned_blocks": 900,
+  "planned_blocks": 903,
   "queue": [],
   "done": [
     "E2.dhkem-p256.keygen.r1.a1",
@@ -1033,7 +1041,15 @@
     "E2.slh-dsa-shake-192s.verify.r4.a3",
     "E2c.falcon-512.verify.r5.a2",
     "E2.slh-dsa-shake-256s.keygen.r4.a3",
-    "E2c.slh-dsa-shake-256s.keygen.r5.a2"
+    "E2c.slh-dsa-shake-256s.keygen.r5.a2",
+    "E2.hqc-5.encaps.r1.a4",
+    "E2.slh-dsa-shake-192f.verify.r2.a4",
+    "E2.hqc-5.encaps.r1.a5",
+    "E2.slh-dsa-shake-192s.verify.r4.a4",
+    "E2.slh-dsa-shake-192s.verify.r4.a4",
+    "E2.slh-dsa-shake-192f.verify.r2.a5",
+    "E2.hqc-5.encaps.r1.a6",
+    "E2.slh-dsa-shake-192s.verify.r4.a5"
   ],
   "classification": {},
   "requeued": {
@@ -1053,6 +1069,8 @@
     "E2.hqc-5.decaps.r4.a1": true,
     "E2.hqc-5.encaps.r1.a1": true,
     "E2.hqc-5.encaps.r1.a2": true,
+    "E2.hqc-5.encaps.r1.a4": true,
+    "E2.hqc-5.encaps.r1.a5": true,
     "E2.hqc-5.encaps.r2.a1": true,
     "E2.hqc-5.encaps.r4.a1": true,
     "E2.hqc-5.encaps.r4.a2": true,
@@ -1097,10 +1115,13 @@
     "E2.slh-dsa-shake-192f.sign.r4.a2": true,
     "E2.slh-dsa-shake-192f.verify.r2.a1": true,
     "E2.slh-dsa-shake-192f.verify.r2.a2": true,
+    "E2.slh-dsa-shake-192f.verify.r2.a4": true,
     "E2.slh-dsa-shake-192s.sign.r3.a1": true,
     "E2.slh-dsa-shake-192s.verify.r2.a1": true,
     "E2.slh-dsa-shake-192s.verify.r4.a1": true,
     "E2.slh-dsa-shake-192s.verify.r4.a2": true,
+    "E2.slh-dsa-shake-192s.verify.r4.a3": true,
+    "E2.slh-dsa-shake-192s.verify.r4.a4": true,
     "E2.slh-dsa-shake-256f.keygen.r1.a1": true,
     "E2.slh-dsa-shake-256f.verify.r5.a1": true,
     "E2.slh-dsa-shake-256s.keygen.r1.a1": true,
@@ -1150,9 +1171,9 @@
     "E2c.slh-dsa-sha2-256s.keygen.r1": true,
     "E2c.slh-dsa-shake-128s.keygen.r1": true
   },
-  "canary_seq": 98,
+  "canary_seq": 103,
   "first_canary_rate": 2562982.1721451893,
-  "last_canary_unix_ns": 1791764030357140692,
+  "last_canary_unix_ns": 1791772861191878204,
   "preps": {
     "dhkem-p256.r1": {
       "pool": 256,
@@ -1506,10 +1527,10 @@
     },
     "hqc-5.r1": {
       "pool": 256,
-      "prep_ns": 7523271611,
-      "fingerprint": "52a0230827149717",
+      "prep_ns": 7524421911,
+      "fingerprint": "6c620db900d0ce26",
       "e10": false,
-      "session": 1
+      "session": 2
     },
     "hqc-5.r2": {
       "pool": 256,
@@ -2073,10 +2094,10 @@
     },
     "slh-dsa-shake-192f.r2": {
       "pool": 256,
-      "prep_ns": 11851125750,
-      "fingerprint": "555fa1ac3092c745",
+      "prep_ns": 11725686938,
+      "fingerprint": "03e305067831f454",
       "e10": false,
-      "session": 1
+      "session": 2
     },
     "slh-dsa-shake-192f.r3": {
       "pool": 256,
@@ -2122,10 +2143,10 @@
     },
     "slh-dsa-shake-192s.r4": {
       "pool": 64,
-      "prep_ns": 63439383227,
-      "fingerprint": "397c6b714a768e23",
+      "prep_ns": 62952811961,
+      "fingerprint": "5e934fdf7a88773b",
       "e10": false,
-      "session": 1
+      "session": 2
     },
     "slh-dsa-shake-192s.r5": {
       "pool": 64,
@@ -2204,6 +2225,25 @@
       "e10": false,
       "session": 1
     }
+  },
+  "extensions": [
+    {
+      "session": 2,
+      "blocks": [
+        "E2.hqc-5.encaps.r1",
+        "E2.slh-dsa-shake-192f.verify.r2",
+        "E2.slh-dsa-shake-192s.verify.r4"
+      ],
+      "old_image_id": "sha256:2ea46e98186b46505511c3fee1bcda03ba7b90cacb17b0ba66012c81306ba863",
+      "old_harness_commit": "ff5332a62ae9d1aca0ad5f43bc4f835700bd75e4",
+      "new_image_id": "sha256:2ea46e98186b46505511c3fee1bcda03ba7b90cacb17b0ba66012c81306ba863",
+      "new_harness_commit": "ff5332a62ae9d1aca0ad5f43bc4f835700bd75e4"
+    }
+  ],
+  "extension_base": {
+    "E2.hqc-5.encaps.r1": 3,
+    "E2.slh-dsa-shake-192f.verify.r2": 3,
+    "E2.slh-dsa-shake-192s.verify.r4": 3
   },
   "cell_reps": {
     "E2.dhkem-p256.decaps": 5,
