@@ -341,9 +341,26 @@ func estimate(dir, plansDir, machine string) (*Estimate, error) {
 			pe.Missing = append(pe.Missing, k)
 		}
 		sort.Strings(pe.Missing)
+		if f.cal.AddOn != "" && !planHasExp(blocks, f.cal.AddOn) {
+			// An add-on trial probes only its own experiment's cells; the
+			// plans of other experiments (E1, E2, ... in an E11 add-on) have
+			// no probes to be estimated from and are left out.
+			continue
+		}
 		e.Plans = append(e.Plans, pe)
 		e.TotalHours += pe.Hours
 		e.TotalRawMB += pe.RawMB
 	}
 	return e, nil
+}
+
+// planHasExp reports whether any block belongs to the experiment exp or its
+// component variant (E2c).
+func planHasExp(blocks []plan.Block, exp string) bool {
+	for _, b := range blocks {
+		if b.Exp == exp || b.Exp == exp+"c" {
+			return true
+		}
+	}
+	return false
 }

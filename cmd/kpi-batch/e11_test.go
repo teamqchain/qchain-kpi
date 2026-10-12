@@ -121,11 +121,18 @@ func TestCalibrateE11AddOn(t *testing.T) {
 	must(writeJSON(filepath.Join(dir, fileCalib), cal))
 	plans := t.TempDir()
 	os.WriteFile(filepath.Join(plans, "e11.json"), []byte(`{"name":"e11","kind":"main","description":"","reps":5,"items":[{"exp":"E11","algs":["ml-dsa-44","ml-kem-768","slh-dsa-sha2-128s","ml-kem-512"]}]}`), 0o644)
+	// A plan the add-on trial never probed (E1) must be left out, not estimated
+	// from nothing (that produced NaN and failed the 12 Oct trial-e11 run at
+	// its last step).
+	os.WriteFile(filepath.Join(plans, "e1.json"), []byte(`{"name":"e1","kind":"main","description":"","reps":5,"items":[{"exp":"E1","algs":["ml-dsa-44"]}]}`), 0o644)
 	e, err := estimate(dir, plans, "mac-m1")
 	if err != nil {
 		t.Fatal(err)
 	}
-	if len(e.Plans) != 1 || !(e.Plans[0].ByExpHours["E11"] > 0) {
+	if len(e.Plans) != 1 || e.Plans[0].Plan != "e11" || !(e.Plans[0].ByExpHours["E11"] > 0) {
 		t.Fatalf("estimate %+v", e.Plans)
+	}
+	if err := writeJSON(filepath.Join(dir, "estimate-test.json"), e); err != nil {
+		t.Fatalf("the estimate must serialise: %v", err)
 	}
 }
