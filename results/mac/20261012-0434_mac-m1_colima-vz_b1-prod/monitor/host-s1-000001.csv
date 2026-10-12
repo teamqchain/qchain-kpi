@@ -1,0 +1,6 @@
+utc_ns,other_pct,throttle,on_ac,alert,detail
+1791779694994913000,21.100,0,1,0,user=15.70;sys=7.20;excluded_core_pct=14.4;thermal_level=0;battery_pct=100;busiest_other=airportd:13.4
+1791779700015652000,2.333,0,1,0,user=12.58;sys=1.79;excluded_core_pct=96.3;thermal_level=0;battery_pct=100
+1791779705038135000,2.085,0,1,0,user=12.92;sys=1.49;excluded_core_pct=98.6;thermal_level=0;battery_pct=100
+1791779710058319000,1.913,0,1,0,user=12.83;sys=1.42;excluded_core_pct=98.7;thermal_level=0;battery_pct=100
+1791779715080808000,1.635,0,1,0,user=12.84;sys=1.22;excluded_core_pct=99.4;thermal_level=0;battery_pct=100
