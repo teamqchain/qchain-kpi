@@ -33,7 +33,7 @@ The folder holds only allow-listed facts: no host name, user name, path outside 
 | `env/build-info/` | image build | Records made while the image was built: `oqs-build.txt`, `oqs-CMakeCache.txt`, `oqsconfig.h`, `oqs-cmake.txt`, `oqs-ninja.txt`, `oqs-gate.txt` (liboqs correctness gate), `acvp-sha256-check.txt`, `go-test.txt`, `go-version.txt`, `apt-source-*.txt`, `dpkg-*.tsv`. |
 | `monitor/host-s<N>-<seq>.csv` (+ `.ok`) | launcher | Host monitor samples of session N, delivered every minute (see below). A chunk is read only once its `.ok` marker exists. |
 | `calibration.json` | kpi-batch (trial only) | The machine's thresholds derived from this trial (see `docs/methodology.md`). |
-| `estimate.json` | kpi-batch (trial only) | Projected hours and raw-data size of every main plan on this machine. | Plans this trial cannot estimate (a first trial cannot estimate E2, E6, E7 or E11, which need their own add-on trial) are listed in `not_estimated` with the reason.
+| `estimate.json` | kpi-batch (trial only) | Projected hours and raw-data size of every main plan on this machine. Plans this trial cannot estimate (a first trial cannot estimate E2, E6, E7 or E11, which need their own add-on trial) are listed in `not_estimated` with the reason. |
 | `SHA256SUMS` | kpi-batch | SHA-256 of every file above (`shasum -c` format). Written last. |
 | `console.txt` | launcher | Everything kpi-batch printed, over all sessions (`docker logs`). |
 | `launcher/` | launcher | Per session N: `session-sN.json` (what was delivered to the batch), `clock-offset-sN.txt`, `native-canary-sN-plain.json` and `native-canary-sN-background.json` (Mac core references), `host-monitor-sN.csv` (every monitor row), `preflight-sN.txt` (preflight problems; `forced` if `--force` was used). |
