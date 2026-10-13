@@ -1628,7 +1628,8 @@
       },
       "batch_calibrated_from": {
         "E2": "20261011-0456_mac-m1_colima-vz_b1-prod",
-        "E6": "20261013-2137_mac-m1_colima-vz_b1-prod"
+        "E6": "20261013-2137_mac-m1_colima-vz_b1-prod",
+        "E7": "20261013-2148_mac-m1_colima-vz_b1-prod"
       },
       "class_calibrated_from": {
         "E11": "20261012-0525_mac-m1_colima-vz_b1-prod",
@@ -1652,7 +1653,10 @@
         "e6_batched_arms": 0,
         "e6_probe_blocks": 220,
         "e6_slow_cells": 122,
-        "e6_timer_effective_resolution_ns": 41
+        "e6_timer_effective_resolution_ns": 41,
+        "e7_batched_arms": 0,
+        "e7_probe_blocks": 30,
+        "e7_timer_effective_resolution_ns": 41
       }
     }
   }
