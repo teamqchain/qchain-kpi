@@ -36,7 +36,7 @@ const (
 
 // Item is one entry of a plan.
 type Item struct {
-	Exp     string   `json:"exp"`               // "probe", "probe-E2", "probe-E11", "E1", "E10", "E2", "E2c", "E8", "E11", "E13"
+	Exp     string   `json:"exp"`               // "probe", "probe-E2", "probe-E11", "probe-E6", "probe-E7", "E1", "E10", "E2", "E2c", "E8", "E11", "E13", "E6", "E7"
 	Algs    []string `json:"algs"`              // selectors (see algs.Expand)
 	Ops     []string `json:"ops,omitempty"`     // default: every op of the algorithm
 	Reps    int      `json:"reps,omitempty"`    // default: Plan.Reps
@@ -81,7 +81,7 @@ func Load(path string) (*Plan, error) {
 	}
 	for i, it := range p.Items {
 		switch it.Exp {
-		case "probe", "probe-E2", "probe-E11", "E1", "E10", "E2", "E2c", "E8", "E11", "E13":
+		case "probe", "probe-E2", "probe-E11", "probe-E6", "probe-E7", "E1", "E10", "E2", "E2c", "E8", "E11", "E13", "E6", "E7":
 		default:
 			return nil, fmt.Errorf("plan %s item %d: experiment %q not implemented in this phase", path, i, it.Exp)
 		}
@@ -198,6 +198,37 @@ func Expand(p *Plan, batchSeed uint64) ([]Block, error) {
 					}
 				}
 			}
+			if it.Exp == "E6" || it.Exp == "probe-E6" {
+				// Signatures only: sign and verify at every message size.
+				if a.Track != algs.Sig {
+					return nil, fmt.Errorf("E6 is defined for signature schemes, not %s", a.ID)
+				}
+				base := it.Ops
+				if len(base) == 0 {
+					base = []string{"sign", "verify"}
+				}
+				for _, op := range base {
+					if op != "sign" && op != "verify" {
+						return nil, fmt.Errorf("E6 measures sign and verify, not %q", op)
+					}
+					for _, size := range E6Sizes {
+						cs = append(cs, cell{it.Exp, a.ID, fmt.Sprintf("%s-m%d", op, size), it.Profile, reps})
+					}
+				}
+				continue
+			}
+			if it.Exp == "E7" || it.Exp == "probe-E7" {
+				// One block per algorithm: verify (signatures) or decaps (KEMs).
+				op := "verify"
+				if a.Track == algs.KEM {
+					op = "decaps"
+				}
+				if len(it.Ops) > 0 && (len(it.Ops) != 1 || it.Ops[0] != op) {
+					return nil, fmt.Errorf("E7's operation for %s is %q", a.ID, op)
+				}
+				cs = append(cs, cell{it.Exp, a.ID, op, it.Profile, reps})
+				continue
+			}
 			if it.Exp == "E13" {
 				// One size block per algorithm: Fabric transactions for a
 				// signature scheme, IPFS envelopes for a KEM.
@@ -253,8 +284,14 @@ func Expand(p *Plan, batchSeed uint64) ([]Block, error) {
 	return out, nil
 }
 
+// E6Sizes are E6's message sizes in bytes (internal/proto names them; the
+// plan needs them to expand E6's cells).
+var E6Sizes = []int{64, 1024, 10 * 1024, 100 * 1024, 1024 * 1024}
+
 // IsProbe reports whether an experiment is a probe pass (calibration only).
-func IsProbe(exp string) bool { return exp == "probe" || exp == "probe-E2" || exp == "probe-E11" }
+func IsProbe(exp string) bool {
+	return exp == "probe" || exp == "probe-E2" || exp == "probe-E11" || exp == "probe-E6" || exp == "probe-E7"
+}
 
 func validOp(a algs.Alg, op string) bool {
 	for _, o := range a.Ops() {

@@ -128,8 +128,24 @@ func TestCommittedThresholdsFile(t *testing.T) {
 		if base != 90 {
 			t.Fatalf("machine %s: %d base classifications, want 90", name, base)
 		}
-		if len(m.Class) > base && m.ClassCalibratedFrom["E11"] == "" {
+		// Further entries come from add-on trials: E6 cells (operation
+		// "sign-m<bytes>" or "verify-m<bytes>") and E11 cells (the rest).
+		e6, e11 := 0, 0
+		for k := range m.Class {
+			_, op, _ := strings.Cut(k, "/")
+			switch {
+			case strings.HasPrefix(op, "sign-m") || strings.HasPrefix(op, "verify-m"):
+				e6++
+			case !strings.Contains(k, "+") && (op == "keygen" || op == "sign" || op == "verify" || op == "encaps" || op == "decaps"):
+			default:
+				e11++
+			}
+		}
+		if e11 > 0 && m.ClassCalibratedFrom["E11"] == "" {
 			t.Fatalf("machine %s: E11 classifications without class_calibrated_from.E11", name)
+		}
+		if e6 > 0 && m.ClassCalibratedFrom["E6"] == "" {
+			t.Fatalf("machine %s: E6 classifications without class_calibrated_from.E6", name)
 		}
 		for set, v := range m.E10Margin {
 			if v < DefaultE10Margin {

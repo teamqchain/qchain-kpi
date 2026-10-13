@@ -254,14 +254,6 @@ func estimate(dir, plansDir, machine string) (*Estimate, error) {
 				continue
 			}
 			a := algs.MustByID(bl.Alg)
-			med := get(k)
-			check := 0.0
-			switch bl.Op {
-			case "sign":
-				check = get(bl.Alg + "/verify")
-			case "encaps":
-				check = get(bl.Alg + "/decaps")
-			}
 			if bl.Exp == "E13" {
 				// Sizes only: a ledger block issues one credential per
 				// attribute count (signed and verified) and samples 1,000
@@ -283,6 +275,22 @@ func estimate(dir, plansDir, machine string) (*Estimate, error) {
 				pe.ByExpHours[bl.Exp] += bs / 3600
 				secs += bs
 				continue
+			}
+			var med float64
+			if v, ok := f.med[k+"/"+proto.ArmValid]; ok && bl.Exp == "E7" {
+				med = v // probe-E7's valid arm (an add-on trial has no plain probe)
+			} else {
+				med = get(k)
+			}
+			check := 0.0
+			switch bl.Op {
+			case "sign":
+				check = get(bl.Alg + "/verify")
+			case "encaps":
+				check = get(bl.Alg + "/decaps")
+			}
+			if op, size, err := proto.ParseE6Op(bl.Op); err == nil && bl.Exp == "E6" && op == "sign" {
+				check = get(bl.Alg + "/" + proto.E6Op("verify", size)) // every signature is verified
 			}
 			if proto.SizeOnly(bl.Exp) {
 				// E8: target 1,000 keys or 10,000 outputs, each checked
@@ -317,7 +325,7 @@ func estimate(dir, plansDir, machine string) (*Estimate, error) {
 			bs := f.overheadNS / 1e9
 			for _, arm := range proto.ArmsOf(bl.Exp, a, bl.Op) {
 				am, ac := med, check
-				if v, ok := f.med[k+"/"+arm]; ok && (bl.Exp == "E2" || bl.Exp == "E2c") {
+				if v, ok := f.med[k+"/"+arm]; ok && (bl.Exp == "E2" || bl.Exp == "E2c" || bl.Exp == "E7") {
 					am = v
 				}
 				if bl.Exp == "E2c" {
@@ -348,10 +356,23 @@ func estimate(dir, plansDir, machine string) (*Estimate, error) {
 				preps[pk] = true
 				pool := float64(a.PoolSize())
 				var ps float64
-				if a.Track == algs.Sig {
+				if bl.Exp == "E6" {
+					// The prep's own pool signs 64-character messages: E6's
+					// 64-byte cells. Its one key generation is counted when a
+					// probe of it exists (an E6 add-on trial has none; one key
+					// per preparation is negligible against the blocks).
+					ps = f.med[bl.Alg+"/keygen"] + pool*(get(bl.Alg+"/"+proto.E6Op("sign", 64))+get(bl.Alg+"/"+proto.E6Op("verify", 64)))
+				} else if a.Track == algs.Sig {
 					ps = get(bl.Alg+"/keygen") + pool*(get(bl.Alg+"/sign")+get(bl.Alg+"/verify"))
 				} else {
 					ps = get(bl.Alg+"/keygen") + pool*(get(bl.Alg+"/encaps")+get(bl.Alg+"/decaps"))
+				}
+				if bl.Exp == "E6" {
+					// The E6 pools: every size's messages signed and verified.
+					for _, size := range proto.E6Sizes {
+						n := float64(proto.E6PoolSize(a.PoolSize(), size))
+						ps += n * (get(bl.Alg+"/"+proto.E6Op("sign", size)) + get(bl.Alg+"/"+proto.E6Op("verify", size)))
+					}
 				}
 				pe.PrepHours += ps / 1e9 / 3600
 			}

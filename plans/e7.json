@@ -1,0 +1,10 @@
+{
+  "name": "e7",
+  "kind": "main",
+  "description": "E7 rejection timing: for all 22 signature schemes, verify with a valid signature, the same signature with one bit flipped and a valid signature over a different message of the same length; for all 8 KEMs, decaps of a valid ciphertext and of the same ciphertext with one bit flipped. Arms interleaved in one process, each with the full approved budget; the classification is the operation's (E1), batch sizes from trial-e7; 5 repetitions. Every call's outcome is checked and recorded.",
+  "reps": 5,
+  "canary_every_s": 600,
+  "items": [
+    {"exp": "E7", "algs": ["all"]}
+  ]
+}

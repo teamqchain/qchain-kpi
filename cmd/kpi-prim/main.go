@@ -1,7 +1,7 @@
 // Command kpi-prim is the measuring process. Every invocation is one fresh
 // process doing one thing:
 //
-//	kpi-prim prep   --alg ID --rep R --pool P --seed S --dir DIR [--e10]
+//	kpi-prim prep   --alg ID --rep R --pool P --seed S --dir DIR [--e10] [--e6]
 //	kpi-prim block  --spec JSON
 //	kpi-prim canary [--windows 15] [--window-ms 100]
 //
@@ -108,6 +108,7 @@ func cmdPrep(args []string) error {
 	seed := fs.Uint64("seed", 0, "message seed")
 	dir := fs.String("dir", "", "prep directory")
 	e10 := fs.Bool("e10", false, "also prepare the E10 pools (ML-DSA)")
+	e6 := fs.Bool("e6", false, "also prepare the E6 pools (signature schemes: messages of every E6 size)")
 	fs.Parse(args)
 	a, ok := algs.ByID(*id)
 	if !ok || *rep < 0 || *pool < 1 || *dir == "" {
@@ -127,7 +128,13 @@ func cmdPrep(args []string) error {
 			return err2
 		}
 		p, err = inputs.GenerateSig(s, *rep, *pool, *seed, *e10)
+		if err == nil && *e6 {
+			err = inputs.AddE6(p, s, proto.E6Sizes, func(size int) int { return proto.E6PoolSize(*pool, size) }, *seed)
+		}
 	} else {
+		if *e6 {
+			return fmt.Errorf("prep: E6 pools are defined for signature schemes only")
+		}
 		k, err2 := newKEM(a)
 		if err2 != nil {
 			return err2
@@ -140,7 +147,8 @@ func cmdPrep(args []string) error {
 	if err := inputs.Save(proto.PrepPath(*dir, a.ID, *rep), p); err != nil {
 		return err
 	}
-	return emit(proto.PrepResult{Alg: a.ID, Rep: *rep, Pool: p.P, PrepNS: p.PrepNS, Fingerprint: p.Fingerprint, E10: p.HasE10()})
+	return emit(proto.PrepResult{Alg: a.ID, Rep: *rep, Pool: p.P, PrepNS: p.PrepNS, Fingerprint: p.Fingerprint, E10: p.HasE10(),
+		E6: len(p.E6) > 0 && p.HasE6(proto.E6Sizes)})
 }
 
 // -------------------------------------------------------------------- canary

@@ -192,6 +192,7 @@ type PrepResult struct {
 	PrepNS      int64  `json:"prep_ns"`
 	Fingerprint string `json:"fingerprint"`
 	E10         bool   `json:"e10"`
+	E6          bool   `json:"e6,omitempty"`
 }
 
 // CanaryResult is what "kpi-prim canary" prints.

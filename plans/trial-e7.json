@@ -1,0 +1,10 @@
+{
+  "name": "trial-e7",
+  "kind": "trial",
+  "description": "Add-on calibration for E7 (run once per machine, after the machine's first trial and before its first E7 main run): a probe pass of every E7 arm of all 30 algorithms (first call + 5 calls per arm, unbatched). It derives only the batch sizes of the E7 arms, with the first trial's rule; each E7 block takes its operation's (verify or decaps) classification from the first trial. Every other threshold of the machine stays unchanged. Canary every 5 minutes.",
+  "reps": 1,
+  "canary_every_s": 300,
+  "items": [
+    {"exp": "probe-E7", "algs": ["all"]}
+  ]
+}

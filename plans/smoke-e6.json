@@ -1,0 +1,11 @@
+{
+  "name": "smoke-e6",
+  "kind": "smoke",
+  "description": "Pipeline test of E6, never used for results: the E6 probe pass and E6 for all 22 signature schemes (sign and verify at 64 B, 1 KiB, 10 KiB, 100 KiB and 1 MiB) with tiny budgets (fast: 10 warm-up + 200 samples; slow: 1 s and at least 3 samples) and 1 repetition.",
+  "reps": 1,
+  "canary_every_s": 120,
+  "items": [
+    {"exp": "probe-E6", "algs": ["sig"]},
+    {"exp": "E6", "algs": ["sig"], "profile": "smoke"}
+  ]
+}

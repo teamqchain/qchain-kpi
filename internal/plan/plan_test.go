@@ -102,3 +102,39 @@ func TestE13Expansion(t *testing.T) {
 		t.Fatalf("%d blocks %v", len(bl), ops)
 	}
 }
+
+// TestE6E7Expansion: E6 is sign and verify at five sizes for the 22
+// signature schemes; E7 is one block per algorithm (verify or decaps).
+func TestE6E7Expansion(t *testing.T) {
+	count := func(file string) (int, map[string]int) {
+		p, err := Load("../../plans/" + file)
+		if err != nil {
+			t.Fatal(err)
+		}
+		bl, err := Expand(p, 1)
+		if err != nil {
+			t.Fatal(err)
+		}
+		ops := map[string]int{}
+		for _, b := range bl {
+			ops[b.Op]++
+		}
+		return len(bl), ops
+	}
+	if n, ops := count("e6.json"); n != 22*2*5*5 || ops["sign-m1048576"] != 22*5 || ops["verify-m64"] != 22*5 {
+		t.Fatalf("e6: %d blocks %v", n, ops)
+	}
+	if n, _ := count("trial-e6.json"); n != 22*2*5 {
+		t.Fatalf("trial-e6: %d blocks", n)
+	}
+	if n, ops := count("e7.json"); n != 30*5 || ops["verify"] != 22*5 || ops["decaps"] != 8*5 {
+		t.Fatalf("e7: %d blocks %v", n, ops)
+	}
+	if n, _ := count("trial-e7.json"); n != 30 {
+		t.Fatalf("trial-e7: %d blocks", n)
+	}
+	p := &Plan{Name: "x", Kind: KindMain, Reps: 1, Items: []Item{{Exp: "E6", Algs: []string{"ml-kem-768"}}}}
+	if _, err := Expand(p, 1); err == nil {
+		t.Fatal("E6 for a KEM must be refused")
+	}
+}

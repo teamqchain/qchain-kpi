@@ -79,6 +79,7 @@ type batch struct {
 	periodNS int64
 	cellReps map[string]int
 	e10Algs  map[string]bool
+	e6Algs   map[string]bool // signature schemes whose preps need the E6 message pools
 	cur      atomic.Pointer[exec.Cmd]
 	stopSig  atomic.Bool
 	lastEnd  int64 // end of the most recent block (container clock)
@@ -145,13 +146,13 @@ func newBatch(c runConfig) (*batch, int, error) {
 		return nil, exitRefused, fmt.Errorf("run: %s has no calibrated thresholds; run and calibrate the trial first", c.Machine)
 	}
 	b := &batch{c: c, p: p, th: th, thHash: quality.HashFile(c.ThresholdsPath), strict: p.Kind != plan.KindSmoke,
-		cellReps: map[string]int{}, e10Algs: map[string]bool{}}
+		cellReps: map[string]int{}, e10Algs: map[string]bool{}, e6Algs: map[string]bool{}}
 
 	blocks, err := plan.Expand(p, c.Seed)
 	if err != nil {
 		return nil, exitUsage, err
 	}
-	needE2Batch, needE11Class := false, false
+	needE2Batch, needE11Class, needE6Class, needE7Batch := false, false, false, false
 	for _, bl := range blocks {
 		if proto.Measured(bl.Exp) {
 			b.cellReps[bl.Cell()]++
@@ -161,6 +162,13 @@ func newBatch(c runConfig) (*batch, int, error) {
 		}
 		if bl.Exp == "E11" {
 			needE11Class = true
+		}
+		if bl.Exp == "E6" || bl.Exp == "probe-E6" {
+			b.e6Algs[bl.Alg] = true
+			needE6Class = needE6Class || bl.Exp == "E6"
+		}
+		if bl.Exp == "E7" {
+			needE7Batch = true
 		}
 		if bl.Exp == "E10" {
 			b.e10Algs[bl.Alg] = true
@@ -175,6 +183,12 @@ func newBatch(c runConfig) (*batch, int, error) {
 		}
 		if needE11Class && th.ClassCalibratedFrom["E11"] == "" {
 			return nil, exitRefused, fmt.Errorf("run: thresholds for %s have no E11 classification; run the trial-e11 plan and merge its calibration first", c.Machine)
+		}
+		if needE6Class && th.ClassCalibratedFrom["E6"] == "" {
+			return nil, exitRefused, fmt.Errorf("run: thresholds for %s have no E6 classification; run the trial-e6 plan and merge its calibration first", c.Machine)
+		}
+		if needE7Batch && th.BatchCalibratedFrom["E7"] == "" {
+			return nil, exitRefused, fmt.Errorf("run: thresholds for %s have no E7 batch sizes; run the trial-e7 plan and merge its calibration first", c.Machine)
 		}
 	}
 
@@ -789,6 +803,9 @@ func (b *batch) ensurePrep(bl plan.Block) error {
 	if e10 {
 		args = append(args, "--e10")
 	}
+	if b.e6Algs[bl.Alg] {
+		args = append(args, "--e6")
+	}
 	so, se, code, err := b.exec(b.c.PrimPath, args...)
 	if err != nil || code != 0 {
 		if errors.Is(err, errInterrupted) {
@@ -869,6 +886,13 @@ func (b *batch) runBlock(bl plan.Block) error {
 		}
 	}
 	if bl.Exp == "probe" && b.p.Kind != plan.KindMain && len(res.Arms) == 1 {
+		b.st.Class[bl.Alg+"/"+bl.Op] = quality.Classify(res.Arms[0].ProbeNS)
+	}
+	if bl.Exp == "probe-E6" && b.p.Kind != plan.KindMain && len(res.Arms) == 1 {
+		b.st.Class[bl.Alg+"/"+bl.Op] = quality.Classify(res.Arms[0].ProbeNS)
+	}
+	if bl.Exp == "probe-E7" && b.p.Kind != plan.KindMain && len(res.Arms) > 0 {
+		// E7's classification is its operation's (the valid arm; main runs use E1's).
 		b.st.Class[bl.Alg+"/"+bl.Op] = quality.Classify(res.Arms[0].ProbeNS)
 	}
 	if bl.Exp == "probe-E11" && b.p.Kind != plan.KindMain && len(res.Arms) > 0 {

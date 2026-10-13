@@ -44,7 +44,7 @@ The folder holds only allow-listed facts: no host name, user name, path outside 
 
 | Name | Example | Meaning |
 |---|---|---|
-| block id | `E1.ml-dsa-44.sign.r3` | experiment, algorithm, operation, repetition (experiments `E1`, `E10`, `E2`, `E2c`, `E8`, `E11`, `E13`, `probe`, `probe-E2`, `probe-E11`) |
+| block id | `E1.ml-dsa-44.sign.r3` | experiment, algorithm, operation, repetition (experiments `E1`, `E10`, `E2`, `E2c`, `E6`, `E7`, `E8`, `E11`, `E13`, `probe`, `probe-E2`, `probe-E6`, `probe-E7`, `probe-E11`) |
 | attempt key | `E1.ml-dsa-44.sign.r3.a2` | block id + attempt number (`a1` = the first attempt) |
 | cell | `E1.ml-dsa-44.sign` | block id without the repetition |
 | arm | `reuse`, `issuer`, `holder`, `issuer-again`, `reinit`, `prod`, `hex-decode-sk`, `hex-decode-pk`, `hex-decode-sig`, `hex-decode-ct`, `init`, `clean`, `hex-encode-pk`, `hex-encode-sk`, `hex-encode-sig`, `hex-encode-ct`, `hex-encode-ss` | a measured variant inside a block (E2 and E2c arms: `docs/methodology.md` section 4 and `internal/proto/e2.go`) |
@@ -185,4 +185,18 @@ E13 blocks are not timed (like E8: no run-quality flags, never repeated, the fir
   - `min`, `p50`, `max`: over the sampled signature lengths (unpadded Falcon, ECDSA); equal when the length is fixed.
 - **`blocks.csv`:** one row per arm: ledger blocks `issue-n<N>` (the measured `issueCredential` envelope, bytes over the samples), IPFS blocks `env-n<N>-v<V>` (file bytes); `mode` is `sizes`, statistics columns hold bytes.
 - **Derived:** GB per million credentials per peer = bytes × 10⁶ / 10⁹ (`frame_1` at one transaction per block, `share_max` at full blocks).
+
+## E6 (message-size sweep)
+
+- **Block ids:** `E6.<scheme>.<sign|verify>-m<bytes>.r<rep>`, bytes = 64, 1024, 10240, 102400 or 1048576 (`probe-E6` in the add-on trial).
+- **Arm:** `reuse`, as in E1; the first call is `cold`.
+- **Classification and batching:** `classification["<scheme>/<op>-m<bytes>"]` and `batch["<scheme>/<op>-m<bytes>/reuse"]` in `config/thresholds.json`, from `trial-e6`; `class_calibrated_from.E6` and `batch_calibrated_from.E6` name that trial.
+- **Prep:** made with `--e6`: per size a pool of min(P, max(8, 64 MiB / size)) messages, generated from a stored seed in the measuring process, and their signatures (`prep_ns` includes them).
+
+## E7 (rejection timing)
+
+- **Block ids:** `E7.<algorithm>.verify.r<rep>` (signature schemes) or `E7.<algorithm>.decaps.r<rep>` (KEMs); `probe-E7` in the add-on trial.
+- **Arms:** `valid`, `badsig`, `wrongmsg` (verify); `valid`, `tampered` (decaps); first calls labelled `first`.
+- **Raw file bytes column:** the sample's outcome, not a size: `0` = rejected (verify returned false, or decaps returned a different secret: implicit rejection), `1` = rejected with an error (malformed input), `2` = accepted. For a batched sample it is its last call's outcome; every call is checked. In `blocks.csv`, `min_bytes` and `max_bytes` are the lowest and highest outcome codes.
+- **Classification:** the operation's (`<algorithm>/verify` or `<algorithm>/decaps`, from the first trial); batch sizes `batch["<algorithm>/<op>/<arm>"]` from `trial-e7` (`batch_calibrated_from.E7`).
 

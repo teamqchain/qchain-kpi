@@ -65,6 +65,10 @@ func cmdBlock(args []string) error {
 	firstLabel := "cold"
 	switch b.Exp {
 	case "E1", "probe":
+	case "E6", "probe-E6":
+		// One process per (scheme, operation, size): the first call is cold, as in E1.
+	case "E7", "probe-E7":
+		firstLabel = "first" // several arms share the process
 	case "E10":
 		if a.Family != "ML-DSA" || b.Op != "sign" {
 			return fmt.Errorf("block: E10 is ML-DSA sign only")
@@ -141,6 +145,10 @@ func cmdBlock(args []string) error {
 		set, err = e2Arms(a, b.Op, p, b.Seed, sp.Batch)
 	case "E2c":
 		set, err = e2cArms(a, b.Op, p, sp.Batch)
+	case "E6", "probe-E6":
+		set, err = e6Arms(a, b.Op, p)
+	case "E7", "probe-E7":
+		set, err = e7Arms(a, b.Op, p, b.Seed)
 	case "probe-E2":
 		// Every E2 and E2c arm, unbatched: the probe pass decides the batches.
 		var e2, e2c *armSet

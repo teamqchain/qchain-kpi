@@ -103,6 +103,8 @@ func ArmsOf(exp string, a algs.Alg, op string) []string {
 		return append(E2Arms(a, op), E2cArms(a, op)...)
 	case "E8":
 		return E8Arms(a, op)
+	case "E7", "probe-E7":
+		return E7Arms(a)
 	}
 	return []string{ArmReuse}
 }
@@ -131,5 +133,5 @@ func IsProbe(exp string) bool { return plan.IsProbe(exp) }
 // Measured reports whether an experiment's blocks are measurements that the
 // drift rule and the headline selection apply to.
 func Measured(exp string) bool {
-	return exp == "E1" || exp == "E10" || exp == "E2" || exp == "E2c" || exp == "E11"
+	return exp == "E1" || exp == "E10" || exp == "E2" || exp == "E2c" || exp == "E11" || exp == "E6" || exp == "E7"
 }

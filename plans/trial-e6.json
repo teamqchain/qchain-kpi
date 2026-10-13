@@ -1,0 +1,10 @@
+{
+  "name": "trial-e6",
+  "kind": "trial",
+  "description": "Add-on calibration for E6 (run once per machine, after the machine's first trial and before its first E6 main run): a probe pass of every E6 cell (22 signature schemes x sign and verify x 5 message sizes; first call + 5 calls, unbatched). It derives only the E6 cells' fast/slow classification (probe median below 1 ms = fast) and batch sizes, with the first trial's rules; every other threshold of the machine stays unchanged. Canary every 5 minutes.",
+  "reps": 1,
+  "canary_every_s": 300,
+  "items": [
+    {"exp": "probe-E6", "algs": ["sig"]}
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "name": "smoke-e7",
+  "kind": "smoke",
+  "description": "Pipeline test of E7, never used for results: the E7 probe pass and E7 for all 30 algorithms (verify with a valid signature, a bit-flipped signature and a wrong message; decaps of a valid and a bit-flipped ciphertext) with tiny budgets and 1 repetition.",
+  "reps": 1,
+  "canary_every_s": 120,
+  "items": [
+    {"exp": "probe-E7", "algs": ["all"]},
+    {"exp": "E7", "algs": ["all"], "profile": "smoke"}
+  ]
+}
