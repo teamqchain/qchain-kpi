@@ -1,0 +1,7 @@
+{"Block":1,"Idx":0,"Fn":"registerHolder","Env":3060,"Payload":2983,"Pem":579,"NEnd":2,"Results":101,"ValueBytes":73,"KeyLen":6,"Args":[6,4,6]}
+{"Block":1,"Idx":1,"Fn":"bindHolderKeys","Env":13081,"Payload":13004,"Pem":579,"NEnd":2,"Results":5133,"ValueBytes":5101,"KeyLen":6,"Args":[6,2368,2624]}
+{"Block":2,"Idx":0,"Fn":"issueCredential","Env":20282,"Payload":20204,"Pem":579,"NEnd":2,"Results":8897,"ValueBytes":8802,"KeyLen":69,"Args":[6,19,25,10,10,46,771,64,4840,2624]}
+{"Block":2,"Idx":1,"Fn":"issueCredential","Env":20282,"Payload":20204,"Pem":579,"NEnd":2,"Results":8897,"ValueBytes":8802,"KeyLen":69,"Args":[6,19,25,10,10,46,771,64,4840,2624]}
+{"Block":2,"Idx":2,"Fn":"issueCredential","Env":20282,"Payload":20204,"Pem":579,"NEnd":2,"Results":8897,"ValueBytes":8802,"KeyLen":69,"Args":[6,19,25,10,10,46,771,64,4840,2624]}
+{"Block":3,"Idx":0,"Fn":"issueCredential","Env":20282,"Payload":20204,"Pem":579,"NEnd":2,"Results":8897,"ValueBytes":8802,"KeyLen":69,"Args":[6,19,25,10,10,46,771,64,4840,2624]}
+{"Block":3,"Idx":1,"Fn":"issueCredential","Env":20282,"Payload":20204,"Pem":579,"NEnd":2,"Results":8897,"ValueBytes":8802,"KeyLen":69,"Args":[6,19,25,10,10,46,771,64,4840,2624]}
