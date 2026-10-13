@@ -120,3 +120,83 @@ func TestMaxPerBlock(t *testing.T) {
 		}
 	}
 }
+
+// TestCallsReproduceEveryQChainTransaction: the call builders (reads, writes,
+// responses of QChaincode.js) assembled on the measured network give every
+// captured QChain transaction's envelope, given its argument and record
+// lengths, channel header and signature lengths.
+func TestCallsReproduceEveryQChainTransaction(t *testing.T) {
+	c, err := loadCapture()
+	if err != nil {
+		t.Fatal(err)
+	}
+	f := MeasuredFabric(Measured)
+	n := 0
+	for _, x := range c.Txs {
+		if x.CC != "qchaincode" {
+			continue
+		}
+		w := x.RWSets[1].Writes[0]
+		rec, prior := w.Value.Bytes, uint64(x.Block-1)
+		var call Call
+		switch x.Fn {
+		case "issueCredential":
+			call = IssueCall(x.Args, w.Key, rec, prior)
+		case "updateExpiry":
+			call = UpdateExpiryCall(x.Args, rec, prior)
+		case "suspendCredential":
+			call = SuspendCall(x.Args[0], x.Args[1], rec, prior)
+		case "restoreCredential":
+			call = RestoreCall(x.Args[0], rec, prior)
+		case "revokeCredential":
+			call = RevokeCall(x.Args[0], rec, prior)
+		case "registerHolder":
+			call = RegisterCall(x.Args[0], x.Args[1], x.Args[2], rec)
+		case "bindHolderKeys":
+			call = BindCall(x.Args[0], x.Args[1], x.Args[2], rec, prior)
+		default:
+			t.Fatalf("unexpected %s", x.Fn)
+		}
+		if call.RespPayload != x.RespPayload {
+			t.Fatalf("%s at block %d: response %d, ledger %d", x.Fn, x.Block, call.RespPayload, x.RespPayload)
+		}
+		p := Measured
+		p.ChannelHeader = x.ChannelHeader
+		tx := f.Tx(p, call)
+		tx.ClientSig = x.ClientSig
+		for k := range tx.Endorsements {
+			tx.Endorsements[k].Sig = x.Endorsements[k].Sig
+		}
+		if got := tx.Sizes().Envelope; got != x.Env {
+			t.Fatalf("%s at block %d: model %d, ledger %d", x.Fn, x.Block, got, x.Env)
+		}
+		n++
+	}
+	if n != 57 {
+		t.Fatalf("%d QChain transactions", n)
+	}
+}
+
+func TestIssuerPlaceholderHasTheCapturedShape(t *testing.T) {
+	c, err := loadCapture()
+	if err != nil {
+		t.Fatal(err)
+	}
+	n := 0
+	for _, x := range c.Txs {
+		for _, r := range x.RWSets {
+			for _, w := range r.Writes {
+				if w.Value.IssuerShape == "" {
+					continue
+				}
+				if MaskDN(IssuerPlaceholder) != w.Value.IssuerShape || len(IssuerPlaceholder) != Measured.IssuerIdentity {
+					t.Fatalf("placeholder shape %q, captured %q", MaskDN(IssuerPlaceholder), w.Value.IssuerShape)
+				}
+				n++
+			}
+		}
+	}
+	if n == 0 {
+		t.Fatal("no Issuer in the capture")
+	}
+}

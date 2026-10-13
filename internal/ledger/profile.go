@@ -46,6 +46,29 @@ var Measured = Profile{
 	HolderFirst: 6, HolderLast: 7, SuspendReason: 24, IssuerIdentity: 116,
 }
 
+// IssuerPlaceholder stands in for a credential record's Issuer field (the
+// submitter's Fabric client ID, which contains an enrolled user's name): the
+// captured length and shape, with made-up values.
+const IssuerPlaceholder = "x509::/OU=client/OU=issuer/OU=general/CN=issuer1::/C=AE/ST=Emirate/L=Capital/O=general.uae.com/CN=ca.general.uae.com"
+
+// MaskDN replaces every attribute value of a Fabric ID string with x (the
+// capture's privacy rule for the Issuer field).
+func MaskDN(s string) string {
+	b := []byte(s)
+	in := false
+	for i, c := range b {
+		switch {
+		case c == '=':
+			in = true
+		case c == ',' || c == '/' || c == ':' || c == '+':
+			in = false
+		case in:
+			b[i] = 'x'
+		}
+	}
+	return string(b)
+}
+
 // DeriveProfile computes the profile from the capture.
 func DeriveProfile() (Profile, error) {
 	c, err := loadCapture()

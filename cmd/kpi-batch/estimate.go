@@ -13,6 +13,7 @@ import (
 	"strings"
 
 	"qchain-kpi/internal/algs"
+	"qchain-kpi/internal/cells"
 	"qchain-kpi/internal/plan"
 	"qchain-kpi/internal/proto"
 	"qchain-kpi/internal/stats"
@@ -260,6 +261,28 @@ func estimate(dir, plansDir, machine string) (*Estimate, error) {
 				check = get(bl.Alg + "/verify")
 			case "encaps":
 				check = get(bl.Alg + "/decaps")
+			}
+			if bl.Exp == "E13" {
+				// Sizes only: a ledger block issues one credential per
+				// attribute count (signed and verified) and samples 1,000
+				// signatures of a variable-length scheme; an IPFS block seals
+				// and opens two envelopes per setting with ML-DSA-44 signing.
+				bs := f.overheadNS / 1e9
+				if a.Track == algs.Sig {
+					n := float64(len(cells.Ns))
+					if proto.E13SigVariable(a) {
+						n += 1000
+					}
+					bs += (2*get(bl.Alg+"/keygen") + n*(get(bl.Alg+"/sign")+get(bl.Alg+"/verify"))) / 1e9
+					rows += 7 * 7 * (5*float64(len(cells.Ns)) + 9)
+				} else {
+					per := get("ml-dsa-44/sign") + get(bl.Alg+"/encaps") + get(bl.Alg+"/decaps")
+					bs += (get(bl.Alg+"/keygen") + 2*15*per) / 1e9
+					rows += 4 * 15
+				}
+				pe.ByExpHours[bl.Exp] += bs / 3600
+				secs += bs
+				continue
 			}
 			if proto.SizeOnly(bl.Exp) {
 				// E8: target 1,000 keys or 10,000 outputs, each checked

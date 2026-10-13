@@ -1,6 +1,10 @@
 package proto
 
-import "qchain-kpi/internal/algs"
+import (
+	"strings"
+
+	"qchain-kpi/internal/algs"
+)
 
 // E8 measures sizes, not time. Its block for an operation produces many
 // outputs (keys, signatures, ciphertexts) in one process and records the
@@ -35,4 +39,20 @@ func E8Arms(a algs.Alg, op string) []string {
 // SizeOnly reports whether an experiment measures sizes only. Its blocks are
 // not timed: the run-quality flags do not apply to them, they are never
 // repeated, and their first attempt is the result.
-func SizeOnly(exp string) bool { return exp == "E8" }
+func SizeOnly(exp string) bool { return exp == "E8" || exp == "E13" }
+
+// E13Op is E13's single operation of an algorithm: "ledger" for a signature
+// scheme (Fabric transactions and blocks), "ipfs" for a KEM (envelopes).
+func E13Op(a algs.Alg) string {
+	if a.Track == algs.Sig {
+		return "ledger"
+	}
+	return "ipfs"
+}
+
+// E13SigVariable reports whether a scheme's signature length varies (E8):
+// unpadded Falcon and ECDSA (DER). E13 samples their signatures; kpi-prim
+// checks this against the library.
+func E13SigVariable(a algs.Alg) bool {
+	return (a.Family == "Falcon" && !strings.Contains(a.ID, "padded")) || a.ID == "ecdsa-p256"
+}

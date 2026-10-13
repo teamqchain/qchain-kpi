@@ -1,0 +1,10 @@
+{
+  "name": "smoke-e13",
+  "kind": "smoke",
+  "description": "Pipeline test of E13, never used for results: every algorithm's E13 block with 50 sampled signatures for the variable-length schemes.",
+  "reps": 1,
+  "canary_every_s": 120,
+  "items": [
+    {"exp": "E13", "algs": ["all"], "profile": "smoke"}
+  ]
+}

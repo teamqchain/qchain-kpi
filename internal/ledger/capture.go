@@ -41,8 +41,9 @@ type capWrite struct {
 	Key    int `json:"key"`
 	Delete int `json:"delete"`
 	Value  struct {
-		Bytes  int                        `json:"bytes"`
-		Fields map[string]json.RawMessage `json:"fields"`
+		Bytes       int                        `json:"bytes"`
+		Fields      map[string]json.RawMessage `json:"fields"`
+		IssuerShape string                     `json:"issuer_shape"`
 	} `json:"value"`
 }
 

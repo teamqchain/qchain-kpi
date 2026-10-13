@@ -36,7 +36,7 @@ const (
 
 // Item is one entry of a plan.
 type Item struct {
-	Exp     string   `json:"exp"`               // "probe", "probe-E2", "probe-E11", "E1", "E10", "E2", "E2c", "E8", "E11"
+	Exp     string   `json:"exp"`               // "probe", "probe-E2", "probe-E11", "E1", "E10", "E2", "E2c", "E8", "E11", "E13"
 	Algs    []string `json:"algs"`              // selectors (see algs.Expand)
 	Ops     []string `json:"ops,omitempty"`     // default: every op of the algorithm
 	Reps    int      `json:"reps,omitempty"`    // default: Plan.Reps
@@ -81,7 +81,7 @@ func Load(path string) (*Plan, error) {
 	}
 	for i, it := range p.Items {
 		switch it.Exp {
-		case "probe", "probe-E2", "probe-E11", "E1", "E10", "E2", "E2c", "E8", "E11":
+		case "probe", "probe-E2", "probe-E11", "E1", "E10", "E2", "E2c", "E8", "E11", "E13":
 		default:
 			return nil, fmt.Errorf("plan %s item %d: experiment %q not implemented in this phase", path, i, it.Exp)
 		}
@@ -197,6 +197,19 @@ func Expand(p *Plan, batchSeed uint64) ([]Block, error) {
 						return nil, fmt.Errorf("E8 measures keygen, sign and encaps only, not %q", op)
 					}
 				}
+			}
+			if it.Exp == "E13" {
+				// One size block per algorithm: Fabric transactions for a
+				// signature scheme, IPFS envelopes for a KEM.
+				op := "ledger"
+				if a.Track == algs.KEM {
+					op = "ipfs"
+				}
+				if len(it.Ops) > 0 && (len(it.Ops) != 1 || it.Ops[0] != op) {
+					return nil, fmt.Errorf("E13's operation for %s is %q", a.ID, op)
+				}
+				cs = append(cs, cell{it.Exp, a.ID, op, it.Profile, reps})
+				continue
 			}
 			for _, op := range ops {
 				if !validOp(a, op) {

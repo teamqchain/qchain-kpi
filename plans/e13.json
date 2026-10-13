@@ -1,0 +1,10 @@
+{
+  "name": "e13",
+  "kind": "main",
+  "description": "E13 ledger and IPFS bytes: for each of the 22 signature schemes, one block issues real credentials with QChain's code (1, 5, 10, 20 and 64 attributes) and places every QChain chaincode call (registerHolder, bindHolderKeys for each of the 8 KEMs, issueCredential, updateExpiry, suspend, restore, revoke) in Fabric blocks with the size model that reproduces the captured live ledger to the byte; unpadded Falcon and ECDSA signatures are sampled (1,000 each). Scenarios: measured, projected (Fabric on ML-DSA-44/65/87) and what-if encodings. For each of the 8 KEMs, one block seals and opens real envelopes (1-64 attributes of 16, 256 and 4,096 bytes) and gives their IPFS storage. Nothing is timed; one repetition.",
+  "reps": 1,
+  "canary_every_s": 600,
+  "items": [
+    {"exp": "E13", "algs": ["all"]}
+  ]
+}

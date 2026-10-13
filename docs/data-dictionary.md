@@ -44,7 +44,7 @@ The folder holds only allow-listed facts: no host name, user name, path outside 
 
 | Name | Example | Meaning |
 |---|---|---|
-| block id | `E1.ml-dsa-44.sign.r3` | experiment, algorithm, operation, repetition (experiments `E1`, `E10`, `E2`, `E2c`, `E8`, `E11`, `probe`, `probe-E2`, `probe-E11`) |
+| block id | `E1.ml-dsa-44.sign.r3` | experiment, algorithm, operation, repetition (experiments `E1`, `E10`, `E2`, `E2c`, `E8`, `E11`, `E13`, `probe`, `probe-E2`, `probe-E11`) |
 | attempt key | `E1.ml-dsa-44.sign.r3.a2` | block id + attempt number (`a1` = the first attempt) |
 | cell | `E1.ml-dsa-44.sign` | block id without the repetition |
 | arm | `reuse`, `issuer`, `holder`, `issuer-again`, `reinit`, `prod`, `hex-decode-sk`, `hex-decode-pk`, `hex-decode-sig`, `hex-decode-ct`, `init`, `clean`, `hex-encode-pk`, `hex-encode-sk`, `hex-encode-sig`, `hex-encode-ct`, `hex-encode-ss` | a measured variant inside a block (E2 and E2c arms: `docs/methodology.md` section 4 and `internal/proto/e2.go`) |
@@ -172,4 +172,17 @@ E8 blocks are not timed, so their files differ:
 - **Raw header:** as usual, plus `prep_ns` (the block's untimed input preparation) and `gc` (Go's default GC, no collections forced).
 - **`blocks.jsonl`:** `prep_ns` per attempt; `gc_automatic` counts the collections Go ran by itself (expected above 0 for E11, unlike the micro-benchmarks).
 - **Classification:** `classification["<algorithm field>/<operation field>"]` in `config/thresholds.json`, from `trial-e11` (probe median of the whole stage at least 30 ms = slow); `class_calibrated_from.E11` names that trial.
+
+## E13 (ledger and IPFS bytes)
+
+E13 blocks are not timed (like E8: no run-quality flags, never repeated, the first attempt is the result).
+- **Block ids:** `E13.<signature scheme>.ledger.r1` and `E13.<KEM>.ipfs.r1`.
+- **Raw file** `raw/E13/<alg>/<ledger|ipfs>-r1-a1.csv.gz`: header lines as usual, plus `validation` (what `ledger.Validate` reproduced, with the capture's SHA-256), `fabric_profile` (the measured Fabric constants as JSON), `height` (500000), `signature_samples`, `scenarios`; then `scenario,tx,kem,n,v,quantity,min,p50,max`.
+  - `scenario`: `measured`, `projected-ml-dsa-44`, `projected-ml-dsa-65`, `projected-ml-dsa-87` (projection: Fabric on ML-DSA), `whatif-base64`, `whatif-keyref`, `whatif-both` (hypothetical encodings). IPFS rows are `measured`.
+  - `tx`: `issueCredential`, `updateExpiry`, `suspendCredential`, `restoreCredential`, `revokeCredential` (per N), `registerHolder` (n = 0), `bindHolderKeys` (one row set per KEM in `kem`, n = 0), `envelope` (IPFS).
+  - `n`: attributes; `v`: attribute value bytes (16 for ledger rows).
+  - `quantity` (bytes unless noted): `envelope` (the transaction as stored in the block), `message` (payload + client signature: what the orderer's block cutter counts), `args` (all chaincode arguments, the function name included), `record` (the stored state record), `frame_1` (a block holding this transaction alone, as in the block file), `per_block_max` (count: how many such transactions one block holds when they arrive faster than the batch timeout), `share_max` (this transaction's share of such a block, rounded up); IPFS: `file`, `stored` (sum of IPFS blocks), `blocks` (count), `on_disk` (flatfs with 4 KiB file-system blocks).
+  - `min`, `p50`, `max`: over the sampled signature lengths (unpadded Falcon, ECDSA); equal when the length is fixed.
+- **`blocks.csv`:** one row per arm: ledger blocks `issue-n<N>` (the measured `issueCredential` envelope, bytes over the samples), IPFS blocks `env-n<N>-v<V>` (file bytes); `mode` is `sizes`, statistics columns hold bytes.
+- **Derived:** GB per million credentials per peer = bytes × 10⁶ / 10⁹ (`frame_1` at one transaction per block, `share_max` at full blocks).
 

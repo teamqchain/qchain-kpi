@@ -13,7 +13,9 @@ It records every sample, flags noisy measurements and repeats them, and produces
 - **Where every input comes from** (QChain code copied verbatim, pinned libraries, test vectors): [docs/provenance.md](docs/provenance.md)
 - **Decisions taken while building the harness:** [docs/decisions-log.md](docs/decisions-log.md)
 
-**Status (11 Oct 2026): Mac-first.**
+**Status (13 Oct 2026): Mac-first.** Mac results: the trial, E1, E10, E2, E8 and E11 (all committed). E13 is coded: its size model is calibrated on a read-only capture of the live ledger and IPFS store and reproduces it to the byte.
+
+**Earlier status (11 Oct 2026): Mac-first.**
 - The harness runs E0 (environment), E1 (primitive latency), E2 (integration cost: reuse, reinit, production, and their components), E8 (sizes and their distributions), E10 (issuer/holder equivalence for ML-DSA), the probe passes and the canary.
 - The macOS launcher works end to end. Mac results so far: the trial, E1, E10 and E2.
 - Decision of 11 Oct: every remaining experiment is coded for the Mac first (E2, E8, E13's model, E11, E3, E9, E4, E5, E6, E7, E12), each with unit tests and a Mac smoke run, then run one by one. The Windows and Linux launchers wait until those machines are available.
@@ -79,8 +81,8 @@ Pushing is always manual.
 - `trial`: calibration;
 - `trial-e2`: add-on calibration for E2 (batch sizes of the new arms only), once per machine before its first E2 run;
 - `trial-e11`: add-on calibration for E11 (fast/slow classification of the 991 cells), once per machine before its first E11 run;
-- `smoke-e2`, `smoke-e8`, `smoke-e11`: pipeline tests of E2, E8 and E11;
-- `e1`, `e10`, `e2`, `e8`, `e11`: main runs.
+- `smoke-e2`, `smoke-e8`, `smoke-e11`, `smoke-e13`: pipeline tests of E2, E8, E11 and E13;
+- `e1`, `e10`, `e2`, `e8`, `e11`, `e13`: main runs.
 
 A machine's first main run needs its calibrated section in `config/thresholds.json`. The trial writes `calibration.json`, which is reviewed, merged and committed before any main run on that machine.
 
