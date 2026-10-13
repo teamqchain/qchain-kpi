@@ -112,7 +112,28 @@ func block(num uint64, envs [][]byte, codes []byte, ordMsp string, ordPEM []byte
 			codes, nil, rnd(32),
 		}},
 	}
-	return marshal(b)
+	return serialize(b)
+}
+
+// serialize is the layout a peer's block file uses (Fabric v2.5.15,
+// common/ledger/blkstorage/block_serialization.go): number, data hash, previous
+// hash, transaction count, each envelope, metadata count, each metadata entry,
+// every byte string with its own length prefix. It is not the Block protobuf.
+func serialize(b *common.Block) []byte {
+	var o []byte
+	raw := func(x []byte) { o = binary.AppendUvarint(o, uint64(len(x))); o = append(o, x...) }
+	o = binary.AppendUvarint(o, b.Header.Number)
+	raw(b.Header.DataHash)
+	raw(b.Header.PreviousHash)
+	o = binary.AppendUvarint(o, uint64(len(b.Data.Data)))
+	for _, e := range b.Data.Data {
+		raw(e)
+	}
+	o = binary.AppendUvarint(o, uint64(len(b.Metadata.Metadata)))
+	for _, m := range b.Metadata.Metadata {
+		raw(m)
+	}
+	return o
 }
 
 func main() {

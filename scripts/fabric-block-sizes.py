@@ -3,7 +3,7 @@
 
     python3 fabric-block-sizes.py BLOCKFILE [PER_TX_JSONL]
 
-Reads a peer's blockfile_000000 (a sequence of: varint length, Block protobuf)
+Reads a peer's blockfile_000000 (a sequence of: varint length, then Fabric's block layout)
 and prints byte sizes only: block and envelope components, the submitter's and
 endorsers' certificates (DER layout, algorithm OIDs, signature lengths), the
 chaincode arguments, the read/write set, and the length of every field of a
@@ -276,18 +276,38 @@ def parse_tx(env, code):
     return t
 
 
+def raw_bytes(b, i):
+    ln, i = rd_varint(b, i)
+    if i + ln > len(b):
+        raise ValueError("truncated")
+    return b[i:i + ln], i + ln
+
+
 def parse_block(blob, frame):
-    bm = msg(blob)
-    header = msg(g(bm, 1))
-    data = msg(g(bm, 2))
-    meta = msg(g(bm, 3))
-    md = gall(meta, 1)
-    envs = gall(data, 1)
+    # A peer's block file does not store the Block protobuf: it stores Fabric's own layout
+    # (common/ledger/blkstorage/block_serialization.go, v2.5.15): block number, data hash,
+    # previous hash, transaction count, each envelope, metadata count, each metadata entry.
+    number, i = rd_varint(blob, 0)
+    data_hash, i = raw_bytes(blob, i)
+    prev_hash, i = raw_bytes(blob, i)
+    header_len = i
+    ntx, i = rd_varint(blob, i)
+    envs = []
+    for _ in range(ntx):
+        e, i = raw_bytes(blob, i)
+        envs.append(e)
+    data_len = i - header_len
+    nmeta, i = rd_varint(blob, i)
+    md = []
+    for _ in range(nmeta):
+        m, i = raw_bytes(blob, i)
+        md.append(m)
+    meta_len = len(blob) - header_len - data_len
     flt = md[2] if len(md) > 2 else b""
     b = {
-        "number": gi(header, 1), "frame": frame, "block": len(blob), "header": len(g(bm, 1)),
-        "data": len(g(bm, 2)), "metadata": len(g(bm, 3)), "ntx": len(envs), "md_lens": [len(x) for x in md],
-        "previous_hash": len(g(header, 2)), "data_hash": len(g(header, 3)),
+        "number": number, "frame": frame, "block": len(blob), "header": header_len,
+        "data": data_len, "metadata": meta_len, "ntx": len(envs), "md_lens": [len(x) for x in md],
+        "previous_hash": len(prev_hash), "data_hash": len(data_hash), "trailing": len(blob) - i,
     }
     sigs = []
     if md:
