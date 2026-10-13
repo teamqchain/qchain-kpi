@@ -1,0 +1,13 @@
+utc_ns,other_pct,throttle,on_ac,alert,detail
+1791790076505756000,0.838,0,1,0,user=12.66;sys=0.74;excluded_core_pct=100.5;thermal_level=0;battery_pct=100
+1791790081535151000,2.917,0,1,0,user=13.78;sys=1.70;excluded_core_pct=100.5;thermal_level=0;battery_pct=100
+1791790086564318000,16.580,0,1,0,user=21.58;sys=7.60;excluded_core_pct=100.8;thermal_level=0;battery_pct=100;busiest_other=XProtectPluginSe:7.9
+1791790091593681000,13.047,0,1,0,user=17.62;sys=7.99;excluded_core_pct=100.5;thermal_level=0;battery_pct=100;busiest_other=XProtectRemediat:90.0
+1791790096623345000,13.398,0,1,0,user=18.13;sys=7.83;excluded_core_pct=100.5;thermal_level=0;battery_pct=100;busiest_other=XProtectRemediat:89.5
+1791790101668768000,13.547,0,1,0,user=21.70;sys=4.41;excluded_core_pct=100.5;thermal_level=0;battery_pct=100;busiest_other=tccd:55.0
+1791790106697995000,13.537,0,1,0,user=19.74;sys=6.41;excluded_core_pct=100.9;thermal_level=0;battery_pct=100;busiest_other=XProtectRemediat:62.5
+1791790111727076000,13.355,0,1,0,user=18.65;sys=7.28;excluded_core_pct=100.6;thermal_level=0;battery_pct=100;busiest_other=XProtectRemediat:81.7
+1791790116754927000,13.520,0,1,0,user=18.62;sys=7.45;excluded_core_pct=100.4;thermal_level=0;battery_pct=100;busiest_other=XProtectRemediat:86.3
+1791790121784097000,13.283,0,1,0,user=18.68;sys=7.19;excluded_core_pct=100.7;thermal_level=0;battery_pct=100;busiest_other=XProtectRemediat:79.1
+1791790126813974000,14.623,0,1,0,user=19.00;sys=8.16;excluded_core_pct=100.3;thermal_level=0;battery_pct=100;busiest_other=XProtectRemediat:83.5
+1791790131843004000,13.375,0,1,0,user=18.61;sys=7.34;excluded_core_pct=100.6;thermal_level=0;battery_pct=100;busiest_other=XProtectRemediat:83.3
