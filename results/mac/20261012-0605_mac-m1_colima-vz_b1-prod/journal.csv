@@ -11024,3 +11024,11 @@ utc_ns,event,key,detail
 1791879295326949862,block_done,E11.falcon-1024+ml-kem-1024.issuance-n5-v16.r5.a2,
 1791879296836105682,canary,,152 end ratio 0.98203 P-like
 1791879367834163643,batch_done,,5225 attempt(s)
+1791883615547115762,extension_queued,E11.slh-dsa-shake-128f+ml-kem-768.issuance-n10-v16.r3.a4,"block had 3 attempt(s), none clean"
+1791883615554762062,session_start,,session 2; host offset -28137792 ns
+1791883615703401413,e0,,e0-s2.json
+1791883617215376173,canary,,153 extend ratio 0.98484 P-like
+1791883617216029513,block_start,E11.slh-dsa-shake-128f+ml-kem-768.issuance-n10-v16.r3.a4,fast
+1791883676444673822,block_done,E11.slh-dsa-shake-128f+ml-kem-768.issuance-n10-v16.r3.a4,
+1791883677954309419,canary,,154 end ratio 0.99305 P-like
+1791883743900004233,batch_done,,5226 attempt(s)

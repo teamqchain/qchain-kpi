@@ -6,8 +6,8 @@
   "plan_kind": "main",
   "plan_hash": "60f8fcce94ccca8381c1227d1f5576c4333b692c98df23d8ee90badfb850dd4b",
   "seed": 5993334358852920532,
-  "image_id": "sha256:880ce38bcba3811f186a6b8001287d9d1858fdcf96e34ba1d38c6c9b490ab3c0",
-  "harness_commit": "46b0d491df38dda5fa8280ce93d90da5acaf86d9",
+  "image_id": "sha256:8cf09fbb4fa1118a6d7b2f3249b0d8a327a6df963de53b76ae2eac417fccacf1",
+  "harness_commit": "c466daa3bba2a7fd840e0dd2d527498aaf8c249a",
   "thresholds_hash": "b0a0c86c6d591c91cf51e0b05e210ab86c75df787a291b2432b30c193216c5e6",
   "started_utc": "2026-10-12T06:05:26Z",
   "status": "done",
@@ -19,9 +19,17 @@
       "host_offset_ns": 30442247,
       "native_p_rate": 2554162.30238276,
       "native_e_rate": 412866.973669904
+    },
+    {
+      "n": 2,
+      "started_utc": "2026-10-13T09:26:55Z",
+      "start_unix_ns": 1791883615322618900,
+      "host_offset_ns": -28137792,
+      "native_p_rate": 2567170.85300472,
+      "native_e_rate": 412910.442357676
     }
   ],
-  "planned_blocks": 4955,
+  "planned_blocks": 4956,
   "queue": [],
   "done": [
     "E11.dhkem-x25519.retrieval-n5-v16.r1.a1",
@@ -5248,7 +5256,8 @@
     "E11.slh-dsa-shake-256s+hqc-3.issuance-n10-v16.r5.a1",
     "E11.slh-dsa-shake-128f+hqc-1.issuance-n10-v16.r2.a2",
     "E11.ml-dsa-44+ml-kem-512.issuance-n5-v16.r2.a2",
-    "E11.falcon-1024+ml-kem-1024.issuance-n5-v16.r5.a2"
+    "E11.falcon-1024+ml-kem-1024.issuance-n5-v16.r5.a2",
+    "E11.slh-dsa-shake-128f+ml-kem-768.issuance-n10-v16.r3.a4"
   ],
   "classification": {},
   "requeued": {
@@ -5406,6 +5415,7 @@
     "E11.slh-dsa-shake-128f+ml-kem-512.activation.r1.a1": true,
     "E11.slh-dsa-shake-128f+ml-kem-768.issuance-n10-v16.r3.a1": true,
     "E11.slh-dsa-shake-128f+ml-kem-768.issuance-n10-v16.r3.a2": true,
+    "E11.slh-dsa-shake-128f+ml-kem-768.issuance-n10-v16.r3.a3": true,
     "E11.slh-dsa-shake-128s+hqc-1.verification-n10-k5-v16.r5.a1": true,
     "E11.slh-dsa-shake-128s+ml-kem-1024.verification-n10-k5-v16.r3.a1": true,
     "E11.slh-dsa-shake-128s+ml-kem-512.verification-n10-k5-v16.r1.a1": true,
@@ -5525,10 +5535,25 @@
     "E11.slh-dsa-shake-256s+ml-kem-768.activation.r3": true,
     "E11.slh-dsa-shake-256s.presentation-k5-v16.r4": true
   },
-  "canary_seq": 152,
+  "canary_seq": 154,
   "first_canary_rate": 2560533.686641331,
-  "last_canary_unix_ns": 1791879296829351035,
+  "last_canary_unix_ns": 1791883677946941937,
   "preps": {},
+  "extensions": [
+    {
+      "session": 2,
+      "blocks": [
+        "E11.slh-dsa-shake-128f+ml-kem-768.issuance-n10-v16.r3"
+      ],
+      "old_image_id": "sha256:880ce38bcba3811f186a6b8001287d9d1858fdcf96e34ba1d38c6c9b490ab3c0",
+      "old_harness_commit": "46b0d491df38dda5fa8280ce93d90da5acaf86d9",
+      "new_image_id": "sha256:8cf09fbb4fa1118a6d7b2f3249b0d8a327a6df963de53b76ae2eac417fccacf1",
+      "new_harness_commit": "c466daa3bba2a7fd840e0dd2d527498aaf8c249a"
+    }
+  ],
+  "extension_base": {
+    "E11.slh-dsa-shake-128f+ml-kem-768.issuance-n10-v16.r3": 3
+  },
   "cell_reps": {
     "E11.dhkem-p256.retrieval-n1-v16": 5,
     "E11.dhkem-p256.retrieval-n10-v16": 5,

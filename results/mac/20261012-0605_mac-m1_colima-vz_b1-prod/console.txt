@@ -5646,3 +5646,10 @@
 [12:14:55] 5225/5225 E11.falcon-1024+ml-kem-1024.issuance-n5-v16.r5.a2 fast p50 394.33us (n=2000) first 516.20us
 [12:14:56] canary 152 (end): 2514528 hashes/s, ratio 0.9820 P-like
 [12:16:08] batch complete: 5225 attempt(s); 8367 file(s) in SHA256SUMS
+
+=== extension session (blocks without a clean attempt) ===
+[13:26:55] resuming 20261012-0605_mac-m1_colima-vz_b1-prod: 0 block(s) queued, 5225 done, 0 temporary file(s) removed
+[13:26:57] canary 153 (extend): 2521716 hashes/s, ratio 0.9848 P-like
+[13:27:56] 5226/5226 E11.slh-dsa-shake-128f+ml-kem-768.issuance-n10-v16.r3.a4 fast p50 26.288ms (n=2000) first 26.247ms
+[13:27:57] canary 154 (end): 2542741 hashes/s, ratio 0.9931 P-like
+[13:29:04] batch complete: 5226 attempt(s); 8389 file(s) in SHA256SUMS
