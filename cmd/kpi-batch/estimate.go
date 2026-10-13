@@ -28,6 +28,8 @@ type Estimate struct {
 	TotalHours  float64        `json:"total_hours"`
 	TotalRawMB  float64        `json:"total_raw_mb"`
 	Assumptions []string       `json:"assumptions"`
+	// NotEstimated are the main plans this trial cannot estimate, with why.
+	NotEstimated map[string]string `json:"not_estimated,omitempty"`
 }
 
 type PlanEstimate struct {
@@ -76,7 +78,19 @@ func printEstimate(e *Estimate) {
 		fmt.Fprintf(os.Stderr, "  %-10s %5d blocks  %7.2f h  %8.1f MB raw\n", p.Plan, p.Blocks, p.Hours, p.RawMB)
 	}
 	fmt.Fprintf(os.Stderr, "  total               %7.2f h  %8.1f MB raw\n", e.TotalHours, e.TotalRawMB)
+	var names []string
+	for n := range e.NotEstimated {
+		names = append(names, n)
+	}
+	sort.Strings(names)
+	for _, n := range names {
+		fmt.Fprintf(os.Stderr, "  %-10s not estimated: %s\n", n, e.NotEstimated[n])
+	}
 }
+
+// addOnTrials are the experiments whose cells only their own add-on trial
+// probes (E2's arms, E6's message sizes, E7's arms, E11's cells).
+var addOnTrials = map[string]string{"E2": "trial-e2", "E6": "trial-e6", "E7": "trial-e7", "E11": "trial-e11"}
 
 // trialFacts are the measurements the estimate is built from.
 type trialFacts struct {
@@ -312,6 +326,27 @@ func estimate(dir, plansDir, machine string) (*Estimate, error) {
 			// An add-on trial probes only its own experiment's cells; the
 			// plans of other experiments (E1, E2, ... in an E11 add-on) have
 			// no probes to be estimated from and are left out.
+			continue
+		}
+		// A machine's first trial cannot estimate the experiments that have
+		// their own add-on trial (it has no probes of their cells), and no
+		// estimate may be non-finite (NaN cannot be written to JSON: it
+		// failed trial-e11 at its last step on 12 Oct). Probes missing only
+		// for the input preparation stay listed in missing_probe.
+		why := ""
+		for exp, trial := range addOnTrials {
+			if f.cal.AddOn != exp && planHasExp(blocks, exp) {
+				why = "needs its add-on trial (" + trial + ")"
+			}
+		}
+		if why == "" && (!finite(pe.Hours) || !finite(pe.RawMB)) {
+			why = "the estimate is not finite"
+		}
+		if why != "" {
+			if e.NotEstimated == nil {
+				e.NotEstimated = map[string]string{}
+			}
+			e.NotEstimated[p.Name] = why
 			continue
 		}
 		e.Plans = append(e.Plans, pe)

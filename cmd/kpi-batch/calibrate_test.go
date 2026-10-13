@@ -128,4 +128,20 @@ func TestCalibrateAndEstimate(t *testing.T) {
 	if _, err := json.Marshal(e); err != nil {
 		t.Fatal(err)
 	}
+
+	// A first trial cannot estimate the experiments with their own add-on
+	// trial: they are listed, not given a meaningless figure or NaN (an E6
+	// plan gave NaN, which cannot be written to estimate.json).
+	os.WriteFile(filepath.Join(plans, "e6.json"), []byte(`{"name":"e6","kind":"main","description":"","reps":5,"items":[{"exp":"E6","algs":["ml-dsa-44"]}]}`), 0o644)
+	os.WriteFile(filepath.Join(plans, "e2.json"), []byte(`{"name":"e2","kind":"main","description":"","reps":5,"items":[{"exp":"E2","algs":["ml-dsa-44"],"ops":["sign"]}]}`), 0o644)
+	e, err = estimate(dir, plans, "mac-m1")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(e.Plans) != 1 || e.NotEstimated["e6"] != "needs its add-on trial (trial-e6)" || e.NotEstimated["e2"] != "needs its add-on trial (trial-e2)" {
+		t.Fatalf("estimate %+v", e)
+	}
+	if err := writeJSON(filepath.Join(dir, fileEstimate), e); err != nil {
+		t.Fatalf("estimate.json: %v", err)
+	}
 }
