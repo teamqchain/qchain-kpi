@@ -1,0 +1,96 @@
+utc_ns,event,key,detail
+1791928138962437003,session_start,,session 1; host offset -78056508 ns
+1791928139105390798,e0,,e0-s1.json
+1791928140613090550,canary,,1 start ratio 1.00000 P-like
+1791928140619330741,prep,ml-dsa-44.probe,pool 6 e10 false 1702097 ns
+1791928140619795071,block_start,probe-E7.ml-dsa-44.verify.r1.a1,
+1791928140626693660,block_done,probe-E7.ml-dsa-44.verify.r1.a1,
+1791928140631502891,prep,ml-dsa-65.probe,pool 6 e10 false 1806135 ns
+1791928140631917411,block_start,probe-E7.ml-dsa-65.verify.r1.a1,
+1791928140638522647,block_done,probe-E7.ml-dsa-65.verify.r1.a1,
+1791928140644098147,prep,ml-dsa-87.probe,pool 6 e10 false 2421934 ns
+1791928140644525922,block_start,probe-E7.ml-dsa-87.verify.r1.a1,
+1791928140652522688,block_done,probe-E7.ml-dsa-87.verify.r1.a1,
+1791928143311871190,prep,slh-dsa-sha2-128s.probe,pool 6 e10 false 2653636325 ns
+1791928143312378244,block_start,probe-E7.slh-dsa-sha2-128s.verify.r1.a1,
+1791928143326377884,block_done,probe-E7.slh-dsa-sha2-128s.verify.r1.a1,
+1791928143465997821,prep,slh-dsa-sha2-128f.probe,pool 6 e10 false 133951024 ns
+1791928143466476615,block_start,probe-E7.slh-dsa-sha2-128f.verify.r1.a1,
+1791928143495175017,block_done,probe-E7.slh-dsa-sha2-128f.verify.r1.a1,
+1791928148142219349,prep,slh-dsa-sha2-192s.probe,pool 6 e10 false 4641290881 ns
+1791928148142756581,block_start,probe-E7.slh-dsa-sha2-192s.verify.r1.a1,
+1791928148161586417,block_done,probe-E7.slh-dsa-sha2-192s.verify.r1.a1,
+1791928148383723467,prep,slh-dsa-sha2-192f.probe,pool 6 e10 false 216594920 ns
+1791928148384313842,block_start,probe-E7.slh-dsa-sha2-192f.verify.r1.a1,
+1791928148424720695,block_done,probe-E7.slh-dsa-sha2-192f.verify.r1.a1,
+1791928152503285213,prep,slh-dsa-sha2-256s.probe,pool 6 e10 false 4072664465 ns
+1791928152503776221,block_start,probe-E7.slh-dsa-sha2-256s.verify.r1.a1,
+1791928152527582521,block_done,probe-E7.slh-dsa-sha2-256s.verify.r1.a1,
+1791928152967663785,prep,slh-dsa-sha2-256f.probe,pool 6 e10 false 433455199 ns
+1791928152968159503,block_start,probe-E7.slh-dsa-sha2-256f.verify.r1.a1,
+1791928153009129118,block_done,probe-E7.slh-dsa-sha2-256f.verify.r1.a1,
+1791928156354897023,prep,slh-dsa-shake-128s.probe,pool 6 e10 false 3339104861 ns
+1791928156355243897,block_start,probe-E7.slh-dsa-shake-128s.verify.r1.a1,
+1791928156371456311,block_done,probe-E7.slh-dsa-shake-128s.verify.r1.a1,
+1791928156544522238,prep,slh-dsa-shake-128f.probe,pool 6 e10 false 167894164 ns
+1791928156545145794,block_start,probe-E7.slh-dsa-shake-128f.verify.r1.a1,
+1791928156580439106,block_done,probe-E7.slh-dsa-shake-128f.verify.r1.a1,
+1791928162512226227,prep,slh-dsa-shake-192s.probe,pool 6 e10 false 5925668136 ns
+1791928162512624037,block_start,probe-E7.slh-dsa-shake-192s.verify.r1.a1,
+1791928162533450185,block_done,probe-E7.slh-dsa-shake-192s.verify.r1.a1,
+1791928162813408173,prep,slh-dsa-shake-192f.probe,pool 6 e10 false 274015353 ns
+1791928162814078122,block_start,probe-E7.slh-dsa-shake-192f.verify.r1.a1,
+1791928162862746731,block_done,probe-E7.slh-dsa-shake-192f.verify.r1.a1,
+1791928168197369196,prep,slh-dsa-shake-256s.probe,pool 6 e10 false 5328324694 ns
+1791928168197873754,block_start,probe-E7.slh-dsa-shake-256s.verify.r1.a1,
+1791928168225922097,block_done,probe-E7.slh-dsa-shake-256s.verify.r1.a1,
+1791928168786551583,prep,slh-dsa-shake-256f.probe,pool 6 e10 false 554401569 ns
+1791928168787184686,block_start,probe-E7.slh-dsa-shake-256f.verify.r1.a1,
+1791928168837270409,block_done,probe-E7.slh-dsa-shake-256f.verify.r1.a1,
+1791928168847177447,prep,falcon-512.probe,pool 6 e10 false 6587422 ns
+1791928168847576299,block_start,probe-E7.falcon-512.verify.r1.a1,
+1791928168853424496,block_done,probe-E7.falcon-512.verify.r1.a1,
+1791928168874923013,prep,falcon-1024.probe,pool 6 e10 false 17740326 ns
+1791928168875302359,block_start,probe-E7.falcon-1024.verify.r1.a1,
+1791928168882247743,block_done,probe-E7.falcon-1024.verify.r1.a1,
+1791928168892630578,prep,falcon-padded-512.probe,pool 6 e10 false 7190515 ns
+1791928168893044061,block_start,probe-E7.falcon-padded-512.verify.r1.a1,
+1791928168899150517,block_done,probe-E7.falcon-padded-512.verify.r1.a1,
+1791928168920726272,prep,falcon-padded-1024.probe,pool 6 e10 false 17597567 ns
+1791928168921250211,block_start,probe-E7.falcon-padded-1024.verify.r1.a1,
+1791928168928148579,block_done,probe-E7.falcon-padded-1024.verify.r1.a1,
+1791928168933713214,prep,ecdsa-p256.probe,pool 6 e10 false 1302846 ns
+1791928168934474489,block_start,probe-E7.ecdsa-p256.verify.r1.a1,
+1791928168942092784,block_done,probe-E7.ecdsa-p256.verify.r1.a1,
+1791928168947087755,prep,ed25519.probe,pool 6 e10 false 1331189 ns
+1791928168947496486,block_start,probe-E7.ed25519.verify.r1.a1,
+1791928168955324523,block_done,probe-E7.ed25519.verify.r1.a1,
+1791928169263119368,prep,rsa3072-pss.probe,pool 6 e10 false 302187652 ns
+1791928169263573950,block_start,probe-E7.rsa3072-pss.verify.r1.a1,
+1791928169271964151,block_done,probe-E7.rsa3072-pss.verify.r1.a1,
+1791928169276733125,prep,ml-kem-512.probe,pool 6 e10 false 1092604 ns
+1791928169277294995,block_start,probe-E7.ml-kem-512.decaps.r1.a1,
+1791928169283551758,block_done,probe-E7.ml-kem-512.decaps.r1.a1,
+1791928169289271535,prep,ml-kem-768.probe,pool 6 e10 false 1217024 ns
+1791928169289798017,block_start,probe-E7.ml-kem-768.decaps.r1.a1,
+1791928169296341592,block_done,probe-E7.ml-kem-768.decaps.r1.a1,
+1791928169301877386,prep,ml-kem-1024.probe,pool 6 e10 false 1310557 ns
+1791928169302539292,block_start,probe-E7.ml-kem-1024.decaps.r1.a1,
+1791928169308632537,block_done,probe-E7.ml-kem-1024.decaps.r1.a1,
+1791928169341617926,prep,hqc-1.probe,pool 6 e10 false 28823466 ns
+1791928169342116189,block_start,probe-E7.hqc-1.decaps.r1.a1,
+1791928169381369928,block_done,probe-E7.hqc-1.decaps.r1.a1,
+1791928169459184029,prep,hqc-3.probe,pool 6 e10 false 72819795 ns
+1791928169459631899,block_start,probe-E7.hqc-3.decaps.r1.a1,
+1791928169551394045,block_done,probe-E7.hqc-3.decaps.r1.a1,
+1791928169741093028,prep,hqc-5.probe,pool 6 e10 false 184158813 ns
+1791928169741812830,block_start,probe-E7.hqc-5.decaps.r1.a1,
+1791928169959728101,block_done,probe-E7.hqc-5.decaps.r1.a1,
+1791928169966090152,prep,dhkem-p256.probe,pool 6 e10 false 1982009 ns
+1791928169966546025,block_start,probe-E7.dhkem-p256.decaps.r1.a1,
+1791928169973522090,block_done,probe-E7.dhkem-p256.decaps.r1.a1,
+1791928169978599260,prep,dhkem-x25519.probe,pool 6 e10 false 1390211 ns
+1791928169979010283,block_start,probe-E7.dhkem-x25519.decaps.r1.a1,
+1791928169985857718,block_done,probe-E7.dhkem-x25519.decaps.r1.a1,
+1791928171491478846,canary,,2 end ratio 0.99956 P-like
+1791928206534773639,batch_done,,30 attempt(s)

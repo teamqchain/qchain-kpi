@@ -1,0 +1,66 @@
+[01:49:00] canary 1 (start): 2563521 hashes/s, ratio 1.0000 P-like
+[01:49:00] prepared ml-dsa-44.probe: P=6 in 0.0s
+[01:49:00] 1/30 probe-E7.ml-dsa-44.verify.r1.a1 probe p50 28.84us (n=5) first 48.27us
+[01:49:00] prepared ml-dsa-65.probe: P=6 in 0.0s
+[01:49:00] 2/30 probe-E7.ml-dsa-65.verify.r1.a1 probe p50 50.14us (n=5) first 67.15us
+[01:49:00] prepared ml-dsa-87.probe: P=6 in 0.0s
+[01:49:00] 3/30 probe-E7.ml-dsa-87.verify.r1.a1 probe p50 86.24us (n=5) first 111.41us
+[01:49:03] prepared slh-dsa-sha2-128s.probe: P=6 in 2.7s
+[01:49:03] 4/30 probe-E7.slh-dsa-sha2-128s.verify.r1.a1 probe p50 440.95us (n=5) first 447.87us
+[01:49:03] prepared slh-dsa-sha2-128f.probe: P=6 in 0.1s
+[01:49:03] 5/30 probe-E7.slh-dsa-sha2-128f.verify.r1.a1 probe p50 1.240ms (n=5) first 1.294ms
+[01:49:08] prepared slh-dsa-sha2-192s.probe: P=6 in 4.6s
+[01:49:08] 6/30 probe-E7.slh-dsa-sha2-192s.verify.r1.a1 probe p50 625.85us (n=5) first 700.25us
+[01:49:08] prepared slh-dsa-sha2-192f.probe: P=6 in 0.2s
+[01:49:08] 7/30 probe-E7.slh-dsa-sha2-192f.verify.r1.a1 probe p50 1.858ms (n=5) first 1.851ms
+[01:49:12] prepared slh-dsa-sha2-256s.probe: P=6 in 4.1s
+[01:49:12] 8/30 probe-E7.slh-dsa-sha2-256s.verify.r1.a1 probe p50 925.50us (n=5) first 959.34us
+[01:49:12] prepared slh-dsa-sha2-256f.probe: P=6 in 0.4s
+[01:49:13] 9/30 probe-E7.slh-dsa-sha2-256f.verify.r1.a1 probe p50 1.881ms (n=5) first 1.871ms
+[01:49:16] prepared slh-dsa-shake-128s.probe: P=6 in 3.3s
+[01:49:16] 10/30 probe-E7.slh-dsa-shake-128s.verify.r1.a1 probe p50 531.15us (n=5) first 580.79us
+[01:49:16] prepared slh-dsa-shake-128f.probe: P=6 in 0.2s
+[01:49:16] 11/30 probe-E7.slh-dsa-shake-128f.verify.r1.a1 probe p50 1.565ms (n=5) first 1.538ms
+[01:49:22] prepared slh-dsa-shake-192s.probe: P=6 in 5.9s
+[01:49:22] 12/30 probe-E7.slh-dsa-shake-192s.verify.r1.a1 probe p50 814.21us (n=5) first 768.07us
+[01:49:22] prepared slh-dsa-shake-192f.probe: P=6 in 0.3s
+[01:49:22] 13/30 probe-E7.slh-dsa-shake-192f.verify.r1.a1 probe p50 2.287ms (n=5) first 2.430ms
+[01:49:28] prepared slh-dsa-shake-256s.probe: P=6 in 5.3s
+[01:49:28] 14/30 probe-E7.slh-dsa-shake-256s.verify.r1.a1 probe p50 1.172ms (n=5) first 1.149ms
+[01:49:28] prepared slh-dsa-shake-256f.probe: P=6 in 0.6s
+[01:49:28] 15/30 probe-E7.slh-dsa-shake-256f.verify.r1.a1 probe p50 2.332ms (n=5) first 2.307ms
+[01:49:28] prepared falcon-512.probe: P=6 in 0.0s
+[01:49:28] 16/30 probe-E7.falcon-512.verify.r1.a1 probe p50 23.18us (n=5) first 32.80us
+[01:49:28] prepared falcon-1024.probe: P=6 in 0.0s
+[01:49:28] 17/30 probe-E7.falcon-1024.verify.r1.a1 probe p50 44.64us (n=5) first 63.27us
+[01:49:28] prepared falcon-padded-512.probe: P=6 in 0.0s
+[01:49:28] 18/30 probe-E7.falcon-padded-512.verify.r1.a1 probe p50 22.18us (n=5) first 34.01us
+[01:49:28] prepared falcon-padded-1024.probe: P=6 in 0.0s
+[01:49:28] 19/30 probe-E7.falcon-padded-1024.verify.r1.a1 probe p50 45.10us (n=5) first 55.60us
+[01:49:28] prepared ecdsa-p256.probe: P=6 in 0.0s
+[01:49:28] 20/30 probe-E7.ecdsa-p256.verify.r1.a1 probe p50 55.15us (n=5) first 83.53us
+[01:49:28] prepared ed25519.probe: P=6 in 0.0s
+[01:49:28] 21/30 probe-E7.ed25519.verify.r1.a1 probe p50 81.86us (n=5) first 101.75us
+[01:49:29] prepared rsa3072-pss.probe: P=6 in 0.3s
+[01:49:29] 22/30 probe-E7.rsa3072-pss.verify.r1.a1 probe p50 35.30us (n=5) first 84.36us
+[01:49:29] prepared ml-kem-512.probe: P=6 in 0.0s
+[01:49:29] 23/30 probe-E7.ml-kem-512.decaps.r1.a1 probe p50 10.75us (n=5) first 25.93us
+[01:49:29] prepared ml-kem-768.probe: P=6 in 0.0s
+[01:49:29] 24/30 probe-E7.ml-kem-768.decaps.r1.a1 probe p50 16.55us (n=5) first 39.39us
+[01:49:29] prepared ml-kem-1024.probe: P=6 in 0.0s
+[01:49:29] 25/30 probe-E7.ml-kem-1024.decaps.r1.a1 probe p50 25.51us (n=5) first 42.31us
+[01:49:29] prepared hqc-1.probe: P=6 in 0.0s
+[01:49:29] 26/30 probe-E7.hqc-1.decaps.r1.a1 probe p50 2.702ms (n=5) first 2.779ms
+[01:49:29] prepared hqc-3.probe: P=6 in 0.1s
+[01:49:29] 27/30 probe-E7.hqc-3.decaps.r1.a1 probe p50 6.923ms (n=5) first 6.987ms
+[01:49:29] prepared hqc-5.probe: P=6 in 0.2s
+[01:49:29] 28/30 probe-E7.hqc-5.decaps.r1.a1 probe p50 17.489ms (n=5) first 17.598ms
+[01:49:29] prepared dhkem-p256.probe: P=6 in 0.0s
+[01:49:29] 29/30 probe-E7.dhkem-p256.decaps.r1.a1 probe p50 101.20us (n=5) first 174.23us
+[01:49:29] prepared dhkem-x25519.probe: P=6 in 0.0s
+[01:49:29] 30/30 probe-E7.dhkem-x25519.decaps.r1.a1 probe p50 38.06us (n=5) first 69.82us
+[01:49:31] canary 2 (end): 2562389 hashes/s, ratio 0.9996 P-like
+estimate for mac-m1 from trial 20261013-2148_mac-m1_colima-vz_b1-prod (excluding repeats):
+  e7           150 blocks     2.67 h      19.9 MB raw
+  total                  2.67 h      19.9 MB raw
+[01:50:06] batch complete: 30 attempt(s); 57 file(s) in SHA256SUMS
