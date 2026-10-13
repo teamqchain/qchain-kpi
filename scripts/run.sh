@@ -607,6 +607,7 @@ case "$cmd" in
     prep="$(mktemp -d "${TMPDIR:-/tmp}/kpi-ext.XXXXXX")"
     cp -R "$folder/." "$prep/"
     rm -rf "$prep/launcher" "$prep/console.txt"
+    find "$prep" -name .DS_Store -delete   # Finder files are not part of a run
     docker cp "$prep/." "kpi-run-$rid:/out/" >/dev/null
     rm -rf "$prep"
     docker run --rm --network none --user root --entrypoint /bin/chown \
