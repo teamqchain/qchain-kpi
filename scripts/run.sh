@@ -228,7 +228,7 @@ persist_dir() { printf '%s\n' "$HOME/Library/Application Support/qchain-kpi/$1";
 # paused (SIGSTOP) for the duration of a session and resumed (SIGCONT) on every
 # exit path (decision 10 Oct). They run as the user, so no admin rights are
 # needed; a logout or restart resumes them as well.
-BG_PATTERN='/(mediaanalysisd|photoanalysisd|spotlightknowledged|spotlightknowledged[.]importer|spotlightknowledged[.]updater|suggestd|duetexpertd|knowledge-agent|knowledgeconstructiond|AddressBookSourceSync)( |$)'
+BG_PATTERN='/(mediaanalysisd|photoanalysisd|spotlightknowledged|spotlightknowledged[.]importer|spotlightknowledged[.]updater|suggestd|duetexpertd|knowledge-agent|knowledgeconstructiond|AddressBookSourceSync|appstoreagent)( |$)'
 pause_bg() { # logfile
   local pid name
   for pid in $(pgrep -f "$BG_PATTERN" 2>/dev/null); do
