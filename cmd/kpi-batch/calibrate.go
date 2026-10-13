@@ -12,7 +12,6 @@ import (
 	"strings"
 
 	"qchain-kpi/internal/algs"
-	"qchain-kpi/internal/cells"
 	"qchain-kpi/internal/plan"
 	"qchain-kpi/internal/proto"
 	"qchain-kpi/internal/quality"
@@ -98,138 +97,9 @@ func copyMachine(base *quality.Machine) (*quality.Machine, error) {
 	return m, json.Unmarshal(raw, m)
 }
 
-// calibrateE11AddOn classifies every E11 cell of an add-on trial's probe-E11
-// pass as fast or slow with the approved composite rule (probe median of the
-// whole stage at least 30 ms = slow). Every other threshold is copied
-// unchanged from the machine's committed section.
-func calibrateE11AddOn(machine string, st *State, vs []*Verdict, base *quality.Machine) (*Calibration, error) {
-	if base == nil || base.CalibratedFrom == "" {
-		return nil, fmt.Errorf("calibrate: the add-on trial %s ran without calibrated thresholds for %s", st.RunID, machine)
-	}
-	m, err := copyMachine(base)
-	if err != nil {
-		return nil, err
-	}
-	if m.Class == nil {
-		m.Class = map[string]string{}
-	}
-	if m.Inputs == nil {
-		m.Inputs = map[string]float64{}
-	}
-	if m.ClassCalibratedFrom == nil {
-		m.ClassCalibratedFrom = map[string]string{}
-	}
-	m.ClassCalibratedFrom["E11"] = st.RunID
-	cal := &Calibration{Machine: machine, TrialRun: st.RunID, Formulas: quality.FormulaText, Thresholds: m, AddOn: "E11",
-		Notes: []string{"add-on calibration: only the fast/slow classification of the E11 cells is new (probe median of the whole stage >= 30 ms = slow); every other value is the machine's committed thresholds, unchanged"}}
-	probes, slow := 0, 0
-	for _, v := range vs {
-		r := v.Res
-		if r.Block.Exp != "probe-E11" || r.Block.Attempt != 1 || len(r.Arms) == 0 {
-			continue
-		}
-		probes++
-		c := quality.ClassifyComposite(r.Arms[0].ProbeNS, cells.SlowCompositeNS)
-		m.Class[r.Block.Alg+"/"+r.Block.Op] = c
-		if c == "slow" {
-			slow++
-		}
-	}
-	if probes == 0 {
-		return nil, fmt.Errorf("calibrate: trial %s has no probe-E11 blocks", st.RunID)
-	}
-	m.Inputs["e11_probe_blocks"] = float64(probes)
-	m.Inputs["e11_slow_cells"] = float64(slow)
-	if want := len(cells.Grid()); probes < want {
-		cal.Notes = append(cal.Notes, fmt.Sprintf("probe-E11 covered %d of the %d grid cells", probes, want))
-	}
-	return cal, nil
-}
-
-// calibrateE2AddOn derives the batch sizes of the E2 and E2c arms from an
-// add-on trial's probe-E2 pass, with the same rule as the first trial
-// (quality.FormulaText): batch = ceil(100 * effective timer resolution / probe
-// median) for arms whose probe median is below 100x the resolution. The reuse
-// arm is skipped: it is E1's arm, batched (or not) by the first trial. Every
-// other threshold is copied unchanged from the machine's committed section,
-// which is what this trial ran with.
-func calibrateE2AddOn(dir, machine string, st *State, vs []*Verdict, base *quality.Machine) (*Calibration, error) {
-	if base == nil || base.CalibratedFrom == "" {
-		return nil, fmt.Errorf("calibrate: the add-on trial %s ran without calibrated thresholds for %s", st.RunID, machine)
-	}
-	raw, err := json.Marshal(base)
-	if err != nil {
-		return nil, err
-	}
-	m := &quality.Machine{}
-	if err := json.Unmarshal(raw, m); err != nil {
-		return nil, err
-	}
-	if m.Batch == nil {
-		m.Batch = map[string]int{}
-	}
-	if m.Inputs == nil {
-		m.Inputs = map[string]float64{}
-	}
-	if m.BatchCalibratedFrom == nil {
-		m.BatchCalibratedFrom = map[string]string{}
-	}
-	m.BatchCalibratedFrom["E2"] = st.RunID
-	cal := &Calibration{Machine: machine, TrialRun: st.RunID, Formulas: quality.FormulaText, Thresholds: m, AddOn: "E2",
-		Notes: []string{"add-on calibration: only the batch sizes of the E2 and E2c arms are new; every other value is the machine's committed thresholds, unchanged"}}
-
-	res, err := timerResolution(dir)
-	if err != nil {
-		return nil, fmt.Errorf("calibrate: %w", err)
-	}
-	m.Inputs["e2_timer_effective_resolution_ns"] = res
-	seen := map[string]bool{}
-	probes := 0
-	for _, v := range vs {
-		r := v.Res
-		if r.Block.Exp != "probe-E2" || r.Block.Attempt != 1 {
-			continue
-		}
-		probes++
-		k := r.Block.Alg + "/" + r.Block.Op
-		seen[k] = true
-		for _, a := range r.Arms {
-			if a.Name == proto.ArmReuse || len(a.ProbeNS) == 0 {
-				continue
-			}
-			xs := make([]float64, len(a.ProbeNS))
-			for i, x := range a.ProbeNS {
-				xs[i] = float64(x)
-			}
-			med := stats.Median(xs)
-			if med > 0 && med < 100*res {
-				m.Batch[k+"/"+a.Name] = int(math.Ceil(100 * res / med))
-			}
-		}
-	}
-	m.Inputs["e2_probe_blocks"] = float64(probes)
-	var missing []string
-	for _, a := range algs.All() {
-		for _, op := range a.Ops() {
-			if !seen[a.ID+"/"+op] {
-				missing = append(missing, a.ID+"/"+op)
-			}
-		}
-	}
-	if len(missing) > 0 {
-		cal.Notes = append(cal.Notes, "no probe-E2 for: "+strings.Join(missing, ", "))
-	}
-	return cal, nil
-}
-
-// calibrateProbeAddOn calibrates an E6 or E7 add-on trial from its probe pass
-// with the first trial's rules (quality.FormulaText). E6 cells (scheme,
-// operation, message size) get their fast/slow classification (probe median
-// below 1 ms = fast) and, below 100x the effective timer resolution, a batch
-// size; E7 arms get batch sizes only, since an E7 block takes its operation's
-// classification (verify or decaps), already frozen by the first trial. Every
-// other threshold is copied unchanged from the machine's committed section.
-func calibrateProbeAddOn(dir, machine string, st *State, vs []*Verdict, base *quality.Machine, exp string) (*Calibration, error) {
+// addOnMachine starts an add-on calibration from the machine's committed
+// thresholds (the ones the add-on trial ran with), with every map present.
+func addOnMachine(base *quality.Machine, st *State, machine string) (*quality.Machine, error) {
 	if base == nil || base.CalibratedFrom == "" {
 		return nil, fmt.Errorf("calibrate: the add-on trial %s ran without calibrated thresholds for %s", st.RunID, machine)
 	}
@@ -252,54 +122,26 @@ func calibrateProbeAddOn(dir, machine string, st *State, vs []*Verdict, base *qu
 	if m.ClassCalibratedFrom == nil {
 		m.ClassCalibratedFrom = map[string]string{}
 	}
-	res, err := timerResolution(dir)
-	if err != nil {
-		return nil, fmt.Errorf("calibrate: %w", err)
-	}
-	lower := strings.ToLower(exp)
-	m.Inputs[lower+"_timer_effective_resolution_ns"] = res
-	m.BatchCalibratedFrom[exp] = st.RunID
-	note := "add-on calibration: only the batch sizes of the E7 arms are new (each E7 block takes its operation's classification from the first trial); every other value is the machine's committed thresholds, unchanged"
-	if exp == "E6" {
-		m.ClassCalibratedFrom[exp] = st.RunID
-		note = "add-on calibration: only the fast/slow classification and batch sizes of the E6 cells (scheme, operation, message size) are new; every other value is the machine's committed thresholds, unchanged"
-	}
-	cal := &Calibration{Machine: machine, TrialRun: st.RunID, Formulas: quality.FormulaText, Thresholds: m, AddOn: exp, Notes: []string{note}}
-	probes, slow, batched := 0, 0, 0
-	for _, v := range vs {
-		r := v.Res
-		if r.Block.Exp != "probe-"+exp || r.Block.Attempt != 1 || len(r.Arms) == 0 {
-			continue
+	return m, nil
+}
+
+// probeBatches sets, with the first trial's rule, the batch size of every
+// probed arm of a block whose median is below 100x the timer resolution res,
+// and returns how many it set.
+func probeBatches(m *quality.Machine, r proto.Result, res float64) int {
+	k := r.Block.Alg + "/" + r.Block.Op
+	n := 0
+	for _, a := range r.Arms {
+		xs := make([]float64, len(a.ProbeNS))
+		for i, x := range a.ProbeNS {
+			xs[i] = float64(x)
 		}
-		probes++
-		k := r.Block.Alg + "/" + r.Block.Op
-		if exp == "E6" {
-			c := quality.Classify(r.Arms[0].ProbeNS)
-			m.Class[k] = c
-			if c == "slow" {
-				slow++
-			}
-		}
-		for _, a := range r.Arms {
-			xs := make([]float64, len(a.ProbeNS))
-			for i, x := range a.ProbeNS {
-				xs[i] = float64(x)
-			}
-			if med := stats.Median(xs); len(xs) > 0 && med > 0 && med < 100*res {
-				m.Batch[k+"/"+a.Name] = int(math.Ceil(100 * res / med))
-				batched++
-			}
+		if med := stats.Median(xs); len(xs) > 0 && med > 0 && med < 100*res {
+			m.Batch[k+"/"+a.Name] = int(math.Ceil(100 * res / med))
+			n++
 		}
 	}
-	if probes == 0 {
-		return nil, fmt.Errorf("calibrate: trial %s has no probe-%s blocks", st.RunID, exp)
-	}
-	m.Inputs[lower+"_probe_blocks"] = float64(probes)
-	m.Inputs[lower+"_batched_arms"] = float64(batched)
-	if exp == "E6" {
-		m.Inputs["e6_slow_cells"] = float64(slow)
-	}
-	return cal, nil
+	return n
 }
 
 // timerResolution reads the effective timer resolution from the run's E0.
@@ -351,10 +193,10 @@ func calibrate(dir, machine string, trialTH *quality.Machine) (*Calibration, err
 		return calibrateE2AddOn(dir, machine, st, vs, trialTH)
 	}
 	if exps["probe-E6"] && !exps["probe"] {
-		return calibrateProbeAddOn(dir, machine, st, vs, trialTH, "E6")
+		return calibrateE6AddOn(dir, machine, st, vs, trialTH)
 	}
 	if exps["probe-E7"] && !exps["probe"] {
-		return calibrateProbeAddOn(dir, machine, st, vs, trialTH, "E7")
+		return calibrateE7AddOn(dir, machine, st, vs, trialTH)
 	}
 
 	cal := &Calibration{Machine: machine, TrialRun: st.RunID, Formulas: quality.FormulaText}

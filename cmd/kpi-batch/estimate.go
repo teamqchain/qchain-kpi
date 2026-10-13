@@ -13,9 +13,9 @@ import (
 	"strings"
 
 	"qchain-kpi/internal/algs"
-	"qchain-kpi/internal/cells"
 	"qchain-kpi/internal/plan"
 	"qchain-kpi/internal/proto"
+	"qchain-kpi/internal/quality"
 	"qchain-kpi/internal/stats"
 )
 
@@ -215,70 +215,31 @@ func estimate(dir, plansDir, machine string) (*Estimate, error) {
 			return nil, err
 		}
 		pe := PlanEstimate{Plan: p.Name, File: filepath.Base(file), Blocks: len(blocks), ByExpHours: map[string]float64{}}
-		missing := map[string]bool{}
-		get := func(k string) float64 {
-			if v, ok := f.med[k]; ok {
-				return v
-			}
-			missing[k] = true
-			return 0
-		}
+		x := &est{f: f, th: th, missing: map[string]bool{}}
+		missing, get := x.missing, x.get
 		var secs, rows float64
 		preps := map[string]bool{}
+		add := func(exp string, bs, r float64) {
+			pe.ByExpHours[exp] += bs / 3600
+			secs += bs
+			rows += r
+		}
 		for _, bl := range blocks {
 			k := bl.Alg + "/" + bl.Op
 			if bl.Exp == "E11" {
-				// Composites: 20 warm-up calls + 2,000 samples, or the slow
-				// rule (at least 60 s and 30 samples) at 30 ms and above; the
-				// block's own input preparation is untimed but takes wall time.
-				bs := f.overheadNS/1e9 + f.prep[k]/1e9
-				for _, arm := range proto.E11Arms(bl.Op) {
-					med, ok := f.med[k+"/"+arm]
-					if !ok {
-						missing[k+"/"+arm] = true
-						continue
-					}
-					check := 0.25 * med // signature and outcome checks after each call
-					var n float64
-					if th.Class[k] == "slow" {
-						n = math.Max(30, math.Ceil(60e9/med))
-						bs += ((3+n)*med + n*check) / 1e9
-					} else {
-						n = 2000
-						bs += ((20+n)*med + n*check) / 1e9
-					}
-					rows += n + 1
-				}
-				pe.ByExpHours[bl.Exp] += bs / 3600
-				secs += bs
+				bs, r := x.e11Block(bl)
+				add(bl.Exp, bs, r)
 				continue
 			}
 			a := algs.MustByID(bl.Alg)
 			if bl.Exp == "E13" {
-				// Sizes only: a ledger block issues one credential per
-				// attribute count (signed and verified) and samples 1,000
-				// signatures of a variable-length scheme; an IPFS block seals
-				// and opens two envelopes per setting with ML-DSA-44 signing.
-				bs := f.overheadNS / 1e9
-				if a.Track == algs.Sig {
-					n := float64(len(cells.Ns))
-					if proto.E13SigVariable(a) {
-						n += 1000
-					}
-					bs += (2*get(bl.Alg+"/keygen") + n*(get(bl.Alg+"/sign")+get(bl.Alg+"/verify"))) / 1e9
-					rows += 7 * 7 * (5*float64(len(cells.Ns)) + 9)
-				} else {
-					per := get("ml-dsa-44/sign") + get(bl.Alg+"/encaps") + get(bl.Alg+"/decaps")
-					bs += (get(bl.Alg+"/keygen") + 2*15*per) / 1e9
-					rows += 4 * 15
-				}
-				pe.ByExpHours[bl.Exp] += bs / 3600
-				secs += bs
+				bs, r := x.e13Block(bl, a)
+				add(bl.Exp, bs, r)
 				continue
 			}
 			var med float64
-			if v, ok := f.med[k+"/"+proto.ArmValid]; ok && bl.Exp == "E7" {
-				med = v // probe-E7's valid arm (an add-on trial has no plain probe)
+			if v, ok := x.e7Median(k); ok && bl.Exp == "E7" {
+				med = v
 			} else {
 				med = get(k)
 			}
@@ -289,33 +250,12 @@ func estimate(dir, plansDir, machine string) (*Estimate, error) {
 			case "encaps":
 				check = get(bl.Alg + "/decaps")
 			}
-			if op, size, err := proto.ParseE6Op(bl.Op); err == nil && bl.Exp == "E6" && op == "sign" {
-				check = get(bl.Alg + "/" + proto.E6Op("verify", size)) // every signature is verified
+			if c, ok := x.e6SignCheck(bl); ok {
+				check = c
 			}
-			if proto.SizeOnly(bl.Exp) {
-				// E8: target 1,000 keys or 10,000 outputs, each checked
-				// (verify / decaps); at least 100, stopping after 60 s.
-				cost := med + check
-				target := 10000.0
-				if bl.Op == "keygen" {
-					target = 1000
-				}
-				n := target
-				if cost > 0 {
-					n = math.Min(target, math.Max(100, 60e9/cost))
-				}
-				bs := f.overheadNS/1e9 + n*cost/1e9
-				if bl.Op == "keygen" {
-					sub := math.Max(3, n/50)
-					if a.Track == algs.Sig {
-						bs += sub * (get(bl.Alg+"/sign") + get(bl.Alg+"/verify")) / 1e9
-					} else {
-						bs += sub * (get(bl.Alg+"/encaps") + get(bl.Alg+"/decaps")) / 1e9
-					}
-				}
-				rows += n * float64(len(proto.E8Arms(a, bl.Op)))
-				pe.ByExpHours[bl.Exp] += bs / 3600
-				secs += bs
+			if bl.Exp == "E8" {
+				bs, r := x.e8Block(bl, a, med, check)
+				add(bl.Exp, bs, r)
 				continue
 			}
 			mode := th.Class[k]
@@ -329,12 +269,7 @@ func estimate(dir, plansDir, machine string) (*Estimate, error) {
 					am = v
 				}
 				if bl.Exp == "E2c" {
-					// Components check cheaply; init/clean restore their
-					// object outside the timing (about one more call).
-					ac = 0
-					if arm == proto.ArmInit || arm == proto.ArmClean {
-						ac = am
-					}
+					ac = e2cCheck(arm, am)
 				}
 				s, r := armSeconds(am, ac, mode, th.Batch[k+"/"+arm])
 				bs += s
@@ -349,30 +284,18 @@ func estimate(dir, plansDir, machine string) (*Estimate, error) {
 					}
 				}
 			}
-			pe.ByExpHours[bl.Exp] += bs / 3600
-			secs += bs
+			add(bl.Exp, bs, 0)
 			pk := proto.PrepName(bl.Alg, bl.Rep)
 			if !preps[pk] {
 				preps[pk] = true
 				pool := float64(a.PoolSize())
 				var ps float64
 				if bl.Exp == "E6" {
-					// The prep's own pool signs 64-character messages: E6's
-					// 64-byte cells. Its one key generation is counted when a
-					// probe of it exists (an E6 add-on trial has none; one key
-					// per preparation is negligible against the blocks).
-					ps = f.med[bl.Alg+"/keygen"] + pool*(get(bl.Alg+"/"+proto.E6Op("sign", 64))+get(bl.Alg+"/"+proto.E6Op("verify", 64)))
+					ps = x.e6Prep(bl, a)
 				} else if a.Track == algs.Sig {
 					ps = get(bl.Alg+"/keygen") + pool*(get(bl.Alg+"/sign")+get(bl.Alg+"/verify"))
 				} else {
 					ps = get(bl.Alg+"/keygen") + pool*(get(bl.Alg+"/encaps")+get(bl.Alg+"/decaps"))
-				}
-				if bl.Exp == "E6" {
-					// The E6 pools: every size's messages signed and verified.
-					for _, size := range proto.E6Sizes {
-						n := float64(proto.E6PoolSize(a.PoolSize(), size))
-						ps += n * (get(bl.Alg+"/"+proto.E6Op("sign", size)) + get(bl.Alg+"/"+proto.E6Op("verify", size)))
-					}
 				}
 				pe.PrepHours += ps / 1e9 / 3600
 			}
@@ -396,6 +319,23 @@ func estimate(dir, plansDir, machine string) (*Estimate, error) {
 		e.TotalRawMB += pe.RawMB
 	}
 	return e, nil
+}
+
+// est is one plan's estimate in progress: the trial's facts, the machine's
+// thresholds, and the probe medians a lookup found missing.
+type est struct {
+	f       *trialFacts
+	th      *quality.Machine
+	missing map[string]bool
+}
+
+// get is a probe median; a missing one is recorded and counts as 0.
+func (x *est) get(k string) float64 {
+	if v, ok := x.f.med[k]; ok {
+		return v
+	}
+	x.missing[k] = true
+	return 0
 }
 
 // planHasExp reports whether any block belongs to the experiment exp or its

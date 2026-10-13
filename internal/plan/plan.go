@@ -18,7 +18,6 @@ import (
 	"strings"
 
 	"qchain-kpi/internal/algs"
-	"qchain-kpi/internal/cells"
 )
 
 // Kinds of plan.
@@ -94,10 +93,8 @@ func Load(path string) (*Plan, error) {
 			return nil, fmt.Errorf("plan %s item %d: unknown profile %q", path, i, it.Profile)
 		}
 		if it.Exp == "E10" {
-			for _, a := range mustExpand(it.Algs) {
-				if a.Family != "ML-DSA" {
-					return nil, fmt.Errorf("plan %s item %d: E10 is defined for ML-DSA only, got %s", path, i, a.ID)
-				}
+			if err := e10Check(it); err != nil {
+				return nil, fmt.Errorf("plan %s item %d: %w", path, i, err)
 			}
 		}
 	}
@@ -147,12 +144,14 @@ func DeriveSeed(batchSeed uint64, id string) uint64 {
 	return binary.LittleEndian.Uint64(h[:8])
 }
 
+// cell is one (experiment, algorithm field, operation field) of a plan.
+type cell struct {
+	exp, alg, op, profile string
+	reps                  int
+}
+
 // Expand turns the plan into the ordered list of first attempts.
 func Expand(p *Plan, batchSeed uint64) ([]Block, error) {
-	type cell struct {
-		exp, alg, op, profile string
-		reps                  int
-	}
 	var cs []cell
 	maxReps := 0
 	for _, it := range p.Items {
@@ -167,85 +166,36 @@ func Expand(p *Plan, batchSeed uint64) ([]Block, error) {
 			maxReps = reps
 		}
 		if it.Exp == "E11" || it.Exp == "probe-E11" {
-			// E11's grid is fixed (internal/cells); the item's algorithms
-			// select the cells whose signature and KEM are all among them.
-			sel := map[string]bool{}
-			for _, a := range mustExpand(it.Algs) {
-				sel[a.ID] = true
-			}
-			for _, c := range cells.Grid() {
-				if (c.Sig == "" || sel[c.Sig]) && (c.KEM == "" || sel[c.KEM]) {
-					cs = append(cs, cell{it.Exp, c.Alg(), c.Op(), it.Profile, reps})
-				}
+			for _, c := range e11Cells(it) {
+				cs = append(cs, cell{it.Exp, c[0], c[1], it.Profile, reps})
 			}
 			continue
 		}
 		for _, a := range mustExpand(it.Algs) {
-			ops := it.Ops
-			if len(ops) == 0 {
-				ops = a.Ops()
+			var ops []string
+			var err error
+			switch it.Exp {
+			case "E6", "probe-E6":
+				ops, err = e6Ops(it, a)
+			case "E7", "probe-E7":
+				ops, err = e7Ops(it, a)
+			case "E8":
+				ops, err = e8Ops(it, a)
+			case "E10":
+				ops, err = e10Ops(a)
+			case "E13":
+				ops, err = e13Ops(it, a)
+			default:
+				ops = it.Ops
+				if len(ops) == 0 {
+					ops = a.Ops()
+				}
+				err = checkOps(a, ops)
 			}
-			if it.Exp == "E10" {
-				ops = []string{"sign"}
-			}
-			if it.Exp == "E8" {
-				if len(it.Ops) == 0 {
-					ops = a.SizeOps()
-				}
-				for _, op := range ops {
-					if op != "keygen" && op != "sign" && op != "encaps" {
-						return nil, fmt.Errorf("E8 measures keygen, sign and encaps only, not %q", op)
-					}
-				}
-			}
-			if it.Exp == "E6" || it.Exp == "probe-E6" {
-				// Signatures only: sign and verify at every message size.
-				if a.Track != algs.Sig {
-					return nil, fmt.Errorf("E6 is defined for signature schemes, not %s", a.ID)
-				}
-				base := it.Ops
-				if len(base) == 0 {
-					base = []string{"sign", "verify"}
-				}
-				for _, op := range base {
-					if op != "sign" && op != "verify" {
-						return nil, fmt.Errorf("E6 measures sign and verify, not %q", op)
-					}
-					for _, size := range E6Sizes {
-						cs = append(cs, cell{it.Exp, a.ID, fmt.Sprintf("%s-m%d", op, size), it.Profile, reps})
-					}
-				}
-				continue
-			}
-			if it.Exp == "E7" || it.Exp == "probe-E7" {
-				// One block per algorithm: verify (signatures) or decaps (KEMs).
-				op := "verify"
-				if a.Track == algs.KEM {
-					op = "decaps"
-				}
-				if len(it.Ops) > 0 && (len(it.Ops) != 1 || it.Ops[0] != op) {
-					return nil, fmt.Errorf("E7's operation for %s is %q", a.ID, op)
-				}
-				cs = append(cs, cell{it.Exp, a.ID, op, it.Profile, reps})
-				continue
-			}
-			if it.Exp == "E13" {
-				// One size block per algorithm: Fabric transactions for a
-				// signature scheme, IPFS envelopes for a KEM.
-				op := "ledger"
-				if a.Track == algs.KEM {
-					op = "ipfs"
-				}
-				if len(it.Ops) > 0 && (len(it.Ops) != 1 || it.Ops[0] != op) {
-					return nil, fmt.Errorf("E13's operation for %s is %q", a.ID, op)
-				}
-				cs = append(cs, cell{it.Exp, a.ID, op, it.Profile, reps})
-				continue
+			if err != nil {
+				return nil, err
 			}
 			for _, op := range ops {
-				if !validOp(a, op) {
-					return nil, fmt.Errorf("%s does not support op %q", a.ID, op)
-				}
 				cs = append(cs, cell{it.Exp, a.ID, op, it.Profile, reps})
 			}
 		}
@@ -284,13 +234,19 @@ func Expand(p *Plan, batchSeed uint64) ([]Block, error) {
 	return out, nil
 }
 
-// E6Sizes are E6's message sizes in bytes (internal/proto names them; the
-// plan needs them to expand E6's cells).
-var E6Sizes = []int{64, 1024, 10 * 1024, 100 * 1024, 1024 * 1024}
-
 // IsProbe reports whether an experiment is a probe pass (calibration only).
 func IsProbe(exp string) bool {
 	return exp == "probe" || exp == "probe-E2" || exp == "probe-E11" || exp == "probe-E6" || exp == "probe-E7"
+}
+
+// checkOps refuses operations the algorithm does not have.
+func checkOps(a algs.Alg, ops []string) error {
+	for _, op := range ops {
+		if !validOp(a, op) {
+			return fmt.Errorf("%s does not support op %q", a.ID, op)
+		}
+	}
+	return nil
 }
 
 func validOp(a algs.Alg, op string) bool {

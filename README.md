@@ -96,6 +96,7 @@ cmd/        kpi-batch kpi-prim kpi-env kpi-canary-native
 internal/   algs pqc classical qchain scheme timing inputs proto plan quality stats record canary procsetup buildinfo
 docker/     Dockerfile and the liboqs build and gate scripts
 plans/      run plans (JSON)
+            (code: each experiment in its own eN.go file in cmd/kpi-prim, cmd/kpi-batch, internal/proto, internal/plan, internal/inputs)
 config/     thresholds.json (one calibrated section per machine)
 scripts/    run.sh monitor-mac.sh dev.sh
 testdata/   RFC 9180 vectors

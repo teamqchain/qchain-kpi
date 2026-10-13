@@ -13,7 +13,6 @@ package inputs
 import (
 	"bytes"
 	"crypto/sha256"
-	"encoding/binary"
 	"encoding/gob"
 	"encoding/hex"
 	"fmt"
@@ -21,7 +20,6 @@ import (
 	"os"
 	"time"
 
-	"qchain-kpi/internal/qchain"
 	"qchain-kpi/internal/record"
 	"qchain-kpi/internal/scheme"
 )
@@ -59,76 +57,6 @@ type Prep struct {
 	E6 []E6Pool
 
 	PrepNS int64 // time taken to generate (feeds the runtime estimate)
-}
-
-// E6Pool is the E6 input pool of one message size.
-type E6Pool struct {
-	Size int
-	Seed uint64
-	P    int
-	Sigs [][]byte
-}
-
-// Messages regenerates the pool's messages.
-func (e *E6Pool) Messages() [][]byte { return E6Messages(e.Seed, e.Size, e.P) }
-
-// E6Messages returns n random messages of size bytes, determined by seed
-// (ChaCha8 keyed with SHA-256 of the seed and the message index).
-func E6Messages(seed uint64, size, n int) [][]byte {
-	out := make([][]byte, n)
-	var in [16]byte
-	binary.LittleEndian.PutUint64(in[:8], seed)
-	for i := range out {
-		binary.LittleEndian.PutUint64(in[8:], uint64(i))
-		r := rand.NewChaCha8(sha256.Sum256(in[:]))
-		out[i] = make([]byte, size)
-		r.Read(out[i])
-	}
-	return out
-}
-
-// E6Pool returns the pool of one message size.
-func (p *Prep) E6Pool(size int) (*E6Pool, bool) {
-	for i := range p.E6 {
-		if p.E6[i].Size == size {
-			return &p.E6[i], true
-		}
-	}
-	return nil, false
-}
-
-// AddE6 adds E6 pools to a signature prep: for each size, poolOf(size)
-// messages and their signatures, every one verified.
-func AddE6(p *Prep, s scheme.Signature, sizes []int, poolOf func(int) int, seed uint64) error {
-	start := time.Now()
-	rng := rand.New(rand.NewPCG(seed, 0x6b70692d65362d70)) // "kpi-e6-p"
-	for _, size := range sizes {
-		e := E6Pool{Size: size, Seed: rng.Uint64(), P: poolOf(size)}
-		for i, m := range e.Messages() {
-			sg, err := s.Sign(p.SK, p.PK, m)
-			if err != nil {
-				return err
-			}
-			if ok, err := s.Verify(p.PK, m, sg); err != nil || !ok {
-				return fmt.Errorf("prep E6 %s: signature %d over %d bytes does not verify (%v)", s.Alg().ID, i, size, err)
-			}
-			e.Sigs = append(e.Sigs, sg)
-		}
-		p.E6 = append(p.E6, e)
-	}
-	p.PrepNS += time.Since(start).Nanoseconds()
-	return nil
-}
-
-// HasE6 reports whether the prep carries a complete E6 pool for every size.
-func (p *Prep) HasE6(sizes []int) bool {
-	for _, z := range sizes {
-		e, ok := p.E6Pool(z)
-		if !ok || e.P < 1 || len(e.Sigs) != e.P {
-			return false
-		}
-	}
-	return true
 }
 
 // Fingerprint returns the first 16 hex digits of SHA-256(b).
@@ -172,28 +100,8 @@ func GenerateSig(s scheme.Signature, rep, p int, seed uint64, withE10 bool) (*Pr
 		out.Sigs = append(out.Sigs, sg)
 	}
 	if withE10 {
-		if out.HolderPK, out.HolderSK, err = s.GenerateKey(); err != nil {
+		if err := addE10(out, s, rng, p); err != nil {
 			return nil, err
-		}
-		if bytes.Equal(out.HolderPK, out.PK) {
-			return nil, fmt.Errorf("prep %s: holder key equals issuer key", s.Alg().ID)
-		}
-		out.HolderFingerprint = Fingerprint(out.HolderPK)
-		for i := 0; i < p; i++ {
-			im, err1 := qchain.IssuerMessage(rng, 10)
-			hm, err2 := qchain.HolderMessage(rng, 10, 5)
-			am, err3 := qchain.IssuerMessage(rng, 10)
-			if err1 != nil || err2 != nil || err3 != nil {
-				return nil, fmt.Errorf("prep E10 messages: %v %v %v", err1, err2, err3)
-			}
-			for _, m := range []string{im, hm, am} {
-				if len(m) != 64 {
-					return nil, fmt.Errorf("prep E10: message %q is not 64 hex characters", m)
-				}
-			}
-			out.IssuerMsgs = append(out.IssuerMsgs, []byte(im))
-			out.HolderMsgs = append(out.HolderMsgs, []byte(hm))
-			out.IssuerAgainMsgs = append(out.IssuerAgainMsgs, []byte(am))
 		}
 	}
 	out.PrepNS = time.Since(start).Nanoseconds()
@@ -260,9 +168,4 @@ func Load(path string) (*Prep, error) {
 		return nil, fmt.Errorf("prep %s: empty pools", path)
 	}
 	return &p, nil
-}
-
-// HasE10 reports whether the prep carries the E10 pools.
-func (p *Prep) HasE10() bool {
-	return len(p.HolderPK) > 0 && len(p.IssuerMsgs) == p.P && len(p.HolderMsgs) == p.P && len(p.IssuerAgainMsgs) == p.P
 }

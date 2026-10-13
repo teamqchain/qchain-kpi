@@ -17,9 +17,7 @@ import (
 
 	"qchain-kpi/internal/algs"
 	"qchain-kpi/internal/buildinfo"
-	"qchain-kpi/internal/cells"
 	"qchain-kpi/internal/classical"
-	"qchain-kpi/internal/flow"
 	"qchain-kpi/internal/inputs"
 	"qchain-kpi/internal/pqc"
 	"qchain-kpi/internal/procsetup"
@@ -105,20 +103,8 @@ func cmdBlock(args []string) error {
 	var err error
 	if e11 {
 		// Production-like GC for the composites (approved 10 Oct): no MicroGC.
-		c, err := cells.ParseCell(b.Alg, b.Op)
-		if err != nil {
-			return fmt.Errorf("block: %w", err)
-		}
-		t0 := time.Now()
-		fs, err := flow.Prepare(c, b.Seed)
-		if err != nil {
-			return fmt.Errorf("block %s: prepare: %w", b.Key(), err)
-		}
-		prepNS = time.Since(t0).Nanoseconds()
-		set = &armSet{arms: fs.Arms, after: fs.After}
-		poolN = fs.P
-		if err := checkArmOrder(set, proto.E11Arms(b.Op)); err != nil {
-			return fmt.Errorf("block %s: %w", b.Key(), err)
+		if set, poolN, prepNS, err = e11Arms(b); err != nil {
+			return err
 		}
 	} else {
 		procsetup.MicroGC()

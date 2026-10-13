@@ -28,9 +28,6 @@ const (
 // Arm names.
 const (
 	ArmReuse       = "reuse"        // E1 and probe: the library's reuse API
-	ArmIssuer      = "issuer"       // E10: commitment hash, issuer key
-	ArmHolder      = "holder"       // E10: presentation payload hash, holder key
-	ArmIssuerAgain = "issuer-again" // E10: second commitment pool, issuer key (A/A)
 )
 
 // ProbeCalls is the number of calls after the cold call in a probe block.
@@ -103,28 +100,6 @@ func Budget(profile string, mode timing.Mode, seed uint64, firstLabel string) (t
 		c = timing.Config{Mode: timing.Slow, Warmup: 1, TimeBox: time.Second, MinSamples: 3, FirstLabel: firstLabel, GCEvery: 100, Seed: seed}
 	default:
 		return c, fmt.Errorf("no budget for profile %q mode %q", profile, mode)
-	}
-	return c, nil
-}
-
-// BudgetE11 returns the sampling configuration of an E11 composite (approved
-// 10 Oct): 20 untimed warm-up calls and 2,000 samples, or the slow-operation
-// rule (60 s and at least 30 samples) for cells whose probe median is at least
-// 30 ms. Garbage collection stays at Go's default (production-like), so no
-// collections are forced between samples.
-func BudgetE11(profile string, mode timing.Mode, seed uint64) (timing.Config, error) {
-	var c timing.Config
-	switch {
-	case profile == plan.ProfileApproved && mode == timing.Fast:
-		c = timing.Config{Mode: timing.Fast, Warmup: 20, Samples: 2000, FirstLabel: "first", Seed: seed}
-	case profile == plan.ProfileApproved && mode == timing.Slow:
-		c = timing.Config{Mode: timing.Slow, Warmup: 3, TimeBox: 60 * time.Second, MinSamples: 30, FirstLabel: "first", Seed: seed}
-	case profile == plan.ProfileSmoke && mode == timing.Fast:
-		c = timing.Config{Mode: timing.Fast, Warmup: 2, Samples: 50, FirstLabel: "first", Seed: seed}
-	case profile == plan.ProfileSmoke && mode == timing.Slow:
-		c = timing.Config{Mode: timing.Slow, Warmup: 1, TimeBox: time.Second, MinSamples: 3, FirstLabel: "first", Seed: seed}
-	default:
-		return c, fmt.Errorf("no E11 budget for profile %q mode %q", profile, mode)
 	}
 	return c, nil
 }

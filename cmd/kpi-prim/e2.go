@@ -92,20 +92,6 @@ func mergeSets(sets ...*armSet) *armSet {
 	return out
 }
 
-// checkArmOrder makes sure a builder produced exactly the arms (and order)
-// that proto declares, which the orchestrator relies on for batch sizes.
-func checkArmOrder(set *armSet, want []string) error {
-	if len(set.arms) != len(want) {
-		return fmt.Errorf("built %d arms, want %v", len(set.arms), want)
-	}
-	for k, a := range set.arms {
-		if a.Name != want[k] {
-			return fmt.Errorf("arm %d is %q, want %q (%v)", k, a.Name, want[k], want)
-		}
-	}
-	return nil
-}
-
 // e2Inputs are the prepared inputs in the forms the arms need, all made
 // before timing: production takes and returns hex strings, and signs the
 // message string.
@@ -190,41 +176,6 @@ func e2Arms(a algs.Alg, op string, p *inputs.Prep, seed uint64, batch map[string
 		return nil, err
 	}
 	return set, nil
-}
-
-// exerciseSig fully checks a seeded subset of generated signature keys.
-func exerciseSig(s scheme.Signature, sub *keySubset) func() (int, error) {
-	return func() (int, error) {
-		keys := sub.final()
-		for n, k := range keys {
-			sg, err := s.Sign(k.sk, k.pk, checkMessage)
-			if err != nil {
-				return n, fmt.Errorf("generated key %d cannot sign: %v", n, err)
-			}
-			if ok, err := s.Verify(k.pk, checkMessage, sg); err != nil || !ok {
-				return n, fmt.Errorf("generated key %d: signature does not verify (%v)", n, err)
-			}
-		}
-		return len(keys), nil
-	}
-}
-
-// exerciseKEM fully checks a seeded subset of generated KEM keys.
-func exerciseKEM(k scheme.KEM, sub *keySubset) func() (int, error) {
-	return func() (int, error) {
-		keys := sub.final()
-		for n, kp := range keys {
-			ct, ss, err := k.Encaps(kp.pk)
-			if err != nil {
-				return n, fmt.Errorf("generated key %d cannot encapsulate: %v", n, err)
-			}
-			ss2, err := k.Decaps(kp.sk, kp.pk, ct)
-			if err != nil || !equalBytes(ss, ss2) {
-				return n, fmt.Errorf("generated key %d: decapsulation mismatch (%v)", n, err)
-			}
-		}
-		return len(keys), nil
-	}
 }
 
 // lazyVerifier creates its verifier at the first check (after the first call).
