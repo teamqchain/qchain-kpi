@@ -1,0 +1,18 @@
+# VM step 8 (13 Oct 2026): every valid issueCredential on the ledger linked to its IPFS envelope (CID taken from the
+# chain argument; the CID itself was never printed). Columns: block, attributes, file bytes, root block bytes, child blocks.
+6 5 4424 4435 0
+11 4 3885 3896 0
+17 3 3590 3601 0
+22 5 4356 4367 0
+27 5 4328 4339 0
+30 5 4364 4375 0
+35 5 4274 4285 0
+36 5 4318 4329 0
+37 5 4386 4397 0
+39 5 4354 4365 0
+40 5 4350 4361 0
+44 5 4324 4335 0
+50 5 4332 4343 0
+55 5 4324 4335 0
+56 5 4286 4297 0
+60 5 4358 4369 0
