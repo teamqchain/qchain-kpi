@@ -2811,3 +2811,29 @@ utc_ns,event,key,detail
 1791988633943753396,block_done,E6.slh-dsa-sha2-128f.verify-m10240.r5.a3,
 1791988635452113440,canary,,90 end ratio 0.99978 P-like
 1791988680893942763,batch_done,,1207 attempt(s)
+1791991873592560917,extension_queued,E6.ml-dsa-87.sign-m1048576.r5.a4,"block had 3 attempt(s), none clean"
+1791991873593959244,extension_queued,E6.slh-dsa-sha2-192f.verify-m102400.r4.a4,"block had 3 attempt(s), none clean"
+1791991873594346416,extension_queued,E6.slh-dsa-sha2-192s.sign-m1048576.r5.a4,"block had 3 attempt(s), none clean"
+1791991873594696924,extension_queued,E6.slh-dsa-sha2-192s.sign-m64.r5.a4,"block had 3 attempt(s), none clean"
+1791991873594941068,extension_queued,E6.slh-dsa-sha2-256f.verify-m10240.r2.a4,"block had 3 attempt(s), none clean"
+1791991873597810714,session_start,,session 2; host offset 60954177 ns
+1791991873800047195,e0,,e0-s2.json
+1791991875309655170,canary,,91 extend ratio 0.98144 P-like
+1791991876206738532,prep,ml-dsa-87.r5,pool 256 e10 false 819435870 ns
+1791991876207488212,block_start,E6.ml-dsa-87.sign-m1048576.r5.a4,slow
+1791991994296417561,block_done,E6.ml-dsa-87.sign-m1048576.r5.a4,
+1791992043434566515,prep,slh-dsa-sha2-192f.r4,pool 256 e10 false 48801557689 ns
+1791992043435173173,block_start,E6.slh-dsa-sha2-192f.verify-m102400.r4.a4,slow
+1791992104098052905,block_done,E6.slh-dsa-sha2-192f.verify-m102400.r4.a4,
+1791992396388849646,prep,slh-dsa-sha2-192s.r5,pool 64 e10 false 292259836568 ns
+1791992396389418741,block_start,E6.slh-dsa-sha2-192s.sign-m1048576.r5.a4,slow
+1791992461466015570,block_done,E6.slh-dsa-sha2-192s.sign-m1048576.r5.a4,
+1791992461466348677,block_start,E6.slh-dsa-sha2-192s.sign-m64.r5.a4,slow
+1791992526749198142,block_done,E6.slh-dsa-sha2-192s.sign-m64.r5.a4,
+1791992528255871807,canary,,92 periodic ratio 0.99994 P-like
+1791992528321458545,checkpoint,,0 block(s) queued; 1 remaining
+1791992625252504761,prep,slh-dsa-sha2-256f.r2,pool 256 e10 false 96743536391 ns
+1791992625253115229,block_start,E6.slh-dsa-sha2-256f.verify-m10240.r2.a4,slow
+1791992685840940596,block_done,E6.slh-dsa-sha2-256f.verify-m10240.r2.a4,
+1791992687348296892,canary,,93 end ratio 1.00047 P-like
+1791992727752289448,batch_done,,1212 attempt(s)

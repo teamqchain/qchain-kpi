@@ -9,7 +9,7 @@
     "sha256": "0e603dc48dd2c85e590e41f8bde78234c5c059837e35e058d2d4437e81c80839",
     "reps": 5,
     "canary_every_s": 600,
-    "planned_blocks": 1100
+    "planned_blocks": 1105
   },
   "seed": 15122576749261898941,
   "image_id": "sha256:89fccaefd3587ff03bebc991222023d8e43b6cb55a145531d9e03563af8ceb88",
@@ -1696,7 +1696,7 @@
     "memory_max": "3221225472",
     "memory_swap_max": "0",
     "net_interfaces": "lo",
-    "out_free_gb": "49.6",
+    "out_free_gb": "49.5",
     "tz": "Asia/Dubai"
   },
   "host": {
@@ -1704,7 +1704,7 @@
     "colima": "0.10.3",
     "container_cpuset": "1",
     "container_mem": "3g",
-    "cooling": "USB fan cooling pad",
+    "cooling": "unstated",
     "docker": "29.5.2",
     "host_cpu": "Apple M1",
     "host_mem_gb": "8",
@@ -1727,19 +1727,45 @@
       "host_offset_ns": 28845570,
       "native_p_rate": 2573460.23357195,
       "native_e_rate": 412291.850294512
+    },
+    {
+      "n": 2,
+      "started_utc": "2026-10-14T15:31:13Z",
+      "start_unix_ns": 1791991873546516090,
+      "host_offset_ns": 60954177,
+      "native_p_rate": 2552257.26551641,
+      "native_e_rate": 412574.973358031
     }
   ],
   "status": "done",
   "started_utc": "2026-10-13T22:20:22Z",
-  "updated_utc": "2026-10-14T14:38:00Z",
+  "updated_utc": "2026-10-14T15:45:27Z",
   "counts": {
-    "attempts": 1207,
+    "attempts": 1212,
     "blocks": 1100,
-    "blocks_with_headline": 1095,
+    "blocks_with_headline": 1100,
     "diagnostic_attempts": 15,
     "drift_flags": 16,
-    "exhausted_blocks": 5,
     "flagged_attempts": 98,
-    "repeat_attempts": 92
-  }
+    "repeat_attempts": 97
+  },
+  "notes": [
+    "session 2 extended this run: blocks E6.ml-dsa-87.sign-m1048576.r5, E6.slh-dsa-sha2-192f.verify-m102400.r4, E6.slh-dsa-sha2-192s.sign-m1048576.r5, E6.slh-dsa-sha2-192s.sign-m64.r5, E6.slh-dsa-sha2-256f.verify-m10240.r2 had no clean attempt and were run again (attempt numbers continue); input sets were regenerated (same message seeds, new keys)"
+  ],
+  "extensions": [
+    {
+      "session": 2,
+      "blocks": [
+        "E6.ml-dsa-87.sign-m1048576.r5",
+        "E6.slh-dsa-sha2-192f.verify-m102400.r4",
+        "E6.slh-dsa-sha2-192s.sign-m1048576.r5",
+        "E6.slh-dsa-sha2-192s.sign-m64.r5",
+        "E6.slh-dsa-sha2-256f.verify-m10240.r2"
+      ],
+      "old_image_id": "sha256:89fccaefd3587ff03bebc991222023d8e43b6cb55a145531d9e03563af8ceb88",
+      "old_harness_commit": "7eaa9df99fbb245f23b40824a263d33640d017c6",
+      "new_image_id": "sha256:89fccaefd3587ff03bebc991222023d8e43b6cb55a145531d9e03563af8ceb88",
+      "new_harness_commit": "7eaa9df99fbb245f23b40824a263d33640d017c6"
+    }
+  ]
 }

@@ -1513,3 +1513,19 @@
 [18:37:13] 1207/1207 E6.slh-dsa-sha2-128f.verify-m10240.r5.a3 slow p50 1.284ms (n=46643) first 1.296ms
 [18:37:15] canary 90 (end): 2562986 hashes/s, ratio 0.9998 P-like
 [18:38:01] batch complete: 1207 attempt(s); 3172 file(s) in SHA256SUMS
+
+=== extension session (blocks without a clean attempt) ===
+[19:31:13] resuming 20261013-2220_mac-m1_colima-vz_b1-prod: 0 block(s) queued, 1207 done, 0 temporary file(s) removed
+[19:31:15] canary 91 (extend): 2515962 hashes/s, ratio 0.9814 P-like
+[19:31:16] prepared ml-dsa-87.r5: P=256 in 0.8s
+[19:33:14] 1208/1212 E6.ml-dsa-87.sign-m1048576.r5.a4 slow p50 1.870ms (n=31784) first 2.799ms
+[19:34:03] prepared slh-dsa-sha2-192f.r4: P=256 in 48.8s
+[19:35:04] 1209/1212 E6.slh-dsa-sha2-192f.verify-m102400.r4.a4 slow p50 2.019ms (n=29678) first 2.052ms
+[19:39:56] prepared slh-dsa-sha2-192s.r5: P=64 in 292.3s
+[19:41:01] 1210/1212 E6.slh-dsa-sha2-192s.sign-m1048576.r5.a4 slow p50 761.569ms (n=79) first 768.345ms
+[19:42:06] 1211/1212 E6.slh-dsa-sha2-192s.sign-m64.r5.a4 slow p50 757.427ms (n=80) first 758.268ms
+[19:42:08] canary 92 (periodic): 2563394 hashes/s, ratio 0.9999 P-like
+[19:43:45] prepared slh-dsa-sha2-256f.r2: P=256 in 96.7s
+[19:44:45] 1212/1212 E6.slh-dsa-sha2-256f.verify-m10240.r2.a4 slow p50 1.891ms (n=31678) first 1.892ms
+[19:44:47] canary 93 (end): 2564736 hashes/s, ratio 1.0005 P-like
+[19:45:27] batch complete: 1212 attempt(s); 3221 file(s) in SHA256SUMS
