@@ -1,0 +1,1515 @@
+[02:20:24] canary 1 (start): 2563538 hashes/s, ratio 1.0000 P-like
+[02:20:24] prepared falcon-512.r1: P=256 in 0.6s
+[02:20:26] 1/1100 E6.falcon-512.sign-m64.r1.a1 fast p50 144.32us (n=10000) first 1.026ms
+[02:25:18] prepared slh-dsa-sha2-192s.r1: P=64 in 292.0s
+[02:26:24] 2/1100 E6.slh-dsa-sha2-192s.sign-m64.r1.a1 slow p50 757.520ms (n=80) first 764.157ms
+[02:26:24] prepared ed25519.r1: P=256 in 0.5s
+[02:26:25] 3/1100 E6.ed25519.verify-m1024.r1.a1 fast p50 82.25us (n=10000) first 109.62us
+[02:28:02] prepared slh-dsa-sha2-256f.r1: P=256 in 96.8s
+[02:29:04] 4/1100 E6.slh-dsa-sha2-256f.sign-m102400.r1.a1 slow p50 69.873ms (n=858) first 71.205ms
+[02:29:05] prepared ml-dsa-44.r1: P=256 in 0.5s
+[02:29:05] 5/1100 E6.ml-dsa-44.verify-m64.r1.a1 fast p50 27.92us (n=10000) first 51.16us
+[02:31:52] prepared slh-dsa-sha2-128s.r1: P=64 in 166.8s
+[02:31:57] 6/1100 E6.slh-dsa-sha2-128s.verify-m10240.r1.a1 fast p50 459.73us (n=10000) first 487.15us
+[02:31:59] canary 2 (periodic): 2565302 hashes/s, ratio 1.0007 P-like
+[02:31:59] queued E6.slh-dsa-sha2-192s.sign-m64.r1.a2 (repeat:other) at position 98
+[02:32:00] prepared ml-dsa-65.r1: P=256 in 0.6s
+[02:32:02] 7/1101 E6.ml-dsa-65.sign-m10240.r1.a1 fast p50 112.62us (n=10000) first 1.057ms
+[02:32:04] 8/1101 E6.falcon-512.sign-m10240.r1.a1 fast p50 161.20us (n=10000) first 1.099ms
+[02:32:05] 9/1101 E6.ml-dsa-65.verify-m1024.r1.a1 fast p50 49.37us (n=10000) first 76.91us
+[02:33:10] 10/1101 E6.slh-dsa-sha2-192s.sign-m102400.r1.a1 slow p50 757.880ms (n=80) first 759.031ms
+[02:33:13] 11/1101 E6.ml-dsa-65.verify-m102400.r1.a1 fast p50 213.41us (n=10000) first 248.74us
+[02:34:02] prepared slh-dsa-sha2-192f.r1: P=256 in 48.7s
+[02:35:02] 12/1101 E6.slh-dsa-sha2-192f.verify-m102400.r1.a1 slow p50 2.022ms (n=29641) first 2.058ms
+[02:36:04] prepared slh-dsa-shake-192f.r1: P=256 in 62.0s
+[02:37:05] 13/1101 E6.slh-dsa-shake-192f.verify-m64.r1.a1 slow p50 2.291ms (n=26167) first 2.283ms
+[02:37:06] 14/1101 E6.ed25519.sign-m64.r1.a1 fast p50 30.33us (n=10000) first 64.96us
+[02:38:07] 15/1101 E6.ml-dsa-65.verify-m1048576.r1.a1 slow p50 1.770ms (n=33935) first 1.779ms
+[02:39:07] 16/1101 E6.slh-dsa-shake-192f.verify-m1024.r1.a1 slow p50 2.292ms (n=26143) first 2.245ms
+[02:43:27] prepared slh-dsa-sha2-256s.r1: P=64 in 259.4s
+[02:43:37] 17/1101 E6.slh-dsa-sha2-256s.verify-m10240.r1.a1 fast p50 954.47us (n=10000) first 949.01us
+[02:43:39] canary 3 (periodic): 2517731 hashes/s, ratio 0.9821 P-like
+[02:49:55] prepared slh-dsa-shake-192s.r1: P=64 in 376.3s
+[02:50:56] 18/1101 E6.slh-dsa-shake-192s.verify-m1048576.r1.a1 slow p50 3.213ms (n=18655) first 3.184ms
+[02:50:56] prepared ecdsa-p256.r1: P=256 in 0.3s
+[02:50:57] 19/1101 E6.ecdsa-p256.verify-m64.r1.a1 fast p50 54.75us (n=10000) first 107.00us
+[02:51:57] 20/1101 E6.ml-dsa-44.verify-m1048576.r1.a1 slow p50 1.735ms (n=34438) first 1.799ms
+[02:52:05] 21/1101 E6.slh-dsa-sha2-192s.verify-m10240.r1.a1 fast p50 735.14us (n=10000) first 731.27us
+[02:53:12] 22/1101 E6.slh-dsa-shake-192s.sign-m10240.r1.a1 slow p50 980.492ms (n=62) first 985.060ms
+[02:53:13] prepared falcon-padded-512.r1: P=256 in 0.6s
+[02:54:13] 23/1101 E6.falcon-padded-512.verify-m1048576.r1.a1 slow p50 1.735ms (n=34504) first 1.770ms
+[02:54:15] canary 4 (periodic): 2565377 hashes/s, ratio 1.0007 P-like
+[02:54:15] queued E6.slh-dsa-shake-192s.verify-m1048576.r1.a2 (repeat:other) at position 165
+[02:54:19] prepared rsa3072-pss.r1: P=256 in 4.3s
+[02:54:20] 24/1102 E6.rsa3072-pss.verify-m64.r1.a1 fast p50 33.67us (n=10000) first 82.58us
+[02:55:23] 25/1102 E6.slh-dsa-sha2-192f.sign-m10240.r1.a1 slow p50 33.830ms (n=1772) first 34.699ms
+[02:55:24] 26/1102 E6.ecdsa-p256.verify-m1024.r1.a1 fast p50 55.00us (n=10000) first 91.16us
+[02:55:25] 27/1102 E6.ml-dsa-44.sign-m1024.r1.a1 fast p50 65.33us (n=10000) first 1.157ms
+[02:55:27] 28/1102 E6.ecdsa-p256.sign-m102400.r1.a1 fast p50 62.00us (n=10000) first 430.53us
+[02:57:32] prepared slh-dsa-shake-256f.r1: P=256 in 125.1s
+[02:58:36] 29/1102 E6.slh-dsa-shake-256f.sign-m1048576.r1.a1 slow p50 94.426ms (n=635) first 96.010ms
+[02:59:42] 30/1102 E6.slh-dsa-sha2-192s.sign-m1024.r1.a1 slow p50 757.318ms (n=80) first 757.993ms
+[02:59:44] 31/1102 E6.falcon-padded-512.sign-m10240.r1.a1 fast p50 161.66us (n=10000) first 1.068ms
+[02:59:49] 32/1102 E6.ml-dsa-44.sign-m102400.r1.a1 fast p50 225.89us (n=10000) first 1.303ms
+[03:00:20] prepared slh-dsa-sha2-128f.r1: P=256 in 30.6s
+[03:01:20] 33/1102 E6.slh-dsa-sha2-128f.verify-m1024.r1.a1 slow p50 1.259ms (n=47646) first 1.293ms
+[03:01:21] 34/1102 E6.ml-dsa-44.verify-m10240.r1.a1 fast p50 44.54us (n=10000) first 68.41us
+[03:02:22] 35/1102 E6.slh-dsa-sha2-256f.verify-m1024.r1.a1 slow p50 1.869ms (n=32042) first 1.911ms
+[03:03:22] 36/1102 E6.slh-dsa-sha2-256f.verify-m64.r1.a1 slow p50 1.870ms (n=32003) first 1.914ms
+[03:06:53] prepared slh-dsa-shake-128s.r1: P=64 in 211.2s
+[03:07:54] 37/1102 E6.slh-dsa-shake-128s.verify-m1048576.r1.a1 slow p50 2.861ms (n=20939) first 2.857ms
+[03:07:55] canary 5 (periodic): 2517314 hashes/s, ratio 0.9820 P-like
+[03:08:05] 38/1102 E6.slh-dsa-sha2-192s.verify-m102400.r1.a1 fast p50 827.01us (n=10000) first 828.51us
+[03:08:05] prepared ml-dsa-87.r1: P=256 in 0.7s
+[03:08:06] 39/1102 E6.ml-dsa-87.verify-m64.r1.a1 fast p50 83.29us (n=10000) first 113.25us
+[03:08:07] prepared falcon-padded-1024.r1: P=256 in 0.9s
+[03:08:11] 40/1102 E6.falcon-padded-1024.sign-m1024.r1.a1 fast p50 288.28us (n=10000) first 1.189ms
+[03:08:13] 41/1102 E6.ed25519.sign-m10240.r1.a1 fast p50 44.58us (n=10000) first 71.21us
+[03:09:18] 42/1102 E6.slh-dsa-sha2-256s.sign-m1048576.r1.a1 slow p50 671.533ms (n=90) first 672.582ms
+[03:10:20] 43/1102 E6.slh-dsa-shake-256f.sign-m1024.r1.a1 slow p50 89.529ms (n=668) first 90.368ms
+[03:12:13] 44/1102 E6.falcon-padded-1024.sign-m1048576.r1.a1 slow p50 2.006ms (n=29799) first 2.929ms
+[03:12:15] 45/1102 E6.falcon-padded-512.verify-m102400.r1.a1 fast p50 191.03us (n=10000) first 211.62us
+[03:12:22] 46/1102 E6.slh-dsa-shake-128s.verify-m64.r1.a1 fast p50 579.48us (n=10000) first 550.73us
+[03:12:25] 47/1102 E6.falcon-padded-1024.sign-m64.r1.a1 fast p50 288.16us (n=10000) first 1.206ms
+[03:13:32] 48/1102 E6.slh-dsa-shake-192s.sign-m102400.r1.a1 slow p50 974.401ms (n=62) first 964.935ms
+[03:13:37] 49/1102 E6.ml-dsa-44.verify-m102400.r1.a1 fast p50 416.15us (n=10000) first 451.49us
+[03:14:38] 50/1102 E6.slh-dsa-shake-192s.verify-m102400.r1.a1 slow p50 1.015ms (n=59027) first 1.041ms
+[03:14:39] 51/1102 E6.ml-dsa-87.verify-m10240.r1.a1 fast p50 99.87us (n=10000) first 170.45us
+[03:15:41] 52/1102 E6.rsa3072-pss.sign-m1024.r1.a1 slow p50 1.602ms (n=36922) first 2.566ms
+[03:16:42] 53/1102 E6.slh-dsa-sha2-256s.verify-m102400.r1.a1 slow p50 1.118ms (n=53604) first 1.134ms
+[03:17:20] prepared slh-dsa-shake-128f.r1: P=256 in 38.2s
+[03:18:24] 54/1102 E6.slh-dsa-shake-128f.sign-m1024.r1.a1 slow p50 26.199ms (n=2281) first 26.998ms
+[03:18:25] canary 6 (periodic): 2564769 hashes/s, ratio 1.0005 P-like
+[03:19:28] 55/1102 E6.rsa3072-pss.sign-m102400.r1.a1 slow p50 1.649ms (n=35983) first 2.528ms
+[03:19:30] 56/1102 E6.ed25519.sign-m1024.r1.a1 fast p50 31.71us (n=10000) first 55.16us
+[03:19:35] 57/1102 E6.ecdsa-p256.verify-m1048576.r1.a1 fast p50 482.48us (n=10000) first 521.52us
+[03:19:36] 58/1102 E6.ecdsa-p256.sign-m10240.r1.a1 fast p50 24.17us (n=10000) first 377.28us
+[03:20:42] 59/1102 E6.slh-dsa-sha2-192s.sign-m10240.r1.a1 slow p50 757.684ms (n=80) first 759.131ms
+[03:20:44] 60/1102 E6.ed25519.verify-m102400.r1.a1 fast p50 152.54us (n=10000) first 203.20us
+[03:20:44] prepared falcon-1024.r1: P=256 in 0.9s
+[03:20:48] 61/1102 E6.falcon-1024.sign-m64.r1.a1 fast p50 287.37us (n=10000) first 1.203ms
+[03:20:50] 62/1102 E6.ml-dsa-65.sign-m1024.r1.a1 fast p50 99.12us (n=10000) first 967.63us
+[03:20:51] 63/1102 E6.rsa3072-pss.verify-m1024.r1.a1 fast p50 33.41us (n=10000) first 81.54us
+[03:21:51] 64/1102 E6.slh-dsa-sha2-256f.verify-m1048576.r1.a1 slow p50 3.811ms (n=15720) first 4.013ms
+[03:22:52] 65/1102 E6.slh-dsa-shake-256f.verify-m1024.r1.a1 slow p50 2.332ms (n=25683) first 2.441ms
+[03:22:59] 66/1102 E6.falcon-1024.sign-m102400.r1.a1 fast p50 461.07us (n=10000) first 1.384ms
+[03:23:02] 67/1102 E6.ml-dsa-87.sign-m1024.r1.a1 fast p50 142.00us (n=10000) first 1.062ms
+[03:28:42] prepared slh-dsa-shake-256s.r1: P=64 in 340.0s
+[03:29:43] 68/1102 E6.slh-dsa-shake-256s.verify-m102400.r1.a1 slow p50 1.391ms (n=43065) first 1.342ms
+[03:29:44] canary 7 (periodic): 2513670 hashes/s, ratio 0.9805 P-like
+[03:30:45] 69/1102 E6.slh-dsa-shake-256f.verify-m64.r1.a1 slow p50 2.338ms (n=25634) first 2.392ms
+[03:31:46] 70/1102 E6.slh-dsa-shake-128f.verify-m10240.r1.a1 slow p50 1.586ms (n=37791) first 1.586ms
+[03:32:49] 71/1102 E6.slh-dsa-sha2-192f.sign-m64.r1.a1 slow p50 33.785ms (n=1774) first 34.660ms
+[03:33:50] 72/1102 E6.slh-dsa-shake-256f.verify-m1048576.r1.a1 slow p50 4.672ms (n=12833) first 4.798ms
+[03:34:00] 73/1102 E6.ecdsa-p256.sign-m1048576.r1.a1 fast p50 447.94us (n=10000) first 831.76us
+[03:34:07] 74/1102 E6.ml-dsa-87.sign-m102400.r1.a1 fast p50 303.70us (n=10000) first 1.324ms
+[03:34:07] 75/1102 E6.falcon-512.verify-m64.r1.a1 fast p50 22.08us (n=10000) first 35.79us
+[03:35:11] 76/1102 E6.slh-dsa-sha2-128f.sign-m1024.r1.a1 slow p50 20.743ms (n=2889) first 21.636ms
+[03:35:14] 77/1102 E6.ml-dsa-87.verify-m102400.r1.a1 fast p50 249.41us (n=10000) first 288.20us
+[03:35:23] 78/1102 E6.ed25519.verify-m1048576.r1.a1 fast p50 808.93us (n=10000) first 839.51us
+[03:36:31] 79/1102 E6.slh-dsa-shake-128f.sign-m1048576.r1.a1 slow p50 31.158ms (n=1931) first 31.810ms
+[03:36:32] 80/1102 E6.ecdsa-p256.verify-m10240.r1.a1 fast p50 58.62us (n=10000) first 95.70us
+[03:37:34] 81/1102 E6.slh-dsa-sha2-128s.sign-m64.r1.a1 slow p50 431.355ms (n=139) first 432.491ms
+[03:37:36] 82/1102 E6.ml-dsa-65.sign-m64.r1.a1 fast p50 95.60us (n=10000) first 1.021ms
+[03:37:37] 83/1102 E6.falcon-512.verify-m10240.r1.a1 fast p50 38.33us (n=10000) first 56.66us
+[03:37:47] 84/1102 E6.slh-dsa-sha2-256s.verify-m64.r1.a1 fast p50 933.63us (n=10000) first 941.55us
+[03:37:48] 85/1102 E6.ml-dsa-65.verify-m10240.r1.a1 fast p50 64.37us (n=10000) first 91.58us
+[03:38:52] 86/1102 E6.slh-dsa-sha2-256s.sign-m64.r1.a1 slow p50 667.784ms (n=90) first 670.715ms
+[03:38:53] 87/1102 E6.rsa3072-pss.verify-m102400.r1.a1 fast p50 75.08us (n=10000) first 131.91us
+[03:39:54] 88/1102 E6.slh-dsa-sha2-128f.verify-m102400.r1.a1 slow p50 1.573ms (n=38084) first 1.581ms
+[03:39:55] canary 8 (periodic): 2517547 hashes/s, ratio 0.9821 P-like
+[03:40:06] 89/1102 E6.slh-dsa-sha2-256s.verify-m1024.r1.a1 fast p50 933.03us (n=10000) first 966.68us
+[03:41:07] 90/1102 E6.slh-dsa-shake-256f.verify-m10240.r1.a1 slow p50 2.354ms (n=25469) first 2.334ms
+[03:42:13] 91/1102 E6.slh-dsa-shake-256s.sign-m64.r1.a1 slow p50 878.813ms (n=69) first 875.572ms
+[03:42:14] 92/1102 E6.ecdsa-p256.verify-m102400.r1.a1 fast p50 96.41us (n=10000) first 136.45us
+[03:42:14] 93/1102 E6.falcon-padded-512.verify-m1024.r1.a1 fast p50 23.21us (n=10000) first 38.33us
+[03:42:19] 94/1102 E6.slh-dsa-sha2-128s.verify-m1024.r1.a1 fast p50 434.82us (n=10000) first 452.86us
+[03:43:20] 95/1102 E6.falcon-padded-1024.verify-m1048576.r1.a1 slow p50 1.764ms (n=33953) first 1.817ms
+[03:44:20] 96/1102 E6.falcon-512.verify-m1048576.r1.a1 slow p50 1.731ms (n=34494) first 1.752ms
+[03:45:21] 97/1102 E6.slh-dsa-shake-256f.verify-m102400.r1.a1 slow p50 2.563ms (n=23406) first 2.550ms
+[03:45:23] 98/1102 E6.falcon-padded-1024.verify-m102400.r1.a1 fast p50 212.49us (n=10000) first 230.24us
+[03:46:37] 99/1102 E6.rsa3072-pss.sign-m1048576.r1.a1 slow p50 2.028ms (n=29298) first 2.918ms
+[03:47:41] 100/1102 E6.slh-dsa-sha2-128f.sign-m64.r1.a1 slow p50 20.738ms (n=2890) first 21.648ms
+[03:48:44] 101/1102 E6.slh-dsa-shake-256f.sign-m10240.r1.a1 slow p50 89.589ms (n=667) first 90.748ms
+[03:49:48] 102/1102 E6.slh-dsa-shake-128f.sign-m102400.r1.a1 slow p50 26.514ms (n=2254) first 27.172ms
+[03:50:50] 103/1102 E6.slh-dsa-shake-256f.sign-m102400.r1.a1 slow p50 89.952ms (n=665) first 90.289ms
+[03:50:52] canary 9 (periodic): 2516395 hashes/s, ratio 0.9816 P-like
+[03:51:57] 104/1102 E6.slh-dsa-sha2-128f.sign-m102400.r1.a1 slow p50 21.424ms (n=2797) first 22.348ms
+[03:53:02] 105/1102 E6.slh-dsa-sha2-192s.sign-m64.r1.a2 slow p50 757.536ms (n=80) first 758.563ms
+[03:53:02] 106/1102 E6.falcon-padded-512.verify-m10240.r1.a1 fast p50 38.29us (n=10000) first 57.96us
+[03:54:03] 107/1102 E6.slh-dsa-sha2-192s.verify-m1048576.r1.a1 slow p50 2.570ms (n=23298) first 2.559ms
+[03:55:03] 108/1102 E6.slh-dsa-sha2-256f.verify-m10240.r1.a1 slow p50 1.891ms (n=31700) first 1.916ms
+[03:56:08] 109/1102 E6.slh-dsa-shake-128s.sign-m1048576.r1.a1 slow p50 553.487ms (n=109) first 552.170ms
+[03:56:09] 110/1102 E6.ed25519.verify-m64.r1.a1 fast p50 81.71us (n=10000) first 109.41us
+[03:57:11] 111/1102 E6.slh-dsa-sha2-128s.sign-m1024.r1.a1 slow p50 431.531ms (n=139) first 432.258ms
+[03:58:12] 112/1102 E6.slh-dsa-shake-256s.verify-m64.r1.a1 slow p50 1.162ms (n=51562) first 1.238ms
+[03:58:13] 113/1102 E6.ed25519.verify-m10240.r1.a1 fast p50 88.46us (n=10000) first 116.58us
+[03:58:22] 114/1102 E6.slh-dsa-shake-128s.verify-m102400.r1.a1 fast p50 763.60us (n=10000) first 769.43us
+[03:58:28] 115/1102 E6.slh-dsa-shake-128s.verify-m1024.r1.a1 fast p50 548.86us (n=10000) first 560.90us
+[03:59:29] 116/1102 E6.slh-dsa-sha2-256f.verify-m102400.r1.a1 slow p50 2.061ms (n=29066) first 2.113ms
+[04:00:29] 117/1102 E6.slh-dsa-shake-128f.verify-m102400.r1.a1 slow p50 1.796ms (n=33401) first 1.809ms
+[04:01:33] 118/1102 E6.slh-dsa-sha2-192f.sign-m102400.r1.a1 slow p50 34.172ms (n=1754) first 35.185ms
+[04:01:35] canary 10 (periodic): 2515973 hashes/s, ratio 0.9814 P-like
+[04:01:35] queued E6.slh-dsa-shake-128f.verify-m102400.r1.a2 (repeat:other) at position 338
+[04:01:35] queued E6.slh-dsa-shake-128s.sign-m1048576.r1.a2 (repeat:other) at position 706
+[04:02:38] 119/1104 E6.slh-dsa-sha2-128s.sign-m1048576.r1.a1 slow p50 437.940ms (n=137) first 439.599ms
+[04:03:39] 120/1104 E6.slh-dsa-shake-256s.verify-m1024.r1.a1 slow p50 1.161ms (n=51623) first 1.200ms
+[04:04:45] 121/1104 E6.slh-dsa-shake-192s.sign-m1024.r1.a1 slow p50 976.392ms (n=62) first 974.383ms
+[04:04:54] 122/1104 E6.slh-dsa-sha2-128s.verify-m102400.r1.a1 fast p50 741.93us (n=10000) first 757.93us
+[04:05:54] 123/1104 E6.slh-dsa-sha2-192f.verify-m10240.r1.a1 slow p50 1.851ms (n=32378) first 1.919ms
+[04:05:55] 124/1104 E6.ml-dsa-44.verify-m1024.r1.a1 fast p50 29.79us (n=10000) first 52.12us
+[04:05:56] 125/1104 E6.ml-dsa-44.sign-m10240.r1.a1 fast p50 76.33us (n=10000) first 970.05us
+[04:07:03] 126/1104 E6.slh-dsa-sha2-192f.sign-m1048576.r1.a1 slow p50 37.714ms (n=1589) first 38.597ms
+[04:08:03] 127/1104 E6.slh-dsa-sha2-192f.verify-m1024.r1.a1 slow p50 1.830ms (n=32760) first 1.847ms
+[04:09:10] 128/1104 E6.slh-dsa-shake-192s.sign-m1048576.r1.a1 slow p50 974.872ms (n=62) first 971.184ms
+[04:09:16] 129/1104 E6.falcon-padded-512.sign-m102400.r1.a1 fast p50 317.28us (n=10000) first 1.234ms
+[04:09:17] 130/1104 E6.ml-dsa-65.verify-m64.r1.a1 fast p50 47.58us (n=10000) first 73.92us
+[04:10:17] 131/1104 E6.slh-dsa-sha2-192f.verify-m1048576.r1.a1 slow p50 3.771ms (n=15889) first 3.886ms
+[04:11:17] 132/1104 E6.slh-dsa-shake-256s.verify-m1048576.r1.a1 slow p50 3.499ms (n=17133) first 3.478ms
+[04:11:21] 133/1104 E6.ml-dsa-87.sign-m10240.r1.a1 fast p50 157.29us (n=10000) first 1.121ms
+[04:12:27] 134/1104 E6.slh-dsa-shake-256s.sign-m10240.r1.a1 slow p50 879.144ms (n=69) first 881.817ms
+[04:12:28] canary 11 (periodic): 2562139 hashes/s, ratio 0.9995 P-like
+[04:13:32] 135/1104 E6.slh-dsa-sha2-128f.sign-m10240.r1.a1 slow p50 20.804ms (n=2881) first 21.670ms
+[04:14:33] 136/1104 E6.slh-dsa-sha2-128s.verify-m1048576.r1.a1 slow p50 3.632ms (n=16473) first 3.636ms
+[04:15:33] 137/1104 E6.slh-dsa-shake-128f.verify-m1048576.r1.a1 slow p50 3.906ms (n=15347) first 3.926ms
+[04:15:34] 138/1104 E6.ecdsa-p256.sign-m1024.r1.a1 fast p50 20.42us (n=10000) first 367.07us
+[04:16:34] 139/1104 E6.slh-dsa-shake-192f.verify-m10240.r1.a1 slow p50 2.319ms (n=25860) first 2.196ms
+[04:16:37] 140/1104 E6.falcon-1024.verify-m102400.r1.a1 fast p50 207.95us (n=10000) first 243.32us
+[04:16:38] 141/1104 E6.falcon-padded-1024.verify-m10240.r1.a1 fast p50 58.50us (n=10000) first 76.66us
+[04:16:45] 142/1104 E6.slh-dsa-sha2-192s.verify-m64.r1.a1 fast p50 634.27us (n=10000) first 646.44us
+[04:17:01] 143/1104 E6.slh-dsa-shake-192s.verify-m10240.r1.a1 fast p50 1.447ms (n=10000) first 1.394ms
+[04:18:02] 144/1104 E6.slh-dsa-sha2-192f.verify-m64.r1.a1 slow p50 1.832ms (n=32705) first 1.874ms
+[04:18:11] 145/1104 E6.slh-dsa-shake-192s.verify-m64.r1.a1 fast p50 813.22us (n=10000) first 807.97us
+[04:18:11] 146/1104 E6.falcon-1024.verify-m1024.r1.a1 fast p50 43.50us (n=10000) first 60.41us
+[04:19:21] 147/1104 E6.slh-dsa-sha2-128f.sign-m1048576.r1.a1 slow p50 27.288ms (n=2196) first 28.117ms
+[04:19:23] 148/1104 E6.falcon-padded-512.sign-m64.r1.a1 fast p50 144.75us (n=10000) first 1.058ms
+[04:19:25] 149/1104 E6.falcon-512.sign-m1024.r1.a1 fast p50 146.25us (n=10000) first 1.083ms
+[04:20:26] 150/1104 E6.slh-dsa-shake-256s.verify-m10240.r1.a1 slow p50 1.181ms (n=50682) first 1.213ms
+[04:22:00] 151/1104 E6.ed25519.sign-m1048576.r1.a1 slow p50 1.491ms (n=40066) first 1.517ms
+[04:22:00] 152/1104 E6.falcon-padded-1024.verify-m1024.r1.a1 fast p50 43.54us (n=10000) first 58.71us
+[04:23:04] 153/1104 E6.slh-dsa-shake-192f.sign-m10240.r1.a1 slow p50 43.511ms (n=1381) first 43.937ms
+[04:23:05] canary 12 (periodic): 2516760 hashes/s, ratio 0.9818 P-like
+[04:24:09] 154/1104 E6.slh-dsa-shake-128s.sign-m1024.r1.a1 slow p50 544.661ms (n=110) first 554.972ms
+[04:24:09] 155/1104 E6.falcon-512.verify-m1024.r1.a1 fast p50 23.58us (n=10000) first 37.91us
+[04:26:02] 156/1104 E6.falcon-1024.sign-m1048576.r1.a1 slow p50 2.020ms (n=29669) first 2.957ms
+[04:27:08] 157/1104 E6.slh-dsa-shake-256s.sign-m102400.r1.a1 slow p50 882.734ms (n=68) first 893.540ms
+[04:28:09] 158/1104 E6.rsa3072-pss.sign-m64.r1.a1 slow p50 1.606ms (n=36802) first 2.489ms
+[04:28:11] 159/1104 E6.falcon-padded-512.sign-m1024.r1.a1 fast p50 146.20us (n=10000) first 1.040ms
+[04:29:15] 160/1104 E6.slh-dsa-sha2-256f.sign-m1048576.r1.a1 slow p50 73.388ms (n=817) first 74.314ms
+[04:31:14] 161/1104 E6.ml-dsa-44.sign-m1048576.r1.a1 slow p50 1.791ms (n=33321) first 2.666ms
+[04:31:19] 162/1104 E6.rsa3072-pss.verify-m1048576.r1.a1 fast p50 459.32us (n=10000) first 524.07us
+[04:31:25] 163/1104 E6.falcon-512.sign-m102400.r1.a1 fast p50 318.74us (n=10000) first 1.258ms
+[04:32:27] 164/1104 E6.slh-dsa-sha2-256f.sign-m1024.r1.a1 slow p50 69.459ms (n=863) first 70.430ms
+[04:33:28] 165/1104 E6.slh-dsa-sha2-128f.verify-m64.r1.a1 slow p50 1.255ms (n=47753) first 1.353ms
+[04:33:30] canary 13 (periodic): 2564767 hashes/s, ratio 1.0005 P-like
+[04:33:30] queued E6.falcon-1024.sign-m1048576.r1.a2 (repeat:other) at position 623
+[04:33:30] queued E6.slh-dsa-shake-256s.sign-m102400.r1.a2 (repeat:other) at position 306
+[04:33:34] 166/1106 E6.slh-dsa-sha2-128s.verify-m64.r1.a1 fast p50 430.55us (n=10000) first 432.19us
+[04:34:38] 167/1106 E6.slh-dsa-shake-192f.sign-m102400.r1.a1 slow p50 43.508ms (n=1375) first 44.409ms
+[04:35:42] 168/1106 E6.slh-dsa-shake-128f.sign-m10240.r1.a1 slow p50 26.523ms (n=2271) first 26.877ms
+[04:35:51] 169/1106 E6.slh-dsa-shake-192s.verify-m1024.r1.a1 fast p50 795.31us (n=10000) first 849.18us
+[04:36:51] 170/1106 E6.slh-dsa-sha2-128f.verify-m1048576.r1.a1 slow p50 4.458ms (n=13424) first 4.528ms
+[04:37:54] 171/1106 E6.slh-dsa-sha2-256f.sign-m64.r1.a1 slow p50 69.471ms (n=863) first 70.411ms
+[04:38:57] 172/1106 E6.slh-dsa-shake-128f.sign-m64.r1.a1 slow p50 26.107ms (n=2288) first 27.043ms
+[04:40:02] 173/1106 E6.slh-dsa-sha2-256s.sign-m10240.r1.a1 slow p50 667.764ms (n=90) first 668.671ms
+[04:40:07] 174/1106 E6.ml-dsa-65.sign-m102400.r1.a1 fast p50 262.78us (n=10000) first 1.250ms
+[04:41:09] 175/1106 E6.rsa3072-pss.sign-m10240.r1.a1 slow p50 1.606ms (n=36943) first 2.510ms
+[04:42:13] 176/1106 E6.slh-dsa-shake-192f.sign-m64.r1.a1 slow p50 43.768ms (n=1376) first 44.230ms
+[04:43:16] 177/1106 E6.slh-dsa-sha2-192f.sign-m1024.r1.a1 slow p50 33.820ms (n=1772) first 34.760ms
+[04:43:18] 178/1106 E6.ml-dsa-44.sign-m64.r1.a1 fast p50 59.96us (n=10000) first 980.05us
+[04:43:19] 179/1106 E6.ml-dsa-87.verify-m1024.r1.a1 fast p50 85.00us (n=10000) first 117.08us
+[04:44:23] 180/1106 E6.slh-dsa-sha2-256s.sign-m102400.r1.a1 slow p50 668.081ms (n=90) first 669.690ms
+[04:44:25] canary 14 (periodic): 2564064 hashes/s, ratio 1.0002 P-like
+[04:44:25] 181/1106 E6.falcon-padded-1024.verify-m64.r1.a1 fast p50 41.96us (n=10000) first 61.29us
+[04:46:22] 182/1106 E6.falcon-512.sign-m1048576.r1.a1 slow p50 1.858ms (n=32160) first 2.798ms
+[04:47:25] 183/1106 E6.slh-dsa-shake-192f.sign-m1024.r1.a1 slow p50 47.278ms (n=1272) first 47.681ms
+[04:47:26] 184/1106 E6.falcon-1024.verify-m64.r1.a1 fast p50 42.66us (n=10000) first 58.62us
+[04:48:26] 185/1106 E6.ml-dsa-87.verify-m1048576.r1.a1 slow p50 1.791ms (n=33335) first 1.813ms
+[04:49:30] 186/1106 E6.slh-dsa-shake-128s.sign-m10240.r1.a1 slow p50 548.880ms (n=110) first 556.363ms
+[04:49:34] 187/1106 E6.ed25519.sign-m102400.r1.a1 fast p50 172.16us (n=10000) first 196.16us
+[04:50:39] 188/1106 E6.slh-dsa-sha2-192s.sign-m1048576.r1.a1 slow p50 761.485ms (n=79) first 762.401ms
+[04:51:39] 189/1106 E6.slh-dsa-shake-192s.verify-m1048576.r1.a2 slow p50 3.115ms (n=19240) first 3.086ms
+[04:53:36] 190/1106 E6.falcon-padded-512.sign-m1048576.r1.a1 slow p50 1.881ms (n=31904) first 2.760ms
+[04:53:42] 191/1106 E6.slh-dsa-shake-128s.verify-m10240.r1.a1 fast p50 568.11us (n=10000) first 559.73us
+[04:53:46] 192/1106 E6.falcon-padded-1024.sign-m10240.r1.a1 fast p50 307.87us (n=10000) first 1.229ms
+[04:53:50] 193/1106 E6.falcon-1024.sign-m10240.r1.a1 fast p50 304.66us (n=10000) first 1.304ms
+[04:54:51] 194/1106 E6.slh-dsa-sha2-128f.verify-m10240.r1.a1 slow p50 1.287ms (n=46577) first 1.281ms
+[04:54:53] canary 15 (periodic): 2563633 hashes/s, ratio 1.0000 P-like
+[04:54:57] 195/1106 E6.falcon-1024.sign-m1024.r1.a1 fast p50 290.95us (n=10000) first 1.187ms
+[04:54:57] 196/1106 E6.rsa3072-pss.verify-m10240.r1.a1 fast p50 37.25us (n=10000) first 87.79us
+[04:56:01] 197/1106 E6.slh-dsa-sha2-256s.sign-m1024.r1.a1 slow p50 667.830ms (n=90) first 672.263ms
+[04:57:59] 198/1106 E6.ml-dsa-87.sign-m1048576.r1.a1 slow p50 1.861ms (n=31945) first 2.721ms
+[04:59:03] 199/1106 E6.slh-dsa-shake-128s.sign-m102400.r1.a1 slow p50 545.325ms (n=110) first 544.968ms
+[05:00:04] 200/1106 E6.slh-dsa-shake-128f.verify-m64.r1.a1 slow p50 1.567ms (n=38233) first 1.545ms
+[05:01:06] 201/1106 E6.slh-dsa-shake-256f.sign-m64.r1.a1 slow p50 89.246ms (n=670) first 91.852ms
+[05:02:06] 202/1106 E6.slh-dsa-shake-192f.verify-m1048576.r1.a1 slow p50 4.644ms (n=12907) first 4.728ms
+[05:02:09] 203/1106 E6.falcon-512.verify-m102400.r1.a1 fast p50 187.45us (n=10000) first 230.37us
+[05:03:09] 204/1106 E6.slh-dsa-shake-192f.verify-m102400.r1.a1 slow p50 2.519ms (n=23802) first 2.494ms
+[05:03:12] 205/1106 E6.ml-dsa-87.sign-m64.r1.a1 fast p50 139.16us (n=10000) first 1.015ms
+[05:03:19] 206/1106 E6.slh-dsa-sha2-192s.verify-m1024.r1.a1 fast p50 630.35us (n=10000) first 675.93us
+[05:04:25] 207/1106 E6.slh-dsa-shake-256s.sign-m1048576.r1.a1 slow p50 882.937ms (n=68) first 902.330ms
+[05:05:28] 208/1106 E6.slh-dsa-sha2-128s.sign-m102400.r1.a1 slow p50 432.123ms (n=139) first 433.239ms
+[05:05:29] canary 16 (periodic): 2565406 hashes/s, ratio 1.0007 P-like
+[05:06:32] 209/1106 E6.slh-dsa-sha2-128s.sign-m10240.r1.a1 slow p50 431.414ms (n=139) first 434.508ms
+[05:06:33] 210/1106 E6.falcon-1024.verify-m10240.r1.a1 fast p50 58.54us (n=10000) first 76.87us
+[05:07:39] 211/1106 E6.slh-dsa-shake-192f.sign-m1048576.r1.a1 slow p50 47.781ms (n=1253) first 48.339ms
+[05:09:37] 212/1106 E6.ml-dsa-65.sign-m1048576.r1.a1 slow p50 1.822ms (n=32659) first 2.733ms
+[05:09:45] 213/1106 E6.falcon-padded-1024.sign-m102400.r1.a1 fast p50 462.28us (n=10000) first 1.402ms
+[05:10:47] 214/1106 E6.slh-dsa-sha2-256f.sign-m10240.r1.a1 slow p50 69.577ms (n=862) first 70.477ms
+[05:11:51] 215/1106 E6.slh-dsa-shake-128s.sign-m64.r1.a1 slow p50 545.959ms (n=110) first 545.081ms
+[05:12:51] 216/1106 E6.falcon-1024.verify-m1048576.r1.a1 slow p50 1.754ms (n=34025) first 1.806ms
+[05:12:52] 217/1106 E6.falcon-padded-512.verify-m64.r1.a1 fast p50 22.04us (n=10000) first 37.50us
+[05:13:59] 218/1106 E6.slh-dsa-shake-192s.sign-m64.r1.a1 slow p50 985.767ms (n=62) first 991.424ms
+[05:14:59] 219/1106 E6.slh-dsa-sha2-256s.verify-m1048576.r1.a1 slow p50 2.876ms (n=20832) first 2.880ms
+[05:16:04] 220/1106 E6.slh-dsa-shake-256s.sign-m1024.r1.a1 slow p50 886.392ms (n=68) first 872.557ms
+[05:16:06] canary 17 (periodic): 2564348 hashes/s, ratio 1.0003 P-like
+[05:16:07] 221/1106 E6.ecdsa-p256.sign-m64.r1.a1 fast p50 20.00us (n=10000) first 373.40us
+[05:17:08] 222/1106 E6.slh-dsa-shake-128f.verify-m1024.r1.a1 slow p50 1.568ms (n=38205) first 1.600ms
+[05:20:38] prepared slh-dsa-shake-128s.r2: P=64 in 210.3s
+[05:21:41] 223/1106 E6.slh-dsa-shake-128s.sign-m1024.r2.a1 slow p50 543.979ms (n=110) first 544.598ms
+[05:21:42] prepared ecdsa-p256.r2: P=256 in 0.3s
+[05:21:43] 224/1106 E6.ecdsa-p256.sign-m1024.r2.a1 fast p50 20.46us (n=10000) first 363.70us
+[05:21:43] prepared ml-dsa-44.r2: P=256 in 0.5s
+[05:21:44] 225/1106 E6.ml-dsa-44.verify-m1024.r2.a1 fast p50 29.67us (n=10000) first 55.87us
+[05:21:50] 226/1106 E6.slh-dsa-shake-128s.verify-m10240.r2.a1 fast p50 572.15us (n=10000) first 621.02us
+[05:21:51] prepared falcon-512.r2: P=256 in 0.6s
+[05:21:51] 227/1106 E6.falcon-512.verify-m64.r2.a1 fast p50 22.04us (n=10000) first 38.67us
+[05:21:52] 228/1106 E6.ml-dsa-44.sign-m64.r2.a1 fast p50 59.50us (n=10000) first 1.058ms
+[05:26:10] prepared slh-dsa-sha2-256s.r2: P=64 in 257.7s
+[05:27:14] 229/1106 E6.slh-dsa-sha2-256s.sign-m64.r2.a1 slow p50 667.782ms (n=90) first 668.390ms
+[05:27:16] canary 18 (periodic): 2517256 hashes/s, ratio 0.9819 P-like
+[05:27:17] prepared falcon-1024.r2: P=256 in 0.9s
+[05:27:17] 230/1106 E6.falcon-1024.verify-m64.r2.a1 fast p50 41.96us (n=10000) first 59.54us
+[05:28:20] prepared slh-dsa-shake-192f.r2: P=256 in 62.2s
+[05:29:24] 231/1106 E6.slh-dsa-shake-192f.sign-m64.r2.a1 slow p50 43.111ms (n=1387) first 44.647ms
+[05:30:03] prepared slh-dsa-shake-128f.r2: P=256 in 38.1s
+[05:31:07] 232/1106 E6.slh-dsa-shake-128f.sign-m102400.r2.a1 slow p50 26.570ms (n=2247) first 28.006ms
+[05:31:07] prepared ed25519.r2: P=256 in 0.5s
+[05:31:11] 233/1106 E6.ed25519.sign-m102400.r2.a1 fast p50 172.20us (n=10000) first 200.33us
+[05:32:48] prepared slh-dsa-sha2-256f.r2: P=256 in 96.8s
+[05:33:50] 234/1106 E6.slh-dsa-sha2-256f.sign-m102400.r2.a1 slow p50 69.870ms (n=858) first 70.843ms
+[05:36:37] prepared slh-dsa-sha2-128s.r2: P=64 in 166.8s
+[05:37:40] 235/1106 E6.slh-dsa-sha2-128s.sign-m1048576.r2.a1 slow p50 437.837ms (n=137) first 439.317ms
+[05:37:42] canary 19 (periodic): 2564997 hashes/s, ratio 1.0006 P-like
+[05:37:42] queued E6.slh-dsa-sha2-256s.sign-m64.r2.a2 (repeat:other) at position 667
+[05:38:13] prepared slh-dsa-sha2-128f.r2: P=256 in 30.7s
+[05:39:13] 236/1107 E6.slh-dsa-sha2-128f.verify-m102400.r2.a1 slow p50 1.570ms (n=38169) first 1.593ms
+[05:39:14] prepared falcon-padded-1024.r2: P=256 in 0.9s
+[05:39:15] 237/1107 E6.falcon-padded-1024.verify-m10240.r2.a1 fast p50 58.58us (n=10000) first 74.21us
+[05:40:04] prepared slh-dsa-sha2-192f.r2: P=256 in 48.7s
+[05:41:04] 238/1107 E6.slh-dsa-sha2-192f.verify-m102400.r2.a1 slow p50 2.016ms (n=29725) first 2.005ms
+[05:41:08] prepared rsa3072-pss.r2: P=256 in 4.2s
+[05:42:12] 239/1107 E6.rsa3072-pss.sign-m102400.r2.a1 slow p50 1.652ms (n=35811) first 2.555ms
+[05:48:29] prepared slh-dsa-shake-192s.r2: P=64 in 376.9s
+[05:49:35] 240/1107 E6.slh-dsa-shake-192s.sign-m102400.r2.a1 slow p50 984.128ms (n=62) first 983.945ms
+[05:49:37] canary 20 (periodic): 2516807 hashes/s, ratio 0.9818 P-like
+[05:50:42] 241/1107 E6.slh-dsa-sha2-256s.sign-m1048576.r2.a1 slow p50 671.713ms (n=90) first 680.147ms
+[05:50:43] 242/1107 E6.falcon-padded-1024.verify-m1024.r2.a1 fast p50 44.33us (n=10000) first 59.54us
+[05:50:44] 243/1107 E6.ed25519.verify-m64.r2.a1 fast p50 81.83us (n=10000) first 123.79us
+[05:50:44] 244/1107 E6.rsa3072-pss.verify-m1024.r2.a1 fast p50 33.46us (n=10000) first 81.00us
+[05:50:45] prepared ml-dsa-65.r2: P=256 in 0.6s
+[05:50:47] 245/1107 E6.ml-dsa-65.sign-m64.r2.a1 fast p50 95.75us (n=10000) first 1.040ms
+[05:50:52] 246/1107 E6.rsa3072-pss.verify-m1048576.r2.a1 fast p50 459.32us (n=10000) first 517.52us
+[05:51:02] 247/1107 E6.slh-dsa-sha2-256s.verify-m64.r2.a1 fast p50 931.47us (n=10000) first 961.22us
+[05:51:09] 248/1107 E6.ml-dsa-65.sign-m102400.r2.a1 fast p50 373.19us (n=10000) first 1.298ms
+[05:51:10] prepared falcon-padded-512.r2: P=256 in 0.6s
+[05:53:06] 249/1107 E6.falcon-padded-512.sign-m1048576.r2.a1 slow p50 1.868ms (n=32036) first 2.741ms
+[05:53:07] 250/1107 E6.falcon-padded-1024.verify-m64.r2.a1 fast p50 42.62us (n=10000) first 60.08us
+[05:54:11] 251/1107 E6.slh-dsa-sha2-192f.sign-m102400.r2.a1 slow p50 34.182ms (n=1753) first 35.224ms
+[05:54:16] 252/1107 E6.slh-dsa-sha2-128s.verify-m64.r2.a1 fast p50 430.57us (n=10000) first 429.19us
+[05:54:22] 253/1107 E6.slh-dsa-shake-128s.verify-m64.r2.a1 fast p50 535.65us (n=10000) first 563.98us
+[05:54:23] 254/1107 E6.ecdsa-p256.verify-m64.r2.a1 fast p50 55.50us (n=10000) first 108.70us
+[05:54:27] 255/1107 E6.falcon-padded-1024.sign-m1024.r2.a1 fast p50 292.66us (n=10000) first 1.256ms
+[05:59:41] prepared slh-dsa-sha2-192s.r2: P=64 in 314.1s
+[06:00:46] 256/1107 E6.slh-dsa-sha2-192s.sign-m102400.r2.a1 slow p50 757.957ms (n=80) first 758.791ms
+[06:00:47] canary 21 (periodic): 2517507 hashes/s, ratio 0.9820 P-like
+[06:00:47] queued E6.falcon-padded-512.sign-m1048576.r2.a2 (repeat:other) at position 817
+[06:01:54] 257/1108 E6.slh-dsa-shake-192s.sign-m1024.r2.a1 slow p50 980.302ms (n=62) first 990.151ms
+[06:02:58] 258/1108 E6.slh-dsa-sha2-256s.sign-m1024.r2.a1 slow p50 667.634ms (n=90) first 668.571ms
+[06:03:00] 259/1108 E6.ecdsa-p256.sign-m102400.r2.a1 fast p50 62.12us (n=10000) first 426.99us
+[06:03:06] 260/1108 E6.ecdsa-p256.verify-m1048576.r2.a1 fast p50 482.32us (n=10000) first 518.82us
+[06:04:11] 261/1108 E6.slh-dsa-sha2-192s.sign-m1024.r2.a1 slow p50 757.512ms (n=80) first 758.917ms
+[06:04:12] 262/1108 E6.ecdsa-p256.verify-m10240.r2.a1 fast p50 58.58us (n=10000) first 95.83us
+[06:05:13] 263/1108 E6.slh-dsa-sha2-256f.verify-m1024.r2.a1 slow p50 1.868ms (n=32052) first 1.857ms
+[06:06:13] 264/1108 E6.falcon-1024.verify-m1048576.r2.a1 slow p50 1.746ms (n=34178) first 1.756ms
+[06:11:53] prepared slh-dsa-shake-256s.r2: P=64 in 340.1s
+[06:12:54] 265/1108 E6.slh-dsa-shake-256s.verify-m1048576.r2.a1 slow p50 3.522ms (n=17020) first 3.470ms
+[06:12:55] canary 22 (periodic): 2556993 hashes/s, ratio 0.9974 P-like
+[06:12:56] prepared ml-dsa-87.r2: P=256 in 0.7s
+[06:12:59] 266/1108 E6.ml-dsa-87.sign-m1024.r2.a1 fast p50 139.25us (n=10000) first 1.071ms
+[06:13:59] 267/1108 E6.slh-dsa-sha2-128f.verify-m10240.r2.a1 slow p50 1.287ms (n=46566) first 1.323ms
+[06:15:10] 268/1108 E6.slh-dsa-sha2-128f.sign-m1048576.r2.a1 slow p50 27.183ms (n=2205) first 28.092ms
+[06:15:10] 269/1108 E6.ml-dsa-65.verify-m64.r2.a1 fast p50 47.62us (n=10000) first 87.62us
+[06:15:11] 270/1108 E6.falcon-512.verify-m1024.r2.a1 fast p50 23.21us (n=10000) first 36.00us
+[06:16:14] 271/1108 E6.slh-dsa-shake-128f.sign-m10240.r2.a1 slow p50 26.449ms (n=2277) first 26.932ms
+[06:16:25] 272/1108 E6.ecdsa-p256.sign-m1048576.r2.a1 fast p50 448.07us (n=10000) first 811.76us
+[06:16:27] 273/1108 E6.ed25519.sign-m10240.r2.a1 fast p50 44.41us (n=10000) first 71.54us
+[06:16:37] 274/1108 E6.slh-dsa-sha2-256s.verify-m1024.r2.a1 fast p50 928.76us (n=10000) first 985.05us
+[06:16:39] 275/1108 E6.falcon-512.verify-m102400.r2.a1 fast p50 188.03us (n=10000) first 210.20us
+[06:16:40] 276/1108 E6.rsa3072-pss.verify-m10240.r2.a1 fast p50 37.21us (n=10000) first 86.75us
+[06:17:40] 277/1108 E6.falcon-padded-1024.verify-m1048576.r2.a1 slow p50 1.775ms (n=33861) first 1.802ms
+[06:18:47] 278/1108 E6.slh-dsa-shake-256s.sign-m102400.r2.a1 slow p50 876.424ms (n=69) first 882.263ms
+[06:20:51] prepared slh-dsa-shake-256f.r2: P=256 in 124.6s
+[06:21:52] 279/1108 E6.slh-dsa-shake-256f.verify-m1048576.r2.a1 slow p50 4.664ms (n=12846) first 4.534ms
+[06:21:59] 280/1108 E6.slh-dsa-sha2-192s.verify-m10240.r2.a1 fast p50 653.06us (n=10000) first 696.60us
+[06:22:07] 281/1108 E6.falcon-padded-1024.sign-m102400.r2.a1 fast p50 460.53us (n=10000) first 1.494ms
+[06:22:11] 282/1108 E6.falcon-padded-1024.sign-m64.r2.a1 fast p50 287.37us (n=10000) first 1.176ms
+[06:22:13] 283/1108 E6.falcon-padded-512.verify-m102400.r2.a1 fast p50 187.16us (n=10000) first 218.91us
+[06:22:13] 284/1108 E6.falcon-512.verify-m10240.r2.a1 fast p50 38.16us (n=10000) first 71.66us
+[06:22:19] 285/1108 E6.falcon-padded-512.sign-m102400.r2.a1 fast p50 310.86us (n=10000) first 1.353ms
+[06:23:20] 286/1108 E6.slh-dsa-shake-256f.verify-m10240.r2.a1 slow p50 2.353ms (n=25469) first 2.340ms
+[06:23:21] canary 23 (periodic): 2564830 hashes/s, ratio 1.0005 P-like
+[06:24:21] 287/1108 E6.slh-dsa-sha2-192s.verify-m1048576.r2.a1 slow p50 2.771ms (n=21592) first 2.779ms
+[06:25:22] 288/1108 E6.slh-dsa-sha2-256s.verify-m102400.r2.a1 slow p50 1.116ms (n=53667) first 1.142ms
+[06:25:31] 289/1108 E6.slh-dsa-shake-192s.verify-m1024.r2.a1 fast p50 796.22us (n=10000) first 804.14us
+[06:25:33] 290/1108 E6.falcon-padded-512.sign-m1024.r2.a1 fast p50 146.58us (n=10000) first 1.040ms
+[06:25:39] 291/1108 E6.slh-dsa-shake-128s.verify-m1024.r2.a1 fast p50 543.57us (n=10000) first 536.07us
+[06:26:43] 292/1108 E6.slh-dsa-shake-192f.sign-m10240.r2.a1 slow p50 43.549ms (n=1381) first 44.031ms
+[06:26:45] 293/1108 E6.falcon-padded-512.sign-m10240.r2.a1 fast p50 161.24us (n=10000) first 1.074ms
+[06:27:49] 294/1108 E6.slh-dsa-shake-128s.sign-m64.r2.a1 slow p50 549.561ms (n=110) first 543.312ms
+[06:28:53] 295/1108 E6.slh-dsa-sha2-128f.sign-m10240.r2.a1 slow p50 20.808ms (n=2880) first 21.716ms
+[06:29:57] 296/1108 E6.slh-dsa-shake-192f.sign-m1024.r2.a1 slow p50 43.125ms (n=1386) first 43.648ms
+[06:30:57] 297/1108 E6.slh-dsa-sha2-128s.verify-m1048576.r2.a1 slow p50 3.633ms (n=16471) first 3.652ms
+[06:30:58] 298/1108 E6.ed25519.verify-m1024.r2.a1 fast p50 82.33us (n=10000) first 125.54us
+[06:32:00] 299/1108 E6.slh-dsa-shake-256f.sign-m64.r2.a1 slow p50 89.165ms (n=671) first 90.678ms
+[06:32:01] 300/1108 E6.falcon-padded-512.verify-m10240.r2.a1 fast p50 38.17us (n=10000) first 57.08us
+[06:33:05] 301/1108 E6.slh-dsa-sha2-128f.sign-m64.r2.a1 slow p50 20.737ms (n=2890) first 21.646ms
+[06:34:08] 302/1108 E6.slh-dsa-sha2-128s.sign-m1024.r2.a1 slow p50 431.337ms (n=140) first 432.482ms
+[06:34:09] canary 24 (periodic): 2518068 hashes/s, ratio 0.9823 P-like
+[06:34:09] queued E6.slh-dsa-shake-192f.sign-m10240.r2.a2 (repeat:other) at position 713
+[06:35:23] 303/1109 E6.rsa3072-pss.sign-m1048576.r2.a1 slow p50 2.027ms (n=29310) first 2.928ms
+[06:36:28] 304/1109 E6.slh-dsa-sha2-128f.sign-m102400.r2.a1 slow p50 21.365ms (n=2804) first 22.253ms
+[06:36:30] 305/1109 E6.ml-dsa-65.sign-m1024.r2.a1 fast p50 96.04us (n=10000) first 1.031ms
+[06:37:33] 306/1109 E6.slh-dsa-sha2-128s.sign-m102400.r2.a1 slow p50 432.051ms (n=139) first 433.179ms
+[06:38:33] 307/1109 E6.slh-dsa-shake-128s.verify-m1048576.r2.a1 slow p50 2.871ms (n=20873) first 2.768ms
+[06:39:38] 308/1109 E6.slh-dsa-shake-256s.sign-m64.r2.a1 slow p50 880.210ms (n=68) first 875.638ms
+[06:40:40] 309/1109 E6.rsa3072-pss.sign-m64.r2.a1 slow p50 1.601ms (n=36987) first 2.530ms
+[06:41:41] 310/1109 E6.slh-dsa-shake-192f.verify-m10240.r2.a1 slow p50 2.313ms (n=25912) first 2.413ms
+[06:41:43] 311/1109 E6.ml-dsa-65.verify-m102400.r2.a1 fast p50 218.20us (n=10000) first 249.82us
+[06:42:50] 312/1109 E6.slh-dsa-shake-192s.sign-m1048576.r2.a1 slow p50 975.764ms (n=62) first 983.390ms
+[06:43:54] 313/1109 E6.slh-dsa-sha2-192f.sign-m1024.r2.a1 slow p50 33.790ms (n=1774) first 34.696ms
+[06:45:00] 314/1109 E6.slh-dsa-shake-192f.sign-m1048576.r2.a1 slow p50 48.323ms (n=1245) first 48.144ms
+[06:45:01] canary 25 (periodic): 2557354 hashes/s, ratio 0.9976 P-like
+[06:45:05] 315/1109 E6.ml-dsa-87.sign-m10240.r2.a1 fast p50 154.10us (n=10000) first 1.174ms
+[06:46:10] 316/1109 E6.slh-dsa-sha2-192s.sign-m64.r2.a1 slow p50 763.907ms (n=79) first 766.998ms
+[06:46:14] 317/1109 E6.falcon-1024.sign-m64.r2.a1 fast p50 287.74us (n=10000) first 1.278ms
+[06:46:21] 318/1109 E6.slh-dsa-sha2-192s.verify-m1024.r2.a1 fast p50 636.69us (n=10000) first 779.56us
+[06:46:30] 319/1109 E6.slh-dsa-shake-192s.verify-m10240.r2.a1 fast p50 808.89us (n=10000) first 896.51us
+[06:47:30] 320/1109 E6.slh-dsa-sha2-192f.verify-m1048576.r2.a1 slow p50 3.765ms (n=15900) first 3.806ms
+[06:47:34] 321/1109 E6.falcon-1024.sign-m1024.r2.a1 fast p50 288.95us (n=10000) first 1.246ms
+[06:47:36] 322/1109 E6.ml-dsa-44.sign-m10240.r2.a1 fast p50 78.43us (n=10000) first 1.113ms
+[06:49:29] 323/1109 E6.falcon-padded-1024.sign-m1048576.r2.a1 slow p50 2.013ms (n=29713) first 2.929ms
+[06:50:35] 324/1109 E6.slh-dsa-shake-192s.sign-m64.r2.a1 slow p50 983.511ms (n=62) first 989.704ms
+[06:51:38] 325/1109 E6.slh-dsa-shake-256f.sign-m102400.r2.a1 slow p50 90.539ms (n=665) first 92.134ms
+[06:52:41] 326/1109 E6.slh-dsa-sha2-192f.sign-m64.r2.a1 slow p50 33.795ms (n=1773) first 34.747ms
+[06:52:48] 327/1109 E6.ml-dsa-87.sign-m102400.r2.a1 fast p50 305.20us (n=10000) first 1.224ms
+[06:53:48] 328/1109 E6.slh-dsa-shake-256f.verify-m64.r2.a1 slow p50 2.342ms (n=25600) first 2.343ms
+[06:54:49] 329/1109 E6.slh-dsa-shake-192f.verify-m1048576.r2.a1 slow p50 4.608ms (n=13004) first 4.736ms
+[06:55:49] 330/1109 E6.slh-dsa-sha2-256f.verify-m102400.r2.a1 slow p50 2.059ms (n=29127) first 2.025ms
+[06:55:51] canary 26 (periodic): 2562665 hashes/s, ratio 0.9997 P-like
+[06:56:51] 331/1109 E6.slh-dsa-sha2-256f.verify-m10240.r2.a1 slow p50 1.886ms (n=31759) first 1.882ms
+[06:56:53] 332/1109 E6.falcon-512.sign-m64.r2.a1 fast p50 144.79us (n=10000) first 1.040ms
+[06:56:56] 333/1109 E6.falcon-1024.verify-m102400.r2.a1 fast p50 208.66us (n=10000) first 234.53us
+[06:57:57] 334/1109 E6.slh-dsa-sha2-128f.verify-m1024.r2.a1 slow p50 1.257ms (n=47668) first 1.285ms
+[06:58:57] 335/1109 E6.slh-dsa-sha2-128f.verify-m64.r2.a1 slow p50 1.271ms (n=47158) first 1.303ms
+[07:00:01] 336/1109 E6.slh-dsa-sha2-256f.sign-m1048576.r2.a1 slow p50 73.391ms (n=817) first 74.352ms
+[07:00:06] 337/1109 E6.slh-dsa-sha2-128s.verify-m1024.r2.a1 fast p50 434.49us (n=10000) first 443.07us
+[07:01:13] 338/1109 E6.slh-dsa-shake-192s.sign-m10240.r2.a1 slow p50 979.388ms (n=62) first 976.257ms
+[07:02:16] 339/1109 E6.slh-dsa-shake-128f.sign-m64.r2.a1 slow p50 26.337ms (n=2273) first 27.328ms
+[07:03:17] 340/1109 E6.slh-dsa-shake-192f.verify-m64.r2.a1 slow p50 2.290ms (n=26165) first 2.323ms
+[07:03:18] 341/1109 E6.ml-dsa-87.verify-m10240.r2.a1 fast p50 101.66us (n=10000) first 151.41us
+[07:05:17] 342/1109 E6.ml-dsa-44.sign-m1048576.r2.a1 slow p50 1.789ms (n=33373) first 2.704ms
+[07:05:18] 343/1109 E6.falcon-padded-512.verify-m64.r2.a1 fast p50 22.04us (n=10000) first 36.29us
+[07:05:18] 344/1109 E6.rsa3072-pss.verify-m64.r2.a1 fast p50 33.00us (n=10000) first 100.91us
+[07:05:26] 345/1109 E6.falcon-1024.sign-m102400.r2.a1 fast p50 455.11us (n=10000) first 1.403ms
+[07:06:29] 346/1109 E6.slh-dsa-sha2-128s.sign-m64.r2.a1 slow p50 431.356ms (n=140) first 432.215ms
+[07:06:30] canary 27 (periodic): 2562285 hashes/s, ratio 0.9995 P-like
+[07:06:30] queued E6.slh-dsa-sha2-256f.verify-m10240.r2.a2 (repeat:other) at position 756
+[07:06:36] 347/1110 E6.slh-dsa-sha2-128s.verify-m10240.r2.a1 fast p50 466.28us (n=10000) first 467.28us
+[07:06:41] 348/1110 E6.ml-dsa-44.sign-m102400.r2.a1 fast p50 229.78us (n=10000) first 1.172ms
+[07:07:41] 349/1110 E6.slh-dsa-shake-256f.verify-m102400.r2.a1 slow p50 2.562ms (n=23394) first 2.547ms
+[07:08:42] 350/1110 E6.slh-dsa-shake-128f.verify-m1024.r2.a1 slow p50 1.572ms (n=38124) first 1.569ms
+[07:09:42] 351/1110 E6.slh-dsa-shake-128f.verify-m10240.r2.a1 slow p50 1.589ms (n=37718) first 1.596ms
+[07:10:43] 352/1110 E6.ml-dsa-65.verify-m1048576.r2.a1 slow p50 1.755ms (n=34028) first 1.776ms
+[07:11:47] 353/1110 E6.slh-dsa-sha2-192f.sign-m10240.r2.a1 slow p50 33.816ms (n=1772) first 34.841ms
+[07:12:47] 354/1110 E6.slh-dsa-shake-256s.verify-m102400.r2.a1 slow p50 1.386ms (n=43259) first 1.400ms
+[07:12:48] 355/1110 E6.ml-dsa-65.verify-m1024.r2.a1 fast p50 49.62us (n=10000) first 83.79us
+[07:12:50] 356/1110 E6.falcon-512.sign-m10240.r2.a1 fast p50 164.45us (n=10000) first 1.132ms
+[07:14:48] 357/1110 E6.ml-dsa-87.sign-m1048576.r2.a1 slow p50 1.867ms (n=31835) first 2.862ms
+[07:14:49] 358/1110 E6.ed25519.verify-m10240.r2.a1 fast p50 88.58us (n=10000) first 126.54us
+[07:15:55] 359/1110 E6.slh-dsa-sha2-192s.sign-m10240.r2.a1 slow p50 757.490ms (n=80) first 758.710ms
+[07:15:59] 360/1110 E6.falcon-1024.sign-m10240.r2.a1 fast p50 305.45us (n=10000) first 1.275ms
+[07:17:00] 361/1110 E6.slh-dsa-sha2-192f.verify-m1024.r2.a1 slow p50 1.825ms (n=32842) first 1.852ms
+[07:17:01] canary 28 (periodic): 2564161 hashes/s, ratio 1.0002 P-like
+[07:17:01] queued E6.falcon-512.sign-m10240.r2.a2 (repeat:other) at position 749
+[07:17:01] queued E6.ml-dsa-65.verify-m1024.r2.a2 (repeat:other) at position 118
+[07:17:01] queued E6.ml-dsa-87.sign-m1048576.r2.a2 (repeat:other) at position 225
+[07:17:01] queued E6.slh-dsa-sha2-192f.sign-m10240.r2.a2 (repeat:other) at position 243
+[07:17:01] queued E6.slh-dsa-shake-256s.verify-m102400.r2.a2 (repeat:other) at position 222
+[07:17:03] 362/1115 E6.ml-dsa-44.verify-m102400.r2.a1 fast p50 193.58us (n=10000) first 232.08us
+[07:18:04] 363/1115 E6.slh-dsa-shake-192s.verify-m102400.r2.a1 slow p50 1.010ms (n=59244) first 1.038ms
+[07:19:05] 364/1115 E6.slh-dsa-shake-192s.verify-m1048576.r2.a1 slow p50 3.115ms (n=19236) first 3.068ms
+[07:20:09] 365/1115 E6.slh-dsa-sha2-256s.sign-m102400.r2.a1 slow p50 667.868ms (n=90) first 669.065ms
+[07:20:10] 366/1115 E6.ml-dsa-44.verify-m10240.r2.a1 fast p50 44.46us (n=10000) first 71.00us
+[07:20:10] 367/1115 E6.ml-dsa-65.verify-m10240.r2.a1 fast p50 65.37us (n=10000) first 107.70us
+[07:21:14] 368/1115 E6.slh-dsa-shake-128s.sign-m10240.r2.a1 slow p50 545.804ms (n=110) first 553.619ms
+[07:22:16] 369/1115 E6.slh-dsa-sha2-256f.sign-m1024.r2.a1 slow p50 69.475ms (n=863) first 70.401ms
+[07:23:20] 370/1115 E6.slh-dsa-shake-128f.sign-m1024.r2.a1 slow p50 26.164ms (n=2284) first 27.020ms
+[07:23:21] 371/1115 E6.ecdsa-p256.verify-m1024.r2.a1 fast p50 54.91us (n=10000) first 132.79us
+[07:24:21] 372/1115 E6.slh-dsa-shake-192f.verify-m102400.r2.a1 slow p50 2.525ms (n=23748) first 2.580ms
+[07:25:22] 373/1115 E6.slh-dsa-shake-128f.verify-m102400.r2.a1 slow p50 1.798ms (n=33337) first 1.732ms
+[07:25:29] 374/1115 E6.slh-dsa-sha2-192s.verify-m64.r2.a1 fast p50 636.81us (n=10000) first 630.27us
+[07:26:30] 375/1115 E6.slh-dsa-sha2-256f.verify-m1048576.r2.a1 slow p50 3.809ms (n=15720) first 3.792ms
+[07:26:31] 376/1115 E6.ed25519.sign-m64.r2.a1 fast p50 30.29us (n=10000) first 54.54us
+[07:27:31] 377/1115 E6.slh-dsa-sha2-192f.verify-m64.r2.a1 slow p50 1.823ms (n=32837) first 1.830ms
+[07:27:33] canary 29 (periodic): 2564940 hashes/s, ratio 1.0005 P-like
+[07:27:33] queued E6.slh-dsa-sha2-192f.verify-m1024.r2.a2 (repeat:other) at position 275
+[07:29:26] 378/1116 E6.falcon-1024.sign-m1048576.r2.a1 slow p50 2.010ms (n=29739) first 2.957ms
+[07:30:26] 379/1116 E6.slh-dsa-sha2-128f.verify-m1048576.r2.a1 slow p50 4.452ms (n=13433) first 4.450ms
+[07:30:28] 380/1116 E6.ml-dsa-65.sign-m10240.r2.a1 fast p50 111.95us (n=10000) first 1.115ms
+[07:31:32] 381/1116 E6.slh-dsa-sha2-128f.sign-m1024.r2.a1 slow p50 20.742ms (n=2889) first 21.673ms
+[07:33:06] 382/1116 E6.ed25519.sign-m1048576.r2.a1 slow p50 1.491ms (n=40064) first 1.512ms
+[07:33:06] 383/1116 E6.ml-dsa-44.verify-m64.r2.a1 fast p50 28.42us (n=10000) first 51.46us
+[07:34:07] 384/1116 E6.ml-dsa-44.verify-m1048576.r2.a1 slow p50 1.735ms (n=34435) first 1.760ms
+[07:34:09] 385/1116 E6.ml-dsa-87.verify-m102400.r2.a1 fast p50 249.95us (n=10000) first 288.12us
+[07:35:15] 386/1116 E6.slh-dsa-sha2-192s.sign-m1048576.r2.a1 slow p50 761.432ms (n=79) first 762.009ms
+[07:35:15] 387/1116 E6.falcon-1024.verify-m10240.r2.a1 fast p50 58.58us (n=10000) first 77.00us
+[07:35:20] 388/1116 E6.falcon-padded-1024.sign-m10240.r2.a1 fast p50 304.07us (n=10000) first 1.236ms
+[07:35:21] 389/1116 E6.ml-dsa-44.sign-m1024.r2.a1 fast p50 62.25us (n=10000) first 1.040ms
+[07:36:27] 390/1116 E6.slh-dsa-shake-256s.sign-m10240.r2.a1 slow p50 880.624ms (n=69) first 878.771ms
+[07:37:28] 391/1116 E6.slh-dsa-shake-256s.verify-m10240.r2.a1 slow p50 1.178ms (n=50821) first 1.178ms
+[07:37:30] 392/1116 E6.ed25519.verify-m102400.r2.a1 fast p50 152.66us (n=10000) first 183.29us
+[07:37:46] 393/1116 E6.slh-dsa-shake-192s.verify-m64.r2.a1 fast p50 1.441ms (n=10000) first 1.479ms
+[07:37:47] canary 30 (periodic): 2517584 hashes/s, ratio 0.9821 P-like
+[07:37:47] queued E6.slh-dsa-sha2-256f.verify-m1048576.r2.a2 (repeat:other) at position 431
+[07:37:49] 394/1117 E6.ecdsa-p256.verify-m102400.r2.a1 fast p50 96.25us (n=10000) first 135.00us
+[07:37:50] 395/1117 E6.ed25519.sign-m1024.r2.a1 fast p50 31.75us (n=10000) first 54.12us
+[07:38:52] 396/1117 E6.slh-dsa-shake-256f.sign-m10240.r2.a1 slow p50 89.878ms (n=667) first 91.621ms
+[07:39:53] 397/1117 E6.slh-dsa-shake-256s.verify-m64.r2.a1 slow p50 1.157ms (n=51768) first 1.186ms
+[07:40:54] 398/1117 E6.slh-dsa-shake-256s.verify-m1024.r2.a1 slow p50 1.165ms (n=51462) first 1.207ms
+[07:41:56] 399/1117 E6.slh-dsa-sha2-256f.sign-m64.r2.a1 slow p50 69.447ms (n=863) first 70.369ms
+[07:42:57] 400/1117 E6.slh-dsa-sha2-256f.verify-m64.r2.a1 slow p50 1.865ms (n=32131) first 1.906ms
+[07:43:57] 401/1117 E6.slh-dsa-shake-192f.verify-m1024.r2.a1 slow p50 2.290ms (n=26177) first 2.333ms
+[07:44:07] 402/1117 E6.slh-dsa-sha2-192s.verify-m102400.r2.a1 fast p50 833.10us (n=10000) first 890.14us
+[07:45:09] 403/1117 E6.slh-dsa-sha2-256f.sign-m10240.r2.a1 slow p50 69.501ms (n=863) first 70.458ms
+[07:45:10] 404/1117 E6.ecdsa-p256.sign-m10240.r2.a1 fast p50 24.12us (n=10000) first 376.32us
+[07:45:10] 405/1117 E6.falcon-padded-512.verify-m1024.r2.a1 fast p50 23.17us (n=10000) first 61.79us
+[07:46:13] 406/1117 E6.slh-dsa-sha2-128s.sign-m10240.r2.a1 slow p50 431.459ms (n=139) first 432.561ms
+[07:46:15] 407/1117 E6.falcon-512.sign-m1024.r2.a1 fast p50 146.12us (n=10000) first 1.039ms
+[07:47:19] 408/1117 E6.slh-dsa-shake-256f.sign-m1048576.r2.a1 slow p50 93.927ms (n=637) first 95.405ms
+[07:48:19] 409/1117 E6.slh-dsa-shake-128f.verify-m1048576.r2.a1 slow p50 4.021ms (n=14911) first 3.991ms
+[07:48:20] canary 31 (periodic): 2564373 hashes/s, ratio 1.0003 P-like
+[07:48:20] queued E6.slh-dsa-sha2-256f.sign-m64.r2.a2 (repeat:other) at position 443
+[07:48:21] 410/1118 E6.ecdsa-p256.sign-m64.r2.a1 fast p50 19.96us (n=10000) first 373.49us
+[07:49:25] 411/1118 E6.slh-dsa-shake-128s.sign-m102400.r2.a1 slow p50 550.748ms (n=110) first 546.880ms
+[07:50:27] 412/1118 E6.slh-dsa-shake-256f.sign-m1024.r2.a1 slow p50 89.383ms (n=669) first 89.838ms
+[07:51:34] 413/1118 E6.slh-dsa-sha2-192f.sign-m1048576.r2.a1 slow p50 37.705ms (n=1590) first 38.570ms
+[07:52:34] 414/1118 E6.falcon-512.verify-m1048576.r2.a1 slow p50 1.735ms (n=34422) first 1.749ms
+[07:53:35] 415/1118 E6.slh-dsa-sha2-256s.verify-m1048576.r2.a1 slow p50 2.873ms (n=20840) first 2.907ms
+[07:55:31] 416/1118 E6.falcon-512.sign-m1048576.r2.a1 slow p50 1.866ms (n=32033) first 2.778ms
+[07:55:32] 417/1118 E6.rsa3072-pss.verify-m102400.r2.a1 fast p50 75.21us (n=10000) first 143.12us
+[07:56:39] 418/1118 E6.slh-dsa-shake-256s.sign-m1048576.r2.a1 slow p50 879.764ms (n=69) first 890.741ms
+[07:56:41] 419/1118 E6.falcon-padded-1024.verify-m102400.r2.a1 fast p50 210.87us (n=10000) first 230.74us
+[07:56:50] 420/1118 E6.slh-dsa-sha2-128s.verify-m102400.r2.a1 fast p50 744.06us (n=10000) first 763.10us
+[07:56:51] 421/1118 E6.ml-dsa-87.verify-m64.r2.a1 fast p50 84.70us (n=10000) first 114.79us
+[07:57:01] 422/1118 E6.slh-dsa-sha2-256s.verify-m10240.r2.a1 fast p50 948.88us (n=10000) first 952.47us
+[07:58:05] 423/1118 E6.slh-dsa-shake-192f.sign-m102400.r2.a1 slow p50 43.516ms (n=1374) first 44.274ms
+[07:59:13] 424/1118 E6.slh-dsa-shake-128f.sign-m1048576.r2.a1 slow p50 30.898ms (n=1935) first 32.033ms
+[07:59:14] canary 32 (periodic): 2514430 hashes/s, ratio 0.9808 P-like
+[07:59:14] queued E6.slh-dsa-shake-256s.sign-m1048576.r2.a2 (repeat:other) at position 462
+[07:59:16] 425/1119 E6.ml-dsa-87.verify-m1024.r2.a1 fast p50 86.62us (n=10000) first 129.87us
+[08:00:20] 426/1119 E6.slh-dsa-sha2-256s.sign-m10240.r2.a1 slow p50 668.748ms (n=90) first 671.954ms
+[08:01:22] 427/1119 E6.rsa3072-pss.sign-m1024.r2.a1 slow p50 1.611ms (n=36810) first 2.489ms
+[08:01:31] 428/1119 E6.ed25519.verify-m1048576.r2.a1 fast p50 809.06us (n=10000) first 841.30us
+[08:02:32] 429/1119 E6.falcon-padded-512.verify-m1048576.r2.a1 slow p50 1.755ms (n=34232) first 1.752ms
+[08:03:32] 430/1119 E6.slh-dsa-shake-128f.verify-m64.r2.a1 slow p50 1.564ms (n=38297) first 1.659ms
+[08:04:33] 431/1119 E6.ml-dsa-87.verify-m1048576.r2.a1 slow p50 1.808ms (n=33241) first 1.820ms
+[08:04:39] 432/1119 E6.falcon-512.sign-m102400.r2.a1 fast p50 317.07us (n=10000) first 1.244ms
+[08:05:41] 433/1119 E6.rsa3072-pss.sign-m10240.r2.a1 slow p50 1.612ms (n=36708) first 2.510ms
+[08:06:41] 434/1119 E6.slh-dsa-shake-256f.verify-m1024.r2.a1 slow p50 2.342ms (n=25590) first 2.404ms
+[08:07:47] 435/1119 E6.slh-dsa-shake-256s.sign-m1024.r2.a1 slow p50 883.691ms (n=68) first 879.058ms
+[08:07:49] 436/1119 E6.falcon-padded-512.sign-m64.r2.a1 fast p50 147.45us (n=10000) first 1.071ms
+[08:08:53] 437/1119 E6.slh-dsa-shake-128s.sign-m1048576.r2.a1 slow p50 550.588ms (n=109) first 559.081ms
+[08:09:53] 438/1119 E6.slh-dsa-sha2-192f.verify-m10240.r2.a1 slow p50 1.844ms (n=32525) first 1.861ms
+[08:09:55] canary 33 (periodic): 2564836 hashes/s, ratio 1.0005 P-like
+[08:11:53] 439/1119 E6.ml-dsa-65.sign-m1048576.r2.a1 slow p50 1.828ms (n=32540) first 2.772ms
+[08:11:54] 440/1119 E6.falcon-1024.verify-m1024.r2.a1 fast p50 44.25us (n=10000) first 60.21us
+[08:11:56] 441/1119 E6.ml-dsa-87.sign-m64.r2.a1 fast p50 139.83us (n=10000) first 1.147ms
+[08:12:05] 442/1119 E6.slh-dsa-shake-128s.verify-m102400.r2.a1 fast p50 769.25us (n=10000) first 754.56us
+[08:15:37] prepared slh-dsa-shake-128s.r3: P=64 in 211.7s
+[08:15:45] 443/1119 E6.slh-dsa-shake-128s.verify-m102400.r3.a1 fast p50 761.14us (n=10000) first 778.64us
+[08:15:46] prepared ml-dsa-87.r3: P=256 in 0.7s
+[08:15:49] 444/1119 E6.ml-dsa-87.verify-m102400.r3.a1 fast p50 253.57us (n=10000) first 288.53us
+[08:15:50] prepared falcon-padded-1024.r3: P=256 in 0.9s
+[08:15:52] 445/1119 E6.falcon-padded-1024.verify-m102400.r3.a1 fast p50 207.49us (n=10000) first 230.91us
+[08:15:53] prepared ml-dsa-65.r3: P=256 in 0.6s
+[08:16:54] 446/1119 E6.ml-dsa-65.verify-m1048576.r3.a1 slow p50 1.763ms (n=33999) first 1.775ms
+[08:23:10] prepared slh-dsa-shake-192s.r3: P=64 in 375.8s
+[08:24:16] 447/1119 E6.slh-dsa-shake-192s.sign-m1048576.r3.a1 slow p50 979.475ms (n=62) first 980.337ms
+[08:24:18] canary 34 (periodic): 2532661 hashes/s, ratio 0.9880 P-like
+[08:24:18] prepared ed25519.r3: P=256 in 0.5s
+[08:24:20] 448/1119 E6.ed25519.verify-m102400.r3.a1 fast p50 152.50us (n=10000) first 188.29us
+[08:25:57] prepared slh-dsa-sha2-256f.r3: P=256 in 96.7s
+[08:26:59] 449/1119 E6.slh-dsa-sha2-256f.sign-m102400.r3.a1 slow p50 69.831ms (n=859) first 70.869ms
+[08:28:03] 450/1119 E6.slh-dsa-shake-128s.sign-m1024.r3.a1 slow p50 544.456ms (n=110) first 546.924ms
+[08:28:04] prepared ml-dsa-44.r3: P=256 in 0.5s
+[08:28:09] 451/1119 E6.ml-dsa-44.sign-m102400.r3.a1 fast p50 225.45us (n=10000) first 1.185ms
+[08:32:26] prepared slh-dsa-sha2-256s.r3: P=64 in 257.5s
+[08:33:30] 452/1119 E6.slh-dsa-sha2-256s.sign-m64.r3.a1 slow p50 667.728ms (n=90) first 668.406ms
+[08:33:41] 453/1119 E6.slh-dsa-sha2-256s.verify-m64.r3.a1 fast p50 925.51us (n=10000) first 1.024ms
+[08:33:42] prepared falcon-1024.r3: P=256 in 0.9s
+[08:33:42] 454/1119 E6.falcon-1024.verify-m10240.r3.a1 fast p50 58.58us (n=10000) first 75.87us
+[08:34:46] 455/1119 E6.slh-dsa-shake-128s.sign-m64.r3.a1 slow p50 544.570ms (n=110) first 544.778ms
+[08:34:47] canary 35 (periodic): 2517756 hashes/s, ratio 0.9821 P-like
+[08:34:47] queued E6.slh-dsa-sha2-256f.sign-m102400.r3.a2 (repeat:other) at position 24
+[08:37:34] prepared slh-dsa-sha2-128s.r3: P=64 in 166.8s
+[08:38:37] 456/1120 E6.slh-dsa-sha2-128s.sign-m64.r3.a1 slow p50 431.486ms (n=139) first 432.715ms
+[08:39:37] 457/1120 E6.slh-dsa-shake-128f.verify-m102400.r1.a2 slow p50 1.790ms (n=33510) first 1.767ms
+[08:40:38] 458/1120 E6.falcon-1024.verify-m1048576.r3.a1 slow p50 1.757ms (n=33991) first 1.775ms
+[08:46:19] prepared slh-dsa-shake-256s.r3: P=64 in 340.9s
+[08:47:20] 459/1120 E6.slh-dsa-shake-256s.verify-m64.r3.a1 slow p50 1.167ms (n=51392) first 1.164ms
+[08:47:21] canary 36 (periodic): 2517216 hashes/s, ratio 0.9819 P-like
+[08:47:22] prepared ecdsa-p256.r3: P=256 in 0.3s
+[08:47:23] 460/1120 E6.ecdsa-p256.sign-m10240.r3.a1 fast p50 24.21us (n=10000) first 397.53us
+[08:48:11] prepared slh-dsa-sha2-192f.r3: P=256 in 48.5s
+[08:49:12] 461/1120 E6.slh-dsa-sha2-192f.verify-m10240.r3.a1 slow p50 1.852ms (n=32375) first 1.853ms
+[08:51:17] prepared slh-dsa-shake-256f.r3: P=256 in 124.8s
+[08:52:17] 462/1120 E6.slh-dsa-shake-256f.verify-m64.r3.a1 slow p50 2.343ms (n=25583) first 2.424ms
+[08:52:28] 463/1120 E6.ecdsa-p256.sign-m1048576.r3.a1 fast p50 447.78us (n=10000) first 886.64us
+[08:52:58] prepared slh-dsa-sha2-128f.r3: P=256 in 30.5s
+[08:53:59] 464/1120 E6.slh-dsa-sha2-128f.verify-m1048576.r3.a1 slow p50 4.450ms (n=13446) first 4.450ms
+[08:55:05] 465/1120 E6.slh-dsa-shake-256s.sign-m1024.r3.a1 slow p50 879.407ms (n=69) first 877.077ms
+[08:55:07] 466/1120 E6.ml-dsa-65.sign-m1024.r3.a1 fast p50 97.50us (n=10000) first 1.115ms
+[08:56:13] 467/1120 E6.slh-dsa-shake-256s.sign-m64.r3.a1 slow p50 879.243ms (n=69) first 893.022ms
+[08:56:14] 468/1120 E6.falcon-1024.verify-m1024.r3.a1 fast p50 44.29us (n=10000) first 71.46us
+[08:57:14] 469/1120 E6.slh-dsa-sha2-256s.verify-m1048576.r3.a1 slow p50 2.874ms (n=20849) first 2.839ms
+[08:58:18] 470/1120 E6.slh-dsa-shake-256f.sign-m1048576.r3.a1 slow p50 93.913ms (n=637) first 95.967ms
+[08:58:19] canary 37 (periodic): 2516172 hashes/s, ratio 0.9815 P-like
+[08:58:19] queued E6.ecdsa-p256.sign-m10240.r3.a2 (repeat:other) at position 604
+[08:58:19] queued E6.ecdsa-p256.sign-m1048576.r3.a2 (repeat:other) at position 367
+[08:58:19] queued E6.slh-dsa-sha2-128f.verify-m1048576.r3.a2 (repeat:other) at position 592
+[08:58:19] queued E6.slh-dsa-sha2-192f.verify-m10240.r3.a2 (repeat:other) at position 13
+[08:58:19] queued E6.slh-dsa-shake-256f.verify-m64.r3.a2 (repeat:other) at position 72
+[08:58:19] queued E6.slh-dsa-shake-256s.sign-m64.r3.a2 (repeat:other) at position 277
+[08:58:19] queued E6.slh-dsa-shake-256s.verify-m64.r3.a2 (repeat:other) at position 388
+[08:59:20] 471/1127 E6.slh-dsa-shake-256s.verify-m10240.r3.a1 slow p50 1.177ms (n=50969) first 1.205ms
+[09:00:26] 472/1127 E6.slh-dsa-shake-256s.sign-m102400.r1.a2 slow p50 885.011ms (n=68) first 891.012ms
+[09:01:28] 473/1127 E6.slh-dsa-sha2-256f.sign-m64.r3.a1 slow p50 69.446ms (n=863) first 70.336ms
+[09:01:32] prepared rsa3072-pss.r3: P=256 in 3.9s
+[09:01:37] 474/1127 E6.rsa3072-pss.verify-m1048576.r3.a1 fast p50 459.28us (n=10000) first 518.02us
+[09:02:39] prepared slh-dsa-shake-192f.r3: P=256 in 62.1s
+[09:03:40] 475/1127 E6.slh-dsa-shake-192f.verify-m102400.r3.a1 slow p50 2.593ms (n=23124) first 2.523ms
+[09:03:43] 476/1127 E6.ml-dsa-87.sign-m64.r3.a1 fast p50 140.12us (n=10000) first 1.095ms
+[09:04:43] 477/1127 E6.slh-dsa-sha2-192f.verify-m102400.r3.a1 slow p50 2.023ms (n=29615) first 2.118ms
+[09:05:47] 478/1127 E6.slh-dsa-sha2-128f.sign-m64.r3.a1 slow p50 20.730ms (n=2891) first 21.663ms
+[09:05:54] 479/1127 E6.ml-dsa-87.sign-m102400.r3.a1 fast p50 304.74us (n=10000) first 1.317ms
+[09:06:56] 480/1127 E6.slh-dsa-sha2-256f.sign-m102400.r3.a2 slow p50 69.840ms (n=859) first 70.824ms
+[09:06:57] 481/1127 E6.ml-dsa-65.verify-m1024.r2.a2 fast p50 49.46us (n=10000) first 75.00us
+[09:11:49] prepared slh-dsa-sha2-192s.r3: P=64 in 292.0s
+[09:12:54] 482/1127 E6.slh-dsa-sha2-192s.sign-m64.r3.a1 slow p50 757.539ms (n=80) first 758.803ms
+[09:12:55] canary 38 (periodic): 2564934 hashes/s, ratio 1.0005 P-like
+[09:13:59] 483/1127 E6.slh-dsa-shake-192f.sign-m102400.r3.a1 slow p50 43.478ms (n=1376) first 44.516ms
+[09:15:00] 484/1127 E6.slh-dsa-sha2-192f.verify-m10240.r3.a2 slow p50 1.851ms (n=32369) first 1.871ms
+[09:15:05] 485/1127 E6.slh-dsa-sha2-128s.verify-m1024.r3.a1 fast p50 430.90us (n=10000) first 416.57us
+[09:16:05] 486/1127 E6.ml-dsa-44.verify-m1048576.r3.a1 slow p50 1.731ms (n=34497) first 1.771ms
+[09:16:11] 487/1127 E6.ecdsa-p256.verify-m1048576.r3.a1 fast p50 481.98us (n=10000) first 522.65us
+[09:17:13] 488/1127 E6.slh-dsa-shake-256f.sign-m1024.r3.a1 slow p50 89.448ms (n=668) first 92.017ms
+[09:17:14] 489/1127 E6.rsa3072-pss.verify-m1024.r3.a1 fast p50 33.37us (n=10000) first 89.70us
+[09:17:19] 490/1127 E6.slh-dsa-sha2-128s.verify-m10240.r3.a1 fast p50 461.32us (n=10000) first 446.74us
+[09:18:23] 491/1127 E6.slh-dsa-shake-128s.sign-m1048576.r3.a1 slow p50 557.028ms (n=109) first 557.186ms
+[09:19:26] 492/1127 E6.rsa3072-pss.sign-m102400.r3.a1 slow p50 1.649ms (n=35977) first 2.526ms
+[09:20:27] 493/1127 E6.slh-dsa-shake-256s.verify-m1048576.r3.a1 slow p50 3.482ms (n=17209) first 3.559ms
+[09:21:27] 494/1127 E6.slh-dsa-shake-256s.verify-m102400.r3.a1 slow p50 1.386ms (n=43250) first 1.337ms
+[09:21:28] 495/1127 E6.ecdsa-p256.sign-m1024.r3.a1 fast p50 20.42us (n=10000) first 381.99us
+[09:21:29] 496/1127 E6.ml-dsa-44.verify-m10240.r3.a1 fast p50 44.58us (n=10000) first 69.00us
+[09:21:33] 497/1127 E6.falcon-1024.sign-m64.r3.a1 fast p50 291.32us (n=10000) first 1.208ms
+[09:22:11] prepared slh-dsa-shake-128f.r3: P=256 in 38.4s
+[09:23:12] 498/1127 E6.slh-dsa-shake-128f.verify-m102400.r3.a1 slow p50 1.805ms (n=33227) first 1.805ms
+[09:23:13] canary 39 (periodic): 2517166 hashes/s, ratio 0.9819 P-like
+[09:24:20] 499/1127 E6.slh-dsa-shake-192f.sign-m1048576.r3.a1 slow p50 48.958ms (n=1229) first 49.784ms
+[09:24:21] 500/1127 E6.ml-dsa-44.sign-m64.r3.a1 fast p50 59.33us (n=10000) first 959.43us
+[09:25:24] 501/1127 E6.slh-dsa-shake-192f.sign-m64.r3.a1 slow p50 43.647ms (n=1378) first 44.208ms
+[09:25:26] 502/1127 E6.ecdsa-p256.sign-m102400.r3.a1 fast p50 61.91us (n=10000) first 421.07us
+[09:25:27] prepared falcon-512.r3: P=256 in 0.6s
+[09:25:27] 503/1127 E6.falcon-512.verify-m1024.r3.a1 fast p50 23.21us (n=10000) first 38.00us
+[09:27:01] 504/1127 E6.ed25519.sign-m1048576.r3.a1 slow p50 1.492ms (n=39961) first 1.540ms
+[09:27:02] 505/1127 E6.ed25519.sign-m1024.r3.a1 fast p50 31.66us (n=10000) first 57.37us
+[09:28:05] 506/1127 E6.slh-dsa-shake-256f.sign-m102400.r3.a1 slow p50 90.025ms (n=664) first 90.319ms
+[09:28:05] prepared falcon-padded-512.r3: P=256 in 0.6s
+[09:28:07] 507/1127 E6.falcon-padded-512.sign-m64.r3.a1 fast p50 147.33us (n=10000) first 1.061ms
+[09:29:08] 508/1127 E6.falcon-padded-512.verify-m1048576.r3.a1 slow p50 1.733ms (n=34488) first 1.792ms
+[09:29:16] 509/1127 E6.slh-dsa-sha2-128s.verify-m102400.r3.a1 fast p50 748.08us (n=10000) first 786.64us
+[09:29:17] 510/1127 E6.ml-dsa-65.verify-m10240.r3.a1 fast p50 64.58us (n=10000) first 111.54us
+[09:29:21] 511/1127 E6.falcon-1024.sign-m10240.r3.a1 fast p50 309.78us (n=10000) first 1.235ms
+[09:30:28] 512/1127 E6.slh-dsa-shake-192s.sign-m64.r3.a1 slow p50 977.370ms (n=62) first 976.801ms
+[09:30:29] 513/1127 E6.ed25519.verify-m64.r3.a1 fast p50 81.62us (n=10000) first 117.54us
+[09:30:30] 514/1127 E6.rsa3072-pss.verify-m64.r3.a1 fast p50 33.67us (n=10000) first 109.41us
+[09:30:32] 515/1127 E6.falcon-512.sign-m10240.r3.a1 fast p50 162.04us (n=10000) first 1.046ms
+[09:31:36] 516/1127 E6.slh-dsa-shake-192f.sign-m10240.r3.a1 slow p50 43.261ms (n=1380) first 44.769ms
+[09:32:39] 517/1127 E6.slh-dsa-sha2-192f.sign-m102400.r3.a1 slow p50 34.171ms (n=1754) first 35.103ms
+[09:32:40] 518/1127 E6.rsa3072-pss.verify-m10240.r3.a1 fast p50 37.16us (n=10000) first 97.33us
+[09:32:41] 519/1127 E6.ed25519.sign-m64.r3.a1 fast p50 30.29us (n=10000) first 53.79us
+[09:32:42] 520/1127 E6.falcon-1024.verify-m64.r3.a1 fast p50 41.96us (n=10000) first 58.87us
+[09:32:42] 521/1127 E6.falcon-padded-512.verify-m10240.r3.a1 fast p50 38.16us (n=10000) first 56.37us
+[09:32:49] 522/1127 E6.slh-dsa-shake-128s.verify-m10240.r3.a1 fast p50 563.17us (n=10000) first 564.31us
+[09:32:55] 523/1127 E6.slh-dsa-shake-128s.verify-m1024.r3.a1 fast p50 539.29us (n=10000) first 553.73us
+[09:33:56] 524/1127 E6.slh-dsa-shake-128f.verify-m1024.r3.a1 slow p50 1.570ms (n=38174) first 1.658ms
+[09:33:57] canary 40 (periodic): 2552073 hashes/s, ratio 0.9955 P-like
+[09:33:57] queued E6.ed25519.sign-m1048576.r3.a2 (repeat:other) at position 150
+[09:34:00] 525/1128 E6.falcon-padded-512.sign-m10240.r3.a1 fast p50 162.41us (n=10000) first 1.096ms
+[09:35:00] 526/1128 E6.slh-dsa-sha2-256f.verify-m10240.r3.a1 slow p50 1.888ms (n=31709) first 1.895ms
+[09:36:04] 527/1128 E6.slh-dsa-sha2-192f.sign-m1024.r3.a1 slow p50 33.789ms (n=1773) first 34.717ms
+[09:37:09] 528/1128 E6.slh-dsa-sha2-192s.sign-m1024.r3.a1 slow p50 757.621ms (n=80) first 759.199ms
+[09:37:11] 529/1128 E6.falcon-padded-512.verify-m102400.r3.a1 fast p50 190.45us (n=10000) first 222.32us
+[09:38:13] 530/1128 E6.rsa3072-pss.sign-m1024.r3.a1 slow p50 1.604ms (n=36847) first 2.505ms
+[09:38:19] 531/1128 E6.slh-dsa-shake-128s.verify-m64.r3.a1 fast p50 535.34us (n=10000) first 535.40us
+[09:39:26] 532/1128 E6.slh-dsa-shake-192s.sign-m1024.r3.a1 slow p50 972.711ms (n=62) first 970.783ms
+[09:40:26] 533/1128 E6.slh-dsa-sha2-256f.verify-m64.r3.a1 slow p50 1.868ms (n=32091) first 1.932ms
+[09:40:32] 534/1128 E6.falcon-padded-512.sign-m102400.r3.a1 fast p50 312.70us (n=10000) first 1.233ms
+[09:41:33] 535/1128 E6.slh-dsa-sha2-128f.verify-m1024.r3.a1 slow p50 1.258ms (n=47613) first 1.369ms
+[09:41:35] 536/1128 E6.ml-dsa-65.sign-m64.r3.a1 fast p50 96.12us (n=10000) first 995.47us
+[09:41:35] 537/1128 E6.ml-dsa-65.verify-m64.r3.a1 fast p50 47.62us (n=10000) first 74.71us
+[09:41:36] 538/1128 E6.ecdsa-p256.verify-m1024.r3.a1 fast p50 55.71us (n=10000) first 122.70us
+[09:41:39] 539/1128 E6.ml-dsa-65.verify-m102400.r3.a1 fast p50 213.41us (n=10000) first 249.24us
+[09:41:39] 540/1128 E6.falcon-padded-1024.verify-m1024.r3.a1 fast p50 44.25us (n=10000) first 80.41us
+[09:42:43] 541/1128 E6.slh-dsa-sha2-192f.sign-m10240.r3.a1 slow p50 33.871ms (n=1769) first 34.838ms
+[09:44:39] 542/1128 E6.falcon-512.sign-m1048576.r3.a1 slow p50 1.879ms (n=31907) first 2.842ms
+[09:44:41] canary 41 (periodic): 2516191 hashes/s, ratio 0.9815 P-like
+[09:45:41] 543/1128 E6.slh-dsa-shake-256f.verify-m64.r3.a2 slow p50 2.344ms (n=25564) first 2.373ms
+[09:46:45] 544/1128 E6.slh-dsa-sha2-256s.sign-m102400.r3.a1 slow p50 668.006ms (n=90) first 673.212ms
+[09:46:49] 545/1128 E6.ml-dsa-87.sign-m10240.r3.a1 fast p50 157.00us (n=10000) first 1.190ms
+[09:47:52] 546/1128 E6.slh-dsa-sha2-128f.sign-m1024.r3.a1 slow p50 20.743ms (n=2889) first 21.709ms
+[09:48:55] 547/1128 E6.slh-dsa-sha2-128s.sign-m10240.r3.a1 slow p50 431.846ms (n=139) first 432.509ms
+[09:49:02] 548/1128 E6.slh-dsa-sha2-192s.verify-m64.r3.a1 fast p50 637.87us (n=10000) first 658.19us
+[09:49:03] 549/1128 E6.ecdsa-p256.verify-m64.r3.a1 fast p50 54.75us (n=10000) first 107.75us
+[09:50:04] 550/1128 E6.slh-dsa-shake-192f.verify-m1024.r3.a1 slow p50 2.288ms (n=26191) first 2.253ms
+[09:51:08] 551/1128 E6.slh-dsa-sha2-256s.sign-m10240.r3.a1 slow p50 673.641ms (n=89) first 675.080ms
+[09:51:09] 552/1128 E6.rsa3072-pss.verify-m102400.r3.a1 fast p50 75.48us (n=10000) first 127.00us
+[09:52:09] 553/1128 E6.slh-dsa-sha2-192f.verify-m1024.r3.a1 slow p50 1.832ms (n=32705) first 1.901ms
+[09:52:15] 554/1128 E6.ml-dsa-65.sign-m102400.r3.a1 fast p50 264.03us (n=10000) first 1.220ms
+[09:53:15] 555/1128 E6.slh-dsa-shake-256f.verify-m1048576.r3.a1 slow p50 4.708ms (n=12736) first 4.810ms
+[09:54:16] 556/1128 E6.slh-dsa-shake-128f.verify-m10240.r3.a1 slow p50 1.594ms (n=37598) first 1.588ms
+[09:55:19] 557/1128 E6.slh-dsa-sha2-128s.sign-m1048576.r3.a1 slow p50 437.880ms (n=137) first 438.642ms
+[09:55:21] canary 42 (periodic): 2534273 hashes/s, ratio 0.9886 P-like
+[09:55:21] queued E6.falcon-512.sign-m1048576.r3.a2 (repeat:other) at position 328
+[09:56:25] 558/1129 E6.slh-dsa-shake-128f.sign-m102400.r3.a1 slow p50 26.845ms (n=2242) first 27.379ms
+[09:57:26] 559/1129 E6.slh-dsa-shake-256f.verify-m102400.r3.a1 slow p50 2.580ms (n=23227) first 2.649ms
+[09:57:26] 560/1129 E6.falcon-padded-1024.verify-m64.r3.a1 fast p50 42.71us (n=10000) first 75.87us
+[09:57:27] 561/1129 E6.ecdsa-p256.sign-m64.r3.a1 fast p50 20.37us (n=10000) first 378.94us
+[09:58:31] 562/1129 E6.slh-dsa-sha2-192f.sign-m64.r3.a1 slow p50 33.791ms (n=1773) first 34.707ms
+[09:59:33] 563/1129 E6.rsa3072-pss.sign-m10240.r3.a1 slow p50 1.610ms (n=36725) first 2.542ms
+[09:59:34] 564/1129 E6.ml-dsa-87.verify-m10240.r3.a1 fast p50 101.66us (n=10000) first 171.83us
+[09:59:38] 565/1129 E6.falcon-padded-1024.sign-m64.r3.a1 fast p50 289.45us (n=10000) first 1.210ms
+[10:00:52] 566/1129 E6.rsa3072-pss.sign-m1048576.r3.a1 slow p50 2.033ms (n=29132) first 2.971ms
+[10:01:57] 567/1129 E6.slh-dsa-sha2-128f.sign-m102400.r3.a1 slow p50 21.373ms (n=2804) first 22.669ms
+[10:01:58] 568/1129 E6.ml-dsa-44.sign-m10240.r3.a1 fast p50 76.41us (n=10000) first 970.72us
+[10:02:59] 569/1129 E6.slh-dsa-sha2-192f.verify-m1048576.r3.a1 slow p50 3.775ms (n=15861) first 3.833ms
+[10:03:01] 570/1129 E6.ml-dsa-65.sign-m10240.r3.a1 fast p50 112.04us (n=10000) first 1.000ms
+[10:03:02] 571/1129 E6.ml-dsa-87.verify-m64.r3.a1 fast p50 84.08us (n=10000) first 110.79us
+[10:04:04] 572/1129 E6.rsa3072-pss.sign-m64.r3.a1 slow p50 1.614ms (n=36676) first 2.631ms
+[10:05:04] 573/1129 E6.ml-dsa-87.verify-m1048576.r3.a1 slow p50 1.814ms (n=33113) first 1.851ms
+[10:05:09] 574/1129 E6.slh-dsa-sha2-128s.verify-m64.r3.a1 fast p50 433.84us (n=10000) first 440.82us
+[10:05:19] 575/1129 E6.ed25519.verify-m1048576.r3.a1 fast p50 808.93us (n=10000) first 857.85us
+[10:05:20] 576/1129 E6.ed25519.verify-m1024.r3.a1 fast p50 82.62us (n=10000) first 109.75us
+[10:06:26] 577/1129 E6.slh-dsa-shake-192s.sign-m10240.r3.a1 slow p50 985.811ms (n=61) first 978.941ms
+[10:06:27] canary 43 (periodic): 2516145 hashes/s, ratio 0.9815 P-like
+[10:06:27] queued E6.slh-dsa-shake-128f.sign-m102400.r3.a2 (repeat:other) at position 124
+[10:06:28] 578/1130 E6.ed25519.verify-m10240.r3.a1 fast p50 88.58us (n=10000) first 116.04us
+[10:07:29] 579/1130 E6.slh-dsa-sha2-128f.verify-m10240.r3.a1 slow p50 1.290ms (n=46509) first 1.338ms
+[10:07:30] 580/1130 E6.ecdsa-p256.verify-m102400.r3.a1 fast p50 99.41us (n=10000) first 140.79us
+[10:07:31] 581/1130 E6.falcon-512.verify-m10240.r3.a1 fast p50 38.87us (n=10000) first 72.04us
+[10:08:41] 582/1130 E6.slh-dsa-sha2-128f.sign-m1048576.r3.a1 slow p50 27.165ms (n=2206) first 28.031ms
+[10:09:47] 583/1130 E6.slh-dsa-shake-256s.sign-m1048576.r3.a1 slow p50 888.279ms (n=68) first 895.270ms
+[10:10:51] 584/1130 E6.slh-dsa-sha2-256s.sign-m1024.r3.a1 slow p50 668.952ms (n=90) first 668.850ms
+[10:11:52] 585/1130 E6.slh-dsa-sha2-128f.verify-m102400.r3.a1 slow p50 1.576ms (n=38044) first 1.670ms
+[10:12:58] 586/1130 E6.slh-dsa-sha2-192f.sign-m1048576.r3.a1 slow p50 37.709ms (n=1590) first 39.709ms
+[10:13:59] 587/1130 E6.slh-dsa-shake-256s.verify-m102400.r2.a2 slow p50 1.391ms (n=43093) first 1.368ms
+[10:15:01] 588/1130 E6.slh-dsa-shake-256f.sign-m64.r3.a1 slow p50 95.593ms (n=630) first 94.960ms
+[10:16:02] 589/1130 E6.slh-dsa-shake-192s.verify-m102400.r3.a1 slow p50 1.025ms (n=58492) first 994.92us
+[10:17:06] 590/1130 E6.slh-dsa-shake-128f.sign-m10240.r3.a1 slow p50 26.621ms (n=2253) first 27.599ms
+[10:17:08] canary 44 (periodic): 2516175 hashes/s, ratio 0.9815 P-like
+[10:17:08] queued E6.slh-dsa-sha2-128f.verify-m102400.r3.a2 (repeat:other) at position 487
+[10:17:08] queued E6.slh-dsa-sha2-256s.sign-m1024.r3.a2 (repeat:other) at position 337
+[10:19:06] 591/1132 E6.ml-dsa-87.sign-m1048576.r2.a2 slow p50 1.884ms (n=31538) first 2.936ms
+[10:20:06] 592/1132 E6.slh-dsa-shake-192f.verify-m64.r3.a1 slow p50 2.308ms (n=25977) first 2.314ms
+[10:21:10] 593/1132 E6.slh-dsa-shake-128f.sign-m1024.r3.a1 slow p50 26.493ms (n=2263) first 27.601ms
+[10:22:17] 594/1132 E6.slh-dsa-shake-192s.sign-m102400.r3.a1 slow p50 988.036ms (n=61) first 987.487ms
+[10:23:17] 595/1132 E6.slh-dsa-sha2-256f.verify-m1024.r3.a1 slow p50 1.880ms (n=31873) first 1.925ms
+[10:23:18] 596/1132 E6.falcon-padded-512.verify-m1024.r3.a1 fast p50 23.62us (n=10000) first 38.21us
+[10:23:18] 597/1132 E6.falcon-padded-1024.verify-m10240.r3.a1 fast p50 58.46us (n=10000) first 73.16us
+[10:23:22] 598/1132 E6.falcon-padded-1024.sign-m1024.r3.a1 fast p50 293.78us (n=10000) first 1.191ms
+[10:24:23] 599/1132 E6.slh-dsa-sha2-256f.verify-m1048576.r3.a1 slow p50 3.823ms (n=15657) first 3.835ms
+[10:24:25] 600/1132 E6.falcon-1024.verify-m102400.r3.a1 fast p50 207.37us (n=10000) first 242.91us
+[10:25:27] 601/1132 E6.slh-dsa-shake-256f.sign-m10240.r3.a1 slow p50 90.613ms (n=663) first 90.040ms
+[10:27:26] 602/1132 E6.ml-dsa-65.sign-m1048576.r3.a1 slow p50 1.839ms (n=32320) first 2.791ms
+[10:27:27] canary 45 (periodic): 2517332 hashes/s, ratio 0.9820 P-like
+[10:27:28] 603/1132 E6.ml-dsa-87.verify-m1024.r3.a1 fast p50 86.75us (n=10000) first 127.29us
+[10:28:31] 604/1132 E6.slh-dsa-sha2-128s.sign-m1024.r3.a1 slow p50 431.719ms (n=139) first 436.176ms
+[10:28:41] 605/1132 E6.slh-dsa-sha2-192s.verify-m102400.r3.a1 fast p50 825.01us (n=10000) first 866.51us
+[10:29:41] 606/1132 E6.slh-dsa-shake-192f.verify-m1048576.r3.a1 slow p50 4.657ms (n=12876) first 4.646ms
+[10:29:43] 607/1132 E6.falcon-512.verify-m102400.r3.a1 fast p50 190.87us (n=10000) first 215.99us
+[10:29:49] 608/1132 E6.falcon-512.sign-m102400.r3.a1 fast p50 316.95us (n=10000) first 1.396ms
+[10:30:53] 609/1132 E6.slh-dsa-sha2-192f.sign-m10240.r2.a2 slow p50 33.920ms (n=1763) first 34.949ms
+[10:32:51] 610/1132 E6.ml-dsa-87.sign-m1048576.r3.a1 slow p50 1.885ms (n=31534) first 3.089ms
+[10:32:55] 611/1132 E6.falcon-1024.sign-m1024.r3.a1 fast p50 294.45us (n=10000) first 1.196ms
+[10:33:02] 612/1132 E6.falcon-1024.sign-m102400.r3.a1 fast p50 464.32us (n=10000) first 1.403ms
+[10:34:06] 613/1132 E6.slh-dsa-shake-128s.sign-m10240.r3.a1 slow p50 553.555ms (n=109) first 554.409ms
+[10:35:07] 614/1132 E6.slh-dsa-sha2-192f.verify-m64.r3.a1 slow p50 1.834ms (n=32676) first 1.836ms
+[10:35:14] 615/1132 E6.slh-dsa-sha2-192s.verify-m10240.r3.a1 fast p50 654.14us (n=10000) first 669.35us
+[10:36:22] 616/1132 E6.slh-dsa-shake-128f.sign-m1048576.r3.a1 slow p50 31.245ms (n=1920) first 32.275ms
+[10:37:26] 617/1132 E6.slh-dsa-shake-128s.sign-m102400.r3.a1 slow p50 553.907ms (n=109) first 555.530ms
+[10:38:30] 618/1132 E6.slh-dsa-sha2-128f.sign-m10240.r3.a1 slow p50 20.817ms (n=2870) first 22.127ms
+[10:38:31] canary 46 (periodic): 2516361 hashes/s, ratio 0.9816 P-like
+[10:38:31] queued E6.ml-dsa-65.sign-m1048576.r3.a2 (repeat:other) at position 244
+[10:38:41] 619/1133 E6.slh-dsa-shake-192s.verify-m10240.r3.a1 fast p50 817.56us (n=10000) first 851.51us
+[10:39:41] 620/1133 E6.slh-dsa-sha2-128f.verify-m64.r3.a1 slow p50 1.256ms (n=47651) first 1.283ms
+[10:40:42] 621/1133 E6.slh-dsa-shake-192f.verify-m10240.r3.a1 slow p50 2.326ms (n=25775) first 2.321ms
+[10:40:43] 622/1133 E6.ml-dsa-44.sign-m1024.r3.a1 fast p50 62.50us (n=10000) first 1.008ms
+[10:40:54] 623/1133 E6.slh-dsa-sha2-256s.verify-m10240.r3.a1 fast p50 951.18us (n=10000) first 986.42us
+[10:41:54] 624/1133 E6.slh-dsa-sha2-256f.verify-m102400.r3.a1 slow p50 2.063ms (n=29030) first 2.141ms
+[10:42:55] 625/1133 E6.slh-dsa-shake-128f.verify-m64.r3.a1 slow p50 1.585ms (n=37813) first 1.541ms
+[10:44:51] 626/1133 E6.falcon-padded-512.sign-m1048576.r3.a1 slow p50 1.893ms (n=31620) first 2.813ms
+[10:45:52] 627/1133 E6.slh-dsa-shake-256s.verify-m1024.r3.a1 slow p50 1.174ms (n=51003) first 1.167ms
+[10:45:53] 628/1133 E6.ml-dsa-44.verify-m64.r3.a1 fast p50 28.46us (n=10000) first 52.04us
+[10:46:02] 629/1133 E6.slh-dsa-shake-192s.verify-m1024.r3.a1 fast p50 796.89us (n=10000) first 760.48us
+[10:47:55] 630/1133 E6.falcon-padded-1024.sign-m1048576.r3.a1 slow p50 2.034ms (n=29428) first 3.030ms
+[10:48:55] 631/1133 E6.slh-dsa-sha2-128s.verify-m1048576.r3.a1 slow p50 3.652ms (n=16374) first 3.692ms
+[10:48:56] canary 47 (periodic): 2516808 hashes/s, ratio 0.9818 P-like
+[10:48:59] 632/1133 E6.ml-dsa-87.sign-m1024.r3.a1 fast p50 142.25us (n=10000) first 1.077ms
+[10:49:00] 633/1133 E6.falcon-512.verify-m64.r3.a1 fast p50 22.21us (n=10000) first 35.00us
+[10:49:00] 634/1133 E6.ecdsa-p256.verify-m10240.r3.a1 fast p50 58.66us (n=10000) first 100.79us
+[10:49:09] 635/1133 E6.slh-dsa-shake-192s.verify-m64.r3.a1 fast p50 799.76us (n=10000) first 926.14us
+[10:50:13] 636/1133 E6.slh-dsa-shake-128f.sign-m64.r3.a1 slow p50 26.518ms (n=2262) first 26.999ms
+[10:51:14] 637/1133 E6.falcon-512.verify-m1048576.r3.a1 slow p50 1.754ms (n=34137) first 1.774ms
+[10:51:16] 638/1133 E6.ed25519.sign-m10240.r3.a1 fast p50 45.50us (n=10000) first 67.67us
+[10:52:19] 639/1133 E6.slh-dsa-sha2-128s.sign-m102400.r3.a1 slow p50 432.316ms (n=139) first 440.936ms
+[10:52:19] 640/1133 E6.ml-dsa-44.verify-m1024.r3.a1 fast p50 30.29us (n=10000) first 56.66us
+[10:52:21] 641/1133 E6.falcon-512.sign-m1024.r3.a1 fast p50 150.50us (n=10000) first 1.055ms
+[10:53:25] 642/1133 E6.slh-dsa-shake-192f.sign-m1024.r3.a1 slow p50 43.755ms (n=1371) first 44.701ms
+[10:54:25] 643/1133 E6.slh-dsa-shake-256f.verify-m10240.r3.a1 slow p50 2.386ms (n=25128) first 2.460ms
+[10:55:27] 644/1133 E6.slh-dsa-sha2-256f.sign-m1024.r3.a1 slow p50 70.021ms (n=856) first 70.834ms
+[10:55:35] 645/1133 E6.falcon-padded-1024.sign-m102400.r3.a1 fast p50 462.74us (n=10000) first 1.392ms
+[10:55:37] 646/1133 E6.falcon-padded-512.sign-m1024.r3.a1 fast p50 149.20us (n=10000) first 1.085ms
+[10:55:37] 647/1133 E6.falcon-padded-512.verify-m64.r3.a1 fast p50 21.92us (n=10000) first 33.75us
+[10:55:40] 648/1133 E6.ml-dsa-44.verify-m102400.r3.a1 fast p50 198.03us (n=10000) first 229.37us
+[10:55:41] 649/1133 E6.ml-dsa-65.verify-m1024.r3.a1 fast p50 50.50us (n=10000) first 79.00us
+[10:56:41] 650/1133 E6.slh-dsa-sha2-192s.verify-m1048576.r3.a1 slow p50 2.600ms (n=23022) first 2.638ms
+[10:56:45] 651/1133 E6.ed25519.sign-m102400.r3.a1 fast p50 172.20us (n=10000) first 200.78us
+[10:57:45] 652/1133 E6.slh-dsa-shake-128f.verify-m1048576.r3.a1 slow p50 3.947ms (n=15189) first 3.866ms
+[10:58:46] 653/1133 E6.slh-dsa-sha2-256s.verify-m102400.r3.a1 slow p50 1.137ms (n=52753) first 1.164ms
+[10:59:48] 654/1133 E6.slh-dsa-sha2-256f.sign-m10240.r3.a1 slow p50 69.601ms (n=859) first 71.730ms
+[10:59:50] canary 48 (periodic): 2517213 hashes/s, ratio 0.9819 P-like
+[10:59:54] 655/1133 E6.falcon-padded-1024.sign-m10240.r3.a1 fast p50 309.20us (n=10000) first 1.252ms
+[11:00:54] 656/1133 E6.slh-dsa-sha2-192f.verify-m1024.r2.a2 slow p50 1.829ms (n=32761) first 1.978ms
+[11:02:00] 657/1133 E6.slh-dsa-shake-256s.sign-m10240.r3.a1 slow p50 891.156ms (n=68) first 890.917ms
+[11:03:04] 658/1133 E6.slh-dsa-sha2-256f.sign-m1048576.r3.a1 slow p50 74.351ms (n=809) first 75.762ms
+[11:04:09] 659/1133 E6.slh-dsa-sha2-192s.sign-m102400.r3.a1 slow p50 759.442ms (n=79) first 758.949ms
+[11:05:14] 660/1133 E6.slh-dsa-sha2-192s.sign-m10240.r3.a1 slow p50 758.921ms (n=80) first 760.795ms
+[11:06:15] 661/1133 E6.slh-dsa-shake-256f.verify-m1024.r3.a1 slow p50 2.362ms (n=25380) first 2.437ms
+[11:08:14] 662/1133 E6.ml-dsa-44.sign-m1048576.r3.a1 slow p50 1.805ms (n=33038) first 2.742ms
+[11:09:19] 663/1133 E6.slh-dsa-sha2-192s.sign-m1048576.r3.a1 slow p50 769.834ms (n=79) first 774.336ms
+[11:10:20] 664/1133 E6.slh-dsa-shake-128s.verify-m1048576.r3.a1 slow p50 2.899ms (n=20659) first 2.890ms
+[11:10:21] canary 49 (periodic): 2517444 hashes/s, ratio 0.9820 P-like
+[11:11:26] 665/1133 E6.slh-dsa-sha2-256s.sign-m1048576.r3.a1 slow p50 681.237ms (n=89) first 688.864ms
+[11:11:37] 666/1133 E6.slh-dsa-sha2-256s.verify-m1024.r3.a1 fast p50 937.47us (n=10000) first 1.016ms
+[11:12:43] 667/1133 E6.slh-dsa-shake-256s.sign-m102400.r3.a1 slow p50 892.048ms (n=68) first 887.070ms
+[11:14:36] 668/1133 E6.falcon-1024.sign-m1048576.r3.a1 slow p50 2.031ms (n=29462) first 2.986ms
+[11:15:37] 669/1133 E6.falcon-padded-1024.verify-m1048576.r3.a1 slow p50 1.775ms (n=33717) first 1.798ms
+[11:16:37] 670/1133 E6.slh-dsa-shake-192s.verify-m1048576.r3.a1 slow p50 3.146ms (n=19038) first 3.116ms
+[11:16:39] 671/1133 E6.falcon-512.sign-m64.r3.a1 fast p50 147.66us (n=10000) first 1.067ms
+[11:16:46] 672/1133 E6.slh-dsa-sha2-192s.verify-m1024.r3.a1 fast p50 642.77us (n=10000) first 759.98us
+[11:16:47] prepared ml-dsa-44.r4: P=256 in 0.5s
+[11:16:47] 673/1133 E6.ml-dsa-44.verify-m1024.r4.a1 fast p50 30.37us (n=10000) first 54.46us
+[11:16:48] prepared ml-dsa-65.r4: P=256 in 0.6s
+[11:16:49] 674/1133 E6.ml-dsa-65.verify-m10240.r4.a1 fast p50 65.46us (n=10000) first 90.58us
+[11:18:22] 675/1133 E6.ed25519.sign-m1048576.r3.a2 slow p50 1.506ms (n=39794) first 1.540ms
+[11:18:27] prepared rsa3072-pss.r4: P=256 in 5.1s
+[11:18:33] 676/1133 E6.rsa3072-pss.verify-m1048576.r4.a1 fast p50 459.36us (n=10000) first 521.36us
+[11:23:26] prepared slh-dsa-sha2-192s.r4: P=64 in 293.2s
+[11:24:26] 677/1133 E6.slh-dsa-sha2-192s.verify-m1048576.r4.a1 slow p50 2.583ms (n=23129) first 2.597ms
+[11:24:28] canary 50 (periodic): 2516993 hashes/s, ratio 0.9818 P-like
+[11:25:17] prepared slh-dsa-sha2-192f.r4: P=256 in 48.7s
+[11:26:17] 678/1133 E6.slh-dsa-sha2-192f.verify-m102400.r4.a1 slow p50 2.022ms (n=29618) first 2.012ms
+[11:26:18] prepared ml-dsa-87.r4: P=256 in 0.7s
+[11:26:19] 679/1133 E6.ml-dsa-87.verify-m1024.r4.a1 fast p50 86.04us (n=10000) first 112.41us
+[11:26:19] 680/1133 E6.rsa3072-pss.verify-m1024.r4.a1 fast p50 34.04us (n=10000) first 82.04us
+[11:30:37] prepared slh-dsa-sha2-256s.r4: P=64 in 258.0s
+[11:31:42] 681/1133 E6.slh-dsa-sha2-256s.sign-m1024.r4.a1 slow p50 673.088ms (n=90) first 671.568ms
+[11:34:29] prepared slh-dsa-sha2-128s.r4: P=64 in 166.9s
+[11:35:29] 682/1133 E6.slh-dsa-sha2-128s.verify-m1048576.r4.a1 slow p50 3.636ms (n=16460) first 3.660ms
+[11:35:31] canary 51 (periodic): 2517804 hashes/s, ratio 0.9822 P-like
+[11:35:31] queued E6.slh-dsa-sha2-192f.verify-m102400.r4.a2 (repeat:other) at position 404
+[11:41:14] prepared slh-dsa-shake-256s.r4: P=64 in 343.3s
+[11:42:15] 683/1134 E6.slh-dsa-shake-256s.verify-m64.r4.a1 slow p50 1.177ms (n=50958) first 1.296ms
+[11:43:16] 684/1134 E6.ml-dsa-44.verify-m1048576.r4.a1 slow p50 1.759ms (n=34018) first 1.784ms
+[11:45:22] prepared slh-dsa-shake-256f.r4: P=256 in 126.2s
+[11:46:22] 685/1134 E6.slh-dsa-shake-256f.verify-m1048576.r4.a1 slow p50 4.709ms (n=12726) first 4.607ms
+[11:46:24] canary 52 (periodic): 2511000 hashes/s, ratio 0.9795 P-like
+[11:46:25] 686/1134 E6.ml-dsa-87.verify-m10240.r4.a1 fast p50 101.87us (n=10000) first 146.66us
+[11:46:26] prepared falcon-512.r4: P=256 in 0.6s
+[11:46:28] 687/1134 E6.falcon-512.sign-m64.r4.a1 fast p50 147.33us (n=10000) first 1.082ms
+[11:47:29] 688/1134 E6.slh-dsa-shake-256s.verify-m1024.r4.a1 slow p50 1.170ms (n=51252) first 1.209ms
+[11:47:30] prepared falcon-1024.r4: P=256 in 1.0s
+[11:47:34] 689/1134 E6.falcon-1024.sign-m1024.r4.a1 fast p50 294.53us (n=10000) first 1.204ms
+[11:53:54] prepared slh-dsa-shake-192s.r4: P=64 in 380.7s
+[11:54:55] 690/1134 E6.slh-dsa-shake-192s.verify-m1048576.r4.a1 slow p50 3.149ms (n=19025) first 3.121ms
+[11:55:04] 691/1134 E6.slh-dsa-shake-192s.verify-m1024.r4.a1 fast p50 798.16us (n=10000) first 820.93us
+[11:55:07] 692/1134 E6.ml-dsa-87.sign-m64.r4.a1 fast p50 139.97us (n=10000) first 1.249ms
+[11:55:07] prepared falcon-padded-512.r4: P=256 in 0.6s
+[11:55:09] 693/1134 E6.falcon-padded-512.sign-m64.r4.a1 fast p50 147.33us (n=10000) first 1.054ms
+[11:55:10] prepared falcon-padded-1024.r4: P=256 in 0.9s
+[11:55:14] 694/1134 E6.falcon-padded-1024.sign-m1024.r4.a1 fast p50 293.87us (n=10000) first 1.186ms
+[11:55:15] 695/1134 E6.ml-dsa-65.verify-m1024.r4.a1 fast p50 50.33us (n=10000) first 77.71us
+[11:56:16] 696/1134 E6.slh-dsa-shake-192s.verify-m102400.r4.a1 slow p50 1.029ms (n=58220) first 1.164ms
+[11:57:22] 697/1134 E6.slh-dsa-shake-256s.sign-m64.r4.a1 slow p50 890.588ms (n=68) first 889.055ms
+[11:57:23] canary 53 (periodic): 2515835 hashes/s, ratio 0.9814 P-like
+[11:57:23] queued E6.falcon-512.sign-m64.r4.a2 (repeat:other) at position 6
+[11:57:23] queued E6.ml-dsa-87.verify-m10240.r4.a2 (repeat:other) at position 329
+[11:57:23] queued E6.slh-dsa-shake-256s.verify-m1024.r4.a2 (repeat:other) at position 63
+[11:58:24] 698/1137 E6.slh-dsa-sha2-256s.verify-m102400.r4.a1 slow p50 1.136ms (n=52686) first 1.176ms
+[11:58:25] 699/1137 E6.ml-dsa-44.sign-m1024.r4.a1 fast p50 62.58us (n=10000) first 982.59us
+[11:59:32] 700/1137 E6.slh-dsa-sha2-192f.sign-m1048576.r4.a1 slow p50 38.271ms (n=1575) first 38.665ms
+[12:00:10] prepared slh-dsa-shake-128f.r4: P=256 in 38.6s
+[12:01:14] 701/1137 E6.slh-dsa-shake-128f.sign-m1024.r4.a1 slow p50 26.667ms (n=2249) first 27.240ms
+[12:02:18] 702/1137 E6.slh-dsa-shake-128f.sign-m102400.r3.a2 slow p50 26.973ms (n=2223) first 27.932ms
+[12:02:21] 703/1137 E6.falcon-padded-512.sign-m1024.r4.a1 fast p50 149.29us (n=10000) first 1.057ms
+[12:02:23] 704/1137 E6.falcon-512.sign-m64.r4.a2 fast p50 147.08us (n=10000) first 1.061ms
+[12:02:28] 705/1137 E6.slh-dsa-sha2-128s.verify-m10240.r4.a1 fast p50 456.92us (n=10000) first 476.61us
+[12:02:30] 706/1137 E6.falcon-512.sign-m1024.r4.a1 fast p50 149.16us (n=10000) first 1.047ms
+[12:04:07] prepared slh-dsa-sha2-256f.r4: P=256 in 97.4s
+[12:05:10] 707/1137 E6.slh-dsa-sha2-256f.sign-m1024.r4.a1 slow p50 69.485ms (n=861) first 70.404ms
+[12:06:14] 708/1137 E6.slh-dsa-sha2-192s.sign-m64.r4.a1 slow p50 759.909ms (n=79) first 760.629ms
+[12:07:15] 709/1137 E6.slh-dsa-sha2-256f.verify-m10240.r4.a1 slow p50 1.889ms (n=31702) first 1.936ms
+[12:08:16] 710/1137 E6.slh-dsa-shake-256s.verify-m10240.r4.a1 slow p50 1.193ms (n=50261) first 1.164ms
+[12:08:17] canary 54 (periodic): 2515844 hashes/s, ratio 0.9814 P-like
+[12:09:20] prepared slh-dsa-shake-192f.r4: P=256 in 62.8s
+[12:10:21] 711/1137 E6.slh-dsa-shake-192f.verify-m102400.r4.a1 slow p50 2.544ms (n=23571) first 2.542ms
+[12:10:27] 712/1137 E6.ml-dsa-87.sign-m102400.r4.a1 fast p50 310.24us (n=10000) first 1.282ms
+[12:10:32] 713/1137 E6.ml-dsa-44.sign-m102400.r4.a1 fast p50 230.30us (n=10000) first 1.145ms
+[12:10:33] 714/1137 E6.rsa3072-pss.verify-m10240.r4.a1 fast p50 38.16us (n=10000) first 105.75us
+[12:11:39] 715/1137 E6.slh-dsa-shake-256s.sign-m102400.r4.a1 slow p50 891.907ms (n=68) first 894.533ms
+[12:11:39] 716/1137 E6.falcon-padded-512.verify-m64.r4.a1 fast p50 22.04us (n=10000) first 47.79us
+[12:12:40] 717/1137 E6.slh-dsa-shake-128f.verify-m1024.r4.a1 slow p50 1.577ms (n=38042) first 1.585ms
+[12:16:14] prepared slh-dsa-shake-128s.r4: P=64 in 213.5s
+[12:17:17] 718/1137 E6.slh-dsa-shake-128s.sign-m1024.r4.a1 slow p50 554.248ms (n=109) first 556.840ms
+[12:19:16] 719/1137 E6.ml-dsa-65.sign-m1048576.r4.a1 slow p50 1.839ms (n=32322) first 2.740ms
+[12:19:17] canary 55 (periodic): 2516227 hashes/s, ratio 0.9815 P-like
+[12:19:18] 720/1137 E6.falcon-1024.verify-m1024.r4.a1 fast p50 44.21us (n=10000) first 79.79us
+[12:20:18] 721/1137 E6.ml-dsa-87.verify-m1048576.r4.a1 slow p50 1.817ms (n=32941) first 1.851ms
+[12:21:22] 722/1137 E6.slh-dsa-shake-128f.sign-m64.r4.a1 slow p50 26.515ms (n=2262) first 27.441ms
+[12:21:23] prepared ed25519.r4: P=256 in 0.5s
+[12:21:24] 723/1137 E6.ed25519.sign-m64.r4.a1 fast p50 30.87us (n=10000) first 52.58us
+[12:22:30] 724/1137 E6.slh-dsa-shake-256s.sign-m1048576.r4.a1 slow p50 895.828ms (n=67) first 897.140ms
+[12:23:01] prepared slh-dsa-sha2-128f.r4: P=256 in 30.9s
+[12:24:11] 725/1137 E6.slh-dsa-sha2-128f.sign-m1048576.r4.a1 slow p50 27.188ms (n=2196) first 28.140ms
+[12:25:11] 726/1137 E6.slh-dsa-shake-256f.verify-m1024.r4.a1 slow p50 2.356ms (n=25435) first 2.293ms
+[12:26:12] 727/1137 E6.slh-dsa-shake-192f.verify-m1024.r4.a1 slow p50 2.316ms (n=25872) first 2.235ms
+[12:27:18] 728/1137 E6.slh-dsa-shake-192s.sign-m64.r4.a1 slow p50 987.387ms (n=61) first 985.843ms
+[12:28:20] 729/1137 E6.rsa3072-pss.sign-m1024.r4.a1 slow p50 1.632ms (n=36375) first 2.543ms
+[12:28:20] 730/1137 E6.ml-dsa-44.verify-m64.r4.a1 fast p50 28.58us (n=10000) first 52.08us
+[12:28:27] 731/1137 E6.slh-dsa-shake-128s.verify-m1024.r4.a1 fast p50 549.57us (n=10000) first 575.69us
+[12:29:29] 732/1137 E6.slh-dsa-sha2-128s.sign-m102400.r4.a1 slow p50 432.208ms (n=138) first 435.541ms
+[12:29:31] canary 56 (periodic): 2516258 hashes/s, ratio 0.9816 P-like
+[12:30:31] 733/1137 E6.slh-dsa-sha2-192f.verify-m1048576.r4.a1 slow p50 3.788ms (n=15795) first 3.879ms
+[12:31:32] 734/1137 E6.slh-dsa-shake-128f.verify-m1048576.r4.a1 slow p50 3.937ms (n=15223) first 3.821ms
+[12:31:41] 735/1137 E6.slh-dsa-shake-192s.verify-m64.r4.a1 fast p50 799.97us (n=10000) first 826.80us
+[12:31:41] prepared ecdsa-p256.r4: P=256 in 0.3s
+[12:31:52] 736/1137 E6.ecdsa-p256.sign-m1048576.r4.a1 fast p50 455.36us (n=10000) first 831.64us
+[12:32:55] 737/1137 E6.slh-dsa-shake-192f.sign-m64.r4.a1 slow p50 43.780ms (n=1370) first 44.487ms
+[12:32:56] 738/1137 E6.ecdsa-p256.verify-m102400.r4.a1 fast p50 96.20us (n=10000) first 137.62us
+[12:33:57] 739/1137 E6.slh-dsa-sha2-192f.verify-m10240.r4.a1 slow p50 1.869ms (n=32077) first 1.878ms
+[12:33:57] 740/1137 E6.falcon-512.verify-m64.r4.a1 fast p50 22.04us (n=10000) first 35.92us
+[12:34:58] 741/1137 E6.slh-dsa-shake-256f.verify-m10240.r4.a1 slow p50 2.396ms (n=25012) first 2.395ms
+[12:34:59] 742/1137 E6.ecdsa-p256.sign-m1024.r4.a1 fast p50 20.58us (n=10000) first 373.74us
+[12:36:02] 743/1137 E6.rsa3072-pss.sign-m102400.r4.a1 slow p50 1.676ms (n=35452) first 2.587ms
+[12:37:06] 744/1137 E6.slh-dsa-shake-192f.sign-m10240.r4.a1 slow p50 43.818ms (n=1369) first 45.011ms
+[12:37:13] 745/1137 E6.slh-dsa-sha2-192s.verify-m10240.r4.a1 fast p50 663.10us (n=10000) first 677.35us
+[12:38:47] 746/1137 E6.ed25519.sign-m1048576.r4.a1 slow p50 1.500ms (n=39819) first 1.541ms
+[12:39:50] 747/1137 E6.slh-dsa-shake-256f.sign-m1048576.r4.a1 slow p50 95.471ms (n=629) first 96.158ms
+[12:39:52] canary 57 (periodic): 2516781 hashes/s, ratio 0.9818 P-like
+[12:39:53] 748/1137 E6.ecdsa-p256.sign-m10240.r4.a1 fast p50 24.58us (n=10000) first 398.90us
+[12:39:53] 749/1137 E6.falcon-512.verify-m1024.r4.a1 fast p50 23.71us (n=10000) first 38.37us
+[12:40:04] 750/1137 E6.slh-dsa-sha2-256s.verify-m64.r4.a1 fast p50 932.20us (n=10000) first 994.51us
+[12:41:10] 751/1137 E6.slh-dsa-shake-256s.sign-m64.r3.a2 slow p50 890.923ms (n=68) first 894.942ms
+[12:41:14] 752/1137 E6.falcon-1024.sign-m64.r4.a1 fast p50 292.53us (n=10000) first 1.184ms
+[12:42:18] 753/1137 E6.slh-dsa-shake-128f.sign-m10240.r4.a1 slow p50 26.600ms (n=2254) first 27.454ms
+[12:43:23] 754/1137 E6.slh-dsa-sha2-192s.sign-m1024.r4.a1 slow p50 762.357ms (n=79) first 773.111ms
+[12:43:25] 755/1137 E6.ml-dsa-65.sign-m10240.r4.a1 fast p50 114.62us (n=10000) first 1.013ms
+[12:44:32] 756/1137 E6.slh-dsa-shake-192s.sign-m10240.r4.a1 slow p50 1.012s (n=60) first 1.010s
+[12:45:34] 757/1137 E6.slh-dsa-sha2-256f.sign-m10240.r4.a1 slow p50 69.790ms (n=856) first 73.091ms
+[12:46:38] 758/1137 E6.slh-dsa-sha2-192f.sign-m1024.r4.a1 slow p50 33.868ms (n=1762) first 34.723ms
+[12:47:44] 759/1137 E6.slh-dsa-shake-192f.sign-m1048576.r4.a1 slow p50 48.491ms (n=1237) first 49.490ms
+[12:48:50] 760/1137 E6.slh-dsa-shake-192s.sign-m102400.r4.a1 slow p50 987.004ms (n=61) first 989.533ms
+[12:49:51] 761/1137 E6.slh-dsa-shake-256s.verify-m1024.r4.a2 slow p50 1.170ms (n=51221) first 1.198ms
+[12:49:52] 762/1137 E6.ed25519.verify-m64.r4.a1 fast p50 82.04us (n=10000) first 111.25us
+[12:49:54] canary 58 (periodic): 2516917 hashes/s, ratio 0.9818 P-like
+[12:49:54] queued E6.slh-dsa-shake-192f.sign-m1048576.r4.a2 (repeat:other) at position 110
+[12:50:56] 763/1138 E6.slh-dsa-sha2-256f.sign-m102400.r4.a1 slow p50 71.074ms (n=850) first 71.885ms
+[12:50:57] 764/1138 E6.falcon-padded-1024.verify-m1024.r4.a1 fast p50 44.46us (n=10000) first 112.54us
+[12:51:57] 765/1138 E6.slh-dsa-sha2-192f.verify-m64.r4.a1 slow p50 1.841ms (n=32566) first 1.796ms
+[12:52:00] 766/1138 E6.ml-dsa-65.verify-m102400.r4.a1 fast p50 217.49us (n=10000) first 262.28us
+[12:52:02] 767/1138 E6.ml-dsa-65.sign-m1024.r4.a1 fast p50 99.75us (n=10000) first 1.278ms
+[12:52:02] 768/1138 E6.falcon-padded-512.verify-m1024.r4.a1 fast p50 23.62us (n=10000) first 36.46us
+[12:53:03] 769/1138 E6.falcon-padded-512.verify-m1048576.r4.a1 slow p50 1.755ms (n=34146) first 1.774ms
+[12:53:08] 770/1138 E6.slh-dsa-sha2-128s.verify-m1024.r4.a1 fast p50 438.49us (n=10000) first 458.90us
+[12:53:15] 771/1138 E6.slh-dsa-sha2-192s.verify-m64.r4.a1 fast p50 638.79us (n=10000) first 657.73us
+[12:54:16] 772/1138 E6.slh-dsa-shake-128f.verify-m64.r4.a1 slow p50 1.578ms (n=37995) first 1.560ms
+[12:55:16] 773/1138 E6.slh-dsa-sha2-128f.verify-m10240.r4.a1 slow p50 1.288ms (n=46442) first 1.369ms
+[12:56:19] 774/1138 E6.slh-dsa-shake-256f.sign-m10240.r4.a1 slow p50 92.842ms (n=646) first 92.910ms
+[12:57:22] 775/1138 E6.slh-dsa-shake-128s.sign-m10240.r4.a1 slow p50 553.283ms (n=109) first 554.761ms
+[12:58:25] 776/1138 E6.slh-dsa-sha2-128s.sign-m1024.r4.a1 slow p50 431.534ms (n=139) first 434.166ms
+[12:59:26] 777/1138 E6.falcon-padded-1024.verify-m1048576.r4.a1 slow p50 1.782ms (n=33630) first 1.785ms
+[12:59:27] 778/1138 E6.ecdsa-p256.verify-m10240.r4.a1 fast p50 58.66us (n=10000) first 104.87us
+[12:59:37] 779/1138 E6.slh-dsa-sha2-256s.verify-m1024.r4.a1 fast p50 931.68us (n=10000) first 953.01us
+[12:59:38] 780/1138 E6.ecdsa-p256.sign-m64.r4.a1 fast p50 19.96us (n=10000) first 381.94us
+[13:00:43] 781/1138 E6.slh-dsa-sha2-256s.sign-m10240.r4.a1 slow p50 667.847ms (n=90) first 672.774ms
+[13:00:44] canary 59 (periodic): 2516649 hashes/s, ratio 0.9817 P-like
+[13:01:45] 782/1138 E6.slh-dsa-sha2-256f.verify-m64.r4.a1 slow p50 1.865ms (n=32139) first 1.840ms
+[13:02:50] 783/1138 E6.slh-dsa-shake-256s.sign-m1024.r4.a1 slow p50 884.397ms (n=68) first 872.263ms
+[13:03:55] 784/1138 E6.slh-dsa-sha2-192s.sign-m102400.r4.a1 slow p50 759.701ms (n=79) first 772.531ms
+[13:04:57] 785/1138 E6.slh-dsa-shake-256f.sign-m64.r4.a1 slow p50 90.420ms (n=666) first 91.805ms
+[13:06:01] 786/1138 E6.slh-dsa-sha2-128s.sign-m1048576.r4.a1 slow p50 437.894ms (n=137) first 446.870ms
+[13:06:02] 787/1138 E6.ecdsa-p256.sign-m102400.r4.a1 fast p50 61.87us (n=10000) first 416.69us
+[13:07:08] 788/1138 E6.slh-dsa-sha2-192s.sign-m10240.r4.a1 slow p50 757.522ms (n=80) first 758.723ms
+[13:08:10] 789/1138 E6.slh-dsa-shake-256f.sign-m102400.r4.a1 slow p50 91.122ms (n=661) first 90.279ms
+[13:08:11] 790/1138 E6.ecdsa-p256.verify-m64.r4.a1 fast p50 55.54us (n=10000) first 92.66us
+[13:09:14] 791/1138 E6.slh-dsa-shake-192f.sign-m1024.r4.a1 slow p50 43.661ms (n=1378) first 44.864ms
+[13:09:16] 792/1138 E6.ml-dsa-44.sign-m10240.r4.a1 fast p50 78.54us (n=10000) first 1.008ms
+[13:10:24] 793/1138 E6.slh-dsa-shake-128f.sign-m1048576.r4.a1 slow p50 31.226ms (n=1925) first 32.247ms
+[13:10:31] 794/1138 E6.slh-dsa-sha2-192s.verify-m1024.r4.a1 fast p50 637.52us (n=10000) first 635.48us
+[13:11:32] 795/1138 E6.slh-dsa-shake-192f.verify-m10240.r4.a1 slow p50 2.318ms (n=25871) first 2.351ms
+[13:11:33] canary 60 (periodic): 2517919 hashes/s, ratio 0.9822 P-like
+[13:11:38] 796/1138 E6.slh-dsa-sha2-128s.verify-m64.r4.a1 fast p50 427.55us (n=10000) first 420.74us
+[13:11:42] 797/1138 E6.falcon-1024.sign-m10240.r4.a1 fast p50 308.30us (n=10000) first 1.247ms
+[13:12:46] 798/1138 E6.slh-dsa-sha2-192f.sign-m10240.r4.a1 slow p50 33.834ms (n=1771) first 35.363ms
+[13:13:47] 799/1138 E6.slh-dsa-sha2-128f.verify-m102400.r4.a1 slow p50 1.569ms (n=38185) first 1.597ms
+[13:14:47] 800/1138 E6.slh-dsa-shake-192f.verify-m64.r4.a1 slow p50 2.282ms (n=26267) first 2.264ms
+[13:14:48] 801/1138 E6.falcon-1024.verify-m64.r4.a1 fast p50 41.91us (n=10000) first 58.12us
+[13:14:50] 802/1138 E6.falcon-padded-512.sign-m10240.r4.a1 fast p50 177.08us (n=10000) first 1.063ms
+[13:16:43] 803/1138 E6.falcon-1024.sign-m1048576.r1.a2 slow p50 2.018ms (n=29738) first 2.962ms
+[13:17:48] 804/1138 E6.slh-dsa-sha2-256s.sign-m102400.r4.a1 slow p50 667.992ms (n=90) first 669.241ms
+[13:18:50] 805/1138 E6.slh-dsa-sha2-128s.sign-m64.r4.a1 slow p50 431.359ms (n=139) first 432.194ms
+[13:20:48] 806/1138 E6.ml-dsa-87.sign-m1048576.r4.a1 slow p50 1.864ms (n=31904) first 2.778ms
+[13:20:54] 807/1138 E6.ml-dsa-65.sign-m102400.r4.a1 fast p50 262.30us (n=10000) first 1.168ms
+[13:21:55] 808/1138 E6.slh-dsa-shake-128f.verify-m10240.r4.a1 slow p50 1.582ms (n=37876) first 1.629ms
+[13:21:56] canary 61 (periodic): 2516623 hashes/s, ratio 0.9817 P-like
+[13:21:56] queued E6.slh-dsa-shake-192f.verify-m10240.r4.a2 (repeat:other) at position 39
+[13:21:59] 809/1139 E6.ml-dsa-44.verify-m102400.r4.a1 fast p50 197.12us (n=10000) first 230.03us
+[13:21:59] 810/1139 E6.falcon-padded-1024.verify-m10240.r4.a1 fast p50 58.58us (n=10000) first 91.54us
+[13:22:05] 811/1139 E6.falcon-512.sign-m102400.r4.a1 fast p50 312.82us (n=10000) first 1.285ms
+[13:23:06] 812/1139 E6.slh-dsa-shake-128f.verify-m102400.r4.a1 slow p50 1.791ms (n=33470) first 1.743ms
+[13:23:06] 813/1139 E6.falcon-1024.verify-m10240.r4.a1 fast p50 58.50us (n=10000) first 74.96us
+[13:24:10] 814/1139 E6.slh-dsa-sha2-192f.sign-m64.r4.a1 slow p50 33.788ms (n=1774) first 34.750ms
+[13:26:03] 815/1139 E6.falcon-1024.sign-m1048576.r4.a1 slow p50 2.015ms (n=29742) first 2.932ms
+[13:27:07] 816/1139 E6.slh-dsa-shake-128s.sign-m1048576.r4.a1 slow p50 550.110ms (n=109) first 562.023ms
+[13:27:08] 817/1139 E6.falcon-padded-1024.verify-m64.r4.a1 fast p50 42.62us (n=10000) first 57.41us
+[13:27:10] 818/1139 E6.falcon-padded-512.verify-m102400.r4.a1 fast p50 187.16us (n=10000) first 211.12us
+[13:28:11] 819/1139 E6.slh-dsa-sha2-128f.verify-m64.r4.a1 slow p50 1.256ms (n=47684) first 1.263ms
+[13:29:13] 820/1139 E6.slh-dsa-sha2-128s.sign-m10240.r4.a1 slow p50 431.582ms (n=139) first 434.292ms
+[13:29:16] 821/1139 E6.falcon-512.sign-m10240.r4.a1 fast p50 164.37us (n=10000) first 1.097ms
+[13:30:20] 822/1139 E6.slh-dsa-sha2-128f.sign-m64.r4.a1 slow p50 20.732ms (n=2891) first 21.641ms
+[13:31:23] 823/1139 E6.slh-dsa-sha2-128f.sign-m10240.r4.a1 slow p50 20.801ms (n=2881) first 21.730ms
+[13:32:29] 824/1139 E6.slh-dsa-sha2-192s.sign-m1048576.r4.a1 slow p50 761.494ms (n=79) first 762.628ms
+[13:32:30] canary 62 (periodic): 2516836 hashes/s, ratio 0.9818 P-like
+[13:32:38] 825/1139 E6.slh-dsa-sha2-128s.verify-m102400.r4.a1 fast p50 736.85us (n=10000) first 772.89us
+[13:33:43] 826/1139 E6.slh-dsa-sha2-256s.sign-m1048576.r4.a1 slow p50 671.661ms (n=90) first 672.819ms
+[13:33:46] 827/1139 E6.ml-dsa-87.sign-m1024.r4.a1 fast p50 139.87us (n=10000) first 1.130ms
+[13:33:48] 828/1139 E6.ml-dsa-65.sign-m64.r4.a1 fast p50 95.70us (n=10000) first 1.058ms
+[13:34:52] 829/1139 E6.slh-dsa-sha2-192f.sign-m102400.r4.a1 slow p50 34.168ms (n=1754) first 35.080ms
+[13:35:59] 830/1139 E6.slh-dsa-shake-192s.sign-m1048576.r4.a1 slow p50 980.254ms (n=62) first 991.293ms
+[13:37:00] 831/1139 E6.slh-dsa-sha2-192f.verify-m1024.r4.a1 slow p50 1.827ms (n=32797) first 1.907ms
+[13:38:00] 832/1139 E6.ml-dsa-65.verify-m1048576.r4.a1 slow p50 1.756ms (n=34028) first 1.815ms
+[13:39:01] 833/1139 E6.slh-dsa-sha2-256f.verify-m1048576.r2.a2 slow p50 3.810ms (n=15720) first 3.968ms
+[13:39:06] 834/1139 E6.ecdsa-p256.verify-m1048576.r4.a1 fast p50 482.36us (n=10000) first 523.61us
+[13:39:07] 835/1139 E6.rsa3072-pss.verify-m64.r4.a1 fast p50 33.58us (n=10000) first 85.08us
+[13:39:12] 836/1139 E6.falcon-padded-512.sign-m102400.r4.a1 fast p50 312.41us (n=10000) first 1.228ms
+[13:41:09] 837/1139 E6.falcon-padded-512.sign-m1048576.r4.a1 slow p50 1.872ms (n=32050) first 2.802ms
+[13:41:10] 838/1139 E6.ecdsa-p256.verify-m1024.r4.a1 fast p50 54.83us (n=10000) first 90.58us
+[13:41:11] 839/1139 E6.ml-dsa-87.verify-m64.r4.a1 fast p50 83.20us (n=10000) first 110.83us
+[13:41:15] 840/1139 E6.falcon-padded-1024.sign-m10240.r4.a1 fast p50 304.45us (n=10000) first 1.236ms
+[13:42:19] 841/1139 E6.slh-dsa-shake-128s.sign-m1048576.r1.a2 slow p50 549.877ms (n=109) first 558.712ms
+[13:43:19] 842/1139 E6.slh-dsa-sha2-256f.verify-m102400.r4.a1 slow p50 2.056ms (n=29138) first 2.117ms
+[13:43:21] canary 63 (periodic): 2562860 hashes/s, ratio 0.9997 P-like
+[13:43:27] 843/1139 E6.slh-dsa-shake-128s.verify-m64.r4.a1 fast p50 540.82us (n=10000) first 611.02us
+[13:44:28] 844/1139 E6.slh-dsa-sha2-256f.verify-m1024.r4.a1 slow p50 1.874ms (n=31980) first 1.928ms
+[13:44:38] 845/1139 E6.ecdsa-p256.sign-m1048576.r3.a2 fast p50 447.99us (n=10000) first 852.14us
+[13:44:39] 846/1139 E6.ed25519.verify-m1024.r4.a1 fast p50 82.33us (n=10000) first 135.29us
+[13:45:44] 847/1139 E6.slh-dsa-sha2-128f.sign-m102400.r4.a1 slow p50 21.377ms (n=2803) first 22.294ms
+[13:46:44] 848/1139 E6.slh-dsa-shake-192f.verify-m10240.r4.a2 slow p50 2.308ms (n=25973) first 2.302ms
+[13:47:48] 849/1139 E6.slh-dsa-sha2-128f.sign-m1024.r4.a1 slow p50 20.749ms (n=2888) first 21.699ms
+[13:47:57] 850/1139 E6.slh-dsa-shake-128s.verify-m102400.r4.a1 fast p50 773.64us (n=10000) first 752.68us
+[13:48:01] 851/1139 E6.falcon-padded-1024.sign-m64.r4.a1 fast p50 289.28us (n=10000) first 1.197ms
+[13:48:01] 852/1139 E6.ml-dsa-44.verify-m10240.r4.a1 fast p50 45.46us (n=10000) first 71.37us
+[13:48:02] 853/1139 E6.rsa3072-pss.verify-m102400.r4.a1 fast p50 77.29us (n=10000) first 127.33us
+[13:49:03] 854/1139 E6.slh-dsa-shake-256f.verify-m64.r4.a1 slow p50 2.332ms (n=25696) first 2.387ms
+[13:50:03] 855/1139 E6.slh-dsa-shake-192f.verify-m1048576.r4.a1 slow p50 4.609ms (n=13001) first 4.732ms
+[13:51:09] 856/1139 E6.slh-dsa-shake-256s.sign-m10240.r4.a1 slow p50 884.908ms (n=68) first 897.060ms
+[13:52:13] 857/1139 E6.slh-dsa-sha2-256s.sign-m64.r4.a1 slow p50 667.891ms (n=90) first 668.760ms
+[13:53:13] 858/1139 E6.slh-dsa-shake-256f.verify-m102400.r4.a1 slow p50 2.551ms (n=23503) first 2.501ms
+[13:54:14] 859/1139 E6.slh-dsa-shake-256s.verify-m102400.r4.a1 slow p50 1.388ms (n=43189) first 1.350ms
+[13:54:16] canary 64 (periodic): 2536279 hashes/s, ratio 0.9894 P-like
+[13:54:16] queued E6.slh-dsa-sha2-128f.sign-m1024.r4.a2 (repeat:other) at position 52
+[13:55:18] 860/1140 E6.slh-dsa-shake-256f.sign-m1024.r4.a1 slow p50 89.880ms (n=666) first 89.994ms
+[13:55:18] 861/1140 E6.falcon-padded-512.verify-m10240.r4.a1 fast p50 38.91us (n=10000) first 74.79us
+[13:56:19] 862/1140 E6.slh-dsa-shake-128s.verify-m1048576.r4.a1 slow p50 2.884ms (n=20779) first 2.862ms
+[13:57:21] 863/1140 E6.slh-dsa-sha2-256f.sign-m64.r2.a2 slow p50 69.611ms (n=861) first 71.800ms
+[13:58:22] 864/1140 E6.slh-dsa-shake-256s.verify-m64.r3.a2 slow p50 1.167ms (n=51351) first 1.127ms
+[13:59:22] 865/1140 E6.falcon-1024.verify-m1048576.r4.a1 slow p50 1.758ms (n=33976) first 1.766ms
+[14:01:21] 866/1140 E6.ml-dsa-65.sign-m1048576.r3.a2 slow p50 1.822ms (n=32646) first 2.815ms
+[14:02:21] 867/1140 E6.slh-dsa-sha2-256s.verify-m1048576.r4.a1 slow p50 2.882ms (n=20785) first 2.905ms
+[14:03:25] 868/1140 E6.slh-dsa-shake-192f.sign-m102400.r4.a1 slow p50 45.196ms (n=1332) first 45.278ms
+[14:04:39] 869/1140 E6.rsa3072-pss.sign-m1048576.r4.a1 slow p50 2.028ms (n=29273) first 2.980ms
+[14:04:40] canary 65 (periodic): 2562256 hashes/s, ratio 0.9995 P-like
+[14:04:43] 870/1140 E6.falcon-1024.verify-m102400.r4.a1 fast p50 212.45us (n=10000) first 234.41us
+[14:04:45] 871/1140 E6.falcon-padded-1024.verify-m102400.r4.a1 fast p50 207.53us (n=10000) first 230.37us
+[14:05:46] 872/1140 E6.slh-dsa-sha2-128f.verify-m1048576.r4.a1 slow p50 4.450ms (n=13448) first 4.422ms
+[14:05:48] 873/1140 E6.ed25519.verify-m102400.r4.a1 fast p50 152.50us (n=10000) first 184.66us
+[14:06:54] 874/1140 E6.slh-dsa-shake-192f.sign-m1048576.r4.a2 slow p50 48.044ms (n=1248) first 49.217ms
+[14:08:52] 875/1140 E6.ml-dsa-44.sign-m1048576.r4.a1 slow p50 1.796ms (n=33211) first 2.691ms
+[14:08:53] 876/1140 E6.falcon-512.verify-m10240.r4.a1 fast p50 38.96us (n=10000) first 57.46us
+[14:10:49] 877/1140 E6.falcon-512.sign-m1048576.r4.a1 slow p50 1.875ms (n=32017) first 2.779ms
+[14:10:59] 878/1140 E6.slh-dsa-shake-192s.verify-m10240.r4.a1 fast p50 812.18us (n=10000) first 832.39us
+[14:11:59] 879/1140 E6.falcon-512.verify-m1048576.r4.a1 slow p50 1.733ms (n=34513) first 1.757ms
+[14:12:00] 880/1140 E6.ed25519.verify-m10240.r4.a1 fast p50 88.62us (n=10000) first 116.16us
+[14:12:04] 881/1140 E6.ed25519.sign-m102400.r4.a1 fast p50 172.16us (n=10000) first 203.20us
+[14:13:05] 882/1140 E6.slh-dsa-sha2-128f.verify-m1024.r4.a1 slow p50 1.255ms (n=47789) first 1.325ms
+[14:14:11] 883/1140 E6.slh-dsa-shake-192s.sign-m1024.r4.a1 slow p50 972.146ms (n=62) first 987.886ms
+[14:15:15] 884/1140 E6.slh-dsa-shake-128s.sign-m64.r4.a1 slow p50 546.669ms (n=110) first 544.086ms
+[14:15:16] canary 66 (periodic): 2532539 hashes/s, ratio 0.9879 P-like
+[14:15:26] 885/1140 E6.ed25519.verify-m1048576.r4.a1 fast p50 808.97us (n=10000) first 840.93us
+[14:15:29] 886/1140 E6.ml-dsa-87.sign-m10240.r4.a1 fast p50 157.00us (n=10000) first 1.137ms
+[14:16:31] 887/1140 E6.rsa3072-pss.sign-m10240.r4.a1 slow p50 1.629ms (n=36556) first 2.508ms
+[14:18:24] 888/1140 E6.falcon-padded-1024.sign-m1048576.r4.a1 slow p50 2.019ms (n=29717) first 2.966ms
+[14:18:30] 889/1140 E6.slh-dsa-shake-128s.verify-m10240.r4.a1 fast p50 560.61us (n=10000) first 595.31us
+[14:19:32] 890/1140 E6.slh-dsa-sha2-256f.sign-m64.r4.a1 slow p50 69.470ms (n=863) first 70.944ms
+[14:19:34] 891/1140 E6.ml-dsa-44.sign-m64.r4.a1 fast p50 59.81us (n=10000) first 965.26us
+[14:21:30] 892/1140 E6.falcon-512.sign-m1048576.r3.a2 slow p50 1.875ms (n=32023) first 2.771ms
+[14:21:31] 893/1140 E6.ml-dsa-65.verify-m64.r4.a1 fast p50 72.41us (n=10000) first 112.70us
+[14:21:42] 894/1140 E6.slh-dsa-sha2-256s.verify-m10240.r4.a1 fast p50 950.22us (n=10000) first 1.000ms
+[14:21:43] 895/1140 E6.ed25519.sign-m10240.r4.a1 fast p50 44.50us (n=10000) first 70.41us
+[14:22:47] 896/1140 E6.slh-dsa-shake-128s.sign-m102400.r4.a1 slow p50 553.376ms (n=110) first 556.900ms
+[14:23:51] 897/1140 E6.slh-dsa-sha2-256f.sign-m1048576.r4.a1 slow p50 73.393ms (n=817) first 74.345ms
+[14:24:00] 898/1140 E6.slh-dsa-sha2-192s.verify-m102400.r4.a1 fast p50 826.47us (n=10000) first 838.14us
+[14:25:01] 899/1140 E6.slh-dsa-sha2-256f.verify-m1048576.r4.a1 slow p50 3.808ms (n=15734) first 3.804ms
+[14:26:05] 900/1140 E6.slh-dsa-shake-128f.sign-m102400.r4.a1 slow p50 26.930ms (n=2237) first 27.590ms
+[14:26:07] canary 67 (periodic): 2528866 hashes/s, ratio 0.9865 P-like
+[14:26:07] queued E6.falcon-padded-1024.sign-m1048576.r4.a2 (repeat:other) at position 33
+[14:26:07] queued E6.slh-dsa-sha2-256f.sign-m1048576.r4.a2 (repeat:other) at position 3
+[14:27:13] 901/1142 E6.slh-dsa-shake-256s.sign-m1048576.r2.a2 slow p50 893.970ms (n=68) first 882.758ms
+[14:27:15] 902/1142 E6.falcon-512.verify-m102400.r4.a1 fast p50 191.03us (n=10000) first 248.53us
+[14:27:17] 903/1142 E6.ed25519.sign-m1024.r4.a1 fast p50 31.71us (n=10000) first 66.62us
+[14:28:20] 904/1142 E6.slh-dsa-sha2-256f.sign-m1048576.r4.a2 slow p50 73.373ms (n=817) first 74.263ms
+[14:28:28] 905/1142 E6.falcon-padded-1024.sign-m102400.r4.a1 fast p50 454.28us (n=10000) first 1.406ms
+[14:29:28] 906/1142 E6.slh-dsa-shake-256s.verify-m1048576.r4.a1 slow p50 3.498ms (n=17134) first 3.611ms
+[14:29:31] 907/1142 E6.ml-dsa-87.verify-m102400.r4.a1 fast p50 254.24us (n=10000) first 286.24us
+[14:30:33] 908/1142 E6.rsa3072-pss.sign-m64.r4.a1 slow p50 1.609ms (n=36767) first 2.580ms
+[14:30:41] 909/1142 E6.falcon-1024.sign-m102400.r4.a1 fast p50 458.11us (n=10000) first 1.428ms
+[14:30:42] prepared falcon-1024.r5: P=256 in 0.9s
+[14:30:42] 910/1142 E6.falcon-1024.verify-m1024.r5.a1 fast p50 43.46us (n=10000) first 61.96us
+[14:34:14] prepared slh-dsa-shake-128s.r5: P=64 in 211.9s
+[14:35:18] 911/1142 E6.slh-dsa-shake-128s.sign-m64.r5.a1 slow p50 543.950ms (n=110) first 544.875ms
+[14:36:20] prepared slh-dsa-shake-192f.r5: P=256 in 62.1s
+[14:37:26] 912/1142 E6.slh-dsa-shake-192f.sign-m1048576.r5.a1 slow p50 49.715ms (n=1203) first 50.151ms
+[14:37:27] canary 68 (periodic): 2515522 hashes/s, ratio 0.9813 P-like
+[14:37:27] queued E6.ml-dsa-87.verify-m102400.r4.a2 (repeat:other) at position 201
+[14:37:27] queued E6.rsa3072-pss.sign-m64.r4.a2 (repeat:other) at position 218
+[14:37:27] queued E6.slh-dsa-shake-128f.sign-m102400.r4.a2 (repeat:other) at position 1
+[14:37:27] queued E6.slh-dsa-shake-256s.verify-m1048576.r4.a2 (repeat:other) at position 125
+[14:38:31] 913/1146 E6.slh-dsa-sha2-128f.sign-m1024.r4.a2 slow p50 20.926ms (n=2864) first 21.886ms
+[14:39:36] 914/1146 E6.slh-dsa-shake-128f.sign-m102400.r4.a2 slow p50 26.837ms (n=2242) first 27.407ms
+[14:42:22] prepared slh-dsa-sha2-128s.r5: P=64 in 166.8s
+[14:42:27] 915/1146 E6.slh-dsa-sha2-128s.verify-m1024.r5.a1 fast p50 435.07us (n=10000) first 446.94us
+[14:48:07] prepared slh-dsa-shake-256s.r5: P=64 in 339.2s
+[14:49:12] 916/1146 E6.slh-dsa-shake-256s.sign-m64.r5.a1 slow p50 881.307ms (n=68) first 883.374ms
+[14:49:13] canary 69 (periodic): 2525108 hashes/s, ratio 0.9850 P-like
+[14:49:18] prepared rsa3072-pss.r5: P=256 in 4.3s
+[14:50:32] 917/1146 E6.rsa3072-pss.sign-m1048576.r5.a1 slow p50 2.030ms (n=29215) first 3.000ms
+[14:54:49] prepared slh-dsa-sha2-256s.r5: P=64 in 257.5s
+[14:55:50] 918/1146 E6.slh-dsa-sha2-256s.verify-m102400.r5.a1 slow p50 1.130ms (n=52935) first 1.137ms
+[14:55:51] 919/1146 E6.rsa3072-pss.verify-m10240.r5.a1 fast p50 37.16us (n=10000) first 85.08us
+[15:02:07] prepared slh-dsa-shake-192s.r5: P=64 in 376.4s
+[15:03:14] 920/1146 E6.slh-dsa-shake-192s.sign-m102400.r5.a1 slow p50 975.713ms (n=62) first 968.250ms
+[15:03:15] canary 70 (periodic): 2518937 hashes/s, ratio 0.9826 P-like
+[15:03:16] prepared falcon-padded-512.r5: P=256 in 0.6s
+[15:05:12] 921/1146 E6.falcon-padded-512.sign-m1048576.r5.a1 slow p50 1.868ms (n=32073) first 2.785ms
+[15:06:49] prepared slh-dsa-sha2-256f.r5: P=256 in 96.8s
+[15:07:51] 922/1146 E6.slh-dsa-sha2-256f.sign-m10240.r5.a1 slow p50 69.493ms (n=863) first 70.963ms
+[15:08:40] prepared slh-dsa-sha2-192f.r5: P=256 in 48.6s
+[15:09:44] 923/1146 E6.slh-dsa-sha2-192f.sign-m102400.r5.a1 slow p50 34.195ms (n=1753) first 35.159ms
+[15:10:48] 924/1146 E6.slh-dsa-shake-192f.sign-m1024.r5.a1 slow p50 43.388ms (n=1381) first 44.640ms
+[15:10:48] prepared ecdsa-p256.r5: P=256 in 0.3s
+[15:10:49] 925/1146 E6.ecdsa-p256.sign-m64.r5.a1 fast p50 19.92us (n=10000) first 369.99us
+[15:11:53] 926/1146 E6.slh-dsa-sha2-256s.sign-m102400.r5.a1 slow p50 668.275ms (n=90) first 671.298ms
+[15:12:32] prepared slh-dsa-shake-128f.r5: P=256 in 38.8s
+[15:13:33] 927/1146 E6.slh-dsa-shake-128f.verify-m64.r5.a1 slow p50 1.563ms (n=38329) first 1.555ms
+[15:13:34] canary 71 (periodic): 2561199 hashes/s, ratio 0.9991 P-like
+[15:13:34] queued E6.falcon-padded-512.sign-m1048576.r5.a2 (repeat:other) at position 55
+[15:13:34] queued E6.slh-dsa-sha2-256s.sign-m102400.r5.a2 (repeat:other) at position 134
+[15:13:34] queued E6.slh-dsa-shake-192f.sign-m1024.r1.a2 (diagnostic:drift 0.0828 > 0.0416) at position 121
+[15:14:39] 928/1149 E6.slh-dsa-sha2-256s.sign-m64.r2.a2 slow p50 667.843ms (n=90) first 668.866ms
+[15:14:48] 929/1149 E6.slh-dsa-shake-192s.verify-m64.r5.a1 fast p50 788.93us (n=10000) first 766.72us
+[15:14:48] prepared falcon-padded-1024.r5: P=256 in 0.9s
+[15:14:53] 930/1149 E6.falcon-padded-1024.sign-m10240.r5.a1 fast p50 308.36us (n=10000) first 1.216ms
+[15:14:53] 931/1149 E6.falcon-padded-1024.verify-m64.r5.a1 fast p50 42.66us (n=10000) first 59.12us
+[15:14:54] prepared ml-dsa-65.r5: P=256 in 0.6s
+[15:14:55] 932/1149 E6.ml-dsa-65.verify-m1024.r5.a1 fast p50 49.50us (n=10000) first 76.50us
+[15:14:58] 933/1149 E6.falcon-1024.sign-m1024.r5.a1 fast p50 288.87us (n=10000) first 1.213ms
+[15:15:59] 934/1149 E6.slh-dsa-sha2-256f.verify-m1048576.r5.a1 slow p50 3.814ms (n=15703) first 4.036ms
+[15:17:03] 935/1149 E6.slh-dsa-sha2-256s.sign-m64.r5.a1 slow p50 667.565ms (n=90) first 668.850ms
+[15:18:56] 936/1149 E6.falcon-padded-1024.sign-m1048576.r4.a2 slow p50 2.018ms (n=29726) first 2.908ms
+[15:20:00] 937/1149 E6.slh-dsa-sha2-256s.sign-m1024.r3.a2 slow p50 667.643ms (n=90) first 668.519ms
+[15:20:01] prepared ml-dsa-44.r5: P=256 in 0.5s
+[15:20:06] 938/1149 E6.ml-dsa-44.sign-m102400.r5.a1 fast p50 228.35us (n=10000) first 1.196ms
+[15:21:07] 939/1149 E6.slh-dsa-shake-256s.verify-m64.r5.a1 slow p50 1.156ms (n=51820) first 1.178ms
+[15:21:07] 940/1149 E6.falcon-padded-512.verify-m1024.r5.a1 fast p50 23.62us (n=10000) first 52.25us
+[15:22:08] 941/1149 E6.falcon-1024.verify-m1048576.r5.a1 slow p50 1.769ms (n=33951) first 1.777ms
+[15:22:15] 942/1149 E6.falcon-1024.sign-m102400.r5.a1 fast p50 456.03us (n=10000) first 1.435ms
+[15:22:16] prepared falcon-512.r5: P=256 in 0.6s
+[15:22:18] 943/1149 E6.falcon-512.sign-m10240.r5.a1 fast p50 164.25us (n=10000) first 1.033ms
+[15:23:19] 944/1149 E6.slh-dsa-sha2-256s.verify-m1048576.r5.a1 slow p50 2.876ms (n=20818) first 3.014ms
+[15:25:17] 945/1149 E6.ml-dsa-65.sign-m1048576.r5.a1 slow p50 1.823ms (n=32636) first 2.802ms
+[15:25:18] canary 72 (periodic): 2524892 hashes/s, ratio 0.9849 P-like
+[15:25:18] queued E6.slh-dsa-sha2-256s.sign-m64.r5.a2 (repeat:other) at position 61
+[15:25:18] queued E6.slh-dsa-shake-192s.verify-m64.r2.a2 (diagnostic:drift 0.8019 > 0.0416) at position 149
+[15:25:29] 946/1151 E6.ecdsa-p256.sign-m1048576.r5.a1 fast p50 446.69us (n=10000) first 865.55us
+[15:27:26] 947/1151 E6.falcon-512.sign-m1048576.r5.a1 slow p50 1.863ms (n=32121) first 2.857ms
+[15:27:26] 948/1151 E6.ml-dsa-44.verify-m1024.r5.a1 fast p50 29.67us (n=10000) first 61.21us
+[15:27:26] prepared ed25519.r5: P=256 in 0.5s
+[15:27:28] 949/1151 E6.ed25519.sign-m1024.r5.a1 fast p50 31.66us (n=10000) first 53.58us
+[15:28:31] 950/1151 E6.slh-dsa-sha2-192f.sign-m10240.r5.a1 slow p50 33.829ms (n=1772) first 34.728ms
+[15:28:33] 951/1151 E6.ml-dsa-44.sign-m10240.r5.a1 fast p50 77.54us (n=10000) first 1.065ms
+[15:29:34] 952/1151 E6.slh-dsa-sha2-256f.verify-m1024.r5.a1 slow p50 1.864ms (n=32144) first 1.877ms
+[15:30:34] 953/1151 E6.slh-dsa-shake-128f.verify-m1048576.r5.a1 slow p50 3.875ms (n=15458) first 3.870ms
+[15:31:38] 954/1151 E6.slh-dsa-shake-128s.sign-m10240.r5.a1 slow p50 546.287ms (n=110) first 548.588ms
+[15:32:38] 955/1151 E6.slh-dsa-shake-128f.verify-m102400.r5.a1 slow p50 1.787ms (n=33549) first 1.852ms
+[15:33:39] 956/1151 E6.falcon-padded-1024.verify-m1048576.r5.a1 slow p50 1.773ms (n=33894) first 1.773ms
+[15:33:39] 957/1151 E6.ml-dsa-44.verify-m10240.r5.a1 fast p50 44.46us (n=10000) first 67.87us
+[15:34:46] 958/1151 E6.slh-dsa-shake-256s.sign-m1048576.r5.a1 slow p50 886.552ms (n=68) first 897.290ms
+[15:34:51] 959/1151 E6.slh-dsa-sha2-128s.verify-m64.r5.a1 fast p50 432.67us (n=10000) first 428.94us
+[15:35:51] 960/1151 E6.slh-dsa-shake-128f.verify-m1024.r5.a1 slow p50 1.558ms (n=38488) first 1.560ms
+[15:35:53] canary 73 (periodic): 2517510 hashes/s, ratio 0.9820 P-like
+[15:35:53] queued E6.slh-dsa-shake-256s.sign-m1048576.r5.a2 (repeat:other) at position 81
+[15:36:53] 961/1152 E6.slh-dsa-sha2-128s.verify-m1048576.r5.a1 slow p50 3.633ms (n=16467) first 3.626ms
+[15:38:58] prepared slh-dsa-shake-256f.r5: P=256 in 124.8s
+[15:39:58] 962/1152 E6.slh-dsa-shake-256f.verify-m1048576.r5.a1 slow p50 4.671ms (n=12834) first 4.700ms
+[15:41:02] 963/1152 E6.slh-dsa-shake-192f.sign-m64.r5.a1 slow p50 43.132ms (n=1386) first 44.792ms
+[15:42:03] 964/1152 E6.slh-dsa-sha2-192f.verify-m64.r5.a1 slow p50 1.835ms (n=32672) first 1.782ms
+[15:43:05] 965/1152 E6.slh-dsa-sha2-128s.sign-m1024.r5.a1 slow p50 431.510ms (n=139) first 433.265ms
+[15:43:11] 966/1152 E6.slh-dsa-shake-128s.verify-m1024.r5.a1 fast p50 539.48us (n=10000) first 554.90us
+[15:43:42] prepared slh-dsa-sha2-128f.r5: P=256 in 30.6s
+[15:44:46] 967/1152 E6.slh-dsa-sha2-128f.sign-m64.r5.a1 slow p50 20.726ms (n=2892) first 21.645ms
+[15:45:50] 968/1152 E6.slh-dsa-shake-256f.sign-m1048576.r5.a1 slow p50 94.086ms (n=636) first 95.630ms
+[15:46:50] 969/1152 E6.slh-dsa-shake-192f.verify-m10240.r5.a1 slow p50 2.316ms (n=25877) first 2.360ms
+[15:46:52] canary 74 (periodic): 2516210 hashes/s, ratio 0.9815 P-like
+[15:46:52] queued E6.slh-dsa-sha2-192f.verify-m64.r5.a2 (repeat:other) at position 112
+[15:46:52] prepared ml-dsa-87.r5: P=256 in 0.7s
+[15:46:55] 970/1153 E6.ml-dsa-87.sign-m64.r5.a1 fast p50 137.50us (n=10000) first 1.253ms
+[15:48:48] 971/1153 E6.falcon-1024.sign-m1048576.r5.a1 slow p50 2.013ms (n=29708) first 2.919ms
+[15:48:50] 972/1153 E6.ml-dsa-65.sign-m64.r5.a1 fast p50 96.08us (n=10000) first 961.84us
+[15:48:59] 973/1153 E6.slh-dsa-shake-128s.verify-m102400.r5.a1 fast p50 769.93us (n=10000) first 740.81us
+[15:50:06] 974/1153 E6.slh-dsa-shake-192s.sign-m1048576.r5.a1 slow p50 980.556ms (n=62) first 978.897ms
+[15:51:06] 975/1153 E6.slh-dsa-sha2-256f.verify-m102400.r5.a1 slow p50 2.057ms (n=29124) first 2.064ms
+[15:52:40] 976/1153 E6.ed25519.sign-m1048576.r5.a1 slow p50 1.491ms (n=40086) first 1.538ms
+[15:53:40] 977/1153 E6.ml-dsa-44.verify-m1048576.r5.a1 slow p50 1.743ms (n=34294) first 1.761ms
+[15:53:41] 978/1153 E6.falcon-512.verify-m64.r5.a1 fast p50 22.08us (n=10000) first 35.79us
+[15:53:41] 979/1153 E6.ml-dsa-44.verify-m64.r5.a1 fast p50 27.96us (n=10000) first 49.83us
+[15:54:45] 980/1153 E6.slh-dsa-shake-128s.sign-m1048576.r5.a1 slow p50 548.589ms (n=109) first 548.539ms
+[15:54:47] 981/1153 E6.ml-dsa-65.sign-m1024.r5.a1 fast p50 98.12us (n=10000) first 975.51us
+[15:54:51] 982/1153 E6.falcon-padded-1024.sign-m64.r5.a1 fast p50 287.95us (n=10000) first 1.179ms
+[15:56:47] 983/1153 E6.falcon-padded-512.sign-m1048576.r5.a2 slow p50 1.882ms (n=31887) first 2.796ms
+[15:57:47] 984/1153 E6.falcon-padded-512.verify-m1048576.r5.a1 slow p50 1.751ms (n=34306) first 1.825ms
+[15:57:49] canary 75 (periodic): 2518304 hashes/s, ratio 0.9824 P-like
+[15:57:49] queued E6.falcon-1024.sign-m1048576.r5.a2 (repeat:other) at position 39
+[15:58:54] 985/1154 E6.slh-dsa-sha2-128f.sign-m102400.r5.a1 slow p50 21.362ms (n=2805) first 22.273ms
+[15:59:59] 986/1154 E6.slh-dsa-shake-256s.sign-m102400.r5.a1 slow p50 890.689ms (n=68) first 876.298ms
+[16:00:05] 987/1154 E6.falcon-padded-512.sign-m102400.r5.a1 fast p50 316.07us (n=10000) first 1.243ms
+[16:01:09] 988/1154 E6.slh-dsa-sha2-128f.sign-m1024.r5.a1 slow p50 20.735ms (n=2890) first 21.707ms
+[16:02:13] 989/1154 E6.slh-dsa-shake-128f.sign-m10240.r5.a1 slow p50 26.466ms (n=2276) first 26.793ms
+[16:03:13] 990/1154 E6.ml-dsa-65.verify-m1048576.r5.a1 slow p50 1.760ms (n=33998) first 1.775ms
+[16:03:14] 991/1154 E6.falcon-512.verify-m1024.r5.a1 fast p50 23.62us (n=10000) first 37.75us
+[16:03:15] 992/1154 E6.ml-dsa-44.sign-m1024.r5.a1 fast p50 61.54us (n=10000) first 998.63us
+[16:05:13] 993/1154 E6.ml-dsa-87.sign-m1048576.r5.a1 slow p50 1.872ms (n=31762) first 2.840ms
+[16:06:16] 994/1154 E6.slh-dsa-shake-256f.sign-m102400.r5.a1 slow p50 90.633ms (n=663) first 92.307ms
+[16:11:07] prepared slh-dsa-sha2-192s.r5: P=64 in 291.9s
+[16:12:13] 995/1154 E6.slh-dsa-sha2-192s.sign-m1048576.r5.a1 slow p50 761.547ms (n=79) first 763.318ms
+[16:12:14] canary 76 (periodic): 2564677 hashes/s, ratio 1.0004 P-like
+[16:12:14] queued E6.ml-dsa-44.sign-m1024.r1.a2 (diagnostic:drift 0.0453 > 0.0416) at position 107
+[16:12:14] queued E6.ml-dsa-87.sign-m1048576.r5.a2 (repeat:other) at position 76
+[16:12:14] queued E6.slh-dsa-shake-256f.sign-m102400.r5.a2 (repeat:other) at position 66
+[16:12:16] 996/1157 E6.falcon-padded-512.verify-m102400.r5.a1 fast p50 190.78us (n=10000) first 255.62us
+[16:13:20] 997/1157 E6.slh-dsa-shake-128f.sign-m1024.r5.a1 slow p50 26.393ms (n=2282) first 26.915ms
+[16:13:21] 998/1157 E6.rsa3072-pss.verify-m1024.r5.a1 fast p50 33.37us (n=10000) first 117.70us
+[16:13:25] 999/1157 E6.falcon-1024.sign-m10240.r5.a1 fast p50 306.74us (n=10000) first 1.272ms
+[16:13:26] 1000/1157 E6.ed25519.verify-m10240.r5.a1 fast p50 88.71us (n=10000) first 116.70us
+[16:13:28] 1001/1157 E6.falcon-512.sign-m1024.r5.a1 fast p50 149.08us (n=10000) first 1.028ms
+[16:14:33] 1002/1157 E6.slh-dsa-sha2-256s.sign-m1048576.r5.a1 slow p50 671.758ms (n=90) first 673.411ms
+[16:14:36] 1003/1157 E6.ml-dsa-87.verify-m102400.r5.a1 fast p50 249.49us (n=10000) first 285.95us
+[16:15:44] 1004/1157 E6.slh-dsa-shake-128f.sign-m1048576.r5.a1 slow p50 30.804ms (n=1941) first 32.339ms
+[16:16:50] 1005/1157 E6.slh-dsa-sha2-192f.sign-m1048576.r5.a1 slow p50 37.706ms (n=1590) first 38.627ms
+[16:16:51] 1006/1157 E6.falcon-512.verify-m10240.r5.a1 fast p50 38.25us (n=10000) first 63.58us
+[16:17:55] 1007/1157 E6.slh-dsa-sha2-256s.sign-m64.r5.a2 slow p50 667.948ms (n=90) first 669.726ms
+[16:17:55] 1008/1157 E6.falcon-padded-512.verify-m64.r5.a1 fast p50 21.62us (n=10000) first 41.62us
+[16:17:56] 1009/1157 E6.rsa3072-pss.verify-m102400.r5.a1 fast p50 75.20us (n=10000) first 159.33us
+[16:18:59] 1010/1157 E6.slh-dsa-sha2-256f.sign-m102400.r5.a1 slow p50 69.840ms (n=859) first 70.859ms
+[16:19:08] 1011/1157 E6.slh-dsa-shake-192s.verify-m10240.r5.a1 fast p50 814.89us (n=10000) first 820.01us
+[16:20:08] 1012/1157 E6.slh-dsa-sha2-192f.verify-m1048576.r5.a1 slow p50 3.778ms (n=15841) first 3.790ms
+[16:21:13] 1013/1157 E6.slh-dsa-sha2-256s.sign-m10240.r5.a1 slow p50 694.670ms (n=87) first 695.403ms
+[16:22:17] 1014/1157 E6.slh-dsa-sha2-128f.sign-m10240.r5.a1 slow p50 20.820ms (n=2878) first 21.727ms
+[16:22:19] canary 77 (periodic): 2516968 hashes/s, ratio 0.9818 P-like
+[16:22:19] queued E6.slh-dsa-sha2-192s.sign-m1048576.r5.a2 (repeat:other) at position 58
+[16:22:19] queued E6.slh-dsa-sha2-256s.sign-m64.r5.a3 (repeat:other) at position 126
+[16:22:19] queued E6.slh-dsa-shake-128f.sign-m1048576.r5.a2 (repeat:other) at position 70
+[16:22:19] queued E6.slh-dsa-shake-192s.verify-m10240.r1.a2 (diagnostic:drift 0.7759 > 0.0416) at position 123
+[16:22:19] 1015/1161 E6.ml-dsa-65.verify-m64.r5.a1 fast p50 48.46us (n=10000) first 92.66us
+[16:22:29] 1016/1161 E6.slh-dsa-sha2-192s.verify-m102400.r5.a1 fast p50 829.35us (n=10000) first 891.64us
+[16:23:29] 1017/1161 E6.slh-dsa-shake-256f.verify-m10240.r5.a1 slow p50 2.357ms (n=25430) first 2.341ms
+[16:24:35] 1018/1161 E6.slh-dsa-shake-256s.sign-m1024.r5.a1 slow p50 886.543ms (n=68) first 892.241ms
+[16:24:42] 1019/1161 E6.falcon-padded-1024.sign-m102400.r5.a1 fast p50 460.86us (n=10000) first 1.462ms
+[16:24:44] 1020/1161 E6.ed25519.sign-m10240.r5.a1 fast p50 44.50us (n=10000) first 70.37us
+[16:25:48] 1021/1161 E6.slh-dsa-shake-128f.sign-m64.r5.a1 slow p50 26.489ms (n=2272) first 27.028ms
+[16:26:48] 1022/1161 E6.slh-dsa-shake-192f.verify-m1024.r5.a1 slow p50 2.308ms (n=25968) first 2.294ms
+[16:26:50] 1023/1161 E6.ed25519.sign-m64.r5.a1 fast p50 30.33us (n=10000) first 56.33us
+[16:28:43] 1024/1161 E6.falcon-1024.sign-m1048576.r5.a2 slow p50 2.028ms (n=29570) first 2.982ms
+[16:29:45] 1025/1161 E6.slh-dsa-shake-256f.sign-m1024.r5.a1 slow p50 90.840ms (n=661) first 91.953ms
+[16:29:52] 1026/1161 E6.ml-dsa-87.sign-m102400.r5.a1 fast p50 309.53us (n=10000) first 1.326ms
+[16:30:56] 1027/1161 E6.slh-dsa-shake-192f.sign-m102400.r5.a1 slow p50 44.123ms (n=1359) first 44.992ms
+[16:31:57] 1028/1161 E6.rsa3072-pss.sign-m1024.r5.a1 slow p50 1.616ms (n=36747) first 2.542ms
+[16:31:58] 1029/1161 E6.ecdsa-p256.sign-m10240.r5.a1 fast p50 24.17us (n=10000) first 426.86us
+[16:31:59] 1030/1161 E6.ml-dsa-65.verify-m10240.r5.a1 fast p50 65.37us (n=10000) first 103.08us
+[16:33:52] 1031/1161 E6.falcon-padded-1024.sign-m1048576.r5.a1 slow p50 2.036ms (n=29449) first 3.104ms
+[16:33:54] canary 78 (periodic): 2517509 hashes/s, ratio 0.9820 P-like
+[16:33:54] queued E6.ml-dsa-65.verify-m64.r4.a2 (diagnostic:drift 0.5205 > 0.0416) at position 16
+[16:34:59] 1032/1162 E6.slh-dsa-sha2-192s.sign-m1024.r5.a1 slow p50 777.198ms (n=78) first 776.248ms
+[16:36:00] 1033/1162 E6.slh-dsa-shake-256s.verify-m10240.r5.a1 slow p50 1.192ms (n=50285) first 1.218ms
+[16:37:04] 1034/1162 E6.slh-dsa-shake-128s.sign-m1024.r5.a1 slow p50 552.978ms (n=109) first 556.465ms
+[16:37:06] 1035/1162 E6.falcon-1024.verify-m102400.r5.a1 fast p50 212.53us (n=10000) first 237.16us
+[16:38:09] 1036/1162 E6.slh-dsa-sha2-128s.sign-m64.r5.a1 slow p50 431.569ms (n=139) first 435.910ms
+[16:38:10] 1037/1162 E6.ml-dsa-87.verify-m10240.r4.a2 fast p50 101.58us (n=10000) first 158.29us
+[16:39:11] 1038/1162 E6.slh-dsa-sha2-192f.verify-m1024.r5.a1 slow p50 1.827ms (n=32792) first 1.903ms
+[16:39:12] 1039/1162 E6.ecdsa-p256.verify-m102400.r5.a1 fast p50 96.91us (n=10000) first 175.83us
+[16:40:13] 1040/1162 E6.slh-dsa-sha2-256f.verify-m64.r5.a1 slow p50 1.871ms (n=32030) first 1.871ms
+[16:41:13] 1041/1162 E6.slh-dsa-shake-256s.verify-m1048576.r4.a2 slow p50 3.519ms (n=17036) first 3.498ms
+[16:42:19] 1042/1162 E6.slh-dsa-shake-256s.sign-m10240.r5.a1 slow p50 889.501ms (n=68) first 894.049ms
+[16:43:25] 1043/1162 E6.slh-dsa-shake-256s.sign-m1048576.r5.a2 slow p50 896.412ms (n=67) first 897.076ms
+[16:43:32] 1044/1162 E6.slh-dsa-sha2-192s.verify-m10240.r5.a1 fast p50 656.81us (n=10000) first 735.43us
+[16:44:33] 1045/1162 E6.slh-dsa-shake-192f.verify-m1048576.r5.a1 slow p50 4.666ms (n=12849) first 4.466ms
+[16:44:34] canary 79 (periodic): 2513897 hashes/s, ratio 0.9806 P-like
+[16:44:34] queued E6.slh-dsa-sha2-128s.sign-m64.r5.a2 (repeat:other) at position 23
+[16:44:34] queued E6.slh-dsa-sha2-192s.sign-m1024.r5.a2 (repeat:other) at position 70
+[16:44:34] queued E6.slh-dsa-sha2-192s.verify-m10240.r1.a2 (diagnostic:drift 0.1193 > 0.0416) at position 15
+[16:44:34] queued E6.slh-dsa-shake-128s.sign-m1024.r5.a2 (repeat:other) at position 96
+[16:44:34] queued E6.slh-dsa-shake-256s.sign-m10240.r5.a2 (repeat:other) at position 114
+[16:44:34] queued E6.slh-dsa-shake-256s.verify-m10240.r5.a2 (repeat:other) at position 13
+[16:44:35] 1046/1168 E6.falcon-padded-1024.verify-m10240.r5.a1 fast p50 85.79us (n=10000) first 137.04us
+[16:44:36] 1047/1168 E6.ecdsa-p256.verify-m10240.r5.a1 fast p50 59.75us (n=10000) first 131.95us
+[16:44:37] 1048/1168 E6.ml-dsa-65.verify-m64.r4.a2 fast p50 48.54us (n=10000) first 97.91us
+[16:44:39] 1049/1168 E6.ml-dsa-44.verify-m102400.r5.a1 fast p50 198.12us (n=10000) first 251.49us
+[16:45:43] 1050/1168 E6.slh-dsa-shake-192f.sign-m10240.r2.a2 slow p50 43.804ms (n=1370) first 44.612ms
+[16:45:45] 1051/1168 E6.falcon-512.verify-m102400.r5.a1 fast p50 191.03us (n=10000) first 255.95us
+[16:46:45] 1052/1168 E6.falcon-512.verify-m1048576.r5.a1 slow p50 1.756ms (n=34094) first 1.771ms
+[16:47:51] 1053/1168 E6.slh-dsa-shake-192f.sign-m1024.r1.a2 slow p50 43.787ms (n=1370) first 44.582ms
+[16:47:55] 1054/1168 E6.falcon-1024.sign-m64.r5.a1 fast p50 292.49us (n=10000) first 1.224ms
+[16:48:55] 1055/1168 E6.slh-dsa-sha2-128f.verify-m1024.r5.a1 slow p50 1.263ms (n=47383) first 1.338ms
+[16:48:59] 1056/1168 E6.ed25519.sign-m102400.r5.a1 fast p50 172.16us (n=10000) first 207.78us
+[16:49:01] 1057/1168 E6.falcon-padded-512.sign-m10240.r5.a1 fast p50 164.45us (n=10000) first 1.095ms
+[16:50:02] 1058/1168 E6.slh-dsa-sha2-128f.verify-m1048576.r5.a1 slow p50 4.453ms (n=13428) first 4.557ms
+[16:51:03] 1059/1168 E6.slh-dsa-shake-256s.verify-m10240.r5.a2 slow p50 1.192ms (n=50275) first 1.244ms
+[16:52:07] 1060/1168 E6.slh-dsa-sha2-192s.sign-m10240.r5.a1 slow p50 761.084ms (n=79) first 758.942ms
+[16:53:14] 1061/1168 E6.slh-dsa-shake-192s.sign-m10240.r5.a1 slow p50 987.072ms (n=61) first 992.749ms
+[16:53:21] 1062/1168 E6.slh-dsa-sha2-192s.verify-m10240.r1.a2 fast p50 656.37us (n=10000) first 666.27us
+[16:53:30] 1063/1168 E6.slh-dsa-sha2-128s.verify-m102400.r5.a1 fast p50 749.73us (n=10000) first 784.31us
+[16:54:32] 1064/1168 E6.slh-dsa-shake-256f.sign-m10240.r5.a1 slow p50 90.893ms (n=660) first 92.578ms
+[16:55:34] 1065/1168 E6.slh-dsa-shake-256f.sign-m102400.r5.a2 slow p50 91.207ms (n=658) first 91.722ms
+[16:55:36] canary 80 (periodic): 2516840 hashes/s, ratio 0.9818 P-like
+[16:55:36] queued E6.falcon-padded-1024.verify-m10240.r5.a2 (diagnostic:drift 0.4645 > 0.0416) at position 47
+[16:55:36] queued E6.falcon-padded-512.sign-m10240.r4.a2 (diagnostic:drift 0.0903 > 0.0416) at position 71
+[16:55:36] queued E6.ml-dsa-44.verify-m102400.r1.a2 (diagnostic:drift 1.1014 > 0.0416) at position 89
+[16:55:36] queued E6.slh-dsa-shake-192f.verify-m1048576.r5.a2 (repeat:other) at position 63
+[16:56:36] 1066/1172 E6.ml-dsa-87.verify-m1048576.r5.a1 slow p50 1.817ms (n=32941) first 1.902ms
+[16:57:37] 1067/1172 E6.slh-dsa-shake-192f.verify-m64.r5.a1 slow p50 2.312ms (n=25926) first 2.316ms
+[16:58:39] 1068/1172 E6.slh-dsa-sha2-256f.sign-m1024.r5.a1 slow p50 69.551ms (n=858) first 71.082ms
+[16:58:46] 1069/1172 E6.slh-dsa-sha2-192s.verify-m64.r5.a1 fast p50 631.81us (n=10000) first 634.98us
+[16:59:51] 1070/1172 E6.slh-dsa-sha2-256s.sign-m102400.r5.a2 slow p50 678.882ms (n=89) first 682.372ms
+[17:00:54] 1071/1172 E6.slh-dsa-sha2-128s.sign-m64.r5.a2 slow p50 431.502ms (n=139) first 432.418ms
+[17:02:00] 1072/1172 E6.slh-dsa-shake-192s.sign-m1024.r5.a1 slow p50 983.314ms (n=62) first 976.197ms
+[17:02:01] 1073/1172 E6.ecdsa-p256.verify-m1024.r5.a1 fast p50 55.00us (n=10000) first 137.25us
+[17:03:02] 1074/1172 E6.slh-dsa-shake-192f.verify-m102400.r5.a1 slow p50 2.542ms (n=23599) first 2.534ms
+[17:03:03] 1075/1172 E6.ed25519.verify-m64.r5.a1 fast p50 81.71us (n=10000) first 109.41us
+[17:04:03] 1076/1172 E6.slh-dsa-sha2-256f.verify-m10240.r5.a1 slow p50 1.898ms (n=31559) first 1.946ms
+[17:05:09] 1077/1172 E6.slh-dsa-sha2-192s.sign-m1048576.r5.a2 slow p50 764.399ms (n=79) first 777.486ms
+[17:07:06] 1078/1172 E6.ml-dsa-87.sign-m1048576.r5.a2 slow p50 1.888ms (n=31421) first 2.786ms
+[17:07:08] canary 81 (periodic): 2514496 hashes/s, ratio 0.9809 P-like
+[17:07:08] queued E6.ml-dsa-87.verify-m1048576.r5.a2 (repeat:other) at position 38
+[17:07:08] queued E6.slh-dsa-sha2-192s.sign-m1048576.r5.a3 (repeat:other) at position 36
+[17:07:08] queued E6.slh-dsa-shake-192f.verify-m102400.r5.a2 (repeat:other) at position 43
+[17:07:11] 1079/1175 E6.ml-dsa-65.verify-m102400.r5.a1 fast p50 225.99us (n=10000) first 277.91us
+[17:07:18] 1080/1175 E6.slh-dsa-sha2-192s.verify-m1024.r5.a1 fast p50 636.35us (n=10000) first 636.94us
+[17:08:18] 1081/1175 E6.slh-dsa-shake-128f.verify-m10240.r5.a1 slow p50 1.602ms (n=37443) first 1.629ms
+[17:09:22] 1082/1175 E6.slh-dsa-sha2-192f.sign-m64.r5.a1 slow p50 33.861ms (n=1763) first 34.691ms
+[17:09:31] 1083/1175 E6.ed25519.verify-m1048576.r5.a1 fast p50 809.06us (n=10000) first 841.35us
+[17:09:38] 1084/1175 E6.slh-dsa-shake-128s.verify-m10240.r5.a1 fast p50 569.09us (n=10000) first 587.98us
+[17:09:38] 1085/1175 E6.falcon-1024.verify-m64.r5.a1 fast p50 41.87us (n=10000) first 73.16us
+[17:10:42] 1086/1175 E6.slh-dsa-shake-128f.sign-m102400.r5.a1 slow p50 29.565ms (n=2032) first 30.817ms
+[17:10:48] 1087/1175 E6.rsa3072-pss.verify-m1048576.r5.a1 fast p50 459.36us (n=10000) first 564.65us
+[17:11:48] 1088/1175 E6.slh-dsa-sha2-128f.verify-m102400.r5.a1 slow p50 1.592ms (n=37649) first 1.639ms
+[17:12:56] 1089/1175 E6.slh-dsa-shake-128f.sign-m1048576.r5.a2 slow p50 31.250ms (n=1920) first 31.706ms
+[17:13:56] 1090/1175 E6.slh-dsa-sha2-192s.verify-m1048576.r5.a1 slow p50 2.585ms (n=23121) first 2.631ms
+[17:14:57] 1091/1175 E6.slh-dsa-sha2-192f.verify-m64.r5.a2 slow p50 1.839ms (n=32571) first 1.781ms
+[17:15:03] 1092/1175 E6.ml-dsa-65.sign-m102400.r5.a1 fast p50 264.57us (n=10000) first 1.164ms
+[17:16:04] 1093/1175 E6.slh-dsa-shake-192s.verify-m102400.r5.a1 slow p50 1.026ms (n=58447) first 1.093ms
+[17:17:09] 1094/1175 E6.slh-dsa-sha2-192s.sign-m64.r5.a1 slow p50 763.566ms (n=79) first 758.551ms
+[17:17:10] canary 82 (periodic): 2516425 hashes/s, ratio 0.9816 P-like
+[17:17:10] queued E6.ml-dsa-65.sign-m102400.r2.a2 (diagnostic:drift 0.4134 > 0.0416) at position 78
+[17:17:10] queued E6.ml-dsa-87.sign-m1048576.r5.a3 (repeat:other) at position 67
+[17:17:10] queued E6.rsa3072-pss.verify-m1048576.r5.a2 (repeat:other) at position 50
+[17:17:10] queued E6.slh-dsa-sha2-128f.verify-m102400.r5.a2 (repeat:other) at position 77
+[17:17:10] queued E6.slh-dsa-sha2-192f.sign-m64.r5.a2 (repeat:other) at position 51
+[17:17:10] queued E6.slh-dsa-sha2-192s.verify-m1048576.r2.a2 (diagnostic:drift 0.0718 > 0.0416) at position 1
+[17:17:10] queued E6.slh-dsa-shake-128f.sign-m102400.r5.a2 (diagnostic:drift 0.1013 > 0.0416) at position 74
+[17:17:10] queued E6.slh-dsa-shake-128f.verify-m10240.r5.a2 (repeat:other) at position 41
+[17:17:12] 1095/1183 E6.ed25519.verify-m102400.r5.a1 fast p50 153.00us (n=10000) first 187.78us
+[17:18:12] 1096/1183 E6.slh-dsa-sha2-192s.verify-m1048576.r2.a2 slow p50 2.598ms (n=23053) first 2.589ms
+[17:19:16] 1097/1183 E6.slh-dsa-shake-128s.sign-m102400.r5.a1 slow p50 554.502ms (n=109) first 557.364ms
+[17:20:17] 1098/1183 E6.slh-dsa-sha2-128f.verify-m1048576.r3.a2 slow p50 4.458ms (n=13402) first 4.547ms
+[17:20:21] 1099/1183 E6.falcon-padded-1024.sign-m1024.r5.a1 fast p50 294.07us (n=10000) first 1.213ms
+[17:21:27] 1100/1183 E6.slh-dsa-shake-192s.sign-m64.r5.a1 slow p50 987.521ms (n=61) first 986.101ms
+[17:21:37] 1101/1183 E6.slh-dsa-sha2-256s.verify-m64.r5.a1 fast p50 947.32us (n=10000) first 1.003ms
+[17:22:41] 1102/1183 E6.rsa3072-pss.sign-m102400.r5.a1 slow p50 1.673ms (n=35641) first 2.571ms
+[17:22:42] 1103/1183 E6.ed25519.verify-m1024.r5.a1 fast p50 82.71us (n=10000) first 110.00us
+[17:22:44] 1104/1183 E6.falcon-512.sign-m64.r5.a1 fast p50 147.00us (n=10000) first 1.060ms
+[17:22:45] 1105/1183 E6.ecdsa-p256.sign-m1024.r5.a1 fast p50 20.87us (n=10000) first 413.40us
+[17:23:46] 1106/1183 E6.slh-dsa-sha2-128f.verify-m102400.r3.a2 slow p50 1.594ms (n=37608) first 1.658ms
+[17:23:55] 1107/1183 E6.slh-dsa-shake-192s.verify-m64.r2.a2 fast p50 799.47us (n=10000) first 807.93us
+[17:24:01] 1108/1183 E6.slh-dsa-shake-128s.verify-m64.r5.a1 fast p50 544.02us (n=10000) first 526.94us
+[17:24:10] 1109/1183 E6.slh-dsa-shake-192s.verify-m1024.r5.a1 fast p50 798.43us (n=10000) first 830.93us
+[17:25:12] 1110/1183 E6.slh-dsa-shake-256f.sign-m64.r5.a1 slow p50 90.849ms (n=661) first 91.530ms
+[17:25:13] 1111/1183 E6.ml-dsa-87.verify-m64.r5.a1 fast p50 84.83us (n=10000) first 115.70us
+[17:25:14] 1112/1183 E6.ml-dsa-44.sign-m1024.r1.a2 fast p50 63.14us (n=10000) first 1.023ms
+[17:26:15] 1113/1183 E6.slh-dsa-sha2-192f.verify-m102400.r5.a1 slow p50 2.032ms (n=29482) first 2.046ms
+[17:26:16] 1114/1183 E6.falcon-padded-1024.verify-m10240.r5.a2 fast p50 59.62us (n=10000) first 100.87us
+[17:26:27] 1115/1183 E6.slh-dsa-sha2-256s.verify-m10240.r5.a1 fast p50 952.30us (n=10000) first 990.59us
+[17:27:32] 1116/1183 E6.slh-dsa-sha2-192s.sign-m1048576.r5.a3 slow p50 765.135ms (n=79) first 776.370ms
+[17:27:33] canary 83 (periodic): 2514675 hashes/s, ratio 0.9809 P-like
+[17:27:33] queued E6.slh-dsa-sha2-192s.sign-m64.r5.a2 (repeat:other) at position 10
+[17:27:33] queued E6.slh-dsa-shake-128s.verify-m64.r1.a2 (diagnostic:drift 0.0715 > 0.0416) at position 1
+[17:27:33] queued E6.slh-dsa-shake-256f.sign-m64.r3.a2 (diagnostic:drift 0.0572 > 0.0416) at position 47
+[17:28:34] 1117/1186 E6.slh-dsa-sha2-192f.verify-m102400.r4.a2 slow p50 2.031ms (n=29498) first 2.039ms
+[17:28:40] 1118/1186 E6.slh-dsa-shake-128s.verify-m64.r1.a2 fast p50 545.44us (n=10000) first 508.40us
+[17:28:41] 1119/1186 E6.ecdsa-p256.sign-m10240.r3.a2 fast p50 24.12us (n=10000) first 393.65us
+[17:29:42] 1120/1186 E6.ml-dsa-87.verify-m1048576.r5.a2 slow p50 1.822ms (n=32912) first 1.855ms
+[17:30:44] 1121/1186 E6.rsa3072-pss.sign-m10240.r5.a1 slow p50 1.634ms (n=36468) first 2.517ms
+[17:30:45] 1122/1186 E6.ml-dsa-44.sign-m64.r5.a1 fast p50 60.12us (n=10000) first 1.020ms
+[17:31:50] 1123/1186 E6.slh-dsa-sha2-192s.sign-m1024.r5.a2 slow p50 760.928ms (n=79) first 773.215ms
+[17:32:50] 1124/1186 E6.slh-dsa-shake-192f.verify-m102400.r5.a2 slow p50 2.542ms (n=23591) first 2.512ms
+[17:32:53] 1125/1186 E6.ml-dsa-65.sign-m10240.r5.a1 fast p50 113.79us (n=10000) first 1.145ms
+[17:33:53] 1126/1186 E6.slh-dsa-shake-128s.verify-m1048576.r5.a1 slow p50 2.903ms (n=20640) first 3.150ms
+[17:33:55] 1127/1186 E6.falcon-padded-512.sign-m1024.r5.a1 fast p50 149.00us (n=10000) first 1.084ms
+[17:35:00] 1128/1186 E6.slh-dsa-sha2-192s.sign-m64.r5.a2 slow p50 761.764ms (n=79) first 770.320ms
+[17:35:01] 1129/1186 E6.falcon-padded-512.verify-m10240.r5.a1 fast p50 39.00us (n=10000) first 76.00us
+[17:36:01] 1130/1186 E6.slh-dsa-sha2-192f.verify-m10240.r5.a1 slow p50 1.858ms (n=32238) first 1.924ms
+[17:36:02] 1131/1186 E6.falcon-1024.verify-m10240.r5.a1 fast p50 59.58us (n=10000) first 96.91us
+[17:37:12] 1132/1186 E6.slh-dsa-sha2-128f.sign-m1048576.r5.a1 slow p50 27.154ms (n=2205) first 28.118ms
+[17:39:09] 1133/1186 E6.falcon-padded-512.sign-m1048576.r2.a2 slow p50 1.891ms (n=31697) first 2.869ms
+[17:39:10] canary 84 (periodic): 2516615 hashes/s, ratio 0.9817 P-like
+[17:39:10] queued E6.falcon-1024.verify-m10240.r5.a2 (repeat:other) at position 53
+[17:39:10] queued E6.falcon-padded-512.verify-m10240.r5.a2 (repeat:other) at position 3
+[17:39:10] queued E6.slh-dsa-sha2-128f.sign-m1048576.r5.a2 (repeat:other) at position 33
+[17:39:10] queued E6.slh-dsa-sha2-192f.verify-m10240.r5.a2 (repeat:other) at position 25
+[17:39:10] queued E6.slh-dsa-sha2-192f.verify-m102400.r4.a3 (repeat:other) at position 57
+[17:39:10] queued E6.slh-dsa-sha2-192s.sign-m64.r5.a3 (repeat:other) at position 41
+[17:40:11] 1134/1192 E6.slh-dsa-shake-256f.verify-m102400.r5.a1 slow p50 2.594ms (n=23102) first 2.760ms
+[17:41:11] 1135/1192 E6.slh-dsa-shake-192f.verify-m1048576.r5.a2 slow p50 4.669ms (n=12837) first 4.604ms
+[17:41:14] 1136/1192 E6.ml-dsa-87.sign-m1024.r5.a1 fast p50 142.12us (n=10000) first 1.111ms
+[17:41:15] 1137/1192 E6.falcon-padded-512.verify-m10240.r5.a2 fast p50 38.92us (n=10000) first 58.00us
+[17:42:15] 1138/1192 E6.slh-dsa-shake-256s.verify-m1024.r5.a1 slow p50 1.176ms (n=50928) first 1.196ms
+[17:43:16] 1139/1192 E6.slh-dsa-shake-128f.verify-m10240.r5.a2 slow p50 1.602ms (n=37441) first 1.599ms
+[17:44:20] 1140/1192 E6.slh-dsa-shake-192f.sign-m10240.r5.a1 slow p50 43.812ms (n=1369) first 44.489ms
+[17:45:20] 1141/1192 E6.slh-dsa-shake-256f.verify-m64.r5.a1 slow p50 2.363ms (n=25354) first 2.419ms
+[17:45:21] 1142/1192 E6.ml-dsa-87.verify-m1024.r5.a1 fast p50 86.79us (n=10000) first 149.58us
+[17:46:25] 1143/1192 E6.slh-dsa-sha2-256f.sign-m1048576.r5.a1 slow p50 74.726ms (n=808) first 75.728ms
+[17:46:28] 1144/1192 E6.ml-dsa-87.verify-m102400.r4.a2 fast p50 254.66us (n=10000) first 289.70us
+[17:46:34] 1145/1192 E6.falcon-512.sign-m102400.r5.a1 fast p50 317.22us (n=10000) first 1.360ms
+[17:46:36] 1146/1192 E6.falcon-padded-512.sign-m10240.r4.a2 fast p50 165.04us (n=10000) first 1.084ms
+[17:46:38] 1147/1192 E6.ecdsa-p256.sign-m102400.r5.a1 fast p50 62.91us (n=10000) first 455.07us
+[17:46:39] 1148/1192 E6.rsa3072-pss.verify-m64.r5.a1 fast p50 33.67us (n=10000) first 79.96us
+[17:47:42] 1149/1192 E6.slh-dsa-sha2-192f.sign-m1024.r5.a1 slow p50 33.850ms (n=1760) first 34.786ms
+[17:47:48] 1150/1192 E6.rsa3072-pss.verify-m1048576.r5.a2 fast p50 459.34us (n=10000) first 512.61us
+[17:48:51] 1151/1192 E6.slh-dsa-sha2-192f.sign-m64.r5.a2 slow p50 33.809ms (n=1765) first 34.770ms
+[17:48:52] 1152/1192 E6.ml-dsa-87.verify-m10240.r5.a1 fast p50 100.25us (n=10000) first 145.41us
+[17:48:53] 1153/1192 E6.ecdsa-p256.verify-m64.r5.a1 fast p50 55.54us (n=10000) first 103.50us
+[17:48:54] 1154/1192 E6.falcon-padded-1024.verify-m1024.r5.a1 fast p50 44.21us (n=10000) first 59.50us
+[17:48:56] 1155/1192 E6.falcon-padded-1024.verify-m102400.r5.a1 fast p50 208.58us (n=10000) first 231.49us
+[17:50:00] 1156/1192 E6.slh-dsa-shake-128s.sign-m1024.r5.a2 slow p50 553.456ms (n=109) first 545.471ms
+[17:50:01] canary 85 (periodic): 2516983 hashes/s, ratio 0.9818 P-like
+[17:50:01] queued E6.falcon-padded-512.sign-m1048576.r2.a3 (repeat:other) at position 32
+[17:50:01] queued E6.slh-dsa-sha2-192f.sign-m1024.r5.a2 (repeat:other) at position 35
+[17:50:01] queued E6.slh-dsa-sha2-256f.sign-m1048576.r5.a2 (repeat:other) at position 2
+[17:50:01] queued E6.slh-dsa-shake-256s.verify-m1024.r5.a2 (repeat:other) at position 0
+[17:51:02] 1157/1196 E6.slh-dsa-shake-256s.verify-m1024.r5.a2 slow p50 1.173ms (n=51033) first 1.150ms
+[17:51:12] 1158/1196 E6.slh-dsa-shake-192s.verify-m10240.r1.a2 fast p50 814.97us (n=10000) first 829.72us
+[17:52:17] 1159/1196 E6.slh-dsa-sha2-192s.sign-m102400.r5.a1 slow p50 760.583ms (n=79) first 765.534ms
+[17:53:20] 1160/1196 E6.slh-dsa-sha2-256f.sign-m1048576.r5.a2 slow p50 73.433ms (n=814) first 74.317ms
+[17:54:21] 1161/1196 E6.slh-dsa-sha2-192f.verify-m10240.r5.a2 slow p50 1.849ms (n=32405) first 1.855ms
+[17:55:24] 1162/1196 E6.slh-dsa-sha2-128s.sign-m1048576.r5.a1 slow p50 438.304ms (n=137) first 439.628ms
+[17:55:35] 1163/1196 E6.slh-dsa-sha2-256s.verify-m1024.r5.a1 fast p50 925.89us (n=10000) first 940.72us
+[17:55:40] 1164/1196 E6.ecdsa-p256.verify-m1048576.r5.a1 fast p50 481.98us (n=10000) first 528.57us
+[17:56:45] 1165/1196 E6.slh-dsa-sha2-256s.sign-m64.r5.a3 slow p50 670.758ms (n=90) first 673.228ms
+[17:57:45] 1166/1196 E6.slh-dsa-shake-256s.verify-m1048576.r5.a1 slow p50 3.529ms (n=16980) first 3.537ms
+[17:57:49] 1167/1196 E6.ml-dsa-87.sign-m10240.r5.a1 fast p50 157.56us (n=10000) first 1.182ms
+[17:58:51] 1168/1196 E6.slh-dsa-shake-256f.sign-m64.r3.a2 slow p50 90.713ms (n=662) first 91.528ms
+[17:59:53] 1169/1196 E6.slh-dsa-sha2-256f.sign-m64.r5.a1 slow p50 69.512ms (n=859) first 71.696ms
+[18:01:03] 1170/1196 E6.slh-dsa-sha2-128f.sign-m1048576.r5.a2 slow p50 27.412ms (n=2185) first 28.231ms
+[18:01:05] canary 86 (periodic): 2516738 hashes/s, ratio 0.9817 P-like
+[18:01:07] 1171/1196 E6.ml-dsa-44.verify-m102400.r1.a2 fast p50 210.78us (n=10000) first 261.95us
+[18:02:08] 1172/1196 E6.slh-dsa-sha2-128f.verify-m10240.r5.a1 slow p50 1.285ms (n=46599) first 1.321ms
+[18:03:10] 1173/1196 E6.rsa3072-pss.sign-m64.r4.a2 slow p50 1.624ms (n=36662) first 2.568ms
+[18:05:09] 1174/1196 E6.ml-dsa-87.sign-m1048576.r5.a3 slow p50 1.886ms (n=31512) first 2.866ms
+[18:06:12] 1175/1196 E6.slh-dsa-sha2-128s.sign-m10240.r5.a1 slow p50 431.946ms (n=139) first 432.794ms
+[18:07:13] 1176/1196 E6.slh-dsa-shake-192s.verify-m1048576.r5.a1 slow p50 3.146ms (n=19051) first 3.200ms
+[18:08:18] 1177/1196 E6.slh-dsa-sha2-192s.sign-m64.r5.a3 slow p50 760.184ms (n=79) first 772.160ms
+[18:09:18] 1178/1196 E6.slh-dsa-shake-256f.verify-m1024.r5.a1 slow p50 2.345ms (n=25553) first 2.276ms
+[18:10:22] 1179/1196 E6.slh-dsa-shake-128f.sign-m102400.r5.a2 slow p50 26.984ms (n=2227) first 28.539ms
+[18:12:21] 1180/1196 E6.ml-dsa-44.sign-m1048576.r5.a1 slow p50 1.795ms (n=33233) first 2.762ms
+[18:12:23] canary 87 (periodic): 2517060 hashes/s, ratio 0.9819 P-like
+[18:12:23] queued E6.slh-dsa-sha2-128f.verify-m10240.r5.a2 (repeat:other) at position 8
+[18:12:23] queued E6.slh-dsa-sha2-128s.sign-m10240.r5.a2 (repeat:other) at position 12
+[18:12:23] queued E6.slh-dsa-shake-192s.verify-m1048576.r5.a2 (repeat:other) at position 4
+[18:13:23] 1181/1199 E6.slh-dsa-sha2-256f.verify-m10240.r2.a2 slow p50 1.889ms (n=31689) first 1.935ms
+[18:13:25] 1182/1199 E6.falcon-padded-512.sign-m64.r5.a1 fast p50 146.16us (n=10000) first 1.144ms
+[18:14:32] 1183/1199 E6.slh-dsa-shake-256s.sign-m10240.r5.a2 slow p50 983.035ms (n=61) first 982.202ms
+[18:15:33] 1184/1199 E6.slh-dsa-sha2-128f.verify-m64.r5.a1 slow p50 1.258ms (n=47424) first 1.292ms
+[18:16:33] 1185/1199 E6.slh-dsa-shake-192s.verify-m1048576.r5.a2 slow p50 3.138ms (n=19099) first 3.578ms
+[18:17:34] 1186/1199 E6.slh-dsa-sha2-128f.verify-m102400.r5.a2 slow p50 1.575ms (n=38052) first 1.621ms
+[18:18:34] 1187/1199 E6.slh-dsa-shake-256s.verify-m102400.r5.a1 slow p50 1.398ms (n=42834) first 1.402ms
+[18:19:39] 1188/1199 E6.slh-dsa-sha2-256s.sign-m1024.r5.a1 slow p50 668.181ms (n=90) first 669.742ms
+[18:19:44] 1189/1199 E6.slh-dsa-sha2-128s.verify-m10240.r5.a1 fast p50 458.07us (n=10000) first 465.53us
+[18:20:45] 1190/1199 E6.slh-dsa-sha2-128f.verify-m10240.r5.a2 slow p50 1.285ms (n=46554) first 1.307ms
+[18:20:50] 1191/1199 E6.ml-dsa-65.sign-m102400.r2.a2 fast p50 266.32us (n=10000) first 1.541ms
+[18:21:52] 1192/1199 E6.rsa3072-pss.sign-m64.r5.a1 slow p50 1.624ms (n=36679) first 2.546ms
+[18:23:49] 1193/1199 E6.falcon-padded-512.sign-m1048576.r2.a3 slow p50 1.867ms (n=32013) first 3.185ms
+[18:23:50] canary 88 (periodic): 2517455 hashes/s, ratio 0.9820 P-like
+[18:23:50] queued E6.ml-dsa-44.sign-m1048576.r5.a2 (repeat:other) at position 1
+[18:23:50] queued E6.slh-dsa-sha2-128f.verify-m10240.r5.a3 (repeat:other) at position 7
+[18:23:50] queued E6.slh-dsa-sha2-128f.verify-m102400.r5.a3 (repeat:other) at position 6
+[18:23:50] queued E6.slh-dsa-sha2-128f.verify-m64.r5.a2 (repeat:other) at position 3
+[18:23:50] queued E6.slh-dsa-sha2-256f.verify-m10240.r2.a3 (repeat:other) at position 8
+[18:23:50] queued E6.slh-dsa-shake-192s.verify-m1048576.r5.a3 (repeat:other) at position 3
+[18:23:50] queued E6.slh-dsa-shake-256s.sign-m10240.r5.a3 (diagnostic:drift 0.1109 > 0.0416) at position 3
+[18:23:50] queued E6.slh-dsa-shake-256s.verify-m102400.r5.a2 (repeat:other) at position 6
+[18:24:53] 1194/1207 E6.slh-dsa-sha2-128s.sign-m10240.r5.a2 slow p50 436.840ms (n=138) first 443.870ms
+[18:26:52] 1195/1207 E6.ml-dsa-44.sign-m1048576.r5.a2 slow p50 1.793ms (n=33283) first 2.767ms
+[18:27:55] 1196/1207 E6.slh-dsa-sha2-128s.sign-m102400.r5.a1 slow p50 434.957ms (n=138) first 436.506ms
+[18:29:01] 1197/1207 E6.slh-dsa-shake-256s.sign-m10240.r5.a3 slow p50 899.585ms (n=67) first 913.240ms
+[18:30:01] 1198/1207 E6.slh-dsa-shake-192s.verify-m1048576.r5.a3 slow p50 3.133ms (n=19129) first 3.052ms
+[18:31:02] 1199/1207 E6.slh-dsa-sha2-128f.verify-m64.r5.a2 slow p50 1.253ms (n=47801) first 1.291ms
+[18:32:03] 1200/1207 E6.slh-dsa-shake-256s.verify-m102400.r5.a2 slow p50 1.386ms (n=43195) first 1.383ms
+[18:32:05] 1201/1207 E6.falcon-512.sign-m10240.r2.a2 fast p50 161.29us (n=10000) first 1.084ms
+[18:33:09] 1202/1207 E6.slh-dsa-sha2-192f.sign-m1024.r5.a2 slow p50 33.821ms (n=1772) first 34.791ms
+[18:33:09] 1203/1207 E6.falcon-1024.verify-m10240.r5.a2 fast p50 58.58us (n=10000) first 100.87us
+[18:34:10] 1204/1207 E6.slh-dsa-sha2-128f.verify-m102400.r5.a3 slow p50 1.573ms (n=38106) first 1.587ms
+[18:34:11] canary 89 (periodic): 2564440 hashes/s, ratio 1.0004 P-like
+[18:35:12] 1205/1207 E6.slh-dsa-sha2-256f.verify-m10240.r2.a3 slow p50 1.888ms (n=31707) first 1.911ms
+[18:36:13] 1206/1207 E6.slh-dsa-sha2-192f.verify-m102400.r4.a3 slow p50 2.019ms (n=29663) first 2.013ms
+[18:37:13] 1207/1207 E6.slh-dsa-sha2-128f.verify-m10240.r5.a3 slow p50 1.284ms (n=46643) first 1.296ms
+[18:37:15] canary 90 (end): 2562986 hashes/s, ratio 0.9998 P-like
+[18:38:01] batch complete: 1207 attempt(s); 3172 file(s) in SHA256SUMS
