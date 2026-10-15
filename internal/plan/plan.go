@@ -35,7 +35,7 @@ const (
 
 // Item is one entry of a plan.
 type Item struct {
-	Exp     string   `json:"exp"`               // "probe", "probe-E2", "probe-E11", "probe-E6", "probe-E7", "E1", "E10", "E2", "E2c", "E8", "E11", "E13", "E6", "E7"
+	Exp     string   `json:"exp"`               // "probe", "probe-E2", "probe-E11", "probe-E6", "probe-E7", "E1", "E10", "E2", "E2c", "E8", "E11", "E13", "E6", "E7", "E9"
 	Algs    []string `json:"algs"`              // selectors (see algs.Expand)
 	Ops     []string `json:"ops,omitempty"`     // default: every op of the algorithm
 	Reps    int      `json:"reps,omitempty"`    // default: Plan.Reps
@@ -80,7 +80,7 @@ func Load(path string) (*Plan, error) {
 	}
 	for i, it := range p.Items {
 		switch it.Exp {
-		case "probe", "probe-E2", "probe-E11", "probe-E6", "probe-E7", "E1", "E10", "E2", "E2c", "E8", "E11", "E13", "E6", "E7":
+		case "probe", "probe-E2", "probe-E11", "probe-E6", "probe-E7", "E1", "E10", "E2", "E2c", "E8", "E11", "E13", "E6", "E7", "E9":
 		default:
 			return nil, fmt.Errorf("plan %s item %d: experiment %q not implemented in this phase", path, i, it.Exp)
 		}
@@ -181,6 +181,8 @@ func Expand(p *Plan, batchSeed uint64) ([]Block, error) {
 				ops, err = e7Ops(it, a)
 			case "E8":
 				ops, err = e8Ops(it, a)
+			case "E9":
+				ops, err = e9Ops(it, a)
 			case "E10":
 				ops, err = e10Ops(a)
 			case "E13":

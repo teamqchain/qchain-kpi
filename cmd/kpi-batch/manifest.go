@@ -4,6 +4,7 @@ import (
 	"os"
 	"path/filepath"
 	"runtime"
+	"strconv"
 	"strings"
 	"time"
 
@@ -38,6 +39,11 @@ type Manifest struct {
 	Counts        map[string]int    `json:"counts,omitempty"`
 	Notes         []string          `json:"notes,omitempty"`
 	Extensions    []Extension       `json:"extensions,omitempty"`
+	// MemoryPeak is the container's cgroup memory.peak when the run finished:
+	// the peak of the latest session's whole container (every process), since
+	// Linux before 6.12 cannot reset it. E9's per-process figures are in its
+	// blocks; this is the run-wide sanity check.
+	MemoryPeak int64 `json:"cgroup_memory_peak_bytes,omitempty"`
 }
 
 type ManifestPlan struct {
@@ -150,6 +156,9 @@ func (b *batch) finalManifest() error {
 	c["blocks"] = len(ids)
 	c["blocks_with_headline"] = len(headline)
 	m.Counts = c
+	if v, err := strconv.ParseInt(readTrim("/sys/fs/cgroup/memory.peak"), 10, 64); err == nil {
+		m.MemoryPeak = v
+	}
 	return writeJSON(filepath.Join(b.c.Out, fileManifest), m)
 }
 

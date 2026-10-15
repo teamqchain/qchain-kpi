@@ -19,7 +19,7 @@ The folder holds only allow-listed facts: no host name, user name, path outside 
 
 | File | Written by | Content |
 |---|---|---|
-| `manifest.json` | kpi-batch | What the run is. Covers the plan (name, kind, SHA-256), seed and image ID, and the harness commit. It also records the Go version, the liboqs build record (variant, commit, flags, gcc, cmake) and the apt source of each image stage. Further fields: the thresholds used (values and file hash), the container preflight facts, the allow-listed host facts, the sessions, the status and the final counts. |
+| `manifest.json` | kpi-batch | What the run is. Covers the plan (name, kind, SHA-256), seed and image ID, and the harness commit. It also records the Go version, the liboqs build record (variant, commit, flags, gcc, cmake) and the apt source of each image stage. Further fields: the thresholds used (values and file hash), the container preflight facts, the allow-listed host facts, the sessions, the status and the final counts, and `cgroup_memory_peak_bytes` (the container's cgroup `memory.peak` when the run finished: the whole latest session, every process). |
 | `state.json` | kpi-batch | The batch's resumable state. Holds the queue, the completed attempts, this batch's fast/slow classification from its probe pass, the repeats and diagnostics already queued, and the input sets generated. It also holds the facts the quality rules need. |
 | `journal.csv` | kpi-batch | Append-only event log: `utc_ns,event,key,detail`. Events: `session_start`, `e0`, `canary`, `prep`, `block_start`, `block_done`, `block_failed`, `block_interrupted`, `queued`, `checkpoint`, `cover_timeout`, `stopped`, `failed`, `batch_done`. |
 | `blocks.jsonl` | kpi-batch | One JSON line per completed attempt. It is the complete `proto.Result` printed by kpi-prim (see `internal/proto`). |
@@ -44,7 +44,7 @@ The folder holds only allow-listed facts: no host name, user name, path outside 
 
 | Name | Example | Meaning |
 |---|---|---|
-| block id | `E1.ml-dsa-44.sign.r3` | experiment, algorithm, operation, repetition (experiments `E1`, `E10`, `E2`, `E2c`, `E6`, `E7`, `E8`, `E11`, `E13`, `probe`, `probe-E2`, `probe-E6`, `probe-E7`, `probe-E11`) |
+| block id | `E1.ml-dsa-44.sign.r3` | experiment, algorithm, operation, repetition (experiments `E1`, `E10`, `E2`, `E2c`, `E6`, `E7`, `E8`, `E9`, `E11`, `E13`, `probe`, `probe-E2`, `probe-E6`, `probe-E7`, `probe-E11`) |
 | attempt key | `E1.ml-dsa-44.sign.r3.a2` | block id + attempt number (`a1` = the first attempt) |
 | cell | `E1.ml-dsa-44.sign` | block id without the repetition |
 | arm | `reuse`, `issuer`, `holder`, `issuer-again`, `reinit`, `prod`, `hex-decode-sk`, `hex-decode-pk`, `hex-decode-sig`, `hex-decode-ct`, `init`, `clean`, `hex-encode-pk`, `hex-encode-sk`, `hex-encode-sig`, `hex-encode-ct`, `hex-encode-ss` | a measured variant inside a block (E2 and E2c arms: `docs/methodology.md` section 4 and `internal/proto/e2.go`) |
@@ -200,3 +200,11 @@ E13 blocks are not timed (like E8: no run-quality flags, never repeated, the fir
 - **Raw file bytes column:** the sample's outcome, not a size: `0` = rejected (verify returned false, or decaps returned a different secret: implicit rejection), `1` = rejected with an error (malformed input), `2` = accepted. For a batched sample it is its last call's outcome; every call is checked. In `blocks.csv`, `min_bytes` and `max_bytes` are the lowest and highest outcome codes.
 - **Classification:** the operation's (`<algorithm>/verify` or `<algorithm>/decaps`, from the first trial); batch sizes `batch["<algorithm>/<op>/<arm>"]` from `trial-e7` (`batch_calibrated_from.E7`).
 
+## E9 (memory)
+
+E9 blocks are not timed (like E8: no run-quality flags, never repeated, the first attempt is the result).
+- **Block ids:** `E9.<algorithm>.<op>-<route>.r<rep>`, route = `c`, `reuse` or `prod` (for example `E9.ml-dsa-44.sign-c.r3`).
+- **Raw file** `raw/E9/<alg>/<op>-<route>-r<rep>-a1.csv.gz`: header lines as usual, plus `route`, `operation`, `budget`, `heap_counter` (the library and its SHA-256), `rss_before`, `rss_peak` (bytes), `gc`, and for the `c` route `stack` and `stack_baseline` (the empty job's measurement, already subtracted). Then `call,first,stack,heap_peak,heap_bytes,heap_requested,heap_allocs,heap_frees,heap_retained,go_bytes,go_allocs`, one row per call: `stack` only on the `c` route, `go_*` only on `reuse` and `prod`. Heap columns are the call's C heap on its thread: peak above the start, usable bytes allocated, bytes requested, allocations, frees, live bytes after minus before.
+- **`blocks.csv`:** one row per quantity (`arm` = `stack`, `heap-peak`, `heap-bytes`, `heap-allocs`, `heap-unfreed`, `heap-retained`, `go-bytes`, `go-allocs`, `rss-growth`, `rss-peak`); `mode` is `memory`; the statistics columns hold **bytes or counts**, not nanoseconds, over the calls after the first; `first_label` is `first` and `first_ns` holds call 1's value; `min_bytes`/`max_bytes` are the smallest and largest value over those calls. `rss-growth` and `rss-peak` are one value per block (`n` = 1, `first_label` empty).
+- **Precision:** the heap counts are exact; `rss-*` come from the kernel's per-CPU counters (precise to about 32 pages per CPU, so about 128 KiB pinned to one CPU) and can be slightly negative for `rss-growth`.
+- **Prep:** pools of 32 inputs (16 for the SLH-DSA "s" sets), cycled.

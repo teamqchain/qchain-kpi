@@ -251,6 +251,15 @@ func estimate(dir, plansDir, machine string) (*Estimate, error) {
 				add(bl.Exp, bs, r)
 				continue
 			}
+			if bl.Exp == "E9" {
+				bs, r := x.e9Block(bl, a)
+				add(bl.Exp, bs, r)
+				if pk := proto.PrepName(bl.Alg, bl.Rep); !preps[pk] {
+					preps[pk] = true
+					pe.PrepHours += x.e9Prep(a) / 1e9 / 3600
+				}
+				continue
+			}
 			var med float64
 			if v, ok := x.e7Median(k); ok && bl.Exp == "E7" {
 				med = v

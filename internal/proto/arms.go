@@ -24,6 +24,11 @@ func ArmsOf(exp string, a algs.Alg, op string) []string {
 		return E8Arms(a, op)
 	case "E7", "probe-E7":
 		return E7Arms(a)
+	case "E9":
+		if _, arm, err := ParseE9Op(op); err == nil {
+			return E9Quantities(arm)
+		}
+		return nil
 	}
 	return []string{ArmReuse}
 }
@@ -46,7 +51,12 @@ func Measured(exp string) bool {
 	return exp == "E1" || exp == "E10" || exp == "E2" || exp == "E2c" || exp == "E11" || exp == "E6" || exp == "E7"
 }
 
-// SizeOnly reports whether an experiment measures sizes only. Its blocks are
-// not timed: the run-quality flags do not apply to them, they are never
-// repeated, and their first attempt is the result.
+// SizeOnly reports whether an experiment measures sizes only (E8, E13):
+// its blocks prepare their own inputs.
 func SizeOnly(exp string) bool { return exp == "E8" || exp == "E13" }
+
+// Untimed reports whether an experiment's blocks are not timed (sizes, and
+// E9's memory): they need no fast/slow classification or batching, the
+// run-quality flags do not apply to them, they are never repeated, and their
+// first attempt is the result.
+func Untimed(exp string) bool { return SizeOnly(exp) || exp == "E9" }

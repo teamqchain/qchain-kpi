@@ -1,0 +1,10 @@
+{
+  "name": "e9",
+  "kind": "main",
+  "description": "E9 memory: for all 30 algorithms and every operation, three blocks (processes): c = the C library called directly on a thread whose 8 MiB stack is painted before every call (stack high-water mark above an empty-job baseline, and the call's C heap); reuse = E1's arm and prod = E2's prod arm (QChain's production pattern), called from one locked OS thread (the call's C heap, Go heap). The C heap is counted per thread by csrc/kpi_malloc.c, preloaded into these blocks only. Each block makes 100 calls (at least 10, stopping after 20 s once the minimum is reached; call 1 reported on its own) and records the growth of the process's peak resident memory over the calls. Every call is checked. Nothing is timed; 5 repetitions, each with its own keys and inputs.",
+  "reps": 5,
+  "canary_every_s": 600,
+  "items": [
+    {"exp": "E9", "algs": ["all"]}
+  ]
+}

@@ -13,7 +13,9 @@ It records every sample, flags noisy measurements and repeats them, and produces
 - **Where every input comes from** (QChain code copied verbatim, pinned libraries, test vectors): [docs/provenance.md](docs/provenance.md)
 - **Decisions taken while building the harness:** [docs/decisions-log.md](docs/decisions-log.md)
 
-**Status (14 Oct 2026): Mac-first.** Mac results: the trial, E1, E10, E2, E8, E11 and E13 (all committed). E6 and E7 are coded.
+**Status (15 Oct 2026): Mac-first.** Mac results: the trial, E1, E10, E2, E6, E7, E8, E11 and E13 (all committed). E9 (memory) is coded.
+
+**14 Oct:** Mac results: the trial, E1, E10, E2, E8, E11 and E13 (all committed). E6 and E7 are coded.
 
 **13 Oct:** Mac results: the trial, E1, E10, E2, E8 and E11 (all committed). E13 is coded: its size model is calibrated on a read-only capture of the live ledger and IPFS store and reproduces it to the byte.
 
@@ -30,7 +32,7 @@ All measurement and orchestration logic is Go inside one Docker image. The image
 |---|---|
 | `docker/Dockerfile` | Builds liboqs 0.16.0 for one variant (`b1-prod` by default) and runs its correctness gate. Then runs `go vet` and `go test` of the whole harness, then builds the binaries. Any failure fails the build. |
 | `kpi-batch` | The image's entry point. It runs a plan as a resumable batch: shuffled repetitions, a canary every 10 minutes, quality flags, repeats of flagged blocks, checksums. |
-| `kpi-prim` | One fresh process per block (prep, E1, E10, probe, canary). |
+| `kpi-prim` | One fresh process per block (prep, E1, E10, probe, canary, and every later experiment). |
 | `kpi-env` | E0, the environment capture. |
 | `scripts/run.sh` | The host launcher (macOS now; Linux and the Windows `run.ps1` in phase 1b). It runs preflight checks, builds the image, runs the host monitor, keeps the machine awake, copies the results out, verifies them and scans them for identifying text. |
 
@@ -84,8 +86,8 @@ Pushing is always manual.
 - `trial-e2`: add-on calibration for E2 (batch sizes of the new arms only), once per machine before its first E2 run;
 - `trial-e11`: add-on calibration for E11 (fast/slow classification of the 991 cells), once per machine before its first E11 run;
 - `trial-e6`, `trial-e7`: add-on calibrations for E6 (classification and batch sizes of the 220 cells) and E7 (batch sizes of its arms), once per machine before their main runs;
-- `smoke-e2`, `smoke-e6`, `smoke-e7`, `smoke-e8`, `smoke-e11`, `smoke-e13`: pipeline tests;
-- `e1`, `e10`, `e2`, `e6`, `e7`, `e8`, `e11`, `e13`: main runs.
+- `smoke-e2`, `smoke-e6`, `smoke-e7`, `smoke-e8`, `smoke-e9`, `smoke-e11`, `smoke-e13`: pipeline tests;
+- `e1`, `e10`, `e2`, `e6`, `e7`, `e8`, `e9`, `e11`, `e13`: main runs.
 
 A machine's first main run needs its calibrated section in `config/thresholds.json`. The trial writes `calibration.json`, which is reviewed, merged and committed before any main run on that machine.
 
@@ -93,7 +95,8 @@ A machine's first main run needs its calibrated section in `config/thresholds.js
 
 ```
 cmd/        kpi-batch kpi-prim kpi-env kpi-canary-native
-internal/   algs pqc classical qchain scheme timing inputs proto plan quality stats record canary procsetup buildinfo
+internal/   algs pqc classical qchain scheme timing inputs proto plan quality stats record canary procsetup buildinfo memprobe
+csrc/       kpi_malloc.c (E9's C-heap counter, preloaded into E9's blocks only)
 docker/     Dockerfile and the liboqs build and gate scripts
 plans/      run plans (JSON)
             (code: each experiment in its own eN.go file in cmd/kpi-prim, cmd/kpi-batch, internal/proto, internal/plan, internal/inputs)

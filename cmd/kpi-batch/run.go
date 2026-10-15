@@ -56,6 +56,7 @@ type runConfig struct {
 	Out            string
 	PrepDir        string
 	PrimPath       string
+	MallocLib      string // E9: the C-heap counter its blocks run with (LD_PRELOAD)
 	EnvPath        string
 	BuildInfo      string
 	MaxBlockS      int
@@ -104,6 +105,7 @@ func cmdRun(args []string) (int, error) {
 	fs.StringVar(&c.Out, "out", "/out", "run folder (the run's named volume)")
 	fs.StringVar(&c.PrepDir, "prep-dir", "/tmp/kpi-prep", "input sets (inside the container, never copied out)")
 	fs.StringVar(&c.PrimPath, "prim", "/opt/kpi/bin/kpi-prim", "kpi-prim binary")
+	fs.StringVar(&c.MallocLib, "malloc-lib", proto.E9MallocLib, "E9: C-heap counter library, preloaded into E9 blocks only")
 	fs.StringVar(&c.EnvPath, "env", "/opt/kpi/bin/kpi-env", "kpi-env binary")
 	fs.StringVar(&c.BuildInfo, "build-info", "/opt/kpi/build-info", "build records of the image")
 	fs.IntVar(&c.MaxBlockS, "max-block-s", 2700, "safety limit for one block")
@@ -402,7 +404,7 @@ func (b *batch) missingClassification(blocks []plan.Block) []string {
 	seen := map[string]bool{}
 	var out []string
 	for _, bl := range blocks {
-		if proto.IsProbe(bl.Exp) || bl.Exp == "E2c" || proto.SizeOnly(bl.Exp) { // E2c: always fast; E8: not timed
+		if proto.IsProbe(bl.Exp) || bl.Exp == "E2c" || proto.Untimed(bl.Exp) { // E2c: always fast; E8, E9, E13: not timed
 			continue
 		}
 		k := bl.Alg + "/" + bl.Op
@@ -523,7 +525,15 @@ func (e correctnessError) Error() string { return e.msg }
 
 // exec runs kpi-prim (or kpi-env) as a fresh child process.
 func (b *batch) exec(bin string, args ...string) ([]byte, []byte, int, error) {
+	return b.execEnv(nil, bin, args...)
+}
+
+// execEnv is exec with extra environment variables (E9's LD_PRELOAD).
+func (b *batch) execEnv(env []string, bin string, args ...string) ([]byte, []byte, int, error) {
 	cmd := exec.Command(bin, args...)
+	if len(env) > 0 {
+		cmd.Env = append(os.Environ(), env...)
+	}
 	var so, se bytes.Buffer
 	cmd.Stdout, cmd.Stderr = &so, &se
 	if err := cmd.Start(); err != nil {
@@ -747,6 +757,9 @@ func (b *batch) modeFor(bl plan.Block) (string, error) {
 	if proto.SizeOnly(bl.Exp) {
 		return "sizes", nil
 	}
+	if bl.Exp == "E9" {
+		return "memory", nil
+	}
 	k := bl.Alg + "/" + bl.Op
 	var m string
 	if b.p.Kind == plan.KindMain {
@@ -761,7 +774,7 @@ func (b *batch) modeFor(bl plan.Block) (string, error) {
 }
 
 func (b *batch) batchFor(bl plan.Block) map[string]int {
-	if b.p.Kind != plan.KindMain || proto.IsProbe(bl.Exp) || proto.SizeOnly(bl.Exp) || bl.Exp == "E11" {
+	if b.p.Kind != plan.KindMain || proto.IsProbe(bl.Exp) || proto.Untimed(bl.Exp) || bl.Exp == "E11" {
 		return nil // E11 composites are far above the timer's resolution
 	}
 	out := map[string]int{}
@@ -795,6 +808,8 @@ func (b *batch) ensurePrep(bl plan.Block) error {
 		pool = proto.ProbeCalls + 1
 	case b.p.Kind == plan.KindSmoke:
 		pool = 8
+	case bl.Exp == "E9":
+		pool = proto.E9PoolSize(a)
 	}
 	e10 := rep != proto.ProbeRep && b.e10Algs[bl.Alg]
 	seed := plan.DeriveSeed(b.c.Seed, "prep."+proto.PrepName(bl.Alg, rep))
@@ -849,7 +864,11 @@ func (b *batch) runBlock(bl plan.Block) error {
 	if err := b.journal("block_start", bl.Key(), mode); err != nil {
 		return err
 	}
-	so, se, code, err := b.exec(b.c.PrimPath, "block", "--spec", string(js))
+	var env []string
+	if bl.Exp == "E9" {
+		env = []string{"LD_PRELOAD=" + b.c.MallocLib}
+	}
+	so, se, code, err := b.execEnv(env, b.c.PrimPath, "block", "--spec", string(js))
 	if errors.Is(err, errInterrupted) {
 		b.journal("block_interrupted", bl.Key(), "")
 		return err
@@ -908,6 +927,17 @@ func (b *batch) runBlock(bl plan.Block) error {
 		return err
 	}
 	a0 := res.Arms[0]
+	if bl.Exp == "E9" {
+		var parts []string
+		for _, a := range res.Arms {
+			if !proto.E9PerBlock(a.Name) {
+				parts = append(parts, fmt.Sprintf("%s %.0f", a.Name, a.Stats.P50))
+			}
+		}
+		logf("%d/%d %s memory %s (n=%d; first call reported separately)", len(b.st.Done), len(b.st.Done)+len(b.st.Queue), bl.Key(),
+			strings.Join(parts, ", "), a0.Stats.N)
+		return nil
+	}
 	if proto.SizeOnly(bl.Exp) {
 		var parts []string
 		for _, a := range res.Arms {

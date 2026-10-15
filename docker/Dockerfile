@@ -55,6 +55,12 @@ WORKDIR /src/qchain-kpi
 COPY go.mod go.sum ./
 RUN go mod download && go mod verify
 COPY . .
+# E9's C-heap counter (csrc/kpi_malloc.c): preloaded into E9's blocks only,
+# and into the tests that check it (KPI_MALLOC_LIB).
+RUN mkdir -p /opt/kpi/lib && \
+    gcc -O2 -Wall -Wextra -Werror -fPIC -shared -o /opt/kpi/lib/libkpi_malloc.so csrc/kpi_malloc.c && \
+    sha256sum /opt/kpi/lib/libkpi_malloc.so > /opt/kpi/build-info/kpi-malloc.sha256
+ENV KPI_MALLOC_LIB=/opt/kpi/lib/libkpi_malloc.so
 
 # ---------------------------------------------------------------------------
 FROM harness AS test
@@ -85,6 +91,7 @@ COPY docker/apt-setup.sh /opt/kpi/docker/apt-setup.sh
 RUN /opt/kpi/docker/apt-setup.sh runtime "${APT_SNAPSHOT}" ca-certificates libssl3
 COPY --from=build /usr/local/lib/liboqs.so* /usr/local/lib/
 COPY --from=build /opt/kpi/bin/ /opt/kpi/bin/
+COPY --from=build /opt/kpi/lib/ /opt/kpi/lib/
 COPY --from=build /opt/kpi/build-info/ /opt/kpi/build-info/
 COPY plans/ /opt/kpi/plans/
 COPY config/ /opt/kpi/config/

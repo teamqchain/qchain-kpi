@@ -13,10 +13,16 @@ import (
 	"testing"
 
 	"qchain-kpi/internal/inputs"
+	"qchain-kpi/internal/memprobe"
 	"qchain-kpi/internal/plan"
 	"qchain-kpi/internal/proto"
 	"qchain-kpi/internal/timing"
 )
+
+// TestMain runs the package's tests with E9's C-heap counter preloaded (the
+// image sets KPI_MALLOC_LIB), as kpi-batch runs E9's blocks. The counter only
+// observes allocations, so the other experiments' tests are unaffected.
+func TestMain(m *testing.M) { os.Exit(memprobe.Preloaded(m.Run)) }
 
 // capture runs f with os.Stdout redirected and returns what it printed.
 func capture(t *testing.T, f func() error) (string, error) {

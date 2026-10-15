@@ -81,6 +81,8 @@ func cmdBlock(args []string) error {
 		return e8Block(sp, a) // sizes only: nothing is timed
 	case "E13":
 		return e13Block(sp, a) // sizes only: nothing is timed
+	case "E9":
+		return e9Block(sp, a) // memory: nothing is timed
 	case "E11", "probe-E11":
 		firstLabel = "first" // the block's own input preparation runs crypto first
 	default:
