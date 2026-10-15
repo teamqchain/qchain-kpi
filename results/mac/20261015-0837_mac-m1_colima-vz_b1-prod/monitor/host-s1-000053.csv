@@ -1,0 +1,13 @@
+utc_ns,other_pct,throttle,on_ac,alert,detail
+1792056594799539000,0.975,0,1,0,user=27.81;sys=1.34;excluded_core_pct=225.4;thermal_level=0;battery_pct=100
+1792056599818562000,0.687,0,1,0,user=26.23;sys=1.17;excluded_core_pct=213.7;thermal_level=0;battery_pct=100
+1792056604841947000,2.085,0,1,0,user=27.22;sys=1.59;excluded_core_pct=213.8;thermal_level=0;battery_pct=100
+1792056609863795000,0.607,0,1,0,user=26.18;sys=1.14;excluded_core_pct=213.7;thermal_level=0;battery_pct=100
+1792056614883382000,5.253,0,1,0,user=28.60;sys=3.39;excluded_core_pct=213.9;thermal_level=0;battery_pct=100;busiest_other=PerfPowerService:19.1
+1792056619934518000,0.875,0,1,0,user=26.21;sys=1.34;excluded_core_pct=213.4;thermal_level=0;battery_pct=100
+1792056624955195000,0.900,0,1,0,user=26.34;sys=1.36;excluded_core_pct=214.4;thermal_level=0;battery_pct=100
+1792056629979117000,0.727,0,1,0,user=38.50;sys=0.79;excluded_core_pct=308.5;thermal_level=0;battery_pct=100
+1792056635001305000,0.960,0,1,0,user=41.62;sys=0.89;excluded_core_pct=332.4;thermal_level=0;battery_pct=100
+1792056640024343000,0.672,0,1,0,user=41.24;sys=0.67;excluded_core_pct=329.9;thermal_level=0;battery_pct=100
+1792056645043026000,3.507,0,1,0,user=43.12;sys=1.90;excluded_core_pct=332.1;thermal_level=0;battery_pct=100
+1792056650071313000,0.968,0,1,0,user=41.61;sys=0.92;excluded_core_pct=332.5;thermal_level=0;battery_pct=100
