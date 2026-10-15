@@ -1,0 +1,1306 @@
+{
+  "schema": 1,
+  "run_id": "20261014-1822_mac-m1_colima-vz_b1-prod",
+  "machine": "mac-m1",
+  "plan_name": "e7",
+  "plan_kind": "main",
+  "plan_hash": "481028be1ebada6a7a61f0c8ae008b1da0307d73ffe49a194528d8f3df6894ef",
+  "seed": 10778292089678723248,
+  "image_id": "sha256:89fccaefd3587ff03bebc991222023d8e43b6cb55a145531d9e03563af8ceb88",
+  "harness_commit": "7eaa9df99fbb245f23b40824a263d33640d017c6",
+  "thresholds_hash": "5b78ea9480ef85f1ac8bfe308d9727762ba27f5000b577b78d278eec2976237b",
+  "started_utc": "2026-10-14T18:22:38Z",
+  "status": "done",
+  "sessions": [
+    {
+      "n": 1,
+      "started_utc": "2026-10-14T18:22:38Z",
+      "start_unix_ns": 1792002158654952756,
+      "host_offset_ns": 16470164,
+      "native_p_rate": 2572228.7594371,
+      "native_e_rate": 413197.077306281
+    }
+  ],
+  "planned_blocks": 150,
+  "queue": [],
+  "done": [
+    "E7.slh-dsa-sha2-192f.verify.r1.a1",
+    "E7.falcon-1024.verify.r1.a1",
+    "E7.ml-dsa-44.verify.r1.a1",
+    "E7.slh-dsa-sha2-256s.verify.r1.a1",
+    "E7.slh-dsa-sha2-128f.verify.r1.a1",
+    "E7.slh-dsa-sha2-192s.verify.r1.a1",
+    "E7.ecdsa-p256.verify.r1.a1",
+    "E7.slh-dsa-shake-192f.verify.r1.a1",
+    "E7.slh-dsa-shake-256s.verify.r1.a1",
+    "E7.ml-kem-1024.decaps.r1.a1",
+    "E7.falcon-padded-1024.verify.r1.a1",
+    "E7.rsa3072-pss.verify.r1.a1",
+    "E7.dhkem-p256.decaps.r1.a1",
+    "E7.ed25519.verify.r1.a1",
+    "E7.slh-dsa-sha2-256f.verify.r1.a1",
+    "E7.hqc-5.decaps.r1.a1",
+    "E7.dhkem-x25519.decaps.r1.a1",
+    "E7.slh-dsa-shake-128s.verify.r1.a1",
+    "E7.ml-dsa-65.verify.r1.a1",
+    "E7.slh-dsa-shake-256f.verify.r1.a1",
+    "E7.ml-dsa-87.verify.r1.a1",
+    "E7.ml-kem-512.decaps.r1.a1",
+    "E7.slh-dsa-sha2-128f.verify.r1.a2",
+    "E7.falcon-padded-512.verify.r1.a1",
+    "E7.slh-dsa-shake-128f.verify.r1.a1",
+    "E7.hqc-3.decaps.r1.a1",
+    "E7.hqc-1.decaps.r1.a1",
+    "E7.slh-dsa-sha2-128s.verify.r1.a1",
+    "E7.slh-dsa-shake-192s.verify.r1.a1",
+    "E7.ml-kem-768.decaps.r1.a1",
+    "E7.falcon-512.verify.r1.a1",
+    "E7.ed25519.verify.r2.a1",
+    "E7.falcon-padded-512.verify.r2.a1",
+    "E7.ecdsa-p256.verify.r2.a1",
+    "E7.dhkem-x25519.decaps.r2.a1",
+    "E7.slh-dsa-sha2-192s.verify.r2.a1",
+    "E7.slh-dsa-shake-192f.verify.r2.a1",
+    "E7.slh-dsa-shake-192f.verify.r1.a2",
+    "E7.hqc-1.decaps.r2.a1",
+    "E7.ml-kem-768.decaps.r2.a1",
+    "E7.slh-dsa-sha2-256s.verify.r2.a1",
+    "E7.slh-dsa-shake-192s.verify.r2.a1",
+    "E7.ml-dsa-87.verify.r2.a1",
+    "E7.ml-dsa-44.verify.r2.a1",
+    "E7.slh-dsa-shake-128f.verify.r2.a1",
+    "E7.hqc-3.decaps.r2.a1",
+    "E7.slh-dsa-shake-128s.verify.r2.a1",
+    "E7.slh-dsa-sha2-128s.verify.r2.a1",
+    "E7.falcon-1024.verify.r2.a1",
+    "E7.ml-kem-1024.decaps.r2.a1",
+    "E7.slh-dsa-sha2-128f.verify.r2.a1",
+    "E7.falcon-padded-1024.verify.r2.a1",
+    "E7.ml-kem-512.decaps.r2.a1",
+    "E7.hqc-5.decaps.r2.a1",
+    "E7.ml-dsa-65.verify.r2.a1",
+    "E7.dhkem-p256.decaps.r2.a1",
+    "E7.slh-dsa-sha2-192f.verify.r2.a1",
+    "E7.slh-dsa-sha2-256f.verify.r2.a1",
+    "E7.slh-dsa-shake-256s.verify.r2.a1",
+    "E7.rsa3072-pss.verify.r2.a1",
+    "E7.slh-dsa-shake-256f.verify.r2.a1",
+    "E7.falcon-512.verify.r2.a1",
+    "E7.hqc-3.decaps.r3.a1",
+    "E7.slh-dsa-shake-128s.verify.r3.a1",
+    "E7.ml-kem-512.decaps.r3.a1",
+    "E7.rsa3072-pss.verify.r3.a1",
+    "E7.hqc-5.decaps.r3.a1",
+    "E7.slh-dsa-shake-256f.verify.r3.a1",
+    "E7.slh-dsa-shake-192f.verify.r3.a1",
+    "E7.ml-kem-1024.decaps.r3.a1",
+    "E7.hqc-1.decaps.r3.a1",
+    "E7.ml-kem-768.decaps.r3.a1",
+    "E7.slh-dsa-shake-192s.verify.r1.a2",
+    "E7.falcon-padded-512.verify.r3.a1",
+    "E7.slh-dsa-shake-128f.verify.r3.a1",
+    "E7.falcon-padded-1024.verify.r3.a1",
+    "E7.ml-dsa-65.verify.r3.a1",
+    "E7.slh-dsa-sha2-256f.verify.r3.a1",
+    "E7.slh-dsa-sha2-192f.verify.r3.a1",
+    "E7.ecdsa-p256.verify.r3.a1",
+    "E7.slh-dsa-sha2-128f.verify.r3.a1",
+    "E7.ml-dsa-87.verify.r3.a1",
+    "E7.slh-dsa-shake-192s.verify.r3.a1",
+    "E7.ml-dsa-44.verify.r3.a1",
+    "E7.falcon-1024.verify.r3.a1",
+    "E7.falcon-512.verify.r3.a1",
+    "E7.ecdsa-p256.verify.r1.a2",
+    "E7.dhkem-x25519.decaps.r3.a1",
+    "E7.dhkem-p256.decaps.r3.a1",
+    "E7.slh-dsa-shake-256s.verify.r3.a1",
+    "E7.slh-dsa-sha2-192s.verify.r3.a1",
+    "E7.slh-dsa-sha2-128f.verify.r3.a2",
+    "E7.ed25519.verify.r3.a1",
+    "E7.slh-dsa-sha2-256s.verify.r3.a1",
+    "E7.slh-dsa-sha2-128s.verify.r3.a1",
+    "E7.slh-dsa-shake-192f.verify.r4.a1",
+    "E7.ml-kem-768.decaps.r4.a1",
+    "E7.slh-dsa-sha2-256f.verify.r4.a1",
+    "E7.ml-dsa-44.verify.r4.a1",
+    "E7.slh-dsa-shake-256f.verify.r4.a1",
+    "E7.hqc-1.decaps.r2.a2",
+    "E7.falcon-padded-1024.verify.r4.a1",
+    "E7.ml-dsa-65.verify.r4.a1",
+    "E7.slh-dsa-shake-128s.verify.r4.a1",
+    "E7.ml-dsa-87.verify.r4.a1",
+    "E7.falcon-padded-512.verify.r4.a1",
+    "E7.hqc-5.decaps.r4.a1",
+    "E7.hqc-5.decaps.r1.a2",
+    "E7.slh-dsa-sha2-128s.verify.r4.a1",
+    "E7.slh-dsa-sha2-256s.verify.r4.a1",
+    "E7.hqc-3.decaps.r4.a1",
+    "E7.slh-dsa-sha2-192s.verify.r4.a1",
+    "E7.hqc-1.decaps.r4.a1",
+    "E7.falcon-512.verify.r4.a1",
+    "E7.slh-dsa-sha2-128f.verify.r4.a1",
+    "E7.ml-kem-1024.decaps.r4.a1",
+    "E7.ecdsa-p256.verify.r4.a1",
+    "E7.slh-dsa-shake-256s.verify.r4.a1",
+    "E7.slh-dsa-shake-192s.verify.r4.a1",
+    "E7.dhkem-p256.decaps.r4.a1",
+    "E7.slh-dsa-sha2-192f.verify.r4.a1",
+    "E7.slh-dsa-shake-128f.verify.r4.a1",
+    "E7.ml-kem-512.decaps.r4.a1",
+    "E7.rsa3072-pss.verify.r4.a1",
+    "E7.dhkem-x25519.decaps.r4.a1",
+    "E7.ed25519.verify.r4.a1",
+    "E7.falcon-1024.verify.r4.a1",
+    "E7.dhkem-p256.decaps.r5.a1",
+    "E7.slh-dsa-sha2-128s.verify.r5.a1",
+    "E7.slh-dsa-sha2-256s.verify.r5.a1",
+    "E7.dhkem-x25519.decaps.r5.a1",
+    "E7.slh-dsa-sha2-256f.verify.r5.a1",
+    "E7.slh-dsa-shake-192f.verify.r1.a3",
+    "E7.rsa3072-pss.verify.r5.a1",
+    "E7.slh-dsa-sha2-192f.verify.r5.a1",
+    "E7.slh-dsa-shake-128f.verify.r5.a1",
+    "E7.ml-dsa-87.verify.r5.a1",
+    "E7.slh-dsa-shake-192s.verify.r5.a1",
+    "E7.ecdsa-p256.verify.r5.a1",
+    "E7.ml-dsa-65.verify.r5.a1",
+    "E7.slh-dsa-shake-192s.verify.r1.a3",
+    "E7.slh-dsa-sha2-192s.verify.r5.a1",
+    "E7.falcon-512.verify.r5.a1",
+    "E7.falcon-1024.verify.r5.a1",
+    "E7.slh-dsa-shake-256s.verify.r5.a1",
+    "E7.hqc-5.decaps.r4.a2",
+    "E7.slh-dsa-shake-128s.verify.r5.a1",
+    "E7.slh-dsa-shake-256f.verify.r5.a1",
+    "E7.falcon-padded-512.verify.r5.a1",
+    "E7.slh-dsa-shake-192f.verify.r5.a1",
+    "E7.falcon-padded-1024.verify.r5.a1",
+    "E7.ed25519.verify.r5.a1",
+    "E7.ml-kem-768.decaps.r5.a1",
+    "E7.ml-kem-1024.decaps.r5.a1",
+    "E7.hqc-5.decaps.r5.a1",
+    "E7.ml-dsa-44.verify.r5.a1",
+    "E7.hqc-3.decaps.r5.a1",
+    "E7.slh-dsa-sha2-128f.verify.r5.a1",
+    "E7.ml-dsa-44.verify.r1.a2",
+    "E7.hqc-1.decaps.r5.a1",
+    "E7.ml-kem-768.decaps.r4.a2",
+    "E7.ml-kem-512.decaps.r5.a1",
+    "E7.ml-kem-1024.decaps.r4.a2",
+    "E7.slh-dsa-shake-256f.verify.r5.a2",
+    "E7.ml-kem-1024.decaps.r5.a2",
+    "E7.ml-kem-512.decaps.r4.a2"
+  ],
+  "classification": {},
+  "requeued": {
+    "E7.ecdsa-p256.verify.r1.a1": true,
+    "E7.hqc-1.decaps.r2.a1": true,
+    "E7.hqc-5.decaps.r1.a1": true,
+    "E7.hqc-5.decaps.r4.a1": true,
+    "E7.slh-dsa-sha2-128f.verify.r1.a1": true,
+    "E7.slh-dsa-sha2-128f.verify.r3.a1": true,
+    "E7.slh-dsa-shake-192f.verify.r1.a1": true,
+    "E7.slh-dsa-shake-192f.verify.r1.a2": true,
+    "E7.slh-dsa-shake-192s.verify.r1.a1": true,
+    "E7.slh-dsa-shake-192s.verify.r1.a2": true,
+    "E7.slh-dsa-shake-256f.verify.r5.a1": true
+  },
+  "diagnosed": {
+    "E7.ml-dsa-44.verify.r1": true,
+    "E7.ml-kem-1024.decaps.r4": true,
+    "E7.ml-kem-1024.decaps.r5": true,
+    "E7.ml-kem-512.decaps.r4": true,
+    "E7.ml-kem-768.decaps.r4": true
+  },
+  "canary_seq": 22,
+  "first_canary_rate": 2575705.854391428,
+  "last_canary_unix_ns": 1792015330832078594,
+  "preps": {
+    "dhkem-p256.r1": {
+      "pool": 256,
+      "prep_ns": 64517100,
+      "fingerprint": "3be972e142f74955",
+      "e10": false,
+      "session": 1
+    },
+    "dhkem-p256.r2": {
+      "pool": 256,
+      "prep_ns": 63317742,
+      "fingerprint": "a1b277686034c2ab",
+      "e10": false,
+      "session": 1
+    },
+    "dhkem-p256.r3": {
+      "pool": 256,
+      "prep_ns": 63143954,
+      "fingerprint": "c38e9df4b8ab00cd",
+      "e10": false,
+      "session": 1
+    },
+    "dhkem-p256.r4": {
+      "pool": 256,
+      "prep_ns": 66080985,
+      "fingerprint": "e63e5faf95abfd88",
+      "e10": false,
+      "session": 1
+    },
+    "dhkem-p256.r5": {
+      "pool": 256,
+      "prep_ns": 63338023,
+      "fingerprint": "676ddde4d7ef8c76",
+      "e10": false,
+      "session": 1
+    },
+    "dhkem-x25519.r1": {
+      "pool": 256,
+      "prep_ns": 37665741,
+      "fingerprint": "06da340b85656835",
+      "e10": false,
+      "session": 1
+    },
+    "dhkem-x25519.r2": {
+      "pool": 256,
+      "prep_ns": 37393919,
+      "fingerprint": "e50940da4a4c6c33",
+      "e10": false,
+      "session": 1
+    },
+    "dhkem-x25519.r3": {
+      "pool": 256,
+      "prep_ns": 37013317,
+      "fingerprint": "4fd9f137392eec0d",
+      "e10": false,
+      "session": 1
+    },
+    "dhkem-x25519.r4": {
+      "pool": 256,
+      "prep_ns": 38620763,
+      "fingerprint": "d1a1aceb62c17e93",
+      "e10": false,
+      "session": 1
+    },
+    "dhkem-x25519.r5": {
+      "pool": 256,
+      "prep_ns": 37110144,
+      "fingerprint": "a8ec269cfbc171df",
+      "e10": false,
+      "session": 1
+    },
+    "ecdsa-p256.r1": {
+      "pool": 256,
+      "prep_ns": 29703724,
+      "fingerprint": "99734af3a12f6883",
+      "e10": false,
+      "session": 1
+    },
+    "ecdsa-p256.r2": {
+      "pool": 256,
+      "prep_ns": 28791514,
+      "fingerprint": "38b6321b29e9a555",
+      "e10": false,
+      "session": 1
+    },
+    "ecdsa-p256.r3": {
+      "pool": 256,
+      "prep_ns": 28411204,
+      "fingerprint": "674d077e75cd7cb7",
+      "e10": false,
+      "session": 1
+    },
+    "ecdsa-p256.r4": {
+      "pool": 256,
+      "prep_ns": 28421574,
+      "fingerprint": "84aa2d9e6499d638",
+      "e10": false,
+      "session": 1
+    },
+    "ecdsa-p256.r5": {
+      "pool": 256,
+      "prep_ns": 28504990,
+      "fingerprint": "fc677eb95fe94af1",
+      "e10": false,
+      "session": 1
+    },
+    "ed25519.r1": {
+      "pool": 256,
+      "prep_ns": 39078867,
+      "fingerprint": "ececa3d191ad511e",
+      "e10": false,
+      "session": 1
+    },
+    "ed25519.r2": {
+      "pool": 256,
+      "prep_ns": 39178776,
+      "fingerprint": "63ad8df24f4b3373",
+      "e10": false,
+      "session": 1
+    },
+    "ed25519.r3": {
+      "pool": 256,
+      "prep_ns": 38800091,
+      "fingerprint": "8ffde960eef926e7",
+      "e10": false,
+      "session": 1
+    },
+    "ed25519.r4": {
+      "pool": 256,
+      "prep_ns": 38674195,
+      "fingerprint": "b8ce9302a6f86edb",
+      "e10": false,
+      "session": 1
+    },
+    "ed25519.r5": {
+      "pool": 256,
+      "prep_ns": 38590654,
+      "fingerprint": "23fd4c8df6453b23",
+      "e10": false,
+      "session": 1
+    },
+    "falcon-1024.r1": {
+      "pool": 256,
+      "prep_ns": 103116499,
+      "fingerprint": "91067fd5593389ce",
+      "e10": false,
+      "session": 1
+    },
+    "falcon-1024.r2": {
+      "pool": 256,
+      "prep_ns": 106168598,
+      "fingerprint": "c33c1ba9b7d81391",
+      "e10": false,
+      "session": 1
+    },
+    "falcon-1024.r3": {
+      "pool": 256,
+      "prep_ns": 104231275,
+      "fingerprint": "c2c740e5538a34a6",
+      "e10": false,
+      "session": 1
+    },
+    "falcon-1024.r4": {
+      "pool": 256,
+      "prep_ns": 99508097,
+      "fingerprint": "d0e83497627d2a99",
+      "e10": false,
+      "session": 1
+    },
+    "falcon-1024.r5": {
+      "pool": 256,
+      "prep_ns": 102231734,
+      "fingerprint": "28feb39a449e282b",
+      "e10": false,
+      "session": 1
+    },
+    "falcon-512.r1": {
+      "pool": 256,
+      "prep_ns": 49792966,
+      "fingerprint": "2f691c7a73558e4b",
+      "e10": false,
+      "session": 1
+    },
+    "falcon-512.r2": {
+      "pool": 256,
+      "prep_ns": 52230996,
+      "fingerprint": "8e05c706931fb1e3",
+      "e10": false,
+      "session": 1
+    },
+    "falcon-512.r3": {
+      "pool": 256,
+      "prep_ns": 49050879,
+      "fingerprint": "fb5f99af5211fe68",
+      "e10": false,
+      "session": 1
+    },
+    "falcon-512.r4": {
+      "pool": 256,
+      "prep_ns": 51879631,
+      "fingerprint": "2732f66e083f2efa",
+      "e10": false,
+      "session": 1
+    },
+    "falcon-512.r5": {
+      "pool": 256,
+      "prep_ns": 49872385,
+      "fingerprint": "71dd68d5e5249567",
+      "e10": false,
+      "session": 1
+    },
+    "falcon-padded-1024.r1": {
+      "pool": 256,
+      "prep_ns": 104079476,
+      "fingerprint": "34d01316265630ab",
+      "e10": false,
+      "session": 1
+    },
+    "falcon-padded-1024.r2": {
+      "pool": 256,
+      "prep_ns": 100461244,
+      "fingerprint": "84d4dda3571eef27",
+      "e10": false,
+      "session": 1
+    },
+    "falcon-padded-1024.r3": {
+      "pool": 256,
+      "prep_ns": 101265675,
+      "fingerprint": "b913bb91be7c2799",
+      "e10": false,
+      "session": 1
+    },
+    "falcon-padded-1024.r4": {
+      "pool": 256,
+      "prep_ns": 101222406,
+      "fingerprint": "f346554ce4aff9ea",
+      "e10": false,
+      "session": 1
+    },
+    "falcon-padded-1024.r5": {
+      "pool": 256,
+      "prep_ns": 101935049,
+      "fingerprint": "445b6e45f406c212",
+      "e10": false,
+      "session": 1
+    },
+    "falcon-padded-512.r1": {
+      "pool": 256,
+      "prep_ns": 49687394,
+      "fingerprint": "a4f52769eefde350",
+      "e10": false,
+      "session": 1
+    },
+    "falcon-padded-512.r2": {
+      "pool": 256,
+      "prep_ns": 49561082,
+      "fingerprint": "276b33cd4db438b6",
+      "e10": false,
+      "session": 1
+    },
+    "falcon-padded-512.r3": {
+      "pool": 256,
+      "prep_ns": 51631546,
+      "fingerprint": "3a4b765d00a1b71f",
+      "e10": false,
+      "session": 1
+    },
+    "falcon-padded-512.r4": {
+      "pool": 256,
+      "prep_ns": 49650746,
+      "fingerprint": "cd7ac43d21009090",
+      "e10": false,
+      "session": 1
+    },
+    "falcon-padded-512.r5": {
+      "pool": 256,
+      "prep_ns": 48861849,
+      "fingerprint": "7ad9a27dc025f1bf",
+      "e10": false,
+      "session": 1
+    },
+    "hqc-1.r1": {
+      "pool": 256,
+      "prep_ns": 1168500833,
+      "fingerprint": "bfcd0f922978810e",
+      "e10": false,
+      "session": 1
+    },
+    "hqc-1.r2": {
+      "pool": 256,
+      "prep_ns": 1165238506,
+      "fingerprint": "a2a4420acb3e5add",
+      "e10": false,
+      "session": 1
+    },
+    "hqc-1.r3": {
+      "pool": 256,
+      "prep_ns": 1171928368,
+      "fingerprint": "7b9b75d15963d4bc",
+      "e10": false,
+      "session": 1
+    },
+    "hqc-1.r4": {
+      "pool": 256,
+      "prep_ns": 1167622230,
+      "fingerprint": "0b7171dd7edc978f",
+      "e10": false,
+      "session": 1
+    },
+    "hqc-1.r5": {
+      "pool": 256,
+      "prep_ns": 1148616613,
+      "fingerprint": "ff0cd1450cc2ed03",
+      "e10": false,
+      "session": 1
+    },
+    "hqc-3.r1": {
+      "pool": 256,
+      "prep_ns": 3017515114,
+      "fingerprint": "158f6f41ed6d2958",
+      "e10": false,
+      "session": 1
+    },
+    "hqc-3.r2": {
+      "pool": 256,
+      "prep_ns": 3005702690,
+      "fingerprint": "d84b15aeee24679c",
+      "e10": false,
+      "session": 1
+    },
+    "hqc-3.r3": {
+      "pool": 256,
+      "prep_ns": 3010560926,
+      "fingerprint": "6429a2c7d43f5fca",
+      "e10": false,
+      "session": 1
+    },
+    "hqc-3.r4": {
+      "pool": 256,
+      "prep_ns": 2996193155,
+      "fingerprint": "aaec97621163d851",
+      "e10": false,
+      "session": 1
+    },
+    "hqc-3.r5": {
+      "pool": 256,
+      "prep_ns": 3011629475,
+      "fingerprint": "5cbd04acb398db5e",
+      "e10": false,
+      "session": 1
+    },
+    "hqc-5.r1": {
+      "pool": 256,
+      "prep_ns": 7559962923,
+      "fingerprint": "a2316cd42181cfd3",
+      "e10": false,
+      "session": 1
+    },
+    "hqc-5.r2": {
+      "pool": 256,
+      "prep_ns": 7587706295,
+      "fingerprint": "0f076c1d52bec60f",
+      "e10": false,
+      "session": 1
+    },
+    "hqc-5.r3": {
+      "pool": 256,
+      "prep_ns": 7605384367,
+      "fingerprint": "4287f19bef66daa1",
+      "e10": false,
+      "session": 1
+    },
+    "hqc-5.r4": {
+      "pool": 256,
+      "prep_ns": 7593884953,
+      "fingerprint": "46df8532e84ab352",
+      "e10": false,
+      "session": 1
+    },
+    "hqc-5.r5": {
+      "pool": 256,
+      "prep_ns": 7600162396,
+      "fingerprint": "462a198e34bca50a",
+      "e10": false,
+      "session": 1
+    },
+    "ml-dsa-44.r1": {
+      "pool": 256,
+      "prep_ns": 27355524,
+      "fingerprint": "b5a5d1e7fc5c1149",
+      "e10": false,
+      "session": 1
+    },
+    "ml-dsa-44.r2": {
+      "pool": 256,
+      "prep_ns": 27673281,
+      "fingerprint": "9858a07db21eddd4",
+      "e10": false,
+      "session": 1
+    },
+    "ml-dsa-44.r3": {
+      "pool": 256,
+      "prep_ns": 27724923,
+      "fingerprint": "38321db578b92bdf",
+      "e10": false,
+      "session": 1
+    },
+    "ml-dsa-44.r4": {
+      "pool": 256,
+      "prep_ns": 27592488,
+      "fingerprint": "f3c7e4dee98deff4",
+      "e10": false,
+      "session": 1
+    },
+    "ml-dsa-44.r5": {
+      "pool": 256,
+      "prep_ns": 31626720,
+      "fingerprint": "e93f698b8bac04c9",
+      "e10": false,
+      "session": 1
+    },
+    "ml-dsa-65.r1": {
+      "pool": 256,
+      "prep_ns": 42832073,
+      "fingerprint": "96c0f57e1f854511",
+      "e10": false,
+      "session": 1
+    },
+    "ml-dsa-65.r2": {
+      "pool": 256,
+      "prep_ns": 42369138,
+      "fingerprint": "bfafd07a644dc244",
+      "e10": false,
+      "session": 1
+    },
+    "ml-dsa-65.r3": {
+      "pool": 256,
+      "prep_ns": 45229915,
+      "fingerprint": "b4b0d743290e7488",
+      "e10": false,
+      "session": 1
+    },
+    "ml-dsa-65.r4": {
+      "pool": 256,
+      "prep_ns": 44575243,
+      "fingerprint": "46dfa8ef44d17e24",
+      "e10": false,
+      "session": 1
+    },
+    "ml-dsa-65.r5": {
+      "pool": 256,
+      "prep_ns": 41830783,
+      "fingerprint": "dff49e8b5de39801",
+      "e10": false,
+      "session": 1
+    },
+    "ml-dsa-87.r1": {
+      "pool": 256,
+      "prep_ns": 65152824,
+      "fingerprint": "5e313af1f59c1843",
+      "e10": false,
+      "session": 1
+    },
+    "ml-dsa-87.r2": {
+      "pool": 256,
+      "prep_ns": 65766017,
+      "fingerprint": "e8a3dc85eb4b64ad",
+      "e10": false,
+      "session": 1
+    },
+    "ml-dsa-87.r3": {
+      "pool": 256,
+      "prep_ns": 65295919,
+      "fingerprint": "3f01899006aa8910",
+      "e10": false,
+      "session": 1
+    },
+    "ml-dsa-87.r4": {
+      "pool": 256,
+      "prep_ns": 64315160,
+      "fingerprint": "ea61716965f3a651",
+      "e10": false,
+      "session": 1
+    },
+    "ml-dsa-87.r5": {
+      "pool": 256,
+      "prep_ns": 64777636,
+      "fingerprint": "1948f9a05a0f2102",
+      "e10": false,
+      "session": 1
+    },
+    "ml-kem-1024.r1": {
+      "pool": 256,
+      "prep_ns": 13898755,
+      "fingerprint": "f48248f047e66bef",
+      "e10": false,
+      "session": 1
+    },
+    "ml-kem-1024.r2": {
+      "pool": 256,
+      "prep_ns": 13311715,
+      "fingerprint": "d47557514f8437c1",
+      "e10": false,
+      "session": 1
+    },
+    "ml-kem-1024.r3": {
+      "pool": 256,
+      "prep_ns": 13366605,
+      "fingerprint": "4349a08b917215e7",
+      "e10": false,
+      "session": 1
+    },
+    "ml-kem-1024.r4": {
+      "pool": 256,
+      "prep_ns": 13235379,
+      "fingerprint": "7678ff68199fc0c0",
+      "e10": false,
+      "session": 1
+    },
+    "ml-kem-1024.r5": {
+      "pool": 256,
+      "prep_ns": 14324085,
+      "fingerprint": "29356ec8f85c210e",
+      "e10": false,
+      "session": 1
+    },
+    "ml-kem-512.r1": {
+      "pool": 256,
+      "prep_ns": 6795392,
+      "fingerprint": "52d76287316c7375",
+      "e10": false,
+      "session": 1
+    },
+    "ml-kem-512.r2": {
+      "pool": 256,
+      "prep_ns": 6548350,
+      "fingerprint": "58673e28bb7dd83d",
+      "e10": false,
+      "session": 1
+    },
+    "ml-kem-512.r3": {
+      "pool": 256,
+      "prep_ns": 6724261,
+      "fingerprint": "d26edd780adada28",
+      "e10": false,
+      "session": 1
+    },
+    "ml-kem-512.r4": {
+      "pool": 256,
+      "prep_ns": 6523987,
+      "fingerprint": "1bb90d9b1a9e81a3",
+      "e10": false,
+      "session": 1
+    },
+    "ml-kem-512.r5": {
+      "pool": 256,
+      "prep_ns": 6539062,
+      "fingerprint": "555a24eb985e412f",
+      "e10": false,
+      "session": 1
+    },
+    "ml-kem-768.r1": {
+      "pool": 256,
+      "prep_ns": 9484297,
+      "fingerprint": "a3ea1c7cf6051592",
+      "e10": false,
+      "session": 1
+    },
+    "ml-kem-768.r2": {
+      "pool": 256,
+      "prep_ns": 9414124,
+      "fingerprint": "bc644cd396dafcad",
+      "e10": false,
+      "session": 1
+    },
+    "ml-kem-768.r3": {
+      "pool": 256,
+      "prep_ns": 9427076,
+      "fingerprint": "5b72d821c3738cf2",
+      "e10": false,
+      "session": 1
+    },
+    "ml-kem-768.r4": {
+      "pool": 256,
+      "prep_ns": 9339286,
+      "fingerprint": "6712d67884f7575d",
+      "e10": false,
+      "session": 1
+    },
+    "ml-kem-768.r5": {
+      "pool": 256,
+      "prep_ns": 9357943,
+      "fingerprint": "d004ace83fc37c3b",
+      "e10": false,
+      "session": 1
+    },
+    "rsa3072-pss.r1": {
+      "pool": 256,
+      "prep_ns": 1354914412,
+      "fingerprint": "0df5726ebb6d5618",
+      "e10": false,
+      "session": 1
+    },
+    "rsa3072-pss.r2": {
+      "pool": 256,
+      "prep_ns": 1013441777,
+      "fingerprint": "dff5def9fc7a5b67",
+      "e10": false,
+      "session": 1
+    },
+    "rsa3072-pss.r3": {
+      "pool": 256,
+      "prep_ns": 1014208060,
+      "fingerprint": "d5f073ef81928908",
+      "e10": false,
+      "session": 1
+    },
+    "rsa3072-pss.r4": {
+      "pool": 256,
+      "prep_ns": 1111546824,
+      "fingerprint": "71e490c3939b514e",
+      "e10": false,
+      "session": 1
+    },
+    "rsa3072-pss.r5": {
+      "pool": 256,
+      "prep_ns": 1094459288,
+      "fingerprint": "60a6ef543a5fc52b",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-sha2-128f.r1": {
+      "pool": 256,
+      "prep_ns": 5651422045,
+      "fingerprint": "c8c8895962d8d477",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-sha2-128f.r2": {
+      "pool": 256,
+      "prep_ns": 5650507835,
+      "fingerprint": "ca07d812346c3bcb",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-sha2-128f.r3": {
+      "pool": 256,
+      "prep_ns": 5655198906,
+      "fingerprint": "f37395d863bc3d3b",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-sha2-128f.r4": {
+      "pool": 256,
+      "prep_ns": 5655107118,
+      "fingerprint": "a6e05134f0aa2839",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-sha2-128f.r5": {
+      "pool": 256,
+      "prep_ns": 5740344770,
+      "fingerprint": "5c99da605cd977a3",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-sha2-128s.r1": {
+      "pool": 64,
+      "prep_ns": 27737793262,
+      "fingerprint": "8fa0297952e49bec",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-sha2-128s.r2": {
+      "pool": 64,
+      "prep_ns": 28060727756,
+      "fingerprint": "2d2ce4a10ec07900",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-sha2-128s.r3": {
+      "pool": 64,
+      "prep_ns": 27917805461,
+      "fingerprint": "7081ce213d118e07",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-sha2-128s.r4": {
+      "pool": 64,
+      "prep_ns": 27763707757,
+      "fingerprint": "eabc91c4c7e640ef",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-sha2-128s.r5": {
+      "pool": 64,
+      "prep_ns": 27709134098,
+      "fingerprint": "4f271e705b1a3eea",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-sha2-192f.r1": {
+      "pool": 256,
+      "prep_ns": 9150112317,
+      "fingerprint": "91d3fbe5f299b20e",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-sha2-192f.r2": {
+      "pool": 256,
+      "prep_ns": 9160971352,
+      "fingerprint": "e7a6b604ed101d06",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-sha2-192f.r3": {
+      "pool": 256,
+      "prep_ns": 9151798607,
+      "fingerprint": "30cb666fbcb1d8d3",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-sha2-192f.r4": {
+      "pool": 256,
+      "prep_ns": 9250723163,
+      "fingerprint": "8727fd7977ff64ad",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-sha2-192f.r5": {
+      "pool": 256,
+      "prep_ns": 9147476936,
+      "fingerprint": "9d65f9091c8d0bc1",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-sha2-192s.r1": {
+      "pool": 64,
+      "prep_ns": 48656279755,
+      "fingerprint": "280ae1939b2d04d3",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-sha2-192s.r2": {
+      "pool": 64,
+      "prep_ns": 48651329815,
+      "fingerprint": "b3cc25e23b20ad92",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-sha2-192s.r3": {
+      "pool": 64,
+      "prep_ns": 48635545877,
+      "fingerprint": "8b72b05d6121f86c",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-sha2-192s.r4": {
+      "pool": 64,
+      "prep_ns": 48670425345,
+      "fingerprint": "26e7e9e80880c247",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-sha2-192s.r5": {
+      "pool": 64,
+      "prep_ns": 48651425183,
+      "fingerprint": "e16196b6b219117c",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-sha2-256f.r1": {
+      "pool": 256,
+      "prep_ns": 18331809727,
+      "fingerprint": "ba720dd63df5c1ca",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-sha2-256f.r2": {
+      "pool": 256,
+      "prep_ns": 18320173465,
+      "fingerprint": "c7a355c267c31598",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-sha2-256f.r3": {
+      "pool": 256,
+      "prep_ns": 18310758424,
+      "fingerprint": "56d5e5c990fb80dd",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-sha2-256f.r4": {
+      "pool": 256,
+      "prep_ns": 18308563356,
+      "fingerprint": "199a102d763dd41c",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-sha2-256f.r5": {
+      "pool": 256,
+      "prep_ns": 18301749181,
+      "fingerprint": "652ada18be7cd737",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-sha2-256s.r1": {
+      "pool": 64,
+      "prep_ns": 42889635099,
+      "fingerprint": "a593ad993cabce0f",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-sha2-256s.r2": {
+      "pool": 64,
+      "prep_ns": 42915500702,
+      "fingerprint": "22fcdd7d27d65cd1",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-sha2-256s.r3": {
+      "pool": 64,
+      "prep_ns": 42876305310,
+      "fingerprint": "e5b3b6b22bd0cc4a",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-sha2-256s.r4": {
+      "pool": 64,
+      "prep_ns": 42873567180,
+      "fingerprint": "5f82146db3739a5e",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-sha2-256s.r5": {
+      "pool": 64,
+      "prep_ns": 42887014828,
+      "fingerprint": "f416335e8623f544",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-shake-128f.r1": {
+      "pool": 256,
+      "prep_ns": 7088912149,
+      "fingerprint": "907aae8b0eab1931",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-shake-128f.r2": {
+      "pool": 256,
+      "prep_ns": 7101856715,
+      "fingerprint": "382423a842155176",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-shake-128f.r3": {
+      "pool": 256,
+      "prep_ns": 7203438024,
+      "fingerprint": "746b71fed75e9e2e",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-shake-128f.r4": {
+      "pool": 256,
+      "prep_ns": 7263273258,
+      "fingerprint": "56c1b1e8a23729f3",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-shake-128f.r5": {
+      "pool": 256,
+      "prep_ns": 7333529446,
+      "fingerprint": "cb8fb0920148dfde",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-shake-128s.r1": {
+      "pool": 64,
+      "prep_ns": 36879949318,
+      "fingerprint": "864095fc8a82eef4",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-shake-128s.r2": {
+      "pool": 64,
+      "prep_ns": 35231224842,
+      "fingerprint": "f1e99f0e62961d37",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-shake-128s.r3": {
+      "pool": 64,
+      "prep_ns": 35239836201,
+      "fingerprint": "bfe780b767a7cb4f",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-shake-128s.r4": {
+      "pool": 64,
+      "prep_ns": 35120040753,
+      "fingerprint": "7bb481aec8f0d6b8",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-shake-128s.r5": {
+      "pool": 64,
+      "prep_ns": 35314536332,
+      "fingerprint": "f1917fed1ceb46f1",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-shake-192f.r1": {
+      "pool": 256,
+      "prep_ns": 11807501260,
+      "fingerprint": "239f466f7365a8e8",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-shake-192f.r2": {
+      "pool": 256,
+      "prep_ns": 11654109578,
+      "fingerprint": "f76673d93aba352f",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-shake-192f.r3": {
+      "pool": 256,
+      "prep_ns": 11690163583,
+      "fingerprint": "5539e14cb767730d",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-shake-192f.r4": {
+      "pool": 256,
+      "prep_ns": 11664589543,
+      "fingerprint": "60a5d49dee382dfc",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-shake-192f.r5": {
+      "pool": 256,
+      "prep_ns": 11672265953,
+      "fingerprint": "d0598a39372f4794",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-shake-192s.r1": {
+      "pool": 64,
+      "prep_ns": 62887975521,
+      "fingerprint": "4c2b0eacb2b36a98",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-shake-192s.r2": {
+      "pool": 64,
+      "prep_ns": 62654149534,
+      "fingerprint": "ddf586c2a9111c4d",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-shake-192s.r3": {
+      "pool": 64,
+      "prep_ns": 62810525807,
+      "fingerprint": "b14075c198edd0e5",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-shake-192s.r4": {
+      "pool": 64,
+      "prep_ns": 62697863833,
+      "fingerprint": "2a62d0e8277ca4be",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-shake-192s.r5": {
+      "pool": 64,
+      "prep_ns": 62683038083,
+      "fingerprint": "86104981e62cb30d",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-shake-256f.r1": {
+      "pool": 256,
+      "prep_ns": 23614340976,
+      "fingerprint": "986d4aca187adcdc",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-shake-256f.r2": {
+      "pool": 256,
+      "prep_ns": 23648993974,
+      "fingerprint": "63848c8177491434",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-shake-256f.r3": {
+      "pool": 256,
+      "prep_ns": 23973935338,
+      "fingerprint": "b40892dd26453318",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-shake-256f.r4": {
+      "pool": 256,
+      "prep_ns": 23662057148,
+      "fingerprint": "6192b84d3590a870",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-shake-256f.r5": {
+      "pool": 256,
+      "prep_ns": 23758676522,
+      "fingerprint": "63b4e0077add8ba1",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-shake-256s.r1": {
+      "pool": 64,
+      "prep_ns": 56561083838,
+      "fingerprint": "828b5b73cc2c2dc4",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-shake-256s.r2": {
+      "pool": 64,
+      "prep_ns": 56583950607,
+      "fingerprint": "e1b4d71ee86af2c0",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-shake-256s.r3": {
+      "pool": 64,
+      "prep_ns": 56876103707,
+      "fingerprint": "9d58293fa243a442",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-shake-256s.r4": {
+      "pool": 64,
+      "prep_ns": 56474806123,
+      "fingerprint": "618f6ffa2e48693e",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-shake-256s.r5": {
+      "pool": 64,
+      "prep_ns": 56794434146,
+      "fingerprint": "0d2915ae56939f8c",
+      "e10": false,
+      "session": 1
+    }
+  },
+  "cell_reps": {
+    "E7.dhkem-p256.decaps": 5,
+    "E7.dhkem-x25519.decaps": 5,
+    "E7.ecdsa-p256.verify": 5,
+    "E7.ed25519.verify": 5,
+    "E7.falcon-1024.verify": 5,
+    "E7.falcon-512.verify": 5,
+    "E7.falcon-padded-1024.verify": 5,
+    "E7.falcon-padded-512.verify": 5,
+    "E7.hqc-1.decaps": 5,
+    "E7.hqc-3.decaps": 5,
+    "E7.hqc-5.decaps": 5,
+    "E7.ml-dsa-44.verify": 5,
+    "E7.ml-dsa-65.verify": 5,
+    "E7.ml-dsa-87.verify": 5,
+    "E7.ml-kem-1024.decaps": 5,
+    "E7.ml-kem-512.decaps": 5,
+    "E7.ml-kem-768.decaps": 5,
+    "E7.rsa3072-pss.verify": 5,
+    "E7.slh-dsa-sha2-128f.verify": 5,
+    "E7.slh-dsa-sha2-128s.verify": 5,
+    "E7.slh-dsa-sha2-192f.verify": 5,
+    "E7.slh-dsa-sha2-192s.verify": 5,
+    "E7.slh-dsa-sha2-256f.verify": 5,
+    "E7.slh-dsa-sha2-256s.verify": 5,
+    "E7.slh-dsa-shake-128f.verify": 5,
+    "E7.slh-dsa-shake-128s.verify": 5,
+    "E7.slh-dsa-shake-192f.verify": 5,
+    "E7.slh-dsa-shake-192s.verify": 5,
+    "E7.slh-dsa-shake-256f.verify": 5,
+    "E7.slh-dsa-shake-256s.verify": 5
+  },
+  "vm_cpus": 4,
+  "host_cpus": 8,
+  "host_period_ns": 5000000000,
+  "canary_every_s": 600
+}
