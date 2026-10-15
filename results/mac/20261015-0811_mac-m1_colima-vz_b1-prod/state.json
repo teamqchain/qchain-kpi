@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "run_id": "20261015-0811_mac-m1_colima-vz_b1-prod",
+  "machine": "mac-m1",
+  "plan_name": "smoke-e12",
+  "plan_kind": "smoke",
+  "plan_hash": "f12e22799586fbc3e82d523e2a5088197eb9c6523d39a803a2dec24ee765603f",
+  "seed": 15928639215896925884,
+  "image_id": "sha256:42554d0b9f45c76dbf1a7e3630c6cbd2db97b273cec19c769056b4d2aa73217b",
+  "harness_commit": "6fed5cd13c092fe292bc8c849eb5e7a57e45a30c",
+  "thresholds_hash": "5b78ea9480ef85f1ac8bfe308d9727762ba27f5000b577b78d278eec2976237b",
+  "started_utc": "2026-10-15T08:11:40Z",
+  "status": "done",
+  "sessions": [
+    {
+      "n": 1,
+      "started_utc": "2026-10-15T08:11:40Z",
+      "start_unix_ns": 1792051900421910757,
+      "host_offset_ns": 24706257,
+      "native_p_rate": 2556581.64236193,
+      "native_e_rate": 413017.173668457
+    }
+  ],
+  "planned_blocks": 8,
+  "queue": [],
+  "done": [
+    "E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w2.r1.a1",
+    "E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w1.r1.a1",
+    "E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w1.r1.a1",
+    "E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w2.r1.a1",
+    "E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w2.r1.a1",
+    "E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w1.r1.a1",
+    "E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w1.r1.a1",
+    "E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w2.r1.a1"
+  ],
+  "classification": {},
+  "requeued": {},
+  "diagnosed": {},
+  "canary_seq": 2,
+  "first_canary_rate": 2545453.3165889364,
+  "last_canary_unix_ns": 1792051927824782497,
+  "preps": {},
+  "cell_reps": {},
+  "vm_cpus": 4,
+  "host_cpus": 8,
+  "host_period_ns": 5000000000,
+  "canary_every_s": 120
+}
