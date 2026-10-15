@@ -1,0 +1,11 @@
+{
+  "name": "e12",
+  "kind": "main",
+  "description": "E12 concurrency on the Mac: W = 1, 2 and 4 workers run QChain's backend verification stage (N = 10, k = 5) or issuance stage (N = 10), E11's copied code, each worker with its own prepared inputs, back to back in one process (GOMAXPROCS = W, Go's default GC) for 5 s of warm-up and a 30 s window. Suites: ML-DSA-44 + ML-KEM-768 (production), Falcon-512 + ML-KEM-512, SLH-DSA-SHA2-128f + ML-KEM-512, ECDSA P-256 + DHKEM(P-256). Reported: throughput (calls completed per second), the latency distribution (p50 to p99.9) and the process's peak resident memory. Every warm-up call and every 64th window call is checked. The container gets the VM's 4 CPUs (this plan only). 5 repetitions.",
+  "reps": 5,
+  "canary_every_s": 600,
+  "cpuset": "0-3",
+  "items": [
+    {"exp": "E12", "algs": ["ml-dsa-44", "ml-kem-768", "falcon-512", "ml-kem-512", "slh-dsa-sha2-128f", "ecdsa-p256", "dhkem-p256"], "workers": [1, 2, 4]}
+  ]
+}

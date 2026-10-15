@@ -198,7 +198,13 @@ func newBatch(c runConfig) (*batch, int, error) {
 		return nil, exitFailed, err
 	}
 	// Preflight inside the container.
-	facts, problems := preflight(c.Out)
+	wantCPUs := 1
+	if p.CPUSet != "" {
+		if wantCPUs, err = plan.CPUCount(p.CPUSet); err != nil {
+			return nil, exitUsage, err
+		}
+	}
+	facts, problems := preflight(c.Out, wantCPUs)
 	if len(problems) > 0 {
 		for _, pr := range problems {
 			logf("preflight: %s", pr)
@@ -334,7 +340,7 @@ func readSessionFile(dir string) (*proto.SessionFile, error) {
 
 // preflight checks the container (coding plan §9). Problems refuse trial and
 // main plans; smoke plans record them.
-func preflight(out string) (map[string]string, []string) {
+func preflight(out string, wantCPUs int) (map[string]string, []string) {
 	facts := map[string]string{}
 	var problems []string
 	facts["gomaxprocs"] = strconv.Itoa(runtime.GOMAXPROCS(0))
@@ -343,8 +349,8 @@ func preflight(out string) (map[string]string, []string) {
 	}
 	cpus, err := quality.CPUSet()
 	facts["cpuset"] = fmt.Sprint(cpus)
-	if err != nil || len(cpus) != 1 {
-		problems = append(problems, fmt.Sprintf("container is not pinned to one CPU (cpuset %v, %v)", cpus, err))
+	if err != nil || len(cpus) != wantCPUs {
+		problems = append(problems, fmt.Sprintf("container has CPUs %v, the plan needs %d (%v)", cpus, wantCPUs, err))
 	}
 	if ents, err := os.ReadDir("/sys/class/net"); err == nil {
 		var names []string
@@ -404,7 +410,7 @@ func (b *batch) missingClassification(blocks []plan.Block) []string {
 	seen := map[string]bool{}
 	var out []string
 	for _, bl := range blocks {
-		if proto.IsProbe(bl.Exp) || bl.Exp == "E2c" || proto.Untimed(bl.Exp) { // E2c: always fast; E8, E9, E13: not timed
+		if proto.IsProbe(bl.Exp) || bl.Exp == "E2c" || proto.Untimed(bl.Exp) || bl.Exp == "E12" { // E2c: always fast; E8, E9, E13: not timed; E12: fixed window
 			continue
 		}
 		k := bl.Alg + "/" + bl.Op
@@ -760,6 +766,9 @@ func (b *batch) modeFor(bl plan.Block) (string, error) {
 	if bl.Exp == "E9" {
 		return "memory", nil
 	}
+	if bl.Exp == "E12" {
+		return "window", nil // fixed warm-up and window: nothing to classify
+	}
 	k := bl.Alg + "/" + bl.Op
 	var m string
 	if b.p.Kind == plan.KindMain {
@@ -774,7 +783,7 @@ func (b *batch) modeFor(bl plan.Block) (string, error) {
 }
 
 func (b *batch) batchFor(bl plan.Block) map[string]int {
-	if b.p.Kind != plan.KindMain || proto.IsProbe(bl.Exp) || proto.Untimed(bl.Exp) || bl.Exp == "E11" {
+	if b.p.Kind != plan.KindMain || proto.IsProbe(bl.Exp) || proto.Untimed(bl.Exp) || bl.Exp == "E11" || bl.Exp == "E12" {
 		return nil // E11 composites are far above the timer's resolution
 	}
 	out := map[string]int{}
@@ -790,8 +799,8 @@ var prepHeader = []string{"utc_ns", "session", "alg", "rep", "pool", "e10", "pre
 
 // ensurePrep generates the input set of a block if it does not exist yet.
 func (b *batch) ensurePrep(bl plan.Block) error {
-	if proto.SizeOnly(bl.Exp) || bl.Exp == "E11" || bl.Exp == "probe-E11" {
-		return nil // E8 and E11 blocks prepare their own inputs
+	if proto.SizeOnly(bl.Exp) || bl.Exp == "E11" || bl.Exp == "probe-E11" || bl.Exp == "E12" {
+		return nil // E8, E11 and E12 blocks prepare their own inputs
 	}
 	rep := bl.Rep
 	if proto.IsProbe(bl.Exp) {
@@ -927,6 +936,12 @@ func (b *batch) runBlock(bl plan.Block) error {
 		return err
 	}
 	a0 := res.Arms[0]
+	if bl.Exp == "E12" && len(res.Arms) >= 2 {
+		lat, tp := res.Arms[0].Stats, res.Arms[1].Stats
+		logf("%d/%d %s throughput %.1f/s, latency p50 %s p99 %s (n=%d)", len(b.st.Done), len(b.st.Done)+len(b.st.Queue), bl.Key(),
+			tp.Mean, fmtNS(lat.P50), fmtNS(lat.P99), lat.N)
+		return nil
+	}
 	if bl.Exp == "E9" {
 		var parts []string
 		for _, a := range res.Arms {

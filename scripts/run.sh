@@ -10,7 +10,8 @@
 #
 # The launcher only prepares and supervises; all measurement and
 # orchestration logic is Go inside the image (coding plan §2, §9). The
-# container is pinned to one CPU with --cpuset-cpus and has NO CPU-time quota
+# container is pinned to one CPU with --cpuset-cpus (E12 plans: the CPUs the
+# plan names, for its concurrent workers) and has NO CPU-time quota
 # (--cpus): a quota equal to the pinned CPU throttles a busy process every few
 # periods (measured 29 of 100 periods, ~1.8 ms each; decision of 10 Oct). It:
 #   - refuses to start on a machine that is not ready (trial and main plans;
@@ -51,6 +52,15 @@ json_get() {
     my $f = shift; open(my $h, "<", $f) or die "$f: $!"; local $/; my $d = decode_json(<$h>);
     for my $k (@ARGV) { $d = (ref $d eq "HASH") ? $d->{$k} : undef; }
     print defined $d ? $d : "";' "$@"
+}
+
+# plan_cpuset PLANFILE: the container's CPUs. Every plan runs pinned to CPU 1
+# except E12 plans, which name several (their "cpuset"; kpi-batch checks it).
+plan_cpuset() {
+  local c
+  c="$(json_get "$1" cpuset)"
+  [[ "$c" =~ ^[0-9]+([-,][0-9]+)*$ ]] || c=1
+  printf '%s' "$c"
 }
 
 json_str() { local s="${1//\\/}"; s="${s//\"/}"; printf '"%s"' "$s"; }
@@ -196,7 +206,7 @@ write_session() { # file offset unc p e cooling
     printf '    "host_mem_gb": %s,\n' "$(json_str "$mem")"
     printf '    "docker": %s,\n    "colima": %s,\n    "lima": %s,\n' "$(json_str "$docker_v")" "$(json_str "$colima_v")" "$(json_str "$lima_v")"
     printf '    "vm_cpus": "4",\n    "vm_mem_gb": "4",\n'
-    printf '    "container_mem": %s,\n    "container_cpuset": "1",\n' "$(json_str "$cmem")"
+    printf '    "container_mem": %s,\n    "container_cpuset": %s,\n' "$(json_str "$cmem")" "$(json_str "${container_cpuset:-1}")"
     printf '    "power": %s,\n    "battery_pct": %s,\n' "$(json_str "$power")" "$(json_str "$batt")"
     printf '    "cooling": %s,\n' "$(json_str "$6")"
     printf '    "low_power_mode": %s,\n    "thermal_at_start": %s,\n' "$(json_str "$lpm")" "$(json_str "$therm")"
@@ -328,6 +338,7 @@ run_session() {
   refs="$(native_refs "$work" "$persist" "$n")"
   p="${refs% *}"; e="${refs#* }"
   note "native canary references: P-core ${p}/s, E-core ${e}/s"
+  container_cpuset="$(docker inspect -f '{{.HostConfig.CpusetCpus}}' "kpi-run-$rid")"
   write_session "$persist/session-s$n.json" "$offset" "$unc" "$p" "$e" "$cooling"
   docker cp "$persist/session-s$n.json" "kpi-run-$rid:/out/session.json" >/dev/null
 
@@ -490,6 +501,7 @@ case "$cmd" in
     planfile="$repo/plans/$plan.json"
     [ -f "$planfile" ] || die "no plan plans/$plan.json"
     kind="$(json_get "$planfile" kind)"
+    cpuset="$(plan_cpuset "$planfile")"
     commit="$(repo_commit)"
     ensure_colima
     build_image "$variant" "$commit" "$rebuild"
@@ -512,7 +524,7 @@ case "$cmd" in
     docker create --init --name "kpi-run-$rid" --stop-timeout 30 \
       --label org.qchain.kpi=1 --label "org.qchain.kpi.run=$rid" --label "org.qchain.kpi.plan=$plan" \
       --label "org.qchain.kpi.kind=$kind" --label "org.qchain.kpi.machine=$machine" \
-      --network none --cpuset-cpus=1 --memory="$cmem" --memory-swap="$cmem" -e GOMAXPROCS=1 \
+      --network none --cpuset-cpus="$cpuset" --memory="$cmem" --memory-swap="$cmem" -e GOMAXPROCS=1 \
       --mount "type=volume,src=kpi-out-$rid,dst=/out" \
       "$tag" run --plan "/opt/kpi/plans/$plan.json" --run-id "$rid" --machine "$machine" \
       --seed "$seed" --image-id "$imageid" >/dev/null
@@ -562,6 +574,7 @@ case "$cmd" in
     kind="$(json_get "$folder/manifest.json" plan kind)"
     [ "$kind" = "main" ] || die "only main runs can be extended (this one is $kind)"
     plan="$(json_get "$folder/manifest.json" plan name)"
+    cpuset="$(plan_cpuset "$repo/plans/$plan.json")"
     seed="$(json_get "$folder/manifest.json" seed)"
     machine="$(json_get "$folder/manifest.json" machine)"
     variant="$(json_get "$folder/manifest.json" build variant)"
@@ -597,7 +610,7 @@ case "$cmd" in
     docker create --init --name "kpi-run-$rid" --stop-timeout 30 \
       --label org.qchain.kpi=1 --label "org.qchain.kpi.run=$rid" --label "org.qchain.kpi.plan=$plan" \
       --label "org.qchain.kpi.kind=$kind" --label "org.qchain.kpi.machine=$machine" \
-      --network none --cpuset-cpus=1 --memory="$cmem" --memory-swap="$cmem" -e GOMAXPROCS=1 \
+      --network none --cpuset-cpus="$cpuset" --memory="$cmem" --memory-swap="$cmem" -e GOMAXPROCS=1 \
       --mount "type=volume,src=kpi-out-$rid,dst=/out" \
       "$tag" run --plan "/opt/kpi/plans/$plan.json" --run-id "$rid" --machine "$machine" \
       --seed "$seed" --image-id "$imageid" --extend "$blocks" --allow-rebuild \

@@ -35,11 +35,12 @@ const (
 
 // Item is one entry of a plan.
 type Item struct {
-	Exp     string   `json:"exp"`               // "probe", "probe-E2", "probe-E11", "probe-E6", "probe-E7", "E1", "E10", "E2", "E2c", "E8", "E11", "E13", "E6", "E7", "E9"
+	Exp     string   `json:"exp"`               // "probe", "probe-E2", "probe-E11", "probe-E6", "probe-E7", "E1", "E10", "E2", "E2c", "E8", "E11", "E13", "E6", "E7", "E9", "E12"
 	Algs    []string `json:"algs"`              // selectors (see algs.Expand)
 	Ops     []string `json:"ops,omitempty"`     // default: every op of the algorithm
 	Reps    int      `json:"reps,omitempty"`    // default: Plan.Reps
 	Profile string   `json:"profile,omitempty"` // default: approved
+	Workers []int    `json:"workers,omitempty"` // E12: concurrent workers (one block per count)
 }
 
 // Plan is a run plan.
@@ -50,7 +51,10 @@ type Plan struct {
 	Reps         int    `json:"reps"`
 	CanaryEveryS int    `json:"canary_every_s"`
 	Items        []Item `json:"items"`
-	Hash         string `json:"-"`
+	// CPUSet is the container's CPU list (docker --cpuset-cpus) when it is not
+	// the default single CPU "1": only E12 plans, whose workers need several.
+	CPUSet string `json:"cpuset,omitempty"`
+	Hash   string `json:"-"`
 }
 
 // Load reads and validates a plan file.
@@ -80,7 +84,7 @@ func Load(path string) (*Plan, error) {
 	}
 	for i, it := range p.Items {
 		switch it.Exp {
-		case "probe", "probe-E2", "probe-E11", "probe-E6", "probe-E7", "E1", "E10", "E2", "E2c", "E8", "E11", "E13", "E6", "E7", "E9":
+		case "probe", "probe-E2", "probe-E11", "probe-E6", "probe-E7", "E1", "E10", "E2", "E2c", "E8", "E11", "E13", "E6", "E7", "E9", "E12":
 		default:
 			return nil, fmt.Errorf("plan %s item %d: experiment %q not implemented in this phase", path, i, it.Exp)
 		}
@@ -97,6 +101,12 @@ func Load(path string) (*Plan, error) {
 				return nil, fmt.Errorf("plan %s item %d: %w", path, i, err)
 			}
 		}
+		if (it.Exp == "E12") != (len(it.Workers) > 0) {
+			return nil, fmt.Errorf("plan %s item %d: workers are given for E12 items, and only for them", path, i)
+		}
+	}
+	if err := cpusetCheck(&p); err != nil {
+		return nil, fmt.Errorf("plan %s: %w", path, err)
 	}
 	return &p, nil
 }
@@ -164,6 +174,12 @@ func Expand(p *Plan, batchSeed uint64) ([]Block, error) {
 		}
 		if reps > maxReps {
 			maxReps = reps
+		}
+		if it.Exp == "E12" {
+			for _, c := range e12Cells(it) {
+				cs = append(cs, cell{it.Exp, c[0], c[1], it.Profile, reps})
+			}
+			continue
 		}
 		if it.Exp == "E11" || it.Exp == "probe-E11" {
 			for _, c := range e11Cells(it) {

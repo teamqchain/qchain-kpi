@@ -17,10 +17,17 @@ package qchain
 // The harness keeps the public key of every classical secret key it generates
 // (pubOf, keyed by the raw secret key) and looks it up there; the lookup
 // costs nanoseconds against operations of tens of microseconds.
+//
+// Concurrency (E12): every twin call creates its own key-object slot (no
+// library call; the object itself is created by Open, as before) and pubOf is
+// guarded by a lock, so several goroutines can run the copied code at once.
+// The liboqs paths need nothing: production creates a fresh liboqs object
+// per call.
 
 import (
 	"encoding/hex"
 	"fmt"
+	"sync"
 
 	"qchain-kpi/internal/algs"
 	"qchain-kpi/internal/classical"
@@ -29,22 +36,36 @@ import (
 )
 
 type sigTwin struct {
-	a   algs.Alg
-	s   scheme.Signature
-	obj scheme.SigObject
+	a  algs.Alg
+	s  scheme.Signature
+	so scheme.SigObjects
 }
 
 type kemTwin struct {
-	a   algs.Alg
-	k   scheme.KEM
-	obj scheme.KEMObject
+	a  algs.Alg
+	k  scheme.KEM
+	ko scheme.KEMObjects
 }
 
 var (
 	clSig *sigTwin // nil: the suite's signature is a liboqs one (sigName)
 	clKEM *kemTwin // nil: the suite's KEM is a liboqs one (kemName)
+	pubMu sync.RWMutex
 	pubOf = map[string][]byte{}
 )
+
+func pubPut(sk, pk []byte) {
+	pubMu.Lock()
+	pubOf[string(sk)] = pk
+	pubMu.Unlock()
+}
+
+func pubGet(sk []byte) ([]byte, bool) {
+	pubMu.RLock()
+	pk, ok := pubOf[string(sk)]
+	pubMu.RUnlock()
+	return pk, ok
+}
 
 // SetSuite selects the signature and KEM every copied function uses. One
 // process measures one suite, so package-level state is sufficient. It also
@@ -60,7 +81,7 @@ func SetSuite(sig, kem algs.Alg) error {
 		if err != nil {
 			return err
 		}
-		clSig = &sigTwin{a: sig, s: s, obj: s.(scheme.SigObjects).NewSigObject()}
+		clSig = &sigTwin{a: sig, s: s, so: s.(scheme.SigObjects)}
 		sigName = sig.ID
 	} else {
 		sigName = sig.OQSName
@@ -70,7 +91,7 @@ func SetSuite(sig, kem algs.Alg) error {
 		if err != nil {
 			return err
 		}
-		clKEM = &kemTwin{a: kem, k: k, obj: k.(scheme.KEMObjects).NewKEMObject()}
+		clKEM = &kemTwin{a: kem, k: k, ko: k.(scheme.KEMObjects)}
 		kemName = kem.ID
 	} else {
 		kemName = kem.OQSName
@@ -180,7 +201,7 @@ func (t *sigTwin) keygen() (string, string, error) {
 	if err != nil {
 		return "", "", err
 	}
-	pubOf[string(sk)] = pk
+	pubPut(sk, pk)
 	return hex.EncodeToString(pk), hex.EncodeToString(sk), nil
 }
 
@@ -189,11 +210,13 @@ func (t *sigTwin) sign(message, privateKeyHex string) (string, error) {
 	if err != nil {
 		return "", fmt.Errorf("decoding private key hex: %w", err)
 	}
-	defer t.obj.Close()
-	if err := t.obj.Open(scheme.Private, sk, pubOf[string(sk)]); err != nil {
+	pk, _ := pubGet(sk)
+	obj := t.so.NewSigObject()
+	defer obj.Close()
+	if err := obj.Open(scheme.Private, sk, pk); err != nil {
 		return "", fmt.Errorf("load %s key: %w", t.a.ID, err)
 	}
-	sig, err := t.obj.Sign([]byte(message))
+	sig, err := obj.Sign([]byte(message))
 	if err != nil {
 		return "", fmt.Errorf("signing: %w", err)
 	}
@@ -209,11 +232,12 @@ func (t *sigTwin) verify(message, signatureHex, publicKeyHex string) (bool, erro
 	if err != nil {
 		return false, fmt.Errorf("decoding signature hex: %w", err)
 	}
-	defer t.obj.Close()
-	if err := t.obj.Open(scheme.Public, nil, pk); err != nil {
+	obj := t.so.NewSigObject()
+	defer obj.Close()
+	if err := obj.Open(scheme.Public, nil, pk); err != nil {
 		return false, fmt.Errorf("load %s public key: %w", t.a.ID, err)
 	}
-	return t.obj.Verify([]byte(message), sig)
+	return obj.Verify([]byte(message), sig)
 }
 
 func (t *kemTwin) keygen() (string, string, error) {
@@ -221,7 +245,7 @@ func (t *kemTwin) keygen() (string, string, error) {
 	if err != nil {
 		return "", "", err
 	}
-	pubOf[string(sk)] = pk
+	pubPut(sk, pk)
 	return hex.EncodeToString(pk), hex.EncodeToString(sk), nil
 }
 
@@ -230,11 +254,12 @@ func (t *kemTwin) encap(pubHex string) (string, string, error) {
 	if err != nil {
 		return "", "", fmt.Errorf("decode KEM public key: %w", err)
 	}
-	defer t.obj.Close()
-	if err := t.obj.Open(scheme.Public, nil, pk); err != nil {
+	obj := t.ko.NewKEMObject()
+	defer obj.Close()
+	if err := obj.Open(scheme.Public, nil, pk); err != nil {
 		return "", "", fmt.Errorf("load %s public key: %w", t.a.ID, err)
 	}
-	ct, ss, err := t.obj.Encaps()
+	ct, ss, err := obj.Encaps()
 	if err != nil {
 		return "", "", fmt.Errorf("KEM encapsulate: %w", err)
 	}
@@ -259,17 +284,18 @@ func (t *kemTwin) decap(kemCtHex, secHex string) (string, error) {
 
 // decapRaw is the decapsulation step on raw bytes (the wallet mirror's form).
 func (t *kemTwin) decapRaw(sec, ct []byte) ([]byte, error) {
-	pk, ok := pubOf[string(sec)]
+	pk, ok := pubGet(sec)
 	if !ok {
 		return nil, fmt.Errorf("%s: no public key known for this secret key", t.a.ID)
 	}
-	defer t.obj.Close()
-	if err := t.obj.Open(scheme.Private, sec, pk); err != nil {
+	obj := t.ko.NewKEMObject()
+	defer obj.Close()
+	if err := obj.Open(scheme.Private, sec, pk); err != nil {
 		return nil, fmt.Errorf("load %s key: %w", t.a.ID, err)
 	}
-	return t.obj.Decaps(ct)
+	return obj.Decaps(ct)
 }
 
 // RegisterClassicalKey records the public half of a classical key pair made
 // outside the twins (input preparation), so the twins can find it.
-func RegisterClassicalKey(pk, sk []byte) { pubOf[string(sk)] = pk }
+func RegisterClassicalKey(pk, sk []byte) { pubPut(sk, pk) }

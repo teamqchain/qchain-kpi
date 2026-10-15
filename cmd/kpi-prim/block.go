@@ -51,6 +51,9 @@ func cmdBlock(args []string) error {
 	if b.Rep < 1 || b.Attempt < 1 || sp.RawFile == "" || !filepath.IsAbs(sp.RawFile) || sp.PrepDir == "" {
 		return fmt.Errorf("block: incomplete spec %+v", sp)
 	}
+	if b.Exp == "E12" {
+		return e12Block(sp) // concurrency: a suite, W workers, fixed window
+	}
 	// E11 blocks name a suite or stage setting, not one algorithm.
 	e11 := b.Exp == "E11" || b.Exp == "probe-E11"
 	var a algs.Alg

@@ -39,6 +39,9 @@ func ArmsOfBlock(exp, alg, op string) []string {
 	if exp == "E11" || exp == "probe-E11" {
 		return E11Arms(op)
 	}
+	if exp == "E12" {
+		return E12Arms
+	}
 	return ArmsOf(exp, algs.MustByID(alg), op)
 }
 

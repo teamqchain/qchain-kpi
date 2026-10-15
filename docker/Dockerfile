@@ -66,8 +66,11 @@ ENV KPI_MALLOC_LIB=/opt/kpi/lib/libkpi_malloc.so
 FROM harness AS test
 # /bin/sh is dash, which has no pipefail: the test output goes to a file and
 # the status of go test itself decides whether the build continues.
+# E12 runs QChain's copied code from several goroutines at once: its
+# concurrency tests also run under the race detector.
 RUN go vet ./... && \
-    if go test -count=1 ./... > /opt/kpi/build-info/go-test.txt 2>&1; then \
+    if go test -count=1 ./... > /opt/kpi/build-info/go-test.txt 2>&1 && \
+       go test -count=1 -race -run 'Concurrent|Run' ./internal/flow ./internal/conc >> /opt/kpi/build-info/go-test.txt 2>&1; then \
         cat /opt/kpi/build-info/go-test.txt; \
     else \
         cat /opt/kpi/build-info/go-test.txt; echo "go test FAILED" >&2; exit 1; \

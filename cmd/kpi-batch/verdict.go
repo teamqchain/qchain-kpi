@@ -385,7 +385,7 @@ func qualityRows(vs []*Verdict) [][]string {
 		} else if v.Drift {
 			drift = "yes"
 		}
-		if proto.IsProbe(b.Exp) || proto.Untimed(b.Exp) {
+		if !proto.Measured(b.Exp) { // probes, untimed experiments and E12 have no drift rule
 			drift = "n/a"
 		}
 		rows = append(rows, []string{v.Res.Key, b.ID, b.Exp, b.Alg, b.Op, strconv.Itoa(b.Rep), strconv.Itoa(b.Attempt),

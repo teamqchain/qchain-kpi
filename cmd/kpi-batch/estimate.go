@@ -245,6 +245,11 @@ func estimate(dir, plansDir, machine string) (*Estimate, error) {
 				add(bl.Exp, bs, r)
 				continue
 			}
+			if bl.Exp == "E12" {
+				bs, r := x.e12Block(bl)
+				add(bl.Exp, bs, r)
+				continue
+			}
 			a := algs.MustByID(bl.Alg)
 			if bl.Exp == "E13" {
 				bs, r := x.e13Block(bl, a)
