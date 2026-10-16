@@ -410,7 +410,7 @@ func (b *batch) missingClassification(blocks []plan.Block) []string {
 	seen := map[string]bool{}
 	var out []string
 	for _, bl := range blocks {
-		if proto.IsProbe(bl.Exp) || bl.Exp == "E2c" || proto.Untimed(bl.Exp) || bl.Exp == "E12" { // E2c: always fast; E8, E9, E13: not timed; E12: fixed window
+		if proto.IsProbe(bl.Exp) || bl.Exp == "E2c" || proto.Untimed(bl.Exp) || bl.Exp == "E12" || proto.IsE3Null(bl.Exp, bl.Alg, bl.Op) { // E2c, E3 null: always fast; E8, E9, E13: not timed; E12: fixed window
 			continue
 		}
 		k := bl.Alg + "/" + bl.Op
@@ -755,7 +755,7 @@ func (b *batch) modeFor(bl plan.Block) (string, error) {
 	if proto.IsProbe(bl.Exp) {
 		return "", nil
 	}
-	if bl.Exp == "E2c" {
+	if bl.Exp == "E2c" || proto.IsE3Null(bl.Exp, bl.Alg, bl.Op) {
 		// The components (hex coding, object creation and destruction) are
 		// all short; batching keeps every sample above the timer's resolution.
 		return string(timing.Fast), nil
@@ -799,8 +799,8 @@ var prepHeader = []string{"utc_ns", "session", "alg", "rep", "pool", "e10", "pre
 
 // ensurePrep generates the input set of a block if it does not exist yet.
 func (b *batch) ensurePrep(bl plan.Block) error {
-	if proto.SizeOnly(bl.Exp) || bl.Exp == "E11" || bl.Exp == "probe-E11" || bl.Exp == "E12" {
-		return nil // E8, E11 and E12 blocks prepare their own inputs
+	if proto.SizeOnly(bl.Exp) || bl.Exp == "E11" || bl.Exp == "probe-E11" || bl.Exp == "E12" || proto.IsE3Null(bl.Exp, bl.Alg, bl.Op) {
+		return nil // E8, E11 and E12 blocks prepare their own inputs; E3's null block needs none
 	}
 	rep := bl.Rep
 	if proto.IsProbe(bl.Exp) {

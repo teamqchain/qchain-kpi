@@ -50,6 +50,8 @@ import (
 type memJob interface {
 	Call() (fn, arg unsafe.Pointer)
 	SetInputs(in1, in2 []byte)
+	SetPool(in1, in2 [][]byte) // E3: inputs copied into C memory once
+	Select(i int)              // E3: point at pool entry i
 	Outputs() (out1, out2 []byte)
 	Close()
 }

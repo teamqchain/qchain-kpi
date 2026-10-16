@@ -44,7 +44,7 @@ The folder holds only allow-listed facts: no host name, user name, path outside 
 
 | Name | Example | Meaning |
 |---|---|---|
-| block id | `E1.ml-dsa-44.sign.r3` | experiment, algorithm, operation, repetition (experiments `E1`, `E10`, `E2`, `E2c`, `E6`, `E7`, `E8`, `E9`, `E11`, `E12`, `E13`, `probe`, `probe-E2`, `probe-E6`, `probe-E7`, `probe-E11`) |
+| block id | `E1.ml-dsa-44.sign.r3` | experiment, algorithm, operation, repetition (experiments `E1`, `E10`, `E2`, `E2c`, `E3`, `E6`, `E7`, `E8`, `E9`, `E11`, `E12`, `E13`, `probe`, `probe-E2`, `probe-E6`, `probe-E7`, `probe-E11`) |
 | attempt key | `E1.ml-dsa-44.sign.r3.a2` | block id + attempt number (`a1` = the first attempt) |
 | cell | `E1.ml-dsa-44.sign` | block id without the repetition |
 | arm | `reuse`, `issuer`, `holder`, `issuer-again`, `reinit`, `prod`, `hex-decode-sk`, `hex-decode-pk`, `hex-decode-sig`, `hex-decode-ct`, `init`, `clean`, `hex-encode-pk`, `hex-encode-sk`, `hex-encode-sig`, `hex-encode-ct`, `hex-encode-ss` | a measured variant inside a block (E2 and E2c arms: `docs/methodology.md` section 4 and `internal/proto/e2.go`) |
@@ -215,3 +215,11 @@ E9 blocks are not timed (like E8: no run-quality flags, never repeated, the firs
 - **Raw file** `raw/E12/<sig>+<kem>/<op>-r<rep>-a<attempt>.csv.gz`: header lines as usual, plus `stage`, `workers`, `gomaxprocs`, `budget`, `counted`, `histogram` (the bucket rule), `calls_window`, `calls_warmup`, `calls_checked`, `throughput_per_s`, `latency_min_ns`, `latency_max_ns`, `latency_mean_ns`, `rss_before`, `rss_peak`, `gc` (cycles, pause time and heap in use during the run) and `prep_ns`. Then `kind,key,count` rows: `second,<s>,<calls completed in second s of the window>`, `worker,<k>,<calls of worker k>`, and `bucket,<lower bound ns>,<calls>` for every non-empty histogram bucket (width 1 ns below 128 ns, lower bound ÷ 64 above).
 - **`blocks.csv`:** four rows per attempt: `latency` (ns; `n` = calls in the window, quantiles from the histogram, `sd` approximate, `sum_ns` exact), `throughput` (calls per second, statistics over the seconds of the window: `mean_ns` is the throughput), `rss-growth` and `rss-peak` (bytes, one value). `mode` is `window`.
 - **`quality.csv`:** the external flags apply (busy host, thermal pressure, canary, core type, ...) and a flagged block is repeated; `drift` = `n/a`.
+
+## E3 (integration-pattern cost)
+
+- **Block ids:** `E3.<algorithm>.<op>.r<rep>` for the 90 cells, and `E3.none.null.r<rep>` for the null block.
+- **Arms:** `l0` (C library, timed in C), `l0g` (the same C call timed from Go), `l1` (E1's reuse arm), `l2` (Go standard library; classical algorithms only); first calls labelled `first`. Null block: `cgo-null` (batch of 1,000 calls; `blocks.csv` divides by the batch) and `c-empty` (the C timer's floor).
+- **Raw files** as E1's (`arm,ns` rows; the `l0` and `c-empty` durations are measured inside C). The arm index is in the `arms` header.
+- **Derived (analysis):** Go-to-C boundary = `l0g - l0`; binding work = `l1 - l0g`; Go standard library against OpenSSL = `l2 / l1`.
+- **Classification:** E1's (`<algorithm>/<op>` in `config/thresholds.json`); no add-on trial.

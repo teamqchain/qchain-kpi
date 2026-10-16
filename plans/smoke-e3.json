@@ -1,0 +1,11 @@
+{
+  "name": "smoke-e3",
+  "kind": "smoke",
+  "description": "Pipeline test of E3, never used for results: probe pass, then E3 for ML-DSA-44, ML-KEM-768, Falcon-512, SLH-DSA-SHA2-128f, HQC-1 and the five classical algorithms (every layer, including Go's standard library), and the null block, with tiny budgets (fast: 10 warm-up + 200 samples; slow: 1 s and at least 3 samples), 1 repetition.",
+  "reps": 1,
+  "canary_every_s": 120,
+  "items": [
+    {"exp": "probe", "algs": ["ml-dsa-44", "ml-kem-768", "falcon-512", "slh-dsa-sha2-128f", "hqc-1", "classical"]},
+    {"exp": "E3", "algs": ["ml-dsa-44", "ml-kem-768", "falcon-512", "slh-dsa-sha2-128f", "hqc-1", "classical"], "profile": "smoke"}
+  ]
+}

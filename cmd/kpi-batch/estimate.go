@@ -250,6 +250,11 @@ func estimate(dir, plansDir, machine string) (*Estimate, error) {
 				add(bl.Exp, bs, r)
 				continue
 			}
+			if proto.IsE3Null(bl.Exp, bl.Alg, bl.Op) {
+				bs, r := x.e3NullBlock(bl)
+				add(bl.Exp, bs, r)
+				continue
+			}
 			a := algs.MustByID(bl.Alg)
 			if bl.Exp == "E13" {
 				bs, r := x.e13Block(bl, a)

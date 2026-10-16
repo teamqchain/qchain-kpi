@@ -1,0 +1,10 @@
+{
+  "name": "e3",
+  "kind": "main",
+  "description": "E3 integration-pattern cost: every operation of all 30 algorithms in up to four layers, interleaved in one process, each with the full approved budget: l0 = the C library called directly and timed inside C; l0g = the same C call timed from Go (l0g - l0 is the Go-to-C boundary); l1 = E1's reuse arm (l1 - l0g is the Go binding's own work); l2 = Go's standard library, classical algorithms only. Plus one null block per repetition: a cgo call to an empty C function (batched) and the C timer's floor. Same keys and input pool for every layer; every call checked (l2 against OpenSSL). E1's fast/slow classification; 5 repetitions.",
+  "reps": 5,
+  "canary_every_s": 600,
+  "items": [
+    {"exp": "E3", "algs": ["all"]}
+  ]
+}

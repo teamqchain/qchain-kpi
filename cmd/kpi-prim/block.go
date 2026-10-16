@@ -56,8 +56,10 @@ func cmdBlock(args []string) error {
 	}
 	// E11 blocks name a suite or stage setting, not one algorithm.
 	e11 := b.Exp == "E11" || b.Exp == "probe-E11"
+	// E3's null-call block has no algorithm and no inputs.
+	e3null := proto.IsE3Null(b.Exp, b.Alg, b.Op)
 	var a algs.Alg
-	if !e11 {
+	if !e11 && !e3null {
 		var ok bool
 		if a, ok = algs.ByID(b.Alg); !ok {
 			return fmt.Errorf("block: unknown algorithm %q", b.Alg)
@@ -70,6 +72,11 @@ func cmdBlock(args []string) error {
 		// One process per (scheme, operation, size): the first call is cold, as in E1.
 	case "E7", "probe-E7":
 		firstLabel = "first" // several arms share the process
+	case "E3":
+		if !e3null && !a.HasOp(b.Op) {
+			return fmt.Errorf("block: %s has no operation %q", a.ID, b.Op)
+		}
+		firstLabel = "first" // several layers share the process
 	case "E10":
 		if a.Family != "ML-DSA" || b.Op != "sign" {
 			return fmt.Errorf("block: E10 is ML-DSA sign only")
@@ -111,6 +118,8 @@ func cmdBlock(args []string) error {
 		if set, poolN, prepNS, err = e11Arms(b); err != nil {
 			return err
 		}
+	} else if e3null {
+		procsetup.MicroGC()
 	} else {
 		procsetup.MicroGC()
 		prepRep := b.Rep
@@ -140,6 +149,12 @@ func cmdBlock(args []string) error {
 		set, err = e6Arms(a, b.Op, p)
 	case "E7", "probe-E7":
 		set, err = e7Arms(a, b.Op, p, b.Seed)
+	case "E3":
+		if e3null {
+			set = e3NullArms()
+		} else {
+			set, err = e3Arms(a, b.Op, p, b.Seed)
+		}
 	case "probe-E2":
 		// Every E2 and E2c arm, unbatched: the probe pass decides the batches.
 		var e2, e2c *armSet

@@ -48,6 +48,23 @@ type Arm struct {
 	Check func(i int, nbytes int) error
 	// Batch is the number of operations per timed sample (>= 1).
 	Batch int
+	// Timed (optional, E3's raw-C arm) performs ONE operation like Call but
+	// measures it itself, inside C, and returns its duration. When set, the
+	// engine records that duration instead of its own clock reading around
+	// the call, for the first call and every sample (a batch sums its calls);
+	// warm-up calls still go through Call.
+	Timed func(i int) (ns int64, nbytes int, err error)
+}
+
+// call performs one call of an arm and returns its duration: the arm's own
+// measurement for a self-timed arm, otherwise the engine's clock around it.
+func (a Arm) call(i int) (int64, int, error) {
+	if a.Timed != nil {
+		return a.Timed(i)
+	}
+	t0 := time.Now()
+	nb, err := a.Call(i)
+	return time.Since(t0).Nanoseconds(), nb, err
 }
 
 // Config is the budget for one block.
@@ -136,9 +153,7 @@ func Run(arms []Arm, cfg Config) (Result, error) {
 
 	// 1. First call of every arm, in declared order (deterministic).
 	for k, a := range arms {
-		t0 := time.Now()
-		nb, err := a.Call(0)
-		d := time.Since(t0).Nanoseconds()
+		d, nb, err := a.call(0)
 		if err != nil {
 			return res, fmt.Errorf("arm %s first call: %w", a.Name, err)
 		}
@@ -187,13 +202,24 @@ func Run(arms []Arm, cfg Config) (Result, error) {
 			i := idx[k]
 			var nb int
 			var err error
-			t0 := time.Now()
-			for j := 0; j < b; j++ {
-				if nb, err = a.Call(i + j); err != nil {
-					break
+			var d int64
+			if a.Timed != nil {
+				for j := 0; j < b; j++ {
+					var dj int64
+					if dj, nb, err = a.Timed(i + j); err != nil {
+						break
+					}
+					d += dj
 				}
+			} else {
+				t0 := time.Now()
+				for j := 0; j < b; j++ {
+					if nb, err = a.Call(i + j); err != nil {
+						break
+					}
+				}
+				d = time.Since(t0).Nanoseconds()
 			}
-			d := time.Since(t0).Nanoseconds()
 			if err != nil {
 				return res, fmt.Errorf("arm %s sample: %w", a.Name, err)
 			}

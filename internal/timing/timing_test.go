@@ -94,3 +94,47 @@ func TestCheckFailureAbortsBlock(t *testing.T) {
 		t.Fatalf("expected ErrCheck, got %v", err)
 	}
 }
+
+// TestTimedArm: a self-timed arm's own durations are recorded (first call and
+// every sample, a batch summing its calls), its warm-up goes through Call, and
+// an ordinary arm interleaved with it is still timed by the engine.
+func TestTimedArm(t *testing.T) {
+	calls, timed := 0, 0
+	self := Arm{Name: "self", Batch: 2,
+		Call:  func(int) (int, error) { calls++; return 7, nil },
+		Timed: func(int) (int64, int, error) { timed++; return 1000, 7, nil }}
+	plain := Arm{Name: "plain", Call: func(int) (int, error) { time.Sleep(50 * time.Microsecond); return 0, nil }}
+	var rows []int64
+	cfg := Config{Mode: Fast, Warmup: 3, Samples: 20, FirstLabel: "first", Seed: 1,
+		Sink: func(arm string, ns int64, _ int) {
+			if arm == "self" {
+				rows = append(rows, ns)
+			}
+		}}
+	res, err := Run([]Arm{self, plain}, cfg)
+	if err != nil {
+		t.Fatal(err)
+	}
+	s, p := res.Arms[0], res.Arms[1]
+	if s.FirstNS != 1000 || len(s.PerOpNS) != 20 || calls != 3 || timed != 1+20*2 {
+		t.Fatalf("self-timed arm: first %d, %d samples, %d calls, %d timed calls", s.FirstNS, len(s.PerOpNS), calls, timed)
+	}
+	for _, v := range s.PerOpNS {
+		if v != 1000 {
+			t.Fatalf("self-timed per-op %v, want 1000", v)
+		}
+	}
+	for _, ns := range rows {
+		if ns != 2000 {
+			t.Fatalf("batch total %d, want 2000", ns)
+		}
+	}
+	if s.SumNS != 20*2000 || s.MinBytes != 7 {
+		t.Fatalf("sum %d bytes %d", s.SumNS, s.MinBytes)
+	}
+	for _, v := range p.PerOpNS {
+		if v < 50e3 {
+			t.Fatalf("plain arm %v ns below its 50 µs sleep", v)
+		}
+	}
+}

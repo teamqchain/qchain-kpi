@@ -23,6 +23,10 @@ type MemJob struct {
 	cap1, cap2 int // input buffer capacities
 	len1, len2 int // fixed output lengths (sign: the signature's maximum)
 	op         string
+	pool1      []unsafe.Pointer // SetPool's C copies
+	pool2      []unsafe.Pointer
+	plen1      []int
+	plen2      []int
 }
 
 // NewMemJob prepares op for algorithm a with the given key pair (keygen
@@ -117,6 +121,33 @@ func (m *MemJob) SetInputs(in1, in2 []byte) {
 	copy(unsafe.Slice((*byte)(unsafe.Pointer(m.j.in1)), m.cap1), in1)
 	copy(unsafe.Slice((*byte)(unsafe.Pointer(m.j.in2)), m.cap2), in2)
 	m.j.in1len, m.j.in2len = C.size_t(len(in1)), C.size_t(len(in2))
+	if m.op == "sign" {
+		m.j.out1len = C.size_t(m.len1)
+	}
+}
+
+// SetPool copies a whole input pool into C memory once (E3: no copying
+// between timed calls); Select then points the job at entry i mod the pool
+// size. in1 is the message (sign, verify) or ciphertext (decaps), in2 the
+// signature (verify); either may be nil.
+func (m *MemJob) SetPool(in1, in2 [][]byte) {
+	m.pool1, m.plen1, m.pool2, m.plen2 = nil, nil, nil, nil
+	for _, b := range in1 {
+		m.pool1, m.plen1 = append(m.pool1, m.copyIn(b)), append(m.plen1, len(b))
+	}
+	for _, b := range in2 {
+		m.pool2, m.plen2 = append(m.pool2, m.copyIn(b)), append(m.plen2, len(b))
+	}
+}
+
+// Select points the job's inputs at pool entry i (no copy).
+func (m *MemJob) Select(i int) {
+	if n := len(m.pool1); n > 0 {
+		m.j.in1, m.j.in1len = (*C.uint8_t)(m.pool1[i%n]), C.size_t(m.plen1[i%n])
+	}
+	if n := len(m.pool2); n > 0 {
+		m.j.in2, m.j.in2len = (*C.uint8_t)(m.pool2[i%n]), C.size_t(m.plen2[i%n])
+	}
 	if m.op == "sign" {
 		m.j.out1len = C.size_t(m.len1)
 	}

@@ -13,7 +13,7 @@ It records every sample, flags noisy measurements and repeats them, and produces
 - **Where every input comes from** (QChain code copied verbatim, pinned libraries, test vectors): [docs/provenance.md](docs/provenance.md)
 - **Decisions taken while building the harness:** [docs/decisions-log.md](docs/decisions-log.md)
 
-**Status (15 Oct 2026): Mac-first.** Mac results: the trial, E1, E10, E2, E6, E7, E8, E9, E11 and E13 (all committed). E12 (concurrency) is coded.
+**Status (16 Oct 2026): Mac-first.** Mac results: the trial, E1, E10, E2, E6, E7, E8, E9, E11, E12 and E13 (all committed). E3 (integration-pattern cost) is coded.
 
 **14 Oct:** Mac results: the trial, E1, E10, E2, E8, E11 and E13 (all committed). E6 and E7 are coded.
 
@@ -86,8 +86,8 @@ Pushing is always manual.
 - `trial-e2`: add-on calibration for E2 (batch sizes of the new arms only), once per machine before its first E2 run;
 - `trial-e11`: add-on calibration for E11 (fast/slow classification of the 991 cells), once per machine before its first E11 run;
 - `trial-e6`, `trial-e7`: add-on calibrations for E6 (classification and batch sizes of the 220 cells) and E7 (batch sizes of its arms), once per machine before their main runs;
-- `smoke-e2`, `smoke-e6`, `smoke-e7`, `smoke-e8`, `smoke-e9`, `smoke-e11`, `smoke-e12`, `smoke-e13`: pipeline tests;
-- `e1`, `e10`, `e2`, `e6`, `e7`, `e8`, `e9`, `e11`, `e12`, `e13`: main runs. `e12` and `smoke-e12` give the container 4 CPUs (`cpuset`); every other plan pins it to one.
+- `smoke-e2`, `smoke-e6`, `smoke-e7`, `smoke-e3`, `smoke-e8`, `smoke-e9`, `smoke-e11`, `smoke-e12`, `smoke-e13`: pipeline tests;
+- `e1`, `e10`, `e2`, `e3`, `e6`, `e7`, `e8`, `e9`, `e11`, `e12`, `e13`: main runs. `e12` and `smoke-e12` give the container 4 CPUs (`cpuset`); every other plan pins it to one.
 
 A machine's first main run needs its calibrated section in `config/thresholds.json`. The trial writes `calibration.json`, which is reviewed, merged and committed before any main run on that machine.
 
@@ -95,7 +95,7 @@ A machine's first main run needs its calibrated section in `config/thresholds.js
 
 ```
 cmd/        kpi-batch kpi-prim kpi-env kpi-canary-native
-internal/   algs pqc classical qchain scheme timing inputs proto plan quality stats record canary procsetup buildinfo memprobe conc
+internal/   algs pqc classical qchain scheme timing inputs proto plan quality stats record canary procsetup buildinfo memprobe conc l0 gostd
 csrc/       kpi_malloc.c (E9's C-heap counter, preloaded into E9's blocks only)
 docker/     Dockerfile and the liboqs build and gate scripts
 plans/      run plans (JSON)
