@@ -849,3 +849,19 @@
 [17:53:55] 529/529 E3.slh-dsa-shake-128s.sign.r4.a2 slow p50 552.857ms (n=109) first 555.136ms
 [17:53:56] canary 97 (end): 2518102 hashes/s, ratio 0.9817 P-like
 [17:54:16] batch complete: 529 attempt(s); 2797 file(s) in SHA256SUMS
+
+=== extension session (blocks without a clean attempt) ===
+[23:03:09] resuming 20261016-1904_mac-m1_colima-vz_b1-prod: 0 block(s) queued, 529 done, 0 temporary file(s) removed
+[23:03:10] canary 98 (extend): 2561749 hashes/s, ratio 0.9988 P-like
+[23:03:10] prepared falcon-1024.r5: P=256 in 0.1s
+[23:06:11] 530/531 E3.falcon-1024.keygen.r5.a4 slow p50 14.823ms (n=3702) first 19.416ms
+[23:06:19] prepared hqc-5.r1: P=256 in 7.6s
+[23:13:51] 531/531 E3.hqc-5.encaps.r1.a4 slow p50 11.772ms (n=5088) first 12.695ms
+[23:13:53] canary 99 (end): 2517338 hashes/s, ratio 0.9814 P-like
+[23:14:18] queued E3.hqc-5.encaps.r1.a5 (repeat:other) at position 0
+[23:21:51] 532/532 E3.hqc-5.encaps.r1.a5 slow p50 11.777ms (n=5087) first 13.198ms
+[23:21:52] canary 100 (end): 2514794 hashes/s, ratio 0.9805 P-like
+[23:22:23] queued E3.hqc-5.encaps.r1.a6 (repeat:other) at position 0
+[23:29:55] 533/533 E3.hqc-5.encaps.r1.a6 slow p50 11.802ms (n=5076) first 13.226ms
+[23:29:57] canary 101 (end): 2514417 hashes/s, ratio 0.9803 P-like
+[23:30:27] batch complete: 533 attempt(s); 2872 file(s) in SHA256SUMS

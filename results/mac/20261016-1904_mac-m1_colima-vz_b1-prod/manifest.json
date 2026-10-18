@@ -9,7 +9,7 @@
     "sha256": "456561eac6ef3e5c21b888b4ed39250626765a15c7948a442de0955df411fdd1",
     "reps": 5,
     "canary_every_s": 600,
-    "planned_blocks": 455
+    "planned_blocks": 457
   },
   "seed": 17599167190042825529,
   "image_id": "sha256:515e4abc73e6d1370aefb42a2a1973df924b9b28e85726f26152ffd83bb8c333",
@@ -1696,7 +1696,7 @@
     "memory_max": "3221225472",
     "memory_swap_max": "0",
     "net_interfaces": "lo",
-    "out_free_gb": "47.0",
+    "out_free_gb": "46.9",
     "tz": "Asia/Dubai"
   },
   "host": {
@@ -1704,7 +1704,7 @@
     "colima": "0.10.3",
     "container_cpuset": "1",
     "container_mem": "3g",
-    "cooling": "USB fan cooling pad",
+    "cooling": "unstated",
     "docker": "29.5.2",
     "host_cpu": "Apple M1",
     "host_mem_gb": "8",
@@ -1727,20 +1727,44 @@
       "host_offset_ns": 8772728,
       "native_p_rate": 2572515.9427896,
       "native_e_rate": 412649.382975214
+    },
+    {
+      "n": 2,
+      "started_utc": "2026-10-18T19:03:09Z",
+      "start_unix_ns": 1792350189038161058,
+      "host_offset_ns": -15344177,
+      "native_p_rate": 2571581.39418631,
+      "native_e_rate": 412300.600897163
     }
   ],
   "status": "done",
   "started_utc": "2026-10-16T19:04:25Z",
-  "updated_utc": "2026-10-17T13:54:16Z",
+  "updated_utc": "2026-10-18T19:30:27Z",
   "counts": {
-    "attempts": 529,
+    "attempts": 533,
     "blocks": 455,
-    "blocks_with_headline": 453,
+    "blocks_with_headline": 454,
     "diagnostic_attempts": 22,
     "drift_flags": 29,
-    "exhausted_blocks": 2,
-    "flagged_attempts": 57,
-    "repeat_attempts": 52
+    "exhausted_blocks": 1,
+    "flagged_attempts": 60,
+    "repeat_attempts": 56
   },
-  "cgroup_memory_peak_bytes": 670752768
+  "notes": [
+    "session 2 extended this run: blocks E3.falcon-1024.keygen.r5, E3.hqc-5.encaps.r1 had no clean attempt and were run again (attempt numbers continue); input sets were regenerated (same message seeds, new keys)"
+  ],
+  "extensions": [
+    {
+      "session": 2,
+      "blocks": [
+        "E3.falcon-1024.keygen.r5",
+        "E3.hqc-5.encaps.r1"
+      ],
+      "old_image_id": "sha256:515e4abc73e6d1370aefb42a2a1973df924b9b28e85726f26152ffd83bb8c333",
+      "old_harness_commit": "25b0ccefe35338694bfe1532e1ddcede41aded4d",
+      "new_image_id": "sha256:515e4abc73e6d1370aefb42a2a1973df924b9b28e85726f26152ffd83bb8c333",
+      "new_harness_commit": "25b0ccefe35338694bfe1532e1ddcede41aded4d"
+    }
+  ],
+  "cgroup_memory_peak_bytes": 47329280
 }
