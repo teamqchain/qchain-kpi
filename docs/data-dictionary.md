@@ -7,11 +7,11 @@ results/<os>/<run-id>/
 ```
 
 - `<os>` is `mac`, `windows` or `linux`.
-- `<run-id>` is `<UTC yyyymmdd-hhmm>_<machine>_<runtime>_<variant>`, for example `20261010-1830_mac-m1_colima-vz_b1-prod`.
+- `<run-id>` is `<UTC yyyymmdd-hhmm>_<machine>_<runtime>_<variant>`, for example `20261010-1830_mac-m1_colima-vz_b1-prod`. The runtime is `colima-vz` for the container on the Mac and `native-macos` for E5's native runs (`scripts/native-mac.sh`); the variant is the liboqs build (`b1-prod`, `b2-portable`, `b3-native`, `b4-noossl`).
 
 All times are in nanoseconds:
 - **Durations** come from Go's monotonic clock (`time.Now`/`time.Since`).
-- **Timestamps** (`*_unix_ns`, `utc_ns`) are wall-clock Unix time in UTC. They use the container's clock, except in the host monitor files, which use the host's clock.
+- **Timestamps** (`*_unix_ns`, `utc_ns`) are wall-clock Unix time in UTC. They use the container's clock, except in the host monitor files, which use the host's clock. In native runs both are the host's clock (offset 0).
 
 The folder holds only allow-listed facts: no host name, user name, path outside the container, IP or MAC address, serial number or AnyDesk ID. The launcher enforces this with a privacy scan of every file before the folder enters `results/`.
 
@@ -30,13 +30,13 @@ The folder holds only allow-listed facts: no host name, user name, path outside 
 | `raw/<exp>/<alg>/<op>-r<rep>-a<attempt>.csv.gz` | kpi-prim | Every timed call of one attempt (see below). |
 | `env/build-info-s<N>/` | image build | Build records of the image used by an extension session N (see methodology section 8). |
 | `env/e0-s<N>.json` | kpi-env | E0 environment capture at the start of session N (see below). |
-| `env/build-info/` | image build | Records made while the image was built: `oqs-build.txt`, `oqs-CMakeCache.txt`, `oqsconfig.h`, `oqs-cmake.txt`, `oqs-ninja.txt`, `oqs-gate.txt` (liboqs correctness gate), `acvp-sha256-check.txt`, `go-test.txt`, `go-version.txt`, `apt-source-*.txt`, `dpkg-*.tsv`. |
+| `env/build-info/` | image build | Records made while the image was built: `oqs-build.txt`, `oqs-CMakeCache.txt`, `oqsconfig.h`, `oqs-cmake.txt`, `oqs-ninja.txt`, `oqs-gate.txt` (liboqs correctness gate), `acvp-sha256-check.txt`, `go-test.txt`, `go-version.txt`, `apt-source-*.txt`, `dpkg-*.tsv`; `b3-native` images also `gcc-native-target.txt` (what `-mcpu/-march=native` resolved to). Native runs (E5) hold the native toolchain's records instead (`scripts/native-setup.sh`): the same liboqs files (`oqs-build.txt` with `platform=native-macos`, `cc` instead of `gcc`, and the OpenSSL version), `openssl-build.txt` (version, tarball SHA-256, configure options, compiler flags), `openssl-configure.txt`, `openssl-test-summary.txt`, `pip-freeze.txt` (the build and test tools), `cc-version.txt`, and the native `go-test.txt` and `go-version.txt`. |
 | `monitor/host-s<N>-<seq>.csv` (+ `.ok`) | launcher | Host monitor samples of session N, delivered every minute (see below). A chunk is read only once its `.ok` marker exists. |
 | `calibration.json` | kpi-batch (trial only) | The machine's thresholds derived from this trial (see `docs/methodology.md`). |
 | `estimate.json` | kpi-batch (trial only) | Projected hours and raw-data size of every main plan on this machine. Plans this trial cannot estimate (a first trial cannot estimate E2, E6, E7 or E11, which need their own add-on trial) are listed in `not_estimated` with the reason. |
 | `SHA256SUMS` | kpi-batch | SHA-256 of every file above (`shasum -c` format). Written last. |
-| `console.txt` | launcher | Everything kpi-batch printed, over all sessions (`docker logs`). |
-| `launcher/` | launcher | Per session N: `session-sN.json` (what was delivered to the batch), `clock-offset-sN.txt`, `native-canary-sN-plain.json` and `native-canary-sN-background.json` (Mac core references), `host-monitor-sN.csv` (every monitor row), `preflight-sN.txt` (preflight problems; `forced` if `--force` was used). |
+| `console.txt` | launcher | Everything kpi-batch printed, over all sessions (`docker logs`; native runs: the launcher's console file, one `=== session N ===` line per session). |
+| `launcher/` | launcher | Per session N: `session-sN.json` (what was delivered to the batch), `clock-offset-sN.txt`, `native-canary-sN-plain.json` and `native-canary-sN-background.json` (Mac core references), `host-monitor-sN.csv` (every monitor row), `preflight-sN.txt` (preflight problems; `forced` if `--force` was used). Native runs have no `clock-offset-sN.txt`. |
 
 `console.txt`, `launcher/` and monitor chunks delivered after the batch ended are not in `SHA256SUMS`. `kpi-batch verify` accepts exactly these unlisted files.
 
@@ -44,7 +44,7 @@ The folder holds only allow-listed facts: no host name, user name, path outside 
 
 | Name | Example | Meaning |
 |---|---|---|
-| block id | `E1.ml-dsa-44.sign.r3` | experiment, algorithm, operation, repetition (experiments `E1`, `E10`, `E2`, `E2c`, `E3`, `E6`, `E7`, `E8`, `E9`, `E11`, `E12`, `E13`, `probe`, `probe-E2`, `probe-E6`, `probe-E7`, `probe-E11`) |
+| block id | `E1.ml-dsa-44.sign.r3` | experiment, algorithm, operation, repetition (experiments `E1`, `E10`, `E2`, `E2c`, `E3`, `E4`, `E5`, `E6`, `E7`, `E8`, `E9`, `E11`, `E12`, `E13`, `probe`, `probe-E2`, `probe-E6`, `probe-E7`, `probe-E11`) |
 | attempt key | `E1.ml-dsa-44.sign.r3.a2` | block id + attempt number (`a1` = the first attempt) |
 | cell | `E1.ml-dsa-44.sign` | block id without the repetition |
 | arm | `reuse`, `issuer`, `holder`, `issuer-again`, `reinit`, `prod`, `hex-decode-sk`, `hex-decode-pk`, `hex-decode-sig`, `hex-decode-ct`, `init`, `clean`, `hex-encode-pk`, `hex-encode-sk`, `hex-encode-sig`, `hex-encode-ct`, `hex-encode-ss` | a measured variant inside a block (E2 and E2c arms: `docs/methodology.md` section 4 and `internal/proto/e2.go`) |
@@ -223,3 +223,19 @@ E9 blocks are not timed (like E8: no run-quality flags, never repeated, the firs
 - **Raw files** as E1's (`arm,ns` rows; the `l0` and `c-empty` durations are measured inside C). The arm index is in the `arms` header.
 - **Derived (analysis):** Go-to-C boundary = `l0g - l0`; binding work = `l1 - l0g`; Go standard library against OpenSSL = `l2 / l1`.
 - **Classification:** E1's (`<algorithm>/<op>` in `config/thresholds.json`); no add-on trial.
+
+## E4 (liboqs build sensitivity)
+
+- **Block ids:** `E4.<algorithm>.<op>.r<rep>`; one arm, `reuse`, first call labelled `cold`, as in E1.
+- **Raw files and summaries** as E1's. The variant is the run's (`<run-id>` and `manifest.json` `build.variant`); its liboqs build record is in `env/build-info/` (`oqs-build.txt`, `oqsconfig.h`, `oqs-CMakeCache.txt`; `gcc-native-target.txt` for `b3-native`).
+- **Derived (analysis):** per cell, E4 median ÷ E1 median of the same machine (`b1-prod`). The 5 classical algorithms are controls (OpenSSL is the same in every variant).
+- **Classification:** E1's (`<algorithm>/<op>` in `config/thresholds.json`).
+
+## E5 (native macOS)
+
+- **Block ids:** `E5.<algorithm>.<op>.r<rep>`; one arm, `reuse`, first call labelled `cold`, as in E1.
+- **Raw files and summaries** as E1's, plus the header line `platform` (`native darwin/arm64, no CPU pinning; user-interactive QoS hint accepted: true|false`).
+- **Run folder:** runtime `native-macos`. The container's preflight facts are replaced by the process's own (`goos`, `goarch`, `num_cpu`, `gomaxprocs`, `tz`, `out_free_gb`); there is no `cgroup_memory_peak_bytes`. `env/e0-s<N>.json` describes the Mac itself (sysctl: CPU brand, performance levels and their core counts, ARM feature flags, memory), and its C library is reported as `none (macOS libSystem)`.
+- **Quality:** `quality.csv` as usual; `steal` and quota throttling are always 0 (macOS has no such counters). The block's own `other_pct` is all 8 CPUs busy minus the block's process; the verdict uses the larger of it and the host monitor's.
+- **Derived (analysis):** per cell, E5 median ÷ E1 median (container, `b1-prod`, same Mac).
+- **Classification:** E1's.

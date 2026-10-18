@@ -1,0 +1,11 @@
+{
+  "name": "smoke-e4",
+  "kind": "smoke",
+  "description": "Pipeline test of E4 on a non-default liboqs build, never used for results: probe pass, then E4 for ML-DSA-44, ML-KEM-768, Falcon-512, SLH-DSA-SHA2-128f, HQC-1 and ECDSA P-256 (a classical control), tiny budgets (fast: 10 warm-up + 200 samples; slow: 1 s and at least 3 samples), 1 repetition. Start with run.sh --variant b2-portable or b3-native.",
+  "reps": 1,
+  "canary_every_s": 120,
+  "items": [
+    {"exp": "probe", "algs": ["ml-dsa-44", "ml-kem-768", "falcon-512", "slh-dsa-sha2-128f", "hqc-1", "ecdsa-p256"]},
+    {"exp": "E4", "algs": ["ml-dsa-44", "ml-kem-768", "falcon-512", "slh-dsa-sha2-128f", "hqc-1", "ecdsa-p256"], "profile": "smoke"}
+  ]
+}

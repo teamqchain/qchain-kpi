@@ -1,3 +1,5 @@
+//go:build linux
+
 #define _GNU_SOURCE
 #include "runner.h"
 

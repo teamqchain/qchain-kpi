@@ -13,7 +13,9 @@ It records every sample, flags noisy measurements and repeats them, and produces
 - **Where every input comes from** (QChain code copied verbatim, pinned libraries, test vectors): [docs/provenance.md](docs/provenance.md)
 - **Decisions taken while building the harness:** [docs/decisions-log.md](docs/decisions-log.md)
 
-**Status (16 Oct 2026): Mac-first.** Mac results: the trial, E1, E10, E2, E6, E7, E8, E9, E11, E12 and E13 (all committed). E3 (integration-pattern cost) is coded.
+**Status (19 Oct 2026): Mac-first.** Mac results: the trial, E1, E10, E2, E3, E6, E7, E8, E9, E11, E12 and E13 (all committed). E4 (liboqs build variants `b2-portable` and `b3-native`) and E5 (native macOS, outside Docker) are coded.
+
+**16 Oct:** Mac results: the trial, E1, E10, E2, E6, E7, E8, E9, E11, E12 and E13 (all committed). E3 (integration-pattern cost) is coded.
 
 **14 Oct:** Mac results: the trial, E1, E10, E2, E8, E11 and E13 (all committed). E6 and E7 are coded.
 
@@ -35,6 +37,7 @@ All measurement and orchestration logic is Go inside one Docker image. The image
 | `kpi-prim` | One fresh process per block (prep, E1, E10, probe, canary, and every later experiment). |
 | `kpi-env` | E0, the environment capture. |
 | `scripts/run.sh` | The host launcher (macOS now; Linux and the Windows `run.ps1` in phase 1b). It runs preflight checks, builds the image, runs the host monitor, keeps the machine awake, copies the results out, verifies them and scans them for identifying text. |
+| `scripts/native-setup.sh`, `scripts/native-mac.sh` | E5 only: the native macOS toolchain (liboqs and OpenSSL built with Apple clang into `/Users/Shared/qchain-kpi-native`, nothing installed system-wide) and the native launcher, which runs `kpi-batch` directly on macOS with `run.sh`'s own preflight, monitor, pause, Wi-Fi and finishing steps. |
 
 Each run uses its own container and its own Docker volume:
 - The container is pinned to one CPU (E12 plans: the CPUs they name), with no CPU-time quota, no network, and memory limited with no swap.
@@ -56,6 +59,15 @@ scripts/run.sh stop  <run-id>      # graceful: finishes the current block, then 
 scripts/run.sh resume <run-id>     # continue a stopped or interrupted batch
 scripts/run.sh extend <run-id> --blocks E1.alg.op.rN[,...]   # run blocks that ended without a clean attempt again, inside the finished run
 scripts/run.sh status
+scripts/run.sh start --plan e4 --machine mac-m1 --variant b2-portable   # E4: another liboqs build
+```
+
+E5 runs natively on macOS (Colima stopped):
+
+```bash
+scripts/native-setup.sh                       # once: the native toolchain (liboqs gate, OpenSSL tests)
+scripts/native-mac.sh build                   # optional: native go vet, go test and binaries for the current commit
+scripts/native-mac.sh start --plan smoke-e5   # then e5; stop, resume, extend and status as run.sh
 ```
 
 **Trial and main plans refuse to start unless the machine is ready:**
@@ -86,8 +98,8 @@ Pushing is always manual.
 - `trial-e2`: add-on calibration for E2 (batch sizes of the new arms only), once per machine before its first E2 run;
 - `trial-e11`: add-on calibration for E11 (fast/slow classification of the 991 cells), once per machine before its first E11 run;
 - `trial-e6`, `trial-e7`: add-on calibrations for E6 (classification and batch sizes of the 220 cells) and E7 (batch sizes of its arms), once per machine before their main runs;
-- `smoke-e2`, `smoke-e6`, `smoke-e7`, `smoke-e3`, `smoke-e8`, `smoke-e9`, `smoke-e11`, `smoke-e12`, `smoke-e13`: pipeline tests;
-- `e1`, `e10`, `e2`, `e3`, `e6`, `e7`, `e8`, `e9`, `e11`, `e12`, `e13`: main runs. `e12` and `smoke-e12` give the container 4 CPUs (`cpuset`); every other plan pins it to one.
+- `smoke-e2`, `smoke-e6`, `smoke-e7`, `smoke-e3`, `smoke-e4`, `smoke-e5`, `smoke-e8`, `smoke-e9`, `smoke-e11`, `smoke-e12`, `smoke-e13`: pipeline tests;
+- `e1`, `e10`, `e2`, `e3`, `e4`, `e5`, `e6`, `e7`, `e8`, `e9`, `e11`, `e12`, `e13`: main runs. `e4` and `smoke-e4` need a `--variant` other than `b1-prod`; `e5` and `smoke-e5` run only with `scripts/native-mac.sh`. `e12` and `smoke-e12` give the container 4 CPUs (`cpuset`); every other plan pins it to one.
 
 A machine's first main run needs its calibrated section in `config/thresholds.json`. The trial writes `calibration.json`, which is reviewed, merged and committed before any main run on that machine.
 
@@ -101,7 +113,7 @@ docker/     Dockerfile and the liboqs build and gate scripts
 plans/      run plans (JSON)
             (code: each experiment in its own eN.go file in cmd/kpi-prim, cmd/kpi-batch, internal/proto, internal/plan, internal/inputs)
 config/     thresholds.json (one calibrated section per machine)
-scripts/    run.sh monitor-mac.sh dev.sh
+scripts/    run.sh monitor-mac.sh dev.sh native-setup.sh native-mac.sh native-gate-hashlib.py
 testdata/   RFC 9180 vectors
 docs/       plan, coding plan, methodology, data dictionary, provenance, decisions
 results/    mac/ windows/ linux/: MACHINE.md, INDEX.md and one folder per run

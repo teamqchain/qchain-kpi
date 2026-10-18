@@ -56,7 +56,7 @@ func IsProbe(exp string) bool { return plan.IsProbe(exp) }
 // Measured reports whether an experiment's blocks are measurements that the
 // drift rule and the headline selection apply to.
 func Measured(exp string) bool {
-	return exp == "E1" || exp == "E10" || exp == "E2" || exp == "E2c" || exp == "E11" || exp == "E6" || exp == "E7" || exp == "E3"
+	return exp == "E1" || exp == "E10" || exp == "E2" || exp == "E2c" || exp == "E11" || exp == "E6" || exp == "E7" || exp == "E3" || exp == "E4" || exp == "E5"
 }
 
 // SizeOnly reports whether an experiment measures sizes only (E8, E13):

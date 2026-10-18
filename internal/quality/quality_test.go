@@ -4,6 +4,7 @@ import (
 	"math"
 	"os"
 	"path/filepath"
+	"runtime"
 	"strings"
 	"testing"
 	"time"
@@ -20,6 +21,9 @@ func writeFile(t *testing.T, p, s string) {
 }
 
 func TestDiffStealOtherThrottle(t *testing.T) {
+	if runtime.GOOS != "linux" {
+		t.Skip("tests the Linux reader (/proc/stat, cgroup cpu.stat); take_darwin_test.go tests the macOS one")
+	}
 	dir := t.TempDir()
 	ProcStatPath = filepath.Join(dir, "stat")
 	CgroupDir = dir

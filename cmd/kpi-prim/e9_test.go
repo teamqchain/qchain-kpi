@@ -2,6 +2,7 @@ package main
 
 import (
 	"path/filepath"
+	"runtime"
 	"strings"
 	"testing"
 
@@ -15,6 +16,9 @@ import (
 // call) shows as retained C heap, and the reuse arm and the direct C call
 // retain nothing.
 func TestE9Blocks(t *testing.T) {
+	if runtime.GOOS != "linux" {
+		t.Skip("E9 runs in the container only (LD_PRELOAD heap counter, /proc memory counters)")
+	}
 	dir := t.TempDir()
 	out := t.TempDir()
 	for _, a := range []string{"ml-dsa-44", "ml-kem-768", "ecdsa-p256", "dhkem-x25519", "falcon-512"} {

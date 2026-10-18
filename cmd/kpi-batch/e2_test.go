@@ -114,7 +114,7 @@ func TestE2BlockIDsCanBeExtended(t *testing.T) {
 			t.Fatalf("%s not accepted", id)
 		}
 	}
-	for _, id := range []string{"probe-E2.ml-dsa-44.sign.r1", "probe.ml-dsa-44.sign.r1", "E5.ml-dsa-44.sign.r1"} {
+	for _, id := range []string{"probe-E2.ml-dsa-44.sign.r1", "probe.ml-dsa-44.sign.r1", "E8.ml-dsa-44.sign.r1"} {
 		if blockIDPattern.MatchString(id) {
 			t.Fatalf("%s accepted", id)
 		}

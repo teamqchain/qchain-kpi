@@ -42,7 +42,9 @@ my ($dir, $ncpu, $rows, $exclude) = @ARGV;
 my %excl_pid = map { $_ => 1 } grep { /^\d+$/ } split /,/, $exclude;
 $excl_pid{$$} = 1;
 # top truncates command names to 16 characters.
-my $excl_cmd = qr/^(com\.apple\.Virtua|limactl|colima|ssh|top|docker|caffeinate)/;
+# kpi-prim/kpi-batch/kpi-env: the benchmark itself in native runs (E5); in
+# container runs they are inside the VM and never appear here.
+my $excl_cmd = qr/^(com\.apple\.Virtua|limactl|colima|ssh|top|docker|caffeinate|kpi-prim|kpi-batch|kpi-env)/;
 
 my ($seq, $nrow, $fh) = (0, 0, undef);
 open(my $all, '>>', "$dir/host-all.csv") or die "host-all.csv: $!";

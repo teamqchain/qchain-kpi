@@ -154,6 +154,12 @@ func newBatch(c runConfig) (*batch, int, error) {
 	if err != nil {
 		return nil, exitUsage, err
 	}
+	if err := e4VariantCheck(p, blocks, keyValueFile(filepath.Join(c.BuildInfo, "oqs-build.txt"))); err != nil {
+		return nil, exitRefused, err
+	}
+	if err := e5PlatformCheck(blocks, runtime.GOOS); err != nil {
+		return nil, exitRefused, err
+	}
 	needE2Batch, needE11Class, needE6Class, needE7Batch := false, false, false, false
 	for _, bl := range blocks {
 		if proto.Measured(bl.Exp) {
@@ -197,14 +203,17 @@ func newBatch(c runConfig) (*batch, int, error) {
 	if err := os.MkdirAll(filepath.Join(c.Out, dirMonitor), 0o755); err != nil {
 		return nil, exitFailed, err
 	}
-	// Preflight inside the container.
+	// Preflight inside the container (natively, E5: the process's own settings).
 	wantCPUs := 1
 	if p.CPUSet != "" {
 		if wantCPUs, err = plan.CPUCount(p.CPUSet); err != nil {
 			return nil, exitUsage, err
 		}
 	}
-	facts, problems := preflight(c.Out, wantCPUs)
+	facts, problems := preflightNative(c.Out)
+	if runtime.GOOS == "linux" {
+		facts, problems = preflight(c.Out, wantCPUs)
+	}
 	if len(problems) > 0 {
 		for _, pr := range problems {
 			logf("preflight: %s", pr)
@@ -583,7 +592,9 @@ func (b *batch) captureEnv() error {
 			return fmt.Errorf("copy build records: %w", err)
 		}
 	}
-	so, se, code, err := b.exec(b.c.EnvPath, "--out", b.c.Out)
+	// --build-info: in the image it is kpi-env's default; native runs (E5) keep
+	// the records elsewhere.
+	so, se, code, err := b.exec(b.c.EnvPath, "--out", b.c.Out, "--build-info", b.c.BuildInfo)
 	if err != nil || code != 0 {
 		return fmt.Errorf("E0 (kpi-env) failed: exit %d %v %s", code, err, tail(se, 400))
 	}

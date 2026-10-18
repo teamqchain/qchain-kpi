@@ -5,6 +5,7 @@ import (
 	"math"
 	"math/rand/v2"
 	"path/filepath"
+	"runtime"
 	"sort"
 	"strconv"
 	"strings"
@@ -52,6 +53,9 @@ type evalInput struct {
 	VMCPUs    int            // CPUs of the kernel the container runs on
 	PeriodNS  int64          // host monitor sampling period
 	HostCheck bool           // host coverage is required (trial/main)
+	// Native (E5): the run is on the host itself, so the host monitor and the
+	// block's own reading describe the same machine; the larger counts.
+	Native bool
 }
 
 // loadEval reads a run folder into the input of the quality rules.
@@ -70,7 +74,7 @@ func loadEval(dir string, st *State, th *quality.Machine, final bool) (evalInput
 	}
 	return evalInput{Kind: st.PlanKind, Results: results, Canaries: canaries, Host: host, Sessions: st.Sessions,
 		TH: th, CellReps: st.CellReps, Final: final, HostCPUs: st.HostCPUs, VMCPUs: st.VMCPUs,
-		PeriodNS: st.HostPeriodNS, HostCheck: st.PlanKind != plan.KindSmoke}, nil
+		PeriodNS: st.HostPeriodNS, HostCheck: st.PlanKind != plan.KindSmoke, Native: runtime.GOOS != "linux"}, nil
 }
 
 // Verdict is the quality decision for one attempt.
@@ -154,6 +158,9 @@ func evaluate(in evalInput) []*Verdict {
 			vmShare = r.Quality.OtherPct * float64(in.VMCPUs) / float64(in.HostCPUs)
 		}
 		v.CombinedOther = hostOther + vmShare
+		if in.Native {
+			v.CombinedOther = math.Max(hostOther, r.Quality.OtherPct)
+		}
 		if in.HostCheck && !v.Host.Covered {
 			if in.Final {
 				v.External = append(v.External, "host_missing")

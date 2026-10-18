@@ -32,8 +32,13 @@ import (
 	"qchain-kpi/internal/timing"
 )
 
+// qosInteractive records whether macOS accepted the user-interactive hint
+// (E5's native runs; always false in the container).
+var qosInteractive bool
+
 func main() {
 	runtime.LockOSThread()
+	qosInteractive = procsetup.Interactive()
 	if len(os.Args) < 2 {
 		usage()
 	}

@@ -1,3 +1,5 @@
+//go:build linux
+
 // Package memprobe measures memory for E9:
 //   - the stack high-water mark of a C operation, run on a dedicated thread
 //     whose stack is painted with a pattern before every call (runner.c);
@@ -26,46 +28,13 @@ import (
 	"unsafe"
 )
 
-// StackSize is the runner thread's stack: 8 MiB, glibc's default thread stack
-// on Linux and so what the threads that run QChain's cgo calls get.
-const StackSize = 8 << 20
-
-// Heap is one thread's C-heap counters. Bytes, Live and Peak are usable
-// bytes (malloc_usable_size); Requested is what callers asked for.
-type Heap struct {
-	Live, Peak, Bytes, Requested, Allocs, Frees int64
-}
-
 func heapOf(h C.kpi_heap) Heap {
 	return Heap{Live: int64(h.live), Peak: int64(h.peak), Bytes: int64(h.bytes),
 		Requested: int64(h.requested), Allocs: int64(h.allocs), Frees: int64(h.frees)}
 }
 
-// Use is the C heap one call used, from the counters before (with the peak
-// reset to the live bytes) and after it.
-type Use struct {
-	Peak      int64 // highest live bytes during the call, above what was live at its start
-	Bytes     int64 // usable bytes allocated
-	Requested int64 // bytes requested
-	Allocs    int64
-	Frees     int64
-	Retained  int64 // live bytes after the call minus before (still held: leaked or cached)
-}
-
-// Delta is the use between two snapshots of the same thread, the first taken
-// right after ResetPeak.
-func Delta(before, after Heap) Use {
-	return Use{Peak: after.Peak - before.Live, Bytes: after.Bytes - before.Bytes,
-		Requested: after.Requested - before.Requested, Allocs: after.Allocs - before.Allocs,
-		Frees: after.Frees - before.Frees, Retained: after.Live - before.Live}
-}
-
 // Counting reports whether the heap counter is loaded into this process.
 func Counting() bool { return C.kpi_heap_available() == 1 }
-
-// LibEnv names the environment variable that holds the counter library's
-// path (set in the image).
-const LibEnv = "KPI_MALLOC_LIB"
 
 // Preloaded runs f in a process with the heap counter loaded. If the counter
 // is missing and LibEnv names a library, it re-executes the current binary
@@ -105,19 +74,6 @@ func ThreadHeap() Heap {
 
 // ResetPeak sets the calling OS thread's peak to its live bytes.
 func ResetPeak() { C.kpi_heap_reset_peak() }
-
-// Job is one C call for the runner: fn(arg), where fn is a C function
-// `int fn(void *)` and arg points to C memory.
-type Job struct {
-	Fn, Arg unsafe.Pointer
-}
-
-// Result is one call on the runner.
-type Result struct {
-	RC    int   // the job's return value
-	Stack int64 // painted top to deepest byte written (the baseline included)
-	Heap  Use
-}
 
 // Runner is a dedicated C thread with a painted stack.
 type Runner struct{ r *C.kpi_runner }

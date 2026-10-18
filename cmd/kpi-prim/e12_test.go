@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"path/filepath"
+	"runtime"
 	"strconv"
 	"strings"
 	"testing"
@@ -16,6 +17,9 @@ import (
 // and the raw file's per-second series, per-worker counts and histogram all
 // add up to the calls counted in the window.
 func TestE12Blocks(t *testing.T) {
+	if runtime.GOOS != "linux" {
+		t.Skip("E12 runs in the container only (its peak resident memory comes from /proc)")
+	}
 	out := t.TempDir()
 	dir := t.TempDir()
 	for _, c := range []struct {

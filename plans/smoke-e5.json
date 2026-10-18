@@ -1,0 +1,11 @@
+{
+  "name": "smoke-e5",
+  "kind": "smoke",
+  "description": "Pipeline test of the native run (E5), never used for results: probe pass, then E5 for ML-DSA-44, ML-KEM-768, Falcon-512, SLH-DSA-SHA2-128f, HQC-1, ECDSA P-256 and DHKEM(X25519), tiny budgets (fast: 10 warm-up + 200 samples; slow: 1 s and at least 3 samples), 1 repetition. Started with scripts/native-mac.sh.",
+  "reps": 1,
+  "canary_every_s": 120,
+  "items": [
+    {"exp": "probe", "algs": ["ml-dsa-44", "ml-kem-768", "falcon-512", "slh-dsa-sha2-128f", "hqc-1", "ecdsa-p256", "dhkem-x25519"]},
+    {"exp": "E5", "algs": ["ml-dsa-44", "ml-kem-768", "falcon-512", "slh-dsa-sha2-128f", "hqc-1", "ecdsa-p256", "dhkem-x25519"], "profile": "smoke"}
+  ]
+}

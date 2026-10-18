@@ -35,6 +35,7 @@ PERIOD_S=5        # host monitor sampling period
 ROWS_PER_CHUNK=12 # one chunk per minute
 GO=/opt/homebrew/opt/go@1.24/bin/go
 
+# >>> shared with scripts/native-mac.sh (it loads the blocks between these markers)
 die() { echo "run.sh: $*" >&2; exit 1; }
 note() { echo "run.sh: $*" >&2; }
 
@@ -64,6 +65,7 @@ plan_cpuset() {
 }
 
 json_str() { local s="${1//\\/}"; s="${s//\"/}"; printf '"%s"' "$s"; }
+# <<< shared with scripts/native-mac.sh
 
 # ------------------------------------------------------------------ checks
 
@@ -79,21 +81,34 @@ ensure_colima() {
   fi
 }
 
-problems=()
-problem() { problems+=("$1"); }
-
 preflight() { # kind
-  local kind="$1" n free_kb busy app out
+  local kind="$1" n out
   problems=()
   docker info >/dev/null 2>&1 || die "Docker is not reachable (is Colima running?)"
   [ "$(docker context show)" = "colima" ] || problem "docker context is not colima"
   out="$(colima status 2>&1 || true)"
   [[ "$out" == *"Virtualization.Framework"* ]] || problem "Colima is not running with --vm-type vz"
   colima list 2>/dev/null | awk 'NR==2{ if ($4 != "4" || $5 != "4GiB") exit 1 }' || problem "Colima VM is not 4 CPUs / 4 GiB"
-  free_kb="$(df -Pk "$repo" | awk 'NR==2{print $4}')"
-  [ "$free_kb" -ge 10485760 ] || problem "less than 10 GB free on the disk of the repository"
+  free_space_check "$repo" "the repository"
   n="$(docker ps -q | wc -l | tr -d ' ')"
   [ "$n" = "0" ] || problem "$n container(s) running; none may run during a batch"
+  preflight_host
+  preflight_verdict "$kind"
+}
+
+# >>> shared with scripts/native-mac.sh (it loads the blocks between these markers)
+problems=()
+problem() { problems+=("$1"); }
+
+free_space_check() { # dir label
+  local free_kb
+  free_kb="$(df -Pk "$1" | awk 'NR==2{print $4}')"
+  [ "$free_kb" -ge 10485760 ] || problem "less than 10 GB free on the disk of $2"
+}
+
+# preflight_host: the quiet-machine checks of the Mac itself.
+preflight_host() {
+  local n busy app out key
   out="$(pmset -g batt)"
   [[ "$out" == *"AC Power"* ]] || problem "on battery power"
   n="$(pmset -g batt | grep -Eo '[0-9]+%' | head -n 1 | tr -d '%')"
@@ -115,6 +130,12 @@ preflight() { # kind
   done
   busy="$(top -l 3 -s 2 -n 0 | awk '/^CPU usage/{u=$3; s=$5} END{gsub("%","",u); gsub("%","",s); printf "%.0f", u+s}')"
   [ "$busy" -le 10 ] || problem "host CPU busy at ${busy}% over 6 s (machine not quiet)"
+}
+
+# preflight_verdict KIND: reports the problems found; refuses trial and main
+# runs with problems unless --force was given.
+preflight_verdict() {
+  local kind="$1" p
   if [ "${#problems[@]}" -gt 0 ]; then
     for p in "${problems[@]}"; do note "preflight: $p"; done
     if [ "$kind" = "smoke" ]; then
@@ -126,13 +147,16 @@ preflight() { # kind
     fi
   fi
 }
+# <<< shared with scripts/native-mac.sh
 
+# >>> shared with scripts/native-mac.sh (it loads the blocks between these markers)
 repo_commit() {
   local dirty
   dirty="$(git -C "$repo" status --porcelain -- . ':!results')"
   [ -z "$dirty" ] || die "the harness has uncommitted changes (outside results/); commit them first"
   git -C "$repo" log -1 --format=%H -- . ':!results'
 }
+# <<< shared with scripts/native-mac.sh
 
 built=0
 build_image() { # variant commit rebuild -> sets image_tag (and built=1 if it built)
@@ -167,6 +191,7 @@ measure_offset() { # tag -> "offset_ns uncertainty_ns" (host clock minus contain
   printf '%s %s\n' "$best_off" "$best_unc"
 }
 
+# >>> shared with scripts/native-mac.sh (it loads the blocks between these markers)
 native_refs() { # workdir persistdir n -> "P E" (0 0 when unusable)
   local work="$1" persist="$2" n="$3" p e
   GOTOOLCHAIN=local CGO_ENABLED=0 "$GO" build -C "$repo" -o "$work/kpi-canary-native" ./cmd/kpi-canary-native
@@ -181,6 +206,7 @@ native_refs() { # workdir persistdir n -> "P E" (0 0 when unusable)
     printf '0 0\n'
   fi
 }
+# <<< shared with scripts/native-mac.sh
 
 write_session() { # file offset unc p e cooling
   local f="$1" lpm therm batt power ncpu mem docker_v colima_v lima_v go_v
@@ -229,6 +255,7 @@ deliver_chunks() { # workdir rid session
   done
 }
 
+# >>> shared with scripts/native-mac.sh (it loads the blocks between these markers)
 persist_dir() { printf '%s\n' "$HOME/Library/Application Support/qchain-kpi/$1"; }
 
 # macOS background analysis services (Photos analysis, the Spotlight AI
@@ -301,6 +328,7 @@ cleanup() {
 trap cleanup EXIT
 trap 'cleanup; exit 129' HUP
 trap 'cleanup; exit 143' TERM
+# <<< shared with scripts/native-mac.sh
 
 # run_session RID: one start or resume, from session.json to the batch's exit.
 # Sets session_code to the batch's exit code.
@@ -375,6 +403,7 @@ run_session() {
 
 # ----------------------------------------------------------------- finish
 
+# >>> shared with scripts/native-mac.sh (it loads the blocks between these markers)
 privacy_patterns() {
   {
     hostname; hostname -s
@@ -420,6 +449,7 @@ index_row() { # dest rid
     "$(json_get "$dest/manifest.json" counts flagged_attempts)" \
     "$(json_get "$dest/manifest.json" harness_commit | cut -c1-12)" "$(json_get "$dest/manifest.json" seed)" >> "$idx"
 }
+# <<< shared with scripts/native-mac.sh
 
 finish_run() { # rid code
   local rid="$1" code="$2" stage dest persist

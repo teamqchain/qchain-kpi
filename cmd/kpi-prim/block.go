@@ -67,7 +67,7 @@ func cmdBlock(args []string) error {
 	}
 	firstLabel := "cold"
 	switch b.Exp {
-	case "E1", "probe":
+	case "E1", "probe", "E4", "E5":
 	case "E6", "probe-E6":
 		// One process per (scheme, operation, size): the first call is cold, as in E1.
 	case "E7", "probe-E7":
@@ -155,6 +155,10 @@ func cmdBlock(args []string) error {
 		} else {
 			set, err = e3Arms(a, b.Op, p, b.Seed)
 		}
+	case "E4":
+		set, err = e4Arms(a, b.Op, p, b.Seed)
+	case "E5":
+		set, err = e5Arms(a, b.Op, p, b.Seed)
 	case "probe-E2":
 		// Every E2 and E2c arm, unbatched: the probe pass decides the batches.
 		var e2, e2c *armSet
@@ -285,6 +289,9 @@ func cmdBlock(args []string) error {
 	}
 	if b.Exp == "E10" {
 		header["holder_prep_id"] = p.HolderFingerprint
+	}
+	if runtime.GOOS != "linux" {
+		header["platform"] = fmt.Sprintf("native %s/%s, no CPU pinning; user-interactive QoS hint accepted: %v", runtime.GOOS, runtime.GOARCH, qosInteractive)
 	}
 	if e11 {
 		header["prep_ns"] = strconv.FormatInt(prepNS, 10)
