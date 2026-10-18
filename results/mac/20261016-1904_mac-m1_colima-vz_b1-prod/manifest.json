@@ -9,7 +9,7 @@
     "sha256": "456561eac6ef3e5c21b888b4ed39250626765a15c7948a442de0955df411fdd1",
     "reps": 5,
     "canary_every_s": 600,
-    "planned_blocks": 457
+    "planned_blocks": 458
   },
   "seed": 17599167190042825529,
   "image_id": "sha256:515e4abc73e6d1370aefb42a2a1973df924b9b28e85726f26152ffd83bb8c333",
@@ -1735,23 +1735,31 @@
       "host_offset_ns": -15344177,
       "native_p_rate": 2571581.39418631,
       "native_e_rate": 412300.600897163
+    },
+    {
+      "n": 3,
+      "started_utc": "2026-10-18T19:44:48Z",
+      "start_unix_ns": 1792352688337325382,
+      "host_offset_ns": 30634633,
+      "native_p_rate": 2572245.91250799,
+      "native_e_rate": 412340.071760558
     }
   ],
   "status": "done",
   "started_utc": "2026-10-16T19:04:25Z",
-  "updated_utc": "2026-10-18T19:30:27Z",
+  "updated_utc": "2026-10-18T20:09:04Z",
   "counts": {
-    "attempts": 533,
+    "attempts": 536,
     "blocks": 455,
-    "blocks_with_headline": 454,
+    "blocks_with_headline": 455,
     "diagnostic_attempts": 22,
     "drift_flags": 29,
-    "exhausted_blocks": 1,
-    "flagged_attempts": 60,
-    "repeat_attempts": 56
+    "flagged_attempts": 62,
+    "repeat_attempts": 59
   },
   "notes": [
-    "session 2 extended this run: blocks E3.falcon-1024.keygen.r5, E3.hqc-5.encaps.r1 had no clean attempt and were run again (attempt numbers continue); input sets were regenerated (same message seeds, new keys)"
+    "session 2 extended this run: blocks E3.falcon-1024.keygen.r5, E3.hqc-5.encaps.r1 had no clean attempt and were run again (attempt numbers continue); input sets were regenerated (same message seeds, new keys)",
+    "session 3 extended this run: blocks E3.hqc-5.encaps.r1 had no clean attempt and were run again (attempt numbers continue); input sets were regenerated (same message seeds, new keys)"
   ],
   "extensions": [
     {
@@ -1764,7 +1772,17 @@
       "old_harness_commit": "25b0ccefe35338694bfe1532e1ddcede41aded4d",
       "new_image_id": "sha256:515e4abc73e6d1370aefb42a2a1973df924b9b28e85726f26152ffd83bb8c333",
       "new_harness_commit": "25b0ccefe35338694bfe1532e1ddcede41aded4d"
+    },
+    {
+      "session": 3,
+      "blocks": [
+        "E3.hqc-5.encaps.r1"
+      ],
+      "old_image_id": "sha256:515e4abc73e6d1370aefb42a2a1973df924b9b28e85726f26152ffd83bb8c333",
+      "old_harness_commit": "25b0ccefe35338694bfe1532e1ddcede41aded4d",
+      "new_image_id": "sha256:515e4abc73e6d1370aefb42a2a1973df924b9b28e85726f26152ffd83bb8c333",
+      "new_harness_commit": "25b0ccefe35338694bfe1532e1ddcede41aded4d"
     }
   ],
-  "cgroup_memory_peak_bytes": 47329280
+  "cgroup_memory_peak_bytes": 49963008
 }

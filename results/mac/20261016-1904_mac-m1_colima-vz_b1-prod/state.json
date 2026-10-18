@@ -27,9 +27,17 @@
       "host_offset_ns": -15344177,
       "native_p_rate": 2571581.39418631,
       "native_e_rate": 412300.600897163
+    },
+    {
+      "n": 3,
+      "started_utc": "2026-10-18T19:44:48Z",
+      "start_unix_ns": 1792352688337325382,
+      "host_offset_ns": 30634633,
+      "native_p_rate": 2572245.91250799,
+      "native_e_rate": 412340.071760558
     }
   ],
-  "planned_blocks": 457,
+  "planned_blocks": 458,
   "queue": [],
   "done": [
     "E3.ecdsa-p256.sign.r1.a1",
@@ -564,7 +572,10 @@
     "E3.falcon-1024.keygen.r5.a4",
     "E3.hqc-5.encaps.r1.a4",
     "E3.hqc-5.encaps.r1.a5",
-    "E3.hqc-5.encaps.r1.a6"
+    "E3.hqc-5.encaps.r1.a6",
+    "E3.hqc-5.encaps.r1.a7",
+    "E3.hqc-5.encaps.r1.a8",
+    "E3.hqc-5.encaps.r1.a9"
   ],
   "classification": {},
   "requeued": {
@@ -589,6 +600,9 @@
     "E3.hqc-5.encaps.r1.a3": true,
     "E3.hqc-5.encaps.r1.a4": true,
     "E3.hqc-5.encaps.r1.a5": true,
+    "E3.hqc-5.encaps.r1.a6": true,
+    "E3.hqc-5.encaps.r1.a7": true,
+    "E3.hqc-5.encaps.r1.a8": true,
     "E3.ml-kem-512.keygen.r3.a1": true,
     "E3.slh-dsa-sha2-128f.keygen.r1.a1": true,
     "E3.slh-dsa-sha2-128f.verify.r3.a1": true,
@@ -649,9 +663,9 @@
     "E3.slh-dsa-shake-256f.verify.r4": true,
     "E3.slh-dsa-shake-256s.keygen.r2": true
   },
-  "canary_seq": 101,
+  "canary_seq": 105,
   "first_canary_rate": 2564925.2965207407,
-  "last_canary_unix_ns": 1792351797257707115,
+  "last_canary_unix_ns": 1792354114378236380,
   "preps": {
     "dhkem-p256.r1": {
       "pool": 256,
@@ -1005,10 +1019,10 @@
     },
     "hqc-5.r1": {
       "pool": 256,
-      "prep_ns": 7552437211,
-      "fingerprint": "57be6d566a3292c1",
+      "prep_ns": 7533934066,
+      "fingerprint": "fb940bc12e71a9d5",
       "e10": false,
-      "session": 2
+      "session": 3
     },
     "hqc-5.r2": {
       "pool": 256,
@@ -1715,11 +1729,21 @@
       "old_harness_commit": "25b0ccefe35338694bfe1532e1ddcede41aded4d",
       "new_image_id": "sha256:515e4abc73e6d1370aefb42a2a1973df924b9b28e85726f26152ffd83bb8c333",
       "new_harness_commit": "25b0ccefe35338694bfe1532e1ddcede41aded4d"
+    },
+    {
+      "session": 3,
+      "blocks": [
+        "E3.hqc-5.encaps.r1"
+      ],
+      "old_image_id": "sha256:515e4abc73e6d1370aefb42a2a1973df924b9b28e85726f26152ffd83bb8c333",
+      "old_harness_commit": "25b0ccefe35338694bfe1532e1ddcede41aded4d",
+      "new_image_id": "sha256:515e4abc73e6d1370aefb42a2a1973df924b9b28e85726f26152ffd83bb8c333",
+      "new_harness_commit": "25b0ccefe35338694bfe1532e1ddcede41aded4d"
     }
   ],
   "extension_base": {
     "E3.falcon-1024.keygen.r5": 3,
-    "E3.hqc-5.encaps.r1": 3
+    "E3.hqc-5.encaps.r1": 6
   },
   "cell_reps": {
     "E3.dhkem-p256.decaps": 5,
