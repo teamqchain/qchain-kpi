@@ -1,0 +1,13 @@
+utc_ns,other_pct,throttle,on_ac,alert,detail
+1792235215082866000,1.450,0,1,0,user=12.60;sys=1.40;excluded_core_pct=100.4;thermal_level=0;battery_pct=100
+1792235220116279000,1.217,0,1,0,user=12.89;sys=0.94;excluded_core_pct=100.9;thermal_level=0;battery_pct=100
+1792235225149989000,7.265,0,1,0,user=18.44;sys=1.40;excluded_core_pct=100.6;thermal_level=0;battery_pct=100;busiest_other=osanalyticshelpe:40.0
+1792235230183574000,0.915,0,1,0,user=12.72;sys=0.77;excluded_core_pct=100.6;thermal_level=0;battery_pct=100
+1792235235217703000,1.040,0,1,0,user=12.85;sys=0.74;excluded_core_pct=100.4;thermal_level=0;battery_pct=100
+1792235240250452000,0.965,0,1,0,user=12.77;sys=0.77;excluded_core_pct=100.6;thermal_level=0;battery_pct=100
+1792235245284275000,1.418,0,1,0,user=12.58;sys=1.40;excluded_core_pct=100.5;thermal_level=0;battery_pct=100
+1792235250340822000,0.915,0,1,0,user=12.72;sys=0.77;excluded_core_pct=100.6;thermal_level=0;battery_pct=100
+1792235255374178000,0.605,0,1,0,user=12.59;sys=0.64;excluded_core_pct=101.0;thermal_level=0;battery_pct=100
+1792235260408405000,0.867,0,1,0,user=12.69;sys=0.74;excluded_core_pct=100.5;thermal_level=0;battery_pct=100
+1792235265442343000,0.595,0,1,0,user=12.60;sys=0.57;excluded_core_pct=100.6;thermal_level=0;battery_pct=100
+1792235270475993000,0.940,0,1,0,user=12.72;sys=0.77;excluded_core_pct=100.4;thermal_level=0;battery_pct=100
