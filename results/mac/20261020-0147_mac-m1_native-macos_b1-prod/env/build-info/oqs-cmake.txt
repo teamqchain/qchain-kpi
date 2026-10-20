@@ -1,0 +1,35 @@
+-- The C compiler identification is AppleClang 21.0.0.21000334
+-- The ASM compiler identification is Clang with GNU-like command-line
+-- Found assembler: /Library/Developer/CommandLineTools/usr/bin/clang
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/clang - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- OQS Testing: Pytest parallel workers set to 'auto'
+-- CMAKE_BUILD_TYPE=Release
+-- Performing Test CC_SUPPORTS_WA_NOEXECSTACK
+-- Performing Test CC_SUPPORTS_WA_NOEXECSTACK - Success
+-- Performing Test LD_SUPPORTS_WL_Z_NOEXECSTACK
+-- Performing Test LD_SUPPORTS_WL_Z_NOEXECSTACK - Failed
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Algorithms filtered for KEM_ml_kem_512;KEM_ml_kem_768;KEM_ml_kem_1024;KEM_hqc_1;KEM_hqc_3;KEM_hqc_5;SIG_ml_dsa_44;SIG_ml_dsa_65;SIG_ml_dsa_87;SIG_falcon_512;SIG_falcon_1024;SIG_falcon_padded_512;SIG_falcon_padded_1024;SIG_slh_dsa_pure_sha2_128s;SIG_slh_dsa_pure_sha2_128f;SIG_slh_dsa_pure_sha2_192s;SIG_slh_dsa_pure_sha2_192f;SIG_slh_dsa_pure_sha2_256s;SIG_slh_dsa_pure_sha2_256f;SIG_slh_dsa_pure_shake_128s;SIG_slh_dsa_pure_shake_128f;SIG_slh_dsa_pure_shake_192s;SIG_slh_dsa_pure_shake_192f;SIG_slh_dsa_pure_shake_256s;SIG_slh_dsa_pure_shake_256f
+-- Found OpenSSL: /Users/Shared/qchain-kpi-native/openssl/lib/libcrypto.dylib (found suitable version "3.0.22", minimum required is "1.1.1")  
+-- Looking for aligned_alloc
+-- Looking for aligned_alloc - found
+-- Looking for posix_memalign
+-- Looking for posix_memalign - found
+-- Looking for memalign
+-- Looking for memalign - not found
+-- Looking for explicit_bzero
+-- Looking for explicit_bzero - not found
+-- Looking for explicit_memset
+-- Looking for explicit_memset - not found
+-- Looking for memset_s
+-- Looking for memset_s - found
+-- Could NOT find Doxygen (missing: DOXYGEN_EXECUTABLE) 
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/Shared/qchain-kpi-native/src/liboqs/build

@@ -1,0 +1,21 @@
+{
+  "host_offset_ns": 0,
+  "host_offset_unc_ns": 0,
+  "native_p_rate": 2571001.50612626,
+  "native_e_rate": 412798.272062218,
+  "host_logical_cpus": 8,
+  "host_monitor_period_s": 5,
+  "host": {
+    "runtime": "native-macos",
+    "host_os": "macOS 27.0.1 (26A434)",
+    "host_cpu": "Apple M1",
+    "host_mem_gb": "8",
+    "power": "AC",
+    "battery_pct": "100",
+    "cooling": "unstated",
+    "low_power_mode": "0",
+    "thermal_at_start": "0",
+    "launcher": "native-mac.sh 1",
+    "native_go": "go1.24.13"
+  }
+}

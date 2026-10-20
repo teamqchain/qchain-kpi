@@ -1,0 +1,4 @@
+openssl_version=OpenSSL 3.0.22 25 Aug 2026 (Library: OpenSSL 3.0.22 25 Aug 2026)
+openssl_tarball_sha256=67ebca7e50d17383028045486653492195b83db95f8558709701bb47b5c1ef81
+openssl_configure=darwin64-arm64-cc shared no-idea no-mdc2 no-rc5 no-zlib no-ssl3 no-ssl3-method enable-rfc3779 enable-cms no-capieng no-rdrand
+openssl_cflags=/usr/bin/clang -fPIC -arch arm64 -O3 -Wall -DL_ENDIAN -DOPENSSL_PIC -D_REENTRANT -DOPENSSL_BUILDING_OPENSSL -DNDEBUG

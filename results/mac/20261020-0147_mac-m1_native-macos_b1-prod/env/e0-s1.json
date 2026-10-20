@@ -1,0 +1,655 @@
+{
+  "schema": 1,
+  "captured_utc": "2026-10-20T01:47:49.628639Z",
+  "harness": {
+    "commit": "4ed2f2bb94d96898a542dd671270151922b69165",
+    "go": "go1.24.13",
+    "goos": "darwin",
+    "goarch": "arm64",
+    "gomaxprocs": 1,
+    "num_cpu_affinity": 8,
+    "cpuset_effective": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  "liboqs": {
+    "version": "0.16.0",
+    "enabled_sigs": [
+      "ML-DSA-44",
+      "ML-DSA-65",
+      "ML-DSA-87",
+      "Falcon-512",
+      "Falcon-1024",
+      "Falcon-padded-512",
+      "Falcon-padded-1024",
+      "SLH_DSA_PURE_SHA2_128S",
+      "SLH_DSA_PURE_SHA2_128F",
+      "SLH_DSA_PURE_SHA2_192S",
+      "SLH_DSA_PURE_SHA2_192F",
+      "SLH_DSA_PURE_SHA2_256S",
+      "SLH_DSA_PURE_SHA2_256F",
+      "SLH_DSA_PURE_SHAKE_128S",
+      "SLH_DSA_PURE_SHAKE_128F",
+      "SLH_DSA_PURE_SHAKE_192S",
+      "SLH_DSA_PURE_SHAKE_192F",
+      "SLH_DSA_PURE_SHAKE_256S",
+      "SLH_DSA_PURE_SHAKE_256F"
+    ],
+    "enabled_kems": [
+      "HQC-1",
+      "HQC-3",
+      "HQC-5",
+      "ML-KEM-512",
+      "ML-KEM-768",
+      "ML-KEM-1024"
+    ],
+    "cpu_extensions_runtime": {
+      "ADX": false,
+      "AES": false,
+      "ARM_AES": true,
+      "ARM_NEON": true,
+      "ARM_SHA2": true,
+      "ARM_SHA3": true,
+      "AVX": false,
+      "AVX2": false,
+      "AVX512": false,
+      "BMI1": false,
+      "BMI2": false,
+      "PCLMULQDQ": false,
+      "POPCNT": false,
+      "SSE": false,
+      "SSE2": false,
+      "SSE3": false,
+      "VPCLMULQDQ": false
+    },
+    "build": {
+      "arch": "arm64",
+      "cc": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+      "cmake": "cmake version 3.25.2",
+      "liboqs_commit": "5a1a854b0dc9f2141bdc771c555ee60c37950183",
+      "liboqs_tag": "0.16.0",
+      "minimal_build": "KEM_ml_kem_512;KEM_ml_kem_768;KEM_ml_kem_1024;KEM_hqc_1;KEM_hqc_3;KEM_hqc_5;SIG_ml_dsa_44;SIG_ml_dsa_65;SIG_ml_dsa_87;SIG_falcon_512;SIG_falcon_1024;SIG_falcon_padded_512;SIG_falcon_padded_1024;SIG_slh_dsa_pure_sha2_128s;SIG_slh_dsa_pure_sha2_128f;SIG_slh_dsa_pure_sha2_192s;SIG_slh_dsa_pure_sha2_192f;SIG_slh_dsa_pure_sha2_256s;SIG_slh_dsa_pure_sha2_256f;SIG_slh_dsa_pure_shake_128s;SIG_slh_dsa_pure_shake_128f;SIG_slh_dsa_pure_shake_192s;SIG_slh_dsa_pure_shake_192f;SIG_slh_dsa_pure_shake_256s;SIG_slh_dsa_pure_shake_256f",
+      "openssl": "OpenSSL 3.0.22 25 Aug 2026 (Library: OpenSSL 3.0.22 25 Aug 2026)",
+      "platform": "native-macos",
+      "variant": "b1-prod",
+      "variant_flags": "-DOQS_DIST_BUILD=ON"
+    }
+  },
+  "openssl": "OpenSSL 3.0.22 25 Aug 2026",
+  "glibc": "none (macOS libSystem)",
+  "kernel": {
+    "release": "27.0.0",
+    "version": "Darwin Kernel Version 27.0.0: Tue Aug 11 21:05:27 PDT 2026; root:xnu-13432.1.9~1/RELEASE_ARM64_T8103",
+    "machine": "arm64"
+  },
+  "cpu": {
+    "logical_cpus": 8,
+    "fields": {
+      "brand_string": "Apple M1",
+      "cachelinesize": "128",
+      "model": "MacBookAir10,1",
+      "pagesize": "16384",
+      "perflevel0": "Performance: 4 cores, L1d 128 KiB, L2 12288 KiB",
+      "perflevel1": "Efficiency: 4 cores, L1d 64 KiB, L2 4096 KiB"
+    },
+    "flags": [
+      "FEAT_AES",
+      "FEAT_PMULL",
+      "FEAT_SHA1",
+      "FEAT_SHA256",
+      "FEAT_SHA512",
+      "FEAT_SHA3",
+      "FEAT_DotProd",
+      "FEAT_FP16",
+      "FEAT_LSE",
+      "FEAT_CRC32",
+      "AdvSIMD"
+    ],
+    "distinct_per_cpu": {
+      "core_type": "performance and efficiency cores"
+    },
+    "caches_cpu0": null
+  },
+  "cpu_vulnerabilities": {},
+  "clock": {
+    "clocksource": "",
+    "clocksource_available": "",
+    "clock_getres_monotonic_ns": 1000,
+    "effective_resolution_ns": 41,
+    "time_now_overhead_median_ns": 42,
+    "time_now_overhead_p99_ns": 125,
+    "zero_step_fraction": 0.0452635,
+    "pairs": 2000000
+  },
+  "cgroup": {
+    "clocksource": "",
+    "memory.peak": "not available",
+    "version": "1 or none"
+  },
+  "mem_total_kb": 8388608,
+  "out_free_bytes": 79129530368,
+  "timezone": {
+    "tz_env": "Asia/Dubai",
+    "local": "Asia/Dubai",
+    "zone_now": "+04",
+    "offset_s": 14400
+  },
+  "crypto_rand_read_32_bytes": {
+    "median_ns": 292,
+    "p99_ns": 334,
+    "samples": 10000
+  },
+  "algorithms": [
+    {
+      "id": "ml-dsa-44",
+      "track": "sig",
+      "family": "ML-DSA",
+      "tier": "A",
+      "nist_category": 2,
+      "oqs_name": "ML-DSA-44",
+      "spec": "FIPS 204",
+      "sizes": {
+        "public_key": 1312,
+        "secret_key": 2560,
+        "signature_max": 2420
+      }
+    },
+    {
+      "id": "ml-dsa-65",
+      "track": "sig",
+      "family": "ML-DSA",
+      "tier": "A",
+      "nist_category": 3,
+      "oqs_name": "ML-DSA-65",
+      "spec": "FIPS 204",
+      "sizes": {
+        "public_key": 1952,
+        "secret_key": 4032,
+        "signature_max": 3309
+      }
+    },
+    {
+      "id": "ml-dsa-87",
+      "track": "sig",
+      "family": "ML-DSA",
+      "tier": "A",
+      "nist_category": 5,
+      "oqs_name": "ML-DSA-87",
+      "spec": "FIPS 204",
+      "sizes": {
+        "public_key": 2592,
+        "secret_key": 4896,
+        "signature_max": 4627
+      }
+    },
+    {
+      "id": "slh-dsa-sha2-128s",
+      "track": "sig",
+      "family": "SLH-DSA",
+      "tier": "A",
+      "nist_category": 1,
+      "oqs_name": "SLH_DSA_PURE_SHA2_128S",
+      "spec": "FIPS 205 (pure)",
+      "sizes": {
+        "public_key": 32,
+        "secret_key": 64,
+        "signature_max": 7856
+      }
+    },
+    {
+      "id": "slh-dsa-sha2-128f",
+      "track": "sig",
+      "family": "SLH-DSA",
+      "tier": "A",
+      "nist_category": 1,
+      "oqs_name": "SLH_DSA_PURE_SHA2_128F",
+      "spec": "FIPS 205 (pure)",
+      "sizes": {
+        "public_key": 32,
+        "secret_key": 64,
+        "signature_max": 17088
+      }
+    },
+    {
+      "id": "slh-dsa-sha2-192s",
+      "track": "sig",
+      "family": "SLH-DSA",
+      "tier": "A",
+      "nist_category": 3,
+      "oqs_name": "SLH_DSA_PURE_SHA2_192S",
+      "spec": "FIPS 205 (pure)",
+      "sizes": {
+        "public_key": 48,
+        "secret_key": 96,
+        "signature_max": 16224
+      }
+    },
+    {
+      "id": "slh-dsa-sha2-192f",
+      "track": "sig",
+      "family": "SLH-DSA",
+      "tier": "A",
+      "nist_category": 3,
+      "oqs_name": "SLH_DSA_PURE_SHA2_192F",
+      "spec": "FIPS 205 (pure)",
+      "sizes": {
+        "public_key": 48,
+        "secret_key": 96,
+        "signature_max": 35664
+      }
+    },
+    {
+      "id": "slh-dsa-sha2-256s",
+      "track": "sig",
+      "family": "SLH-DSA",
+      "tier": "A",
+      "nist_category": 5,
+      "oqs_name": "SLH_DSA_PURE_SHA2_256S",
+      "spec": "FIPS 205 (pure)",
+      "sizes": {
+        "public_key": 64,
+        "secret_key": 128,
+        "signature_max": 29792
+      }
+    },
+    {
+      "id": "slh-dsa-sha2-256f",
+      "track": "sig",
+      "family": "SLH-DSA",
+      "tier": "A",
+      "nist_category": 5,
+      "oqs_name": "SLH_DSA_PURE_SHA2_256F",
+      "spec": "FIPS 205 (pure)",
+      "sizes": {
+        "public_key": 64,
+        "secret_key": 128,
+        "signature_max": 49856
+      }
+    },
+    {
+      "id": "slh-dsa-shake-128s",
+      "track": "sig",
+      "family": "SLH-DSA",
+      "tier": "A",
+      "nist_category": 1,
+      "oqs_name": "SLH_DSA_PURE_SHAKE_128S",
+      "spec": "FIPS 205 (pure)",
+      "sizes": {
+        "public_key": 32,
+        "secret_key": 64,
+        "signature_max": 7856
+      }
+    },
+    {
+      "id": "slh-dsa-shake-128f",
+      "track": "sig",
+      "family": "SLH-DSA",
+      "tier": "A",
+      "nist_category": 1,
+      "oqs_name": "SLH_DSA_PURE_SHAKE_128F",
+      "spec": "FIPS 205 (pure)",
+      "sizes": {
+        "public_key": 32,
+        "secret_key": 64,
+        "signature_max": 17088
+      }
+    },
+    {
+      "id": "slh-dsa-shake-192s",
+      "track": "sig",
+      "family": "SLH-DSA",
+      "tier": "A",
+      "nist_category": 3,
+      "oqs_name": "SLH_DSA_PURE_SHAKE_192S",
+      "spec": "FIPS 205 (pure)",
+      "sizes": {
+        "public_key": 48,
+        "secret_key": 96,
+        "signature_max": 16224
+      }
+    },
+    {
+      "id": "slh-dsa-shake-192f",
+      "track": "sig",
+      "family": "SLH-DSA",
+      "tier": "A",
+      "nist_category": 3,
+      "oqs_name": "SLH_DSA_PURE_SHAKE_192F",
+      "spec": "FIPS 205 (pure)",
+      "sizes": {
+        "public_key": 48,
+        "secret_key": 96,
+        "signature_max": 35664
+      }
+    },
+    {
+      "id": "slh-dsa-shake-256s",
+      "track": "sig",
+      "family": "SLH-DSA",
+      "tier": "A",
+      "nist_category": 5,
+      "oqs_name": "SLH_DSA_PURE_SHAKE_256S",
+      "spec": "FIPS 205 (pure)",
+      "sizes": {
+        "public_key": 64,
+        "secret_key": 128,
+        "signature_max": 29792
+      }
+    },
+    {
+      "id": "slh-dsa-shake-256f",
+      "track": "sig",
+      "family": "SLH-DSA",
+      "tier": "A",
+      "nist_category": 5,
+      "oqs_name": "SLH_DSA_PURE_SHAKE_256F",
+      "spec": "FIPS 205 (pure)",
+      "sizes": {
+        "public_key": 64,
+        "secret_key": 128,
+        "signature_max": 49856
+      }
+    },
+    {
+      "id": "falcon-512",
+      "track": "sig",
+      "family": "Falcon",
+      "tier": "B",
+      "nist_category": 1,
+      "oqs_name": "Falcon-512",
+      "spec": "Falcon round-3 spec 2021-11-01 (NIST-selected; FN-DSA not final)",
+      "sizes": {
+        "public_key": 897,
+        "secret_key": 1281,
+        "signature_max": 752,
+        "signature_variable": true
+      }
+    },
+    {
+      "id": "falcon-1024",
+      "track": "sig",
+      "family": "Falcon",
+      "tier": "B",
+      "nist_category": 5,
+      "oqs_name": "Falcon-1024",
+      "spec": "Falcon round-3 spec 2021-11-01 (NIST-selected; FN-DSA not final)",
+      "sizes": {
+        "public_key": 1793,
+        "secret_key": 2305,
+        "signature_max": 1462,
+        "signature_variable": true
+      }
+    },
+    {
+      "id": "falcon-padded-512",
+      "track": "sig",
+      "family": "Falcon",
+      "tier": "B",
+      "nist_category": 1,
+      "oqs_name": "Falcon-padded-512",
+      "spec": "Falcon round-3 spec 2021-11-01 (NIST-selected; FN-DSA not final)",
+      "sizes": {
+        "public_key": 897,
+        "secret_key": 1281,
+        "signature_max": 666
+      }
+    },
+    {
+      "id": "falcon-padded-1024",
+      "track": "sig",
+      "family": "Falcon",
+      "tier": "B",
+      "nist_category": 5,
+      "oqs_name": "Falcon-padded-1024",
+      "spec": "Falcon round-3 spec 2021-11-01 (NIST-selected; FN-DSA not final)",
+      "sizes": {
+        "public_key": 1793,
+        "secret_key": 2305,
+        "signature_max": 1280
+      }
+    },
+    {
+      "id": "ecdsa-p256",
+      "track": "sig",
+      "family": "ECDSA",
+      "tier": "C",
+      "nist_category": 0,
+      "spec": "FIPS 186-5 ECDSA over P-256 with SHA-256 (DER signatures)",
+      "sizes": {
+        "public_key": 65,
+        "secret_key": 32,
+        "signature_max": 72,
+        "signature_variable": true
+      }
+    },
+    {
+      "id": "ed25519",
+      "track": "sig",
+      "family": "EdDSA",
+      "tier": "C",
+      "nist_category": 0,
+      "spec": "RFC 8032 Ed25519",
+      "sizes": {
+        "public_key": 32,
+        "secret_key": 32,
+        "signature_max": 64
+      }
+    },
+    {
+      "id": "rsa3072-pss",
+      "track": "sig",
+      "family": "RSA-PSS",
+      "tier": "C",
+      "nist_category": 0,
+      "spec": "RFC 8017 RSASSA-PSS, 3072-bit, SHA-256, salt 32",
+      "sizes": {
+        "public_key": 422,
+        "secret_key": 0,
+        "secret_key_variable": true,
+        "signature_max": 384
+      }
+    },
+    {
+      "id": "ml-kem-512",
+      "track": "kem",
+      "family": "ML-KEM",
+      "tier": "A",
+      "nist_category": 1,
+      "oqs_name": "ML-KEM-512",
+      "spec": "FIPS 203",
+      "sizes": {
+        "public_key": 800,
+        "secret_key": 1632,
+        "ciphertext": 768,
+        "shared_secret": 32
+      }
+    },
+    {
+      "id": "ml-kem-768",
+      "track": "kem",
+      "family": "ML-KEM",
+      "tier": "A",
+      "nist_category": 3,
+      "oqs_name": "ML-KEM-768",
+      "spec": "FIPS 203",
+      "sizes": {
+        "public_key": 1184,
+        "secret_key": 2400,
+        "ciphertext": 1088,
+        "shared_secret": 32
+      }
+    },
+    {
+      "id": "ml-kem-1024",
+      "track": "kem",
+      "family": "ML-KEM",
+      "tier": "A",
+      "nist_category": 5,
+      "oqs_name": "ML-KEM-1024",
+      "spec": "FIPS 203",
+      "sizes": {
+        "public_key": 1568,
+        "secret_key": 3168,
+        "ciphertext": 1568,
+        "shared_secret": 32
+      }
+    },
+    {
+      "id": "hqc-1",
+      "track": "kem",
+      "family": "HQC",
+      "tier": "B",
+      "nist_category": 1,
+      "oqs_name": "HQC-1",
+      "spec": "HQC spec 2025-08-22 (NIST-selected; not final)",
+      "sizes": {
+        "public_key": 2241,
+        "secret_key": 2321,
+        "ciphertext": 4433,
+        "shared_secret": 32
+      }
+    },
+    {
+      "id": "hqc-3",
+      "track": "kem",
+      "family": "HQC",
+      "tier": "B",
+      "nist_category": 3,
+      "oqs_name": "HQC-3",
+      "spec": "HQC spec 2025-08-22 (NIST-selected; not final)",
+      "sizes": {
+        "public_key": 4514,
+        "secret_key": 4602,
+        "ciphertext": 8978,
+        "shared_secret": 32
+      }
+    },
+    {
+      "id": "hqc-5",
+      "track": "kem",
+      "family": "HQC",
+      "tier": "B",
+      "nist_category": 5,
+      "oqs_name": "HQC-5",
+      "spec": "HQC spec 2025-08-22 (NIST-selected; not final)",
+      "sizes": {
+        "public_key": 7237,
+        "secret_key": 7333,
+        "ciphertext": 14421,
+        "shared_secret": 32
+      }
+    },
+    {
+      "id": "dhkem-p256",
+      "track": "kem",
+      "family": "DHKEM",
+      "tier": "C",
+      "nist_category": 0,
+      "spec": "RFC 9180 DHKEM(P-256, HKDF-SHA256)",
+      "sizes": {
+        "public_key": 65,
+        "secret_key": 32,
+        "ciphertext": 65,
+        "shared_secret": 32
+      }
+    },
+    {
+      "id": "dhkem-x25519",
+      "track": "kem",
+      "family": "DHKEM",
+      "tier": "C",
+      "nist_category": 0,
+      "spec": "RFC 9180 DHKEM(X25519, HKDF-SHA256)",
+      "sizes": {
+        "public_key": 32,
+        "secret_key": 32,
+        "ciphertext": 32,
+        "shared_secret": 32
+      }
+    }
+  ],
+  "build_info_files": [
+    {
+      "name": "acvp-sha256-check.txt",
+      "bytes": 735,
+      "sha256": "e7da4764f681209e891fe65aaf524aae40df6cb921152eb56b8bda29d6946337"
+    },
+    {
+      "name": "cc-version.txt",
+      "bytes": 47,
+      "sha256": "264ae245110346d2ace2713c1b042edbd01b98f7f98509e7f423a5b6130f36a0"
+    },
+    {
+      "name": "go-test.txt",
+      "bytes": 1575,
+      "sha256": "3ae64ba69ffcc62b8e17def6fcfe495299f2325d2c8dde5a5f1b37b1b9ebc7b5"
+    },
+    {
+      "name": "go-version.txt",
+      "bytes": 34,
+      "sha256": "6e36e160c16740bd7be861b3ebdf8270c2b83c5f4af52a114190cc4a46d32d6a"
+    },
+    {
+      "name": "openssl-build.txt",
+      "bytes": 445,
+      "sha256": "e639ffa730c2fa18d298e50df40f4986bb43ba4ae5b7539fbb3a64585934c0b1"
+    },
+    {
+      "name": "openssl-configure.txt",
+      "bytes": 1217,
+      "sha256": "52d461ced16f7d95b971004b5ec1ff4d0e52503ad272376b973709079f4d7bb6"
+    },
+    {
+      "name": "openssl-test-summary.txt",
+      "bytes": 216,
+      "sha256": "73b06e6de6bb1035aa7d84045d7fd60e342ee342ccd5e66d680a6102f2f5e888"
+    },
+    {
+      "name": "oqs-CMakeCache.txt",
+      "bytes": 39321,
+      "sha256": "695e4689d9ebb7af4b3e76c38853dc83262f55008e88e0f1a8fad937210bd256"
+    },
+    {
+      "name": "oqs-build.txt",
+      "bytes": 844,
+      "sha256": "7ca318ff72379455a266a2dcb89aa88b6348f29638748557b48148ae9df1a510"
+    },
+    {
+      "name": "oqs-cmake.txt",
+      "bytes": 2088,
+      "sha256": "fb9eb2afe0f1b92c9c76ec8566a1e2d1cebe1b31f7f39a930be6c13859f4b03d"
+    },
+    {
+      "name": "oqs-gate-notes.txt",
+      "bytes": 168,
+      "sha256": "ea55d25d92da035cae506f3598a7f7b0b289ffca59fa43ed43313f8a6916d8db"
+    },
+    {
+      "name": "oqs-gate.txt",
+      "bytes": 2489,
+      "sha256": "c717a6769324cf4d4153fe986ce83d3d46aa45eebdba67e4c0b8dab6f243dfc8"
+    },
+    {
+      "name": "oqs-ninja.txt",
+      "bytes": 73067,
+      "sha256": "85b596bc95807d9207df236d7afe1b58ee582eff527713437c403ddab02ce2d9"
+    },
+    {
+      "name": "oqsconfig.h",
+      "bytes": 29697,
+      "sha256": "b9a14e31800bc9610b176be9c256d2af10b45e0785ede3932c62d08f7ca3365e"
+    },
+    {
+      "name": "pip-freeze.txt",
+      "bytes": 304,
+      "sha256": "3e61cc8700aec57bf3d4698ebdfb445d8adc429aa194e115cd3d59cc2fad361d"
+    }
+  ]
+}
