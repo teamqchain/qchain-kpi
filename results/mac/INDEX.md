@@ -33,3 +33,4 @@
 | 20261018-2144_mac-m1_colima-vz_b2-portable | smoke-e4 | smoke | done | 36 | 4 | 4ed2f2bb94d9 | 2148704704183708661 |
 | 20261018-2145_mac-m1_colima-vz_b3-native | smoke-e4 | smoke | done | 36 | 3 | 4ed2f2bb94d9 | 5205590574480872783 |
 | 20261018-2205_mac-m1_colima-vz_b2-portable | e4 | main | done | 494 | 32 | 4ed2f2bb94d9 | 11412700906239869587 |
+| 20261019-1901_mac-m1_colima-vz_b3-native | e4 | main | done | 478 | 15 | 4ed2f2bb94d9 | 15970275830360235064 |
