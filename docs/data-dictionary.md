@@ -236,6 +236,6 @@ E9 blocks are not timed (like E8: no run-quality flags, never repeated, the firs
 - **Block ids:** `E5.<algorithm>.<op>.r<rep>`; one arm, `reuse`, first call labelled `cold`, as in E1.
 - **Raw files and summaries** as E1's, plus the header line `platform` (`native darwin/arm64, no CPU pinning; user-interactive QoS hint accepted: true|false`).
 - **Run folder:** runtime `native-macos`. The container's preflight facts are replaced by the process's own (`goos`, `goarch`, `num_cpu`, `gomaxprocs`, `tz`, `out_free_gb`); there is no `cgroup_memory_peak_bytes`. `env/e0-s<N>.json` describes the Mac itself (sysctl: CPU brand, performance levels and their core counts, ARM feature flags, memory), and its C library is reported as `none (macOS libSystem)`.
-- **Quality:** `quality.csv` as usual; `steal` and quota throttling are always 0 (macOS has no such counters). The block's own `other_pct` is all 8 CPUs busy minus the block's process; the verdict uses the larger of it and the host monitor's.
+- **Quality:** `quality.csv` as usual; `steal` and quota throttling are always 0 (macOS has no such counters). The block's own `vm_other_pct` is all 8 CPUs busy minus the block's process, and natively it alone decides the other-CPU flag (`combined_other_pct` equals it). `host_max_other_pct` is the host monitor's reading, recorded only: at a block's start and end it counts the block's own core (about 12.5 % on 8 CPUs).
 - **Derived (analysis):** per cell, E5 median ÷ E1 median (container, `b1-prod`, same Mac).
 - **Classification:** E1's.

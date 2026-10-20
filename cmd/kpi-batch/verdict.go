@@ -53,8 +53,14 @@ type evalInput struct {
 	VMCPUs    int            // CPUs of the kernel the container runs on
 	PeriodNS  int64          // host monitor sampling period
 	HostCheck bool           // host coverage is required (trial/main)
-	// Native (E5): the run is on the host itself, so the host monitor and the
-	// block's own reading describe the same machine; the larger counts.
+	// Native (E5): the run is on the host itself and every block is a new
+	// process. The host monitor (macOS top) excludes the benchmark by process
+	// name, but cannot attribute a process's CPU in the samples where it starts
+	// or ends, so those samples count the block's own core as other activity
+	// (first E5 main run, 20 Oct: every block flagged). The block's own reading
+	// (every CPU's busy time minus the block's process, over exactly the
+	// block) decides; the monitor still decides thermal, power and alerts, and
+	// its reading stays recorded (host_max_other_pct).
 	Native bool
 }
 
@@ -159,7 +165,7 @@ func evaluate(in evalInput) []*Verdict {
 		}
 		v.CombinedOther = hostOther + vmShare
 		if in.Native {
-			v.CombinedOther = math.Max(hostOther, r.Quality.OtherPct)
+			v.CombinedOther = r.Quality.OtherPct // see evalInput.Native
 		}
 		if in.HostCheck && !v.Host.Covered {
 			if in.Final {
