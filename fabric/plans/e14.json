@@ -1,0 +1,23 @@
+{
+  "name": "e14",
+  "kind": "main",
+  "description": "E14 Fabric latency against payload size on QChain's network rebuilt on the Mac (Fabric 2.5.15, 2 organisations, Raft orderer, shared CouchDB): QChain-shaped transactions whose envelopes match E13's issueCredential for 8 signature schemes, plus the smallest transaction; sequential (each waits for its commit) and burst (all at once); 5 repetitions; drift-control blocks at the start, middle and end. Target envelopes are E13's medians (N = 5 attributes of 16 bytes).",
+  "points": [
+    {"name": "tiny", "target_envelope": 0, "e13_per_block": 10},
+    {"name": "ecdsa-p256", "target_envelope": 7141, "e13_per_block": 10},
+    {"name": "falcon-512", "target_envelope": 12805, "e13_per_block": 10},
+    {"name": "ml-dsa-44", "target_envelope": 21529, "e13_per_block": 10},
+    {"name": "ml-dsa-65", "target_envelope": 27645, "e13_per_block": 10},
+    {"name": "ml-dsa-87", "target_envelope": 35478, "e13_per_block": 10},
+    {"name": "slh-dsa-sha2-128s", "target_envelope": 38164, "e13_per_block": 10},
+    {"name": "slh-dsa-sha2-128f", "target_envelope": 75093, "e13_per_block": 6},
+    {"name": "slh-dsa-sha2-256f", "target_envelope": 206294, "e13_per_block": 2}
+  ],
+  "reps": 5,
+  "sequential_tx": 100,
+  "burst_tx": 40,
+  "control_tx": 20,
+  "warmup_run_tx": 20,
+  "warmup_block_tx": 2,
+  "canary_every_s": 900
+}

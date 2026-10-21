@@ -1,0 +1,17 @@
+{
+  "name": "smoke-e14",
+  "kind": "smoke",
+  "description": "Pipeline test of E14, never used for results: the smallest transaction, ML-DSA-44 and SLH-DSA-SHA2-256f, 1 repetition, 5 sequential and 12 burst transactions per block, 3 per drift-control block.",
+  "points": [
+    {"name": "tiny", "target_envelope": 0, "e13_per_block": 10},
+    {"name": "ml-dsa-44", "target_envelope": 21529, "e13_per_block": 10},
+    {"name": "slh-dsa-sha2-256f", "target_envelope": 206294, "e13_per_block": 2}
+  ],
+  "reps": 1,
+  "sequential_tx": 5,
+  "burst_tx": 12,
+  "control_tx": 3,
+  "warmup_run_tx": 5,
+  "warmup_block_tx": 1,
+  "canary_every_s": 300
+}
