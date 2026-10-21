@@ -44,7 +44,7 @@ The folder holds only allow-listed facts: no host name, user name, path outside 
 
 | Name | Example | Meaning |
 |---|---|---|
-| block id | `E1.ml-dsa-44.sign.r3` | experiment, algorithm, operation, repetition (experiments `E1`, `E10`, `E2`, `E2c`, `E3`, `E4`, `E5`, `E6`, `E7`, `E8`, `E9`, `E11`, `E12`, `E13`, `probe`, `probe-E2`, `probe-E6`, `probe-E7`, `probe-E11`) |
+| block id | `E1.ml-dsa-44.sign.r3` | experiment, algorithm, operation, repetition (experiments `E1`, `E10`, `E2`, `E2c`, `E3`, `E4`, `E5`, `E6`, `E14`, `E7`, `E8`, `E9`, `E11`, `E12`, `E13`, `probe`, `probe-E2`, `probe-E6`, `probe-E7`, `probe-E11`) |
 | attempt key | `E1.ml-dsa-44.sign.r3.a2` | block id + attempt number (`a1` = the first attempt) |
 | cell | `E1.ml-dsa-44.sign` | block id without the repetition |
 | arm | `reuse`, `issuer`, `holder`, `issuer-again`, `reinit`, `prod`, `hex-decode-sk`, `hex-decode-pk`, `hex-decode-sig`, `hex-decode-ct`, `init`, `clean`, `hex-encode-pk`, `hex-encode-sk`, `hex-encode-sig`, `hex-encode-ct`, `hex-encode-ss` | a measured variant inside a block (E2 and E2c arms: `docs/methodology.md` section 4 and `internal/proto/e2.go`) |
@@ -239,3 +239,17 @@ E9 blocks are not timed (like E8: no run-quality flags, never repeated, the firs
 - **Quality:** `quality.csv` as usual; `steal` and quota throttling are always 0 (macOS has no such counters). The block's own `vm_other_pct` is all 8 CPUs busy minus the block's process, and natively it alone decides the other-CPU flag (`combined_other_pct` equals it). `host_max_other_pct` is the host monitor's reading, recorded only: at a block's start and end it counts the block's own core (about 12.5 % on 8 CPUs).
 - **Derived (analysis):** per cell, E5 median ÷ E1 median (container, `b1-prod`, same Mac).
 - **Classification:** E1's.
+
+## E14 (Fabric latency against payload size)
+
+- **Run id:** `<UTC yyyymmdd-hhmm>_mac-m1_colima-vz_fabric2.5.15`. The run folder follows the usual layout; differences below.
+- **Block ids:** `E14.<point>.<mode>.r<rep>` (point `tiny`, `ecdsa-p256`, `falcon-512`, `ml-dsa-44`, `ml-dsa-65`, `ml-dsa-87`, `slh-dsa-sha2-128s`, `slh-dsa-sha2-128f`, `slh-dsa-sha2-256f`; mode `sequential` or `burst`) and `E14.tiny.drift.d<1-3>` (drift controls). The key adds the session: `<id>.s<session>`.
+- **Raw file** `raw/E14/<point>/<mode>-r<rep>.csv.gz` (drift: `raw/E14/tiny/drift-d<n>.csv.gz`): header lines `# key=value` (id, key, point, mode, rep, n, payload_bytes, target_envelope, e13_per_block, session, start/end, seed, harness_commit, warmup_tx, readback, columns), then a CSV with the header `kind,seq,start_unix_ns,connect_ns,endorse_ns,submit_ns,commit_ns,total_ns,block,index,code,envelope_bytes,orderer_bytes`:
+  - `tx` rows, one per transaction: its position, wall-clock start, the four phase durations and the total (ns, monotonic clock), the ledger block and its index there, the validation code (0 = VALID), the envelope's bytes and the bytes the orderer counts (payload + signature);
+  - `block` rows, one per ledger block holding this block's transactions: `block,<number>,<transactions in it>,<of them this block's>,<block bytes>,<orderer-counted bytes>,<cut reason>` (count, size or timeout; empty columns after it).
+- **`blocks.csv`** (one row per block of work): `key, id, point, mode, rep, session, n, payload_bytes, target_envelope, envelope_mean/min/max, total_p50/p90/p99/mean/min/max_ns, connect/endorse/submit/commit_p50_ns, ledger_blocks, ours_per_block_min/max, cut_count, cut_size, cut_timeout, e13_per_block, start_unix_ns, end_unix_ns, wall_ns, raw_file, raw_sha256`. The median of an even count is the mean of the middle two; p90 and p99 are nearest-rank.
+- **`calibration.json`:** per point the target envelope, the payload length used, the envelope it gave, the error in percent, the fitted bytes per payload byte, and every calibration transaction.
+- **`env/network-s<N>.json`:** the network at session N: the peer's Fabric version, the chaincode package, the topology, every container's image and digest. **`env/e0-s<N>.json`:** the client's Go version, CPUs, kernel, memory and time zone.
+- **`canary.csv`:** `seq, reason (start, periodic, end), session, utc_ns, median_rate_per_s, windows, window_ms, digest` (the harness's canary workload).
+- **`manifest.json`:** as usual, with `experiment: E14`, `counts` (`blocks`, `blocks_done`, `attempts` = finished blocks for the INDEX row, `transactions`), `calibration` and `network`; there is no `quality.csv` (run quality is recorded, not decided at run time).
+- **`state.json`, `journal.csv`:** the resumable state and the event log (`session_start`, `calibrated`, `block_start`, `block_done`, `block_failed`, `block_interrupted`, `stopped`, `failed`, `run_done`).

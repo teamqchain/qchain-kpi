@@ -126,7 +126,7 @@ Source for the standards status: the NIST CSRC page (5 Aug 2026), where only FIP
 | E11 | Lifecycle composites: activation, issuance, retrieval, presentation, verification. N ∈ {1, 5, 10, 20, 64}; k ∈ {1, N/2, N}; per-stage breakdown | 16 curated suites, plus all 176 signature × KEM pairs at N = 10 |
 | E12 | Concurrency: throughput and p99 against number of workers, plus container peak memory | Production suite + 3 others; worker range depends on each machine. On the VM: one test of 15 minutes or less using both vCPUs (treated as approved); every other VM experiment uses 1 vCPU |
 | E13 | Ledger and IPFS footprint model, using Fabric batching rules and offline transaction sizing | All 22 signature schemes |
-| E14 *(later, November)* | Empirical Fabric calibration on an isolated test network with a synthetic chaincode, latency against payload size. Runs on the Mac or the Windows laptop, **never** the shared VM | Payload sizes taken from E13 |
+| E14 *(on the Mac, coded 22 Oct)* | Fabric latency against payload size on QChain's network rebuilt in Colima, with a synthetic chaincode and QChain-shaped transactions; sequential and burst. Never on the VM. Design below | Payload sizes from E13 (8 signature schemes + the smallest transaction) |
 
 **The 16 curated suites:**
 - **Variants (decided 10 Oct):** every SLH-DSA entry below is the **SHA2** variant; Falcon entries are the **standard (unpadded)** variant.
@@ -150,6 +150,17 @@ Source for the standards status: the NIST CSRC page (5 Aug 2026), where only FIP
   - ECDSA + DHKEM(P-256)
   - Ed25519 + DHKEM(X25519)
   - RSA-3072 + DHKEM(P-256)
+
+**E14 design (decided 21–22 Oct; this replaces the separate E14 plan, `docs/e14-plan.md`, which was merged here and deleted):**
+- **Question.** E13 computed bytes; E14 measures how long a transaction takes on a real Fabric network and whether QChain's post-quantum payload sizes change it, and checks E13's block model (how many transactions fit in a block). Not measured: post-quantum identities (Fabric 2.5 cannot use them; E13's projection covers that) and chaincode cryptography (QChain's chaincode has none).
+- **Decisions (user, 21 Oct):** on the Mac only; mirror the live network; 8 representative schemes plus the smallest transaction; sequential and burst; a synthetic JavaScript chaincode; **run quality recorded, not repeated** (approved with the plan, 22 Oct); **keep the live shared CouchDB** (22 Oct, after phase A found that both peers write every record to the same document, one of them after a revision conflict and a retry).
+- **Network.** QChain's `qchain-network` (commit `71a1db6`) in Colima: Government and General organisations, one peer each, one Raft orderer, one CouchDB shared by both peers, three Fabric CAs, TLS, `mychannel`, BatchTimeout 2 s, MaxMessageCount 10, PreferredMaxBytes 512 KB, majority endorsement (both organisations); Fabric 2.5.15, Fabric CA 1.5.15, CouchDB 3.3.2 pinned. QChain's enrolment, environment, channel-profile, CLI and CA files are copied byte for byte; `scripts/e14-network.sh` uses plain `docker run` (no compose on the Mac) with the live names, environment variables and mount points (volume sub-paths); no host ports. The decoded channel configuration matched the live one.
+- **Chaincode** `kpipayload` 1.0: QChain's `issueCredential` pattern (role check, holder read, existence check, one sorted-key JSON write, short result) with an N-byte hex payload; same libraries as QChain's chaincode, versions pinned.
+- **Client** (`fabric/client`, Go, its own module, built and tested in Docker): QChain's backend way of submitting (fabric-gateway v1.7.0, gRPC v1.68.0, a new connection per transaction, `issuer1` through `peer0.general.uae.com`), phases timed (connect, endorse, submit, commit, total).
+- **Payloads** (E13's `issueCredential` envelope, N = 5 attributes of 16 bytes; E13's predicted transactions per block in brackets): smallest transaction about 4.9 KB (10), ECDSA P-256 7,141 B (10), Falcon-512 12,805 B (10), ML-DSA-44 21,529 B (10), ML-DSA-65 27,645 B (10), ML-DSA-87 35,478 B (10), SLH-DSA-SHA2-128s 38,164 B (10), SLH-DSA-SHA2-128f 75,093 B (6), SLH-DSA-SHA2-256f 206,294 B (2). The payload length is calibrated against the committed envelope, within 0.5 %.
+- **Protocol.** 9 points x 2 modes x 5 repetitions, seeded order, drift controls at the start, middle and end: sequential blocks of 100 transactions (each waits for its commit), bursts of 40 released at once; warm-ups not recorded; every transaction must commit as valid; blocks read back for transactions per block, bytes and cut reason; one payload per block read back. About 2.8 h. `scripts/e14-run.sh` runs it with run.sh's own checks and finishing steps.
+- **Mac changes** (revert checklist): the pinned images, the client image, the network and its volumes and containers in Colima; nothing installed on the Mac itself; Colima stays at 4 CPUs and 4 GiB (the network uses about 0.4 GiB).
+- **Risks, resolved in phase A and B:** the shared CouchDB works but conflicts on every write (kept, reported); Colima memory is ample; the peer CLI cannot pass arguments over 128 KB, so large payloads go through the client only; the smallest transaction is about 4.9 KB, not the 0.5 KB first assumed.
 
 **Sampling:**
 - **Fast operations (under 1 ms):** 1,000 warm-up runs, then 10,000 timed samples, repeated 5 times in fresh processes.
@@ -396,7 +407,7 @@ kpi-benchmarking/
 | Phase 2 code | C helper and memory measurements, lifecycle composites, build variants, concurrency, ledger model, analysis |
 | Run window | The window communicated to Omnia was 8–15 Oct; she said any time, so it may extend. Maqqavi informs Omnia |
 | 20–24 Oct | Analysis, figures, tables, dashboard; results-section draft; PR2 preliminary results |
-| November | E14 Fabric calibration; paper writing |
+| 21–22 Oct | E14 planned and coded on the Mac (moved forward from November, user 21 Oct); paper writing follows |
 
 **Run order per machine:** Mac first (fully under our control), then the VM, then Windows. A late failure on one machine then leaves two complete result sets.
 

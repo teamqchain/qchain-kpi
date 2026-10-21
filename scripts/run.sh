@@ -30,6 +30,7 @@
 set -euo pipefail
 
 LAUNCHER="run.sh 1"
+LAUNCHER_CMD=scripts/run.sh   # named in hints; the E14 launcher, which reuses finish_run, sets its own
 repo="$(cd "$(dirname "$0")/.." && pwd -P)"
 PERIOD_S=5        # host monitor sampling period
 ROWS_PER_CHUNK=12 # one chunk per minute
@@ -69,6 +70,7 @@ json_str() { local s="${1//\\/}"; s="${s//\"/}"; printf '"%s"' "$s"; }
 
 # ------------------------------------------------------------------ checks
 
+# >>> shared with scripts/e14-run.sh (it loads the blocks between these markers)
 # The Colima VM does not survive a Mac sleep (it is stopped after wake), and the
 # Mac sleeps whenever it is idle between runs. Start it again if it is down,
 # with the study's settings (decision 10 Oct).
@@ -80,6 +82,7 @@ ensure_colima() {
     colima start --vm-type vz --cpus 4 --memory 4 --mount none >&2 || die "colima start failed"
   fi
 }
+# <<< shared with scripts/e14-run.sh
 
 preflight() { # kind
   local kind="$1" n out
@@ -242,6 +245,7 @@ write_session() { # file offset unc p e cooling
   json_get "$f" host runtime >/dev/null || die "session.json is not valid JSON"
 }
 
+# >>> shared with scripts/e14-run.sh (it loads the blocks between these markers)
 deliver_chunks() { # workdir rid session
   local w="$1" rid="$2" s="$3" r base name
   for r in "$w"/host-*.ready; do
@@ -254,6 +258,7 @@ deliver_chunks() { # workdir rid session
     fi
   done
 }
+# <<< shared with scripts/e14-run.sh
 
 # >>> shared with scripts/native-mac.sh (it loads the blocks between these markers)
 persist_dir() { printf '%s\n' "$HOME/Library/Application Support/qchain-kpi/$1"; }
@@ -451,6 +456,7 @@ index_row() { # dest rid
 }
 # <<< shared with scripts/native-mac.sh
 
+# >>> shared with scripts/e14-run.sh (it loads the blocks between these markers)
 finish_run() { # rid code
   local rid="$1" code="$2" stage dest persist
   persist="$(persist_dir "$rid")"
@@ -460,7 +466,7 @@ finish_run() { # rid code
       note "the batch container did not start (see the messages above); kpi-run-$rid and kpi-out-$rid were kept"
       return 1 ;;
     5)
-      note "batch stopped and can be resumed: scripts/run.sh resume $rid"
+      note "batch stopped and can be resumed: $LAUNCHER_CMD resume $rid"
       return 0 ;;
     *)
       stage="$repo/scratch/failed/$rid"
@@ -502,6 +508,7 @@ finish_run() { # rid code
   note "done: results/$osdir/$rid (checksums verified, privacy scan clean); container and volume removed"
   note "to commit: git -C \"$repo\" add \"results/$osdir/$rid\" \"results/$osdir/INDEX.md\" && git -C \"$repo\" commit -m \"results: $rid\""
 }
+# <<< shared with scripts/e14-run.sh
 
 # ------------------------------------------------------------------- main
 

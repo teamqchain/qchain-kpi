@@ -1,5 +1,5 @@
 #!/bin/bash
-# E14: QChain's Fabric network, rebuilt on the Mac inside Colima (docs/e14-plan.md).
+# E14: QChain's Fabric network, rebuilt on the Mac inside Colima (design: docs/plan.md, "E14 design"; method: docs/methodology.md, E14).
 #
 #   scripts/e14-network.sh setup     # first time (needs the internet): everything below, in order
 #   scripts/e14-network.sh start     # start the stopped containers again (after a Mac sleep)

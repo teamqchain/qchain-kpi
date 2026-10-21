@@ -13,7 +13,9 @@ It records every sample, flags noisy measurements and repeats them, and produces
 - **Where every input comes from** (QChain code copied verbatim, pinned libraries, test vectors): [docs/provenance.md](docs/provenance.md)
 - **Decisions taken while building the harness:** [docs/decisions-log.md](docs/decisions-log.md)
 
-**Status (19 Oct 2026): Mac-first.** Mac results: the trial, E1, E10, E2, E3, E6, E7, E8, E9, E11, E12 and E13 (all committed). E4 (liboqs build variants `b2-portable` and `b3-native`) and E5 (native macOS, outside Docker) are coded.
+**Status (22 Oct 2026): Mac-first.** Mac results: the trial, E1 to E13 (all committed; E4 with `b2-portable` and `b3-native`, E5 natively). E14 (Fabric latency against payload size, on QChain's network rebuilt on the Mac) is coded. Which experiments still run on the Windows laptop and the VM: `docs/methodology.md` section 9.
+
+**19 Oct:** Mac results: the trial, E1, E10, E2, E3, E6, E7, E8, E9, E11, E12 and E13 (all committed). E4 (liboqs build variants `b2-portable` and `b3-native`) and E5 (native macOS, outside Docker) are coded.
 
 **16 Oct:** Mac results: the trial, E1, E10, E2, E6, E7, E8, E9, E11, E12 and E13 (all committed). E3 (integration-pattern cost) is coded.
 
@@ -70,6 +72,15 @@ scripts/native-mac.sh build                   # optional: native go vet, go test
 scripts/native-mac.sh start --plan smoke-e5   # then e5; stop, resume, extend and status as run.sh
 ```
 
+E14 runs against QChain's Fabric network rebuilt in Colima (`fabric/`; `docs/methodology.md`, E14):
+
+```bash
+scripts/e14-network.sh setup                  # once, with Wi-Fi on: images, certificates, channel, chaincode
+scripts/e14-network.sh start|stop|status      # after a Mac sleep the run launcher starts it by itself
+scripts/e14-run.sh check                      # read-only: network up, preflight, network facts
+scripts/e14-run.sh start --plan smoke-e14     # then e14; stop, resume and status as run.sh
+```
+
 **Trial and main plans refuse to start unless the machine is ready:**
 - on mains power;
 - thermal pressure nominal, Low Power Mode off;
@@ -113,7 +124,9 @@ docker/     Dockerfile and the liboqs build and gate scripts
 plans/      run plans (JSON)
             (code: each experiment in its own eN.go file in cmd/kpi-prim, cmd/kpi-batch, internal/proto, internal/plan, internal/inputs)
 config/     thresholds.json (one calibrated section per machine)
-scripts/    run.sh monitor-mac.sh dev.sh native-setup.sh native-mac.sh native-gate-hashlib.py
+scripts/    run.sh monitor-mac.sh dev.sh native-setup.sh native-mac.sh native-gate-hashlib.py e14-network.sh e14-run.sh
+fabric/     E14: network/ (QChain's network files, copied, and the channel and chaincode scripts), chaincode/ (kpipayload),
+            client/ (the Go client, its own module), plans/, Dockerfile
 testdata/   RFC 9180 vectors
 docs/       plan, coding plan, methodology, data dictionary, provenance, decisions
 results/    mac/ windows/ linux/: MACHINE.md, INDEX.md and one folder per run
