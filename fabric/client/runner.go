@@ -42,7 +42,8 @@ type State struct {
 	Done          map[string]DoneRec     `json:"done"`
 	Calibration   map[string]Calibration `json:"calibration"`
 	CanarySeq     int                    `json:"canary_seq"`
-	Transactions  int                    `json:"transactions"` // recorded (in finished blocks)
+	Transactions  int                    `json:"transactions"`    // recorded (in finished blocks)
+	FalseConflict int                    `json:"false_conflicts"` // of them, committed with MVCC_READ_CONFLICT (see put)
 }
 
 // SessionRec is one start or resume.
@@ -124,7 +125,17 @@ func (r *Runner) envelopeOf(ctx context.Context, t TxResult) (BlockTx, *LedgerBl
 	return BlockTx{}, nil, fmt.Errorf("transaction %s not in block %d", t.TxID, t.Block)
 }
 
-// put submits one transaction and requires a valid commit.
+// CodeMVCCConflict is Fabric's TxValidationCode MVCC_READ_CONFLICT.
+const CodeMVCCConflict = 11
+
+// put submits one transaction. It must commit as valid (code 0), or with
+// MVCC_READ_CONFLICT: QChain's two peers share one CouchDB, so the peer that
+// validates a block second finds the records the first peer already wrote,
+// flags the transactions as conflicting in its own copy of the ledger and
+// skips their writes; the records are in the state all the same (the E14
+// smoke run, 22 Oct). That outcome is data, not a failure, if the record
+// reads back correctly: the caller verifies it with verifyConflict, outside
+// the timed region. Any other code stops the run.
 func (r *Runner) put(ctx context.Context, id, payload string) (TxResult, error) {
 	t, err := r.Ledger.Put(ctx, id, payload)
 	if err != nil {
@@ -133,12 +144,38 @@ func (r *Runner) put(ctx context.Context, id, payload string) (TxResult, error) 
 		}
 		return t, err
 	}
-	if !t.Valid || t.Code != 0 {
+	if t.Code != 0 && t.Code != CodeMVCCConflict {
 		return t, fmt.Errorf("transaction %s committed with validation code %d", t.TxID, t.Code)
 	}
 	return t, nil
 }
 
+// verifyConflict checks that a transaction flagged MVCC_READ_CONFLICT wrote
+// its record: it must read back from the state, byte for byte.
+func (r *Runner) verifyConflict(ctx context.Context, id, payload string) error {
+	got, err := r.Ledger.Get(ctx, id)
+	if err != nil {
+		return fmt.Errorf("transaction on %s was flagged MVCC_READ_CONFLICT and its record is missing: %w", id, err)
+	}
+	var rec struct {
+		ID      string
+		Payload string
+	}
+	if err := json.Unmarshal(got, &rec); err != nil || rec.ID != id || rec.Payload != payload {
+		return fmt.Errorf("transaction on %s was flagged MVCC_READ_CONFLICT and its record differs from what was sent", id)
+	}
+	return nil
+}
+
+// putChecked is put plus the immediate verification of a conflict (warm-up
+// and calibration transactions, which are not timed).
+func (r *Runner) putChecked(ctx context.Context, id, payload string) (TxResult, error) {
+	t, err := r.put(ctx, id, payload)
+	if err == nil && t.Code == CodeMVCCConflict {
+		err = r.verifyConflict(ctx, id, payload)
+	}
+	return t, err
+}
 // warmup submits n untimed transactions of the given payload size.
 func (r *Runner) warmup(ctx context.Context, what string, n, payload int) error {
 	key := fmt.Sprintf("warmup.%s.s%d", what, r.Session)
@@ -146,7 +183,7 @@ func (r *Runner) warmup(ctx context.Context, what string, n, payload int) error 
 		if r.Stop.Load() {
 			return errStopped
 		}
-		if _, err := r.put(ctx, r.txID("W", key, i), r.payloadHex(key, i, payload)); err != nil {
+		if _, err := r.putChecked(ctx, r.txID("W", key, i), r.payloadHex(key, i, payload)); err != nil {
 			return fmt.Errorf("warm-up %s: %w", what, err)
 		}
 	}
@@ -168,7 +205,7 @@ func (r *Runner) calibrate(ctx context.Context) error {
 			if r.Stop.Load() {
 				return 0, errStopped
 			}
-			t, err := r.put(ctx, r.txID("C", key, i), r.payloadHex(key, i, p))
+			t, err := r.putChecked(ctx, r.txID("C", key, i), r.payloadHex(key, i, p))
 			i++
 			if err != nil {
 				return 0, err
@@ -341,7 +378,7 @@ func (r *Runner) runBlock(ctx context.Context, b Block) (int, error) {
 		lblocks = append(lblocks, lb)
 		for idx, tx := range lb.Txs {
 			if i, ok := byTx[tx.TxID]; ok {
-				if tx.Code != 0 {
+				if tx.Code != 0 && tx.Code != CodeMVCCConflict {
 					return 0, fmt.Errorf("transaction %s is marked %d in block %d", tx.TxID, tx.Code, n)
 				}
 				where[i] = found{block: int(n), index: idx, tx: tx}
@@ -351,6 +388,21 @@ func (r *Runner) runBlock(ctx context.Context, b Block) (int, error) {
 	}
 	if located != b.N {
 		return 0, fmt.Errorf("found %d of %d transactions in their blocks", located, b.N)
+	}
+
+	// Transactions flagged MVCC_READ_CONFLICT: the status the Gateway gave
+	// and the block's flag must agree, and the record must be in the state.
+	conflicts := 0
+	for i, t := range res {
+		if int(t.Code) != int(where[i].tx.Code) {
+			return 0, fmt.Errorf("transaction %s: commit status %d but its block says %d", t.TxID, t.Code, where[i].tx.Code)
+		}
+		if t.Code == CodeMVCCConflict {
+			conflicts++
+			if err := r.verifyConflict(ctx, ids[i], payloads[i]); err != nil {
+				return 0, err
+			}
+		}
 	}
 
 	// Read back a seeded sample (one per block of work) and compare.
@@ -443,15 +495,16 @@ func (r *Runner) runBlock(ctx context.Context, b Block) (int, error) {
 		ff(f(func(t TxResult) int64 { return t.ConnectNS }).P50), ff(f(func(t TxResult) int64 { return t.EndorseNS }).P50),
 		ff(f(func(t TxResult) int64 { return t.SubmitNS }).P50), ff(f(func(t TxResult) int64 { return t.CommitNS }).P50),
 		strconv.Itoa(len(lblocks)), strconv.Itoa(minOurs), strconv.Itoa(maxOurs),
-		strconv.Itoa(cut["count"]), strconv.Itoa(cut["size"]), strconv.Itoa(cut["timeout"]), strconv.Itoa(b.Point.E13PerBlock),
+		strconv.Itoa(cut["count"]), strconv.Itoa(cut["size"]), strconv.Itoa(cut["timeout"]), strconv.Itoa(conflicts), strconv.Itoa(b.Point.E13PerBlock),
 		strconv.FormatInt(start.UnixNano(), 10), strconv.FormatInt(end.UnixNano(), 10), strconv.FormatInt(end.Sub(start).Nanoseconds(), 10),
 		rawRel, sha256Hex(gz)}
 	if err := appendCSV(r.path("blocks.csv"), blocksHeader, row); err != nil {
 		return 0, err
 	}
 	r.St.Done[b.ID] = DoneRec{Session: r.Session, RawFile: rawRel}
-	detail := fmt.Sprintf("p50 %.1f ms, %d ledger blocks, %d to %d per block (count %d, size %d, timeout %d)",
-		tot.P50/1e6, len(lblocks), minOurs, maxOurs, cut["count"], cut["size"], cut["timeout"])
+	r.St.FalseConflict += conflicts
+	detail := fmt.Sprintf("p50 %.1f ms, %d ledger blocks, %d to %d per block (count %d, size %d, timeout %d), %d MVCC conflicts",
+		tot.P50/1e6, len(lblocks), minOurs, maxOurs, cut["count"], cut["size"], cut["timeout"], conflicts)
 	if err := r.journal("block_done", b.ID, detail); err != nil {
 		return 0, err
 	}
@@ -469,7 +522,7 @@ func rawName(b Block) string {
 var blocksHeader = []string{"key", "id", "point", "mode", "rep", "session", "n", "payload_bytes", "target_envelope",
 	"envelope_mean", "envelope_min", "envelope_max", "total_p50_ns", "total_p90_ns", "total_p99_ns", "total_mean_ns",
 	"total_min_ns", "total_max_ns", "connect_p50_ns", "endorse_p50_ns", "submit_p50_ns", "commit_p50_ns",
-	"ledger_blocks", "ours_per_block_min", "ours_per_block_max", "cut_count", "cut_size", "cut_timeout", "e13_per_block",
+	"ledger_blocks", "ours_per_block_min", "ours_per_block_max", "cut_count", "cut_size", "cut_timeout", "mvcc_conflicts", "e13_per_block",
 	"start_unix_ns", "end_unix_ns", "wall_ns", "raw_file", "raw_sha256"}
 
 // cleanTemp removes temporary files an interrupted write may have left.

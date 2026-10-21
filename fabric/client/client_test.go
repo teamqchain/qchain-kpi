@@ -36,10 +36,17 @@ type fakeLedger struct {
 	failAt  int           // fail the n-th Put (1-based), 0 = never
 	puts    int
 	corrupt bool // Get returns a different payload
+	// conflictEvery > 0: every n-th Put (1-based) is flagged MVCC_READ_CONFLICT,
+	// as the second-validating peer of a shared CouchDB does; dropConflicts
+	// leaves their records out of the state; badCode flags them with code 10.
+	conflictEvery int
+	dropConflicts bool
+	badCode       int32
+	codes         map[string]int32 // txid -> validation code
 }
 
 func newFake() *fakeLedger {
-	return &fakeLedger{next: 5, blocks: map[uint64][][]byte{}, state: map[string]string{}}
+	return &fakeLedger{next: 5, blocks: map[uint64][][]byte{}, state: map[string]string{}, codes: map[string]int32{}}
 }
 
 func envelope(txid string, payloadHexLen int) []byte {
@@ -73,7 +80,17 @@ func (f *fakeLedger) Put(ctx context.Context, id, payloadHex string) (TxResult, 
 	}
 	txid := "tx-" + id
 	env := envelope(txid, len(payloadHex))
-	f.state[id] = payloadHex
+	code := int32(0)
+	if f.conflictEvery > 0 && f.puts%f.conflictEvery == 0 {
+		code = CodeMVCCConflict
+		if f.badCode != 0 {
+			code = f.badCode
+		}
+	}
+	f.codes[txid] = code
+	if code == 0 || !f.dropConflicts {
+		f.state[id] = payloadHex
+	}
 	size := 0
 	for _, e := range f.pending {
 		size += len(e)
@@ -100,7 +117,7 @@ func (f *fakeLedger) Put(ctx context.Context, id, payloadHex string) (TxResult, 
 	f.mu.Unlock()
 	<-done
 	return TxResult{StartUnixNS: time.Now().UnixNano(), ConnectNS: 1, EndorseNS: 2, SubmitNS: 3, CommitNS: 4, TotalNS: 10,
-		TxID: txid, Block: block, Valid: true}, nil
+		TxID: txid, Block: block, Code: code, Valid: code == 0}, nil
 }
 
 func (f *fakeLedger) Block(ctx context.Context, n uint64) ([]byte, error) {
@@ -111,6 +128,15 @@ func (f *fakeLedger) Block(ctx context.Context, n uint64) ([]byte, error) {
 		return nil, fmt.Errorf("no block %d", n)
 	}
 	filter := make([]byte, len(envs))
+	for i, e := range envs {
+		var env common.Envelope
+		var pl common.Payload
+		var ch common.ChannelHeader
+		proto.Unmarshal(e, &env)
+		proto.Unmarshal(env.Payload, &pl)
+		proto.Unmarshal(pl.Header.ChannelHeader, &ch)
+		filter[i] = byte(f.codes[ch.TxId])
+	}
 	b := &common.Block{Header: &common.BlockHeader{Number: n}, Data: &common.BlockData{Data: envs},
 		Metadata: &common.BlockMetadata{Metadata: [][]byte{nil, nil, filter, nil, nil}}}
 	return proto.Marshal(b)
@@ -119,7 +145,10 @@ func (f *fakeLedger) Block(ctx context.Context, n uint64) ([]byte, error) {
 func (f *fakeLedger) Get(ctx context.Context, id string) ([]byte, error) {
 	f.mu.Lock()
 	defer f.mu.Unlock()
-	p := f.state[id]
+	p, ok := f.state[id]
+	if !ok {
+		return nil, fmt.Errorf("Payload not found: %s", id) // as the chaincode's getPayload
+	}
 	if f.corrupt {
 		p = "00" + p[2:]
 	}
@@ -373,5 +402,70 @@ func TestRunnerFailuresAndStop(t *testing.T) {
 	r.Stop.Store(true)
 	if err := r.Run(context.Background()); err != errStopped {
 		t.Fatalf("stop: %v", err)
+	}
+}
+
+// TestRunnerMVCCConflicts: transactions flagged MVCC_READ_CONFLICT (the
+// shared-CouchDB effect) are data when their record reads back; they are
+// counted per block and in the state, and any other code or a missing record
+// stops the run.
+func TestRunnerMVCCConflicts(t *testing.T) {
+	f := newFake()
+	f.conflictEvery = 7
+	r, dir := newRunner(t, f)
+	if err := r.Run(context.Background()); err != nil {
+		t.Fatalf("conflicts with intact records stopped the run: %v", err)
+	}
+	if r.St.FalseConflict == 0 {
+		t.Fatal("no conflict was counted")
+	}
+	tab, err := os.ReadFile(filepath.Join(dir, "blocks.csv"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	rows, err := csv.NewReader(strings.NewReader(string(tab))).ReadAll()
+	if err != nil {
+		t.Fatal(err)
+	}
+	col := -1
+	for i, h := range rows[0] {
+		if h == "mvcc_conflicts" {
+			col = i
+		}
+	}
+	sum := 0
+	for _, row := range rows[1:] {
+		var n int
+		fmt.Sscan(row[col], &n)
+		sum += n
+	}
+	if col < 0 || sum == 0 || sum > r.St.FalseConflict {
+		t.Fatalf("blocks.csv holds %d conflicts (column %d), the state %d (warm-ups and calibration included)", sum, col, r.St.FalseConflict)
+	}
+	// the raw rows carry the code
+	found := false
+	for _, name := range []string{"tiny/sequential-r1", "tiny/burst-r1", "ml-dsa-44/sequential-r1", "ml-dsa-44/burst-r1", "slh-dsa-sha2-256f/burst-r1", "slh-dsa-sha2-256f/sequential-r1"} {
+		_, raw := readGz(t, filepath.Join(dir, "raw/E14", name+".csv.gz"))
+		for _, row := range raw[1:] {
+			if row[0] == "tx" && row[10] == "11" {
+				found = true
+			}
+		}
+	}
+	if !found {
+		t.Fatal("no raw row carries code 11")
+	}
+
+	f = newFake()
+	f.conflictEvery, f.dropConflicts = 7, true
+	r, _ = newRunner(t, f)
+	if err := r.Run(context.Background()); err == nil || !strings.Contains(err.Error(), "record is missing") {
+		t.Fatalf("a conflicted transaction without its record was accepted: %v", err)
+	}
+	f = newFake()
+	f.conflictEvery, f.badCode = 7, 10
+	r, _ = newRunner(t, f)
+	if err := r.Run(context.Background()); err == nil || !strings.Contains(err.Error(), "validation code 10") {
+		t.Fatalf("an endorsement-policy failure was accepted: %v", err)
 	}
 }
