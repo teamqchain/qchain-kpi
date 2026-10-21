@@ -202,3 +202,27 @@ A block can end with no clean attempt: all 3 attempts were flagged for an extern
 - **Same code.** The launcher refuses unless everything that produces the numbers is identical to the run's harness commit (checked with git): `cmd/kpi-prim`, `cmd/kpi-env`, `cmd/kpi-canary-native`, `internal/`, `docker/`, `plans/`, `config/`, `go.mod` and `go.sum`. The orchestrator `cmd/kpi-batch` may differ, because it implements the extension itself; its changed files are listed in the run's manifest. Decisions for runs that are not extended are unchanged. The image and harness commit may then differ, because the launcher scripts and docs change between commits; both old and new values are recorded.
 - **Recorded, not hidden.** The extension is session 2 in the manifest (`sessions`, `extensions`, `notes`), the state, the journal (`extension_queued`) and `console.txt`. A new E0 and canary are captured (`env/e0-s2.json`, `env/build-info-s2/`). Input sets are regenerated: the same message seeds, new keys.
 - **Safety.** Before anything starts, the finished run is copied to `scratch/backup/<run-id>` (it is also in git). The new folder replaces the old one only after its checksums verify and the privacy scan is clean.
+
+## 9. Which experiments run on which machine (decided 21 Oct 2026)
+
+The first plan ran every experiment on all three machines. To finish the measurements in time, the scope per machine is:
+
+| Experiment | Mac (M1) | Windows laptop | University VM |
+|---|---|---|---|
+| E0 environment and correctness | every run | every run | every run |
+| E1 primitive latency | done | all 30 algorithms | all 30 algorithms |
+| E2 integration cost | done (full) | without SLH-DSA | without SLH-DSA |
+| E3 integration layers | done | not run | not run |
+| E4 build sensitivity | B2, B3 done | B2, B3 | B4 (no OpenSSL) only |
+| E5 native OS vs container | done | not run | not run |
+| E6 message-size sweep | done | not run | not run |
+| E7 rejection timing | done | not run | not run |
+| E8 sizes | done | not run | not run |
+| E9 memory | done | run | run |
+| E10 issuer vs holder | done | run | run |
+| E11 lifecycle | done (all 991 cells) | the 16 curated suites | the 16 curated suites |
+| E12 concurrency | workers 1, 2, 4 | workers 1, 2, 4, 8 | one test of at most 15 min, both vCPUs |
+| E13 ledger and IPFS model | done | not run | not run |
+| E14 Fabric calibration | planned | not run | never (live QChain network) |
+
+Reasons: sizes (E8, E13) depend on the algorithm, not the processor; E7 is a ratio; E3 and E6 are comparisons whose Mac result answers the question; SLH-DSA dominates the time of E1, E2, E3, E6 and E11 (every slow cell gets at least 60 s), and its speed on each machine still comes from E1 and E11 (curated). The results that depend on the processor stay on both machines. Statistics are unchanged (5 repetitions, the same quality rules); the reduced plans are separate plan files, so every result says what it covered.
