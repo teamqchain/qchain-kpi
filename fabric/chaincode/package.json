@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "fabric-contract-api": "2.5.8",
+    "fabric-shim": "2.5.8",
+    "json-stringify-deterministic": "1.0.18",
+    "sort-keys-recursive": "2.1.10"
+  },
+  "name": "kpipayload",
+  "version": "1.0.0",
+  "description": "E14 synthetic chaincode: QChain's issueCredential pattern with an N-byte payload, no cryptography",
+  "main": "index.js",
+  "scripts": {
+    "start": "fabric-chaincode-node start",
+    "test": "node --test"
+  },
+  "license": "ISC",
+  "type": "commonjs"
+}
