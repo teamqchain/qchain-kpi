@@ -1,0 +1,133 @@
+{
+  "schema": 1,
+  "run_id": "20261021-2124_mac-m1_colima-vz_fabric2.5.15",
+  "machine": "mac-m1",
+  "plan_name": "smoke-e14",
+  "plan_kind": "smoke",
+  "plan_hash": "2b74e9ce53798659dd39f6bdc823f7554ab148cbecaf1c156b8f28668271a3d4",
+  "seed": 13694565004765060787,
+  "image_id": "sha256:a3908716be186fe6df2458d04d2086da5f879e1f1880d3c9fe467028a3d48674",
+  "harness_commit": "c46f60ac0c2f46e7634c3db64a2b382250035624",
+  "status": "done",
+  "started_utc": "2026-10-21T21:24:07Z",
+  "sessions": [
+    {
+      "n": 1,
+      "started_utc": "2026-10-21T21:24:07Z",
+      "host_offset_ns": -33782764,
+      "native_p_rate": 2564684.00371937,
+      "native_e_rate": 411171.873110194
+    }
+  ],
+  "order": [
+    "E14.tiny.drift.d1",
+    "E14.ml-dsa-44.sequential.r1",
+    "E14.slh-dsa-sha2-256f.sequential.r1",
+    "E14.tiny.burst.r1",
+    "E14.tiny.drift.d2",
+    "E14.slh-dsa-sha2-256f.burst.r1",
+    "E14.ml-dsa-44.burst.r1",
+    "E14.tiny.sequential.r1",
+    "E14.tiny.drift.d3"
+  ],
+  "done": {
+    "E14.ml-dsa-44.burst.r1": {
+      "session": 1,
+      "raw_file": "raw/E14/ml-dsa-44/burst-r1.csv.gz"
+    },
+    "E14.ml-dsa-44.sequential.r1": {
+      "session": 1,
+      "raw_file": "raw/E14/ml-dsa-44/sequential-r1.csv.gz"
+    },
+    "E14.slh-dsa-sha2-256f.burst.r1": {
+      "session": 1,
+      "raw_file": "raw/E14/slh-dsa-sha2-256f/burst-r1.csv.gz"
+    },
+    "E14.slh-dsa-sha2-256f.sequential.r1": {
+      "session": 1,
+      "raw_file": "raw/E14/slh-dsa-sha2-256f/sequential-r1.csv.gz"
+    },
+    "E14.tiny.burst.r1": {
+      "session": 1,
+      "raw_file": "raw/E14/tiny/burst-r1.csv.gz"
+    },
+    "E14.tiny.drift.d1": {
+      "session": 1,
+      "raw_file": "raw/E14/tiny/drift-d1.csv.gz"
+    },
+    "E14.tiny.drift.d2": {
+      "session": 1,
+      "raw_file": "raw/E14/tiny/drift-d2.csv.gz"
+    },
+    "E14.tiny.drift.d3": {
+      "session": 1,
+      "raw_file": "raw/E14/tiny/drift-d3.csv.gz"
+    },
+    "E14.tiny.sequential.r1": {
+      "session": 1,
+      "raw_file": "raw/E14/tiny/sequential-r1.csv.gz"
+    }
+  },
+  "calibration": {
+    "ml-dsa-44": {
+      "point": "ml-dsa-44",
+      "target_envelope": 21529,
+      "payload_bytes": 4149,
+      "envelope_bytes": 21528,
+      "error_pct": -0.004644897580008361,
+      "slope_bytes_per_payload_byte": 4.000857142857143,
+      "steps": [
+        {
+          "payload_bytes": 1000,
+          "envelope_bytes": 8929
+        },
+        {
+          "payload_bytes": 8000,
+          "envelope_bytes": 36935
+        },
+        {
+          "payload_bytes": 4149,
+          "envelope_bytes": 21528
+        }
+      ]
+    },
+    "slh-dsa-sha2-256f": {
+      "point": "slh-dsa-sha2-256f",
+      "target_envelope": 206294,
+      "payload_bytes": 50327,
+      "envelope_bytes": 206253,
+      "error_pct": -0.01987454797521983,
+      "slope_bytes_per_payload_byte": 4.001142857142857,
+      "steps": [
+        {
+          "payload_bytes": 1000,
+          "envelope_bytes": 8928
+        },
+        {
+          "payload_bytes": 8000,
+          "envelope_bytes": 36936
+        },
+        {
+          "payload_bytes": 50327,
+          "envelope_bytes": 206253
+        }
+      ]
+    },
+    "tiny": {
+      "point": "tiny",
+      "target_envelope": 0,
+      "payload_bytes": 1,
+      "envelope_bytes": 4928,
+      "error_pct": 0,
+      "steps": [
+        {
+          "payload_bytes": 1,
+          "envelope_bytes": 4928
+        }
+      ]
+    }
+  },
+  "canary_seq": 2,
+  "transactions": 60,
+  "false_conflicts": 6
+}

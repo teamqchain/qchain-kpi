@@ -1,0 +1,24 @@
+utc_ns,event,key,detail
+1792617847015601641,session_start,,session 1; host offset -33782764 ns
+1792617860852076815,calibrated,tiny,payload 1 envelope 4928 target 0
+1792617867035628618,calibrated,ml-dsa-44,payload 4149 envelope 21528 target 21529
+1792617873242786984,calibrated,slh-dsa-sha2-256f,payload 50327 envelope 206253 target 206294
+1792617873245250074,block_start,E14.tiny.drift.d1,
+1792617881457471178,block_done,E14.tiny.drift.d1,"p50 2049.1 ms, 3 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 3), 0 MVCC conflicts"
+1792617881458690415,block_start,E14.ml-dsa-44.sequential.r1,
+1792617893817665842,block_done,E14.ml-dsa-44.sequential.r1,"p50 2058.4 ms, 5 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 5), 0 MVCC conflicts"
+1792617893819194759,block_start,E14.slh-dsa-sha2-256f.sequential.r1,
+1792617906285820526,block_done,E14.slh-dsa-sha2-256f.sequential.r1,"p50 2070.1 ms, 5 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 5), 0 MVCC conflicts"
+1792617906287027233,block_start,E14.tiny.burst.r1,
+1792617910448644554,block_done,E14.tiny.burst.r1,"p50 79.4 ms, 2 ledger blocks, 2 to 10 per block (count 1, size 0, timeout 1), 0 MVCC conflicts"
+1792617910451231827,block_start,E14.tiny.drift.d2,
+1792617918672615405,block_done,E14.tiny.drift.d2,"p50 2053.1 ms, 3 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 3), 0 MVCC conflicts"
+1792617918674129377,block_start,E14.slh-dsa-sha2-256f.burst.r1,
+1792617922955279719,block_done,E14.slh-dsa-sha2-256f.burst.r1,"p50 246.4 ms, 6 ledger blocks, 2 to 2 per block (count 0, size 5, timeout 1), 6 MVCC conflicts"
+1792617922956479557,block_start,E14.ml-dsa-44.burst.r1,
+1792617927111957907,block_done,E14.ml-dsa-44.burst.r1,"p50 113.8 ms, 2 ledger blocks, 2 to 10 per block (count 1, size 0, timeout 1), 0 MVCC conflicts"
+1792617927114655224,block_start,E14.tiny.sequential.r1,
+1792617939415070290,block_done,E14.tiny.sequential.r1,"p50 2051.9 ms, 5 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 5), 0 MVCC conflicts"
+1792617939416419661,block_start,E14.tiny.drift.d3,
+1792617947624795428,block_done,E14.tiny.drift.d3,"p50 2054.1 ms, 3 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 3), 0 MVCC conflicts"
+1792617949127873321,run_done,,"9 blocks, 60 transactions"

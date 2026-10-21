@@ -1,0 +1,25 @@
+[01:24:07] run 20261021-2124_mac-m1_colima-vz_fabric2.5.15 session 1: plan smoke-e14 (smoke), 9 blocks, 0 done
+[01:24:08] canary 1 (start): 2380408 hashes/s
+[01:24:20] calibrated tiny: payload 1 B -> envelope 4928 B (target 0, +0.00%, 1 transactions)
+[01:24:27] calibrated ml-dsa-44: payload 4149 B -> envelope 21528 B (target 21529, -0.00%, 3 transactions)
+[01:24:33] calibrated slh-dsa-sha2-256f: payload 50327 B -> envelope 206253 B (target 206294, -0.02%, 3 transactions)
+[01:24:41] E14.tiny.drift.d1: p50 2049.1 ms, 3 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 3), 0 MVCC conflicts
+[01:24:41] 1/9 E14.tiny.drift.d1 done
+[01:24:53] E14.ml-dsa-44.sequential.r1: p50 2058.4 ms, 5 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 5), 0 MVCC conflicts
+[01:24:53] 2/9 E14.ml-dsa-44.sequential.r1 done
+[01:25:06] E14.slh-dsa-sha2-256f.sequential.r1: p50 2070.1 ms, 5 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 5), 0 MVCC conflicts
+[01:25:06] 3/9 E14.slh-dsa-sha2-256f.sequential.r1 done
+[01:25:10] E14.tiny.burst.r1: p50 79.4 ms, 2 ledger blocks, 2 to 10 per block (count 1, size 0, timeout 1), 0 MVCC conflicts
+[01:25:10] 4/9 E14.tiny.burst.r1 done
+[01:25:18] E14.tiny.drift.d2: p50 2053.1 ms, 3 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 3), 0 MVCC conflicts
+[01:25:18] 5/9 E14.tiny.drift.d2 done
+[01:25:22] E14.slh-dsa-sha2-256f.burst.r1: p50 246.4 ms, 6 ledger blocks, 2 to 2 per block (count 0, size 5, timeout 1), 6 MVCC conflicts
+[01:25:22] 6/9 E14.slh-dsa-sha2-256f.burst.r1 done
+[01:25:27] E14.ml-dsa-44.burst.r1: p50 113.8 ms, 2 ledger blocks, 2 to 10 per block (count 1, size 0, timeout 1), 0 MVCC conflicts
+[01:25:27] 7/9 E14.ml-dsa-44.burst.r1 done
+[01:25:39] E14.tiny.sequential.r1: p50 2051.9 ms, 5 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 5), 0 MVCC conflicts
+[01:25:39] 8/9 E14.tiny.sequential.r1 done
+[01:25:47] E14.tiny.drift.d3: p50 2054.1 ms, 3 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 3), 0 MVCC conflicts
+[01:25:47] 9/9 E14.tiny.drift.d3 done
+[01:25:49] canary 2 (end): 2382871 hashes/s
+[01:25:49] done: 9 blocks, 60 transactions

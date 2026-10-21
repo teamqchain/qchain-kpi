@@ -36,3 +36,4 @@
 | 20261019-1901_mac-m1_colima-vz_b3-native | e4 | main | done | 478 | 15 | 4ed2f2bb94d9 | 15970275830360235064 |
 | 20261020-0147_mac-m1_native-macos_b1-prod | smoke-e5 | smoke | done | 42 | 4 | 4ed2f2bb94d9 | 4112005659585257071 |
 | 20261020-1525_mac-m1_native-macos_b1-prod | e5 | main | done | 462 | 7 | 3f73b21c3103 | 9406475149066090912 |
+| 20261021-2124_mac-m1_colima-vz_fabric2.5.15 | smoke-e14 | smoke | done | 9 |  | c46f60ac0c2f | 13694565004765060787 |

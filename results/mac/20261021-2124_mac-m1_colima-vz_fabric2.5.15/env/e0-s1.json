@@ -1,0 +1,15 @@
+{
+  "captured_utc": "2026-10-21T21:24:07Z",
+  "cpu": "CPU implementer=0x61 CPU part=0x000",
+  "go": "go1.24.13",
+  "goarch": "arm64",
+  "gomaxprocs": 4,
+  "goos": "linux",
+  "harness_commit": "c46f60ac0c2f46e7634c3db64a2b382250035624",
+  "kernel": "6.8.0-117-generic",
+  "local_zone": "Asia/Dubai",
+  "mem_total": "3999212 kB",
+  "num_cpu": 4,
+  "schema": 1,
+  "timezone": "Asia/Dubai"
+}

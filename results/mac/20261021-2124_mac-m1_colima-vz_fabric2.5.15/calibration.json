@@ -1,0 +1,59 @@
+{
+  "ml-dsa-44": {
+    "point": "ml-dsa-44",
+    "target_envelope": 21529,
+    "payload_bytes": 4149,
+    "envelope_bytes": 21528,
+    "error_pct": -0.004644897580008361,
+    "slope_bytes_per_payload_byte": 4.000857142857143,
+    "steps": [
+      {
+        "payload_bytes": 1000,
+        "envelope_bytes": 8929
+      },
+      {
+        "payload_bytes": 8000,
+        "envelope_bytes": 36935
+      },
+      {
+        "payload_bytes": 4149,
+        "envelope_bytes": 21528
+      }
+    ]
+  },
+  "slh-dsa-sha2-256f": {
+    "point": "slh-dsa-sha2-256f",
+    "target_envelope": 206294,
+    "payload_bytes": 50327,
+    "envelope_bytes": 206253,
+    "error_pct": -0.01987454797521983,
+    "slope_bytes_per_payload_byte": 4.001142857142857,
+    "steps": [
+      {
+        "payload_bytes": 1000,
+        "envelope_bytes": 8928
+      },
+      {
+        "payload_bytes": 8000,
+        "envelope_bytes": 36936
+      },
+      {
+        "payload_bytes": 50327,
+        "envelope_bytes": 206253
+      }
+    ]
+  },
+  "tiny": {
+    "point": "tiny",
+    "target_envelope": 0,
+    "payload_bytes": 1,
+    "envelope_bytes": 4928,
+    "error_pct": 0,
+    "steps": [
+      {
+        "payload_bytes": 1,
+        "envelope_bytes": 4928
+      }
+    ]
+  }
+}
