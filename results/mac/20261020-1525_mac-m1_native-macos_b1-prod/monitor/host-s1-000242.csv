@@ -1,0 +1,13 @@
+utc_ns,other_pct,throttle,on_ac,alert,detail
+1792524473664257000,0.685,0,1,0,user=12.62;sys=0.64;excluded_core_pct=100.6;thermal_level=0;battery_pct=100
+1792524478691381000,1.730,0,1,0,user=13.39;sys=0.89;excluded_core_pct=100.4;thermal_level=0;battery_pct=100
+1792524483727080000,14.127,0,1,0,user=13.25;sys=0.94;excluded_core_pct=0.5;thermal_level=0;battery_pct=100;busiest_other=loginwindow:5.3
+1792524488762416000,0.830,0,1,0,user=12.66;sys=0.72;excluded_core_pct=100.4;thermal_level=0;battery_pct=100
+1792524493797512000,0.727,0,1,0,user=12.62;sys=0.67;excluded_core_pct=100.5;thermal_level=0;battery_pct=100
+1792524498832011000,1.222,0,1,0,user=12.60;sys=1.16;excluded_core_pct=100.3;thermal_level=0;battery_pct=100
+1792524503867253000,0.755,0,1,0,user=12.66;sys=0.67;excluded_core_pct=100.6;thermal_level=0;battery_pct=100
+1792524508925081000,0.702,0,1,0,user=12.57;sys=0.67;excluded_core_pct=100.3;thermal_level=0;battery_pct=100
+1792524513960300000,0.897,0,1,0,user=12.67;sys=0.84;excluded_core_pct=100.9;thermal_level=0;battery_pct=100
+1792524518995168000,0.650,0,1,0,user=12.61;sys=0.59;excluded_core_pct=100.4;thermal_level=0;battery_pct=100
+1792524524029144000,0.770,0,1,0,user=12.60;sys=0.72;excluded_core_pct=100.4;thermal_level=0;battery_pct=100
+1792524529063780000,1.922,0,1,0,user=13.20;sys=1.26;excluded_core_pct=100.3;thermal_level=0;battery_pct=100

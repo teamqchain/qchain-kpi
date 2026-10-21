@@ -1,0 +1,38 @@
+# qchain-kpi/cmd/kpi-prim.test
+ld: warning: ignoring duplicate libraries: '-loqs'
+# qchain-kpi/internal/flow.test
+ld: warning: ignoring duplicate libraries: '-loqs'
+ok  	qchain-kpi/cmd/kpi-batch	1.543s
+?   	qchain-kpi/cmd/kpi-canary-native	[no test files]
+?   	qchain-kpi/cmd/kpi-env	[no test files]
+# qchain-kpi/internal/pqc.test
+ld: warning: ignoring duplicate libraries: '-loqs'
+# qchain-kpi/internal/qchain.test
+ld: warning: ignoring duplicate libraries: '-loqs'
+ok  	qchain-kpi/cmd/kpi-prim	60.639s
+ok  	qchain-kpi/internal/algs	0.676s
+?   	qchain-kpi/internal/buildinfo	[no test files]
+?   	qchain-kpi/internal/canary	[no test files]
+ok  	qchain-kpi/internal/cells	0.675s
+ok  	qchain-kpi/internal/classical	1.384s
+ok  	qchain-kpi/internal/conc	4.049s
+ok  	qchain-kpi/internal/flow	5.325s
+ok  	qchain-kpi/internal/gostd	1.680s
+?   	qchain-kpi/internal/inputs	[no test files]
+ok  	qchain-kpi/internal/l0	0.702s
+ok  	qchain-kpi/internal/ledger	0.700s
+?   	qchain-kpi/internal/memprobe	[no test files]
+ok  	qchain-kpi/internal/plan	0.726s
+ok  	qchain-kpi/internal/pqc	6.303s
+?   	qchain-kpi/internal/procsetup	[no test files]
+?   	qchain-kpi/internal/proto	[no test files]
+ok  	qchain-kpi/internal/qchain	2.792s
+ok  	qchain-kpi/internal/quality	1.922s
+ok  	qchain-kpi/internal/record	0.794s
+?   	qchain-kpi/internal/scheme	[no test files]
+ok  	qchain-kpi/internal/stats	0.714s
+ok  	qchain-kpi/internal/timing	1.023s
+# qchain-kpi/internal/flow.test
+ld: warning: ignoring duplicate libraries: '-loqs'
+ok  	qchain-kpi/internal/flow	4.710s
+ok  	qchain-kpi/internal/conc	5.697s
