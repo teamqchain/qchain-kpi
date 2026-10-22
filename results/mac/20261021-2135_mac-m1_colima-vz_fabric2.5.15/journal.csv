@@ -1,0 +1,198 @@
+utc_ns,event,key,detail
+1792618551775116594,session_start,,session 1; host offset -15908359 ns
+1792618596399227986,calibrated,tiny,payload 1 envelope 4926 target 0
+1792618602585497808,calibrated,ecdsa-p256,payload 553 envelope 7140 target 7141
+1792618608741006192,calibrated,falcon-512,payload 1969 envelope 12804 target 12805
+1792618614914595585,calibrated,ml-dsa-44,payload 4150 envelope 21533 target 21529
+1792618621087416886,calibrated,ml-dsa-65,payload 5678 envelope 27643 target 27645
+1792618627274243931,calibrated,ml-dsa-87,payload 7635 envelope 35474 target 35478
+1792618633454396585,calibrated,slh-dsa-sha2-128s,payload 8306 envelope 38169 target 38164
+1792618639645266892,calibrated,slh-dsa-sha2-128f,payload 17536 envelope 75090 target 75093
+1792618645863331015,calibrated,slh-dsa-sha2-256f,payload 50326 envelope 206249 target 206294
+1792618645865823434,block_start,E14.tiny.drift.d1,
+1792618691008811680,block_done,E14.tiny.drift.d1,"p50 2048.3 ms, 20 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 20), 0 MVCC conflicts"
+1792618691010084806,block_start,E14.ecdsa-p256.burst.r3,
+1792618695443204451,block_done,E14.ecdsa-p256.burst.r3,"p50 233.2 ms, 4 ledger blocks, 10 to 10 per block (count 4, size 0, timeout 0), 30 MVCC conflicts"
+1792618695444635030,block_start,E14.ml-dsa-65.burst.r3,
+1792618699925944923,block_done,E14.ml-dsa-65.burst.r3,"p50 266.3 ms, 4 ledger blocks, 10 to 10 per block (count 4, size 0, timeout 0), 30 MVCC conflicts"
+1792618699927479624,block_start,E14.tiny.sequential.r1,
+1792618909445457999,block_done,E14.tiny.sequential.r1,"p50 2052.9 ms, 100 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 100), 0 MVCC conflicts"
+1792618909447019911,block_start,E14.slh-dsa-sha2-128s.burst.r2,
+1792618913860831001,block_done,E14.slh-dsa-sha2-128s.burst.r2,"p50 235.5 ms, 4 ledger blocks, 10 to 10 per block (count 4, size 0, timeout 0), 0 MVCC conflicts"
+1792618913862066548,block_start,E14.slh-dsa-sha2-128f.burst.r3,
+1792618920213932378,block_done,E14.slh-dsa-sha2-128f.burst.r3,"p50 336.1 ms, 7 ledger blocks, 4 to 6 per block (count 0, size 6, timeout 1), 0 MVCC conflicts"
+1792618920215754325,block_start,E14.falcon-512.burst.r1,
+1792618924552255596,block_done,E14.falcon-512.burst.r1,"p50 182.1 ms, 4 ledger blocks, 10 to 10 per block (count 4, size 0, timeout 0), 0 MVCC conflicts"
+1792618924553786092,block_start,E14.tiny.sequential.r4,
+1792619134180590688,block_done,E14.tiny.sequential.r4,"p50 2054.2 ms, 100 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 100), 0 MVCC conflicts"
+1792619134182030021,block_start,E14.slh-dsa-sha2-128f.sequential.r1,
+1792619344609117228,block_done,E14.slh-dsa-sha2-128f.sequential.r1,"p50 2060.8 ms, 100 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 100), 0 MVCC conflicts"
+1792619344610560229,block_start,E14.slh-dsa-sha2-128f.burst.r5,
+1792619350931017397,block_done,E14.slh-dsa-sha2-128f.burst.r5,"p50 323.9 ms, 7 ledger blocks, 4 to 6 per block (count 0, size 6, timeout 1), 0 MVCC conflicts"
+1792619350932093033,block_start,E14.ml-dsa-65.sequential.r3,
+1792619561000623339,block_done,E14.ml-dsa-65.sequential.r3,"p50 2059.0 ms, 100 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 100), 0 MVCC conflicts"
+1792619562504591513,block_start,E14.ecdsa-p256.sequential.r3,
+1792619772053676440,block_done,E14.ecdsa-p256.sequential.r3,"p50 2051.9 ms, 100 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 100), 0 MVCC conflicts"
+1792619772054879240,block_start,E14.ml-dsa-87.sequential.r3,
+1792619981903341543,block_done,E14.ml-dsa-87.sequential.r3,"p50 2055.8 ms, 100 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 100), 0 MVCC conflicts"
+1792619981904605841,block_start,E14.ml-dsa-44.burst.r4,
+1792619986245025652,block_done,E14.ml-dsa-44.burst.r4,"p50 188.1 ms, 4 ledger blocks, 10 to 10 per block (count 4, size 0, timeout 0), 0 MVCC conflicts"
+1792619986246640398,block_start,E14.ecdsa-p256.sequential.r1,
+1792620195852275439,block_done,E14.ecdsa-p256.sequential.r1,"p50 2053.8 ms, 100 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 100), 0 MVCC conflicts"
+1792620195853579028,block_start,E14.slh-dsa-sha2-128f.sequential.r2,
+1792620406059669124,block_done,E14.slh-dsa-sha2-128f.sequential.r2,"p50 2059.4 ms, 100 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 100), 0 MVCC conflicts"
+1792620406060634096,block_start,E14.slh-dsa-sha2-256f.burst.r5,
+1792620412512437481,block_done,E14.slh-dsa-sha2-256f.burst.r5,"p50 675.5 ms, 20 ledger blocks, 2 to 2 per block (count 0, size 19, timeout 1), 0 MVCC conflicts"
+1792620412513492076,block_start,E14.falcon-512.burst.r2,
+1792620416850793513,block_done,E14.falcon-512.burst.r2,"p50 172.4 ms, 4 ledger blocks, 10 to 10 per block (count 4, size 0, timeout 0), 0 MVCC conflicts"
+1792620416851806402,block_start,E14.slh-dsa-sha2-128f.burst.r1,
+1792620423171207256,block_done,E14.slh-dsa-sha2-128f.burst.r1,"p50 332.8 ms, 7 ledger blocks, 4 to 6 per block (count 0, size 6, timeout 1), 0 MVCC conflicts"
+1792620423171998900,block_start,E14.ml-dsa-44.burst.r5,
+1792620427510959375,block_done,E14.ml-dsa-44.burst.r5,"p50 192.5 ms, 4 ledger blocks, 10 to 10 per block (count 4, size 0, timeout 0), 0 MVCC conflicts"
+1792620427512054636,block_start,E14.ml-dsa-65.burst.r2,
+1792620431900609135,block_done,E14.ml-dsa-65.burst.r2,"p50 217.8 ms, 4 ledger blocks, 10 to 10 per block (count 4, size 0, timeout 0), 0 MVCC conflicts"
+1792620431902192090,block_start,E14.tiny.burst.r4,
+1792620436206978108,block_done,E14.tiny.burst.r4,"p50 167.2 ms, 4 ledger blocks, 10 to 10 per block (count 4, size 0, timeout 0), 0 MVCC conflicts"
+1792620436208441317,block_start,E14.slh-dsa-sha2-128s.burst.r5,
+1792620440709991185,block_done,E14.slh-dsa-sha2-128s.burst.r5,"p50 282.6 ms, 4 ledger blocks, 10 to 10 per block (count 4, size 0, timeout 0), 20 MVCC conflicts"
+1792620440711171444,block_start,E14.ml-dsa-87.burst.r1,
+1792620445203023459,block_done,E14.ml-dsa-87.burst.r1,"p50 245.7 ms, 4 ledger blocks, 10 to 10 per block (count 4, size 0, timeout 0), 30 MVCC conflicts"
+1792620445204203176,block_start,E14.slh-dsa-sha2-256f.sequential.r5,
+1792620657033452362,block_done,E14.slh-dsa-sha2-256f.sequential.r5,"p50 2074.6 ms, 100 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 100), 0 MVCC conflicts"
+1792620658536304283,block_start,E14.slh-dsa-sha2-256f.sequential.r3,
+1792620870283065796,block_done,E14.slh-dsa-sha2-256f.sequential.r3,"p50 2074.1 ms, 100 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 100), 0 MVCC conflicts"
+1792620870284211431,block_start,E14.ml-dsa-65.sequential.r2,
+1792621080198695403,block_done,E14.ml-dsa-65.sequential.r2,"p50 2056.8 ms, 100 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 100), 0 MVCC conflicts"
+1792621080199680458,block_start,E14.falcon-512.sequential.r1,
+1792621289887195610,block_done,E14.falcon-512.sequential.r1,"p50 2054.5 ms, 100 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 100), 0 MVCC conflicts"
+1792621289888554738,block_start,E14.slh-dsa-sha2-128s.burst.r3,
+1792621294294817798,block_done,E14.slh-dsa-sha2-128s.burst.r3,"p50 239.1 ms, 4 ledger blocks, 10 to 10 per block (count 4, size 0, timeout 0), 0 MVCC conflicts"
+1792621294296019181,block_start,E14.slh-dsa-sha2-128f.burst.r2,
+1792621300608595544,block_done,E14.slh-dsa-sha2-128f.burst.r2,"p50 342.1 ms, 7 ledger blocks, 4 to 6 per block (count 0, size 6, timeout 1), 0 MVCC conflicts"
+1792621300609515893,block_start,E14.ml-dsa-65.sequential.r1,
+1792621510515765261,block_done,E14.ml-dsa-65.sequential.r1,"p50 2057.4 ms, 100 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 100), 0 MVCC conflicts"
+1792621510517008809,block_start,E14.ml-dsa-87.sequential.r2,
+1792621720321955200,block_done,E14.ml-dsa-87.sequential.r2,"p50 2055.3 ms, 100 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 100), 0 MVCC conflicts"
+1792621721825566102,block_start,E14.slh-dsa-sha2-256f.sequential.r1,
+1792621933570395273,block_done,E14.slh-dsa-sha2-256f.sequential.r1,"p50 2073.5 ms, 100 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 100), 0 MVCC conflicts"
+1792621933571881440,block_start,E14.tiny.burst.r2,
+1792621937867908888,block_done,E14.tiny.burst.r2,"p50 163.0 ms, 4 ledger blocks, 10 to 10 per block (count 4, size 0, timeout 0), 0 MVCC conflicts"
+1792621937869248892,block_start,E14.ml-dsa-44.burst.r3,
+1792621942244225914,block_done,E14.ml-dsa-44.burst.r3,"p50 194.8 ms, 4 ledger blocks, 10 to 10 per block (count 4, size 0, timeout 0), 0 MVCC conflicts"
+1792621942245116306,block_start,E14.ecdsa-p256.burst.r2,
+1792621946641821676,block_done,E14.ecdsa-p256.burst.r2,"p50 196.5 ms, 4 ledger blocks, 10 to 10 per block (count 4, size 0, timeout 0), 30 MVCC conflicts"
+1792621946643095849,block_start,E14.ml-dsa-65.burst.r4,
+1792621951027178699,block_done,E14.ml-dsa-65.burst.r4,"p50 200.8 ms, 4 ledger blocks, 10 to 10 per block (count 4, size 0, timeout 0), 0 MVCC conflicts"
+1792621951028390957,block_start,E14.slh-dsa-sha2-128f.sequential.r4,
+1792622161441470943,block_done,E14.slh-dsa-sha2-128f.sequential.r4,"p50 2062.6 ms, 100 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 100), 0 MVCC conflicts"
+1792622161442820739,block_start,E14.ml-dsa-87.burst.r5,
+1792622165967820549,block_done,E14.ml-dsa-87.burst.r5,"p50 258.0 ms, 4 ledger blocks, 10 to 10 per block (count 4, size 0, timeout 0), 30 MVCC conflicts"
+1792622165969295799,block_start,E14.slh-dsa-sha2-256f.sequential.r2,
+1792622377838347193,block_done,E14.slh-dsa-sha2-256f.sequential.r2,"p50 2075.7 ms, 100 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 100), 0 MVCC conflicts"
+1792622377839758445,block_start,E14.slh-dsa-sha2-256f.burst.r2,
+1792622384339704172,block_done,E14.slh-dsa-sha2-256f.burst.r2,"p50 825.9 ms, 20 ledger blocks, 2 to 2 per block (count 0, size 19, timeout 1), 0 MVCC conflicts"
+1792622384340838682,block_start,E14.slh-dsa-sha2-128f.sequential.r5,
+1792622594895323032,block_done,E14.slh-dsa-sha2-128f.sequential.r5,"p50 2063.5 ms, 100 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 100), 0 MVCC conflicts"
+1792622594896371336,block_start,E14.ecdsa-p256.burst.r5,
+1792622599246062152,block_done,E14.ecdsa-p256.burst.r5,"p50 188.7 ms, 4 ledger blocks, 10 to 10 per block (count 4, size 0, timeout 0), 0 MVCC conflicts"
+1792622599247195037,block_start,E14.ml-dsa-87.sequential.r4,
+1792622809273203936,block_done,E14.ml-dsa-87.sequential.r4,"p50 2056.6 ms, 100 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 100), 0 MVCC conflicts"
+1792622810776469848,block_start,E14.ecdsa-p256.sequential.r2,
+1792623020454830593,block_done,E14.ecdsa-p256.sequential.r2,"p50 2055.1 ms, 100 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 100), 0 MVCC conflicts"
+1792623020455893896,block_start,E14.tiny.burst.r5,
+1792623024774457753,block_done,E14.tiny.burst.r5,"p50 163.7 ms, 4 ledger blocks, 10 to 10 per block (count 4, size 0, timeout 0), 0 MVCC conflicts"
+1792623024775842131,block_start,E14.tiny.drift.d2,
+1792623069990475262,block_done,E14.tiny.drift.d2,"p50 2051.2 ms, 20 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 20), 0 MVCC conflicts"
+1792623069992009594,block_start,E14.ecdsa-p256.sequential.r4,
+1792623279553612992,block_done,E14.ecdsa-p256.sequential.r4,"p50 2052.7 ms, 100 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 100), 0 MVCC conflicts"
+1792623279555309486,block_start,E14.tiny.burst.r1,
+1792623283953299529,block_done,E14.tiny.burst.r1,"p50 192.7 ms, 4 ledger blocks, 10 to 10 per block (count 4, size 0, timeout 0), 30 MVCC conflicts"
+1792623283954504704,block_start,E14.slh-dsa-sha2-128f.sequential.r3,
+1792623494381371680,block_done,E14.slh-dsa-sha2-128f.sequential.r3,"p50 2062.1 ms, 100 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 100), 0 MVCC conflicts"
+1792623494382408526,block_start,E14.slh-dsa-sha2-128s.burst.r4,
+1792623498824336460,block_done,E14.slh-dsa-sha2-128s.burst.r4,"p50 240.1 ms, 4 ledger blocks, 10 to 10 per block (count 4, size 0, timeout 0), 0 MVCC conflicts"
+1792623498825766919,block_start,E14.tiny.burst.r3,
+1792623503135620437,block_done,E14.tiny.burst.r3,"p50 161.0 ms, 4 ledger blocks, 10 to 10 per block (count 4, size 0, timeout 0), 0 MVCC conflicts"
+1792623503136676491,block_start,E14.ml-dsa-44.sequential.r3,
+1792623712951449697,block_done,E14.ml-dsa-44.sequential.r3,"p50 2056.2 ms, 100 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 100), 0 MVCC conflicts"
+1792623714454301454,block_start,E14.ml-dsa-87.sequential.r1,
+1792623924351163480,block_done,E14.ml-dsa-87.sequential.r1,"p50 2057.0 ms, 100 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 100), 0 MVCC conflicts"
+1792623924352540858,block_start,E14.ecdsa-p256.burst.r1,
+1792623928754011428,block_done,E14.ecdsa-p256.burst.r1,"p50 202.9 ms, 4 ledger blocks, 10 to 10 per block (count 4, size 0, timeout 0), 30 MVCC conflicts"
+1792623928755197811,block_start,E14.slh-dsa-sha2-128s.sequential.r5,
+1792624138724386556,block_done,E14.slh-dsa-sha2-128s.sequential.r5,"p50 2057.1 ms, 100 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 100), 0 MVCC conflicts"
+1792624138725724476,block_start,E14.slh-dsa-sha2-256f.burst.r1,
+1792624145162019366,block_done,E14.slh-dsa-sha2-256f.burst.r1,"p50 733.2 ms, 20 ledger blocks, 2 to 2 per block (count 0, size 19, timeout 1), 0 MVCC conflicts"
+1792624145163187333,block_start,E14.tiny.sequential.r2,
+1792624355043204498,block_done,E14.tiny.sequential.r2,"p50 2056.5 ms, 100 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 100), 0 MVCC conflicts"
+1792624355044445755,block_start,E14.slh-dsa-sha2-256f.burst.r4,
+1792624361500556713,block_done,E14.slh-dsa-sha2-256f.burst.r4,"p50 667.6 ms, 20 ledger blocks, 2 to 2 per block (count 0, size 19, timeout 1), 0 MVCC conflicts"
+1792624361501739179,block_start,E14.falcon-512.burst.r4,
+1792624365821979947,block_done,E14.falcon-512.burst.r4,"p50 169.2 ms, 4 ledger blocks, 10 to 10 per block (count 4, size 0, timeout 0), 0 MVCC conflicts"
+1792624365822994252,block_start,E14.ecdsa-p256.sequential.r5,
+1792624575741647457,block_done,E14.ecdsa-p256.sequential.r5,"p50 2056.2 ms, 100 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 100), 0 MVCC conflicts"
+1792624575742940629,block_start,E14.ml-dsa-65.burst.r5,
+1792624580265373595,block_done,E14.ml-dsa-65.burst.r5,"p50 275.6 ms, 4 ledger blocks, 10 to 10 per block (count 4, size 0, timeout 0), 30 MVCC conflicts"
+1792624580266708182,block_start,E14.falcon-512.burst.r3,
+1792624584594780397,block_done,E14.falcon-512.burst.r3,"p50 179.3 ms, 4 ledger blocks, 10 to 10 per block (count 4, size 0, timeout 0), 0 MVCC conflicts"
+1792624584596056986,block_start,E14.slh-dsa-sha2-128s.sequential.r2,
+1792624794681513049,block_done,E14.slh-dsa-sha2-128s.sequential.r2,"p50 2058.9 ms, 100 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 100), 0 MVCC conflicts"
+1792624796184308099,block_start,E14.tiny.sequential.r5,
+1792625005837917206,block_done,E14.tiny.sequential.r5,"p50 2053.6 ms, 100 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 100), 0 MVCC conflicts"
+1792625005839218336,block_start,E14.falcon-512.sequential.r4,
+1792625215483008676,block_done,E14.falcon-512.sequential.r4,"p50 2052.5 ms, 100 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 100), 0 MVCC conflicts"
+1792625215483925067,block_start,E14.falcon-512.sequential.r3,
+1792625425139390871,block_done,E14.falcon-512.sequential.r3,"p50 2053.8 ms, 100 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 100), 0 MVCC conflicts"
+1792625425140494424,block_start,E14.ml-dsa-87.burst.r4,
+1792625429566113941,block_done,E14.ml-dsa-87.burst.r4,"p50 253.0 ms, 4 ledger blocks, 10 to 10 per block (count 4, size 0, timeout 0), 0 MVCC conflicts"
+1792625429567832101,block_start,E14.ml-dsa-65.burst.r1,
+1792625434039050129,block_done,E14.ml-dsa-65.burst.r1,"p50 247.1 ms, 4 ledger blocks, 10 to 10 per block (count 4, size 0, timeout 0), 30 MVCC conflicts"
+1792625434040265428,block_start,E14.ml-dsa-44.burst.r2,
+1792625438487102516,block_done,E14.ml-dsa-44.burst.r2,"p50 232.7 ms, 4 ledger blocks, 10 to 10 per block (count 4, size 0, timeout 0), 30 MVCC conflicts"
+1792625438488419812,block_start,E14.slh-dsa-sha2-256f.burst.r3,
+1792625444968591345,block_done,E14.slh-dsa-sha2-256f.burst.r3,"p50 704.8 ms, 20 ledger blocks, 2 to 2 per block (count 0, size 19, timeout 1), 0 MVCC conflicts"
+1792625444970464709,block_start,E14.ml-dsa-87.burst.r3,
+1792625449465485027,block_done,E14.ml-dsa-87.burst.r3,"p50 261.2 ms, 4 ledger blocks, 10 to 10 per block (count 4, size 0, timeout 0), 30 MVCC conflicts"
+1792625449466770657,block_start,E14.slh-dsa-sha2-128s.sequential.r1,
+1792625659559018363,block_done,E14.slh-dsa-sha2-128s.sequential.r1,"p50 2057.5 ms, 100 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 100), 0 MVCC conflicts"
+1792625659560440698,block_start,E14.ml-dsa-44.sequential.r5,
+1792625869346336631,block_done,E14.ml-dsa-44.sequential.r5,"p50 2054.1 ms, 100 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 100), 0 MVCC conflicts"
+1792625870849316635,block_start,E14.tiny.sequential.r3,
+1792626080450975617,block_done,E14.tiny.sequential.r3,"p50 2053.5 ms, 100 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 100), 0 MVCC conflicts"
+1792626080451990172,block_start,E14.falcon-512.burst.r5,
+1792626084785688812,block_done,E14.falcon-512.burst.r5,"p50 183.5 ms, 4 ledger blocks, 10 to 10 per block (count 4, size 0, timeout 0), 0 MVCC conflicts"
+1792626084786871362,block_start,E14.slh-dsa-sha2-128s.sequential.r3,
+1792626294896171297,block_done,E14.slh-dsa-sha2-128s.sequential.r3,"p50 2060.6 ms, 100 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 100), 0 MVCC conflicts"
+1792626294897370430,block_start,E14.ml-dsa-44.sequential.r2,
+1792626504677981428,block_done,E14.ml-dsa-44.sequential.r2,"p50 2055.5 ms, 100 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 100), 0 MVCC conflicts"
+1792626504679494428,block_start,E14.ecdsa-p256.burst.r4,
+1792626508969399714,block_done,E14.ecdsa-p256.burst.r4,"p50 157.3 ms, 4 ledger blocks, 10 to 10 per block (count 4, size 0, timeout 0), 0 MVCC conflicts"
+1792626508970991961,block_start,E14.ml-dsa-44.sequential.r1,
+1792626718834311178,block_done,E14.ml-dsa-44.sequential.r1,"p50 2056.2 ms, 100 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 100), 0 MVCC conflicts"
+1792626718835497353,block_start,E14.ml-dsa-87.burst.r2,
+1792626723254595428,block_done,E14.ml-dsa-87.burst.r2,"p50 240.3 ms, 4 ledger blocks, 10 to 10 per block (count 4, size 0, timeout 0), 0 MVCC conflicts"
+1792626723256211425,block_start,E14.ml-dsa-65.sequential.r4,
+1792626933208241818,block_done,E14.ml-dsa-65.sequential.r4,"p50 2058.9 ms, 100 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 100), 0 MVCC conflicts"
+1792626934711224905,block_start,E14.slh-dsa-sha2-128f.burst.r4,
+1792626941030855112,block_done,E14.slh-dsa-sha2-128f.burst.r4,"p50 349.1 ms, 7 ledger blocks, 4 to 6 per block (count 0, size 6, timeout 1), 0 MVCC conflicts"
+1792626941032024454,block_start,E14.ml-dsa-87.sequential.r5,
+1792627150941199467,block_done,E14.ml-dsa-87.sequential.r5,"p50 2055.3 ms, 100 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 100), 0 MVCC conflicts"
+1792627150942277437,block_start,E14.ml-dsa-44.burst.r1,
+1792627155385831575,block_done,E14.ml-dsa-44.burst.r1,"p50 240.6 ms, 4 ledger blocks, 10 to 10 per block (count 4, size 0, timeout 0), 30 MVCC conflicts"
+1792627155387120622,block_start,E14.falcon-512.sequential.r2,
+1792627365006059369,block_done,E14.falcon-512.sequential.r2,"p50 2053.1 ms, 100 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 100), 0 MVCC conflicts"
+1792627365007396123,block_start,E14.slh-dsa-sha2-128s.sequential.r4,
+1792627575066564216,block_done,E14.slh-dsa-sha2-128s.sequential.r4,"p50 2057.7 ms, 100 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 100), 0 MVCC conflicts"
+1792627575067734225,block_start,E14.slh-dsa-sha2-256f.sequential.r4,
+1792627786955761212,block_done,E14.slh-dsa-sha2-256f.sequential.r4,"p50 2076.9 ms, 100 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 100), 0 MVCC conflicts"
+1792627786957434373,block_start,E14.ml-dsa-65.sequential.r5,
+1792627996717659361,block_done,E14.ml-dsa-65.sequential.r5,"p50 2053.9 ms, 100 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 100), 0 MVCC conflicts"
+1792627998221584380,block_start,E14.slh-dsa-sha2-128s.burst.r1,
+1792628002749601313,block_done,E14.slh-dsa-sha2-128s.burst.r1,"p50 286.6 ms, 4 ledger blocks, 10 to 10 per block (count 4, size 0, timeout 0), 30 MVCC conflicts"
+1792628002750752322,block_start,E14.falcon-512.sequential.r5,
+1792628212592538478,block_done,E14.falcon-512.sequential.r5,"p50 2055.7 ms, 100 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 100), 0 MVCC conflicts"
+1792628212593487493,block_start,E14.ml-dsa-44.sequential.r4,
+1792628422366185880,block_done,E14.ml-dsa-44.sequential.r4,"p50 2055.0 ms, 100 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 100), 0 MVCC conflicts"
+1792628422367304974,block_start,E14.tiny.drift.d3,
+1792628467582318803,block_done,E14.tiny.drift.d3,"p50 2055.1 ms, 20 ledger blocks, 1 to 1 per block (count 0, size 0, timeout 20), 0 MVCC conflicts"
+1792628469085672171,run_done,,"93 blocks, 6360 transactions"

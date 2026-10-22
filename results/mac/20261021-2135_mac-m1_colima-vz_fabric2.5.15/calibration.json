@@ -1,0 +1,191 @@
+{
+  "ecdsa-p256": {
+    "point": "ecdsa-p256",
+    "target_envelope": 7141,
+    "payload_bytes": 553,
+    "envelope_bytes": 7140,
+    "error_pct": -0.014003640946646127,
+    "slope_bytes_per_payload_byte": 4.001,
+    "steps": [
+      {
+        "payload_bytes": 1000,
+        "envelope_bytes": 8929
+      },
+      {
+        "payload_bytes": 8000,
+        "envelope_bytes": 36936
+      },
+      {
+        "payload_bytes": 553,
+        "envelope_bytes": 7140
+      }
+    ]
+  },
+  "falcon-512": {
+    "point": "falcon-512",
+    "target_envelope": 12805,
+    "payload_bytes": 1969,
+    "envelope_bytes": 12804,
+    "error_pct": -0.007809449433814916,
+    "slope_bytes_per_payload_byte": 4.001142857142857,
+    "steps": [
+      {
+        "payload_bytes": 1000,
+        "envelope_bytes": 8929
+      },
+      {
+        "payload_bytes": 8000,
+        "envelope_bytes": 36937
+      },
+      {
+        "payload_bytes": 1969,
+        "envelope_bytes": 12804
+      }
+    ]
+  },
+  "ml-dsa-44": {
+    "point": "ml-dsa-44",
+    "target_envelope": 21529,
+    "payload_bytes": 4150,
+    "envelope_bytes": 21533,
+    "error_pct": 0.018579590320033444,
+    "slope_bytes_per_payload_byte": 4.001142857142857,
+    "steps": [
+      {
+        "payload_bytes": 1000,
+        "envelope_bytes": 8927
+      },
+      {
+        "payload_bytes": 8000,
+        "envelope_bytes": 36935
+      },
+      {
+        "payload_bytes": 4150,
+        "envelope_bytes": 21533
+      }
+    ]
+  },
+  "ml-dsa-65": {
+    "point": "ml-dsa-65",
+    "target_envelope": 27645,
+    "payload_bytes": 5678,
+    "envelope_bytes": 27643,
+    "error_pct": -0.007234581298607343,
+    "slope_bytes_per_payload_byte": 4.001142857142857,
+    "steps": [
+      {
+        "payload_bytes": 1000,
+        "envelope_bytes": 8929
+      },
+      {
+        "payload_bytes": 8000,
+        "envelope_bytes": 36937
+      },
+      {
+        "payload_bytes": 5678,
+        "envelope_bytes": 27643
+      }
+    ]
+  },
+  "ml-dsa-87": {
+    "point": "ml-dsa-87",
+    "target_envelope": 35478,
+    "payload_bytes": 7635,
+    "envelope_bytes": 35474,
+    "error_pct": -0.01127459270533852,
+    "slope_bytes_per_payload_byte": 4.001428571428572,
+    "steps": [
+      {
+        "payload_bytes": 1000,
+        "envelope_bytes": 8927
+      },
+      {
+        "payload_bytes": 8000,
+        "envelope_bytes": 36937
+      },
+      {
+        "payload_bytes": 7635,
+        "envelope_bytes": 35474
+      }
+    ]
+  },
+  "slh-dsa-sha2-128f": {
+    "point": "slh-dsa-sha2-128f",
+    "target_envelope": 75093,
+    "payload_bytes": 17536,
+    "envelope_bytes": 75090,
+    "error_pct": -0.003995046142782949,
+    "slope_bytes_per_payload_byte": 4.001142857142857,
+    "steps": [
+      {
+        "payload_bytes": 1000,
+        "envelope_bytes": 8929
+      },
+      {
+        "payload_bytes": 8000,
+        "envelope_bytes": 36937
+      },
+      {
+        "payload_bytes": 17536,
+        "envelope_bytes": 75090
+      }
+    ]
+  },
+  "slh-dsa-sha2-128s": {
+    "point": "slh-dsa-sha2-128s",
+    "target_envelope": 38164,
+    "payload_bytes": 8306,
+    "envelope_bytes": 38169,
+    "error_pct": 0.013101352059532544,
+    "slope_bytes_per_payload_byte": 4.001142857142857,
+    "steps": [
+      {
+        "payload_bytes": 1000,
+        "envelope_bytes": 8930
+      },
+      {
+        "payload_bytes": 8000,
+        "envelope_bytes": 36938
+      },
+      {
+        "payload_bytes": 8306,
+        "envelope_bytes": 38169
+      }
+    ]
+  },
+  "slh-dsa-sha2-256f": {
+    "point": "slh-dsa-sha2-256f",
+    "target_envelope": 206294,
+    "payload_bytes": 50326,
+    "envelope_bytes": 206249,
+    "error_pct": -0.02181352826548518,
+    "slope_bytes_per_payload_byte": 4.001285714285714,
+    "steps": [
+      {
+        "payload_bytes": 1000,
+        "envelope_bytes": 8928
+      },
+      {
+        "payload_bytes": 8000,
+        "envelope_bytes": 36937
+      },
+      {
+        "payload_bytes": 50326,
+        "envelope_bytes": 206249
+      }
+    ]
+  },
+  "tiny": {
+    "point": "tiny",
+    "target_envelope": 0,
+    "payload_bytes": 1,
+    "envelope_bytes": 4926,
+    "error_pct": 0,
+    "steps": [
+      {
+        "payload_bytes": 1,
+        "envelope_bytes": 4926
+      }
+    ]
+  }
+}

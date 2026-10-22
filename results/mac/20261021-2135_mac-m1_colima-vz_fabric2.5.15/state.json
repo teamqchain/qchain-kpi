@@ -1,0 +1,685 @@
+{
+  "schema": 1,
+  "run_id": "20261021-2135_mac-m1_colima-vz_fabric2.5.15",
+  "machine": "mac-m1",
+  "plan_name": "e14",
+  "plan_kind": "main",
+  "plan_hash": "e04b519a2d9c32bd0725a882da1e773f507cef346fb2d7866614c7dcb1892c1d",
+  "seed": 14074651752656251164,
+  "image_id": "sha256:86c8ee8739976b76d5699526b8541e20e72725e090e7dfeb88e75dfef483a4ce",
+  "harness_commit": "5da322ab78305bd38dc539b6f7bcce1d90e79192",
+  "status": "done",
+  "started_utc": "2026-10-21T21:35:51Z",
+  "sessions": [
+    {
+      "n": 1,
+      "started_utc": "2026-10-21T21:35:51Z",
+      "host_offset_ns": -15908359,
+      "native_p_rate": 2563471.50097174,
+      "native_e_rate": 410631.395540512
+    }
+  ],
+  "order": [
+    "E14.tiny.drift.d1",
+    "E14.ecdsa-p256.burst.r3",
+    "E14.ml-dsa-65.burst.r3",
+    "E14.tiny.sequential.r1",
+    "E14.slh-dsa-sha2-128s.burst.r2",
+    "E14.slh-dsa-sha2-128f.burst.r3",
+    "E14.falcon-512.burst.r1",
+    "E14.tiny.sequential.r4",
+    "E14.slh-dsa-sha2-128f.sequential.r1",
+    "E14.slh-dsa-sha2-128f.burst.r5",
+    "E14.ml-dsa-65.sequential.r3",
+    "E14.ecdsa-p256.sequential.r3",
+    "E14.ml-dsa-87.sequential.r3",
+    "E14.ml-dsa-44.burst.r4",
+    "E14.ecdsa-p256.sequential.r1",
+    "E14.slh-dsa-sha2-128f.sequential.r2",
+    "E14.slh-dsa-sha2-256f.burst.r5",
+    "E14.falcon-512.burst.r2",
+    "E14.slh-dsa-sha2-128f.burst.r1",
+    "E14.ml-dsa-44.burst.r5",
+    "E14.ml-dsa-65.burst.r2",
+    "E14.tiny.burst.r4",
+    "E14.slh-dsa-sha2-128s.burst.r5",
+    "E14.ml-dsa-87.burst.r1",
+    "E14.slh-dsa-sha2-256f.sequential.r5",
+    "E14.slh-dsa-sha2-256f.sequential.r3",
+    "E14.ml-dsa-65.sequential.r2",
+    "E14.falcon-512.sequential.r1",
+    "E14.slh-dsa-sha2-128s.burst.r3",
+    "E14.slh-dsa-sha2-128f.burst.r2",
+    "E14.ml-dsa-65.sequential.r1",
+    "E14.ml-dsa-87.sequential.r2",
+    "E14.slh-dsa-sha2-256f.sequential.r1",
+    "E14.tiny.burst.r2",
+    "E14.ml-dsa-44.burst.r3",
+    "E14.ecdsa-p256.burst.r2",
+    "E14.ml-dsa-65.burst.r4",
+    "E14.slh-dsa-sha2-128f.sequential.r4",
+    "E14.ml-dsa-87.burst.r5",
+    "E14.slh-dsa-sha2-256f.sequential.r2",
+    "E14.slh-dsa-sha2-256f.burst.r2",
+    "E14.slh-dsa-sha2-128f.sequential.r5",
+    "E14.ecdsa-p256.burst.r5",
+    "E14.ml-dsa-87.sequential.r4",
+    "E14.ecdsa-p256.sequential.r2",
+    "E14.tiny.burst.r5",
+    "E14.tiny.drift.d2",
+    "E14.ecdsa-p256.sequential.r4",
+    "E14.tiny.burst.r1",
+    "E14.slh-dsa-sha2-128f.sequential.r3",
+    "E14.slh-dsa-sha2-128s.burst.r4",
+    "E14.tiny.burst.r3",
+    "E14.ml-dsa-44.sequential.r3",
+    "E14.ml-dsa-87.sequential.r1",
+    "E14.ecdsa-p256.burst.r1",
+    "E14.slh-dsa-sha2-128s.sequential.r5",
+    "E14.slh-dsa-sha2-256f.burst.r1",
+    "E14.tiny.sequential.r2",
+    "E14.slh-dsa-sha2-256f.burst.r4",
+    "E14.falcon-512.burst.r4",
+    "E14.ecdsa-p256.sequential.r5",
+    "E14.ml-dsa-65.burst.r5",
+    "E14.falcon-512.burst.r3",
+    "E14.slh-dsa-sha2-128s.sequential.r2",
+    "E14.tiny.sequential.r5",
+    "E14.falcon-512.sequential.r4",
+    "E14.falcon-512.sequential.r3",
+    "E14.ml-dsa-87.burst.r4",
+    "E14.ml-dsa-65.burst.r1",
+    "E14.ml-dsa-44.burst.r2",
+    "E14.slh-dsa-sha2-256f.burst.r3",
+    "E14.ml-dsa-87.burst.r3",
+    "E14.slh-dsa-sha2-128s.sequential.r1",
+    "E14.ml-dsa-44.sequential.r5",
+    "E14.tiny.sequential.r3",
+    "E14.falcon-512.burst.r5",
+    "E14.slh-dsa-sha2-128s.sequential.r3",
+    "E14.ml-dsa-44.sequential.r2",
+    "E14.ecdsa-p256.burst.r4",
+    "E14.ml-dsa-44.sequential.r1",
+    "E14.ml-dsa-87.burst.r2",
+    "E14.ml-dsa-65.sequential.r4",
+    "E14.slh-dsa-sha2-128f.burst.r4",
+    "E14.ml-dsa-87.sequential.r5",
+    "E14.ml-dsa-44.burst.r1",
+    "E14.falcon-512.sequential.r2",
+    "E14.slh-dsa-sha2-128s.sequential.r4",
+    "E14.slh-dsa-sha2-256f.sequential.r4",
+    "E14.ml-dsa-65.sequential.r5",
+    "E14.slh-dsa-sha2-128s.burst.r1",
+    "E14.falcon-512.sequential.r5",
+    "E14.ml-dsa-44.sequential.r4",
+    "E14.tiny.drift.d3"
+  ],
+  "done": {
+    "E14.ecdsa-p256.burst.r1": {
+      "session": 1,
+      "raw_file": "raw/E14/ecdsa-p256/burst-r1.csv.gz"
+    },
+    "E14.ecdsa-p256.burst.r2": {
+      "session": 1,
+      "raw_file": "raw/E14/ecdsa-p256/burst-r2.csv.gz"
+    },
+    "E14.ecdsa-p256.burst.r3": {
+      "session": 1,
+      "raw_file": "raw/E14/ecdsa-p256/burst-r3.csv.gz"
+    },
+    "E14.ecdsa-p256.burst.r4": {
+      "session": 1,
+      "raw_file": "raw/E14/ecdsa-p256/burst-r4.csv.gz"
+    },
+    "E14.ecdsa-p256.burst.r5": {
+      "session": 1,
+      "raw_file": "raw/E14/ecdsa-p256/burst-r5.csv.gz"
+    },
+    "E14.ecdsa-p256.sequential.r1": {
+      "session": 1,
+      "raw_file": "raw/E14/ecdsa-p256/sequential-r1.csv.gz"
+    },
+    "E14.ecdsa-p256.sequential.r2": {
+      "session": 1,
+      "raw_file": "raw/E14/ecdsa-p256/sequential-r2.csv.gz"
+    },
+    "E14.ecdsa-p256.sequential.r3": {
+      "session": 1,
+      "raw_file": "raw/E14/ecdsa-p256/sequential-r3.csv.gz"
+    },
+    "E14.ecdsa-p256.sequential.r4": {
+      "session": 1,
+      "raw_file": "raw/E14/ecdsa-p256/sequential-r4.csv.gz"
+    },
+    "E14.ecdsa-p256.sequential.r5": {
+      "session": 1,
+      "raw_file": "raw/E14/ecdsa-p256/sequential-r5.csv.gz"
+    },
+    "E14.falcon-512.burst.r1": {
+      "session": 1,
+      "raw_file": "raw/E14/falcon-512/burst-r1.csv.gz"
+    },
+    "E14.falcon-512.burst.r2": {
+      "session": 1,
+      "raw_file": "raw/E14/falcon-512/burst-r2.csv.gz"
+    },
+    "E14.falcon-512.burst.r3": {
+      "session": 1,
+      "raw_file": "raw/E14/falcon-512/burst-r3.csv.gz"
+    },
+    "E14.falcon-512.burst.r4": {
+      "session": 1,
+      "raw_file": "raw/E14/falcon-512/burst-r4.csv.gz"
+    },
+    "E14.falcon-512.burst.r5": {
+      "session": 1,
+      "raw_file": "raw/E14/falcon-512/burst-r5.csv.gz"
+    },
+    "E14.falcon-512.sequential.r1": {
+      "session": 1,
+      "raw_file": "raw/E14/falcon-512/sequential-r1.csv.gz"
+    },
+    "E14.falcon-512.sequential.r2": {
+      "session": 1,
+      "raw_file": "raw/E14/falcon-512/sequential-r2.csv.gz"
+    },
+    "E14.falcon-512.sequential.r3": {
+      "session": 1,
+      "raw_file": "raw/E14/falcon-512/sequential-r3.csv.gz"
+    },
+    "E14.falcon-512.sequential.r4": {
+      "session": 1,
+      "raw_file": "raw/E14/falcon-512/sequential-r4.csv.gz"
+    },
+    "E14.falcon-512.sequential.r5": {
+      "session": 1,
+      "raw_file": "raw/E14/falcon-512/sequential-r5.csv.gz"
+    },
+    "E14.ml-dsa-44.burst.r1": {
+      "session": 1,
+      "raw_file": "raw/E14/ml-dsa-44/burst-r1.csv.gz"
+    },
+    "E14.ml-dsa-44.burst.r2": {
+      "session": 1,
+      "raw_file": "raw/E14/ml-dsa-44/burst-r2.csv.gz"
+    },
+    "E14.ml-dsa-44.burst.r3": {
+      "session": 1,
+      "raw_file": "raw/E14/ml-dsa-44/burst-r3.csv.gz"
+    },
+    "E14.ml-dsa-44.burst.r4": {
+      "session": 1,
+      "raw_file": "raw/E14/ml-dsa-44/burst-r4.csv.gz"
+    },
+    "E14.ml-dsa-44.burst.r5": {
+      "session": 1,
+      "raw_file": "raw/E14/ml-dsa-44/burst-r5.csv.gz"
+    },
+    "E14.ml-dsa-44.sequential.r1": {
+      "session": 1,
+      "raw_file": "raw/E14/ml-dsa-44/sequential-r1.csv.gz"
+    },
+    "E14.ml-dsa-44.sequential.r2": {
+      "session": 1,
+      "raw_file": "raw/E14/ml-dsa-44/sequential-r2.csv.gz"
+    },
+    "E14.ml-dsa-44.sequential.r3": {
+      "session": 1,
+      "raw_file": "raw/E14/ml-dsa-44/sequential-r3.csv.gz"
+    },
+    "E14.ml-dsa-44.sequential.r4": {
+      "session": 1,
+      "raw_file": "raw/E14/ml-dsa-44/sequential-r4.csv.gz"
+    },
+    "E14.ml-dsa-44.sequential.r5": {
+      "session": 1,
+      "raw_file": "raw/E14/ml-dsa-44/sequential-r5.csv.gz"
+    },
+    "E14.ml-dsa-65.burst.r1": {
+      "session": 1,
+      "raw_file": "raw/E14/ml-dsa-65/burst-r1.csv.gz"
+    },
+    "E14.ml-dsa-65.burst.r2": {
+      "session": 1,
+      "raw_file": "raw/E14/ml-dsa-65/burst-r2.csv.gz"
+    },
+    "E14.ml-dsa-65.burst.r3": {
+      "session": 1,
+      "raw_file": "raw/E14/ml-dsa-65/burst-r3.csv.gz"
+    },
+    "E14.ml-dsa-65.burst.r4": {
+      "session": 1,
+      "raw_file": "raw/E14/ml-dsa-65/burst-r4.csv.gz"
+    },
+    "E14.ml-dsa-65.burst.r5": {
+      "session": 1,
+      "raw_file": "raw/E14/ml-dsa-65/burst-r5.csv.gz"
+    },
+    "E14.ml-dsa-65.sequential.r1": {
+      "session": 1,
+      "raw_file": "raw/E14/ml-dsa-65/sequential-r1.csv.gz"
+    },
+    "E14.ml-dsa-65.sequential.r2": {
+      "session": 1,
+      "raw_file": "raw/E14/ml-dsa-65/sequential-r2.csv.gz"
+    },
+    "E14.ml-dsa-65.sequential.r3": {
+      "session": 1,
+      "raw_file": "raw/E14/ml-dsa-65/sequential-r3.csv.gz"
+    },
+    "E14.ml-dsa-65.sequential.r4": {
+      "session": 1,
+      "raw_file": "raw/E14/ml-dsa-65/sequential-r4.csv.gz"
+    },
+    "E14.ml-dsa-65.sequential.r5": {
+      "session": 1,
+      "raw_file": "raw/E14/ml-dsa-65/sequential-r5.csv.gz"
+    },
+    "E14.ml-dsa-87.burst.r1": {
+      "session": 1,
+      "raw_file": "raw/E14/ml-dsa-87/burst-r1.csv.gz"
+    },
+    "E14.ml-dsa-87.burst.r2": {
+      "session": 1,
+      "raw_file": "raw/E14/ml-dsa-87/burst-r2.csv.gz"
+    },
+    "E14.ml-dsa-87.burst.r3": {
+      "session": 1,
+      "raw_file": "raw/E14/ml-dsa-87/burst-r3.csv.gz"
+    },
+    "E14.ml-dsa-87.burst.r4": {
+      "session": 1,
+      "raw_file": "raw/E14/ml-dsa-87/burst-r4.csv.gz"
+    },
+    "E14.ml-dsa-87.burst.r5": {
+      "session": 1,
+      "raw_file": "raw/E14/ml-dsa-87/burst-r5.csv.gz"
+    },
+    "E14.ml-dsa-87.sequential.r1": {
+      "session": 1,
+      "raw_file": "raw/E14/ml-dsa-87/sequential-r1.csv.gz"
+    },
+    "E14.ml-dsa-87.sequential.r2": {
+      "session": 1,
+      "raw_file": "raw/E14/ml-dsa-87/sequential-r2.csv.gz"
+    },
+    "E14.ml-dsa-87.sequential.r3": {
+      "session": 1,
+      "raw_file": "raw/E14/ml-dsa-87/sequential-r3.csv.gz"
+    },
+    "E14.ml-dsa-87.sequential.r4": {
+      "session": 1,
+      "raw_file": "raw/E14/ml-dsa-87/sequential-r4.csv.gz"
+    },
+    "E14.ml-dsa-87.sequential.r5": {
+      "session": 1,
+      "raw_file": "raw/E14/ml-dsa-87/sequential-r5.csv.gz"
+    },
+    "E14.slh-dsa-sha2-128f.burst.r1": {
+      "session": 1,
+      "raw_file": "raw/E14/slh-dsa-sha2-128f/burst-r1.csv.gz"
+    },
+    "E14.slh-dsa-sha2-128f.burst.r2": {
+      "session": 1,
+      "raw_file": "raw/E14/slh-dsa-sha2-128f/burst-r2.csv.gz"
+    },
+    "E14.slh-dsa-sha2-128f.burst.r3": {
+      "session": 1,
+      "raw_file": "raw/E14/slh-dsa-sha2-128f/burst-r3.csv.gz"
+    },
+    "E14.slh-dsa-sha2-128f.burst.r4": {
+      "session": 1,
+      "raw_file": "raw/E14/slh-dsa-sha2-128f/burst-r4.csv.gz"
+    },
+    "E14.slh-dsa-sha2-128f.burst.r5": {
+      "session": 1,
+      "raw_file": "raw/E14/slh-dsa-sha2-128f/burst-r5.csv.gz"
+    },
+    "E14.slh-dsa-sha2-128f.sequential.r1": {
+      "session": 1,
+      "raw_file": "raw/E14/slh-dsa-sha2-128f/sequential-r1.csv.gz"
+    },
+    "E14.slh-dsa-sha2-128f.sequential.r2": {
+      "session": 1,
+      "raw_file": "raw/E14/slh-dsa-sha2-128f/sequential-r2.csv.gz"
+    },
+    "E14.slh-dsa-sha2-128f.sequential.r3": {
+      "session": 1,
+      "raw_file": "raw/E14/slh-dsa-sha2-128f/sequential-r3.csv.gz"
+    },
+    "E14.slh-dsa-sha2-128f.sequential.r4": {
+      "session": 1,
+      "raw_file": "raw/E14/slh-dsa-sha2-128f/sequential-r4.csv.gz"
+    },
+    "E14.slh-dsa-sha2-128f.sequential.r5": {
+      "session": 1,
+      "raw_file": "raw/E14/slh-dsa-sha2-128f/sequential-r5.csv.gz"
+    },
+    "E14.slh-dsa-sha2-128s.burst.r1": {
+      "session": 1,
+      "raw_file": "raw/E14/slh-dsa-sha2-128s/burst-r1.csv.gz"
+    },
+    "E14.slh-dsa-sha2-128s.burst.r2": {
+      "session": 1,
+      "raw_file": "raw/E14/slh-dsa-sha2-128s/burst-r2.csv.gz"
+    },
+    "E14.slh-dsa-sha2-128s.burst.r3": {
+      "session": 1,
+      "raw_file": "raw/E14/slh-dsa-sha2-128s/burst-r3.csv.gz"
+    },
+    "E14.slh-dsa-sha2-128s.burst.r4": {
+      "session": 1,
+      "raw_file": "raw/E14/slh-dsa-sha2-128s/burst-r4.csv.gz"
+    },
+    "E14.slh-dsa-sha2-128s.burst.r5": {
+      "session": 1,
+      "raw_file": "raw/E14/slh-dsa-sha2-128s/burst-r5.csv.gz"
+    },
+    "E14.slh-dsa-sha2-128s.sequential.r1": {
+      "session": 1,
+      "raw_file": "raw/E14/slh-dsa-sha2-128s/sequential-r1.csv.gz"
+    },
+    "E14.slh-dsa-sha2-128s.sequential.r2": {
+      "session": 1,
+      "raw_file": "raw/E14/slh-dsa-sha2-128s/sequential-r2.csv.gz"
+    },
+    "E14.slh-dsa-sha2-128s.sequential.r3": {
+      "session": 1,
+      "raw_file": "raw/E14/slh-dsa-sha2-128s/sequential-r3.csv.gz"
+    },
+    "E14.slh-dsa-sha2-128s.sequential.r4": {
+      "session": 1,
+      "raw_file": "raw/E14/slh-dsa-sha2-128s/sequential-r4.csv.gz"
+    },
+    "E14.slh-dsa-sha2-128s.sequential.r5": {
+      "session": 1,
+      "raw_file": "raw/E14/slh-dsa-sha2-128s/sequential-r5.csv.gz"
+    },
+    "E14.slh-dsa-sha2-256f.burst.r1": {
+      "session": 1,
+      "raw_file": "raw/E14/slh-dsa-sha2-256f/burst-r1.csv.gz"
+    },
+    "E14.slh-dsa-sha2-256f.burst.r2": {
+      "session": 1,
+      "raw_file": "raw/E14/slh-dsa-sha2-256f/burst-r2.csv.gz"
+    },
+    "E14.slh-dsa-sha2-256f.burst.r3": {
+      "session": 1,
+      "raw_file": "raw/E14/slh-dsa-sha2-256f/burst-r3.csv.gz"
+    },
+    "E14.slh-dsa-sha2-256f.burst.r4": {
+      "session": 1,
+      "raw_file": "raw/E14/slh-dsa-sha2-256f/burst-r4.csv.gz"
+    },
+    "E14.slh-dsa-sha2-256f.burst.r5": {
+      "session": 1,
+      "raw_file": "raw/E14/slh-dsa-sha2-256f/burst-r5.csv.gz"
+    },
+    "E14.slh-dsa-sha2-256f.sequential.r1": {
+      "session": 1,
+      "raw_file": "raw/E14/slh-dsa-sha2-256f/sequential-r1.csv.gz"
+    },
+    "E14.slh-dsa-sha2-256f.sequential.r2": {
+      "session": 1,
+      "raw_file": "raw/E14/slh-dsa-sha2-256f/sequential-r2.csv.gz"
+    },
+    "E14.slh-dsa-sha2-256f.sequential.r3": {
+      "session": 1,
+      "raw_file": "raw/E14/slh-dsa-sha2-256f/sequential-r3.csv.gz"
+    },
+    "E14.slh-dsa-sha2-256f.sequential.r4": {
+      "session": 1,
+      "raw_file": "raw/E14/slh-dsa-sha2-256f/sequential-r4.csv.gz"
+    },
+    "E14.slh-dsa-sha2-256f.sequential.r5": {
+      "session": 1,
+      "raw_file": "raw/E14/slh-dsa-sha2-256f/sequential-r5.csv.gz"
+    },
+    "E14.tiny.burst.r1": {
+      "session": 1,
+      "raw_file": "raw/E14/tiny/burst-r1.csv.gz"
+    },
+    "E14.tiny.burst.r2": {
+      "session": 1,
+      "raw_file": "raw/E14/tiny/burst-r2.csv.gz"
+    },
+    "E14.tiny.burst.r3": {
+      "session": 1,
+      "raw_file": "raw/E14/tiny/burst-r3.csv.gz"
+    },
+    "E14.tiny.burst.r4": {
+      "session": 1,
+      "raw_file": "raw/E14/tiny/burst-r4.csv.gz"
+    },
+    "E14.tiny.burst.r5": {
+      "session": 1,
+      "raw_file": "raw/E14/tiny/burst-r5.csv.gz"
+    },
+    "E14.tiny.drift.d1": {
+      "session": 1,
+      "raw_file": "raw/E14/tiny/drift-d1.csv.gz"
+    },
+    "E14.tiny.drift.d2": {
+      "session": 1,
+      "raw_file": "raw/E14/tiny/drift-d2.csv.gz"
+    },
+    "E14.tiny.drift.d3": {
+      "session": 1,
+      "raw_file": "raw/E14/tiny/drift-d3.csv.gz"
+    },
+    "E14.tiny.sequential.r1": {
+      "session": 1,
+      "raw_file": "raw/E14/tiny/sequential-r1.csv.gz"
+    },
+    "E14.tiny.sequential.r2": {
+      "session": 1,
+      "raw_file": "raw/E14/tiny/sequential-r2.csv.gz"
+    },
+    "E14.tiny.sequential.r3": {
+      "session": 1,
+      "raw_file": "raw/E14/tiny/sequential-r3.csv.gz"
+    },
+    "E14.tiny.sequential.r4": {
+      "session": 1,
+      "raw_file": "raw/E14/tiny/sequential-r4.csv.gz"
+    },
+    "E14.tiny.sequential.r5": {
+      "session": 1,
+      "raw_file": "raw/E14/tiny/sequential-r5.csv.gz"
+    }
+  },
+  "calibration": {
+    "ecdsa-p256": {
+      "point": "ecdsa-p256",
+      "target_envelope": 7141,
+      "payload_bytes": 553,
+      "envelope_bytes": 7140,
+      "error_pct": -0.014003640946646127,
+      "slope_bytes_per_payload_byte": 4.001,
+      "steps": [
+        {
+          "payload_bytes": 1000,
+          "envelope_bytes": 8929
+        },
+        {
+          "payload_bytes": 8000,
+          "envelope_bytes": 36936
+        },
+        {
+          "payload_bytes": 553,
+          "envelope_bytes": 7140
+        }
+      ]
+    },
+    "falcon-512": {
+      "point": "falcon-512",
+      "target_envelope": 12805,
+      "payload_bytes": 1969,
+      "envelope_bytes": 12804,
+      "error_pct": -0.007809449433814916,
+      "slope_bytes_per_payload_byte": 4.001142857142857,
+      "steps": [
+        {
+          "payload_bytes": 1000,
+          "envelope_bytes": 8929
+        },
+        {
+          "payload_bytes": 8000,
+          "envelope_bytes": 36937
+        },
+        {
+          "payload_bytes": 1969,
+          "envelope_bytes": 12804
+        }
+      ]
+    },
+    "ml-dsa-44": {
+      "point": "ml-dsa-44",
+      "target_envelope": 21529,
+      "payload_bytes": 4150,
+      "envelope_bytes": 21533,
+      "error_pct": 0.018579590320033444,
+      "slope_bytes_per_payload_byte": 4.001142857142857,
+      "steps": [
+        {
+          "payload_bytes": 1000,
+          "envelope_bytes": 8927
+        },
+        {
+          "payload_bytes": 8000,
+          "envelope_bytes": 36935
+        },
+        {
+          "payload_bytes": 4150,
+          "envelope_bytes": 21533
+        }
+      ]
+    },
+    "ml-dsa-65": {
+      "point": "ml-dsa-65",
+      "target_envelope": 27645,
+      "payload_bytes": 5678,
+      "envelope_bytes": 27643,
+      "error_pct": -0.007234581298607343,
+      "slope_bytes_per_payload_byte": 4.001142857142857,
+      "steps": [
+        {
+          "payload_bytes": 1000,
+          "envelope_bytes": 8929
+        },
+        {
+          "payload_bytes": 8000,
+          "envelope_bytes": 36937
+        },
+        {
+          "payload_bytes": 5678,
+          "envelope_bytes": 27643
+        }
+      ]
+    },
+    "ml-dsa-87": {
+      "point": "ml-dsa-87",
+      "target_envelope": 35478,
+      "payload_bytes": 7635,
+      "envelope_bytes": 35474,
+      "error_pct": -0.01127459270533852,
+      "slope_bytes_per_payload_byte": 4.001428571428572,
+      "steps": [
+        {
+          "payload_bytes": 1000,
+          "envelope_bytes": 8927
+        },
+        {
+          "payload_bytes": 8000,
+          "envelope_bytes": 36937
+        },
+        {
+          "payload_bytes": 7635,
+          "envelope_bytes": 35474
+        }
+      ]
+    },
+    "slh-dsa-sha2-128f": {
+      "point": "slh-dsa-sha2-128f",
+      "target_envelope": 75093,
+      "payload_bytes": 17536,
+      "envelope_bytes": 75090,
+      "error_pct": -0.003995046142782949,
+      "slope_bytes_per_payload_byte": 4.001142857142857,
+      "steps": [
+        {
+          "payload_bytes": 1000,
+          "envelope_bytes": 8929
+        },
+        {
+          "payload_bytes": 8000,
+          "envelope_bytes": 36937
+        },
+        {
+          "payload_bytes": 17536,
+          "envelope_bytes": 75090
+        }
+      ]
+    },
+    "slh-dsa-sha2-128s": {
+      "point": "slh-dsa-sha2-128s",
+      "target_envelope": 38164,
+      "payload_bytes": 8306,
+      "envelope_bytes": 38169,
+      "error_pct": 0.013101352059532544,
+      "slope_bytes_per_payload_byte": 4.001142857142857,
+      "steps": [
+        {
+          "payload_bytes": 1000,
+          "envelope_bytes": 8930
+        },
+        {
+          "payload_bytes": 8000,
+          "envelope_bytes": 36938
+        },
+        {
+          "payload_bytes": 8306,
+          "envelope_bytes": 38169
+        }
+      ]
+    },
+    "slh-dsa-sha2-256f": {
+      "point": "slh-dsa-sha2-256f",
+      "target_envelope": 206294,
+      "payload_bytes": 50326,
+      "envelope_bytes": 206249,
+      "error_pct": -0.02181352826548518,
+      "slope_bytes_per_payload_byte": 4.001285714285714,
+      "steps": [
+        {
+          "payload_bytes": 1000,
+          "envelope_bytes": 8928
+        },
+        {
+          "payload_bytes": 8000,
+          "envelope_bytes": 36937
+        },
+        {
+          "payload_bytes": 50326,
+          "envelope_bytes": 206249
+        }
+      ]
+    },
+    "tiny": {
+      "point": "tiny",
+      "target_envelope": 0,
+      "payload_bytes": 1,
+      "envelope_bytes": 4926,
+      "error_pct": 0,
+      "steps": [
+        {
+          "payload_bytes": 1,
+          "envelope_bytes": 4926
+        }
+      ]
+    }
+  },
+  "canary_seq": 11,
+  "transactions": 6360,
+  "false_conflicts": 410
+}

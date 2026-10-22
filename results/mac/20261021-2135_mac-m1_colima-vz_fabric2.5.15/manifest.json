@@ -1,0 +1,285 @@
+{
+  "schema": 1,
+  "experiment": "E14",
+  "run_id": "20261021-2135_mac-m1_colima-vz_fabric2.5.15",
+  "machine": "mac-m1",
+  "plan": {
+    "description": "E14 Fabric latency against payload size on QChain's network rebuilt on the Mac (Fabric 2.5.15, 2 organisations, Raft orderer, shared CouchDB): QChain-shaped transactions whose envelopes match E13's issueCredential for 8 signature schemes, plus the smallest transaction; sequential (each waits for its commit) and burst (all at once); 5 repetitions; drift-control blocks at the start, middle and end. Target envelopes are E13's medians (N = 5 attributes of 16 bytes).",
+    "kind": "main",
+    "name": "e14",
+    "sha256": "e04b519a2d9c32bd0725a882da1e773f507cef346fb2d7866614c7dcb1892c1d"
+  },
+  "seed": 14074651752656251164,
+  "image_id": "sha256:86c8ee8739976b76d5699526b8541e20e72725e090e7dfeb88e75dfef483a4ce",
+  "harness_commit": "5da322ab78305bd38dc539b6f7bcce1d90e79192",
+  "go": "go1.24.13",
+  "network": {
+    "fabric_peer": "v2.5.15",
+    "chaincode_package": "kpipayload_1.0-3e652dfe74f0d6464a9020013590a2b35fe8280aff04928f5ab0bea461387c11",
+    "topology": "QChain qchain-network (commit 71a1db6): 2 organisations, 2 peers sharing one CouchDB, 1 etcdraft orderer, 3 CAs, TLS; BatchTimeout 2s, MaxMessageCount 10, PreferredMaxBytes 512 KB",
+    "containers": {
+      "ca.government.uae.com": {
+        "image": "hyperledger/fabric-ca:1.5.15",
+        "digest": "sha256:1b64dc702bd400e14c8f452dedc0359b7dc06679b751b08937eb2bf2865fed40"
+      },
+      "ca.general.uae.com": {
+        "image": "hyperledger/fabric-ca:1.5.15",
+        "digest": "sha256:1b64dc702bd400e14c8f452dedc0359b7dc06679b751b08937eb2bf2865fed40"
+      },
+      "ca.orderer.example.com": {
+        "image": "hyperledger/fabric-ca:1.5.15",
+        "digest": "sha256:1b64dc702bd400e14c8f452dedc0359b7dc06679b751b08937eb2bf2865fed40"
+      },
+      "couchdb0": {
+        "image": "couchdb:3.3.2",
+        "digest": "sha256:413645f2a2847264be532d7aa200637e1aa5d37b414996fe69c98a9e521724f8"
+      },
+      "orderer0.orderer.example.com": {
+        "image": "hyperledger/fabric-orderer:2.5.15",
+        "digest": "sha256:72697d099f45b8e57f86d9a69fbedb683cd5888bc7b28ec01695773d0433b791"
+      },
+      "peer0.government.uae.com": {
+        "image": "hyperledger/fabric-peer:2.5.15",
+        "digest": "sha256:c48323777139fcabe77a98cf4eeaf4466827dec225f754064f52f22395a8bd89"
+      },
+      "peer0.general.uae.com": {
+        "image": "hyperledger/fabric-peer:2.5.15",
+        "digest": "sha256:c48323777139fcabe77a98cf4eeaf4466827dec225f754064f52f22395a8bd89"
+      }
+    }
+  },
+  "host": {
+    "battery_pct": "100",
+    "colima": "0.10.3",
+    "container_cpuset": "all (not pinned)",
+    "container_mem": "no limit",
+    "cooling": "USB fan cooling pad",
+    "docker": "29.5.2",
+    "host_cpu": "Apple M1",
+    "host_mem_gb": "8",
+    "host_os": "macOS 27.0.1 (26A434)",
+    "launcher": "e14-run.sh 1",
+    "lima": "2.2.1",
+    "low_power_mode": "0",
+    "native_go": "go1.24.13",
+    "power": "AC",
+    "runtime": "colima-vz",
+    "thermal_at_start": "0",
+    "vm_cpus": "4",
+    "vm_mem_gb": "4"
+  },
+  "sessions": [
+    {
+      "n": 1,
+      "started_utc": "2026-10-21T21:35:51Z",
+      "host_offset_ns": -15908359,
+      "native_p_rate": 2563471.50097174,
+      "native_e_rate": 410631.395540512
+    }
+  ],
+  "status": "done",
+  "started_utc": "2026-10-21T21:35:51Z",
+  "updated_utc": "2026-10-22T00:21:09Z",
+  "counts": {
+    "attempts": 93,
+    "blocks": 93,
+    "blocks_done": 93,
+    "flagged_attempts": 0,
+    "mvcc_conflicts": 410,
+    "transactions": 6360
+  },
+  "calibration": {
+    "ecdsa-p256": {
+      "point": "ecdsa-p256",
+      "target_envelope": 7141,
+      "payload_bytes": 553,
+      "envelope_bytes": 7140,
+      "error_pct": -0.014003640946646127,
+      "slope_bytes_per_payload_byte": 4.001,
+      "steps": [
+        {
+          "payload_bytes": 1000,
+          "envelope_bytes": 8929
+        },
+        {
+          "payload_bytes": 8000,
+          "envelope_bytes": 36936
+        },
+        {
+          "payload_bytes": 553,
+          "envelope_bytes": 7140
+        }
+      ]
+    },
+    "falcon-512": {
+      "point": "falcon-512",
+      "target_envelope": 12805,
+      "payload_bytes": 1969,
+      "envelope_bytes": 12804,
+      "error_pct": -0.007809449433814916,
+      "slope_bytes_per_payload_byte": 4.001142857142857,
+      "steps": [
+        {
+          "payload_bytes": 1000,
+          "envelope_bytes": 8929
+        },
+        {
+          "payload_bytes": 8000,
+          "envelope_bytes": 36937
+        },
+        {
+          "payload_bytes": 1969,
+          "envelope_bytes": 12804
+        }
+      ]
+    },
+    "ml-dsa-44": {
+      "point": "ml-dsa-44",
+      "target_envelope": 21529,
+      "payload_bytes": 4150,
+      "envelope_bytes": 21533,
+      "error_pct": 0.018579590320033444,
+      "slope_bytes_per_payload_byte": 4.001142857142857,
+      "steps": [
+        {
+          "payload_bytes": 1000,
+          "envelope_bytes": 8927
+        },
+        {
+          "payload_bytes": 8000,
+          "envelope_bytes": 36935
+        },
+        {
+          "payload_bytes": 4150,
+          "envelope_bytes": 21533
+        }
+      ]
+    },
+    "ml-dsa-65": {
+      "point": "ml-dsa-65",
+      "target_envelope": 27645,
+      "payload_bytes": 5678,
+      "envelope_bytes": 27643,
+      "error_pct": -0.007234581298607343,
+      "slope_bytes_per_payload_byte": 4.001142857142857,
+      "steps": [
+        {
+          "payload_bytes": 1000,
+          "envelope_bytes": 8929
+        },
+        {
+          "payload_bytes": 8000,
+          "envelope_bytes": 36937
+        },
+        {
+          "payload_bytes": 5678,
+          "envelope_bytes": 27643
+        }
+      ]
+    },
+    "ml-dsa-87": {
+      "point": "ml-dsa-87",
+      "target_envelope": 35478,
+      "payload_bytes": 7635,
+      "envelope_bytes": 35474,
+      "error_pct": -0.01127459270533852,
+      "slope_bytes_per_payload_byte": 4.001428571428572,
+      "steps": [
+        {
+          "payload_bytes": 1000,
+          "envelope_bytes": 8927
+        },
+        {
+          "payload_bytes": 8000,
+          "envelope_bytes": 36937
+        },
+        {
+          "payload_bytes": 7635,
+          "envelope_bytes": 35474
+        }
+      ]
+    },
+    "slh-dsa-sha2-128f": {
+      "point": "slh-dsa-sha2-128f",
+      "target_envelope": 75093,
+      "payload_bytes": 17536,
+      "envelope_bytes": 75090,
+      "error_pct": -0.003995046142782949,
+      "slope_bytes_per_payload_byte": 4.001142857142857,
+      "steps": [
+        {
+          "payload_bytes": 1000,
+          "envelope_bytes": 8929
+        },
+        {
+          "payload_bytes": 8000,
+          "envelope_bytes": 36937
+        },
+        {
+          "payload_bytes": 17536,
+          "envelope_bytes": 75090
+        }
+      ]
+    },
+    "slh-dsa-sha2-128s": {
+      "point": "slh-dsa-sha2-128s",
+      "target_envelope": 38164,
+      "payload_bytes": 8306,
+      "envelope_bytes": 38169,
+      "error_pct": 0.013101352059532544,
+      "slope_bytes_per_payload_byte": 4.001142857142857,
+      "steps": [
+        {
+          "payload_bytes": 1000,
+          "envelope_bytes": 8930
+        },
+        {
+          "payload_bytes": 8000,
+          "envelope_bytes": 36938
+        },
+        {
+          "payload_bytes": 8306,
+          "envelope_bytes": 38169
+        }
+      ]
+    },
+    "slh-dsa-sha2-256f": {
+      "point": "slh-dsa-sha2-256f",
+      "target_envelope": 206294,
+      "payload_bytes": 50326,
+      "envelope_bytes": 206249,
+      "error_pct": -0.02181352826548518,
+      "slope_bytes_per_payload_byte": 4.001285714285714,
+      "steps": [
+        {
+          "payload_bytes": 1000,
+          "envelope_bytes": 8928
+        },
+        {
+          "payload_bytes": 8000,
+          "envelope_bytes": 36937
+        },
+        {
+          "payload_bytes": 50326,
+          "envelope_bytes": 206249
+        }
+      ]
+    },
+    "tiny": {
+      "point": "tiny",
+      "target_envelope": 0,
+      "payload_bytes": 1,
+      "envelope_bytes": 4926,
+      "error_pct": 0,
+      "steps": [
+        {
+          "payload_bytes": 1,
+          "envelope_bytes": 4926
+        }
+      ]
+    }
+  },
+  "notes": [
+    "QChain's Fabric network rebuilt on the host in Docker (scripts/e14-network.sh); every transaction committed as valid; run quality is recorded (host monitor, canary, drift-control blocks), not repeated (decision 21 Oct); transactions are valid, or flagged MVCC_READ_CONFLICT by the second-validating peer of the shared CouchDB with their record read back correctly (counted in mvcc_conflicts; decision 22 Oct)"
+  ]
+}

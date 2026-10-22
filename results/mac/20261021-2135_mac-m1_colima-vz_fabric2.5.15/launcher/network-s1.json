@@ -1,0 +1,14 @@
+{
+  "fabric_peer": "v2.5.15",
+  "chaincode_package": "kpipayload_1.0-3e652dfe74f0d6464a9020013590a2b35fe8280aff04928f5ab0bea461387c11",
+  "topology": "QChain qchain-network (commit 71a1db6): 2 organisations, 2 peers sharing one CouchDB, 1 etcdraft orderer, 3 CAs, TLS; BatchTimeout 2s, MaxMessageCount 10, PreferredMaxBytes 512 KB",
+  "containers": {
+    "ca.government.uae.com": {"image": "hyperledger/fabric-ca:1.5.15", "digest": "sha256:1b64dc702bd400e14c8f452dedc0359b7dc06679b751b08937eb2bf2865fed40"},
+    "ca.general.uae.com": {"image": "hyperledger/fabric-ca:1.5.15", "digest": "sha256:1b64dc702bd400e14c8f452dedc0359b7dc06679b751b08937eb2bf2865fed40"},
+    "ca.orderer.example.com": {"image": "hyperledger/fabric-ca:1.5.15", "digest": "sha256:1b64dc702bd400e14c8f452dedc0359b7dc06679b751b08937eb2bf2865fed40"},
+    "couchdb0": {"image": "couchdb:3.3.2", "digest": "sha256:413645f2a2847264be532d7aa200637e1aa5d37b414996fe69c98a9e521724f8"},
+    "orderer0.orderer.example.com": {"image": "hyperledger/fabric-orderer:2.5.15", "digest": "sha256:72697d099f45b8e57f86d9a69fbedb683cd5888bc7b28ec01695773d0433b791"},
+    "peer0.government.uae.com": {"image": "hyperledger/fabric-peer:2.5.15", "digest": "sha256:c48323777139fcabe77a98cf4eeaf4466827dec225f754064f52f22395a8bd89"},
+    "peer0.general.uae.com": {"image": "hyperledger/fabric-peer:2.5.15", "digest": "sha256:c48323777139fcabe77a98cf4eeaf4466827dec225f754064f52f22395a8bd89"}
+  }
+}
