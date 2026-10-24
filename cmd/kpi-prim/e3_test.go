@@ -36,19 +36,23 @@ func TestE3Blocks(t *testing.T) {
 		if len(r.Arms) != len(want) {
 			t.Fatalf("%s: arms %+v", b.Key(), r.Arms)
 		}
-		p50 := map[string]float64{}
+		p50, fastest := map[string]float64{}, map[string]float64{}
 		for k, a := range r.Arms {
 			if a.Name != want[k] || a.Stats.N != 200 || a.Stats.P50 <= 0 {
 				t.Fatalf("%s: arm %d %+v", b.Key(), k, a)
 			}
 			p50[a.Name] = a.Stats.P50
+			fastest[a.Name] = a.Stats.Min
 		}
-		t.Logf("%s: %v", b.Key(), p50)
+		t.Logf("%s: median %v, fastest %v", b.Key(), p50, fastest)
 		// The C call timed in C cannot be slower than the same call timed
-		// around it from Go, nor than the binding (generous margins: the
-		// test build runs on a busy machine).
-		if p50[proto.ArmL0] > 1.10*p50[proto.ArmL0g] || p50[proto.ArmL0] > 1.10*p50[proto.ArmL1] {
-			t.Fatalf("%s: l0 %v slower than l0g %v / l1 %v", b.Key(), p50[proto.ArmL0], p50[proto.ArmL0g], p50[proto.ArmL1])
+		// around it from Go, nor than the binding. Compared on the fastest
+		// sample, the cost without interference: the test build runs other
+		// packages' tests in parallel on the same CPUs, and once (25 Oct) the
+		// median of 200 samples moved by 13 % (l0 66.5 us, l0g 59.0 us). The
+		// 10 % margin also covers the 1 us clock of a native macOS test run.
+		if fastest[proto.ArmL0] > 1.10*fastest[proto.ArmL0g] || fastest[proto.ArmL0] > 1.10*fastest[proto.ArmL1] {
+			t.Fatalf("%s: fastest l0 %v slower than l0g %v / l1 %v", b.Key(), fastest[proto.ArmL0], fastest[proto.ArmL0g], fastest[proto.ArmL1])
 		}
 	}
 	b := plan.Block{ID: "E3.none.null.r1", Exp: "E3", Alg: plan.E3NullAlg, Op: plan.E3NullOp, Rep: 1, Attempt: 1,
