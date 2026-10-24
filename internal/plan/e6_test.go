@@ -8,7 +8,7 @@ import (
 // schemes, and refuses KEMs.
 func TestE6Expansion(t *testing.T) {
 	count := func(file string) (int, map[string]int) {
-		p, err := Load("../../plans/" + file)
+		p, err := Load("../../plans/mac/" + file)
 		if err != nil {
 			t.Fatal(err)
 		}

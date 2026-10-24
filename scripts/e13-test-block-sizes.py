@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
-"""Checks scripts/fabric-block-sizes.py against the synthetic block file made by
+"""Checks scripts/e13-block-sizes.py against the synthetic block file made by
 testdata/fabric-blockgen (real Fabric protobuf types, made-up data): every size the
 generator wrote must be found, the invalid transaction flagged, and no name or key
-may appear in the output.   python3 scripts/test-fabric-block-sizes.py"""
+may appear in the output.   python3 scripts/e13-test-block-sizes.py"""
 import json, os, subprocess, sys, tempfile
 here = os.path.dirname(os.path.abspath(__file__))
 fx = os.path.join(here, "..", "testdata", "fabric")
 with tempfile.TemporaryDirectory() as d:
     out = os.path.join(d, "tx.jsonl")
-    rep = subprocess.run([sys.executable, "-I", os.path.join(here, "fabric-block-sizes.py"), os.path.join(fx, "synthetic.blockfile"), out],
+    rep = subprocess.run([sys.executable, "-I", os.path.join(here, "e13-block-sizes.py"), os.path.join(fx, "synthetic.blockfile"), out],
                          check=True, capture_output=True, text=True).stdout
     got = [t for t in map(json.loads, open(out)) if t.get("type") == 3]
     exp = [json.loads(l) for l in open(os.path.join(fx, "synthetic.expected.jsonl"))]
@@ -24,4 +24,4 @@ with tempfile.TemporaryDirectory() as d:
     text = rep + open(out).read()
     for word in ("user1", "peer0", "general.uae.com", "Aaaa", "Bbbbbb", "H-0001", "CRED-", "orderer0", "Bachelor"):
         assert word not in text, word
-print("fabric-block-sizes: ok (%d transactions, all sizes match, nothing sensitive printed)" % len(exp))
+print("e13-block-sizes: ok (%d transactions, all sizes match, nothing sensitive printed)" % len(exp))

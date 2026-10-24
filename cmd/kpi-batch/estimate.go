@@ -47,13 +47,13 @@ type PlanEstimate struct {
 func cmdEstimate(args []string) error {
 	fs := flag.NewFlagSet("estimate", flag.ContinueOnError)
 	dir := fs.String("trial", "", "trial run folder (with calibration.json)")
-	plans := fs.String("plans", "/opt/kpi/plans", "folder of plan files")
+	plans := fs.String("plans", "", "folder of this machine's plan files (for example /opt/kpi/plans/mac)")
 	machine := fs.String("machine", "", "machine id")
 	if err := fs.Parse(args); err != nil {
 		return err
 	}
-	if *dir == "" || *machine == "" {
-		return errors.New("estimate: --trial and --machine are required")
+	if *dir == "" || *plans == "" || *machine == "" {
+		return errors.New("estimate: --trial, --plans and --machine are required")
 	}
 	e, err := estimate(*dir, *plans, *machine)
 	if err != nil {
@@ -218,6 +218,11 @@ func estimate(dir, plansDir, machine string) (*Estimate, error) {
 		"repeats and diagnostic re-runs are not included",
 	}}
 	files, _ := filepath.Glob(filepath.Join(plansDir, "*.json"))
+	if len(files) == 0 {
+		// plans live in one folder per machine (plans/mac, plans/vm, plans/windows); an empty or
+		// wrong folder must not give an empty estimate that looks like a finished one
+		return nil, fmt.Errorf("estimate: no plan files in %s", plansDir)
+	}
 	sort.Strings(files)
 	for _, file := range files {
 		p, err := plan.Load(file)

@@ -1,6 +1,6 @@
 // fabric-blockgen writes a synthetic Fabric block file with the real Fabric protobuf
 // types (and real X.509 certificates), plus the sizes it expects a reader to find.
-// It exists only to test scripts/fabric-block-sizes.py. Every value is made up.
+// It exists only to test scripts/e13-block-sizes.py. Every value is made up.
 //
 //	go run . OUT_DIR      -> OUT_DIR/synthetic.blockfile, OUT_DIR/synthetic.expected.jsonl
 package main

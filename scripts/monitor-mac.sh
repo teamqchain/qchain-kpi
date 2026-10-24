@@ -1,5 +1,6 @@
 #!/bin/bash
-# Host monitor for macOS (coding plan §8). Started and stopped by run.sh.
+# Host monitor for macOS (coding plan §8). Started and stopped by the Mac launchers
+# (run-mac.sh, e5-run-mac.sh, e14-run-mac.sh).
 #
 #   monitor-mac.sh <work-dir> <period-s> <rows-per-chunk> <exclude-pids>
 #
@@ -17,7 +18,7 @@
 #   alert      1 if Low Power Mode is on
 #
 # Rows go into chunk files <work-dir>/host-NNNNNN.csv; a finished chunk gets
-# a .ready marker, and run.sh delivers it into the run volume. All rows are
+# a .ready marker, and the launcher delivers it into the run volume. All rows are
 # also kept in <work-dir>/host-all.csv. Only numbers are recorded: no process
 # names, user names or paths.
 set -euo pipefail

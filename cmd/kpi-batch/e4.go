@@ -26,7 +26,7 @@ func e4VariantCheck(p *plan.Plan, blocks []plan.Block, build map[string]string) 
 		return fmt.Errorf("run: E4 needs the image's liboqs build variant (oqs-build.txt), which is missing")
 	}
 	if v == proto.E4BaselineVariant {
-		return fmt.Errorf("run: E4 compares other liboqs builds with E1's %s; start it with run.sh --variant b2-portable or b3-native", v)
+		return fmt.Errorf("run: E4 compares other liboqs builds with E1's %s; start it with the launcher's --variant (b2-portable, b3-native or b4-noossl)", v)
 	}
 	return nil
 }

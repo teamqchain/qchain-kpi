@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 """E13: link every issued credential on the ledger to its stored IPFS envelope, sizes only.
 
-    python3 fabric-ipfs-link.py BLOCKFILE [--no-ipfs]
+    python3 e13-ipfs-link.py BLOCKFILE [--no-ipfs]
 
 For each valid issueCredential transaction it takes the CID argument, asks the local
 IPFS daemon for the object's size (ipfs cat piped to a byte counter, ipfs block stat,
 ipfs refs), and prints: block number, attribute count (from the field-hash argument),
 file bytes, root block bytes, child blocks. It never prints a CID or any content.
-Needs fabric-block-sizes.py in the same folder. Read-only."""
+Needs e13-block-sizes.py in the same folder. Read-only."""
 import importlib.util, json, os, re, subprocess, sys
 
 here = os.path.dirname(os.path.abspath(__file__))
-spec = importlib.util.spec_from_file_location("fbs", os.path.join(here, "fabric-block-sizes.py"))
+spec = importlib.util.spec_from_file_location("fbs", os.path.join(here, "e13-block-sizes.py"))
 fbs = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(fbs)
 CID = re.compile(rb"^(Qm[1-9A-HJ-NP-Za-km-z]{44}|b[a-z2-7]{20,100})$")

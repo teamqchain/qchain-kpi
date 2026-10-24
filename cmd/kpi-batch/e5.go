@@ -12,7 +12,7 @@ import (
 )
 
 // E5 (platform and runtime comparison): E1's cells run natively on the host
-// (scripts/native-mac.sh on the Mac). The container's experiments and E5 must
+// (scripts/e5-run-mac.sh on the Mac). The container's experiments and E5 must
 // not mix: in the container (Linux) E5 is refused, and natively only E5 (and
 // the probe pass of its smoke plan) may run, because every other experiment's
 // rules assume the container (one pinned CPU, cgroup limits, no network).
@@ -22,7 +22,7 @@ func e5PlatformCheck(blocks []plan.Block, goos string) error {
 		e5 := b.Exp == "E5"
 		switch {
 		case e5 && !native:
-			return fmt.Errorf("run: E5 runs natively on the host (scripts/native-mac.sh), not in the container")
+			return fmt.Errorf("run: E5 runs natively on the host (scripts/e5-run-mac.sh), not in the container")
 		case native && !e5 && !proto.IsProbe(b.Exp):
 			return fmt.Errorf("run: natively only E5 may run (block %s); every other experiment runs in the container", b.ID)
 		}

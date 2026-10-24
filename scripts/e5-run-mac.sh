@@ -2,17 +2,17 @@
 # QChain KPI launcher for native macOS runs (E5: the E1 cells run directly on
 # macOS, outside Docker; decisions of 19 Oct).
 #
-#   scripts/native-mac.sh start --plan NAME [--seed N] [--cooling TEXT] [--force]
-#   scripts/native-mac.sh resume RUN_ID [--cooling TEXT] [--force]
-#   scripts/native-mac.sh extend RUN_ID --blocks ID[,ID...] [--cooling TEXT] [--force]
-#   scripts/native-mac.sh stop RUN_ID        # graceful: stops after the current block
-#   scripts/native-mac.sh build              # only builds and tests the native binaries
-#   scripts/native-mac.sh status
+#   scripts/e5-run-mac.sh start --plan NAME [--seed N] [--cooling TEXT] [--force]
+#   scripts/e5-run-mac.sh resume RUN_ID [--cooling TEXT] [--force]
+#   scripts/e5-run-mac.sh extend RUN_ID --blocks ID[,ID...] [--cooling TEXT] [--force]
+#   scripts/e5-run-mac.sh stop RUN_ID        # graceful: stops after the current block
+#   scripts/e5-run-mac.sh build              # only builds and tests the native binaries
+#   scripts/e5-run-mac.sh status
 #
-# Needs the native toolchain of scripts/native-setup.sh. It does what run.sh
+# Needs the native toolchain of scripts/e5-setup-mac.sh. It does what run-mac.sh
 # does, without Docker:
 #   - refuses to start on a machine that is not ready (the same host checks as
-#     run.sh, plus: Colima must be stopped, so its VM does not compete);
+#     run-mac.sh, plus: Colima must be stopped, so its VM does not compete);
 #   - builds kpi-prim, kpi-batch and kpi-env from the clean harness commit
 #     (git archive, so nothing uncommitted can enter), after go vet and go test
 #     have passed natively (as the image's test stage), into
@@ -23,7 +23,7 @@
 #     itself to the user-interactive QoS class, so macOS keeps it on the
 #     performance cores; nothing pins a CPU (macOS has no CPU pinning);
 #   - the host monitor, the background-service pause and the Wi-Fi switch-off
-#     are run.sh's own (loaded from run.sh between its "shared" markers), so
+#     are run-mac.sh's own (loaded from run-mac.sh between its "shared" markers), so
 #     both launchers behave the same; host samples are delivered by copying;
 #   - when the batch is done: verifies SHA256SUMS, runs the privacy scan, moves
 #     the run into results/mac/, adds the INDEX row, and removes the run's work
@@ -32,10 +32,10 @@
 # The batch runs in its own process group and Ctrl-C is forwarded to it alone,
 # as docker forwards it to the container: the batch then discards its current
 # block and stops (resume later).
-# shellcheck disable=SC2154,SC2034 # osdir, bg_early_log and bg_paused belong to run.sh's shared block, loaded below
+# shellcheck disable=SC2154,SC2034 # osdir, bg_early_log and bg_paused belong to run-mac.sh's shared block, loaded below
 set -euo pipefail
 
-LAUNCHER="native-mac.sh 1"
+LAUNCHER="e5-run-mac.sh 1"
 repo="$(cd "$(dirname "$0")/.." && pwd -P)"
 N=/Users/Shared/qchain-kpi-native
 PERIOD_S=5        # host monitor sampling period
@@ -43,21 +43,21 @@ ROWS_PER_CHUNK=12 # one chunk per minute
 GO=/opt/homebrew/opt/go@1.24/bin/go
 MACHINE=mac-m1
 
-# run.sh's shared functions: die/note, JSON helpers, repo_commit, the host
+# run-mac.sh's shared functions: die/note, JSON helpers, repo_commit, the host
 # preflight, native_refs, the background-service pause, Wi-Fi, cleanup and
 # its traps, the privacy scan and the INDEX row.
 # (eval, not "source <(...)": macOS's bash 3.2 silently sources nothing from a
 # process substitution.)
-shared="$(awk '/^# >>> shared with scripts\/native-mac.sh/{f=1; next} /^# <<< shared with scripts\/native-mac.sh/{f=0} f' "$repo/scripts/run.sh")"
+shared="$(awk '/^# >>> shared with scripts\/e5-run-mac.sh/{f=1; next} /^# <<< shared with scripts\/e5-run-mac.sh/{f=0} f' "$repo/scripts/run-mac.sh")"
 eval "$shared"
 for fn in repo_commit preflight_host preflight_verdict free_space_check native_refs pause_bg resume_bg wifi_off cleanup persist_dir privacy_scan index_row json_get json_str; do
-  declare -F "$fn" >/dev/null || { echo "native-mac.sh: $fn was not loaded from run.sh's shared blocks" >&2; exit 1; }
+  declare -F "$fn" >/dev/null || { echo "e5-run-mac.sh: $fn was not loaded from run-mac.sh's shared blocks" >&2; exit 1; }
 done
-die() { echo "native-mac.sh: $*" >&2; exit 1; }
-note() { echo "native-mac.sh: $*" >&2; }
+die() { echo "e5-run-mac.sh: $*" >&2; exit 1; }
+note() { echo "e5-run-mac.sh: $*" >&2; }
 runtime=native-macos
 
-if [ ! -f "$N/env.sh" ] || [ ! -e "$N/.done-gate" ]; then die "the native toolchain is missing; run scripts/native-setup.sh first"; fi
+if [ ! -f "$N/env.sh" ] || [ ! -e "$N/.done-gate" ]; then die "the native toolchain is missing; run scripts/e5-setup-mac.sh first"; fi
 
 # ------------------------------------------------------------------ build
 
@@ -103,7 +103,7 @@ preflight_native() { # kind
   local kind="$1" out
   problems=()
   out="$(colima status 2>&1 || true)"
-  [[ "$out" == *"is not running"* ]] || problem "Colima is running; stop it for native runs (colima stop); run.sh starts it again"
+  [[ "$out" == *"is not running"* ]] || problem "Colima is running; stop it for native runs (colima stop); run-mac.sh starts it again"
   if pgrep -q -f '/qchain-kpi-native/harness/.*/kpi-batch'; then problem "another native batch is running"; fi
   free_space_check "$repo" "the repository"
   free_space_check "$N" "the native work folder"
@@ -194,7 +194,7 @@ run_native() {
   cafpid=$!
   disown "$cafpid"
 
-  note "starting batch $rid (session $n); stop gracefully with: scripts/native-mac.sh stop $rid"
+  note "starting batch $rid (session $n); stop gracefully with: scripts/e5-run-mac.sh stop $rid"
   printf '\n=== session %s ===\n' "$n" >> "$console"
   # Own process group (setpgrp): Ctrl-C reaches only this script, which
   # forwards it to the batch. The batch's output goes to the console file and
@@ -206,7 +206,7 @@ run_native() {
   bpid=$!
   tail -n 0 -f "$console" >&2 &
   local tailpid=$!
-  trap 'note "interrupt: the batch discards its current block and stops; resume with: scripts/native-mac.sh resume '"$rid"'"; kill -INT '"$bpid"' 2>/dev/null || true' INT
+  trap 'note "interrupt: the batch discards its current block and stops; resume with: scripts/e5-run-mac.sh resume '"$rid"'"; kill -INT '"$bpid"' 2>/dev/null || true' INT
   set +e
   wait "$bpid"
   session_code=$?
@@ -240,7 +240,7 @@ finish_native() { # rid code
   case "$code" in
     0) ;;
     5)
-      note "batch stopped and can be resumed: scripts/native-mac.sh resume $rid"
+      note "batch stopped and can be resumed: scripts/e5-run-mac.sh resume $rid"
       return 0 ;;
     *)
       stage="$repo/scratch/failed/$rid"
@@ -278,7 +278,7 @@ finish_native() { # rid code
 # ------------------------------------------------------------------- main
 
 cmd="${1:-}"
-[ -n "$cmd" ] || die "usage: native-mac.sh start|resume|extend|stop|build|status ..."
+[ -n "$cmd" ] || die "usage: e5-run-mac.sh start|resume|extend|stop|build|status ..."
 shift
 force=0
 cooling="unstated"
@@ -304,8 +304,8 @@ case "$cmd" in
     [ -n "$plan" ] || die "start needs --plan"
     commit="$(repo_commit)"
     native_build "$commit"
-    planfile="$hb/plans/$plan.json"
-    [ -f "$planfile" ] || die "no plan plans/$plan.json"
+    planfile="$hb/plans/mac/$plan.json"
+    [ -f "$planfile" ] || die "no plan plans/mac/$plan.json"
     kind="$(json_get "$planfile" kind)"
     variant="$(sed -n 's/^variant=//p' "$hb/build-info/oqs-build.txt")"
     pause_early
@@ -340,7 +340,7 @@ case "$cmd" in
     seed="$(json_get "$N/runs/$rid/state.json" seed)"
     pause_early
     preflight_native "$kind"
-    run_native "$rid" --plan "$hb/plans/$plan.json" --seed "$seed"
+    run_native "$rid" --plan "$hb/plans/mac/$plan.json" --seed "$seed"
     finish_native "$rid" "$session_code"
     ;;
   extend)
@@ -369,9 +369,9 @@ case "$cmd" in
     old_commit="$(json_get "$folder/manifest.json" harness_commit)"
     commit="$(repo_commit)"
     git -C "$repo" cat-file -e "$old_commit^{commit}" 2>/dev/null || die "the run's harness commit $old_commit is not in this repository"
-    # As run.sh: everything that produces the numbers must be identical; the
+    # As run-mac.sh: everything that produces the numbers must be identical; the
     # orchestrator may differ (recorded in the run's manifest).
-    if ! git -C "$repo" diff --quiet "$old_commit" -- cmd/kpi-prim cmd/kpi-env cmd/kpi-canary-native internal csrc docker plans config go.mod go.sum; then
+    if ! git -C "$repo" diff --quiet "$old_commit" -- cmd/kpi-prim cmd/kpi-env cmd/kpi-canary-native internal csrc docker plans/mac config go.mod go.sum; then
       die "the measuring sources changed since $old_commit; the run cannot be extended"
     fi
     orch_changed="$(git -C "$repo" diff --name-only "$old_commit" -- cmd/kpi-batch | tr '\n' ',' | sed 's/,$//')"
@@ -396,7 +396,7 @@ case "$cmd" in
     cp "$folder/launcher/"* "$persist/"
     extending=1
     note "extending run $rid with: $blocks (native harness $commit)"
-    run_native "$rid" --plan "$hb/plans/$plan.json" --seed "$seed" --extend "$blocks" --allow-rebuild \
+    run_native "$rid" --plan "$hb/plans/mac/$plan.json" --seed "$seed" --extend "$blocks" --allow-rebuild \
       --orchestrator-changed "$orch_changed"
     finish_native "$rid" "$session_code"
     ;;

@@ -10,7 +10,7 @@ import (
 // TestE4RefusesTheBaselineBuild: trial and main E4 runs need a non-default
 // liboqs build; smoke runs and other experiments are not affected.
 func TestE4RefusesTheBaselineBuild(t *testing.T) {
-	p, err := plan.Load(filepath.Join("..", "..", "plans", "e4.json"))
+	p, err := plan.Load(filepath.Join("..", "..", "plans", "mac", "e4.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -30,7 +30,7 @@ func TestE4RefusesTheBaselineBuild(t *testing.T) {
 			t.Fatalf("variant %q: %v", c.variant, err)
 		}
 	}
-	smoke, err := plan.Load(filepath.Join("..", "..", "plans", "smoke-e4.json"))
+	smoke, err := plan.Load(filepath.Join("..", "..", "plans", "mac", "smoke-e4.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -38,7 +38,7 @@ func TestE4RefusesTheBaselineBuild(t *testing.T) {
 	if err := e4VariantCheck(smoke, sb, map[string]string{"variant": "b1-prod"}); err != nil {
 		t.Fatalf("smoke refused: %v", err)
 	}
-	e1, _ := plan.Load(filepath.Join("..", "..", "plans", "e1.json"))
+	e1, _ := plan.Load(filepath.Join("..", "..", "plans", "mac", "e1.json"))
 	eb, _ := plan.Expand(e1, 1)
 	if err := e4VariantCheck(e1, eb, map[string]string{"variant": "b1-prod"}); err != nil {
 		t.Fatalf("E1 refused: %v", err)

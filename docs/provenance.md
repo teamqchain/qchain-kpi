@@ -55,7 +55,7 @@ Every copied file starts with a header that names its source.
 
 ## E14: QChain's Fabric network (QChain commit `71a1db6`, 25 Sep 2026)
 
-Copied **byte for byte** (they run unchanged inside the E14 containers; `scripts/e14-network.sh` mounts them at the live paths):
+Copied **byte for byte** (they run unchanged inside the E14 containers; `scripts/e14-network-mac.sh` mounts them at the live paths):
 
 | QChain file | Harness copy | SHA-256 (first 16 hex) |
 |---|---|---|
@@ -72,7 +72,7 @@ Derived (not copies; each says what it follows):
 
 | Harness file | Follows | Differences |
 |---|---|---|
-| `scripts/e14-network.sh` | `qchain-network/docker/docker-compose.yaml` and `docker-compose-ca.yaml`, `scripts/start-fabric-network.sh` | plain `docker run` (no compose on the Mac); images pinned (`:latest` live; the live peer is v2.5.15, from the 13 Oct capture); no published ports; files in the volume `kpi-fabric-material`, mounted with volume sub-paths at the live paths; same names, environment variables and shared CouchDB |
+| `scripts/e14-network-mac.sh` | `qchain-network/docker/docker-compose.yaml` and `docker-compose-ca.yaml`, `scripts/start-fabric-network.sh` | plain `docker run` (no compose on the Mac); images pinned (`:latest` live; the live peer is v2.5.15, from the 13 Oct capture); no published ports; files in the volume `kpi-fabric-material`, mounted with volume sub-paths at the live paths; same names, environment variables and shared CouchDB |
 | `fabric/network/scripts/channel.sh` | `docs/setup.md` "Create and Join Channel (Using OSNAdmin)" | container names instead of `localhost`; waits until the orderer reports the channel active |
 | `fabric/network/scripts/deploy-cc.sh` | `docs/setup.md` "Deploy Chaincode" | the synthetic chaincode `kpipayload` 1.0 instead of `qchaincode` 2.0; package id from `calculatepackageid`; seeds the holder record as `issuer1` |
 | `fabric/chaincode/KpiPayload.js` | `qchain-network/chaincode/QChaincode.js` `issueCredential`, `_checkAccess`, `_exists`, `_put` | the payload instead of the credential fields; same libraries (versions pinned to what QChain's ranges resolve to: fabric-contract-api and fabric-shim 2.5.8, json-stringify-deterministic 1.0.18, sort-keys-recursive 2.1.10) |

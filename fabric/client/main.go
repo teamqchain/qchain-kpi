@@ -234,10 +234,10 @@ func cmdRun(args []string) int {
 			Seed: st.Seed, ImageID: st.ImageID, HarnessCommit: st.HarnessCommit, Go: runtime.Version(),
 			Host: sf.Host, Sessions: st.Sessions, Status: st.Status, StatusDetail: st.StatusDetail,
 			StartedUTC: st.StartedUTC, UpdatedUTC: time.Now().UTC().Format(time.RFC3339),
-			// "attempts" = finished blocks and "flagged_attempts" = 0 (E14 repeats no block), for run.sh's INDEX row.
+			// "attempts" = finished blocks and "flagged_attempts" = 0 (E14 repeats no block), for the launcher's INDEX row.
 			Counts:      map[string]int{"blocks": len(blocks), "blocks_done": len(st.Done), "attempts": len(st.Done), "flagged_attempts": 0, "transactions": st.Transactions, "mvcc_conflicts": st.FalseConflict},
 			Calibration: st.Calibration,
-			Notes: []string{"QChain's Fabric network rebuilt on the host in Docker (scripts/e14-network.sh); every transaction committed as valid; " +
+			Notes: []string{"QChain's Fabric network rebuilt on the host in Docker (scripts/e14-network-mac.sh); every transaction committed as valid; " +
 				"run quality is recorded (host monitor, canary, drift-control blocks), not repeated (decision 21 Oct); " +
 				"transactions are valid, or flagged MVCC_READ_CONFLICT by the second-validating peer of the shared CouchDB with their record read back correctly (counted in mvcc_conflicts; decision 22 Oct)"}}
 		if len(network) > 0 {

@@ -39,7 +39,7 @@ func TestE8IsNeverFlaggedOrRepeated(t *testing.T) {
 }
 
 func TestE8PlansExpand(t *testing.T) {
-	root := filepath.Join("..", "..", "plans")
+	root := filepath.Join("..", "..", "plans", "mac")
 	for _, name := range []string{"e8.json", "smoke-e8.json"} {
 		p, err := plan.Load(filepath.Join(root, name))
 		if err != nil {

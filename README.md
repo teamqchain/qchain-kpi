@@ -38,8 +38,8 @@ All measurement and orchestration logic is Go inside one Docker image. The image
 | `kpi-batch` | The image's entry point. It runs a plan as a resumable batch: shuffled repetitions, a canary every 10 minutes, quality flags, repeats of flagged blocks, checksums. |
 | `kpi-prim` | One fresh process per block (prep, E1, E10, probe, canary, and every later experiment). |
 | `kpi-env` | E0, the environment capture. |
-| `scripts/run.sh` | The host launcher (macOS now; Linux and the Windows `run.ps1` in phase 1b). It runs preflight checks, builds the image, runs the host monitor, keeps the machine awake, copies the results out, verifies them and scans them for identifying text. |
-| `scripts/native-setup.sh`, `scripts/native-mac.sh` | E5 only: the native macOS toolchain (liboqs and OpenSSL built with Apple clang into `/Users/Shared/qchain-kpi-native`, nothing installed system-wide) and the native launcher, which runs `kpi-batch` directly on macOS with `run.sh`'s own preflight, monitor, pause, Wi-Fi and finishing steps. |
+| `scripts/run-mac.sh` | The Mac's host launcher (one per machine: the VM gets `scripts/run-linux.sh`, Obeid's laptop `scripts/run-windows.ps1`). It runs preflight checks, builds the image, runs the host monitor, keeps the machine awake, copies the results out, verifies them and scans them for identifying text. |
+| `scripts/e5-setup-mac.sh`, `scripts/e5-run-mac.sh` | E5 only: the native macOS toolchain (liboqs and OpenSSL built with Apple clang into `/Users/Shared/qchain-kpi-native`, nothing installed system-wide) and the native launcher, which runs `kpi-batch` directly on macOS with `run-mac.sh`'s own preflight, monitor, pause, Wi-Fi and finishing steps. |
 
 Each run uses its own container and its own Docker volume:
 - The container is pinned to one CPU (E12 plans: the CPUs they name), with no CPU-time quota, no network, and memory limited with no swap.
@@ -55,30 +55,30 @@ Requirements on the Mac:
 
 ```bash
 scripts/dev.sh                     # build the test stage: liboqs gate + go vet + go test
-scripts/run.sh start --plan smoke --machine mac-m1          # pipeline test (tiny budgets)
-scripts/run.sh start --plan trial --machine mac-m1 --cooling "USB fan cooling pad"
-scripts/run.sh stop  <run-id>      # graceful: finishes the current block, then stops
-scripts/run.sh resume <run-id>     # continue a stopped or interrupted batch
-scripts/run.sh extend <run-id> --blocks E1.alg.op.rN[,...]   # run blocks that ended without a clean attempt again, inside the finished run
-scripts/run.sh status
-scripts/run.sh start --plan e4 --machine mac-m1 --variant b2-portable   # E4: another liboqs build
+scripts/run-mac.sh start --plan smoke --machine mac-m1          # pipeline test (tiny budgets)
+scripts/run-mac.sh start --plan trial --machine mac-m1 --cooling "USB fan cooling pad"
+scripts/run-mac.sh stop  <run-id>      # graceful: finishes the current block, then stops
+scripts/run-mac.sh resume <run-id>     # continue a stopped or interrupted batch
+scripts/run-mac.sh extend <run-id> --blocks E1.alg.op.rN[,...]   # run blocks that ended without a clean attempt again, inside the finished run
+scripts/run-mac.sh status
+scripts/run-mac.sh start --plan e4 --machine mac-m1 --variant b2-portable   # E4: another liboqs build
 ```
 
 E5 runs natively on macOS (Colima stopped):
 
 ```bash
-scripts/native-setup.sh                       # once: the native toolchain (liboqs gate, OpenSSL tests)
-scripts/native-mac.sh build                   # optional: native go vet, go test and binaries for the current commit
-scripts/native-mac.sh start --plan smoke-e5   # then e5; stop, resume, extend and status as run.sh
+scripts/e5-setup-mac.sh                       # once: the native toolchain (liboqs gate, OpenSSL tests)
+scripts/e5-run-mac.sh build                   # optional: native go vet, go test and binaries for the current commit
+scripts/e5-run-mac.sh start --plan smoke-e5   # then e5; stop, resume, extend and status as run-mac.sh
 ```
 
 E14 runs against QChain's Fabric network rebuilt in Colima (`fabric/`; `docs/methodology.md`, E14):
 
 ```bash
-scripts/e14-network.sh setup                  # once, with Wi-Fi on: images, certificates, channel, chaincode
-scripts/e14-network.sh start|stop|status      # after a Mac sleep the run launcher starts it by itself
-scripts/e14-run.sh check                      # read-only: network up, preflight, network facts
-scripts/e14-run.sh start --plan smoke-e14     # then e14; stop, resume and status as run.sh
+scripts/e14-network-mac.sh setup                  # once, with Wi-Fi on: images, certificates, channel, chaincode
+scripts/e14-network-mac.sh start|stop|status      # after a Mac sleep the run launcher starts it by itself
+scripts/e14-run-mac.sh check                      # read-only: network up, preflight, network facts
+scripts/e14-run-mac.sh start --plan smoke-e14     # then e14; stop, resume and status as run-mac.sh
 ```
 
 **Trial and main plans refuse to start unless the machine is ready:**
@@ -102,7 +102,7 @@ scripts/e14-run.sh start --plan smoke-e14     # then e14; stop, resume and statu
 
 Pushing is always manual.
 
-**Plans (`plans/`):**
+**Plans** (one folder per machine, listed in `plans/README.md`). The Mac's, in `plans/mac/`:
 - `smoke`: all algorithms, tiny budgets;
 - `smoke-quick`: a few algorithms;
 - `trial`: calibration;
@@ -110,7 +110,7 @@ Pushing is always manual.
 - `trial-e11`: add-on calibration for E11 (fast/slow classification of the 991 cells), once per machine before its first E11 run;
 - `trial-e6`, `trial-e7`: add-on calibrations for E6 (classification and batch sizes of the 220 cells) and E7 (batch sizes of its arms), once per machine before their main runs;
 - `smoke-e2`, `smoke-e6`, `smoke-e7`, `smoke-e3`, `smoke-e4`, `smoke-e5`, `smoke-e8`, `smoke-e9`, `smoke-e11`, `smoke-e12`, `smoke-e13`: pipeline tests;
-- `e1`, `e10`, `e2`, `e3`, `e4`, `e5`, `e6`, `e7`, `e8`, `e9`, `e11`, `e12`, `e13`: main runs. `e4` and `smoke-e4` need a `--variant` other than `b1-prod`; `e5` and `smoke-e5` run only with `scripts/native-mac.sh`. `e12` and `smoke-e12` give the container 4 CPUs (`cpuset`); every other plan pins it to one.
+- `e1`, `e10`, `e2`, `e3`, `e4`, `e5`, `e6`, `e7`, `e8`, `e9`, `e11`, `e12`, `e13`: main runs. `e4` and `smoke-e4` need a `--variant` other than `b1-prod`; `e5` and `smoke-e5` run only with `scripts/e5-run-mac.sh`. `e12` and `smoke-e12` give the container 4 CPUs (`cpuset`); every other plan pins it to one.
 
 A machine's first main run needs its calibrated section in `config/thresholds.json`. The trial writes `calibration.json`, which is reviewed, merged and committed before any main run on that machine.
 
@@ -121,16 +121,43 @@ cmd/        kpi-batch kpi-prim kpi-env kpi-canary-native
 internal/   algs pqc classical qchain scheme timing inputs proto plan quality stats record canary procsetup buildinfo memprobe conc l0 gostd
 csrc/       kpi_malloc.c (E9's C-heap counter, preloaded into E9's blocks only)
 docker/     Dockerfile and the liboqs build and gate scripts
-plans/      run plans (JSON)
+plans/      run plans (JSON), one folder per machine: mac/ (vm/ and windows/ follow); README.md lists them
             (code: each experiment in its own eN.go file in cmd/kpi-prim, cmd/kpi-batch, internal/proto, internal/plan, internal/inputs)
 config/     thresholds.json (one calibrated section per machine)
-scripts/    run.sh monitor-mac.sh dev.sh native-setup.sh native-mac.sh native-gate-hashlib.py e14-network.sh e14-run.sh
+scripts/    run-mac.sh monitor-mac.sh dev.sh check-sync.sh e5-setup-mac.sh e5-run-mac.sh e5-gate-hashlib-mac.py
+            e13-*.py (ledger capture tools) e14-network-mac.sh e14-run-mac.sh
 fabric/     E14: network/ (QChain's network files, copied, and the channel and chaincode scripts), chaincode/ (kpipayload),
             client/ (the Go client, its own module), plans/, Dockerfile
 testdata/   RFC 9180 vectors
 docs/       plan, coding plan, methodology, data dictionary, provenance, decisions
 results/    mac/ windows/ linux/: MACHINE.md, INDEX.md and one folder per run
 ```
+
+## Renamed files (25 Oct 2026)
+
+The Mac's runs were made before these renames. Their run folders (`console.txt`, the launcher files), the plan
+descriptions, the planning snapshots `docs/plan.md` and `docs/coding-plan.md`, and the decisions log's earlier rows
+use the old names. Nothing else changed: the plan files moved byte for byte, and
+`scripts/e13-block-sizes.py` is byte-identical to the `fabric-block-sizes.py` that ran on the VM
+(SHA-256 `b29348b9...`, `internal/ledger/vmcapture/README.md`).
+
+| Old name | New name |
+|---|---|
+| `plans/*.json` | `plans/mac/*.json` (one folder per machine: `plans/README.md`) |
+| `scripts/run.sh` | `scripts/run-mac.sh` |
+| `scripts/native-mac.sh` | `scripts/e5-run-mac.sh` |
+| `scripts/native-setup.sh` | `scripts/e5-setup-mac.sh` |
+| `scripts/native-gate-hashlib.py` | `scripts/e5-gate-hashlib-mac.py` |
+| `scripts/e14-run.sh` | `scripts/e14-run-mac.sh` |
+| `scripts/e14-network.sh` | `scripts/e14-network-mac.sh` |
+| `scripts/fabric-block-sizes.py` | `scripts/e13-block-sizes.py` |
+| `scripts/fabric-sizes-detail.py` | `scripts/e13-sizes-detail.py` |
+| `scripts/fabric-capture-export.py` | `scripts/e13-capture-export.py` |
+| `scripts/fabric-ipfs-link.py` | `scripts/e13-ipfs-link.py` |
+| `scripts/test-fabric-block-sizes.py` | `scripts/e13-test-block-sizes.py` |
+
+Naming rule: a script tied to one experiment starts with it (`eN-`), and one tied to one machine ends with it
+(`-mac`, `-linux`, `-windows`): `eN-<purpose>-<machine>`.
 
 ## Rules
 

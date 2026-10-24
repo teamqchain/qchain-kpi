@@ -6,7 +6,7 @@ import (
 
 // TestE9Expansion: every operation of every algorithm, three routes each.
 func TestE9Expansion(t *testing.T) {
-	p, err := Load("../../plans/e9.json")
+	p, err := Load("../../plans/mac/e9.json")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -29,7 +29,7 @@ func TestE9Expansion(t *testing.T) {
 	if len(bl) != 90*3*5 || routes["c"] != 450 || routes["reuse"] != 450 || routes["prod"] != 450 {
 		t.Fatalf("%d blocks %v", len(bl), routes)
 	}
-	s, err := Load("../../plans/smoke-e9.json")
+	s, err := Load("../../plans/mac/smoke-e9.json")
 	if err != nil {
 		t.Fatal(err)
 	}

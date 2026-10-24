@@ -1,14 +1,14 @@
 #!/bin/bash
 # E14 launcher (macOS with Colima): runs the E14 client against the Fabric
-# network of scripts/e14-network.sh (design: docs/plan.md, "E14 design"; method: docs/methodology.md, E14).
+# network of scripts/e14-network-mac.sh (design: docs/plan.md, "E14 design"; method: docs/methodology.md, E14).
 #
-#   scripts/e14-run.sh start --plan smoke-e14|e14 [--seed N] [--cooling TEXT] [--force]
-#   scripts/e14-run.sh resume RUN_ID [--cooling TEXT] [--force]
-#   scripts/e14-run.sh stop RUN_ID        # graceful: stops after the current block
-#   scripts/e14-run.sh status
-#   scripts/e14-run.sh check         # read-only: network up, preflight (reported only), network.json
+#   scripts/e14-run-mac.sh start --plan smoke-e14|e14 [--seed N] [--cooling TEXT] [--force]
+#   scripts/e14-run-mac.sh resume RUN_ID [--cooling TEXT] [--force]
+#   scripts/e14-run-mac.sh stop RUN_ID        # graceful: stops after the current block
+#   scripts/e14-run-mac.sh status
+#   scripts/e14-run-mac.sh check         # read-only: network up, preflight (reported only), network.json
 #
-# It does what run.sh does, with run.sh's own functions (loaded from its
+# It does what run-mac.sh does, with run-mac.sh's own functions (loaded from its
 # "shared" blocks): the quiet-machine preflight (main plans refuse, smoke
 # plans record), the background-service pause, Wi-Fi off for the run, the host
 # monitor delivered into the run volume, the clock offset and the native
@@ -23,11 +23,11 @@
 #   - the network must be up (started here if Colima was restarted) and no
 #     other container may run; network.json records its images and chaincode.
 # Paths may contain spaces: every expansion is quoted.
-# shellcheck disable=SC2154,SC2034 # osdir, runtime, bg_* and problems belong to run.sh's shared blocks, loaded below
+# shellcheck disable=SC2154,SC2034 # osdir, runtime, bg_* and problems belong to run-mac.sh's shared blocks, loaded below
 set -euo pipefail
 
-LAUNCHER="e14-run.sh 1"
-LAUNCHER_CMD=scripts/e14-run.sh
+LAUNCHER="e14-run-mac.sh 1"
+LAUNCHER_CMD=scripts/e14-run-mac.sh
 repo="$(cd "$(dirname "$0")/.." && pwd -P)"
 PERIOD_S=5        # host monitor sampling period
 ROWS_PER_CHUNK=12 # one chunk per minute
@@ -39,15 +39,15 @@ VOL=kpi-fabric-material
 NETWORK=(ca.government.uae.com ca.general.uae.com ca.orderer.example.com couchdb0
          orderer0.orderer.example.com peer0.government.uae.com peer0.general.uae.com)
 
-# run.sh's shared functions (eval: macOS's bash 3.2 cannot source a process substitution).
-shared="$(awk '/^# >>> shared with scripts\/(native-mac|e14-run)\.sh/{f=1; next} /^# <<< shared with scripts\/(native-mac|e14-run)\.sh/{f=0} f' "$repo/scripts/run.sh")"
+# run-mac.sh's shared functions (eval: macOS's bash 3.2 cannot source a process substitution).
+shared="$(awk '/^# >>> shared with scripts\/(e5-run-mac|e14-run-mac)\.sh/{f=1; next} /^# <<< shared with scripts\/(e5-run-mac|e14-run-mac)\.sh/{f=0} f' "$repo/scripts/run-mac.sh")"
 eval "$shared"
 for fn in repo_commit preflight_host preflight_verdict free_space_check native_refs pause_bg resume_bg wifi_off cleanup \
           persist_dir privacy_scan index_row json_get json_str ensure_colima deliver_chunks finish_run; do
-  declare -F "$fn" >/dev/null || { echo "e14-run.sh: $fn was not loaded from run.sh's shared blocks" >&2; exit 1; }
+  declare -F "$fn" >/dev/null || { echo "e14-run-mac.sh: $fn was not loaded from run-mac.sh's shared blocks" >&2; exit 1; }
 done
-die() { echo "e14-run.sh: $*" >&2; exit 1; }
-note() { echo "e14-run.sh: $*" >&2; }
+die() { echo "e14-run-mac.sh: $*" >&2; exit 1; }
+note() { echo "e14-run-mac.sh: $*" >&2; }
 extending=0       # finish_run's extension branch is not used by E14
 extend_folder=""
 force=0
@@ -62,13 +62,13 @@ network_up() {
   local c down=0
   ensure_colima
   for c in "${NETWORK[@]}"; do
-    docker inspect "$c" >/dev/null 2>&1 || die "no container $c: set the network up first (scripts/e14-network.sh setup)"
+    docker inspect "$c" >/dev/null 2>&1 || die "no container $c: set the network up first (scripts/e14-network-mac.sh setup)"
     ours "$c" || die "$c is not E14's"
     running "$c" || down=1
   done
   if [ "$down" = 1 ]; then
     note "the E14 network is stopped (Colima or the Mac restarted); starting it"
-    "$repo/scripts/e14-network.sh" start
+    "$repo/scripts/e14-network-mac.sh" start
     sleep 10
   fi
   for c in "${NETWORK[@]}"; do running "$c" || die "$c did not start"; done
@@ -222,8 +222,8 @@ run_session() { # rid
   cafpid=$!
   disown "$cafpid"
 
-  trap 'note "interrupt: the run discards its current block and stops; resume with: scripts/e14-run.sh resume '"$rid"'"' INT
-  note "starting E14 run $rid (session $n); stop gracefully with: scripts/e14-run.sh stop $rid"
+  trap 'note "interrupt: the run discards its current block and stops; resume with: scripts/e14-run-mac.sh resume '"$rid"'"' INT
+  note "starting E14 run $rid (session $n); stop gracefully with: scripts/e14-run-mac.sh stop $rid"
   started="$(docker inspect -f '{{.State.StartedAt}}' "kpi-run-$rid")"
   docker start -a "kpi-run-$rid" >&2 || true
   while [ "$(docker inspect -f '{{.State.Running}}' "kpi-run-$rid")" = "true" ]; do sleep 2; done
@@ -251,7 +251,7 @@ run_session() { # rid
 # ------------------------------------------------------------------- main
 
 cmd="${1:-}"
-[ -n "$cmd" ] || die "usage: e14-run.sh start|resume|stop|status|check ..."
+[ -n "$cmd" ] || die "usage: e14-run-mac.sh start|resume|stop|status|check ..."
 shift
 
 case "$cmd" in

@@ -8,7 +8,7 @@ import (
 // TestE12Expansion: 4 suites x 2 stages x 3 worker counts x 5 repetitions on
 // 4 CPUs; the smoke plan 2 suites x 2 stages x 2 worker counts.
 func TestE12Expansion(t *testing.T) {
-	p, err := Load("../../plans/e12.json")
+	p, err := Load("../../plans/mac/e12.json")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -29,7 +29,7 @@ func TestE12Expansion(t *testing.T) {
 	if bl[0].ID != "E12."+bl[0].Alg+"."+bl[0].Op+".r1" {
 		t.Fatalf("block id %q", bl[0].ID)
 	}
-	s, err := Load("../../plans/smoke-e12.json")
+	s, err := Load("../../plans/mac/smoke-e12.json")
 	if err != nil {
 		t.Fatal(err)
 	}

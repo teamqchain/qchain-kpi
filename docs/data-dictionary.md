@@ -7,7 +7,7 @@ results/<os>/<run-id>/
 ```
 
 - `<os>` is `mac`, `windows` or `linux`.
-- `<run-id>` is `<UTC yyyymmdd-hhmm>_<machine>_<runtime>_<variant>`, for example `20261010-1830_mac-m1_colima-vz_b1-prod`. The runtime is `colima-vz` for the container on the Mac and `native-macos` for E5's native runs (`scripts/native-mac.sh`); the variant is the liboqs build (`b1-prod`, `b2-portable`, `b3-native`, `b4-noossl`).
+- `<run-id>` is `<UTC yyyymmdd-hhmm>_<machine>_<runtime>_<variant>`, for example `20261010-1830_mac-m1_colima-vz_b1-prod`. The runtime is `colima-vz` for the container on the Mac and `native-macos` for E5's native runs (`scripts/e5-run-mac.sh`); the variant is the liboqs build (`b1-prod`, `b2-portable`, `b3-native`, `b4-noossl`).
 
 All times are in nanoseconds:
 - **Durations** come from Go's monotonic clock (`time.Now`/`time.Since`).
@@ -30,7 +30,7 @@ The folder holds only allow-listed facts: no host name, user name, path outside 
 | `raw/<exp>/<alg>/<op>-r<rep>-a<attempt>.csv.gz` | kpi-prim | Every timed call of one attempt (see below). |
 | `env/build-info-s<N>/` | image build | Build records of the image used by an extension session N (see methodology section 8). |
 | `env/e0-s<N>.json` | kpi-env | E0 environment capture at the start of session N (see below). |
-| `env/build-info/` | image build | Records made while the image was built: `oqs-build.txt`, `oqs-CMakeCache.txt`, `oqsconfig.h`, `oqs-cmake.txt`, `oqs-ninja.txt`, `oqs-gate.txt` (liboqs correctness gate), `acvp-sha256-check.txt`, `go-test.txt`, `go-version.txt`, `apt-source-*.txt`, `dpkg-*.tsv`; `b3-native` images also `gcc-native-target.txt` (what `-mcpu/-march=native` resolved to). Native runs (E5) hold the native toolchain's records instead (`scripts/native-setup.sh`): the same liboqs files (`oqs-build.txt` with `platform=native-macos`, `cc` instead of `gcc`, and the OpenSSL version), `openssl-build.txt` (version, tarball SHA-256, configure options, compiler flags), `openssl-configure.txt`, `openssl-test-summary.txt`, `pip-freeze.txt` (the build and test tools), `cc-version.txt`, and the native `go-test.txt` and `go-version.txt`. |
+| `env/build-info/` | image build | Records made while the image was built: `oqs-build.txt`, `oqs-CMakeCache.txt`, `oqsconfig.h`, `oqs-cmake.txt`, `oqs-ninja.txt`, `oqs-gate.txt` (liboqs correctness gate), `acvp-sha256-check.txt`, `go-test.txt`, `go-version.txt`, `apt-source-*.txt`, `dpkg-*.tsv`; `b3-native` images also `gcc-native-target.txt` (what `-mcpu/-march=native` resolved to). Native runs (E5) hold the native toolchain's records instead (`scripts/e5-setup-mac.sh`): the same liboqs files (`oqs-build.txt` with `platform=native-macos`, `cc` instead of `gcc`, and the OpenSSL version), `openssl-build.txt` (version, tarball SHA-256, configure options, compiler flags), `openssl-configure.txt`, `openssl-test-summary.txt`, `pip-freeze.txt` (the build and test tools), `cc-version.txt`, and the native `go-test.txt` and `go-version.txt`. |
 | `monitor/host-s<N>-<seq>.csv` (+ `.ok`) | launcher | Host monitor samples of session N, delivered every minute (see below). A chunk is read only once its `.ok` marker exists. |
 | `calibration.json` | kpi-batch (trial only) | The machine's thresholds derived from this trial (see `docs/methodology.md`). |
 | `estimate.json` | kpi-batch (trial only) | Projected hours and raw-data size of every main plan on this machine. Plans this trial cannot estimate (a first trial cannot estimate E2, E6, E7 or E11, which need their own add-on trial) are listed in `not_estimated` with the reason. |

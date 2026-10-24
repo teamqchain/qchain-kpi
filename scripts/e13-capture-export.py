@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 """E13: export the sizes-only capture for the Mac, compressed for pasting.
 
-    python3 fabric-capture-export.py BLOCKFILE OUT.json
+    python3 e13-capture-export.py BLOCKFILE OUT.json
 
-Uses fabric-block-sizes.py (same folder) to read every block and transaction,
+Uses e13-block-sizes.py (same folder) to read every block and transaction,
 writes OUT.json (numbers, lengths, algorithm OIDs and public chaincode/MSP names
 only; view it with `less`), then prints its SHA-256 and the file gzip-compressed
 and base64-encoded, in 76-character lines between BEGIN and END markers."""
 import base64, gzip, hashlib, importlib.util, json, os, sys
 
 here = os.path.dirname(os.path.abspath(__file__))
-spec = importlib.util.spec_from_file_location("fbs", os.path.join(here, "fabric-block-sizes.py"))
+spec = importlib.util.spec_from_file_location("fbs", os.path.join(here, "e13-block-sizes.py"))
 fbs = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(fbs)
 

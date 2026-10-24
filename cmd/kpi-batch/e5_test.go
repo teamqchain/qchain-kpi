@@ -14,7 +14,7 @@ import (
 // E5 (with its smoke plan's probe pass) runs.
 func TestE5RunsOnlyNatively(t *testing.T) {
 	load := func(name string) []plan.Block {
-		p, err := plan.Load(filepath.Join("..", "..", "plans", name))
+		p, err := plan.Load(filepath.Join("..", "..", "plans", "mac", name))
 		if err != nil {
 			t.Fatal(err)
 		}

@@ -12,13 +12,13 @@ changed on the VM; the raw block file never left it.
 
 ## Files
 
-- `capture-export.json`: every block and transaction as sizes only, made on the VM by `scripts/fabric-block-sizes.py`
-  (SHA-256 `5d6c8e42...` before its patch, `b29348b9...` after) through `scripts/fabric-capture-export.py`. File SHA-256
+- `capture-export.json`: every block and transaction as sizes only, made on the VM by `scripts/fabric-block-sizes.py`, now `scripts/e13-block-sizes.py`, byte-identical
+  (SHA-256 `5d6c8e42...` before its patch, `b29348b9...` after) through `scripts/fabric-capture-export.py`, now `scripts/e13-capture-export.py`. File SHA-256
   `cd4d6d1490216b5f7e5de3e7c736886a1b6bbc757e4877d01a622e656fbbb45c`, 151,131 bytes; it was pasted compressed and the
   hash re-checked on the Mac.
 - `ipfs-pins.txt`: every pinned IPFS object as file and block sizes (VM step 7).
 - `ipfs-link.txt`: each issued credential's envelope size, linked through the CID on the chain (VM step 8,
-  `scripts/fabric-ipfs-link.py`).
+  `scripts/fabric-ipfs-link.py`, now `scripts/e13-ipfs-link.py`).
 
 ## Privacy
 

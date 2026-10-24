@@ -1,10 +1,10 @@
 #!/bin/bash
 # E14: QChain's Fabric network, rebuilt on the Mac inside Colima (design: docs/plan.md, "E14 design"; method: docs/methodology.md, E14).
 #
-#   scripts/e14-network.sh setup     # first time (needs the internet): everything below, in order
-#   scripts/e14-network.sh start     # start the stopped containers again (after a Mac sleep)
-#   scripts/e14-network.sh stop      # stop the containers; ledger and certificates are kept
-#   scripts/e14-network.sh status    # containers, memory use, channel height
+#   scripts/e14-network-mac.sh setup     # first time (needs the internet): everything below, in order
+#   scripts/e14-network-mac.sh start     # start the stopped containers again (after a Mac sleep)
+#   scripts/e14-network-mac.sh stop      # stop the containers; ledger and certificates are kept
+#   scripts/e14-network-mac.sh status    # containers, memory use, channel height
 #
 # It mirrors qchain-network/docker/docker-compose{,-ca}.yaml (QChain commit
 # 71a1db6) with plain `docker run` (the Mac has no docker compose): the same
@@ -35,8 +35,8 @@ LBL=(--label org.qchain.kpi=1 --label org.qchain.kpi.e14=1)
 CONTAINERS=(ca.government.uae.com ca.general.uae.com ca.orderer.example.com couchdb0
             orderer0.orderer.example.com peer0.government.uae.com peer0.general.uae.com)
 
-die() { echo "e14-network.sh: $*" >&2; exit 1; }
-note() { echo "e14-network.sh: $*" >&2; }
+die() { echo "e14-network-mac.sh: $*" >&2; exit 1; }
+note() { echo "e14-network-mac.sh: $*" >&2; }
 
 # sub VOLUME SUBPATH TARGET: a --mount of part of a named volume.
 sub() { printf 'type=volume,src=%s,dst=%s,volume-subpath=%s' "$1" "$3" "$2"; }
@@ -249,6 +249,6 @@ case "$cmd" in
     status
     ;;
   *)
-    die "usage: e14-network.sh setup|start|stop|status"
+    die "usage: e14-network-mac.sh setup|start|stop|status"
     ;;
 esac

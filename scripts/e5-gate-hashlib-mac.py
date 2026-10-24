@@ -1,7 +1,7 @@
 
 # ---------------------------------------------------------------------------
 # Native macOS gate only: appended to docker/acvp_conftest.py by
-# scripts/native-setup.sh (the image's gate does not use it).
+# scripts/e5-setup-mac.sh (the image's gate does not use it).
 #
 # macOS's /usr/bin/python3 links LibreSSL 2.8.3, whose hashlib has no
 # SHA-512/224 or SHA-512/256. liboqs's ACVP test needs both to pre-hash the

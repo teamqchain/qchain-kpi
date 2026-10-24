@@ -14,7 +14,7 @@
 #     bin/pkg-config   answers cgo's pkg-config queries (the Mac has no pkg-config)
 #     env.sh       the environment for building the harness natively
 #     build-info/  the toolchain's build records, copied into every native run
-#     harness/, runs/, prep/   created by scripts/native-mac.sh
+#     harness/, runs/, prep/   created by scripts/e5-run-mac.sh
 #
 # The folder is outside the home folder, so the build records contain no user
 # name or home path (the per-run privacy scan), and has no spaces in its path
@@ -26,7 +26,7 @@
 # the image (docker/oqs-gate.sh), and OpenSSL its own test suite, or the setup
 # fails. Needs the internet; changes nothing outside the folder.
 #
-#   scripts/native-setup.sh
+#   scripts/e5-setup-mac.sh
 set -euo pipefail
 
 N=/Users/Shared/qchain-kpi-native
@@ -45,8 +45,8 @@ GO=/opt/homebrew/opt/go@1.24/bin/go
 CC=/usr/bin/clang
 jobs="$(sysctl -n hw.ncpu)"
 
-die() { echo "native-setup.sh: $*" >&2; exit 1; }
-note() { echo "native-setup.sh: $*" >&2; }
+die() { echo "e5-setup-mac.sh: $*" >&2; exit 1; }
+note() { echo "e5-setup-mac.sh: $*" >&2; }
 done_step() { [ -e "$N/.done-$1" ]; }
 mark() { : > "$N/.done-$1"; }
 
@@ -176,8 +176,8 @@ if ! done_step gate; then
   done < "$repo/docker/acvp-sha256.txt"
   # The image's conftest plus SHA-512/224 and /256 from the OpenSSL built here
   # (macOS's system Python links LibreSSL, which has neither; see the file).
-  cat "$repo/docker/acvp_conftest.py" "$repo/scripts/native-gate-hashlib.py" > "$src/tests/conftest.py"
-  echo "SHA-512/224 and SHA-512/256 for the HashML-DSA ACVP vectors: computed by the OpenSSL built here (scripts/native-gate-hashlib.py); /usr/bin/python3 links $(/usr/bin/python3 -c 'import ssl; print(ssl.OPENSSL_VERSION)')" > "$info/oqs-gate-notes.txt"
+  cat "$repo/docker/acvp_conftest.py" "$repo/scripts/e5-gate-hashlib-mac.py" > "$src/tests/conftest.py"
+  echo "SHA-512/224 and SHA-512/256 for the HashML-DSA ACVP vectors: computed by the OpenSSL built here (scripts/e5-gate-hashlib-mac.py); /usr/bin/python3 links $(/usr/bin/python3 -c 'import ssl; print(ssl.OPENSSL_VERSION)')" > "$info/oqs-gate-notes.txt"
   set +e
   ( cd "$src" && OQS_BUILD_DIR="$src/build" KPI_ACVP_DIR="$acvp" SKIP_TESTS=examples KPI_LIBCRYPTO="$N/openssl/lib/libcrypto.3.dylib" \
       "$N/venv/bin/python" -m pytest -q -p no:cacheprovider --numprocesses=auto \
@@ -196,7 +196,7 @@ fi
 # cgo asks "pkg-config --cflags -- PKG..." and "pkg-config --libs -- PKG...".
 cat > "$N/bin/pkg-config" <<EOF
 #!/bin/bash
-# Stand-in for pkg-config, written by scripts/native-setup.sh: answers cgo's
+# Stand-in for pkg-config, written by scripts/e5-setup-mac.sh: answers cgo's
 # queries for the two packages the harness uses, from the native toolchain.
 mode=""
 pkgs=()
@@ -224,7 +224,7 @@ echo "\${out[*]}"
 EOF
 chmod 755 "$N/bin/pkg-config"
 cat > "$N/env.sh" <<EOF
-# Written by scripts/native-setup.sh: source it to build or test the harness natively.
+# Written by scripts/e5-setup-mac.sh: source it to build or test the harness natively.
 export PKG_CONFIG=$N/bin/pkg-config
 export CC=$CC
 export CGO_ENABLED=1

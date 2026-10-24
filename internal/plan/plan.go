@@ -1,4 +1,4 @@
-// Package plan reads run plans (plans/*.json) and expands them into blocks.
+// Package plan reads run plans (plans/<machine>/*.json) and expands them into blocks.
 //
 // A block is one fresh process measuring one (experiment, algorithm,
 // operation or arm set, repetition, attempt). Repetitions are rep-major: rep 1

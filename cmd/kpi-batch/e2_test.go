@@ -122,7 +122,7 @@ func TestE2BlockIDsCanBeExtended(t *testing.T) {
 }
 
 func TestE2PlansExpand(t *testing.T) {
-	root := filepath.Join("..", "..", "plans")
+	root := filepath.Join("..", "..", "plans", "mac")
 	p, err := plan.Load(filepath.Join(root, "e2.json"))
 	if err != nil {
 		t.Fatal(err)

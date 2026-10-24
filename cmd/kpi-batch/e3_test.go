@@ -54,7 +54,7 @@ func TestE3PlansExpand(t *testing.T) {
 		name   string
 		blocks int
 	}{{"e3.json", 5 * (90 + 1)}, {"smoke-e3.json", 0}} {
-		p, err := plan.Load(filepath.Join("..", "..", "plans", c.name))
+		p, err := plan.Load(filepath.Join("..", "..", "plans", "mac", c.name))
 		if err != nil {
 			t.Fatal(err)
 		}

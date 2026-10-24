@@ -6,7 +6,7 @@ import (
 
 // TestE13Expansion: one ledger block per signature scheme, one IPFS block per KEM.
 func TestE13Expansion(t *testing.T) {
-	p, err := Load("../../plans/e13.json")
+	p, err := Load("../../plans/mac/e13.json")
 	if err != nil {
 		t.Fatal(err)
 	}

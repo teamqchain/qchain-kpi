@@ -13,7 +13,7 @@ import (
 )
 
 func TestE11PlansExpand(t *testing.T) {
-	root := filepath.Join("..", "..", "plans")
+	root := filepath.Join("..", "..", "plans", "mac")
 	p, err := plan.Load(filepath.Join(root, "e11.json"))
 	if err != nil {
 		t.Fatal(err)

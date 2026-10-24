@@ -1,12 +1,13 @@
 #!/bin/bash
-# QChain KPI launcher (macOS with Colima; the Linux branch arrives in phase 1b).
+# QChain KPI launcher for the Mac (macOS with Colima). The VM has scripts/run-linux.sh and
+# Obeid's Windows laptop scripts/run-windows.ps1 (one launcher per machine).
 #
-#   scripts/run.sh start --plan NAME --machine ID [--variant b1-prod] [--seed N]
-#                        [--cooling TEXT] [--rebuild] [--force]
-#   scripts/run.sh resume RUN_ID
-#   scripts/run.sh extend RUN_ID --blocks ID[,ID...]   # run blocks without a clean attempt again, inside the finished run
-#   scripts/run.sh stop RUN_ID        # graceful: stops after the current block
-#   scripts/run.sh status
+#   scripts/run-mac.sh start --plan NAME --machine ID [--variant b1-prod] [--seed N]
+#                            [--cooling TEXT] [--rebuild] [--force]
+#   scripts/run-mac.sh resume RUN_ID
+#   scripts/run-mac.sh extend RUN_ID --blocks ID[,ID...]   # run blocks without a clean attempt again, inside the finished run
+#   scripts/run-mac.sh stop RUN_ID        # graceful: stops after the current block
+#   scripts/run-mac.sh status
 #
 # The launcher only prepares and supervises; all measurement and
 # orchestration logic is Go inside the image (coding plan §2, §9). The
@@ -29,20 +30,20 @@
 # Paths may contain spaces: every expansion is quoted.
 set -euo pipefail
 
-LAUNCHER="run.sh 1"
-LAUNCHER_CMD=scripts/run.sh   # named in hints; the E14 launcher, which reuses finish_run, sets its own
+LAUNCHER="run-mac.sh 1"
+LAUNCHER_CMD=scripts/run-mac.sh   # named in hints; the E14 launcher, which reuses finish_run, sets its own
 repo="$(cd "$(dirname "$0")/.." && pwd -P)"
 PERIOD_S=5        # host monitor sampling period
 ROWS_PER_CHUNK=12 # one chunk per minute
 GO=/opt/homebrew/opt/go@1.24/bin/go
 
-# >>> shared with scripts/native-mac.sh (it loads the blocks between these markers)
-die() { echo "run.sh: $*" >&2; exit 1; }
-note() { echo "run.sh: $*" >&2; }
+# >>> shared with scripts/e5-run-mac.sh (it loads the blocks between these markers)
+die() { echo "run-mac.sh: $*" >&2; exit 1; }
+note() { echo "run-mac.sh: $*" >&2; }
 
 case "$(uname -s)" in
   Darwin) osdir=mac; runtime=colima-vz; cmem=3g ;;
-  Linux) die "the Linux launcher arrives in phase 1b" ;;
+  Linux) die "this is the Mac launcher; on Linux use scripts/run-linux.sh" ;;
   *) die "unsupported operating system" ;;
 esac
 
@@ -66,11 +67,11 @@ plan_cpuset() {
 }
 
 json_str() { local s="${1//\\/}"; s="${s//\"/}"; printf '"%s"' "$s"; }
-# <<< shared with scripts/native-mac.sh
+# <<< shared with scripts/e5-run-mac.sh
 
 # ------------------------------------------------------------------ checks
 
-# >>> shared with scripts/e14-run.sh (it loads the blocks between these markers)
+# >>> shared with scripts/e14-run-mac.sh (it loads the blocks between these markers)
 # The Colima VM does not survive a Mac sleep (it is stopped after wake), and the
 # Mac sleeps whenever it is idle between runs. Start it again if it is down,
 # with the study's settings (decision 10 Oct).
@@ -82,7 +83,7 @@ ensure_colima() {
     colima start --vm-type vz --cpus 4 --memory 4 --mount none >&2 || die "colima start failed"
   fi
 }
-# <<< shared with scripts/e14-run.sh
+# <<< shared with scripts/e14-run-mac.sh
 
 preflight() { # kind
   local kind="$1" n out
@@ -99,7 +100,7 @@ preflight() { # kind
   preflight_verdict "$kind"
 }
 
-# >>> shared with scripts/native-mac.sh (it loads the blocks between these markers)
+# >>> shared with scripts/e5-run-mac.sh (it loads the blocks between these markers)
 problems=()
 problem() { problems+=("$1"); }
 
@@ -150,16 +151,16 @@ preflight_verdict() {
     fi
   fi
 }
-# <<< shared with scripts/native-mac.sh
+# <<< shared with scripts/e5-run-mac.sh
 
-# >>> shared with scripts/native-mac.sh (it loads the blocks between these markers)
+# >>> shared with scripts/e5-run-mac.sh (it loads the blocks between these markers)
 repo_commit() {
   local dirty
   dirty="$(git -C "$repo" status --porcelain -- . ':!results')"
   [ -z "$dirty" ] || die "the harness has uncommitted changes (outside results/); commit them first"
   git -C "$repo" log -1 --format=%H -- . ':!results'
 }
-# <<< shared with scripts/native-mac.sh
+# <<< shared with scripts/e5-run-mac.sh
 
 built=0
 build_image() { # variant commit rebuild -> sets image_tag (and built=1 if it built)
@@ -194,7 +195,7 @@ measure_offset() { # tag -> "offset_ns uncertainty_ns" (host clock minus contain
   printf '%s %s\n' "$best_off" "$best_unc"
 }
 
-# >>> shared with scripts/native-mac.sh (it loads the blocks between these markers)
+# >>> shared with scripts/e5-run-mac.sh (it loads the blocks between these markers)
 native_refs() { # workdir persistdir n -> "P E" (0 0 when unusable)
   local work="$1" persist="$2" n="$3" p e
   GOTOOLCHAIN=local CGO_ENABLED=0 "$GO" build -C "$repo" -o "$work/kpi-canary-native" ./cmd/kpi-canary-native
@@ -209,7 +210,7 @@ native_refs() { # workdir persistdir n -> "P E" (0 0 when unusable)
     printf '0 0\n'
   fi
 }
-# <<< shared with scripts/native-mac.sh
+# <<< shared with scripts/e5-run-mac.sh
 
 write_session() { # file offset unc p e cooling
   local f="$1" lpm therm batt power ncpu mem docker_v colima_v lima_v go_v
@@ -245,7 +246,7 @@ write_session() { # file offset unc p e cooling
   json_get "$f" host runtime >/dev/null || die "session.json is not valid JSON"
 }
 
-# >>> shared with scripts/e14-run.sh (it loads the blocks between these markers)
+# >>> shared with scripts/e14-run-mac.sh (it loads the blocks between these markers)
 deliver_chunks() { # workdir rid session
   local w="$1" rid="$2" s="$3" r base name
   for r in "$w"/host-*.ready; do
@@ -258,9 +259,9 @@ deliver_chunks() { # workdir rid session
     fi
   done
 }
-# <<< shared with scripts/e14-run.sh
+# <<< shared with scripts/e14-run-mac.sh
 
-# >>> shared with scripts/native-mac.sh (it loads the blocks between these markers)
+# >>> shared with scripts/e5-run-mac.sh (it loads the blocks between these markers)
 persist_dir() { printf '%s\n' "$HOME/Library/Application Support/qchain-kpi/$1"; }
 
 # macOS background analysis services (Photos analysis, the Spotlight AI
@@ -333,7 +334,7 @@ cleanup() {
 trap cleanup EXIT
 trap 'cleanup; exit 129' HUP
 trap 'cleanup; exit 143' TERM
-# <<< shared with scripts/native-mac.sh
+# <<< shared with scripts/e5-run-mac.sh
 
 # run_session RID: one start or resume, from session.json to the batch's exit.
 # Sets session_code to the batch's exit code.
@@ -379,8 +380,8 @@ run_session() {
   cafpid=$!
   disown "$cafpid"
 
-  trap 'note "interrupt: the batch discards its current block and stops; resume with: scripts/run.sh resume '"$rid"'"' INT
-  note "starting batch $rid (session $n); stop gracefully with: scripts/run.sh stop $rid"
+  trap 'note "interrupt: the batch discards its current block and stops; resume with: scripts/run-mac.sh resume '"$rid"'"' INT
+  note "starting batch $rid (session $n); stop gracefully with: scripts/run-mac.sh stop $rid"
   started="$(docker inspect -f '{{.State.StartedAt}}' "kpi-run-$rid")"
   # -a attaches the batch's output and forwards signals (Ctrl-C) to it.
   docker start -a "kpi-run-$rid" >&2 || true
@@ -408,7 +409,7 @@ run_session() {
 
 # ----------------------------------------------------------------- finish
 
-# >>> shared with scripts/native-mac.sh (it loads the blocks between these markers)
+# >>> shared with scripts/e5-run-mac.sh (it loads the blocks between these markers)
 privacy_patterns() {
   {
     hostname; hostname -s
@@ -454,9 +455,9 @@ index_row() { # dest rid
     "$(json_get "$dest/manifest.json" counts flagged_attempts)" \
     "$(json_get "$dest/manifest.json" harness_commit | cut -c1-12)" "$(json_get "$dest/manifest.json" seed)" >> "$idx"
 }
-# <<< shared with scripts/native-mac.sh
+# <<< shared with scripts/e5-run-mac.sh
 
-# >>> shared with scripts/e14-run.sh (it loads the blocks between these markers)
+# >>> shared with scripts/e14-run-mac.sh (it loads the blocks between these markers)
 finish_run() { # rid code
   local rid="$1" code="$2" stage dest persist
   persist="$(persist_dir "$rid")"
@@ -508,12 +509,12 @@ finish_run() { # rid code
   note "done: results/$osdir/$rid (checksums verified, privacy scan clean); container and volume removed"
   note "to commit: git -C \"$repo\" add \"results/$osdir/$rid\" \"results/$osdir/INDEX.md\" && git -C \"$repo\" commit -m \"results: $rid\""
 }
-# <<< shared with scripts/e14-run.sh
+# <<< shared with scripts/e14-run-mac.sh
 
 # ------------------------------------------------------------------- main
 
 cmd="${1:-}"
-[ -n "$cmd" ] || die "usage: run.sh start|resume|extend|stop|status ..."
+[ -n "$cmd" ] || die "usage: run-mac.sh start|resume|extend|stop|status ..."
 shift
 force=0
 cooling="unstated"
@@ -535,8 +536,8 @@ case "$cmd" in
     done
     [ -n "$plan" ] && [ -n "$machine" ] || die "start needs --plan and --machine"
     [ "$machine" = "mac-m1" ] || die "this launcher runs on mac-m1 only (got $machine)"
-    planfile="$repo/plans/$plan.json"
-    [ -f "$planfile" ] || die "no plan plans/$plan.json"
+    planfile="$repo/plans/mac/$plan.json"
+    [ -f "$planfile" ] || die "no plan plans/mac/$plan.json"
     kind="$(json_get "$planfile" kind)"
     cpuset="$(plan_cpuset "$planfile")"
     commit="$(repo_commit)"
@@ -563,7 +564,7 @@ case "$cmd" in
       --label "org.qchain.kpi.kind=$kind" --label "org.qchain.kpi.machine=$machine" \
       --network none --cpuset-cpus="$cpuset" --memory="$cmem" --memory-swap="$cmem" -e GOMAXPROCS=1 \
       --mount "type=volume,src=kpi-out-$rid,dst=/out" \
-      "$tag" run --plan "/opt/kpi/plans/$plan.json" --run-id "$rid" --machine "$machine" \
+      "$tag" run --plan "/opt/kpi/plans/mac/$plan.json" --run-id "$rid" --machine "$machine" \
       --seed "$seed" --image-id "$imageid" >/dev/null
     note "run $rid: plan $plan ($kind), seed $seed, image $tag"
     run_session "$rid"
@@ -611,7 +612,7 @@ case "$cmd" in
     kind="$(json_get "$folder/manifest.json" plan kind)"
     [ "$kind" = "main" ] || die "only main runs can be extended (this one is $kind)"
     plan="$(json_get "$folder/manifest.json" plan name)"
-    cpuset="$(plan_cpuset "$repo/plans/$plan.json")"
+    cpuset="$(plan_cpuset "$repo/plans/mac/$plan.json")"
     seed="$(json_get "$folder/manifest.json" seed)"
     machine="$(json_get "$folder/manifest.json" machine)"
     variant="$(json_get "$folder/manifest.json" build variant)"
@@ -622,8 +623,8 @@ case "$cmd" in
     # Everything that produces the numbers must be identical. The orchestrator
     # (cmd/kpi-batch) may differ, because it is the part that implements the
     # extension; its changed files are recorded in the run's manifest.
-    if ! git -C "$repo" diff --quiet "$old_commit" -- cmd/kpi-prim cmd/kpi-env cmd/kpi-canary-native internal csrc docker plans config go.mod go.sum; then
-      die "the measuring sources (cmd/kpi-prim, cmd/kpi-env, cmd/kpi-canary-native, internal, csrc, docker, plans, config, go.mod) changed since $old_commit; the run cannot be extended"
+    if ! git -C "$repo" diff --quiet "$old_commit" -- cmd/kpi-prim cmd/kpi-env cmd/kpi-canary-native internal csrc docker plans/mac config go.mod go.sum; then
+      die "the measuring sources (cmd/kpi-prim, cmd/kpi-env, cmd/kpi-canary-native, internal, csrc, docker, plans/mac, config, go.mod) changed since $old_commit; the run cannot be extended"
     fi
     orch_changed="$(git -C "$repo" diff --name-only "$old_commit" -- cmd/kpi-batch | tr '\n' ',' | sed 's/,$//')"
     note "measuring sources are identical to those of the run ($old_commit); orchestrator files that differ: ${orch_changed:-none}"
@@ -649,7 +650,7 @@ case "$cmd" in
       --label "org.qchain.kpi.kind=$kind" --label "org.qchain.kpi.machine=$machine" \
       --network none --cpuset-cpus="$cpuset" --memory="$cmem" --memory-swap="$cmem" -e GOMAXPROCS=1 \
       --mount "type=volume,src=kpi-out-$rid,dst=/out" \
-      "$tag" run --plan "/opt/kpi/plans/$plan.json" --run-id "$rid" --machine "$machine" \
+      "$tag" run --plan "/opt/kpi/plans/mac/$plan.json" --run-id "$rid" --machine "$machine" \
       --seed "$seed" --image-id "$imageid" --extend "$blocks" --allow-rebuild \
       --orchestrator-changed "$orch_changed" >/dev/null
     # The finished run goes back into the volume (without the launcher's own files,

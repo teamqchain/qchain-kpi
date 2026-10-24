@@ -5,7 +5,7 @@ import "qchain-kpi/internal/algs"
 // E5: platform and runtime comparison. E1's cells (every operation of every
 // algorithm, the library's reuse arm) run natively on the host operating
 // system, outside the container (on the Mac: macOS with liboqs and OpenSSL
-// built by Apple clang; scripts/native-mac.sh). Compared with E1 in the
+// built by Apple clang; scripts/e5-run-mac.sh). Compared with E1 in the
 // container on the same machine.
 
 // e5Ops returns an E5 item's operations for one algorithm (default: all).

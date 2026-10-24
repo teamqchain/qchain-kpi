@@ -7,7 +7,7 @@ import (
 // TestE7Expansion: E7 is one block per algorithm (verify or decaps).
 func TestE7Expansion(t *testing.T) {
 	for file, want := range map[string]int{"e7.json": 30 * 5, "trial-e7.json": 30} {
-		p, err := Load("../../plans/" + file)
+		p, err := Load("../../plans/mac/" + file)
 		if err != nil {
 			t.Fatal(err)
 		}
