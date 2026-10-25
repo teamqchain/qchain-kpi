@@ -158,11 +158,13 @@ Each attempt gets external-cause flags:
 | `steal` | hypervisor steal on the pinned CPU > 2 % of its time (VM) |
 | `other` | host other CPU (max over the block's host samples) + container-kernel other CPU × (its CPUs ÷ host CPUs) > 5 % of host capacity |
 | `quota` | CPU-quota throttling of the container (`nr_throttled` > 0) |
-| `thermal` | Mac: thermal pressure above nominal. Windows: `% Performance Limit` < 100 (phase 1b). |
-| `battery`, `alert` | on battery; Low Power Mode on (Mac); a forbidden container (VM, phase 1b) |
+| `thermal` | Mac: thermal pressure above nominal. Windows: the processor's `% Performance Limit`, or a thermal zone's `% Passive Limit`, below 100. The VM reports none. |
+| `battery`, `alert` | on battery (Mac, Windows); alert: Low Power Mode on (Mac); Energy Saver on or a container that is not ours (Windows); a container that is not ours, MySQL, IPFS or the GitHub Actions runner (VM) |
 | `canary` | the canary just before or just after the block deviates from the batch's first canary by more than C_m |
 | `core` | Mac: that canary ran at efficiency-core speed. It is compared with the native references measured at the start of every session: the plain run gives the P-core reference, `taskpolicy -b` the E-core reference, and the threshold is their geometric mean. |
 | `host_missing` | trial and main: no host-monitor sample covers the block |
+
+**Host monitors** (one row every 5 s; `docs/data-dictionary.md`). On the Mac and Windows the container runs in a Linux VM on the host, so other CPU has two parts: the host's (everything except the VM and the runtime's helpers, from `top` on the Mac and from performance counters on Windows) and the VM kernel's, which the batch reads itself. On the VM the container runs on the machine's own kernel, so the batch's reading is the whole machine: the VM's monitor records no CPU figure (-1, which the rule ignores) and checks for things that must not run (alert). On the VM the launcher and the monitor run on vCPU 0 (the monitor at the lowest priority) and the benchmark on vCPU 1.
 
 **Pending.** An attempt stays pending until the following canary has run and a host sample covers its end.
 
@@ -192,7 +194,7 @@ Each machine's section is merged into `config/thresholds.json` and committed bef
 
 ## 7. Runs and resumption
 
-- **Running.** The machine's launcher (`scripts/run-mac.sh` on the Mac) runs one batch in one container with its own named volume.
+- **Running.** The machine's launcher (`scripts/run-mac.sh` on the Mac, `scripts/run-linux.sh` on the VM, `scripts/run-windows.ps1` on the Windows laptop) runs one batch in one container with its own named volume. The VM's launcher detaches into a tmux session under `systemd-inhibit`; the Windows launcher keeps the laptop awake with `SetThreadExecutionState` for the batch only.
 - **Resuming.** The batch's state is saved after every block. It resumes exactly where it stopped:
   - after the launcher's `stop`, Ctrl-C, a reboot or an error;
   - in a new session, with a new E0 and a canary;

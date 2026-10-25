@@ -7,7 +7,7 @@ results/<os>/<run-id>/
 ```
 
 - `<os>` is `mac`, `windows` or `linux`.
-- `<run-id>` is `<UTC yyyymmdd-hhmm>_<machine>_<runtime>_<variant>`, for example `20261010-1830_mac-m1_colima-vz_b1-prod`. The runtime is `colima-vz` for the container on the Mac and `native-macos` for E5's native runs (`scripts/e5-run-mac.sh`); the variant is the liboqs build (`b1-prod`, `b2-portable`, `b3-native`, `b4-noossl`).
+- `<run-id>` is `<UTC yyyymmdd-hhmm>_<machine>_<runtime>_<variant>`, for example `20261010-1830_mac-m1_colima-vz_b1-prod`. The machines are `mac-m1`, `vm-x86v2` and `win-ryzen`. The runtime is `colima-vz` for the container on the Mac, `native-macos` for E5's native runs (`scripts/e5-run-mac.sh`), `docker` on the VM (Docker on the VM's own kernel) and `docker-wsl2` on the Windows laptop (Docker Desktop on WSL2); the variant is the liboqs build (`b1-prod`, `b2-portable`, `b3-native`, `b4-noossl`).
 
 All times are in nanoseconds:
 - **Durations** come from Go's monotonic clock (`time.Now`/`time.Since`).
@@ -36,7 +36,7 @@ The folder holds only allow-listed facts: no host name, user name, path outside 
 | `estimate.json` | kpi-batch (trial only) | Projected hours and raw-data size of every main plan on this machine. Plans this trial cannot estimate (a first trial cannot estimate E2, E6, E7 or E11, which need their own add-on trial) are listed in `not_estimated` with the reason. |
 | `SHA256SUMS` | kpi-batch | SHA-256 of every file above (`shasum -c` format). Written last. |
 | `console.txt` | launcher | Everything kpi-batch printed, over all sessions (`docker logs`; native runs: the launcher's console file, one `=== session N ===` line per session). |
-| `launcher/` | launcher | Per session N: `session-sN.json` (what was delivered to the batch), `clock-offset-sN.txt`, `native-canary-sN-plain.json` and `native-canary-sN-background.json` (Mac core references), `host-monitor-sN.csv` (every monitor row), `preflight-sN.txt` (preflight problems; `forced` if `--force` was used). Native runs have no `clock-offset-sN.txt`. |
+| `launcher/` | launcher | Per session N: `session-sN.json` (what was delivered to the batch), `clock-offset-sN.txt`, `native-canary-sN-plain.json` and `native-canary-sN-background.json` (Mac core references), `host-monitor-sN.csv` (every monitor row), `preflight-sN.txt` (preflight problems; `forced` if `--force` was used; on the VM and Windows also `note:` lines: the machine's load and, VM, steal before the session; Windows, the power mode, Energy Saver and the Windows Update pause). The VM adds `sleep-sN.txt` (whether `systemd-inhibit` blocked sleep). The Mac adds `bg-paused-sN.txt` and `wifi-sN.txt` (what it paused or switched off). Native runs have no `clock-offset-sN.txt`. |
 
 `console.txt`, `launcher/` and monitor chunks delivered after the batch ended are not in `SHA256SUMS`. `kpi-batch verify` accepts exactly these unlisted files.
 
@@ -135,6 +135,18 @@ On the Mac:
 - **`throttle`** is 1 if macOS thermal pressure is above nominal.
 - **`alert`** is 1 if Low Power Mode is on.
 - **`detail`** carries the raw readings: user %, sys %, excluded core %, thermal level and battery %.
+
+On the VM (`scripts/monitor-linux.sh`):
+- **`other_pct`**, **`throttle`** and **`on_ac`** are -1. The container runs on the VM's own kernel, so the batch's per-block reading (`vm_other_pct`, `steal_pct`) already covers all of the machine's CPU; a second reading would count the same time twice. A VM reports no thermal or power state.
+- **`alert`** is 1 while a container that is not ours, MySQL, IPFS or the GitHub Actions runner runs (checked once a minute).
+- **`detail`**: `vm_busy_pct` and `steal_pct` of the whole machine over the sample, `load1`, and `found` (what the last check saw, for example `containers_not_ours=2+mysqld`; `none`).
+
+On the Windows laptop (`scripts/monitor-windows.ps1`, performance counters):
+- **`other_pct`** is `% Processor Time` of all CPUs minus the WSL2 VM (`vmmem`, `vmmemWSL`), the container runtime's helpers (`com.docker.*`, the `docker` CLI, `wsl*`, `vmcompute`) and the monitor and launcher, as % of the 8 logical CPUs (-1 if the counters are missing).
+- **`throttle`** is 1 if the processor's `% Performance Limit` or a thermal zone's `% Passive Limit` is below 100 (-1 if neither counter exists).
+- **`on_ac`** is 1 on mains power, 0 on battery.
+- **`alert`** is 1 while a container that is not ours runs (checked once a minute) or Energy Saver is on.
+- **`detail`**: `total`, `runtime` (the excluded share), `perf_limit`, `limit_flags`, `passive_limit`, `temp_c`, `battery_pct`, `energy_saver`, `found`, and `busiest_other` (name and % of one CPU) when other CPU is above 5 %.
 
 A sample describes the 5 s before its timestamp.
 

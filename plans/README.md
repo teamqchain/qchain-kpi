@@ -60,6 +60,6 @@ Notes:
   4096-byte value cells and the 13 chained runs. It drops the 490 cells that exist only for the all-pairs sweep
   (N = 10, k = 5), which ran on the Mac: 160 activations, 160 issuances, 10 presentations and 160 verifications.
 - `e4` and `smoke-e4` run on the machine's own liboqs builds: `--variant b4-noossl` on the VM; `b2-portable` and
-  `b3-native` on Windows.
-- The copied plans' descriptions name `run.sh`; on these machines the launchers are `scripts/run-linux.sh` and
-  `scripts/run-windows.ps1`, with the same options.
+  `b3-native` on Windows. The launchers refuse other builds, and any build but `b1-prod` for plans without E4.
+- The descriptions of `e4` and `smoke-e4` name `run.sh`; on these machines the launchers are
+  `scripts/run-linux.sh` and `scripts/run-windows.ps1`, with the same options.
