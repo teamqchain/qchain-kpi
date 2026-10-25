@@ -1,0 +1,193 @@
+#!/bin/bash
+# Fake docker CLI for testing scripts/run-linux.sh without Docker. It answers
+# exactly the calls the launcher and monitor make; state lives in $FAKE.
+# "start -a" plays the batch: it consumes session.json, honours the STOP file
+# (exit 5), and writes a finished run (manifest, blocks, raw, SHA256SUMS).
+set -euo pipefail
+F="${FAKE:?}"
+mkdir -p "$F/containers" "$F/volumes" "$F/images"
+printf '%s docker %s\n' "$(date +%T)" "$*" >> "$F/calls.log"
+
+cmd="${1:-}"
+shift || true
+cdir() { printf '%s/containers/%s' "$F" "$1"; }
+idir() { printf '%s/images/%s' "$F" "${1//[:\/]/_}"; }
+vdir() { printf '%s/volumes/%s' "$F" "$(cat "$(cdir "$1")/volume")"; }
+need_c() { [ -d "$(cdir "$1")" ] || { echo "Error: No such container: $1" >&2; exit 1; }; }
+
+case "$cmd" in
+  info)
+    if [ "${1:-}" = -f ]; then
+      case "$2" in
+        '{{.CgroupVersion}}') echo "${FAKE_CGROUP:-2}" ;;
+        '{{.DockerRootDir}}') echo / ;;
+        *) echo "fake: info format $2" >&2; exit 2 ;;
+      esac
+    fi
+    ;;
+  version) echo 29.3.1 ;;
+  ps)
+    if [ "${1:-}" = -q ]; then
+      for d in "$F"/containers/*/; do [ -d "$d" ] && [ "$(cat "$d/running")" = true ] && basename "$d"; done
+      for ((i = 0; i < ${FAKE_FOREIGN:-0}; i++)); do echo "foreign$i"; done
+    elif [ "${1:-}" = --format ]; then
+      for d in "$F"/containers/*/; do
+        [ -d "$d" ] && [ "$(cat "$d/running")" = true ] && { grep '^org.qchain.kpi=' "$d/labels" | cut -d= -f2 || echo; }
+      done
+      for ((i = 0; i < ${FAKE_FOREIGN:-0}; i++)); do echo; done
+    else
+      echo "NAMES STATUS PLAN"
+      for d in "$F"/containers/*/; do [ -d "$d" ] && echo "$(basename "$d") running=$(cat "$d/running")"; done
+    fi
+    exit 0
+    ;;
+  buildx)
+    case "$1" in
+      version) echo "github.com/docker/buildx v0.30.0" ;;
+      inspect) [ "${FAKE_NO_BUILDER:-0}" = 0 ] && [ "$2" = kpi ] ;;
+      stop) : ;;
+      build)
+        tag="" commit=""
+        while [ $# -gt 0 ]; do
+          case "$1" in
+            -t) tag="$2"; shift 2 ;;
+            --build-arg) [[ "$2" == HARNESS_COMMIT=* ]] && commit="${2#HARNESS_COMMIT=}"; shift 2 ;;
+            *) shift ;;
+          esac
+        done
+        [ "${FAKE_BUILD_FAIL:-0}" = 0 ] || { echo "fake: build failed" >&2; exit 1; }
+        sleep "${FAKE_BUILD_S:-0}"
+        echo "$commit" > "$(idir "$tag")"
+        echo "fake build of $tag"
+        ;;
+    esac
+    ;;
+  image)
+    [ "$1" = inspect ] || exit 2
+    shift
+    if [ "$1" = -f ]; then
+      fmt="$2" tag="$3"
+      [ -f "$(idir "$tag")" ] || exit 1
+      case "$fmt" in
+        '{{index .Config.Labels "org.qchain.kpi.harness-commit"}}') cat "$(idir "$tag")" ;;
+        '{{.Id}}') echo "sha256:$(printf '%s' "$tag" | sha256sum | cut -c1-64)" ;;
+        *) exit 2 ;;
+      esac
+    else
+      [ -f "$(idir "$1")" ]
+    fi
+    ;;
+  volume)
+    case "$1" in
+      create) mkdir -p "$F/volumes/${!#}" ;;
+      rm) rm -rf "${F:?}/volumes/$2" ;;
+    esac
+    ;;
+  create)
+    name="" cpuset="" vol="" labels=()
+    while [ $# -gt 0 ]; do
+      case "$1" in
+        --name) name="$2"; shift 2 ;;
+        --label) labels+=("$2"); shift 2 ;;
+        --stop-timeout | --network | -e) shift 2 ;;
+        --mount) vol="$(sed -E 's/.*src=([^,]+).*/\1/' <<< "$2")"; shift 2 ;;
+        --cpuset-cpus=*) cpuset="${1#*=}"; shift ;;
+        --init | --memory=* | --memory-swap=*) shift ;;
+        -*) echo "fake: create option $1" >&2; exit 2 ;;
+        *) break ;;
+      esac
+    done
+    d="$(cdir "$name")"
+    [ ! -d "$d" ] || { echo "Error: name $name in use" >&2; exit 1; }
+    mkdir -p "$d"
+    echo "$1" > "$d/image"
+    shift
+    printf '%s\n' "$@" > "$d/args"
+    printf '%s\n' "${labels[@]}" > "$d/labels"
+    echo "$cpuset" > "$d/cpuset"
+    echo "$vol" > "$d/volume"
+    echo false > "$d/running"
+    echo "0001-01-01T00:00:00Z" > "$d/started"
+    echo 0 > "$d/exitcode"
+    echo 0 > "$d/sessions"
+    ;;
+  inspect)
+    if [ "$1" = -f ]; then
+      fmt="$2" c="$3"
+      need_c "$c"
+      d="$(cdir "$c")"
+      case "$fmt" in
+        '{{.Config.Image}}') cat "$d/image" ;;
+        '{{.HostConfig.CpusetCpus}}') cat "$d/cpuset" ;;
+        '{{.State.StartedAt}}') cat "$d/started" ;;
+        '{{.State.Running}}') cat "$d/running" ;;
+        '{{.State.ExitCode}}') cat "$d/exitcode" ;;
+        '{{index .Config.Labels "org.qchain.kpi"}}') grep '^org.qchain.kpi=' "$d/labels" | cut -d= -f2 ;;
+        '{{index .Config.Labels "org.qchain.kpi.kind"}}') grep '^org.qchain.kpi.kind=' "$d/labels" | cut -d= -f2 ;;
+        *) echo "fake: inspect format $fmt" >&2; exit 2 ;;
+      esac
+    else
+      need_c "$1"
+    fi
+    ;;
+  run)
+    if [ "${!#}" = clock ]; then date +%s%N; fi # the clock-offset probe; chown needs nothing
+    ;;
+  cp)
+    src="$1" dst="$2"
+    if [[ "$src" == kpi-run-*:/out/. ]]; then
+      c="${src%%:*}"
+      need_c "$c"
+      cp -a "$(vdir "$c")/." "$dst"
+    else
+      c="${dst%%:*}" p="${dst#*:/out/}"
+      need_c "$c"
+      v="$(vdir "$c")"
+      if [[ "$src" == */. ]]; then
+        cp -a "$src" "$v/$p"
+      else
+        mkdir -p "$(dirname "$v/$p")"
+        cp "$src" "$v/$p"
+      fi
+    fi
+    ;;
+  start)
+    [ "$1" = -a ] || exit 2
+    c="$2"
+    need_c "$c"
+    d="$(cdir "$c")"
+    v="$(vdir "$c")"
+    date -u +%Y-%m-%dT%H:%M:%S.%NZ > "$d/started"
+    echo true > "$d/running"
+    n=$(($(cat "$d/sessions") + 1))
+    echo "$n" > "$d/sessions"
+    code=0
+    if [ -f "$v/session.json" ]; then mv "$v/session.json" "$d/session-$n.json"; else echo "fake batch: no session.json" >&2; code=3; fi
+    for ((i = 0; code == 0 && i < ${FAKE_BATCH_S:-70}; i++)); do
+      sleep 1
+      if [ -f "$v/STOP" ]; then rm -f "$v/STOP"; code=5; fi
+    done
+    if [ "$code" = 0 ]; then
+      arg() { grep -A1 -x -- "$1" "$d/args" | tail -1; }
+      plan="$(basename "$(arg --plan)" .json)"
+      image="$(cat "$d/image")"
+      variant="${image#kpi-bench:}"
+      variant="${variant%-*}"
+      mkdir -p "$v/raw/E1"
+      printf 'block,attempt\nE1.x.sign.r1,1\n' > "$v/blocks.csv"
+      if [ "${FAKE_LEAK:-0}" = 1 ]; then hostname >> "$v/blocks.csv"; fi
+      seq 1 100 | gzip > "$v/raw/E1/x.csv.gz"
+      printf '{"status":"done","plan":{"name":"%s","kind":"%s"},"counts":{"attempts":3,"flagged_attempts":0},"harness_commit":"%s","seed":%s,"machine":"%s","build":{"variant":"%s"},"sessions":%s,"extended":%s}\n' \
+        "$plan" "$(grep '^org.qchain.kpi.kind=' "$d/labels" | cut -d= -f2)" "$(cat "$(idir "$image")")" "$(arg --seed)" \
+        "$(arg --machine)" "$variant" "$n" "$(grep -q -x -- --extend "$d/args" && echo true || echo false)" > "$v/manifest.json"
+      (cd "$v" && sha256sum manifest.json blocks.csv raw/E1/x.csv.gz > SHA256SUMS)
+    fi
+    echo "$code" > "$d/exitcode"
+    echo false > "$d/running"
+    echo "fake batch $c: session $n, exit $code"
+    exit "$code"
+    ;;
+  logs) need_c "$1"; echo "fake console of $1 ($(cat "$(cdir "$1")/sessions") sessions)" ;;
+  rm) rm -rf "$(cdir "$1")" ;;
+  *) echo "fake docker: unsupported command $cmd" >&2; exit 2 ;;
+esac
