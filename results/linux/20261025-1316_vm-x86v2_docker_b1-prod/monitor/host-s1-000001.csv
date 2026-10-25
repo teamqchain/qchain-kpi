@@ -1,0 +1,5 @@
+utc_ns,other_pct,throttle,on_ac,alert,detail
+1792934178661030000,-1,-1,-1,1,vm_busy_pct=72.2;steal_pct=0.0;load1=4.18;found=mysqld+ipfs+github_runner
+1792934183672685000,-1,-1,-1,1,vm_busy_pct=69.3;steal_pct=0.0;load1=4.01;found=mysqld+ipfs+github_runner
+1792934188682688000,-1,-1,-1,1,vm_busy_pct=68.9;steal_pct=0.0;load1=4.25;found=mysqld+ipfs+github_runner
+1792934193690114000,-1,-1,-1,1,vm_busy_pct=71.7;steal_pct=0.0;load1=4.07;found=mysqld+ipfs+github_runner
