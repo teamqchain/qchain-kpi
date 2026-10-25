@@ -41,6 +41,7 @@ type Item struct {
 	Reps    int      `json:"reps,omitempty"`    // default: Plan.Reps
 	Profile string   `json:"profile,omitempty"` // default: approved
 	Workers []int    `json:"workers,omitempty"` // E12: concurrent workers (one block per count)
+	Suites  string   `json:"suites,omitempty"`  // E11, probe-E11: "curated" = the 16 curated suites only (e11_curated.go)
 }
 
 // Plan is a run plan.
@@ -103,6 +104,9 @@ func Load(path string) (*Plan, error) {
 		}
 		if (it.Exp == "E12") != (len(it.Workers) > 0) {
 			return nil, fmt.Errorf("plan %s item %d: workers are given for E12 items, and only for them", path, i)
+		}
+		if err := e11SuitesCheck(it); err != nil {
+			return nil, fmt.Errorf("plan %s item %d: %w", path, i, err)
 		}
 	}
 	if err := cpusetCheck(&p); err != nil {
@@ -182,7 +186,7 @@ func Expand(p *Plan, batchSeed uint64) ([]Block, error) {
 			continue
 		}
 		if it.Exp == "E11" || it.Exp == "probe-E11" {
-			for _, c := range e11Cells(it) {
+			for _, c := range e11ItemCells(it) {
 				cs = append(cs, cell{it.Exp, c[0], c[1], it.Profile, reps})
 			}
 			continue

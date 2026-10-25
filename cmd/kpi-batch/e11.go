@@ -80,8 +80,13 @@ func calibrateE11AddOn(machine string, st *State, vs []*Verdict, base *quality.M
 	}
 	m.Inputs["e11_probe_blocks"] = float64(probes)
 	m.Inputs["e11_slow_cells"] = float64(slow)
-	if want := len(cells.Grid()); probes < want {
-		cal.Notes = append(cal.Notes, fmt.Sprintf("probe-E11 covered %d of the %d grid cells", probes, want))
+	// The VM's and Windows' trials probe the 16 curated suites only (their E11
+	// scope); a main run still refuses any cell without a class.
+	switch all, curated := len(cells.Grid()), plan.E11CellCount(plan.SuitesCurated); {
+	case probes == curated:
+		cal.Notes = append(cal.Notes, fmt.Sprintf("probe-E11 covered the %d cells of the 16 curated suites (the whole grid has %d), enough for the curated E11 plans", curated, all))
+	case probes < all:
+		cal.Notes = append(cal.Notes, fmt.Sprintf("probe-E11 covered %d of the %d grid cells", probes, all))
 	}
 	return cal, nil
 }

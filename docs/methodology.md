@@ -221,7 +221,7 @@ The first plan ran every experiment on all three machines. To finish the measure
 |---|---|---|---|
 | E0 environment and correctness | every run | every run | every run |
 | E1 primitive latency | done | all 30 algorithms | all 30 algorithms |
-| E2 integration cost | done (full) | without SLH-DSA | without SLH-DSA |
+| E2 integration cost | done (full) | without SLH-DSA (18 algorithms) | without SLH-DSA (18 algorithms) |
 | E3 integration layers | done | not run | not run |
 | E4 build sensitivity | B2, B3 done | B2, B3 | B4 (no OpenSSL) only |
 | E5 native OS vs container | done | not run | not run |
@@ -230,9 +230,15 @@ The first plan ran every experiment on all three machines. To finish the measure
 | E8 sizes | done | not run | not run |
 | E9 memory | done | run | run |
 | E10 issuer vs holder | done | run | run |
-| E11 lifecycle | done (all 991 cells) | the 16 curated suites | the 16 curated suites |
-| E12 concurrency | workers 1, 2, 4 | workers 1, 2, 4, 8 | one test of at most 15 min, both vCPUs |
+| E11 lifecycle | done (all 991 cells) | the 16 curated suites (501 cells) | the 16 curated suites (501 cells) |
+| E12 concurrency | workers 1, 2, 4 | workers 1, 2, 4, 8 | workers 1, 2 (both vCPUs) |
 | E13 ledger and IPFS model | done | not run | not run |
 | E14 Fabric latency against payload size | done (`scripts/e14-run-mac.sh`) | not run | never (live QChain network) |
 
 Reasons: sizes (E8, E13) depend on the algorithm, not the processor; E7 is a ratio; E3 and E6 are comparisons whose Mac result answers the question; SLH-DSA dominates the time of E1, E2, E3, E6 and E11 (every slow cell gets at least 60 s), and its speed on each machine still comes from E1 and E11 (curated). The results that depend on the processor stay on both machines. Statistics are unchanged (5 repetitions, the same quality rules); the reduced plans are separate plan files, so every result says what it covered.
+
+**The plans** (25 Oct 2026) are in `plans/vm/` and `plans/windows/` (`plans/README.md`); the experiment code is the same as on the Mac.
+- **E2:** `e2-noslh` runs E2 and E2c for the 18 algorithms outside SLH-DSA, after the add-on trial `trial-e2-noslh`, which probes exactly those cells.
+- **E11:** an E11 item with `"suites": "curated"` (`internal/plan/e11_curated.go`) keeps every cell of the 16 curated suites at every N and k, the production suite's 256- and 4096-byte value cells and the 13 chained runs: 501 of the 991 cells (16 activations, 90 issuances, 50 retrievals, 98 presentations, 234 verifications, 13 chained). The 490 cells it drops exist only for the all-pairs sweep (N = 10, k = 5). Its add-on trial `trial-e11-curated` probes the same 501 cells.
+- **E12:** the Mac's design (4 suites, 2 stages, 30 s windows, 5 repetitions) with W = 1, 2, 4 and 8 on Windows (`e12-windows`) and W = 1 and 2 on the VM (`e12-vm`). The VM's E12 was first planned as one test of at most 15 min; on 25 Oct it became the full set, with the VM's whole run set to finish within 2 days.
+- **E4:** the same plan as the Mac's; the liboqs build is the launcher's `--variant`.

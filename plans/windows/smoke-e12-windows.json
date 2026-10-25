@@ -1,0 +1,11 @@
+{
+  "name": "smoke-e12-windows",
+  "kind": "smoke",
+  "description": "Pipeline test of E12 on the Windows laptop, never used for results: the production suite and the classical baseline, both stages, W = 1 and 8 (the main run's smallest and largest), with a 1 s warm-up and a 2 s window (every 8th window call checked), 1 repetition, on the same 8-CPU container as the main run.",
+  "reps": 1,
+  "canary_every_s": 120,
+  "cpuset": "0-7",
+  "items": [
+    {"exp": "E12", "algs": ["ml-dsa-44", "ml-kem-768", "ecdsa-p256", "dhkem-p256"], "workers": [1, 8], "profile": "smoke"}
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "name": "smoke-quick",
+  "kind": "smoke",
+  "description": "Quick pipeline test for development, never used for results: one algorithm of each implementation path (liboqs signature with fixed and variable size, liboqs KEM, OpenSSL signature and DHKEM) plus E10 for ML-DSA-44, tiny budgets, 2 repetitions.",
+  "reps": 2,
+  "canary_every_s": 60,
+  "items": [
+    {"exp": "probe", "algs": ["ml-dsa-44", "falcon-512", "ml-kem-768", "ecdsa-p256", "rsa3072-pss", "dhkem-x25519"]},
+    {"exp": "E1", "algs": ["ml-dsa-44", "falcon-512", "ml-kem-768", "ecdsa-p256", "rsa3072-pss", "dhkem-x25519"], "profile": "smoke"},
+    {"exp": "E10", "algs": ["ml-dsa-44"], "profile": "smoke"}
+  ]
+}

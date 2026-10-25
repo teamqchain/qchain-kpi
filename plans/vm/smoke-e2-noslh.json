@@ -1,0 +1,13 @@
+{
+  "name": "smoke-e2-noslh",
+  "kind": "smoke",
+  "description": "Pipeline test of E2 without SLH-DSA, never used for results: the 18 algorithms outside SLH-DSA and every operation through the probe pass, the E2 probe pass, E2 and E2c, with tiny budgets (fast: 10 warm-up + 200 samples; slow: 1 s and at least 3 samples) and 1 repetition.",
+  "reps": 1,
+  "canary_every_s": 120,
+  "items": [
+    {"exp": "probe", "algs": ["ML-DSA", "Falcon", "ML-KEM", "HQC", "classical"]},
+    {"exp": "probe-E2", "algs": ["ML-DSA", "Falcon", "ML-KEM", "HQC", "classical"]},
+    {"exp": "E2", "algs": ["ML-DSA", "Falcon", "ML-KEM", "HQC", "classical"], "profile": "smoke"},
+    {"exp": "E2c", "algs": ["ML-DSA", "Falcon", "ML-KEM", "HQC", "classical"], "profile": "smoke"}
+  ]
+}

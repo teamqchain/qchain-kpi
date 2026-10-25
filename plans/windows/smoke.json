@@ -1,0 +1,12 @@
+{
+  "name": "smoke",
+  "kind": "smoke",
+  "description": "Pipeline test, never used for results: every algorithm and operation through input preparation, the probe pass, E1 and E10, with tiny budgets (fast: 10 warm-up + 200 samples; slow: 1 s and at least 3 samples) and 2 repetitions.",
+  "reps": 2,
+  "canary_every_s": 120,
+  "items": [
+    {"exp": "probe", "algs": ["all"]},
+    {"exp": "E1", "algs": ["all"], "profile": "smoke"},
+    {"exp": "E10", "algs": ["ML-DSA"], "profile": "smoke"}
+  ]
+}

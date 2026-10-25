@@ -1,0 +1,10 @@
+{
+  "name": "trial-e11-curated",
+  "kind": "trial",
+  "description": "Add-on calibration for E11 on the 16 curated suites (once per machine, after the machine's first trial and before its first e11-curated main run): a probe pass of the 501 cells of the curated plan (first call + 5 calls of each arm). It classifies every cell as fast or slow (probe median of the whole stage at least 30 ms = slow) and records each block's input-preparation time, which together give the E11 runtime estimate; every other threshold stays unchanged. Canary every 5 minutes.",
+  "reps": 1,
+  "canary_every_s": 300,
+  "items": [
+    {"exp": "probe-E11", "algs": ["all"], "suites": "curated"}
+  ]
+}

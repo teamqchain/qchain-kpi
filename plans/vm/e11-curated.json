@@ -1,0 +1,10 @@
+{
+  "name": "e11-curated",
+  "kind": "main",
+  "description": "E11 lifecycle composites on the 16 curated suites (the VM's and Windows' scope, decision of 21 Oct; the Mac ran all 991 cells with plan e11): activation, issuance, retrieval, presentation and verification (plus the chain-record decoding, reported separately) through QChain's copied production code, each stage once per setting it depends on; the 16 curated suites at every N in {1,5,10,20,64} and k in {1, ceil(N/2), N}, the production suite with 256- and 4096-byte values, and the production suite chained (validation of the stage sums): 501 cells, 5 repetitions. The all-pairs sweep (176 signature x KEM pairs at N=10, k=5) stays on the Mac. Composites: 20 warm-up calls + 2,000 samples, or at least 60 s and 30 samples when the probe median is at least 30 ms; Go's default GC.",
+  "reps": 5,
+  "canary_every_s": 600,
+  "items": [
+    {"exp": "E11", "algs": ["all"], "suites": "curated"}
+  ]
+}

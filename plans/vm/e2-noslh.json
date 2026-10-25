@@ -1,0 +1,11 @@
+{
+  "name": "e2-noslh",
+  "kind": "main",
+  "description": "E2 integration cost without SLH-DSA (the VM's and Windows' scope, decision of 21 Oct; the Mac ran all 30 algorithms with plan e2): for the 18 algorithms outside SLH-DSA (ML-DSA, Falcon, ML-KEM, HQC and the 5 classical ones) and every operation, (1) an E2 block with three interleaved arms: reuse (the long-lived library object, as E1), reinit (a fresh library object per call: create, operate, destroy) and prod (QChain's production function, hex in and hex out; copied verbatim for the post-quantum algorithms, the same pattern on OpenSSL for the classical ones); and (2) an E2c block with the components prod adds, each on its own and batched where shorter than 100x the timer resolution: hex decoding of inputs, object creation (init), object destruction (clean), hex encoding of outputs. One fresh process per block, 5 repetitions, approved budgets (E2c blocks are always fast). SLH-DSA's speed on these machines comes from E1 and E11.",
+  "reps": 5,
+  "canary_every_s": 600,
+  "items": [
+    {"exp": "E2", "algs": ["ML-DSA", "Falcon", "ML-KEM", "HQC", "classical"]},
+    {"exp": "E2c", "algs": ["ML-DSA", "Falcon", "ML-KEM", "HQC", "classical"]}
+  ]
+}

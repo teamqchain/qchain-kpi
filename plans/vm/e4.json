@@ -1,0 +1,10 @@
+{
+  "name": "e4",
+  "kind": "main",
+  "description": "E4 build sensitivity: E1's cells (every operation of all 30 algorithms, the library's reuse arm, one process per operation, first call cold) on an image whose liboqs 0.16.0 is built differently: run once per variant with run.sh --variant b2-portable (generic C, no hand-optimised code; on arm64 NEON/AES/SHA2/SHA3 paths off) and --variant b3-native (OQS_DIST_BUILD=OFF, -mcpu/-march=native); b4-noossl (liboqs without OpenSSL) runs on the VM. Compared with E1 (b1-prod). The 15 classical cells use OpenSSL, untouched by the liboqs build: they are the controls. E1's fast/slow classification; refused on the b1-prod image; 5 repetitions.",
+  "reps": 5,
+  "canary_every_s": 600,
+  "items": [
+    {"exp": "E4", "algs": ["all"]}
+  ]
+}
