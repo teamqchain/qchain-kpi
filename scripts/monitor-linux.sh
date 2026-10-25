@@ -74,8 +74,10 @@ alert=0
 found="not_checked"
 check() {
   local n=0 out what=()
-  if out="$(timeout 20 docker ps --format '{{.Label "org.qchain.kpi"}}' 2>/dev/null)"; then
-    [ -z "$out" ] || n="$(grep -c -v -x 1 <<< "$out" || true)"
+  # One line per running container: "[1]" for ours, "[]" for any other. (A bare
+  # empty label would print an empty line, which command substitution drops.)
+  if out="$(timeout 20 docker ps --format '[{{.Label "org.qchain.kpi"}}]' 2>/dev/null)"; then
+    [ -z "$out" ] || n="$(grep -c -v -x '\[1\]' <<< "$out" || true)"
   else
     what+=("docker_unreachable")
   fi

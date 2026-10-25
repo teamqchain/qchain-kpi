@@ -177,6 +177,24 @@ check "container kept for inspection" test -d "$FAKE/containers/kpi-run-$rid5"
 check "status lists it" bash -c "'$L' status | grep -q kpi-run-$rid5"
 expect_fail "stop of a run that is not running" "is not running" "$L" stop "$rid5"
 
+echo "== the monitor's alert for containers that are not ours"
+# The first live check on the VM showed that a bare empty label line was dropped:
+# 11 running QChain containers were not counted.
+monrun() { # foreign-count dir
+  rm -rf "$2"
+  env FAKE_FOREIGN="$1" "$R/scripts/monitor-linux.sh" "$2" 1 2 $$ > /dev/null 2>&1 &
+  local m=$!
+  sleep 4
+  kill "$m" 2>/dev/null
+  wait "$m" 2>/dev/null
+  true
+}
+monrun 3 /tmp/mon-foreign
+check "foreign containers counted" grep -q 'containers_not_ours=3' /tmp/mon-foreign/host-all.csv
+check "foreign containers raise the alert" grep -q ',-1,-1,-1,1,.*containers_not_ours=3' /tmp/mon-foreign/host-all.csv
+monrun 0 /tmp/mon-none
+check "no foreign container: no alert" grep -q ',-1,-1,-1,0,.*found=none' /tmp/mon-none/host-all.csv
+
 echo "== Ctrl-C during an image build stops the builder"
 from=$(($(wc -l < "$FAKE/calls.log") + 1))
 # Job control, so the background launcher keeps SIGINT and has its own process group.

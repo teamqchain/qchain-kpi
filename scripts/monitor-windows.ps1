@@ -121,15 +121,18 @@ function Get-Found {
   $old = $ErrorActionPreference
   $ErrorActionPreference = 'Continue'
   try {
-    $out = & docker ps --format '{{.Labels}}' 2>$null
+    # Counts of the running containers and of ours (no output parsing, so no
+    # empty lines or quoting to go wrong).
+    $all = @(& docker ps -q 2>$null)
     $code = $LASTEXITCODE
+    $ours = @(& docker ps -q --filter 'label=org.qchain.kpi=1' 2>$null)
   } finally {
     $ErrorActionPreference = $old
   }
   if ($code -ne 0) {
     $what += 'docker_unreachable'
   } else {
-    $n = @($out | Where-Object { $_ -ne $null -and $_ -notmatch '(^|,)org\.qchain\.kpi=1(,|$)' }).Count
+    $n = @($all | Where-Object { $_ -ne $null -and $_ -ne '' }).Count - @($ours | Where-Object { $_ -ne $null -and $_ -ne '' }).Count
     if ($n -gt 0) { $what += "containers_not_ours=$n" }
   }
   return $what

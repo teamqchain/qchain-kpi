@@ -31,10 +31,15 @@ case "$cmd" in
       for d in "$F"/containers/*/; do [ -d "$d" ] && [ "$(cat "$d/running")" = true ] && basename "$d"; done
       for ((i = 0; i < ${FAKE_FOREIGN:-0}; i++)); do echo "foreign$i"; done
     elif [ "${1:-}" = --format ]; then
+      # Like the real docker, print the format with the label value filled in:
+      # '[{{.Label "org.qchain.kpi"}}]' gives "[1]" for ours and "[]" for others;
+      # a bare '{{.Label ...}}' gives "1" and an empty line.
+      pre="" post=""
+      [[ "$2" == \[* ]] && { pre="["; post="]"; }
       for d in "$F"/containers/*/; do
-        [ -d "$d" ] && [ "$(cat "$d/running")" = true ] && { grep '^org.qchain.kpi=' "$d/labels" | cut -d= -f2 || echo; }
+        [ -d "$d" ] && [ "$(cat "$d/running")" = true ] && { echo "$pre$(grep '^org.qchain.kpi=' "$d/labels" | cut -d= -f2)$post"; }
       done
-      for ((i = 0; i < ${FAKE_FOREIGN:-0}; i++)); do echo; done
+      for ((i = 0; i < ${FAKE_FOREIGN:-0}; i++)); do echo "$pre$post"; done
     else
       echo "NAMES STATUS PLAN"
       for d in "$F"/containers/*/; do [ -d "$d" ] && echo "$(basename "$d") running=$(cat "$d/running")"; done
