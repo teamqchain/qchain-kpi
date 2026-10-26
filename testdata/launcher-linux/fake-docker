@@ -27,7 +27,11 @@ case "$cmd" in
     ;;
   version) echo 29.3.1 ;;
   ps)
-    if [ "${1:-}" = -q ]; then
+    fmt="" args=("$@")
+    for ((i = 0; i < ${#args[@]}; i++)); do [ "${args[i]}" = --format ] && fmt="${args[i + 1]}"; done
+    if [ "$fmt" = '{{.Names}}' ]; then
+      for d in "$F"/containers/*/; do [ -d "$d" ] && [ "$(cat "$d/running")" = true ] && basename "$d"; done
+    elif [ "${1:-}" = -q ]; then
       for d in "$F"/containers/*/; do [ -d "$d" ] && [ "$(cat "$d/running")" = true ] && basename "$d"; done
       for ((i = 0; i < ${FAKE_FOREIGN:-0}; i++)); do echo "foreign$i"; done
     elif [ "${1:-}" = --format ]; then

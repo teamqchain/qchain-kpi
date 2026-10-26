@@ -179,7 +179,9 @@ preflight_verdict() {
     elif [ "$force" = 1 ]; then
       note "--force: continuing despite preflight problems (recorded in the launcher files)"
     else
-      die "preflight failed; fix the problems above (or use --force, which is recorded)"
+      # Exit status 3 (as kpi-batch's refusals), so that a series of plans can wait and try again.
+      echo "run-linux.sh: preflight failed; fix the problems above (or use --force, which is recorded)" >&2
+      exit 3
     fi
   fi
 }
@@ -470,8 +472,9 @@ finish_run() { # rid code
       note "the batch container did not start (see the messages above); kpi-run-$rid and kpi-out-$rid were kept"
       return 1 ;;
     5)
+      # Exit status 5, so that a series of plans (run-linux-series.sh) stops here.
       note "batch stopped and can be resumed: scripts/run-linux.sh resume $rid"
-      return 0 ;;
+      return 5 ;;
     *)
       stage="$repo/scratch/failed/$rid"
       rm -rf "$stage"

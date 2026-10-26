@@ -134,6 +134,7 @@ wait
 rid3="$(newest_run)"
 check "stop requested" grep -q "requested a graceful stop of $rid3" /tmp/stop.log
 check "stopped run reported resumable (exit $code)" grep -q "batch stopped and can be resumed: scripts/run-linux.sh resume $rid3" <<< "$out"
+check "a stopped batch exits with status 5 (got $code)" test "$code" = 5
 check "trial preflight strict and passed" bash -c "! grep -q 'preflight failed' <<< \"\$1\"" _ "$out"
 check "container kept, exit 5" test "$(cat "$FAKE/containers/kpi-run-$rid3/exitcode")" = 5
 out="$(env FAKE_BATCH_S=5 "$L" resume "$rid3" --foreground 2>&1)"
@@ -194,6 +195,46 @@ check "foreign containers counted" grep -q 'containers_not_ours=3' /tmp/mon-fore
 check "foreign containers raise the alert" grep -q ',-1,-1,-1,1,.*containers_not_ours=3' /tmp/mon-foreign/host-all.csv
 monrun 0 /tmp/mon-none
 check "no foreign container: no alert" grep -q ',-1,-1,-1,0,.*found=none' /tmp/mon-none/host-all.csv
+
+echo "== the series script"
+S="$R/scripts/run-linux-series.sh"
+expect_fail "series: no arguments" "usage" "$S"
+expect_fail "series: bad plan name" "bad plan name" "$S" 'Bad Plan'
+expect_fail "series: unknown plan" "no plan plans/vm/nope.json" "$S" nope
+expect_fail "series: stop with none running" "no series is running" "$S" stop
+# smoke-quick runs, then e4 with a build the VM refuses: the series stops there and never starts smoke-e9.
+fresh_minute
+out="$(env FAKE_BATCH_S=3 KPI_SERIES_GAP=1 "$S" smoke-quick e4@b2-portable smoke-e9 2>&1)"
+check "series starts detached" grep -q "series started" <<< "$out"
+slog="$ST/series.log"
+for _ in $(seq 150); do grep -q -E 'FAILED|series finished' "$slog" 2>/dev/null && break; sleep 1; done
+check "series ran its first plan" grep -q 'done: results/linux/' "$slog"
+check "series stopped at the refused plan" grep -q 'FAILED: e4@b2-portable (exit 1)' "$slog"
+check "series did not start the plan after the failure" bash -c "! grep -q 'smoke-e9' '$slog'"
+check "series released its lock" test ! -e "$ST/series.lock"
+# A second series is refused while one runs; status shows it; stop ends it after the current block.
+fresh_minute
+env FAKE_BATCH_S=60 KPI_SERIES_GAP=1 "$S" smoke-quick smoke-e9 > /tmp/series1.txt 2>&1
+sleep 15
+expect_fail "series: a second one is refused" "already running" "$S" smoke-e9
+check "series status shows the running series" bash -c "'$S' status | grep -q 'a series is running'"
+"$S" stop > /tmp/series-stop.txt 2>&1
+check "series stop asks the batch to stop" grep -q "requested a graceful stop" /tmp/series-stop.txt
+for _ in $(seq 120); do grep -q 'FAILED' "$slog" 2>/dev/null && break; sleep 1; done
+check "a stopped batch ends the series with its exit status" grep -q 'FAILED: smoke-quick (exit 5)' "$slog"
+check "the plan after a stopped one is not started" bash -c "! grep -q 'smoke-e9' '$slog'"
+sleep 2
+check "series released its lock after the stop" test ! -e "$ST/series.lock"
+check "series status: none running" bash -c "'$S' status | grep -q 'no series is running'"
+
+echo "== a refused preflight is tried again, then the series stops"
+fresh_minute
+env FAKE_FOREIGN=1 KPI_SERIES_GAP=1 KPI_SERIES_RETRIES=2 KPI_SERIES_RETRY_WAIT=2 "$S" trial > /tmp/series2.txt 2>&1
+for _ in $(seq 120); do grep -q 'FAILED' "$slog" 2>/dev/null && [ "$(grep -c 'FAILED' "$slog")" -ge 1 ] && break; sleep 1; done
+sleep 1
+check "a refused preflight is retried twice" bash -c "[ \$(grep -c 'preflight refused for trial' '$slog') = 2 ]"
+check "then the series fails with exit 3" grep -q 'FAILED: trial (exit 3)' "$slog"
+check "a refused preflight started no container" test -z "$(find "$FAKE/containers" -maxdepth 1 -newer /tmp/series2.txt -name 'kpi-run-*')"
 
 echo "== Ctrl-C during an image build stops the builder"
 from=$(($(wc -l < "$FAKE/calls.log") + 1))

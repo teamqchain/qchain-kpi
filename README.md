@@ -129,7 +129,9 @@ scripts/run-linux.sh start --plan smoke --machine vm-x86v2
 tmux attach -t kpi-<stamp>              # watch it; leave with Ctrl-B, then D
 scripts/run-linux.sh start --plan e4 --machine vm-x86v2 --variant b4-noossl   # E4 on the VM: b4 only
 scripts/run-linux.sh stop|resume|extend|status ...    # as on the Mac; --foreground stays in the terminal
-scripts/test-run-linux.sh               # on the Mac: the launcher against a fake docker (about 8 minutes)
+scripts/run-linux-series.sh e1 e2-noslh e4@b4-noossl  # several plans one after another, unattended (see below)
+scripts/run-linux-series.sh status|stop               # is a series running; stop it after the current block
+scripts/test-run-linux.sh               # on the Mac: the launcher and series against a fake docker (about 15 minutes)
 ```
 
 ```powershell
@@ -142,6 +144,7 @@ powershell -ExecutionPolicy Bypass -File scripts\run-windows.ps1 stop|resume|ext
 **Trial and main plans refuse to start unless the machine is ready** (`--force` overrides, recorded):
 - **VM:** no container running (QChain's Fabric network, `qchain-api` and `qchain-web-gateway` are stopped for the study); MySQL, IPFS and the GitHub Actions runner stopped; VS Code closed (a detached run waits up to 10 minutes for it to close); the machine quiet over 6 s (its steal is recorded); 10 GB free; Docker with cgroup v2.
 - **Windows:** on mains power; Energy Saver off; power mode "Best performance" (the laptop's own setting); no container running (Obeid's are stopped for the run); no window of VS Code, Teams, Edge or Chrome; the laptop quiet over 6 s; 10 GB free; Docker with cgroup v2. The Windows Update pause date is shown and recorded.
+- **A series** (`scripts/run-linux-series.sh PLAN[@VARIANT] ...`) runs plans one after another and detaches like the launcher; its log is `~/.local/state/qchain-kpi/series.log`. It refuses a second series (a lock), waits 65 s between plans (run ids have minute resolution), tries a refused preflight again up to 6 times, 5 minutes apart (a short burst of system work, such as the daily upgrade check, must not end a days-long series), and stops at the first plan that fails or whose batch stopped (exit 5: resume it with `run-linux.sh resume`, then start a series with the remaining plans). Do not open VS Code while a series runs: its server process makes the next plan's preflight refuse.
 - **Both:** the harness committed; only the machine's liboqs builds (VM `b1-prod`, `b4-noossl`; Windows `b1-prod`, `b2-portable`, `b3-native`), and a build other than `b1-prod` only for E4 plans.
 
 ## Layout
