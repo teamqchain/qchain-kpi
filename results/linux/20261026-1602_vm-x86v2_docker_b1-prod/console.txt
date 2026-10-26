@@ -1,0 +1,33 @@
+[20:02:31] canary 1 (start): 2293525 hashes/s, ratio 0.9637 
+[20:02:31] prepared ml-dsa-65.r1: P=256 in 0.2s
+[20:02:49] 1/15 E10.ml-dsa-65.sign.r1.a1 fast p50 333.44us (n=10000) first 2.755ms
+[20:02:50] prepared ml-dsa-44.r1: P=256 in 0.1s
+[20:03:01] 2/15 E10.ml-dsa-44.sign.r1.a1 fast p50 209.89us (n=10000) first 2.052ms
+[20:03:01] prepared ml-dsa-87.r1: P=256 in 0.2s
+[20:03:25] 3/15 E10.ml-dsa-87.sign.r1.a1 fast p50 427.82us (n=10000) first 2.132ms
+[20:03:25] prepared ml-dsa-87.r2: P=256 in 0.2s
+[20:03:49] 4/15 E10.ml-dsa-87.sign.r2.a1 fast p50 419.62us (n=10000) first 2.120ms
+[20:03:49] prepared ml-dsa-44.r2: P=256 in 0.1s
+[20:04:00] 5/15 E10.ml-dsa-44.sign.r2.a1 fast p50 214.10us (n=10000) first 2.019ms
+[20:04:01] prepared ml-dsa-65.r2: P=256 in 0.2s
+[20:04:18] 6/15 E10.ml-dsa-65.sign.r2.a1 fast p50 329.83us (n=10000) first 1.861ms
+[20:04:19] prepared ml-dsa-65.r3: P=256 in 0.2s
+[20:04:37] 7/15 E10.ml-dsa-65.sign.r3.a1 fast p50 329.89us (n=10000) first 1.984ms
+[20:04:37] prepared ml-dsa-44.r3: P=256 in 0.1s
+[20:04:48] 8/15 E10.ml-dsa-44.sign.r3.a1 fast p50 212.75us (n=10000) first 1.824ms
+[20:04:49] prepared ml-dsa-87.r3: P=256 in 0.2s
+[20:05:12] 9/15 E10.ml-dsa-87.sign.r3.a1 fast p50 422.67us (n=10000) first 2.217ms
+[20:05:12] prepared ml-dsa-87.r4: P=256 in 0.2s
+[20:05:36] 10/15 E10.ml-dsa-87.sign.r4.a1 fast p50 423.23us (n=10000) first 2.408ms
+[20:05:36] prepared ml-dsa-44.r4: P=256 in 0.1s
+[20:05:48] 11/15 E10.ml-dsa-44.sign.r4.a1 fast p50 212.95us (n=10000) first 1.808ms
+[20:05:48] prepared ml-dsa-65.r4: P=256 in 0.2s
+[20:06:06] 12/15 E10.ml-dsa-65.sign.r4.a1 fast p50 328.72us (n=10000) first 1.924ms
+[20:06:06] prepared ml-dsa-87.r5: P=256 in 0.2s
+[20:06:30] 13/15 E10.ml-dsa-87.sign.r5.a1 fast p50 425.69us (n=10000) first 2.134ms
+[20:06:30] prepared ml-dsa-44.r5: P=256 in 0.1s
+[20:06:41] 14/15 E10.ml-dsa-44.sign.r5.a1 fast p50 210.00us (n=10000) first 1.740ms
+[20:06:42] prepared ml-dsa-65.r5: P=256 in 0.2s
+[20:06:59] 15/15 E10.ml-dsa-65.sign.r5.a1 fast p50 324.12us (n=10000) first 2.982ms
+[20:07:01] canary 2 (end): 2275547 hashes/s, ratio 0.9561 
+[20:07:41] batch complete: 15 attempt(s); 49 file(s) in SHA256SUMS

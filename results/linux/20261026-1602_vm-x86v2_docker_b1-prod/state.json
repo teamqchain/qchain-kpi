@@ -1,0 +1,163 @@
+{
+  "schema": 1,
+  "run_id": "20261026-1602_vm-x86v2_docker_b1-prod",
+  "machine": "vm-x86v2",
+  "plan_name": "e10",
+  "plan_kind": "main",
+  "plan_hash": "59b261d41f4e15f5589377d15eef3d60e850e2a75c56559c164ad4e97409e3bb",
+  "seed": 6156447823245606557,
+  "image_id": "sha256:7dc2d7d290eca07076394651e09ac94d4ec42c6aa8883fb06b070110c588944f",
+  "harness_commit": "f76f6b27cc226a3e2b53a09855aa2bf82db789c5",
+  "thresholds_hash": "cd0e9a43a1313d80cd3a6fd70c7598d34dd0338a4ff02d55676a12ad20858999",
+  "started_utc": "2026-10-26T16:02:29Z",
+  "status": "done",
+  "sessions": [
+    {
+      "n": 1,
+      "started_utc": "2026-10-26T16:02:29Z",
+      "start_unix_ns": 1793030549925645976,
+      "host_offset_ns": -36060163
+    }
+  ],
+  "planned_blocks": 15,
+  "queue": [],
+  "done": [
+    "E10.ml-dsa-65.sign.r1.a1",
+    "E10.ml-dsa-44.sign.r1.a1",
+    "E10.ml-dsa-87.sign.r1.a1",
+    "E10.ml-dsa-87.sign.r2.a1",
+    "E10.ml-dsa-44.sign.r2.a1",
+    "E10.ml-dsa-65.sign.r2.a1",
+    "E10.ml-dsa-65.sign.r3.a1",
+    "E10.ml-dsa-44.sign.r3.a1",
+    "E10.ml-dsa-87.sign.r3.a1",
+    "E10.ml-dsa-87.sign.r4.a1",
+    "E10.ml-dsa-44.sign.r4.a1",
+    "E10.ml-dsa-65.sign.r4.a1",
+    "E10.ml-dsa-87.sign.r5.a1",
+    "E10.ml-dsa-44.sign.r5.a1",
+    "E10.ml-dsa-65.sign.r5.a1"
+  ],
+  "classification": {},
+  "requeued": {},
+  "diagnosed": {},
+  "canary_seq": 2,
+  "first_canary_rate": 2293524.615568704,
+  "last_canary_unix_ns": 1793030821335717601,
+  "preps": {
+    "ml-dsa-44.r1": {
+      "pool": 256,
+      "prep_ns": 118431925,
+      "fingerprint": "a49ee28996792816",
+      "e10": true,
+      "session": 1
+    },
+    "ml-dsa-44.r2": {
+      "pool": 256,
+      "prep_ns": 123876601,
+      "fingerprint": "2940d7e00c07075d",
+      "e10": true,
+      "session": 1
+    },
+    "ml-dsa-44.r3": {
+      "pool": 256,
+      "prep_ns": 120222729,
+      "fingerprint": "560dd2eecaecc151",
+      "e10": true,
+      "session": 1
+    },
+    "ml-dsa-44.r4": {
+      "pool": 256,
+      "prep_ns": 121008177,
+      "fingerprint": "c2a16ce7ac252635",
+      "e10": true,
+      "session": 1
+    },
+    "ml-dsa-44.r5": {
+      "pool": 256,
+      "prep_ns": 117931510,
+      "fingerprint": "1d92b5256a005f13",
+      "e10": true,
+      "session": 1
+    },
+    "ml-dsa-65.r1": {
+      "pool": 256,
+      "prep_ns": 171333097,
+      "fingerprint": "a71aeaba4d6e60f6",
+      "e10": true,
+      "session": 1
+    },
+    "ml-dsa-65.r2": {
+      "pool": 256,
+      "prep_ns": 157468540,
+      "fingerprint": "bb22db18eb5d937c",
+      "e10": true,
+      "session": 1
+    },
+    "ml-dsa-65.r3": {
+      "pool": 256,
+      "prep_ns": 164197924,
+      "fingerprint": "4b545a5e62d68f95",
+      "e10": true,
+      "session": 1
+    },
+    "ml-dsa-65.r4": {
+      "pool": 256,
+      "prep_ns": 165263084,
+      "fingerprint": "625154151f734bbe",
+      "e10": true,
+      "session": 1
+    },
+    "ml-dsa-65.r5": {
+      "pool": 256,
+      "prep_ns": 178115518,
+      "fingerprint": "bf8b75386a611f25",
+      "e10": true,
+      "session": 1
+    },
+    "ml-dsa-87.r1": {
+      "pool": 256,
+      "prep_ns": 215337503,
+      "fingerprint": "0422a0fb0f36d2a0",
+      "e10": true,
+      "session": 1
+    },
+    "ml-dsa-87.r2": {
+      "pool": 256,
+      "prep_ns": 208505769,
+      "fingerprint": "f2aa8caa34f252a6",
+      "e10": true,
+      "session": 1
+    },
+    "ml-dsa-87.r3": {
+      "pool": 256,
+      "prep_ns": 220848464,
+      "fingerprint": "7489fa84cfdda5c2",
+      "e10": true,
+      "session": 1
+    },
+    "ml-dsa-87.r4": {
+      "pool": 256,
+      "prep_ns": 215174062,
+      "fingerprint": "02c12f9448ebcf42",
+      "e10": true,
+      "session": 1
+    },
+    "ml-dsa-87.r5": {
+      "pool": 256,
+      "prep_ns": 213462339,
+      "fingerprint": "96b3c5a9d24659ed",
+      "e10": true,
+      "session": 1
+    }
+  },
+  "cell_reps": {
+    "E10.ml-dsa-44.sign": 5,
+    "E10.ml-dsa-65.sign": 5,
+    "E10.ml-dsa-87.sign": 5
+  },
+  "vm_cpus": 2,
+  "host_cpus": 2,
+  "host_period_ns": 5000000000,
+  "canary_every_s": 600
+}
