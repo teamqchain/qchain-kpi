@@ -1,0 +1,18 @@
+{
+  "host_offset_ns": -38374410,
+  "host_offset_unc_ns": 81781438,
+  "native_p_rate": 0,
+  "native_e_rate": 0,
+  "host_logical_cpus": 2,
+  "host_monitor_period_s": 5,
+  "host": {
+    "runtime": "docker",
+    "host_os": "Ubuntu 24.04.4 LTS (kernel 7.0.0-30-generic)",
+    "host_cpu": "QEMU Virtual CPU version 2.5+",
+    "host_mem_gb": "30",
+    "docker": "29.3.1",
+    "container_mem": "4g",
+    "container_cpuset": "1",
+    "launcher": "run-linux.sh 1"
+  }
+}

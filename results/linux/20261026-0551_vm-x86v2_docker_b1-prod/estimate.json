@@ -1,0 +1,28 @@
+{
+  "machine": "vm-x86v2",
+  "trial_run": "20261026-0551_vm-x86v2_docker_b1-prod",
+  "plans": [
+    {
+      "plan": "e2-noslh",
+      "file": "e2-noslh.json",
+      "blocks": 540,
+      "hours": 6.327090630200196,
+      "prep_hours": 0.03667998977222223,
+      "canary_hours": 0.01761634035574816,
+      "by_experiment_hours": {
+        "E2": 6.190119196486115,
+        "E2c": 0.08267510358611116
+      },
+      "raw_mb": 49.139085
+    }
+  ],
+  "total_hours": 6.327090630200196,
+  "total_raw_mb": 49.139085,
+  "assumptions": [
+    "probe medians from the trial (cold call excluded)",
+    "per-block fixed overhead 0.50 s (median of the trial)",
+    "raw data 2.50 bytes per sample row (trial average, gzip)",
+    "input-set generation per (algorithm, repetition) = key generation + P x (sign + verify) or P x (encaps + decaps)",
+    "repeats and diagnostic re-runs are not included"
+  ]
+}
