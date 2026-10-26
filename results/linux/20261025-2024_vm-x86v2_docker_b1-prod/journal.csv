@@ -1,0 +1,22 @@
+utc_ns,event,key,detail
+1792959898536923106,session_start,,session 1; host offset -36325113 ns
+1792959898735121211,e0,,e0-s1.json
+1792959900243475701,canary,,1 start ratio 1.00000 
+1792959900243871673,block_start,E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w2.r1.a1,window
+1792959903324755872,block_done,E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w2.r1.a1,
+1792959903325046562,block_start,E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w1.r1.a1,window
+1792959906346063113,block_done,E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w1.r1.a1,
+1792959906346366516,block_start,E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w2.r1.a1,window
+1792959909376118523,block_done,E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w2.r1.a1,
+1792959909376457070,block_start,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w2.r1.a1,window
+1792959912420013058,block_done,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w2.r1.a1,
+1792959912420337650,block_start,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w1.r1.a1,window
+1792959915456025400,block_done,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w1.r1.a1,
+1792959915456398965,block_start,E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w1.r1.a1,window
+1792959918505504535,block_done,E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w1.r1.a1,
+1792959918505897612,block_start,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w1.r1.a1,window
+1792959921531610473,block_done,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w1.r1.a1,
+1792959921531944662,block_start,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w2.r1.a1,window
+1792959924585366409,block_done,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w2.r1.a1,
+1792959926093242739,canary,,2 end ratio 0.98268 
+1792959926095444543,batch_done,,8 attempt(s)
