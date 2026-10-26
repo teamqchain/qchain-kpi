@@ -1,0 +1,166 @@
+[21:32:42] canary 1 (start): 2245991 hashes/s, ratio 0.9437 
+[21:33:17] 1/80 E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w2.r1.a1 throughput 6189.0/s, latency p50 276.48us p99 1.319ms (n=185671)
+[21:33:52] 2/80 E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w2.r1.a1 throughput 3253.1/s, latency p50 481.28us p99 2.638ms (n=97594)
+[21:34:27] 3/80 E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w1.r1.a1 throughput 1966.2/s, latency p50 456.70us p99 1.139ms (n=58986)
+[21:35:02] 4/80 E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w2.r1.a1 throughput 84.6/s, latency p50 23.462ms p99 27.918ms (n=2537)
+[21:35:37] 5/80 E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w1.r1.a1 throughput 42.5/s, latency p50 23.462ms p99 26.083ms (n=1274)
+[21:36:12] 6/80 E12.falcon-512+ml-kem-512.issuance-n10-v16-w2.r1.a1 throughput 461.2/s, latency p50 4.178ms p99 6.914ms (n=13835)
+[21:36:47] 7/80 E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w1.r1.a1 throughput 2201.8/s, latency p50 415.74us p99 856.06us (n=66054)
+[21:37:24] 8/80 E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w1.r1.a1 throughput 332.5/s, latency p50 2.998ms p99 3.850ms (n=9976)
+[21:37:59] 9/80 E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w1.r1.a1 throughput 3849.6/s, latency p50 250.88us p99 423.94us (n=115489)
+[21:38:34] 10/80 E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w1.r1.a1 throughput 3950.7/s, latency p50 244.74us p99 448.51us (n=118520)
+[21:39:09] 11/80 E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w2.r1.a1 throughput 2934.8/s, latency p50 544.77us p99 2.671ms (n=88045)
+[21:39:44] 12/80 E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w1.r1.a1 throughput 5996.4/s, latency p50 160.77us p99 264.19us (n=179892)
+[21:40:19] 13/80 E12.falcon-512+ml-kem-512.issuance-n10-v16-w1.r1.a1 throughput 254.2/s, latency p50 3.883ms p99 4.751ms (n=7625)
+[21:40:54] 14/80 E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w2.r1.a1 throughput 6980.3/s, latency p50 254.98us p99 995.33us (n=209409)
+[21:41:32] 15/80 E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w2.r1.a1 throughput 619.2/s, latency p50 3.097ms p99 5.407ms (n=18576)
+[21:42:08] 16/80 E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w2.r1.a1 throughput 10243.6/s, latency p50 173.06us p99 522.24us (n=307309)
+[21:42:43] 17/80 E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w2.r2.a1 throughput 10362.9/s, latency p50 171.01us p99 518.14us (n=310888)
+[21:42:45] canary 2 (periodic): 2374699 hashes/s, ratio 0.9978 
+[21:42:45] queued E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w1.r1.a2 (repeat:canary) at position 7
+[21:42:45] queued E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w2.r1.a2 (repeat:canary) at position 43
+[21:42:45] queued E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w1.r1.a2 (repeat:canary) at position 34
+[21:42:45] queued E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w2.r1.a2 (repeat:canary) at position 36
+[21:42:45] queued E12.falcon-512+ml-kem-512.issuance-n10-v16-w1.r1.a2 (repeat:canary) at position 45
+[21:42:45] queued E12.falcon-512+ml-kem-512.issuance-n10-v16-w2.r1.a2 (repeat:canary) at position 18
+[21:42:45] queued E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w1.r1.a2 (repeat:canary) at position 43
+[21:42:45] queued E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w1.r1.a2 (repeat:canary) at position 3
+[21:42:45] queued E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w2.r1.a2 (repeat:canary) at position 13
+[21:42:45] queued E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w1.r1.a2 (repeat:canary) at position 72
+[21:42:45] queued E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w2.r1.a2 (repeat:canary) at position 10
+[21:42:45] queued E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w1.r1.a2 (repeat:canary) at position 28
+[21:42:45] queued E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w2.r1.a2 (repeat:canary) at position 0
+[21:42:45] queued E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w1.r1.a2 (repeat:canary) at position 69
+[21:42:45] queued E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w2.r1.a2 (repeat:canary) at position 71
+[21:43:20] 18/95 E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w2.r1.a2 throughput 86.2/s, latency p50 22.938ms p99 28.180ms (n=2587)
+[21:43:55] 19/95 E12.falcon-512+ml-kem-512.issuance-n10-v16-w1.r2.a1 throughput 253.7/s, latency p50 3.916ms p99 4.489ms (n=7612)
+[21:44:33] 20/95 E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w2.r2.a1 throughput 625.5/s, latency p50 3.097ms p99 5.276ms (n=18764)
+[21:45:08] 21/95 E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w2.r2.a1 throughput 6716.5/s, latency p50 261.12us p99 1.237ms (n=201495)
+[21:45:43] 22/95 E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w1.r1.a2 throughput 2044.5/s, latency p50 440.32us p99 1.106ms (n=61335)
+[21:46:18] 23/95 E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w2.r2.a1 throughput 3337.7/s, latency p50 468.99us p99 2.572ms (n=100131)
+[21:46:53] 24/95 E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w1.r2.a1 throughput 3972.9/s, latency p50 244.74us p99 444.42us (n=119187)
+[21:47:28] 25/95 E12.falcon-512+ml-kem-512.issuance-n10-v16-w2.r2.a1 throughput 486.5/s, latency p50 3.949ms p99 6.521ms (n=14594)
+[21:48:04] 26/95 E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w2.r2.a1 throughput 7007.1/s, latency p50 254.98us p99 954.37us (n=210214)
+[21:48:39] 27/95 E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w1.r1.a2 throughput 2275.9/s, latency p50 403.46us p99 823.30us (n=68276)
+[21:49:14] 28/95 E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w2.r2.a1 throughput 2933.2/s, latency p50 544.77us p99 2.703ms (n=87996)
+[21:49:49] 29/95 E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w2.r1.a2 throughput 6490.9/s, latency p50 272.38us p99 1.270ms (n=194726)
+[21:50:24] 30/95 E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w1.r2.a1 throughput 2244.4/s, latency p50 411.65us p99 831.49us (n=67333)
+[21:50:59] 31/95 E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w1.r2.a1 throughput 5977.7/s, latency p50 160.77us p99 276.48us (n=179332)
+[21:51:36] 32/95 E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w1.r2.a1 throughput 333.0/s, latency p50 2.966ms p99 3.949ms (n=9989)
+[21:52:11] 33/95 E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w2.r1.a2 throughput 3010.2/s, latency p50 528.38us p99 2.605ms (n=90306)
+[21:52:46] 34/95 E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w1.r2.a1 throughput 43.6/s, latency p50 22.938ms p99 24.773ms (n=1309)
+[21:52:47] canary 3 (periodic): 2389115 hashes/s, ratio 1.0039 
+[21:52:47] queued E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w2.r1.a2 (repeat:canary) at position 41
+[21:52:47] queued E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w2.r2.a2 (repeat:canary) at position 0
+[21:53:23] 35/97 E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w2.r2.a2 throughput 10489.7/s, latency p50 168.96us p99 509.95us (n=314691)
+[21:53:58] 36/97 E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w2.r2.a1 throughput 86.4/s, latency p50 22.938ms p99 28.180ms (n=2592)
+[21:54:33] 37/97 E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w1.r2.a1 throughput 2039.0/s, latency p50 440.32us p99 1.106ms (n=61169)
+[21:55:08] 38/97 E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w1.r2.a1 throughput 3907.8/s, latency p50 248.83us p99 399.36us (n=117233)
+[21:55:43] 39/97 E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w2.r3.a1 throughput 3147.9/s, latency p50 509.95us p99 2.605ms (n=94436)
+[21:56:18] 40/97 E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w1.r3.a1 throughput 3653.3/s, latency p50 264.19us p99 468.99us (n=109600)
+[21:56:53] 41/97 E12.falcon-512+ml-kem-512.issuance-n10-v16-w2.r1.a2 throughput 489.1/s, latency p50 3.949ms p99 6.652ms (n=14674)
+[21:57:28] 42/97 E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w2.r3.a1 throughput 6381.2/s, latency p50 276.48us p99 1.237ms (n=191437)
+[21:58:03] 43/97 E12.falcon-512+ml-kem-512.issuance-n10-v16-w1.r3.a1 throughput 252.8/s, latency p50 3.883ms p99 4.948ms (n=7585)
+[21:58:38] 44/97 E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w1.r3.a1 throughput 1918.1/s, latency p50 468.99us p99 1.171ms (n=57544)
+[21:59:13] 45/97 E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w1.r3.a1 throughput 4030.6/s, latency p50 240.64us p99 428.03us (n=120917)
+[21:59:49] 46/97 E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w2.r3.a1 throughput 10473.5/s, latency p50 168.96us p99 528.38us (n=314204)
+[22:00:27] 47/97 E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w2.r3.a1 throughput 632.6/s, latency p50 3.064ms p99 5.210ms (n=18978)
+[22:01:02] 48/97 E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w1.r1.a2 throughput 43.5/s, latency p50 22.938ms p99 24.510ms (n=1304)
+[22:01:37] 49/97 E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w1.r3.a1 throughput 5835.0/s, latency p50 164.86us p99 276.48us (n=175049)
+[22:02:12] 50/97 E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w2.r3.a1 throughput 3373.8/s, latency p50 464.90us p99 2.572ms (n=101214)
+[22:02:47] 51/97 E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w2.r3.a1 throughput 6893.0/s, latency p50 259.07us p99 1.004ms (n=206789)
+[22:02:49] canary 4 (periodic): 2311333 hashes/s, ratio 0.9712 
+[22:03:24] 52/97 E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w1.r3.a1 throughput 42.4/s, latency p50 23.724ms p99 26.083ms (n=1272)
+[22:04:00] 53/97 E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w1.r3.a1 throughput 331.1/s, latency p50 2.998ms p99 3.424ms (n=9933)
+[22:04:35] 54/97 E12.falcon-512+ml-kem-512.issuance-n10-v16-w2.r3.a1 throughput 487.9/s, latency p50 3.981ms p99 6.324ms (n=14637)
+[22:05:10] 55/97 E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w1.r3.a1 throughput 2265.7/s, latency p50 407.55us p99 831.49us (n=67972)
+[22:05:45] 56/97 E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w2.r3.a1 throughput 86.6/s, latency p50 22.938ms p99 28.967ms (n=2598)
+[22:06:20] 57/97 E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w1.r4.a1 throughput 1945.3/s, latency p50 464.90us p99 1.139ms (n=58360)
+[22:06:56] 58/97 E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w2.r4.a1 throughput 2999.9/s, latency p50 528.38us p99 2.703ms (n=89996)
+[22:07:31] 59/97 E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w1.r1.a2 throughput 4007.2/s, latency p50 240.64us p99 436.22us (n=120215)
+[22:08:09] 60/97 E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w2.r4.a1 throughput 607.3/s, latency p50 3.129ms p99 6.128ms (n=18219)
+[22:08:44] 61/97 E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w2.r1.a2 throughput 6928.4/s, latency p50 254.98us p99 1.073ms (n=207851)
+[22:09:19] 62/97 E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w2.r4.a1 throughput 3337.8/s, latency p50 468.99us p99 2.605ms (n=100135)
+[22:09:54] 63/97 E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w2.r4.a1 throughput 86.4/s, latency p50 22.938ms p99 28.180ms (n=2593)
+[22:10:29] 64/97 E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w1.r4.a1 throughput 3716.7/s, latency p50 261.12us p99 432.13us (n=111501)
+[22:11:05] 65/97 E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w1.r4.a1 throughput 333.4/s, latency p50 2.998ms p99 3.588ms (n=10002)
+[22:11:40] 66/97 E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w2.r4.a1 throughput 6338.3/s, latency p50 276.48us p99 1.303ms (n=190148)
+[22:12:16] 67/97 E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w1.r1.a2 throughput 5848.0/s, latency p50 162.82us p99 288.77us (n=175441)
+[22:12:51] 68/97 E12.falcon-512+ml-kem-512.issuance-n10-v16-w1.r4.a1 throughput 253.7/s, latency p50 3.883ms p99 4.424ms (n=7611)
+[22:12:52] canary 5 (periodic): 2372996 hashes/s, ratio 0.9971 
+[22:13:28] 69/97 E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w1.r4.a1 throughput 5714.9/s, latency p50 166.91us p99 305.15us (n=171447)
+[22:14:03] 70/97 E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w2.r4.a1 throughput 6724.8/s, latency p50 264.19us p99 1.020ms (n=201744)
+[22:14:38] 71/97 E12.falcon-512+ml-kem-512.issuance-n10-v16-w1.r1.a2 throughput 255.5/s, latency p50 3.883ms p99 4.424ms (n=7666)
+[22:15:13] 72/97 E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w2.r1.a2 throughput 3308.0/s, latency p50 473.09us p99 2.572ms (n=99239)
+[22:15:48] 73/97 E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w1.r4.a1 throughput 3962.1/s, latency p50 242.69us p99 440.32us (n=118863)
+[22:16:23] 74/97 E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w1.r4.a1 throughput 42.6/s, latency p50 23.462ms p99 25.297ms (n=1278)
+[22:16:58] 75/97 E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w1.r4.a1 throughput 2188.9/s, latency p50 419.84us p99 864.26us (n=65666)
+[22:17:33] 76/97 E12.falcon-512+ml-kem-512.issuance-n10-v16-w2.r4.a1 throughput 471.1/s, latency p50 4.145ms p99 6.324ms (n=14134)
+[22:18:09] 77/97 E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w2.r1.a2 throughput 10118.9/s, latency p50 173.06us p99 544.77us (n=303567)
+[22:18:44] 78/97 E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w2.r4.a1 throughput 10199.1/s, latency p50 173.06us p99 536.58us (n=305974)
+[22:19:19] 79/97 E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w1.r5.a1 throughput 1995.8/s, latency p50 448.51us p99 1.139ms (n=59875)
+[22:19:54] 80/97 E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w1.r5.a1 throughput 44.1/s, latency p50 22.413ms p99 27.656ms (n=1323)
+[22:20:30] 81/97 E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w2.r5.a1 throughput 9987.2/s, latency p50 177.15us p99 552.96us (n=299617)
+[22:21:05] 82/97 E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w1.r5.a1 throughput 2147.8/s, latency p50 423.94us p99 921.60us (n=64433)
+[22:21:40] 83/97 E12.falcon-512+ml-kem-512.issuance-n10-v16-w1.r5.a1 throughput 249.8/s, latency p50 4.014ms p99 5.079ms (n=7495)
+[22:22:15] 84/97 E12.falcon-512+ml-kem-512.issuance-n10-v16-w2.r5.a1 throughput 474.1/s, latency p50 4.112ms p99 6.586ms (n=14223)
+[22:22:53] 85/97 E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w2.r5.a1 throughput 617.5/s, latency p50 3.129ms p99 5.472ms (n=18524)
+[22:22:54] canary 6 (periodic): 2426171 hashes/s, ratio 1.0194 
+[22:23:29] 86/97 E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w1.r5.a1 throughput 3759.7/s, latency p50 259.07us p99 419.84us (n=112790)
+[22:24:06] 87/97 E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w1.r5.a1 throughput 330.3/s, latency p50 2.966ms p99 4.424ms (n=9910)
+[22:24:41] 88/97 E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w2.r5.a1 throughput 86.8/s, latency p50 22.938ms p99 27.918ms (n=2605)
+[22:25:17] 89/97 E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w1.r1.a2 throughput 328.7/s, latency p50 2.998ms p99 4.145ms (n=9860)
+[22:25:53] 90/97 E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w1.r5.a1 throughput 5700.6/s, latency p50 166.91us p99 296.96us (n=171018)
+[22:26:31] 91/97 E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w2.r1.a2 throughput 610.7/s, latency p50 3.162ms p99 5.276ms (n=18320)
+[22:27:06] 92/97 E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w2.r5.a1 throughput 3198.2/s, latency p50 485.38us p99 2.671ms (n=95946)
+[22:27:41] 93/97 E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w2.r5.a1 throughput 6572.8/s, latency p50 268.29us p99 1.090ms (n=197183)
+[22:28:16] 94/97 E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w1.r5.a1 throughput 3873.2/s, latency p50 246.78us p99 468.99us (n=116195)
+[22:28:51] 95/97 E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w2.r5.a1 throughput 2894.0/s, latency p50 552.96us p99 2.703ms (n=86819)
+[22:29:26] 96/97 E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w2.r5.a1 throughput 6291.7/s, latency p50 280.58us p99 1.270ms (n=188752)
+[22:30:01] 97/97 E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w1.r1.a2 throughput 3608.9/s, latency p50 268.29us p99 460.80us (n=108268)
+[22:30:03] canary 7 (end): 2524543 hashes/s, ratio 1.0608 
+[22:30:53] queued E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w2.r5.a2 (repeat:canary) at position 0
+[22:30:53] queued E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w1.r5.a2 (repeat:canary) at position 0
+[22:30:53] queued E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w2.r5.a2 (repeat:canary) at position 2
+[22:30:53] queued E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w1.r5.a2 (repeat:canary) at position 0
+[22:30:53] queued E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w2.r5.a2 (repeat:canary) at position 1
+[22:30:53] queued E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w1.r1.a3 (repeat:canary) at position 1
+[22:30:53] queued E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w1.r5.a2 (repeat:canary) at position 4
+[22:30:53] queued E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w2.r5.a2 (repeat:canary) at position 5
+[22:30:53] queued E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w2.r5.a2 (repeat:canary) at position 2
+[22:30:53] queued E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w1.r1.a3 (repeat:canary) at position 6
+[22:30:53] queued E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w1.r5.a2 (repeat:canary) at position 3
+[22:30:53] queued E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w2.r1.a3 (repeat:canary) at position 10
+[22:31:28] 98/109 E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w1.r5.a2 throughput 5793.0/s, latency p50 162.82us p99 313.34us (n=173789)
+[22:32:03] 99/109 E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w1.r1.a3 throughput 3687.3/s, latency p50 259.07us p99 481.28us (n=110620)
+[22:32:38] 100/109 E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w2.r5.a2 throughput 85.2/s, latency p50 23.200ms p99 28.443ms (n=2555)
+[22:33:15] 101/109 E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w1.r5.a2 throughput 331.5/s, latency p50 2.998ms p99 4.358ms (n=9944)
+[22:33:50] 102/109 E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w2.r5.a2 throughput 2844.9/s, latency p50 561.15us p99 2.736ms (n=85346)
+[22:34:25] 103/109 E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w1.r5.a2 throughput 3992.6/s, latency p50 240.64us p99 464.90us (n=119778)
+[22:35:00] 104/109 E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w1.r5.a2 throughput 3669.8/s, latency p50 264.19us p99 444.42us (n=110093)
+[22:35:36] 105/109 E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w1.r1.a3 throughput 338.8/s, latency p50 2.933ms p99 4.358ms (n=10165)
+[22:36:11] 106/109 E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w2.r5.a2 throughput 6260.0/s, latency p50 272.38us p99 1.516ms (n=187800)
+[22:36:46] 107/109 E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w2.r5.a2 throughput 3079.8/s, latency p50 477.18us p99 2.769ms (n=92394)
+[22:37:24] 108/109 E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w2.r1.a3 throughput 579.6/s, latency p50 3.195ms p99 7.045ms (n=17389)
+[22:37:59] 109/109 E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w2.r5.a2 throughput 6364.8/s, latency p50 264.19us p99 2.212ms (n=190945)
+[22:38:01] canary 8 (end): 2473968 hashes/s, ratio 1.0395 
+[22:38:56] queued E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w2.r5.a3 (repeat:canary) at position 0
+[22:38:56] queued E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w1.r5.a3 (repeat:canary) at position 1
+[22:38:56] queued E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w2.r5.a3 (repeat:canary) at position 2
+[22:38:56] queued E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w1.r5.a3 (repeat:canary) at position 0
+[22:38:56] queued E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w2.r5.a3 (repeat:canary) at position 1
+[22:38:56] queued E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w1.r5.a3 (repeat:canary) at position 4
+[22:38:56] queued E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w2.r5.a3 (repeat:canary) at position 1
+[22:38:56] queued E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w2.r5.a3 (repeat:canary) at position 4
+[22:38:56] queued E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w1.r5.a3 (repeat:canary) at position 5
+[22:39:31] 110/118 E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w1.r5.a3 throughput 5822.7/s, latency p50 164.86us p99 280.58us (n=174681)
+[22:40:06] 111/118 E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w2.r5.a3 throughput 6055.9/s, latency p50 284.67us p99 1.384ms (n=181676)
+[22:40:41] 112/118 E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w2.r5.a3 throughput 2959.6/s, latency p50 544.77us p99 2.703ms (n=88788)
+[22:41:16] 113/118 E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w2.r5.a3 throughput 3213.2/s, latency p50 485.38us p99 2.638ms (n=96397)
+[22:41:52] 114/118 E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w2.r5.a3 throughput 87.6/s, latency p50 22.675ms p99 27.132ms (n=2627)
+[22:42:28] 115/118 E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w1.r5.a3 throughput 327.7/s, latency p50 2.998ms p99 4.489ms (n=9831)
+[22:43:03] 116/118 E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w1.r5.a3 throughput 3916.1/s, latency p50 246.78us p99 452.61us (n=117483)
+[22:43:38] 117/118 E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w1.r5.a3 throughput 3591.6/s, latency p50 268.29us p99 460.80us (n=107747)
+[22:44:13] 118/118 E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w2.r5.a3 throughput 6326.0/s, latency p50 280.58us p99 1.171ms (n=189781)
+[22:44:15] canary 9 (end): 2317527 hashes/s, ratio 0.9738 
+[22:44:55] batch complete: 118 attempt(s); 285 file(s) in SHA256SUMS
