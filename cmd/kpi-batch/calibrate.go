@@ -39,8 +39,12 @@ func cmdCalibrate(args []string) error {
 	fs := flag.NewFlagSet("calibrate", flag.ContinueOnError)
 	dir := fs.String("run", "", "trial run folder")
 	machine := fs.String("machine", "", "machine id")
+	ref := fs.String("canary-reference", canaryRefFirst, "canary reference: \""+canaryRefFirst+"\" (the batch's first canary, the Mac) or \""+canaryRefMedian+"\" (a fixed reference: the median canary of the trial, for a machine whose first canary is too random)")
 	if err := fs.Parse(args); err != nil {
 		return err
+	}
+	if *ref != canaryRefFirst && *ref != canaryRefMedian {
+		return fmt.Errorf("calibrate: --canary-reference must be %q or %q", canaryRefFirst, canaryRefMedian)
 	}
 	if *dir == "" || *machine == "" {
 		return errors.New("calibrate: --run and --machine are required")
@@ -49,7 +53,7 @@ func cmdCalibrate(args []string) error {
 	if err != nil {
 		return err
 	}
-	cal, err := calibrate(*dir, *machine, th)
+	cal, err := calibrateWith(*dir, *machine, th, *ref)
 	if err != nil {
 		return err
 	}
@@ -164,7 +168,17 @@ func timerResolution(dir string) (float64, error) {
 	return float64(e.Clock.EffectiveResNS), nil
 }
 
+// Canary references of a machine's calibration (kpi-batch calibrate --canary-reference).
+const (
+	canaryRefFirst  = "first"  // the batch's first canary (the Mac)
+	canaryRefMedian = "median" // the median canary of the trial, fixed (the VM, decision of 26 Oct)
+)
+
 func calibrate(dir, machine string, trialTH *quality.Machine) (*Calibration, error) {
+	return calibrateWith(dir, machine, trialTH, canaryRefFirst)
+}
+
+func calibrateWith(dir, machine string, trialTH *quality.Machine, canaryRef string) (*Calibration, error) {
 	st, err := loadState(dir)
 	if err != nil {
 		return nil, err
@@ -256,7 +270,19 @@ func calibrate(dir, machine string, trialTH *quality.Machine) (*Calibration, err
 	for i, c := range canaries {
 		rates[i] = c.MedianRate
 	}
-	sd, clim := quality.CanaryFromTrial(rates)
+	var sd, clim float64
+	if canaryRef == canaryRefMedian {
+		ref, rsd, rlim := quality.CanaryFromTrialRef(rates)
+		sd, clim = rsd, rlim
+		if ref > 0 {
+			m.CanaryRef = ref
+			m.Inputs["canary_ref_rate"] = ref
+		} else {
+			cal.Notes = append(cal.Notes, "fewer than 3 canaries: no fixed canary reference; the batch's first canary is used")
+		}
+	} else {
+		sd, clim = quality.CanaryFromTrial(rates)
+	}
 	m.CanaryFrac = clim
 	if finite(sd) {
 		m.Inputs["canary_robust_sd"] = sd

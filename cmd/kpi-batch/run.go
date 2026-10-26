@@ -633,7 +633,7 @@ func (b *batch) canary(reason string) error {
 	if b.st.FirstCanary == 0 {
 		b.st.FirstCanary = r.MedianRate
 	}
-	rec := canaryRec{Seq: b.st.CanarySeq, Reason: reason, CanaryResult: r, Ratio: r.MedianRate / b.st.FirstCanary}
+	rec := canaryRec{Seq: b.st.CanarySeq, Reason: reason, CanaryResult: r, Ratio: r.MedianRate / b.th.CanaryReference(b.st.FirstCanary)}
 	if b.sess.NativeP > 0 && b.sess.NativeE > 0 {
 		if r.MedianRate >= math.Sqrt(b.sess.NativeP*b.sess.NativeE) {
 			rec.Core = "P-like"

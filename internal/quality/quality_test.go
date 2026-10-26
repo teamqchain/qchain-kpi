@@ -104,6 +104,41 @@ func TestCalibrationFormulas(t *testing.T) {
 	}
 }
 
+// TestCanaryFixedReference: the canaries of the VM's trial (26 Oct) ran from
+// 2.31 to 2.45 million hashes per second, and the first, which the Mac's rule
+// compares every later one with, was the highest. Against the trial's median
+// none is out of limit, and the first-canary rule would have flagged several.
+func TestCanaryFixedReference(t *testing.T) {
+	rates := []float64{2.45e6, 2.36e6, 2.41e6, 2.39e6, 2.34e6, 2.39e6, 2.31e6, 2.39e6, 2.31e6, 2.38e6, 2.38e6, 2.41e6, 2.37e6, 2.41e6, 2.45e6, 2.36e6, 2.36e6}
+	ref, sd, lim := CanaryFromTrialRef(rates)
+	if math.Abs(ref-2.38e6) > 1 || !(sd > 0) || lim < DefaultCanaryFrac {
+		t.Fatalf("ref %v sd %v limit %v", ref, sd, lim)
+	}
+	for _, r := range rates {
+		if math.Abs(r/ref-1) > lim {
+			t.Fatalf("canary %v is %.3f off the reference, limit %.3f", r, r/ref-1, lim)
+		}
+	}
+	_, flim := CanaryFromTrial(rates)
+	out := 0
+	for _, r := range rates[1:] {
+		if math.Abs(r/rates[0]-1) > flim {
+			out++
+		}
+	}
+	if out < 3 {
+		t.Fatalf("the first-canary rule flagged only %d of %d canaries (limit %.3f)", out, len(rates)-1, flim)
+	}
+	if _, sd, lim := func() (float64, float64, float64) { return CanaryFromTrialRef([]float64{1, 2}) }(); !math.IsNaN(sd) || lim != DefaultCanaryFrac {
+		t.Fatalf("two canaries: sd %v limit %v", sd, lim)
+	}
+	// The reference a batch uses: the machine's fixed one, else its first canary.
+	var none *Machine
+	if (&Machine{CanaryRef: 2.38e6}).CanaryReference(2.45e6) != 2.38e6 || (&Machine{}).CanaryReference(2.45e6) != 2.45e6 || none.CanaryReference(7) != 7 {
+		t.Fatal("canary reference")
+	}
+}
+
 // TestCommittedThresholdsFile checks config/thresholds.json: it parses, it
 // carries the formulas implemented here, and every calibrated section is
 // complete (a main run would refuse an incomplete one anyway).

@@ -40,6 +40,11 @@ type Machine struct {
 	// as fast or slow: experiment -> trial run id. E11 main runs need "E11".
 	ClassCalibratedFrom map[string]string `json:"class_calibrated_from,omitempty"`
 	Inputs              map[string]float64 `json:"calibration_inputs,omitempty"` // d95, canary robust SD, A/A floors
+	// CanaryRef is a fixed reference canary rate (hashes per second) for a
+	// machine whose first canary of a batch is too random to serve as one (the
+	// shared VM: the first canary of its trial was 3 % above its median). 0 = the
+	// batch's first canary, as on the Mac.
+	CanaryRef float64 `json:"canary_ref_rate,omitempty"`
 }
 
 // File is config/thresholds.json.
@@ -51,7 +56,8 @@ type File struct {
 
 // FormulaText is recorded in the file so the rules travel with the numbers.
 const FormulaText = "drift_frac = max(0.03, 2*d95) where d95 = 95th percentile of |rep median / median of rep medians - 1| over all trial (alg,op) cells; " +
-	"canary_frac = max(0.03, 3*robustSD(canary_t/canary_first - 1)); " +
+	"canary_frac = max(0.03, 3*robustSD(canary_t/canary_first - 1)), " +
+	"or, for a machine whose section has canary_ref_rate, canary_ref_rate = the median canary of its trial and canary_frac = max(0.03, 3*robustSD(canary_t/canary_ref_rate - 1)); " +
 	"e10_margin[set] = max(0.02, 2*F) where F = |mean| + 90% t-half-width of the per-rep log(median issuer / median issuer-again); " +
 	"classification = fast if the probe median < 1 ms, else slow; " +
 	"batch[alg/op/arm] = ceil(100 * effective timer resolution / probe median) when the probe median is below 100x the resolution, else 1; " +
@@ -136,6 +142,34 @@ func CanaryFromTrial(rates []float64) (sd, limit float64) {
 	}
 	sd = stats.RobustSD(devs)
 	return sd, math.Max(DefaultCanaryFrac, 3*sd)
+}
+
+// CanaryFromTrialRef is CanaryFromTrial against a fixed reference: the median
+// canary of the trial. It returns the reference, the robust SD of the
+// deviations from it and the limit.
+func CanaryFromTrialRef(rates []float64) (ref, sd, limit float64) {
+	if len(rates) < 3 {
+		return 0, math.NaN(), DefaultCanaryFrac
+	}
+	ref = stats.Median(rates)
+	if ref <= 0 {
+		return 0, math.NaN(), DefaultCanaryFrac
+	}
+	devs := make([]float64, len(rates))
+	for i, r := range rates {
+		devs[i] = r/ref - 1
+	}
+	sd = stats.RobustSD(devs)
+	return ref, sd, math.Max(DefaultCanaryFrac, 3*sd)
+}
+
+// CanaryReference is the rate a canary is compared with: the machine's fixed
+// reference when it has one, else the batch's first canary.
+func (m *Machine) CanaryReference(first float64) float64 {
+	if m != nil && m.CanaryRef > 0 {
+		return m.CanaryRef
+	}
+	return first
 }
 
 // AAFloor computes F from per-rep medians of the two identical issuer arms.

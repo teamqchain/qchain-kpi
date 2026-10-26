@@ -80,6 +80,34 @@ func trialFolder(t *testing.T) string {
 	return dir
 }
 
+// TestCalibrateFixedCanaryReference: with --canary-reference median the
+// calibration stores the median canary of the trial as the machine's fixed
+// reference; by default (the Mac) it stores none.
+func TestCalibrateFixedCanaryReference(t *testing.T) {
+	dir := trialFolder(t)
+	first, err := calibrate(dir, "mac-m1", quality.Defaults())
+	if err != nil {
+		t.Fatal(err)
+	}
+	if first.Thresholds.CanaryRef != 0 || first.Thresholds.Inputs["canary_ref_rate"] != 0 {
+		t.Fatalf("the default keeps the first-canary rule: %+v", first.Thresholds)
+	}
+	med, err := calibrateWith(dir, "mac-m1", quality.Defaults(), canaryRefMedian)
+	if err != nil {
+		t.Fatal(err)
+	}
+	m := med.Thresholds
+	if math.Abs(m.CanaryRef-2.5e6) > 1e4 || m.Inputs["canary_ref_rate"] != m.CanaryRef || m.CanaryFrac < quality.DefaultCanaryFrac {
+		t.Fatalf("fixed reference: %+v", m)
+	}
+	if m.DriftFrac != first.Thresholds.DriftFrac || len(m.Class) != len(first.Thresholds.Class) {
+		t.Fatal("only the canary part may differ")
+	}
+	if _, err := json.Marshal(med); err != nil {
+		t.Fatal(err)
+	}
+}
+
 func TestCalibrateAndEstimate(t *testing.T) {
 	dir := trialFolder(t)
 	cal, err := calibrate(dir, "mac-m1", quality.Defaults())

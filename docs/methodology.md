@@ -160,7 +160,7 @@ Each attempt gets external-cause flags:
 | `quota` | CPU-quota throttling of the container (`nr_throttled` > 0) |
 | `thermal` | Mac: thermal pressure above nominal. Windows: the processor's `% Performance Limit`, or a thermal zone's `% Passive Limit`, below 100. The VM reports none. |
 | `battery`, `alert` | on battery (Mac, Windows); alert: Low Power Mode on (Mac); Energy Saver on or a container that is not ours (Windows); a container that is not ours, MySQL, IPFS or the GitHub Actions runner (VM) |
-| `canary` | the canary just before or just after the block deviates from the batch's first canary by more than C_m |
+| `canary` | the canary just before or just after the block deviates by more than C_m from the batch's first canary (the Mac) or, on a machine whose thresholds have `canary_ref_rate` (the VM), from that fixed reference: the median canary of the machine's trial |
 | `core` | Mac: that canary ran at efficiency-core speed. It is compared with the native references measured at the start of every session: the plain run gives the P-core reference, `taskpolicy -b` the E-core reference, and the threshold is their geometric mean. |
 | `host_missing` | trial and main: no host-monitor sample covers the block |
 
@@ -181,7 +181,7 @@ Each attempt gets external-cause flags:
 
 The formulas are fixed in code (`quality.FormulaText`) and committed before any trial:
 - **D_m** = max(3 %, 2 × d95), where d95 is the 95th percentile of |repetition median ÷ median of the cell's repetition medians − 1| over the trial's E1 cells.
-- **C_m** = max(3 %, 3 × robust SD of the trial's canary deviations).
+- **C_m** = max(3 %, 3 × robust SD of the trial's canary deviations from the batch's first canary). **For a machine whose first canary is too random to be a reference (the VM, decision of 26 Oct)** the calibration (`kpi-batch calibrate --canary-reference median`) stores the median canary of the trial as the fixed reference `canary_ref_rate`, and C_m = max(3 %, 3 × robust SD of the deviations from it). Every later canary of that machine is compared with that one number.
 - **E10 margin per parameter set** = max(2 %, 2F), where F = |mean| + the 90 % t half-width of the per-repetition log(issuer median ÷ issuer-again median).
 - **Fast/slow classification:** from the probe pass.
 - **Batch sizes:** from the probe medians and E0's timer resolution.
