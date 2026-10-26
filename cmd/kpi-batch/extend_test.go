@@ -158,3 +158,35 @@ func TestExtensionAttemptIsNotQueuedTwice(t *testing.T) {
 		}
 	}
 }
+
+// TestE12BlockIDsCanBeExtended: E12's ids carry a suite ("sig+kem") and a worker
+// count ("-w1"). The first extension of the VM's E12 run (26 Oct) was refused
+// because the pattern did not know them; these are its three blocks.
+func TestE12BlockIDsCanBeExtended(t *testing.T) {
+	for _, id := range []string{
+		"E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w1.r1",
+		"E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w1.r1",
+		"E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w2.r1",
+		"E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w4.r5",
+	} {
+		if !blockIDPattern.MatchString(id) {
+			t.Fatalf("%s not accepted", id)
+		}
+	}
+	for _, id := range []string{"E12.ml-dsa-44.verification-n10-k5-v16-w1.r1", "probe-E12.a+b.x-w1.r1", "E12.a+b.verification-n10-k5-v16-w1"} {
+		if blockIDPattern.MatchString(id) {
+			t.Fatalf("%s accepted", id)
+		}
+	}
+}
+
+// An extended block starts with an empty mode and gets it when it runs, as
+// every repeat does: E12's is its fixed window (it has no fast/slow class).
+func TestExtendedE12BlockGetsTheWindowMode(t *testing.T) {
+	b, _ := finishedRun(t)
+	bl := plan.Block{ID: "E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w1.r1", Exp: "E12", Alg: "ml-dsa-44+ml-kem-768",
+		Op: "verification-n10-k5-v16-w1", Rep: 1, Attempt: 4, Profile: plan.ProfileApproved}
+	if m, err := b.modeFor(bl); err != nil || m != "window" {
+		t.Fatalf("mode %q (%v), want window", m, err)
+	}
+}

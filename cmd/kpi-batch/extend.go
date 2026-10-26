@@ -21,7 +21,7 @@ import (
 // run was made with; the launcher checks that with git before it starts, and
 // the image and harness commit are then allowed to differ (both are recorded).
 
-var blockIDPattern = regexp.MustCompile(`^(E1|E10|E2|E2c|E7|E3|E4|E5)\.([a-z0-9-]+)\.([a-z]+)\.r([0-9]+)$|^E6\.([a-z0-9-]+)\.((sign|verify)-m[0-9]+)\.r([0-9]+)$|^E11\.([a-z0-9-]+(\+[a-z0-9-]+)?)\.([a-z]+(-[nkv][0-9]+)*)\.r([0-9]+)$`)
+var blockIDPattern = regexp.MustCompile(`^(E1|E10|E2|E2c|E7|E3|E4|E5)\.([a-z0-9-]+)\.([a-z]+)\.r([0-9]+)$|^E6\.([a-z0-9-]+)\.((sign|verify)-m[0-9]+)\.r([0-9]+)$|^E11\.([a-z0-9-]+(\+[a-z0-9-]+)?)\.([a-z]+(-[nkv][0-9]+)*)\.r([0-9]+)$|^E12\.([a-z0-9-]+\+[a-z0-9-]+)\.([a-z]+(-[nkvw][0-9]+)*)\.r([0-9]+)$`)
 
 // withoutBuild returns an identity whose image and harness commit are those of
 // the saved batch, so that only the other differences count.
