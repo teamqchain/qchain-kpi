@@ -1,0 +1,28 @@
+ok  	qchain-kpi/cmd/kpi-batch	0.132s
+?   	qchain-kpi/cmd/kpi-canary-native	[no test files]
+?   	qchain-kpi/cmd/kpi-env	[no test files]
+ok  	qchain-kpi/cmd/kpi-prim	95.758s
+ok  	qchain-kpi/internal/algs	0.003s
+?   	qchain-kpi/internal/buildinfo	[no test files]
+?   	qchain-kpi/internal/canary	[no test files]
+ok  	qchain-kpi/internal/cells	0.005s
+ok  	qchain-kpi/internal/classical	1.202s
+ok  	qchain-kpi/internal/conc	3.238s
+ok  	qchain-kpi/internal/flow	5.823s
+ok  	qchain-kpi/internal/gostd	0.872s
+?   	qchain-kpi/internal/inputs	[no test files]
+ok  	qchain-kpi/internal/l0	0.013s
+ok  	qchain-kpi/internal/ledger	0.016s
+ok  	qchain-kpi/internal/memprobe	0.077s
+ok  	qchain-kpi/internal/plan	0.223s
+ok  	qchain-kpi/internal/pqc	7.106s
+?   	qchain-kpi/internal/procsetup	[no test files]
+?   	qchain-kpi/internal/proto	[no test files]
+ok  	qchain-kpi/internal/qchain	2.149s
+ok  	qchain-kpi/internal/quality	0.005s
+ok  	qchain-kpi/internal/record	0.007s
+?   	qchain-kpi/internal/scheme	[no test files]
+ok  	qchain-kpi/internal/stats	0.011s
+ok  	qchain-kpi/internal/timing	0.096s
+ok  	qchain-kpi/internal/flow	3.085s
+ok  	qchain-kpi/internal/conc	4.232s
