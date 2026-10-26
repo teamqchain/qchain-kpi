@@ -173,3 +173,54 @@ func TestCalibrateAndEstimate(t *testing.T) {
 		t.Fatalf("estimate.json: %v", err)
 	}
 }
+
+// TestCommittedThresholdsCoverMainPlans: the thresholds committed for each
+// machine accept every main plan of that machine's plan folder, the guard a
+// main run applies first (a refusal would only show on the machine itself).
+// The control: the VM's section has no classification for the 490 cells of E11's
+// all-pairs sweep, so the Mac's full E11 plan is refused. (Its full E2 plan is
+// accepted: SLH-DSA's operations take milliseconds and need no batch sizes.)
+func TestCommittedThresholdsCoverMainPlans(t *testing.T) {
+	f, err := quality.Load(filepath.Join("..", "..", "config", "thresholds.json"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	for _, c := range []struct{ machine, folder string }{{"mac-m1", "mac"}, {"vm-x86v2", "vm"}} {
+		th, ok := f.For(c.machine)
+		if !ok {
+			t.Fatalf("no thresholds for %s", c.machine)
+		}
+		files, _ := filepath.Glob(filepath.Join("..", "..", "plans", c.folder, "*.json"))
+		mains := 0
+		for _, file := range files {
+			p, err := plan.Load(file)
+			if err != nil {
+				t.Fatal(err)
+			}
+			if p.Kind != plan.KindMain {
+				continue
+			}
+			blocks, err := plan.Expand(p, 1)
+			if err != nil {
+				t.Fatal(err)
+			}
+			mains++
+			b := &batch{th: th}
+			if err := b.thresholdsCover(c.machine, blocks); err != nil {
+				t.Errorf("%s/%s: %v", c.folder, p.Name, err)
+			}
+		}
+		if mains < 5 {
+			t.Fatalf("%s: only %d main plans found", c.folder, mains)
+		}
+	}
+	vm, _ := f.For("vm-x86v2")
+	p, err := plan.Load(filepath.Join("..", "..", "plans", "mac", "e11.json"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	blocks, _ := plan.Expand(p, 1)
+	if err := (&batch{th: vm}).thresholdsCover("vm-x86v2", blocks); err == nil {
+		t.Error("the VM's thresholds accepted the Mac's full E11 plan")
+	}
+}

@@ -160,43 +160,20 @@ func newBatch(c runConfig) (*batch, int, error) {
 	if err := e5PlatformCheck(blocks, runtime.GOOS); err != nil {
 		return nil, exitRefused, err
 	}
-	needE2Batch, needE11Class, needE6Class, needE7Batch := false, false, false, false
 	for _, bl := range blocks {
 		if proto.Measured(bl.Exp) {
 			b.cellReps[bl.Cell()]++
 		}
-		if bl.Exp == "E2" || bl.Exp == "E2c" {
-			needE2Batch = true
-		}
-		if bl.Exp == "E11" {
-			needE11Class = true
-		}
 		if bl.Exp == "E6" || bl.Exp == "probe-E6" {
 			b.e6Algs[bl.Alg] = true
-			needE6Class = needE6Class || bl.Exp == "E6"
-		}
-		if bl.Exp == "E7" {
-			needE7Batch = true
 		}
 		if bl.Exp == "E10" {
 			b.e10Algs[bl.Alg] = true
 		}
 	}
 	if p.Kind == plan.KindMain {
-		if missing := b.missingClassification(blocks); len(missing) > 0 {
-			return nil, exitRefused, fmt.Errorf("run: thresholds for %s lack the classification of %s", c.Machine, strings.Join(missing, ", "))
-		}
-		if needE2Batch && th.BatchCalibratedFrom["E2"] == "" {
-			return nil, exitRefused, fmt.Errorf("run: thresholds for %s have no E2 batch sizes; run the trial-e2 plan and merge its calibration first", c.Machine)
-		}
-		if needE11Class && th.ClassCalibratedFrom["E11"] == "" {
-			return nil, exitRefused, fmt.Errorf("run: thresholds for %s have no E11 classification; run the trial-e11 plan and merge its calibration first", c.Machine)
-		}
-		if needE6Class && th.ClassCalibratedFrom["E6"] == "" {
-			return nil, exitRefused, fmt.Errorf("run: thresholds for %s have no E6 classification; run the trial-e6 plan and merge its calibration first", c.Machine)
-		}
-		if needE7Batch && th.BatchCalibratedFrom["E7"] == "" {
-			return nil, exitRefused, fmt.Errorf("run: thresholds for %s have no E7 batch sizes; run the trial-e7 plan and merge its calibration first", c.Machine)
+		if err := b.thresholdsCover(c.Machine, blocks); err != nil {
+			return nil, exitRefused, err
 		}
 	}
 
@@ -412,6 +389,43 @@ func readTrim(path string) string {
 		return ""
 	}
 	return strings.TrimSpace(string(b))
+}
+
+// thresholdsCover refuses a main plan whose cells the machine's thresholds do
+// not cover: every cell classified, and the add-on calibration (E2 and E2c batch
+// sizes, E11 and E6 classification, E7 batch sizes) done for each experiment
+// the plan contains.
+func (b *batch) thresholdsCover(machine string, blocks []plan.Block) error {
+	th := b.th
+	needE2Batch, needE11Class, needE6Class, needE7Batch := false, false, false, false
+	for _, bl := range blocks {
+		switch bl.Exp {
+		case "E2", "E2c":
+			needE2Batch = true
+		case "E11":
+			needE11Class = true
+		case "E6":
+			needE6Class = true
+		case "E7":
+			needE7Batch = true
+		}
+	}
+	if missing := b.missingClassification(blocks); len(missing) > 0 {
+		return fmt.Errorf("run: thresholds for %s lack the classification of %s", machine, strings.Join(missing, ", "))
+	}
+	if needE2Batch && th.BatchCalibratedFrom["E2"] == "" {
+		return fmt.Errorf("run: thresholds for %s have no E2 batch sizes; run the trial-e2 plan and merge its calibration first", machine)
+	}
+	if needE11Class && th.ClassCalibratedFrom["E11"] == "" {
+		return fmt.Errorf("run: thresholds for %s have no E11 classification; run the trial-e11 plan and merge its calibration first", machine)
+	}
+	if needE6Class && th.ClassCalibratedFrom["E6"] == "" {
+		return fmt.Errorf("run: thresholds for %s have no E6 classification; run the trial-e6 plan and merge its calibration first", machine)
+	}
+	if needE7Batch && th.BatchCalibratedFrom["E7"] == "" {
+		return fmt.Errorf("run: thresholds for %s have no E7 batch sizes; run the trial-e7 plan and merge its calibration first", machine)
+	}
+	return nil
 }
 
 // missingClassification lists the cells a main plan needs but the thresholds lack.
