@@ -1,0 +1,5 @@
+11 container(s) running; none may run during a batch (QChain's are stopped for the study)
+MySQL is running (QChain's services are stopped for the study)
+IPFS is running (QChain's services are stopped for the study)
+the GitHub Actions runner is running (it is stopped for the study)
+note: machine busy 9%, steal 0% over 6 s before the session
