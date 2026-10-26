@@ -13,3 +13,7 @@
 | 20261026-0232_vm-x86v2_docker_b1-prod | trial | trial | done | 344 | 191 | 7e04c44c70a6 | 6735559356119093625 |
 | 20261026-0551_vm-x86v2_docker_b1-prod | trial-e2-noslh | trial | done | 54 |  | ac343efb1af3 | 8661384463836354174 |
 | 20261026-0553_vm-x86v2_docker_b1-prod | trial-e11-curated | trial | done | 501 |  | ac343efb1af3 | 14780269886594766044 |
+| 20261026-0852_vm-x86v2_docker_b1-prod | e1 | main | done | 572 | 110 | f76f6b27cc22 | 3697168618303102226 |
+| 20261026-1602_vm-x86v2_docker_b1-prod | e10 | main | done | 15 |  | f76f6b27cc22 | 6156447823245606557 |
+| 20261026-1608_vm-x86v2_docker_b1-prod | e9 | main | done | 1350 |  | f76f6b27cc22 | 5813189203849845328 |
+| 20261026-1732_vm-x86v2_docker_b1-prod | e12-vm | main | done | 118 | 41 | f76f6b27cc22 | 8144778156443302880 |
