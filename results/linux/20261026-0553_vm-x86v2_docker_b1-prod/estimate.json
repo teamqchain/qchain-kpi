@@ -1,0 +1,27 @@
+{
+  "machine": "vm-x86v2",
+  "trial_run": "20261026-0553_vm-x86v2_docker_b1-prod",
+  "plans": [
+    {
+      "plan": "e11-curated",
+      "file": "e11-curated.json",
+      "blocks": 2505,
+      "hours": 9.302142626957401,
+      "prep_hours": 0,
+      "canary_hours": 0.02562626585183706,
+      "by_experiment_hours": {
+        "E11": 9.276516361105548
+      },
+      "raw_mb": 20.39297
+    }
+  ],
+  "total_hours": 9.302142626957401,
+  "total_raw_mb": 20.39297,
+  "assumptions": [
+    "probe medians from the trial (cold call excluded)",
+    "per-block fixed overhead 0.50 s (median of the trial)",
+    "raw data 2.50 bytes per sample row (trial average, gzip)",
+    "input-set generation per (algorithm, repetition) = key generation + P x (sign + verify) or P x (encaps + decaps)",
+    "repeats and diagnostic re-runs are not included"
+  ]
+}
