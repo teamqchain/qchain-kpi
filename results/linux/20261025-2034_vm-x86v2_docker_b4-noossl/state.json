@@ -1,0 +1,197 @@
+{
+  "schema": 1,
+  "run_id": "20261025-2034_vm-x86v2_docker_b4-noossl",
+  "machine": "vm-x86v2",
+  "plan_name": "smoke-e4",
+  "plan_kind": "smoke",
+  "plan_hash": "a4d52f5ba315271e52902d549cdf6a3bac625330f6ab2f419f7ec9b8f83281a0",
+  "seed": 4261628441588292501,
+  "image_id": "sha256:ce6ef154725f952b6d45294d1682bc33fd78e64b4428485e0c1f0e7b8d789876",
+  "harness_commit": "7e04c44c70a60640dc21797a951a27bd15ba4119",
+  "thresholds_hash": "5b78ea9480ef85f1ac8bfe308d9727762ba27f5000b577b78d278eec2976237b",
+  "started_utc": "2026-10-25T20:34:04Z",
+  "status": "done",
+  "sessions": [
+    {
+      "n": 1,
+      "started_utc": "2026-10-25T20:34:04Z",
+      "start_unix_ns": 1792960444806678594,
+      "host_offset_ns": -37031468
+    }
+  ],
+  "planned_blocks": 36,
+  "queue": [],
+  "done": [
+    "probe.ml-dsa-44.keygen.r1.a1",
+    "probe.ml-dsa-44.sign.r1.a1",
+    "probe.ml-dsa-44.verify.r1.a1",
+    "probe.ml-kem-768.keygen.r1.a1",
+    "probe.ml-kem-768.encaps.r1.a1",
+    "probe.ml-kem-768.decaps.r1.a1",
+    "probe.falcon-512.keygen.r1.a1",
+    "probe.falcon-512.sign.r1.a1",
+    "probe.falcon-512.verify.r1.a1",
+    "probe.slh-dsa-sha2-128f.keygen.r1.a1",
+    "probe.slh-dsa-sha2-128f.sign.r1.a1",
+    "probe.slh-dsa-sha2-128f.verify.r1.a1",
+    "probe.hqc-1.keygen.r1.a1",
+    "probe.hqc-1.encaps.r1.a1",
+    "probe.hqc-1.decaps.r1.a1",
+    "probe.ecdsa-p256.keygen.r1.a1",
+    "probe.ecdsa-p256.sign.r1.a1",
+    "probe.ecdsa-p256.verify.r1.a1",
+    "E4.ml-kem-768.keygen.r1.a1",
+    "E4.falcon-512.sign.r1.a1",
+    "E4.ml-dsa-44.keygen.r1.a1",
+    "E4.hqc-1.decaps.r1.a1",
+    "E4.ml-kem-768.decaps.r1.a1",
+    "E4.slh-dsa-sha2-128f.verify.r1.a1",
+    "E4.ml-dsa-44.sign.r1.a1",
+    "E4.hqc-1.encaps.r1.a1",
+    "E4.falcon-512.verify.r1.a1",
+    "E4.ml-dsa-44.verify.r1.a1",
+    "E4.slh-dsa-sha2-128f.keygen.r1.a1",
+    "E4.ml-kem-768.encaps.r1.a1",
+    "E4.ecdsa-p256.keygen.r1.a1",
+    "E4.ecdsa-p256.sign.r1.a1",
+    "E4.falcon-512.keygen.r1.a1",
+    "E4.slh-dsa-sha2-128f.sign.r1.a1",
+    "E4.hqc-1.keygen.r1.a1",
+    "E4.ecdsa-p256.verify.r1.a1"
+  ],
+  "classification": {
+    "ecdsa-p256/keygen": "fast",
+    "ecdsa-p256/sign": "fast",
+    "ecdsa-p256/verify": "fast",
+    "falcon-512/keygen": "slow",
+    "falcon-512/sign": "slow",
+    "falcon-512/verify": "fast",
+    "hqc-1/decaps": "slow",
+    "hqc-1/encaps": "slow",
+    "hqc-1/keygen": "slow",
+    "ml-dsa-44/keygen": "fast",
+    "ml-dsa-44/sign": "fast",
+    "ml-dsa-44/verify": "fast",
+    "ml-kem-768/decaps": "fast",
+    "ml-kem-768/encaps": "fast",
+    "ml-kem-768/keygen": "fast",
+    "slh-dsa-sha2-128f/keygen": "slow",
+    "slh-dsa-sha2-128f/sign": "slow",
+    "slh-dsa-sha2-128f/verify": "slow"
+  },
+  "requeued": {},
+  "diagnosed": {},
+  "canary_seq": 2,
+  "first_canary_rate": 2382109.3700840725,
+  "last_canary_unix_ns": 1792960460275070276,
+  "preps": {
+    "ecdsa-p256.probe": {
+      "pool": 6,
+      "prep_ns": 1829195,
+      "fingerprint": "72e9cfc2b5e1a97b",
+      "e10": false,
+      "session": 1
+    },
+    "ecdsa-p256.r1": {
+      "pool": 8,
+      "prep_ns": 2377318,
+      "fingerprint": "5e67e6cbeb1cd410",
+      "e10": false,
+      "session": 1
+    },
+    "falcon-512.probe": {
+      "pool": 6,
+      "prep_ns": 43804122,
+      "fingerprint": "b16e8f0038b96baa",
+      "e10": false,
+      "session": 1
+    },
+    "falcon-512.r1": {
+      "pool": 8,
+      "prep_ns": 42557075,
+      "fingerprint": "a07709df6d46a0b1",
+      "e10": false,
+      "session": 1
+    },
+    "hqc-1.probe": {
+      "pool": 6,
+      "prep_ns": 40154582,
+      "fingerprint": "3d2f01cfcaacb419",
+      "e10": false,
+      "session": 1
+    },
+    "hqc-1.r1": {
+      "pool": 8,
+      "prep_ns": 51642507,
+      "fingerprint": "8e3e7971907bc0d0",
+      "e10": false,
+      "session": 1
+    },
+    "ml-dsa-44.probe": {
+      "pool": 6,
+      "prep_ns": 2998136,
+      "fingerprint": "7c2e1fec6a50bd2a",
+      "e10": false,
+      "session": 1
+    },
+    "ml-dsa-44.r1": {
+      "pool": 8,
+      "prep_ns": 4032729,
+      "fingerprint": "a440bfb3e5cac99a",
+      "e10": false,
+      "session": 1
+    },
+    "ml-kem-768.probe": {
+      "pool": 6,
+      "prep_ns": 739559,
+      "fingerprint": "92a5407083b99ddf",
+      "e10": false,
+      "session": 1
+    },
+    "ml-kem-768.r1": {
+      "pool": 8,
+      "prep_ns": 947741,
+      "fingerprint": "322f3ec7b6f158a8",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-sha2-128f.probe": {
+      "pool": 6,
+      "prep_ns": 153783632,
+      "fingerprint": "818d2dfa139ae8ac",
+      "e10": false,
+      "session": 1
+    },
+    "slh-dsa-sha2-128f.r1": {
+      "pool": 8,
+      "prep_ns": 204480727,
+      "fingerprint": "250ae4bc1a6a54f6",
+      "e10": false,
+      "session": 1
+    }
+  },
+  "cell_reps": {
+    "E4.ecdsa-p256.keygen": 1,
+    "E4.ecdsa-p256.sign": 1,
+    "E4.ecdsa-p256.verify": 1,
+    "E4.falcon-512.keygen": 1,
+    "E4.falcon-512.sign": 1,
+    "E4.falcon-512.verify": 1,
+    "E4.hqc-1.decaps": 1,
+    "E4.hqc-1.encaps": 1,
+    "E4.hqc-1.keygen": 1,
+    "E4.ml-dsa-44.keygen": 1,
+    "E4.ml-dsa-44.sign": 1,
+    "E4.ml-dsa-44.verify": 1,
+    "E4.ml-kem-768.decaps": 1,
+    "E4.ml-kem-768.encaps": 1,
+    "E4.ml-kem-768.keygen": 1,
+    "E4.slh-dsa-sha2-128f.keygen": 1,
+    "E4.slh-dsa-sha2-128f.sign": 1,
+    "E4.slh-dsa-sha2-128f.verify": 1
+  },
+  "vm_cpus": 2,
+  "host_cpus": 2,
+  "host_period_ns": 5000000000,
+  "canary_every_s": 120
+}
