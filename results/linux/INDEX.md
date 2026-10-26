@@ -10,3 +10,4 @@
 | 20261025-2023_vm-x86v2_docker_b1-prod | smoke-e11-curated | smoke | done | 270 | 48 | 7e04c44c70a6 | 3612947761015721604 |
 | 20261025-2024_vm-x86v2_docker_b1-prod | smoke-e12-vm | smoke | done | 8 |  | 7e04c44c70a6 | 13223711028049288061 |
 | 20261025-2034_vm-x86v2_docker_b4-noossl | smoke-e4 | smoke | done | 36 | 10 | 7e04c44c70a6 | 4261628441588292501 |
+| 20261026-0232_vm-x86v2_docker_b1-prod | trial | trial | done | 344 | 191 | 7e04c44c70a6 | 6735559356119093625 |

@@ -1,0 +1,79 @@
+{
+  "machine": "vm-x86v2",
+  "trial_run": "20261026-0232_vm-x86v2_docker_b1-prod",
+  "plans": [
+    {
+      "plan": "e1",
+      "file": "e1.json",
+      "blocks": 450,
+      "hours": 5.858902930806309,
+      "prep_hours": 0.646019262161111,
+      "canary_hours": 0.014750577132921624,
+      "by_experiment_hours": {
+        "E1": 5.198133091512275
+      },
+      "raw_mb": 17.273298959124485
+    },
+    {
+      "plan": "e10",
+      "file": "e10.json",
+      "blocks": 15,
+      "hours": 0.08386395864588889,
+      "prep_hours": 0.0006262903583333334,
+      "canary_hours": 0.0011079016000555555,
+      "by_experiment_hours": {
+        "E10": 0.0821297666875
+      },
+      "raw_mb": 1.446278285945932
+    },
+    {
+      "plan": "e12-vm",
+      "file": "e12-vm.json",
+      "blocks": 80,
+      "hours": 0.8189390693513466,
+      "prep_hours": 0,
+      "canary_hours": 0.0030645542624592554,
+      "by_experiment_hours": {
+        "E12": 0.8158745150888889
+      },
+      "raw_mb": 0.16624035228318526
+    },
+    {
+      "plan": "e4",
+      "file": "e4.json",
+      "blocks": 450,
+      "hours": 5.858902930806309,
+      "prep_hours": 0.646019262161111,
+      "canary_hours": 0.014750577132921624,
+      "by_experiment_hours": {
+        "E4": 5.198133091512275
+      },
+      "raw_mb": 17.273298959124485
+    },
+    {
+      "plan": "e9",
+      "file": "e9.json",
+      "blocks": 1350,
+      "hours": 1.4210472326000423,
+      "prep_hours": 0.14171670691666668,
+      "canary_hours": 0.004288999625044438,
+      "by_experiment_hours": {
+        "E9": 1.2750415260583372
+      },
+      "raw_mb": 1.7882204833104927
+    }
+  ],
+  "total_hours": 14.041656122209895,
+  "total_raw_mb": 37.94733703978858,
+  "assumptions": [
+    "probe medians from the trial (cold call excluded)",
+    "per-block fixed overhead 0.21 s (median of the trial)",
+    "raw data 3.18 bytes per sample row (trial average, gzip)",
+    "input-set generation per (algorithm, repetition) = key generation + P x (sign + verify) or P x (encaps + decaps)",
+    "repeats and diagnostic re-runs are not included"
+  ],
+  "not_estimated": {
+    "e11-curated": "needs its add-on trial (trial-e11)",
+    "e2-noslh": "needs its add-on trial (trial-e2)"
+  }
+}
