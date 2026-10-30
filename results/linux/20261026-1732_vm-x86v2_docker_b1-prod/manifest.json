@@ -9,11 +9,11 @@
     "sha256": "0e52ecb90a0f0073f33ad2654c0dd6ca362c1130c9d443eb6022ceb0975eb744",
     "reps": 5,
     "canary_every_s": 600,
-    "planned_blocks": 80
+    "planned_blocks": 83
   },
   "seed": 8144778156443302880,
-  "image_id": "sha256:7dc2d7d290eca07076394651e09ac94d4ec42c6aa8883fb06b070110c588944f",
-  "harness_commit": "f76f6b27cc226a3e2b53a09855aa2bf82db789c5",
+  "image_id": "sha256:2e55dc3b4f62525f7f1488cd2fd5d92ca7cb9afe95984e88186cecaa920bb49c",
+  "harness_commit": "319d7f1bcc0cc98bd147af8f764990876c46c0a0",
   "go": "go1.24.13",
   "build": {
     "arch": "x86_64",
@@ -847,7 +847,7 @@
     "memory_max": "4294967296",
     "memory_swap_max": "0",
     "net_interfaces": "lo",
-    "out_free_gb": "149.2",
+    "out_free_gb": "149.4",
     "tz": "Asia/Dubai"
   },
   "host": {
@@ -866,18 +866,46 @@
       "started_utc": "2026-10-26T17:32:40Z",
       "start_unix_ns": 1793035960527097679,
       "host_offset_ns": -41436395
+    },
+    {
+      "n": 2,
+      "started_utc": "2026-10-30T19:20:17Z",
+      "start_unix_ns": 1793388017263659143,
+      "host_offset_ns": -36897395
     }
   ],
   "status": "done",
   "started_utc": "2026-10-26T17:32:40Z",
-  "updated_utc": "2026-10-26T18:44:55Z",
+  "updated_utc": "2026-10-30T19:22:29Z",
   "counts": {
-    "attempts": 118,
+    "attempts": 121,
     "blocks": 80,
-    "blocks_with_headline": 77,
-    "exhausted_blocks": 3,
+    "blocks_with_headline": 80,
     "flagged_attempts": 41,
-    "repeat_attempts": 38
+    "repeat_attempts": 41
   },
-  "cgroup_memory_peak_bytes": 67002368
+  "notes": [
+    "session 2 extended this run: blocks E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w1.r1, E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w1.r1, E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w2.r1 had no clean attempt and were run again (attempt numbers continue); input sets were regenerated (same message seeds, new keys)",
+    "image 7dc2d7d290ec -\u003e 2e55dc3b4f62, harness commit f76f6b27cc22 -\u003e 319d7f1bcc0c (measuring sources verified identical by the launcher)",
+    "orchestrator (cmd/kpi-batch) files that differ from the original run's commit: cmd/kpi-batch/extend.go, cmd/kpi-batch/extend_test.go (they implement the extension; decisions for runs that are not extended are unchanged)"
+  ],
+  "extensions": [
+    {
+      "session": 2,
+      "blocks": [
+        "E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w1.r1",
+        "E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w1.r1",
+        "E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w2.r1"
+      ],
+      "old_image_id": "sha256:7dc2d7d290eca07076394651e09ac94d4ec42c6aa8883fb06b070110c588944f",
+      "old_harness_commit": "f76f6b27cc226a3e2b53a09855aa2bf82db789c5",
+      "new_image_id": "sha256:2e55dc3b4f62525f7f1488cd2fd5d92ca7cb9afe95984e88186cecaa920bb49c",
+      "new_harness_commit": "319d7f1bcc0cc98bd147af8f764990876c46c0a0",
+      "orchestrator_files_changed": [
+        "cmd/kpi-batch/extend.go",
+        "cmd/kpi-batch/extend_test.go"
+      ]
+    }
+  ],
+  "cgroup_memory_peak_bytes": 32075776
 }

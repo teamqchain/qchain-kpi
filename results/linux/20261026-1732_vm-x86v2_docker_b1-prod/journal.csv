@@ -290,3 +290,17 @@ utc_ns,event,key,detail
 1793040253538326421,block_done,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w2.r5.a3,
 1793040255046888152,canary,,9 end ratio 0.97377 
 1793040295099349802,batch_done,,118 attempt(s)
+1793388017269970378,extension_queued,E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w1.r1.a4,"block had 3 attempt(s), none clean"
+1793388017270502459,extension_queued,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w1.r1.a4,"block had 3 attempt(s), none clean"
+1793388017270781581,extension_queued,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w2.r1.a4,"block had 3 attempt(s), none clean"
+1793388017272036637,session_start,,session 2; host offset -36897395 ns
+1793388017454881174,e0,,e0-s2.json
+1793388018964052493,canary,,10 extend ratio 0.99520 
+1793388018964614926,block_start,E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w1.r1.a4,window
+1793388054014014304,block_done,E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w1.r1.a4,
+1793388054014399047,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w1.r1.a4,window
+1793388090491783055,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w1.r1.a4,
+1793388090492212978,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w2.r1.a4,window
+1793388128373961668,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w2.r1.a4,
+1793388129882033408,canary,,11 end ratio 0.99300 
+1793388149911829936,batch_done,,121 attempt(s)

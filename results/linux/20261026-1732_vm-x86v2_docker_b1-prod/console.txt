@@ -164,3 +164,12 @@
 [22:44:13] 118/118 E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w2.r5.a3 throughput 6326.0/s, latency p50 280.58us p99 1.171ms (n=189781)
 [22:44:15] canary 9 (end): 2317527 hashes/s, ratio 0.9738 
 [22:44:55] batch complete: 118 attempt(s); 285 file(s) in SHA256SUMS
+
+=== extension session (blocks without a clean attempt) ===
+[23:20:17] resuming 20261026-1732_vm-x86v2_docker_b1-prod: 0 block(s) queued, 118 done, 0 temporary file(s) removed
+[23:20:18] canary 10 (extend): 2368523 hashes/s, ratio 0.9952 
+[23:20:54] 119/121 E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w1.r1.a4 throughput 3853.0/s, latency p50 252.93us p99 415.74us (n=115591)
+[23:21:30] 120/121 E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w1.r1.a4 throughput 340.5/s, latency p50 2.933ms p99 4.080ms (n=10215)
+[23:22:08] 121/121 E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w2.r1.a4 throughput 631.0/s, latency p50 3.064ms p99 5.079ms (n=18931)
+[23:22:09] canary 11 (end): 2363276 hashes/s, ratio 0.9930 
+[23:22:29] batch complete: 121 attempt(s); 309 file(s) in SHA256SUMS
