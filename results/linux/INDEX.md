@@ -18,5 +18,5 @@
 | 20261026-1608_vm-x86v2_docker_b1-prod | e9 | main | done | 1350 |  | f76f6b27cc22 | 5813189203849845328 |
 | 20261026-1732_vm-x86v2_docker_b1-prod | e12-vm | main | done | 121 | 41 | 319d7f1bcc0c | 8144778156443302880 |
 | 20261030-1946_vm-x86v2_docker_b1-prod | e2-noslh | main | done | 621 | 34 | 319d7f1bcc0c | 13259096926700704247 |
-| 20261031-0244_vm-x86v2_docker_b1-prod | e11-curated | main | done | 3023 | 435 | 319d7f1bcc0c | 759249927805056160 |
 | 20261031-1140_vm-x86v2_docker_b4-noossl | e4 | main | done | 461 | 3 | 319d7f1bcc0c | 1126542427691629343 |
+| 20261031-0244_vm-x86v2_docker_b1-prod | e11-curated | main | done | 3028 | 436 | 319d7f1bcc0c | 759249927805056160 |

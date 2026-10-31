@@ -9,7 +9,7 @@
     "sha256": "dd41f7421bb25d94b6ef8be14e6165a17153ccdaca5351507dbcb62006def262",
     "reps": 5,
     "canary_every_s": 600,
-    "planned_blocks": 2505
+    "planned_blocks": 2509
   },
   "seed": 759249927805056160,
   "image_id": "sha256:2e55dc3b4f62525f7f1488cd2fd5d92ca7cb9afe95984e88186cecaa920bb49c",
@@ -847,7 +847,7 @@
     "memory_max": "4294967296",
     "memory_swap_max": "0",
     "net_interfaces": "lo",
-    "out_free_gb": "149.4",
+    "out_free_gb": "148.7",
     "tz": "Asia/Dubai"
   },
   "host": {
@@ -866,20 +866,43 @@
       "started_utc": "2026-10-31T02:44:49Z",
       "start_unix_ns": 1793414689703389967,
       "host_offset_ns": -40014294
+    },
+    {
+      "n": 2,
+      "started_utc": "2026-10-31T21:29:09Z",
+      "start_unix_ns": 1793482149897643977,
+      "host_offset_ns": -39085351
     }
   ],
   "status": "done",
   "started_utc": "2026-10-31T02:44:49Z",
-  "updated_utc": "2026-10-31T11:33:59Z",
+  "updated_utc": "2026-10-31T21:31:23Z",
   "counts": {
-    "attempts": 3023,
+    "attempts": 3028,
     "blocks": 2505,
-    "blocks_with_headline": 2501,
+    "blocks_with_headline": 2505,
     "diagnostic_attempts": 103,
     "drift_flags": 146,
-    "exhausted_blocks": 4,
-    "flagged_attempts": 435,
-    "repeat_attempts": 415
+    "flagged_attempts": 436,
+    "repeat_attempts": 420
   },
-  "cgroup_memory_peak_bytes": 154460160
+  "notes": [
+    "session 2 extended this run: blocks E11.ml-dsa-44+ml-kem-768.verification-n10-k1-v4096.r3, E11.ml-dsa-87+hqc-5.verification-n10-k10-v16.r2, E11.ml-kem-512.retrieval-n20-v16.r2, E11.slh-dsa-sha2-128f+ml-kem-512.verification-n1-k1-v16.r2 had no clean attempt and were run again (attempt numbers continue); input sets were regenerated (same message seeds, new keys)"
+  ],
+  "extensions": [
+    {
+      "session": 2,
+      "blocks": [
+        "E11.ml-dsa-44+ml-kem-768.verification-n10-k1-v4096.r3",
+        "E11.ml-dsa-87+hqc-5.verification-n10-k10-v16.r2",
+        "E11.ml-kem-512.retrieval-n20-v16.r2",
+        "E11.slh-dsa-sha2-128f+ml-kem-512.verification-n1-k1-v16.r2"
+      ],
+      "old_image_id": "sha256:2e55dc3b4f62525f7f1488cd2fd5d92ca7cb9afe95984e88186cecaa920bb49c",
+      "old_harness_commit": "319d7f1bcc0cc98bd147af8f764990876c46c0a0",
+      "new_image_id": "sha256:2e55dc3b4f62525f7f1488cd2fd5d92ca7cb9afe95984e88186cecaa920bb49c",
+      "new_harness_commit": "319d7f1bcc0cc98bd147af8f764990876c46c0a0"
+    }
+  ],
+  "cgroup_memory_peak_bytes": 39100416
 }

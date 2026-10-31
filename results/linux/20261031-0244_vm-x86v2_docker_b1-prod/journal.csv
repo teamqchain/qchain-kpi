@@ -6669,3 +6669,24 @@ utc_ns,event,key,detail
 1793446402880858106,block_done,E11.ecdsa-p256.presentation-k10-v16.r5.a3,
 1793446404389691868,canary,,53 end ratio 0.97573 
 1793446439620643354,batch_done,,3023 attempt(s)
+1793482150019671419,extension_queued,E11.ml-dsa-44+ml-kem-768.verification-n10-k1-v4096.r3.a4,"block had 3 attempt(s), none clean"
+1793482150020841663,extension_queued,E11.ml-dsa-87+hqc-5.verification-n10-k10-v16.r2.a4,"block had 3 attempt(s), none clean"
+1793482150021094401,extension_queued,E11.ml-kem-512.retrieval-n20-v16.r2.a4,"block had 3 attempt(s), none clean"
+1793482150021332880,extension_queued,E11.slh-dsa-sha2-128f+ml-kem-512.verification-n1-k1-v16.r2.a4,"block had 3 attempt(s), none clean"
+1793482150025166742,session_start,,session 2; host offset -39085351 ns
+1793482150224334919,e0,,e0-s2.json
+1793482151734280162,canary,,54 extend ratio 0.98240 
+1793482151734937953,block_start,E11.ml-dsa-44+ml-kem-768.verification-n10-k1-v4096.r3.a4,fast
+1793482152707819918,block_done,E11.ml-dsa-44+ml-kem-768.verification-n10-k1-v4096.r3.a4,
+1793482152708127344,block_start,E11.ml-dsa-87+hqc-5.verification-n10-k10-v16.r2.a4,fast
+1793482155101835186,block_done,E11.ml-dsa-87+hqc-5.verification-n10-k10-v16.r2.a4,
+1793482155102149282,block_start,E11.ml-kem-512.retrieval-n20-v16.r2.a4,fast
+1793482155790916536,block_done,E11.ml-kem-512.retrieval-n20-v16.r2.a4,
+1793482155791235420,block_start,E11.slh-dsa-sha2-128f+ml-kem-512.verification-n1-k1-v16.r2.a4,fast
+1793482163844778725,block_done,E11.slh-dsa-sha2-128f+ml-kem-512.verification-n1-k1-v16.r2.a4,
+1793482165354995301,canary,,55 end ratio 1.03207 
+1793482220616489536,queued,E11.ml-dsa-44+ml-kem-768.verification-n10-k1-v4096.r3.a5,repeat:other; position 0
+1793482220630595011,block_start,E11.ml-dsa-44+ml-kem-768.verification-n10-k1-v4096.r3.a5,fast
+1793482221555752980,block_done,E11.ml-dsa-44+ml-kem-768.verification-n10-k1-v4096.r3.a5,
+1793482223066481314,canary,,56 end ratio 1.02648 
+1793482283340464257,batch_done,,3028 attempt(s)
