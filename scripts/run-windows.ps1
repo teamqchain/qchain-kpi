@@ -214,7 +214,10 @@ function Resolve-Preflight([string]$Kind) {
   } elseif ($force) {
     Note '--force: continuing despite preflight problems (recorded in the launcher files)'
   } else {
-    Die 'preflight failed; fix the problems above (or use --force, which is recorded)'
+    # Exit status 3 (as kpi-batch's refusals and run-linux.sh), so that a series
+    # of plans can wait and try again.
+    Note 'preflight failed; fix the problems above (or use --force, which is recorded)'
+    exit 3
   }
 }
 
@@ -537,8 +540,17 @@ function Add-IndexRow([string]$Dest, [string]$Rid) {
   $text = [IO.File]::ReadAllText((Join-Path $Dest 'manifest.json'))
   $m = $text | ConvertFrom-Json
   $seed = [regex]::Match($text, '"seed"\s*:\s*(\d+)').Groups[1].Value
+  # The manifest leaves out a count that is zero (a run with no flagged attempt
+  # has no flagged_attempts), so these stay blank, as on the other machines.
+  $attempts = ''
+  $flagged = ''
+  $counts = Get-Prop $m 'counts'
+  if ($null -ne $counts) {
+    $attempts = Get-Prop $counts 'attempts'
+    $flagged = Get-Prop $counts 'flagged_attempts'
+  }
   $row = '| {0} | {1} | {2} | {3} | {4} | {5} | {6} | {7} |' -f $Rid, $m.plan.name, $m.plan.kind, $m.status, `
-    $m.counts.attempts, $m.counts.flagged_attempts, ([string]$m.harness_commit).Substring(0, 12), $seed
+    $attempts, $flagged, ([string]$m.harness_commit).Substring(0, 12), $seed
   [IO.File]::AppendAllText($idx, "$row`n", $utf8)
 }
 
@@ -560,8 +572,9 @@ function Complete-Run([string]$Rid, [string]$Code) {
     exit 1
   }
   if ($Code -eq '5') {
+    # Exit status 5 (as run-linux.sh), so that a series of plans stops here.
     Note "batch stopped and can be resumed: scripts\run-windows.ps1 resume $Rid"
-    return
+    exit 5
   }
   if ($Code -ne '0') {
     $stage = Join-Path $repo "scratch\failed\$Rid"

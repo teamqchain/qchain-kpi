@@ -13,7 +13,9 @@ It records every sample, flags noisy measurements and repeats them, and produces
 - **Where every input comes from** (QChain code copied verbatim, pinned libraries, test vectors): [docs/provenance.md](docs/provenance.md)
 - **Decisions taken while building the harness:** [docs/decisions-log.md](docs/decisions-log.md)
 
-**Status (25 Oct 2026).** Every Mac experiment is done and committed (E0 to E14). The VM's and the Windows laptop's launchers (`scripts/run-linux.sh`, `scripts/run-windows.ps1`) and their plans (`plans/vm/`, `plans/windows/`, the scope of 21 Oct in `docs/methodology.md` section 9) are coded; their runs come next.
+**Status (6 Nov 2026).** Every Mac experiment (E0 to E14) and every VM run (the scope of 21 Oct in `docs/methodology.md` section 9) is done and committed. The Windows laptop's runs come next (`scripts/run-windows.ps1`, `scripts/run-windows-series.ps1`, `plans/windows/`).
+
+**25 Oct:** Every Mac experiment is done and committed (E0 to E14). The VM's and the Windows laptop's launchers (`scripts/run-linux.sh`, `scripts/run-windows.ps1`) and their plans (`plans/vm/`, `plans/windows/`) are coded.
 
 **22 Oct:** Mac results: the trial, E1 to E13 (all committed; E4 with `b2-portable` and `b3-native`, E5 natively). E14 (Fabric latency against payload size, on QChain's network rebuilt on the Mac) is coded.
 
@@ -139,12 +141,15 @@ scripts/test-run-linux.sh               # on the Mac: the launcher and series ag
 powershell -ExecutionPolicy Bypass -File scripts\run-windows.ps1 start --plan smoke --machine win-ryzen
 powershell -ExecutionPolicy Bypass -File scripts\run-windows.ps1 start --plan e4 --machine win-ryzen --variant b2-portable   # and b3-native
 powershell -ExecutionPolicy Bypass -File scripts\run-windows.ps1 stop|resume|extend|status ...
+powershell -ExecutionPolicy Bypass -File scripts\run-windows-series.ps1 --delay 120 e1 e10 e4@b2-portable   # several plans one after another, unattended (see below)
+powershell -ExecutionPolicy Bypass -File scripts\run-windows-series.ps1 status|stop   # from a second window: is a series running; stop it after the current block
 ```
 
 **Trial and main plans refuse to start unless the machine is ready** (`--force` overrides, recorded):
 - **VM:** no container running (QChain's Fabric network, `qchain-api` and `qchain-web-gateway` are stopped for the study); MySQL, IPFS and the GitHub Actions runner stopped; VS Code closed (a detached run waits up to 10 minutes for it to close); the machine quiet over 6 s (its steal is recorded); 10 GB free; Docker with cgroup v2.
 - **Windows:** on mains power; Energy Saver off; power mode "Best performance" (the laptop's own setting); no container running (Obeid's are stopped for the run); no window of VS Code, Teams, Edge or Chrome; the laptop quiet over 6 s; 10 GB free; Docker with cgroup v2. The Windows Update pause date is shown and recorded.
 - **A series** (`scripts/run-linux-series.sh PLAN[@VARIANT] ...`) runs plans one after another and detaches like the launcher; its log is `~/.local/state/qchain-kpi/series.log`. It refuses a second series (a lock), waits 65 s between plans (run ids have minute resolution), tries a refused preflight again up to 6 times, 5 minutes apart (a short burst of system work, such as the daily upgrade check, must not end a days-long series), and stops at the first plan that fails or whose batch stopped (exit 5: resume it with `run-linux.sh resume`, then start a series with the remaining plans). Do not open VS Code while a series runs: its server process makes the next plan's preflight refuse.
+- **A series on Windows** (`scripts\run-windows-series.ps1 PLAN[@VARIANT] ...`) follows the same rules (a lock, 65 s between plans, 6 retries of a refused preflight, stops at the first plan that fails or whose batch stopped), but stays in its window, which must remain open; `--delay` gives time to disconnect AnyDesk first. Its log is `%LOCALAPPDATA%\qchain-kpi\series-<stamp>.log`, and it holds only the series' own lines (each batch's output stays in the window and in the run's `console.txt`).
 - **Both:** the harness committed; only the machine's liboqs builds (VM `b1-prod`, `b4-noossl`; Windows `b1-prod`, `b2-portable`, `b3-native`), and a build other than `b1-prod` only for E4 plans.
 
 ## Layout
@@ -157,7 +162,8 @@ docker/     Dockerfile and the liboqs build and gate scripts
 plans/      run plans (JSON), one folder per machine: mac/ vm/ windows/; README.md lists them
             (code: each experiment in its own eN.go file in cmd/kpi-prim, cmd/kpi-batch, internal/proto, internal/plan, internal/inputs)
 config/     thresholds.json (one calibrated section per machine)
-scripts/    run-mac.sh monitor-mac.sh run-linux.sh monitor-linux.sh test-run-linux.sh run-windows.ps1 monitor-windows.ps1
+scripts/    run-mac.sh monitor-mac.sh run-linux.sh run-linux-series.sh monitor-linux.sh test-run-linux.sh
+            run-windows.ps1 run-windows-series.ps1 monitor-windows.ps1
             dev.sh check-sync.sh e5-setup-mac.sh e5-run-mac.sh e5-gate-hashlib-mac.py
             e13-*.py (ledger capture tools) e14-network-mac.sh e14-run-mac.sh
 fabric/     E14: network/ (QChain's network files, copied, and the channel and chaincode scripts), chaincode/ (kpipayload),
