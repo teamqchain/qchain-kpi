@@ -1,0 +1,7 @@
+utc_ns,other_pct,throttle,on_ac,alert,detail
+1793997879117974100,20.020,0,1,0,total=32.8;runtime=10.8;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=140.3;temp_c=39;battery_pct=100;energy_saver=Disabled;found=none;busiest_other=OverlayHelper:3.1
+1793997883236403800,0.990,0,1,0,total=74.5;runtime=71.4;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=145.2;temp_c=45;battery_pct=100;energy_saver=Disabled;found=none
+1793997888768175900,6.330,0,1,0,total=79.7;runtime=72.5;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=143.3;temp_c=57;battery_pct=100;energy_saver=Disabled;found=none;busiest_other=HPSystemEventUtilityBackground:3.1
+1793997893014349000,1.962,0,1,0,total=17.0;runtime=14.4;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=139.0;temp_c=57;battery_pct=100;energy_saver=Disabled;found=none
+1793997898031875500,2.567,0,1,0,total=53.5;runtime=50.5;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=142.5;temp_c=66;battery_pct=100;energy_saver=Disabled;found=none
+1793997903050343600,2.068,0,1,0,total=17.7;runtime=15.0;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=134.6;temp_c=66;battery_pct=100;energy_saver=Disabled;found=none

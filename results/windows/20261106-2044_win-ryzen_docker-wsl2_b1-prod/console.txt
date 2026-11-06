@@ -1,0 +1,11 @@
+[00:44:38] canary 1 (start): 2255709 hashes/s, ratio 1.0000 
+[00:44:41] 1/8 E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w8.r1.a1 throughput 6435.0/s, latency p50 946.18us p99 4.882ms (n=12870)
+[00:44:44] 2/8 E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w8.r1.a1 throughput 18513.0/s, latency p50 329.73us p99 2.671ms (n=37026)
+[00:44:47] 3/8 E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w8.r1.a1 throughput 13542.5/s, latency p50 452.61us p99 4.014ms (n=27085)
+[00:44:50] 4/8 E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w1.r1.a1 throughput 2670.0/s, latency p50 333.82us p99 856.06us (n=5340)
+[00:44:54] 5/8 E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w1.r1.a1 throughput 3675.0/s, latency p50 250.88us p99 544.77us (n=7350)
+[00:44:57] 6/8 E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w8.r1.a1 throughput 8511.0/s, latency p50 675.84us p99 4.358ms (n=17022)
+[00:45:00] 7/8 E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w1.r1.a1 throughput 4955.5/s, latency p50 189.44us p99 358.40us (n=9911)
+[00:45:03] 8/8 E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w1.r1.a1 throughput 1694.0/s, latency p50 536.58us p99 1.036ms (n=3388)
+[00:45:04] canary 2 (end): 2229443 hashes/s, ratio 0.9884 
+[00:45:04] batch complete: 8 attempt(s); 31 file(s) in SHA256SUMS

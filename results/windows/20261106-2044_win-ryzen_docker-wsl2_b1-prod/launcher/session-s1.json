@@ -1,0 +1,27 @@
+{
+    "host_offset_ns":  -159151185,
+    "host_offset_unc_ns":  287775500,
+    "native_p_rate":  0,
+    "native_e_rate":  0,
+    "host_logical_cpus":  8,
+    "host_monitor_period_s":  5,
+    "host":  {
+                 "runtime":  "docker-wsl2",
+                 "host_os":  "Microsoft Windows 11 Home 25H2 (10.0.26200)",
+                 "host_cpu":  "AMD Ryzen 5 7520U with Radeon Graphics",
+                 "host_mem_gb":  "8",
+                 "docker":  "29.7.2",
+                 "docker_desktop":  "Docker Desktop 4.87.0 (236836)",
+                 "wsl":  "2.7.12.0 (kernel 6.18.33.2-microsoft-standard-WSL2)",
+                 "vm_cpus":  "8",
+                 "vm_mem_gb":  "3.45",
+                 "container_mem":  "3g",
+                 "container_cpuset":  "0-7",
+                 "power":  "AC",
+                 "battery_pct":  "100",
+                 "cooling":  "hard surface, no pad",
+                 "low_power_mode":  "0",
+                 "thermal_at_start":  "39",
+                 "launcher":  "run-windows.ps1 1"
+             }
+}
