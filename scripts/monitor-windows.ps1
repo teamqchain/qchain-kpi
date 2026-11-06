@@ -18,7 +18,9 @@
 #   on_ac      1 on mains power, 0 on battery, -1 unknown
 #   alert      1 if a container that is not ours runs (checked every
 #              <rows-per-chunk> samples) or Energy Saver is on
-#   detail     the raw readings (numbers and program names only)
+#   detail     the raw readings (numbers and program names only). proc_perf is
+#              "% Processor Performance": the CPU's speed as % of its base
+#              frequency, recorded for the analysis and never used for a flag
 #
 # The counters are created once and read with NextValue(), which is much
 # lighter than Get-Counter. Rows go into chunk files <work-dir>\host-NNNNNN.csv;
@@ -141,6 +143,7 @@ function Get-Found {
 $total = New-Counter 'Processor' '% Processor Time' '_Total'
 $perfLimit = New-Counter 'Processor Information' '% Performance Limit' '_Total'
 $limitFlags = New-Counter 'Processor Information' 'Performance Limit Flags' '_Total'
+$procPerf = New-Counter 'Processor Information' '% Processor Performance' '_Total'
 $zones = @()
 try { $zones = (New-Object System.Diagnostics.PerformanceCounterCategory 'Thermal Zone Information').GetInstanceNames() } catch { }
 $temps = New-Object System.Collections.ArrayList
@@ -203,6 +206,8 @@ try {
     if ($null -ne $perfLimit) { $limit = [double]$perfLimit.NextValue() }
     $flags = -1
     if ($null -ne $limitFlags) { $flags = [int]$limitFlags.NextValue() }
+    $speed = -1.0
+    if ($null -ne $procPerf) { $speed = [double]$procPerf.NextValue() }
     $tempC = 'n/a'
     if ($temps.Count -gt 0) { $tempC = ([double]$temps[0].NextValue() - 273.15).ToString('0', $inv) }
     $passive = 100.0
@@ -230,9 +235,9 @@ try {
     $busiest = ''
     if ($other -gt 5) { $busiest = Get-Busiest }
 
-    $row = '{0},{1},{2},{3},{4},total={5};runtime={6};perf_limit={7};limit_flags={8};passive_limit={9};temp_c={10};battery_pct={11};energy_saver={12};found={13}{14}' -f `
+    $row = '{0},{1},{2},{3},{4},total={5};runtime={6};perf_limit={7};limit_flags={8};passive_limit={9};proc_perf={15};temp_c={10};battery_pct={11};energy_saver={12};found={13}{14}' -f `
       (Get-NowNs), $other.ToString('0.000', $inv), $throttle, $onAC, $rowAlert, $tot.ToString('0.0', $inv), $rt.ToString('0.0', $inv), `
-      $limit.ToString('0.0', $inv), $flags, $passive.ToString('0.0', $inv), $tempC, $battery, $saver, $found, $busiest
+      $limit.ToString('0.0', $inv), $flags, $passive.ToString('0.0', $inv), $tempC, $battery, $saver, $found, $busiest, $speed.ToString('0.0', $inv)
 
     # The runtime's processes come and go (docker CLI calls): re-read the list
     # after each check, so the new counters are primed for the next interval.

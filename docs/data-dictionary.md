@@ -146,7 +146,7 @@ On the Windows laptop (`scripts/monitor-windows.ps1`, performance counters):
 - **`throttle`** is 1 if the processor's `% Performance Limit` or a thermal zone's `% Passive Limit` is below 100 (-1 if neither counter exists).
 - **`on_ac`** is 1 on mains power, 0 on battery.
 - **`alert`** is 1 while a container that is not ours runs (checked once a minute) or Energy Saver is on.
-- **`detail`**: `total`, `runtime` (the excluded share), `perf_limit`, `limit_flags`, `passive_limit`, `temp_c`, `battery_pct`, `energy_saver`, `found`, and `busiest_other` (name and % of one CPU) when other CPU is above 5 %.
+- **`detail`**: `total`, `runtime` (the excluded share), `perf_limit`, `limit_flags`, `passive_limit`, `proc_perf` (`% Processor Performance`: the CPU's speed as % of its base frequency, recorded and never used for a flag), `temp_c`, `battery_pct`, `energy_saver`, `found`, and `busiest_other` (name and % of one CPU) when other CPU is above 5 %.
 
 A sample describes the 5 s before its timestamp.
 
