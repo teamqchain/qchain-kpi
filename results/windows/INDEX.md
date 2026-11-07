@@ -10,3 +10,4 @@
 | 20261106-2044_win-ryzen_docker-wsl2_b1-prod | smoke-e12-windows | smoke | done | 8 |  | 193e0f487a40 | 9241050452834714994 |
 | 20261106-2053_win-ryzen_docker-wsl2_b2-portable | smoke-e4 | smoke | done | 36 | 3 | 193e0f487a40 | 14669260309707394124 |
 | 20261106-2100_win-ryzen_docker-wsl2_b3-native | smoke-e4 | smoke | done | 36 | 18 | 193e0f487a40 | 12287796544630509495 |
+| 20261106-2212_win-ryzen_docker-wsl2_b1-prod | trial | trial | done | 196 | 3 | 193e0f487a40 | 12749186899076448634 |
