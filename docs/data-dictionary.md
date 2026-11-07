@@ -122,7 +122,7 @@ Rows are in execution order. Arms of an E10, E2 or E2c block interleave in a see
 | `seq`, `reason` | Running number. `reason` is `start`, `periodic`, `resume` or `end`. |
 | `start_unix_ns`, `end_unix_ns` | When it ran. |
 | `median_rate_per_s`, `rates_per_s` | SHA3-256 hashes per second: the median, and every window (`;`-separated). |
-| `ratio_to_first` | Rate ÷ the batch's first canary rate (the Mac), or ÷ the machine's fixed reference `canary_ref_rate` where its thresholds have one (the VM: the median canary of its trial). The column keeps its name. |
+| `ratio_to_first` | Rate ÷ the batch's first canary rate (the Mac), or ÷ the machine's fixed reference `canary_ref_rate` where its thresholds have one (the VM and the Windows laptop: the median canary of that machine's trial). The column keeps its name. |
 | `core_class` | Mac: `P-like` or `E-like` against the session's native references (the threshold is their geometric mean). |
 | `windows`, `window_ms`, `digest_check`, `cpus` | Canary parameters, proof of work, and the CPUs it ran on. |
 

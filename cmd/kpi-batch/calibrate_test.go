@@ -185,7 +185,7 @@ func TestCommittedThresholdsCoverMainPlans(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	for _, c := range []struct{ machine, folder string }{{"mac-m1", "mac"}, {"vm-x86v2", "vm"}} {
+	for _, c := range []struct{ machine, folder string }{{"mac-m1", "mac"}, {"vm-x86v2", "vm"}, {"win-ryzen", "windows"}} {
 		th, ok := f.For(c.machine)
 		if !ok {
 			t.Fatalf("no thresholds for %s", c.machine)

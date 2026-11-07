@@ -13,7 +13,7 @@ It records every sample, flags noisy measurements and repeats them, and produces
 - **Where every input comes from** (QChain code copied verbatim, pinned libraries, test vectors): [docs/provenance.md](docs/provenance.md)
 - **Decisions taken while building the harness:** [docs/decisions-log.md](docs/decisions-log.md)
 
-**Status (6 Nov 2026).** Every Mac experiment (E0 to E14) and every VM run (the scope of 21 Oct in `docs/methodology.md` section 9) is done and committed. The Windows laptop's runs come next (`scripts/run-windows.ps1`, `scripts/run-windows-series.ps1`, `plans/windows/`).
+**Status (7 Nov 2026).** Every Mac experiment (E0 to E14) and every VM run (the scope of 21 Oct in `docs/methodology.md` section 9) is done and committed. The Windows laptop's smoke runs, trial and add-on trials are done and its thresholds are committed; its main runs come next (`scripts/run-windows.ps1`, `scripts/run-windows-series.ps1`, `plans/windows/`).
 
 **25 Oct:** Every Mac experiment is done and committed (E0 to E14). The VM's and the Windows laptop's launchers (`scripts/run-linux.sh`, `scripts/run-windows.ps1`) and their plans (`plans/vm/`, `plans/windows/`) are coded.
 
