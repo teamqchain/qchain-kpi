@@ -1,0 +1,219 @@
+{
+  "schema": 1,
+  "run_id": "20261107-0410_win-ryzen_docker-wsl2_b1-prod",
+  "machine": "win-ryzen",
+  "plan_name": "trial-e2-noslh",
+  "plan_kind": "trial",
+  "plan_hash": "1dfee6893e14fa94f56ecf2871a61c96eadc1ce2532ea336fb49635a973fe45a",
+  "seed": 12012664700309600096,
+  "image_id": "sha256:ec782ab230877392ad4c3d8a7ec8306a18996edb265aec2c4d665843a425f7d4",
+  "harness_commit": "8fa51586293ccc7ea0b000650a76d68aac543b9c",
+  "thresholds_hash": "c491536ba28417cc38fb8b20808885a0702857f65ba09b7b9951e1918b0b7e06",
+  "started_utc": "2026-11-07T04:10:07Z",
+  "status": "done",
+  "sessions": [
+    {
+      "n": 1,
+      "started_utc": "2026-11-07T04:10:07Z",
+      "start_unix_ns": 1794024607105150802,
+      "host_offset_ns": -155757056
+    }
+  ],
+  "planned_blocks": 54,
+  "queue": [],
+  "done": [
+    "probe-E2.ml-dsa-44.keygen.r1.a1",
+    "probe-E2.ml-dsa-44.sign.r1.a1",
+    "probe-E2.ml-dsa-44.verify.r1.a1",
+    "probe-E2.ml-dsa-65.keygen.r1.a1",
+    "probe-E2.ml-dsa-65.sign.r1.a1",
+    "probe-E2.ml-dsa-65.verify.r1.a1",
+    "probe-E2.ml-dsa-87.keygen.r1.a1",
+    "probe-E2.ml-dsa-87.sign.r1.a1",
+    "probe-E2.ml-dsa-87.verify.r1.a1",
+    "probe-E2.falcon-512.keygen.r1.a1",
+    "probe-E2.falcon-512.sign.r1.a1",
+    "probe-E2.falcon-512.verify.r1.a1",
+    "probe-E2.falcon-1024.keygen.r1.a1",
+    "probe-E2.falcon-1024.sign.r1.a1",
+    "probe-E2.falcon-1024.verify.r1.a1",
+    "probe-E2.falcon-padded-512.keygen.r1.a1",
+    "probe-E2.falcon-padded-512.sign.r1.a1",
+    "probe-E2.falcon-padded-512.verify.r1.a1",
+    "probe-E2.falcon-padded-1024.keygen.r1.a1",
+    "probe-E2.falcon-padded-1024.sign.r1.a1",
+    "probe-E2.falcon-padded-1024.verify.r1.a1",
+    "probe-E2.ml-kem-512.keygen.r1.a1",
+    "probe-E2.ml-kem-512.encaps.r1.a1",
+    "probe-E2.ml-kem-512.decaps.r1.a1",
+    "probe-E2.ml-kem-768.keygen.r1.a1",
+    "probe-E2.ml-kem-768.encaps.r1.a1",
+    "probe-E2.ml-kem-768.decaps.r1.a1",
+    "probe-E2.ml-kem-1024.keygen.r1.a1",
+    "probe-E2.ml-kem-1024.encaps.r1.a1",
+    "probe-E2.ml-kem-1024.decaps.r1.a1",
+    "probe-E2.hqc-1.keygen.r1.a1",
+    "probe-E2.hqc-1.encaps.r1.a1",
+    "probe-E2.hqc-1.decaps.r1.a1",
+    "probe-E2.hqc-3.keygen.r1.a1",
+    "probe-E2.hqc-3.encaps.r1.a1",
+    "probe-E2.hqc-3.decaps.r1.a1",
+    "probe-E2.hqc-5.keygen.r1.a1",
+    "probe-E2.hqc-5.encaps.r1.a1",
+    "probe-E2.hqc-5.decaps.r1.a1",
+    "probe-E2.ecdsa-p256.keygen.r1.a1",
+    "probe-E2.ecdsa-p256.sign.r1.a1",
+    "probe-E2.ecdsa-p256.verify.r1.a1",
+    "probe-E2.ed25519.keygen.r1.a1",
+    "probe-E2.ed25519.sign.r1.a1",
+    "probe-E2.ed25519.verify.r1.a1",
+    "probe-E2.rsa3072-pss.keygen.r1.a1",
+    "probe-E2.rsa3072-pss.sign.r1.a1",
+    "probe-E2.rsa3072-pss.verify.r1.a1",
+    "probe-E2.dhkem-p256.keygen.r1.a1",
+    "probe-E2.dhkem-p256.encaps.r1.a1",
+    "probe-E2.dhkem-p256.decaps.r1.a1",
+    "probe-E2.dhkem-x25519.keygen.r1.a1",
+    "probe-E2.dhkem-x25519.encaps.r1.a1",
+    "probe-E2.dhkem-x25519.decaps.r1.a1"
+  ],
+  "classification": {},
+  "requeued": {},
+  "diagnosed": {},
+  "canary_seq": 2,
+  "first_canary_rate": 2268290.7914002384,
+  "last_canary_unix_ns": 1794024625251579678,
+  "preps": {
+    "dhkem-p256.probe": {
+      "pool": 6,
+      "prep_ns": 3140443,
+      "fingerprint": "05afbaa08b9a475f",
+      "e10": false,
+      "session": 1
+    },
+    "dhkem-x25519.probe": {
+      "pool": 6,
+      "prep_ns": 1913774,
+      "fingerprint": "699a86a992ab42dd",
+      "e10": false,
+      "session": 1
+    },
+    "ecdsa-p256.probe": {
+      "pool": 6,
+      "prep_ns": 2136870,
+      "fingerprint": "16bd361fbc1b3b3b",
+      "e10": false,
+      "session": 1
+    },
+    "ed25519.probe": {
+      "pool": 6,
+      "prep_ns": 2225905,
+      "fingerprint": "e65373ad9e0b2c5d",
+      "e10": false,
+      "session": 1
+    },
+    "falcon-1024.probe": {
+      "pool": 6,
+      "prep_ns": 19874758,
+      "fingerprint": "9fad236284868a79",
+      "e10": false,
+      "session": 1
+    },
+    "falcon-512.probe": {
+      "pool": 6,
+      "prep_ns": 7960001,
+      "fingerprint": "278b21ecc7075c67",
+      "e10": false,
+      "session": 1
+    },
+    "falcon-padded-1024.probe": {
+      "pool": 6,
+      "prep_ns": 19962873,
+      "fingerprint": "664371bd975876f7",
+      "e10": false,
+      "session": 1
+    },
+    "falcon-padded-512.probe": {
+      "pool": 6,
+      "prep_ns": 8199190,
+      "fingerprint": "7b35619cb3e67a89",
+      "e10": false,
+      "session": 1
+    },
+    "hqc-1.probe": {
+      "pool": 6,
+      "prep_ns": 37908981,
+      "fingerprint": "8de04b6374599ed6",
+      "e10": false,
+      "session": 1
+    },
+    "hqc-3.probe": {
+      "pool": 6,
+      "prep_ns": 103777780,
+      "fingerprint": "56f944cf15f598d1",
+      "e10": false,
+      "session": 1
+    },
+    "hqc-5.probe": {
+      "pool": 6,
+      "prep_ns": 251783341,
+      "fingerprint": "57ddd0c1d8f48f05",
+      "e10": false,
+      "session": 1
+    },
+    "ml-dsa-44.probe": {
+      "pool": 6,
+      "prep_ns": 2698299,
+      "fingerprint": "804e72bbb637f95f",
+      "e10": false,
+      "session": 1
+    },
+    "ml-dsa-65.probe": {
+      "pool": 6,
+      "prep_ns": 3445591,
+      "fingerprint": "7a7faebb78b6ac78",
+      "e10": false,
+      "session": 1
+    },
+    "ml-dsa-87.probe": {
+      "pool": 6,
+      "prep_ns": 3684227,
+      "fingerprint": "61e95fcd8662bbb2",
+      "e10": false,
+      "session": 1
+    },
+    "ml-kem-1024.probe": {
+      "pool": 6,
+      "prep_ns": 2571341,
+      "fingerprint": "869b73494cb15e8d",
+      "e10": false,
+      "session": 1
+    },
+    "ml-kem-512.probe": {
+      "pool": 6,
+      "prep_ns": 2444041,
+      "fingerprint": "020dc6966b058bf6",
+      "e10": false,
+      "session": 1
+    },
+    "ml-kem-768.probe": {
+      "pool": 6,
+      "prep_ns": 2204402,
+      "fingerprint": "1755467d80e1ccdb",
+      "e10": false,
+      "session": 1
+    },
+    "rsa3072-pss.probe": {
+      "pool": 6,
+      "prep_ns": 328302986,
+      "fingerprint": "4abf4c1e0afede00",
+      "e10": false,
+      "session": 1
+    }
+  },
+  "cell_reps": {},
+  "vm_cpus": 8,
+  "host_cpus": 8,
+  "host_period_ns": 5000000000,
+  "canary_every_s": 300
+}

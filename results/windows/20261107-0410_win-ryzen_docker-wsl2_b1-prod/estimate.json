@@ -1,0 +1,28 @@
+{
+  "machine": "win-ryzen",
+  "trial_run": "20261107-0410_win-ryzen_docker-wsl2_b1-prod",
+  "plans": [
+    {
+      "plan": "e2-noslh",
+      "file": "e2-noslh.json",
+      "blocks": 540,
+      "hours": 5.288638549390196,
+      "prep_hours": 0.024620584055555544,
+      "canary_hours": 0.014886572602840356,
+      "by_experiment_hours": {
+        "E2": 5.1681788808568045,
+        "E2c": 0.08095251187500004
+      },
+      "raw_mb": 50.287635
+    }
+  ],
+  "total_hours": 5.288638549390196,
+  "total_raw_mb": 50.287635,
+  "assumptions": [
+    "probe medians from the trial (cold call excluded)",
+    "per-block fixed overhead 0.50 s (median of the trial)",
+    "raw data 2.50 bytes per sample row (trial average, gzip)",
+    "input-set generation per (algorithm, repetition) = key generation + P x (sign + verify) or P x (encaps + decaps)",
+    "repeats and diagnostic re-runs are not included"
+  ]
+}

@@ -11,3 +11,5 @@
 | 20261106-2053_win-ryzen_docker-wsl2_b2-portable | smoke-e4 | smoke | done | 36 | 3 | 193e0f487a40 | 14669260309707394124 |
 | 20261106-2100_win-ryzen_docker-wsl2_b3-native | smoke-e4 | smoke | done | 36 | 18 | 193e0f487a40 | 12287796544630509495 |
 | 20261106-2212_win-ryzen_docker-wsl2_b1-prod | trial | trial | done | 196 | 3 | 193e0f487a40 | 12749186899076448634 |
+| 20261107-0410_win-ryzen_docker-wsl2_b1-prod | trial-e2-noslh | trial | done | 54 |  | 8fa51586293c | 12012664700309600096 |
+| 20261107-0412_win-ryzen_docker-wsl2_b1-prod | trial-e11-curated | trial | done | 501 |  | 8fa51586293c | 5166095032801229239 |

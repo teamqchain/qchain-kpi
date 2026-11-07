@@ -1,0 +1,27 @@
+{
+  "machine": "win-ryzen",
+  "trial_run": "20261107-0412_win-ryzen_docker-wsl2_b1-prod",
+  "plans": [
+    {
+      "plan": "e11-curated",
+      "file": "e11-curated.json",
+      "blocks": 2505,
+      "hours": 8.4460506005533,
+      "prep_hours": 0,
+      "canary_hours": 0.023349425356081473,
+      "by_experiment_hours": {
+        "E11": 8.422701175197194
+      },
+      "raw_mb": 20.4142575
+    }
+  ],
+  "total_hours": 8.4460506005533,
+  "total_raw_mb": 20.4142575,
+  "assumptions": [
+    "probe medians from the trial (cold call excluded)",
+    "per-block fixed overhead 0.50 s (median of the trial)",
+    "raw data 2.50 bytes per sample row (trial average, gzip)",
+    "input-set generation per (algorithm, repetition) = key generation + P x (sign + verify) or P x (encaps + decaps)",
+    "repeats and diagnostic re-runs are not included"
+  ]
+}
