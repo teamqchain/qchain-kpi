@@ -160,7 +160,7 @@ Each attempt gets external-cause flags:
 | `quota` | CPU-quota throttling of the container (`nr_throttled` > 0) |
 | `thermal` | Mac: thermal pressure above nominal. Windows: the processor's `% Performance Limit`, or a thermal zone's `% Passive Limit`, below 100. The VM reports none. |
 | `battery`, `alert` | on battery (Mac, Windows); alert: Low Power Mode on (Mac); Energy Saver on or a container that is not ours (Windows); a container that is not ours, MySQL, IPFS or the GitHub Actions runner (VM) |
-| `canary` | the canary just before or just after the block deviates by more than C_m from the batch's first canary (the Mac) or, on a machine whose thresholds have `canary_ref_rate` (the VM), from that fixed reference: the median canary of the machine's trial |
+| `canary` | the canary just before or just after the block deviates by more than C_m from the batch's first canary (the Mac) or, on a machine whose thresholds have `canary_ref_rate` (the VM and the Windows laptop), from that fixed reference: the median canary of the machine's trial |
 | `core` | Mac: that canary ran at efficiency-core speed. It is compared with the native references measured at the start of every session: the plain run gives the P-core reference, `taskpolicy -b` the E-core reference, and the threshold is their geometric mean. |
 | `host_missing` | trial and main: no host-monitor sample covers the block |
 
