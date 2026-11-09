@@ -1,0 +1,13 @@
+utc_ns,other_pct,throttle,on_ac,alert,detail
+1794134703623894800,15.355,0,1,0,total=29.3;runtime=13.3;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=125.8;temp_c=71;battery_pct=100;energy_saver=Disabled;found=none;busiest_other=SystemOptimizer:3.1
+1794134708619955700,14.343,0,1,0,total=28.0;runtime=12.5;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=127.9;temp_c=72;battery_pct=100;energy_saver=Disabled;found=none;busiest_other=AnyDesk:6.3
+1794134713658834100,13.289,0,1,0,total=26.5;runtime=12.6;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=127.1;temp_c=72;battery_pct=100;energy_saver=Disabled;found=none
+1794134718684985800,14.452,0,1,0,total=27.6;runtime=12.4;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=124.2;temp_c=72;battery_pct=100;energy_saver=Disabled;found=none;busiest_other=WindowsTerminal:3.1
+1794134723444743300,13.349,0,1,0,total=26.3;runtime=12.4;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=124.6;temp_c=73;battery_pct=100;energy_saver=Disabled;found=none;busiest_other=OverlayHelper:6.3
+1794134728465462900,13.552,0,1,0,total=26.8;runtime=12.7;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=123.9;temp_c=73;battery_pct=100;energy_saver=Disabled;found=none
+1794134733462653600,13.452,0,1,0,total=26.5;runtime=12.6;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=124.1;temp_c=74;battery_pct=100;energy_saver=Disabled;found=none
+1794134738500593500,14.262,0,1,0,total=27.0;runtime=12.1;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=124.0;temp_c=74;battery_pct=100;energy_saver=Disabled;found=none;busiest_other=WindowsTerminal:6.3
+1794134743523471600,13.697,0,1,0,total=26.9;runtime=12.6;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=123.8;temp_c=74;battery_pct=100;energy_saver=Disabled;found=none
+1794134748539717200,13.433,0,1,0,total=26.7;runtime=12.7;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=123.7;temp_c=75;battery_pct=100;energy_saver=Disabled;found=none;busiest_other=WindowsTerminal:3.1
+1794134753565525500,12.777,0,1,0,total=25.8;runtime=12.5;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=124.3;temp_c=75;battery_pct=100;energy_saver=Disabled;found=none;busiest_other=WindowsTerminal:6.3
+1794134758088904800,1.386,0,1,0,total=14.6;runtime=12.6;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=148.0;temp_c=75;battery_pct=100;energy_saver=Disabled;found=none

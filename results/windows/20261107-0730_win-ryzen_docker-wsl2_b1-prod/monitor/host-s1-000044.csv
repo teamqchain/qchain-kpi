@@ -1,0 +1,13 @@
+utc_ns,other_pct,throttle,on_ac,alert,detail
+1794039240996293700,9.905,0,1,0,total=23.3;runtime=12.7;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=143.3;temp_c=78;battery_pct=100;energy_saver=Disabled;found=none;busiest_other=BackgroundDownload:28.1
+1794039246037360800,10.585,0,1,0,total=25.0;runtime=13.2;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=144.0;temp_c=78;battery_pct=100;energy_saver=Disabled;found=none;busiest_other=BackgroundDownload:37.5
+1794039250836349600,11.563,0,1,0,total=24.8;runtime=12.5;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=136.4;temp_c=78;battery_pct=100;energy_saver=Disabled;found=none;busiest_other=BackgroundDownload:121.9
+1794039255866018000,9.809,0,1,0,total=23.1;runtime=12.7;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=132.5;temp_c=78;battery_pct=100;energy_saver=Disabled;found=none;busiest_other=BackgroundDownload:90.6
+1794039260906273500,12.139,0,1,0,total=25.1;runtime=12.4;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=124.7;temp_c=79;battery_pct=100;energy_saver=Disabled;found=none;busiest_other=BackgroundDownload:9.4
+1794039265405123700,2.201,0,1,0,total=15.3;runtime=12.6;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=143.3;temp_c=80;battery_pct=100;energy_saver=Disabled;found=none
+1794039270403976500,1.994,0,1,0,total=15.0;runtime=12.6;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=142.9;temp_c=80;battery_pct=100;energy_saver=Disabled;found=none
+1794039275423688400,0.582,0,1,0,total=13.7;runtime=12.6;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=148.4;temp_c=80;battery_pct=100;energy_saver=Disabled;found=none
+1794039280425608300,0.892,0,1,0,total=14.0;runtime=12.6;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=147.8;temp_c=79;battery_pct=100;energy_saver=Disabled;found=none
+1794039285437072400,0.875,0,1,0,total=14.0;runtime=12.6;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=147.6;temp_c=79;battery_pct=100;energy_saver=Disabled;found=none
+1794039290436690900,0.759,0,1,0,total=13.9;runtime=12.5;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=147.5;temp_c=79;battery_pct=100;energy_saver=Disabled;found=none
+1794039295434101400,2.411,0,1,0,total=15.4;runtime=12.5;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=143.3;temp_c=79;battery_pct=100;energy_saver=Disabled;found=none

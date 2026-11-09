@@ -1,0 +1,13 @@
+utc_ns,other_pct,throttle,on_ac,alert,detail
+1794063625626515900,0.732,0,1,0,total=13.9;runtime=12.6;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=147.0;temp_c=71;battery_pct=100;energy_saver=Disabled;found=none
+1794063630567407300,4.112,0,1,0,total=17.6;runtime=12.4;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=144.9;temp_c=71;battery_pct=100;energy_saver=Disabled;found=none
+1794063635597052300,2.036,0,1,0,total=15.2;runtime=12.8;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=144.5;temp_c=72;battery_pct=100;energy_saver=Disabled;found=none
+1794063640605551900,2.747,0,1,0,total=15.8;runtime=12.5;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=140.5;temp_c=73;battery_pct=100;energy_saver=Disabled;found=none
+1794063645606228700,4.941,0,1,0,total=18.2;runtime=12.7;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=136.9;temp_c=73;battery_pct=100;energy_saver=Disabled;found=none
+1794063650675691400,4.433,0,1,0,total=17.4;runtime=12.3;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=136.7;temp_c=75;battery_pct=100;energy_saver=Disabled;found=none
+1794063655994645400,19.954,0,1,0,total=33.1;runtime=12.5;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=142.0;temp_c=74;battery_pct=100;energy_saver=Disabled;found=none;busiest_other=powershell:6.3
+1794063661072865500,22.449,0,1,0,total=35.5;runtime=12.5;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=133.9;temp_c=74;battery_pct=100;energy_saver=Disabled;found=none;busiest_other=OverlayHelper:3.1
+1794063666102426700,17.768,0,1,0,total=30.8;runtime=12.4;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=117.3;temp_c=76;battery_pct=100;energy_saver=Disabled;found=none
+1794063671159013900,14.954,0,1,0,total=26.7;runtime=11.1;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=118.0;temp_c=76;battery_pct=100;energy_saver=Disabled;found=none
+1794063676198707400,13.436,0,1,0,total=26.0;runtime=12.0;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=120.1;temp_c=74;battery_pct=100;energy_saver=Disabled;found=none
+1794063680981034700,13.565,0,1,0,total=26.7;runtime=12.6;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=120.1;temp_c=75;battery_pct=100;energy_saver=Disabled;found=none;busiest_other=Docker_Desktop:3.1

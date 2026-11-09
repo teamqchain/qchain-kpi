@@ -1,0 +1,36 @@
+[18:43:47] canary 1 (start): 2239202 hashes/s, ratio 0.9842 
+[18:43:48] prepared ml-dsa-44.r1: P=256 in 0.1s
+[18:43:53] 1/15 E10.ml-dsa-44.sign.r1.a1 fast p50 78.57us (n=10000) first 1.808ms
+[18:43:53] prepared ml-dsa-65.r1: P=256 in 0.1s
+[18:44:00] 2/15 E10.ml-dsa-65.sign.r1.a1 fast p50 127.12us (n=10000) first 1.884ms
+[18:44:00] prepared ml-dsa-87.r1: P=256 in 0.1s
+[18:44:10] 3/15 E10.ml-dsa-87.sign.r1.a1 fast p50 153.09us (n=10000) first 2.011ms
+[18:44:10] prepared ml-dsa-65.r2: P=256 in 0.1s
+[18:44:17] 4/15 E10.ml-dsa-65.sign.r2.a1 fast p50 126.21us (n=10000) first 2.021ms
+[18:44:18] prepared ml-dsa-44.r2: P=256 in 0.1s
+[18:44:23] 5/15 E10.ml-dsa-44.sign.r2.a1 fast p50 77.84us (n=10000) first 1.729ms
+[18:44:23] prepared ml-dsa-87.r2: P=256 in 0.1s
+[18:44:32] 6/15 E10.ml-dsa-87.sign.r2.a1 fast p50 154.09us (n=10000) first 1.745ms
+[18:44:32] prepared ml-dsa-44.r3: P=256 in 0.1s
+[18:44:37] 7/15 E10.ml-dsa-44.sign.r3.a1 fast p50 79.80us (n=10000) first 1.734ms
+[18:44:37] prepared ml-dsa-65.r3: P=256 in 0.1s
+[18:44:45] 8/15 E10.ml-dsa-65.sign.r3.a1 fast p50 125.01us (n=10000) first 1.787ms
+[18:44:45] prepared ml-dsa-87.r3: P=256 in 0.1s
+[18:44:55] 9/15 E10.ml-dsa-87.sign.r3.a1 fast p50 155.89us (n=10000) first 1.864ms
+[18:44:55] prepared ml-dsa-87.r4: P=256 in 0.1s
+[18:45:04] 10/15 E10.ml-dsa-87.sign.r4.a1 fast p50 153.61us (n=10000) first 2.321ms
+[18:45:04] prepared ml-dsa-44.r4: P=256 in 0.1s
+[18:45:09] 11/15 E10.ml-dsa-44.sign.r4.a1 fast p50 78.58us (n=10000) first 1.868ms
+[18:45:09] prepared ml-dsa-65.r4: P=256 in 0.1s
+[18:45:17] 12/15 E10.ml-dsa-65.sign.r4.a1 fast p50 126.62us (n=10000) first 1.955ms
+[18:45:17] prepared ml-dsa-44.r5: P=256 in 0.1s
+[18:45:22] 13/15 E10.ml-dsa-44.sign.r5.a1 fast p50 79.53us (n=10000) first 1.842ms
+[18:45:22] prepared ml-dsa-65.r5: P=256 in 0.1s
+[18:45:30] 14/15 E10.ml-dsa-65.sign.r5.a1 fast p50 125.51us (n=10000) first 1.808ms
+[18:45:30] prepared ml-dsa-87.r5: P=256 in 0.1s
+[18:45:39] 15/15 E10.ml-dsa-87.sign.r5.a1 fast p50 154.02us (n=10000) first 2.154ms
+[18:45:41] canary 2 (end): 2274132 hashes/s, ratio 0.9996 
+[18:45:51] queued E10.ml-dsa-44.sign.r1.a2 (repeat:other) at position 0
+[18:45:56] 16/16 E10.ml-dsa-44.sign.r1.a2 fast p50 79.78us (n=10000) first 1.816ms
+[18:45:57] canary 3 (end): 2272630 hashes/s, ratio 0.9989 
+[18:46:52] batch complete: 16 attempt(s); 46 file(s) in SHA256SUMS

@@ -1,0 +1,1649 @@
+utc_ns,event,key,detail
+1794076558056315866,session_start,,session 1; host offset -164046288 ns
+1794076558413498003,e0,,e0-s1.json
+1794076559952736089,canary,,1 start ratio 0.97587 
+1794076560073631183,prep,ml-dsa-87.r1,pool 256 e10 false 78147603 ns
+1794076560077803181,block_start,E2c.ml-dsa-87.sign.r1.a1,fast
+1794076561039035816,block_done,E2c.ml-dsa-87.sign.r1.a1,
+1794076565425121940,prep,hqc-3.r1,pool 256 e10 false 4311430748 ns
+1794076565429441396,block_start,E2.hqc-3.keygen.r1.a1,slow
+1794076765804250196,block_done,E2.hqc-3.keygen.r1.a1,
+1794076765807921757,block_start,E2.hqc-3.decaps.r1.a1,slow
+1794076946491349155,block_done,E2.hqc-3.decaps.r1.a1,
+1794076946575684116,prep,dhkem-x25519.r1,pool 256 e10 false 56842000 ns
+1794076946579859997,block_start,E2.dhkem-x25519.encaps.r1.a1,fast
+1794076952675225605,block_done,E2.dhkem-x25519.encaps.r1.a1,
+1794076952775268499,prep,ml-dsa-65.r1,pool 256 e10 false 63501629 ns
+1794076952779661038,block_start,E2.ml-dsa-65.verify.r1.a1,fast
+1794076955483450456,block_done,E2.ml-dsa-65.verify.r1.a1,
+1794076955556938191,prep,ml-dsa-44.r1,pool 256 e10 false 42379602 ns
+1794076955560801669,block_start,E2.ml-dsa-44.keygen.r1.a1,fast
+1794076957778257725,block_done,E2.ml-dsa-44.keygen.r1.a1,
+1794076957832981174,prep,ml-kem-512.r1,pool 256 e10 false 23712668 ns
+1794076957836988556,block_start,E2.ml-kem-512.decaps.r1.a1,fast
+1794076958959903879,block_done,E2.ml-kem-512.decaps.r1.a1,
+1794076959081271481,prep,dhkem-p256.r1,pool 256 e10 false 96587808 ns
+1794076959085746753,block_start,E2.dhkem-p256.encaps.r1.a1,fast
+1794076970671561525,block_done,E2.dhkem-p256.encaps.r1.a1,
+1794076970742540849,prep,ecdsa-p256.r1,pool 256 e10 false 46010001 ns
+1794076970746687954,block_start,E2c.ecdsa-p256.keygen.r1.a1,fast
+1794076971262553014,block_done,E2c.ecdsa-p256.keygen.r1.a1,
+1794076971265782821,block_start,E2.ecdsa-p256.keygen.r1.a1,fast
+1794076972982971227,block_done,E2.ecdsa-p256.keygen.r1.a1,
+1794076972986198750,block_start,E2c.dhkem-x25519.decaps.r1.a1,fast
+1794076981342338997,block_done,E2c.dhkem-x25519.decaps.r1.a1,
+1794076981452116047,prep,falcon-padded-512.r1,pool 256 e10 false 83293496 ns
+1794076981455476790,block_start,E2.falcon-padded-512.sign.r1.a1,fast
+1794076992569165335,block_done,E2.falcon-padded-512.sign.r1.a1,
+1794076992572492744,block_start,E2c.ml-dsa-65.verify.r1.a1,fast
+1794076993527071948,block_done,E2c.ml-dsa-65.verify.r1.a1,
+1794076993581909490,prep,ml-kem-1024.r1,pool 256 e10 false 23754262 ns
+1794076993586284051,block_start,E2c.ml-kem-1024.keygen.r1.a1,fast
+1794076994600902504,block_done,E2c.ml-kem-1024.keygen.r1.a1,
+1794076994603962208,block_start,E2.ml-kem-512.encaps.r1.a1,fast
+1794076996370375769,block_done,E2.ml-kem-512.encaps.r1.a1,
+1794076996373317241,block_start,E2c.ml-dsa-65.keygen.r1.a1,fast
+1794076997401493141,block_done,E2c.ml-dsa-65.keygen.r1.a1,
+1794076997601676507,prep,falcon-padded-1024.r1,pool 256 e10 false 171657828 ns
+1794076997605590511,block_start,E2c.falcon-padded-1024.keygen.r1.a1,fast
+1794076998648157843,block_done,E2c.falcon-padded-1024.keygen.r1.a1,
+1794076998731907811,prep,ed25519.r1,pool 256 e10 false 57660419 ns
+1794076998736068601,block_start,E2.ed25519.verify.r1.a1,fast
+1794077003640352626,block_done,E2.ed25519.verify.r1.a1,
+1794077015186873273,prep,hqc-5.r1,pool 256 e10 false 11490202128 ns
+1794077015190899438,block_start,E2.hqc-5.decaps.r1.a1,slow
+1794077195898920822,block_done,E2.hqc-5.decaps.r1.a1,
+1794077197433923997,canary,,2 periodic ratio 1.00298 
+1794077197440946280,queued,E2.dhkem-p256.encaps.r1.a2,repeat:other; position 70
+1794077197444732138,queued,E2.dhkem-x25519.encaps.r1.a2,repeat:other; position 432
+1794077197448570288,queued,E2.ecdsa-p256.keygen.r1.a2,repeat:other; position 423
+1794077197452783207,queued,E2.ed25519.verify.r1.a2,repeat:other; position 154
+1794077197456945824,queued,E2.falcon-padded-512.sign.r1.a2,repeat:other; position 174
+1794077197460777291,queued,E2.hqc-3.decaps.r1.a2,repeat:other; position 510
+1794077197464557578,queued,E2.hqc-3.keygen.r1.a2,repeat:other; position 218
+1794077197468741709,queued,E2.ml-dsa-44.keygen.r1.a2,repeat:other; position 216
+1794077197473049693,queued,E2.ml-dsa-65.verify.r1.a2,repeat:other; position 499
+1794077197476734743,queued,E2.ml-kem-512.decaps.r1.a2,repeat:other; position 162
+1794077197480208407,queued,E2.ml-kem-512.encaps.r1.a2,repeat:other; position 333
+1794077197483937252,queued,E2c.dhkem-x25519.decaps.r1.a2,repeat:other; position 94
+1794077197487781545,queued,E2c.ecdsa-p256.keygen.r1.a2,repeat:other; position 261
+1794077197491583714,queued,E2c.falcon-padded-1024.keygen.r1.a2,repeat:other; position 85
+1794077197495325195,queued,E2c.ml-dsa-65.keygen.r1.a2,repeat:other; position 211
+1794077197499452664,queued,E2c.ml-dsa-65.verify.r1.a2,repeat:other; position 201
+1794077197503794806,queued,E2c.ml-kem-1024.keygen.r1.a2,repeat:other; position 231
+1794077197526396678,checkpoint,,17 block(s) queued; 538 remaining
+1794077197530096306,block_start,E2.hqc-5.keygen.r1.a1,slow
+1794077396417987367,block_done,E2.hqc-5.keygen.r1.a1,
+1794077396420573078,block_start,E2c.ml-dsa-44.keygen.r1.a1,fast
+1794077397375589801,block_done,E2c.ml-dsa-44.keygen.r1.a1,
+1794077398882344307,prep,hqc-1.r1,pool 256 e10 false 1446365191 ns
+1794077398886424246,block_start,E2c.hqc-1.decaps.r1.a1,fast
+1794077399898995042,block_done,E2c.hqc-1.decaps.r1.a1,
+1794077399901685887,block_start,E2c.ml-dsa-65.sign.r1.a1,fast
+1794077400762011791,block_done,E2c.ml-dsa-65.sign.r1.a1,
+1794077400765212905,block_start,E2c.dhkem-x25519.keygen.r1.a1,fast
+1794077401163958757,block_done,E2c.dhkem-x25519.keygen.r1.a1,
+1794077401167195240,block_start,E2c.hqc-5.decaps.r1.a1,fast
+1794077402529470640,block_done,E2c.hqc-5.decaps.r1.a1,
+1794077402585465183,prep,ml-kem-768.r1,pool 256 e10 false 16058306 ns
+1794077402588871230,block_start,E2.ml-kem-768.decaps.r1.a1,fast
+1794077404015945958,block_done,E2.ml-kem-768.decaps.r1.a1,
+1794077405375244036,prep,rsa3072-pss.r1,pool 256 e10 false 1328257792 ns
+1794077405378383439,block_start,E2c.rsa3072-pss.sign.r1.a1,fast
+1794077437634232854,block_done,E2c.rsa3072-pss.sign.r1.a1,
+1794077437637135916,block_start,E2c.ed25519.sign.r1.a1,fast
+1794077443856054727,block_done,E2c.ed25519.sign.r1.a1,
+1794077443858808817,block_start,E2.dhkem-p256.keygen.r1.a1,fast
+1794077445323956105,block_done,E2.dhkem-p256.keygen.r1.a1,
+1794077445327135320,block_start,E2c.ml-kem-768.encaps.r1.a1,fast
+1794077446435906482,block_done,E2c.ml-kem-768.encaps.r1.a1,
+1794077446438886075,block_start,E2.dhkem-x25519.decaps.r1.a1,fast
+1794077449395285637,block_done,E2.dhkem-x25519.decaps.r1.a1,
+1794077449398215903,block_start,E2c.falcon-padded-512.sign.r1.a1,fast
+1794077450286132420,block_done,E2c.falcon-padded-512.sign.r1.a1,
+1794077450289271389,block_start,E2c.hqc-5.keygen.r1.a1,fast
+1794077451664755105,block_done,E2c.hqc-5.keygen.r1.a1,
+1794077451667984022,block_start,E2c.hqc-3.encaps.r1.a1,fast
+1794077452930454436,block_done,E2c.hqc-3.encaps.r1.a1,
+1794077452933302484,block_start,E2c.dhkem-p256.decaps.r1.a1,fast
+1794077455592816920,block_done,E2c.dhkem-p256.decaps.r1.a1,
+1794077455595781598,block_start,E2c.ml-kem-768.decaps.r1.a1,fast
+1794077456542091054,block_done,E2c.ml-kem-768.decaps.r1.a1,
+1794077456652922022,prep,falcon-512.r1,pool 256 e10 false 78810857 ns
+1794077456656867338,block_start,E2c.falcon-512.sign.r1.a1,fast
+1794077457475574503,block_done,E2c.falcon-512.sign.r1.a1,
+1794077457478378975,block_start,E2.hqc-3.encaps.r1.a1,slow
+1794077908967557071,block_done,E2.hqc-3.encaps.r1.a1,
+1794077910500794111,canary,,3 periodic ratio 0.99978 
+1794077910507691577,queued,E2.hqc-5.decaps.r1.a2,repeat:other; position 424
+1794077910511704183,queued,E2.hqc-5.keygen.r1.a2,repeat:other; position 404
+1794077910515087813,queued,E2c.hqc-5.decaps.r1.a2,repeat:other; position 511
+1794077910537760649,checkpoint,,3 block(s) queued; 522 remaining
+1794077910540539011,block_start,E2.ml-dsa-44.sign.r1.a1,fast
+1794077915750289769,block_done,E2.ml-dsa-44.sign.r1.a1,
+1794077915753058961,block_start,E2.hqc-1.decaps.r1.a1,slow
+1794078096955564127,block_done,E2.hqc-1.decaps.r1.a1,
+1794078096958426484,block_start,E2c.ml-dsa-44.sign.r1.a1,fast
+1794078097758503592,block_done,E2c.ml-dsa-44.sign.r1.a1,
+1794078097762260267,block_start,E2.ml-dsa-44.verify.r1.a1,fast
+1794078099559422370,block_done,E2.ml-dsa-44.verify.r1.a1,
+1794078099562794260,block_start,E2c.dhkem-p256.keygen.r1.a1,fast
+1794078100041952277,block_done,E2c.dhkem-p256.keygen.r1.a1,
+1794078100045485556,block_start,E2c.ml-dsa-87.keygen.r1.a1,fast
+1794078101111116727,block_done,E2c.ml-dsa-87.keygen.r1.a1,
+1794078101114819589,block_start,E2c.hqc-3.keygen.r1.a1,fast
+1794078102156978877,block_done,E2c.hqc-3.keygen.r1.a1,
+1794078102160288996,block_start,E2c.hqc-5.encaps.r1.a1,fast
+1794078103661619881,block_done,E2c.hqc-5.encaps.r1.a1,
+1794078103665509880,block_start,E2.hqc-5.encaps.r1.a1,slow
+1794078555697442322,block_done,E2.hqc-5.encaps.r1.a1,
+1794078557232095416,canary,,4 periodic ratio 1.00372 
+1794078557240067373,queued,E2.hqc-1.decaps.r1.a2,repeat:other; position 26
+1794078557260791900,checkpoint,,1 block(s) queued; 514 remaining
+1794078557264552059,block_start,E2c.ecdsa-p256.sign.r1.a1,fast
+1794078559766687671,block_done,E2c.ecdsa-p256.sign.r1.a1,
+1794078559769550826,block_start,E2.dhkem-p256.decaps.r1.a1,fast
+1794078565181011923,block_done,E2.dhkem-p256.decaps.r1.a1,
+1794078565184095013,block_start,E2.ecdsa-p256.sign.r1.a1,fast
+1794078569590150084,block_done,E2.ecdsa-p256.sign.r1.a1,
+1794078569593137217,block_start,E2.falcon-512.verify.r1.a1,fast
+1794078571542862024,block_done,E2.falcon-512.verify.r1.a1,
+1794078571546213968,block_start,E2c.rsa3072-pss.keygen.r1.a1,fast
+1794078571912707550,block_done,E2c.rsa3072-pss.keygen.r1.a1,
+1794078571915639108,block_start,E2.ml-kem-1024.decaps.r1.a1,fast
+1794078573710381695,block_done,E2.ml-kem-1024.decaps.r1.a1,
+1794078573713935485,block_start,E2.ml-kem-1024.keygen.r1.a1,fast
+1794078575535984921,block_done,E2.ml-kem-1024.keygen.r1.a1,
+1794078575539023610,block_start,E2c.dhkem-x25519.encaps.r1.a1,fast
+1794078576858750398,block_done,E2c.dhkem-x25519.encaps.r1.a1,
+1794078576862308506,block_start,E2c.ml-kem-512.decaps.r1.a1,fast
+1794078577863433294,block_done,E2c.ml-kem-512.decaps.r1.a1,
+1794078577866736008,block_start,E2.ml-dsa-87.keygen.r1.a1,fast
+1794078582144335277,block_done,E2.ml-dsa-87.keygen.r1.a1,
+1794078582147554379,block_start,E2c.falcon-512.keygen.r1.a1,fast
+1794078583011221545,block_done,E2c.falcon-512.keygen.r1.a1,
+1794078583014387412,block_start,E2c.falcon-padded-512.verify.r1.a1,fast
+1794078583917931156,block_done,E2c.falcon-padded-512.verify.r1.a1,
+1794078583921204416,block_start,E2c.ml-kem-1024.encaps.r1.a1,fast
+1794078584961509251,block_done,E2c.ml-kem-1024.encaps.r1.a1,
+1794078584964447133,block_start,E2c.falcon-padded-1024.verify.r1.a1,fast
+1794078585870714306,block_done,E2c.falcon-padded-1024.verify.r1.a1,
+1794078585873653721,block_start,E2.ml-dsa-87.verify.r1.a1,fast
+1794078589550261656,block_done,E2.ml-dsa-87.verify.r1.a1,
+1794078589553526232,block_start,E2.ecdsa-p256.verify.r1.a1,fast
+1794078592943462048,block_done,E2.ecdsa-p256.verify.r1.a1,
+1794078592946833433,block_start,E2c.dhkem-p256.encaps.r1.a1,fast
+1794078595375871182,block_done,E2c.dhkem-p256.encaps.r1.a1,
+1794078595379070458,block_start,E2c.hqc-1.keygen.r1.a1,fast
+1794078596275523118,block_done,E2c.hqc-1.keygen.r1.a1,
+1794078596278957747,block_start,E2c.ml-dsa-87.verify.r1.a1,fast
+1794078597118984788,block_done,E2c.ml-dsa-87.verify.r1.a1,
+1794078597122587555,block_start,E2c.ml-dsa-44.verify.r1.a1,fast
+1794078598001251939,block_done,E2c.ml-dsa-44.verify.r1.a1,
+1794078598004539397,block_start,E2c.rsa3072-pss.verify.r1.a1,fast
+1794078609709086618,block_done,E2c.rsa3072-pss.verify.r1.a1,
+1794078609903888790,prep,falcon-1024.r1,pool 256 e10 false 154960626 ns
+1794078609907229272,block_start,E2.falcon-1024.verify.r1.a1,fast
+1794078613364171301,block_done,E2.falcon-1024.verify.r1.a1,
+1794078613367272844,block_start,E2c.ml-kem-768.keygen.r1.a1,fast
+1794078614291492081,block_done,E2c.ml-kem-768.keygen.r1.a1,
+1794078614294356208,block_start,E2.falcon-512.sign.r1.a1,fast
+1794078623740249392,block_done,E2.falcon-512.sign.r1.a1,
+1794078623743154660,block_start,E2.rsa3072-pss.verify.r1.a1,fast
+1794078629028822308,block_done,E2.rsa3072-pss.verify.r1.a1,
+1794078629032070259,block_start,E2.rsa3072-pss.sign.r1.a1,slow
+1794078815065051714,block_done,E2.rsa3072-pss.sign.r1.a1,
+1794078815068330560,block_start,E2.hqc-1.decaps.r1.a2,slow
+1794078996319656187,block_done,E2.hqc-1.decaps.r1.a2,
+1794078996322179476,block_start,E2.falcon-padded-512.verify.r1.a1,fast
+1794078998271339160,block_done,E2.falcon-padded-512.verify.r1.a1,
+1794078998274777203,block_start,E2c.ml-kem-512.encaps.r1.a1,fast
+1794078999431092385,block_done,E2c.ml-kem-512.encaps.r1.a1,
+1794078999433633301,block_start,E2.falcon-padded-1024.verify.r1.a1,fast
+1794079002911559058,block_done,E2.falcon-padded-1024.verify.r1.a1,
+1794079002914579116,block_start,E2.ml-dsa-65.keygen.r1.a1,fast
+1794079005979980971,block_done,E2.ml-dsa-65.keygen.r1.a1,
+1794079005982862331,block_start,E2.ml-kem-768.encaps.r1.a1,fast
+1794079008189636710,block_done,E2.ml-kem-768.encaps.r1.a1,
+1794079008193073476,block_start,E2.ed25519.sign.r1.a1,fast
+1794079014630242477,block_done,E2.ed25519.sign.r1.a1,
+1794079014633307840,block_start,E2.hqc-1.keygen.r1.a1,slow
+1794079217023281152,block_done,E2.hqc-1.keygen.r1.a1,
+1794079218551559686,canary,,5 periodic ratio 1.00258 
+1794079218580468748,checkpoint,,0 block(s) queued; 480 remaining
+1794079218583479080,block_start,E2c.hqc-3.decaps.r1.a1,fast
+1794079219651116094,block_done,E2c.hqc-3.decaps.r1.a1,
+1794079219654125043,block_start,E2c.ed25519.keygen.r1.a1,fast
+1794079220026066034,block_done,E2c.ed25519.keygen.r1.a1,
+1794079220029065975,block_start,E2.falcon-padded-512.keygen.r1.a1,slow
+1794079400946541047,block_done,E2.falcon-padded-512.keygen.r1.a1,
+1794079400949826125,block_start,E2.ml-dsa-65.sign.r1.a1,fast
+1794079408748122512,block_done,E2.ml-dsa-65.sign.r1.a1,
+1794079408750971062,block_start,E2.falcon-padded-1024.keygen.r1.a1,slow
+1794079589523756894,block_done,E2.falcon-padded-1024.keygen.r1.a1,
+1794079589527293903,block_start,E2.falcon-padded-1024.sign.r1.a1,fast
+1794079607198552401,block_done,E2.falcon-padded-1024.sign.r1.a1,
+1794079607202226748,block_start,E2c.falcon-1024.verify.r1.a1,fast
+1794079608165088841,block_done,E2c.falcon-1024.verify.r1.a1,
+1794079608168401466,block_start,E2c.hqc-1.encaps.r1.a1,fast
+1794079609232088828,block_done,E2c.hqc-1.encaps.r1.a1,
+1794079609235095704,block_start,E2c.falcon-padded-1024.sign.r1.a1,fast
+1794079610040861421,block_done,E2c.falcon-padded-1024.sign.r1.a1,
+1794079610043568748,block_start,E2.dhkem-p256.encaps.r1.a2,fast
+1794079620137672302,block_done,E2.dhkem-p256.encaps.r1.a2,
+1794079620140684694,block_start,E2c.ml-kem-512.keygen.r1.a1,fast
+1794079621037470606,block_done,E2c.ml-kem-512.keygen.r1.a1,
+1794079621040181165,block_start,E2.ml-kem-768.keygen.r1.a1,fast
+1794079622503769775,block_done,E2.ml-kem-768.keygen.r1.a1,
+1794079622506663282,block_start,E2.rsa3072-pss.keygen.r1.a1,slow
+1794079748711544410,block_done,E2.rsa3072-pss.keygen.r1.a1,
+1794079748714927390,block_start,E2c.ecdsa-p256.verify.r1.a1,fast
+1794079750995761621,block_done,E2c.ecdsa-p256.verify.r1.a1,
+1794079750998675780,block_start,E2.dhkem-x25519.keygen.r1.a1,fast
+1794079752405150022,block_done,E2.dhkem-x25519.keygen.r1.a1,
+1794079752407767507,block_start,E2c.ml-kem-1024.decaps.r1.a1,fast
+1794079753388461734,block_done,E2c.ml-kem-1024.decaps.r1.a1,
+1794079753391423015,block_start,E2c.falcon-512.verify.r1.a1,fast
+1794079754359163326,block_done,E2c.falcon-512.verify.r1.a1,
+1794079754362165798,block_start,E2.hqc-1.encaps.r1.a1,slow
+1794080209221745238,block_done,E2.hqc-1.encaps.r1.a1,
+1794080210757031132,canary,,6 periodic ratio 1.00308 
+1794080210768229276,queued,E2.hqc-1.keygen.r1.a2,repeat:other; position 414
+1794080210772129021,queued,E2c.ed25519.keygen.r1.a2,repeat:other; position 309
+1794080210796398616,checkpoint,,2 block(s) queued; 464 remaining
+1794080210800331967,block_start,E2.falcon-1024.keygen.r1.a1,slow
+1794080391552266459,block_done,E2.falcon-1024.keygen.r1.a1,
+1794080391555477460,block_start,E2.falcon-1024.sign.r1.a1,fast
+1794080409436867136,block_done,E2.falcon-1024.sign.r1.a1,
+1794080409439959935,block_start,E2c.falcon-1024.sign.r1.a1,fast
+1794080410248396475,block_done,E2c.falcon-1024.sign.r1.a1,
+1794080410252662237,block_start,E2.ml-kem-1024.encaps.r1.a1,fast
+1794080413103675837,block_done,E2.ml-kem-1024.encaps.r1.a1,
+1794080413106808873,block_start,E2c.falcon-padded-512.keygen.r1.a1,fast
+1794080413871452721,block_done,E2c.falcon-padded-512.keygen.r1.a1,
+1794080413874683860,block_start,E2.ml-kem-512.keygen.r1.a1,fast
+1794080414943367876,block_done,E2.ml-kem-512.keygen.r1.a1,
+1794080414946070179,block_start,E2c.falcon-padded-1024.keygen.r1.a2,fast
+1794080415845163723,block_done,E2c.falcon-padded-1024.keygen.r1.a2,
+1794080415848064586,block_start,E2c.ed25519.verify.r1.a1,fast
+1794080416980361991,block_done,E2c.ed25519.verify.r1.a1,
+1794080416983442748,block_start,E2.ed25519.keygen.r1.a1,fast
+1794080418457382483,block_done,E2.ed25519.keygen.r1.a1,
+1794080418460083112,block_start,E2.ml-dsa-87.sign.r1.a1,fast
+1794080428231111476,block_done,E2.ml-dsa-87.sign.r1.a1,
+1794080428233904785,block_start,E2c.falcon-1024.keygen.r1.a1,fast
+1794080429126997505,block_done,E2c.falcon-1024.keygen.r1.a1,
+1794080429129885020,block_start,E2.falcon-512.keygen.r1.a1,slow
+1794080610155282255,block_done,E2.falcon-512.keygen.r1.a1,
+1794080614436778806,prep,hqc-3.r2,pool 256 e10 false 4213910150 ns
+1794080614440726727,block_start,E2.hqc-3.encaps.r2.a1,slow
+1794081065327036281,block_done,E2.hqc-3.encaps.r2.a1,
+1794081066863739346,canary,,7 periodic ratio 1.00090 
+1794081066877964820,queued,E2.falcon-1024.keygen.r1.a2,repeat:other; position 417
+1794081066904587660,checkpoint,,1 block(s) queued; 452 remaining
+1794081066940731657,prep,ml-kem-512.r2,pool 256 e10 false 10993574 ns
+1794081066944483416,block_start,E2c.ml-kem-512.keygen.r2.a1,fast
+1794081067828294623,block_done,E2c.ml-kem-512.keygen.r2.a1,
+1794081067931497475,prep,falcon-512.r2,pool 256 e10 false 76116453 ns
+1794081067935726700,block_start,E2.falcon-512.keygen.r2.a1,slow
+1794081248933605422,block_done,E2.falcon-512.keygen.r2.a1,
+1794081249011145988,prep,ecdsa-p256.r2,pool 256 e10 false 42005657 ns
+1794081249015117588,block_start,E2.ecdsa-p256.verify.r2.a1,fast
+1794081252373595309,block_done,E2.ecdsa-p256.verify.r2.a1,
+1794081252376813710,block_start,E2c.dhkem-x25519.decaps.r1.a2,fast
+1794081259144382724,block_done,E2c.dhkem-x25519.decaps.r1.a2,
+1794081259218219788,prep,ml-dsa-44.r2,pool 256 e10 false 36872617 ns
+1794081259222073125,block_start,E2.ml-dsa-44.sign.r2.a1,fast
+1794081264436397933,block_done,E2.ml-dsa-44.sign.r2.a1,
+1794081264616381790,prep,falcon-padded-1024.r2,pool 256 e10 false 148816857 ns
+1794081264620362767,block_start,E2.falcon-padded-1024.keygen.r2.a1,slow
+1794081445372270754,block_done,E2.falcon-padded-1024.keygen.r2.a1,
+1794081445375634180,block_start,E2.falcon-512.verify.r2.a1,fast
+1794081447322246466,block_done,E2.falcon-512.verify.r2.a1,
+1794081457594521022,prep,hqc-5.r2,pool 256 e10 false 10209789726 ns
+1794081457598504732,block_start,E2c.hqc-5.decaps.r2.a1,fast
+1794081458902086402,block_done,E2c.hqc-5.decaps.r2.a1,
+1794081458905161140,block_start,E2c.ecdsa-p256.sign.r2.a1,fast
+1794081461399730630,block_done,E2c.ecdsa-p256.sign.r2.a1,
+1794081461503773575,prep,falcon-padded-512.r2,pool 256 e10 false 78456791 ns
+1794081461507741495,block_start,E2.falcon-padded-512.keygen.r2.a1,slow
+1794081642460585214,block_done,E2.falcon-padded-512.keygen.r2.a1,
+1794081642463917544,block_start,E2c.hqc-5.keygen.r2.a1,fast
+1794081643761888151,block_done,E2c.hqc-5.keygen.r2.a1,
+1794081643842435966,prep,ed25519.r2,pool 256 e10 false 53432577 ns
+1794081643845771504,block_start,E2.ed25519.verify.r2.a1,fast
+1794081648083555290,block_done,E2.ed25519.verify.r2.a1,
+1794081648274789817,prep,falcon-1024.r2,pool 256 e10 false 163045879 ns
+1794081648278483527,block_start,E2.falcon-1024.keygen.r2.a1,slow
+1794081829040164236,block_done,E2.falcon-1024.keygen.r2.a1,
+1794081830572739573,canary,,8 periodic ratio 1.00040 
+1794081830587436215,queued,E2.hqc-3.encaps.r2.a2,repeat:other; position 247
+1794081830614072007,checkpoint,,1 block(s) queued; 440 remaining
+1794081830705401653,prep,ml-dsa-65.r2,pool 256 e10 false 58615953 ns
+1794081830709336464,block_start,E2c.ml-dsa-65.sign.r2.a1,fast
+1794081831544348572,block_done,E2c.ml-dsa-65.sign.r2.a1,
+1794081831616484221,prep,dhkem-x25519.r2,pool 256 e10 false 46795780 ns
+1794081831620162207,block_start,E2.dhkem-x25519.encaps.r2.a1,fast
+1794081836547509786,block_done,E2.dhkem-x25519.encaps.r2.a1,
+1794081836659647008,prep,ml-dsa-87.r2,pool 256 e10 false 77413294 ns
+1794081836663239983,block_start,E2.ml-dsa-87.verify.r2.a1,fast
+1794081840368201982,block_done,E2.ml-dsa-87.verify.r2.a1,
+1794081840371444310,block_start,E2.ecdsa-p256.keygen.r2.a1,fast
+1794081841779100955,block_done,E2.ecdsa-p256.keygen.r2.a1,
+1794081841782140936,block_start,E2c.falcon-512.keygen.r2.a1,fast
+1794081842647943276,block_done,E2c.falcon-512.keygen.r2.a1,
+1794081842705996148,prep,ml-kem-1024.r2,pool 256 e10 false 20955536 ns
+1794081842709959128,block_start,E2.ml-kem-1024.keygen.r2.a1,fast
+1794081844532788950,block_done,E2.ml-kem-1024.keygen.r2.a1,
+1794081844535405460,block_start,E2c.falcon-1024.keygen.r2.a1,fast
+1794081845433272970,block_done,E2c.falcon-1024.keygen.r2.a1,
+1794081845436570043,block_start,E2c.ecdsa-p256.keygen.r2.a1,fast
+1794081845883033310,block_done,E2c.ecdsa-p256.keygen.r2.a1,
+1794081845886934439,block_start,E2.ecdsa-p256.sign.r2.a1,fast
+1794081850352569988,block_done,E2.ecdsa-p256.sign.r2.a1,
+1794081851815918828,prep,hqc-1.r2,pool 256 e10 false 1407715957 ns
+1794081851819708389,block_start,E2.hqc-1.decaps.r2.a1,slow
+1794082033032299597,block_done,E2.hqc-1.decaps.r2.a1,
+1794082033035633424,block_start,E2c.ml-kem-512.decaps.r2.a1,fast
+1794082034025993415,block_done,E2c.ml-kem-512.decaps.r2.a1,
+1794082034029248068,block_start,E2c.ml-dsa-65.keygen.r2.a1,fast
+1794082034954722005,block_done,E2c.ml-dsa-65.keygen.r2.a1,
+1794082034957776657,block_start,E2c.falcon-padded-1024.keygen.r2.a1,fast
+1794082035874309698,block_done,E2c.falcon-padded-1024.keygen.r2.a1,
+1794082035877717401,block_start,E2c.falcon-512.sign.r2.a1,fast
+1794082036696242073,block_done,E2c.falcon-512.sign.r2.a1,
+1794082036699166328,block_start,E2c.falcon-padded-512.verify.r2.a1,fast
+1794082037600369263,block_done,E2c.falcon-padded-512.verify.r2.a1,
+1794082037603695426,block_start,E2c.ed25519.verify.r2.a1,fast
+1794082038718366712,block_done,E2c.ed25519.verify.r2.a1,
+1794082038778096547,prep,ml-kem-768.r2,pool 256 e10 false 15803915 ns
+1794082038782025994,block_start,E2.ml-kem-768.decaps.r2.a1,fast
+1794082040176539687,block_done,E2.ml-kem-768.decaps.r2.a1,
+1794082040179656139,block_start,E2.ml-kem-512.encaps.r2.a1,fast
+1794082041689243946,block_done,E2.ml-kem-512.encaps.r2.a1,
+1794082041692444583,block_start,E2.ml-kem-768.encaps.r2.a1,fast
+1794082043856222072,block_done,E2.ml-kem-768.encaps.r2.a1,
+1794082043859593582,block_start,E2.ml-dsa-87.keygen.r2.a1,fast
+1794082048246110913,block_done,E2.ml-dsa-87.keygen.r2.a1,
+1794082049736920280,prep,rsa3072-pss.r2,pool 256 e10 false 1445783881 ns
+1794082049740409454,block_start,E2c.rsa3072-pss.keygen.r2.a1,fast
+1794082050125102008,block_done,E2c.rsa3072-pss.keygen.r2.a1,
+1794082050128370569,block_start,E2.ml-kem-1024.encaps.r2.a1,fast
+1794082053015602305,block_done,E2.ml-kem-1024.encaps.r2.a1,
+1794082053018534138,block_start,E2c.dhkem-x25519.decaps.r2.a1,fast
+1794082059767969676,block_done,E2c.dhkem-x25519.decaps.r2.a1,
+1794082059771308287,block_start,E2.hqc-3.decaps.r2.a1,slow
+1794082240390895601,block_done,E2.hqc-3.decaps.r2.a1,
+1794082240394638997,block_start,E2.ed25519.keygen.r2.a1,fast
+1794082241874319386,block_done,E2.ed25519.keygen.r2.a1,
+1794082241877908678,block_start,E2c.ml-dsa-44.verify.r2.a1,fast
+1794082242799773612,block_done,E2c.ml-dsa-44.verify.r2.a1,
+1794082242803207649,block_start,E2.falcon-512.sign.r2.a1,fast
+1794082252216019484,block_done,E2.falcon-512.sign.r2.a1,
+1794082252219279550,block_start,E2c.falcon-1024.sign.r2.a1,fast
+1794082253115458491,block_done,E2c.falcon-1024.sign.r2.a1,
+1794082253221552016,prep,dhkem-p256.r2,pool 256 e10 false 81936652 ns
+1794082253226093486,block_start,E2.dhkem-p256.decaps.r2.a1,fast
+1794082258691366612,block_done,E2.dhkem-p256.decaps.r2.a1,
+1794082258695820664,block_start,E2.ml-dsa-65.verify.r2.a1,fast
+1794082261194627330,block_done,E2.ml-dsa-65.verify.r2.a1,
+1794082261197831902,block_start,E2c.ml-dsa-65.verify.r2.a1,fast
+1794082262110233358,block_done,E2c.ml-dsa-65.verify.r2.a1,
+1794082262113447801,block_start,E2c.falcon-padded-512.sign.r2.a1,fast
+1794082262908296818,block_done,E2c.falcon-padded-512.sign.r2.a1,
+1794082262911221671,block_start,E2c.hqc-1.decaps.r2.a1,fast
+1794082263902293207,block_done,E2c.hqc-1.decaps.r2.a1,
+1794082263905217960,block_start,E2c.hqc-3.keygen.r2.a1,fast
+1794082264956999751,block_done,E2c.hqc-3.keygen.r2.a1,
+1794082264960360017,block_start,E2c.hqc-3.encaps.r2.a1,fast
+1794082266177428836,block_done,E2c.hqc-3.encaps.r2.a1,
+1794082266180675932,block_start,E2.ml-kem-512.decaps.r2.a1,fast
+1794082267226295107,block_done,E2.ml-kem-512.decaps.r2.a1,
+1794082267229522294,block_start,E2c.rsa3072-pss.verify.r2.a1,fast
+1794082278782419161,block_done,E2c.rsa3072-pss.verify.r2.a1,
+1794082278785872357,block_start,E2c.ml-kem-1024.decaps.r2.a1,fast
+1794082279744280792,block_done,E2c.ml-kem-1024.decaps.r2.a1,
+1794082279747314631,block_start,E2c.ed25519.sign.r2.a1,fast
+1794082285904263110,block_done,E2c.ed25519.sign.r2.a1,
+1794082285907433391,block_start,E2.hqc-3.keygen.r2.a1,slow
+1794082485420000952,block_done,E2.hqc-3.keygen.r2.a1,
+1794082486968410282,canary,,9 periodic ratio 0.99836 
+1794082486984827395,queued,E2.hqc-1.decaps.r2.a2,repeat:other; position 198
+1794082486989179712,queued,E2.hqc-3.decaps.r2.a2,repeat:other; position 43
+1794082486993069913,queued,E2.ml-dsa-87.keygen.r2.a2,repeat:other; position 394
+1794082486996243148,queued,E2c.rsa3072-pss.keygen.r2.a2,repeat:other; position 114
+1794082487025127197,checkpoint,,4 block(s) queued; 404 remaining
+1794082487028896480,block_start,E2c.falcon-padded-1024.sign.r2.a1,fast
+1794082487839329611,block_done,E2c.falcon-padded-1024.sign.r2.a1,
+1794082487842860136,block_start,E2.falcon-1024.verify.r2.a1,fast
+1794082491281946226,block_done,E2.falcon-1024.verify.r2.a1,
+1794082491284935992,block_start,E2.hqc-5.decaps.r2.a1,slow
+1794082672005572055,block_done,E2.hqc-5.decaps.r2.a1,
+1794082672008604612,block_start,E2.hqc-5.keygen.r2.a1,slow
+1794082870911468037,block_done,E2.hqc-5.keygen.r2.a1,
+1794082870914890399,block_start,E2.dhkem-x25519.keygen.r2.a1,fast
+1794082872386349139,block_done,E2.dhkem-x25519.keygen.r2.a1,
+1794082872389279576,block_start,E2.rsa3072-pss.keygen.r2.a1,slow
+1794083000273647941,block_done,E2.rsa3072-pss.keygen.r2.a1,
+1794083000276579077,block_start,E2c.ml-dsa-87.verify.r2.a1,fast
+1794083001121517116,block_done,E2c.ml-dsa-87.verify.r2.a1,
+1794083001124725246,block_start,E2c.ml-kem-768.decaps.r2.a1,fast
+1794083002090055337,block_done,E2c.ml-kem-768.decaps.r2.a1,
+1794083002093132090,block_start,E2c.hqc-1.keygen.r2.a1,fast
+1794083002992907815,block_done,E2c.hqc-1.keygen.r2.a1,
+1794083002997231173,block_start,E2.ml-kem-1024.decaps.r2.a1,fast
+1794083004824927366,block_done,E2.ml-kem-1024.decaps.r2.a1,
+1794083004828371570,block_start,E2.falcon-padded-1024.sign.r2.a1,fast
+1794083022735661677,block_done,E2.falcon-padded-1024.sign.r2.a1,
+1794083022738977942,block_start,E2.ed25519.verify.r1.a2,fast
+1794083027007235192,block_done,E2.ed25519.verify.r1.a2,
+1794083027010188375,block_start,E2.dhkem-p256.keygen.r2.a1,fast
+1794083028505246001,block_done,E2.dhkem-p256.keygen.r2.a1,
+1794083028508969293,block_start,E2c.ml-kem-512.encaps.r2.a1,fast
+1794083029620473012,block_done,E2c.ml-kem-512.encaps.r2.a1,
+1794083029623926105,block_start,E2c.ml-kem-768.encaps.r2.a1,fast
+1794083030726472005,block_done,E2c.ml-kem-768.encaps.r2.a1,
+1794083030729636572,block_start,E2.ml-dsa-65.sign.r2.a1,fast
+1794083038544844277,block_done,E2.ml-dsa-65.sign.r2.a1,
+1794083038548371455,block_start,E2c.falcon-padded-1024.verify.r2.a1,fast
+1794083039498569639,block_done,E2c.falcon-padded-1024.verify.r2.a1,
+1794083039501928185,block_start,E2.hqc-1.encaps.r2.a1,slow
+1794083495395379737,block_done,E2.hqc-1.encaps.r2.a1,
+1794083496927785135,canary,,10 periodic ratio 1.00126 
+1794083496946431111,queued,E2.hqc-5.decaps.r2.a2,repeat:other; position 237
+1794083496973424761,checkpoint,,1 block(s) queued; 387 remaining
+1794083496977619148,block_start,E2c.dhkem-x25519.encaps.r2.a1,fast
+1794083498324390905,block_done,E2c.dhkem-x25519.encaps.r2.a1,
+1794083498327605056,block_start,E2.ml-kem-512.decaps.r1.a2,fast
+1794083499406080148,block_done,E2.ml-kem-512.decaps.r1.a2,
+1794083499409097732,block_start,E2c.ml-kem-768.keygen.r2.a1,fast
+1794083500395889297,block_done,E2c.ml-kem-768.keygen.r2.a1,
+1794083500398686171,block_start,E2.ed25519.sign.r2.a1,fast
+1794083506908323211,block_done,E2.ed25519.sign.r2.a1,
+1794083506911400526,block_start,E2.ml-dsa-44.verify.r2.a1,fast
+1794083508669797112,block_done,E2.ml-dsa-44.verify.r2.a1,
+1794083508672841595,block_start,E2c.ml-dsa-44.sign.r2.a1,fast
+1794083509465823373,block_done,E2c.ml-dsa-44.sign.r2.a1,
+1794083509469271167,block_start,E2c.ml-kem-1024.keygen.r2.a1,fast
+1794083510381500551,block_done,E2c.ml-kem-1024.keygen.r2.a1,
+1794083510384515997,block_start,E2.falcon-1024.sign.r2.a1,fast
+1794083528318469224,block_done,E2.falcon-1024.sign.r2.a1,
+1794083528321736848,block_start,E2c.rsa3072-pss.sign.r2.a1,fast
+1794083560014077329,block_done,E2c.rsa3072-pss.sign.r2.a1,
+1794083560017555541,block_start,E2.falcon-padded-1024.verify.r2.a1,fast
+1794083563489410176,block_done,E2.falcon-padded-1024.verify.r2.a1,
+1794083563492499726,block_start,E2c.dhkem-x25519.keygen.r2.a1,fast
+1794083563885637945,block_done,E2c.dhkem-x25519.keygen.r2.a1,
+1794083563888518876,block_start,E2c.falcon-1024.verify.r2.a1,fast
+1794083564853514556,block_done,E2c.falcon-1024.verify.r2.a1,
+1794083564856644194,block_start,E2c.dhkem-p256.decaps.r2.a1,fast
+1794083567525103738,block_done,E2c.dhkem-p256.decaps.r2.a1,
+1794083567528251802,block_start,E2c.ed25519.keygen.r2.a1,fast
+1794083567952904853,block_done,E2c.ed25519.keygen.r2.a1,
+1794083567956175127,block_start,E2.falcon-padded-512.sign.r1.a2,fast
+1794083577658512906,block_done,E2.falcon-padded-512.sign.r1.a2,
+1794083577662104928,block_start,E2c.hqc-3.decaps.r2.a1,fast
+1794083578786776372,block_done,E2c.hqc-3.decaps.r2.a1,
+1794083578790168863,block_start,E2c.dhkem-p256.keygen.r2.a1,fast
+1794083579215031458,block_done,E2c.dhkem-p256.keygen.r2.a1,
+1794083579218147257,block_start,E2c.falcon-padded-512.keygen.r2.a1,fast
+1794083579971850721,block_done,E2c.falcon-padded-512.keygen.r2.a1,
+1794083579975007094,block_start,E2.falcon-padded-512.verify.r2.a1,fast
+1794083581928929017,block_done,E2.falcon-padded-512.verify.r2.a1,
+1794083581931520953,block_start,E2.ml-kem-512.keygen.r2.a1,fast
+1794083583020565267,block_done,E2.ml-kem-512.keygen.r2.a1,
+1794083583023315410,block_start,E2.ml-dsa-87.sign.r2.a1,fast
+1794083592759552629,block_done,E2.ml-dsa-87.sign.r2.a1,
+1794083592762477655,block_start,E2c.ml-dsa-87.sign.r2.a1,fast
+1794083593636959951,block_done,E2c.ml-dsa-87.sign.r2.a1,
+1794083593640062196,block_start,E2.rsa3072-pss.sign.r2.a1,slow
+1794083779683222497,block_done,E2.rsa3072-pss.sign.r2.a1,
+1794083779686442608,block_start,E2c.hqc-1.encaps.r2.a1,fast
+1794083780747196551,block_done,E2c.hqc-1.encaps.r2.a1,
+1794083780750078078,block_start,E2c.ml-dsa-87.keygen.r2.a1,fast
+1794083781693299776,block_done,E2c.ml-dsa-87.keygen.r2.a1,
+1794083781696850996,block_start,E2.hqc-3.decaps.r2.a2,slow
+1794083962322758755,block_done,E2.hqc-3.decaps.r2.a2,
+1794083962325986508,block_start,E2c.ml-dsa-44.keygen.r2.a1,fast
+1794083963256571355,block_done,E2c.ml-dsa-44.keygen.r2.a1,
+1794083963259592152,block_start,E2c.falcon-512.verify.r2.a1,fast
+1794083964230944799,block_done,E2c.falcon-512.verify.r2.a1,
+1794083964234387742,block_start,E2.ml-dsa-44.keygen.r2.a1,fast
+1794083966195283981,block_done,E2.ml-dsa-44.keygen.r2.a1,
+1794083966198573674,block_start,E2.dhkem-p256.encaps.r2.a1,fast
+1794083976264984190,block_done,E2.dhkem-p256.encaps.r2.a1,
+1794083976268220508,block_start,E2.ml-kem-768.keygen.r2.a1,fast
+1794083977741814072,block_done,E2.ml-kem-768.keygen.r2.a1,
+1794083977745122302,block_start,E2.ml-dsa-65.keygen.r2.a1,fast
+1794083980746747605,block_done,E2.ml-dsa-65.keygen.r2.a1,
+1794083980749888889,block_start,E2.falcon-padded-512.sign.r2.a1,fast
+1794083990027523142,block_done,E2.falcon-padded-512.sign.r2.a1,
+1794083990031175077,block_start,E2.hqc-5.encaps.r2.a1,slow
+1794084441224255352,block_done,E2.hqc-5.encaps.r2.a1,
+1794084442763219627,canary,,11 periodic ratio 1.00110 
+1794084442783828741,queued,E2.hqc-1.encaps.r2.a2,repeat:other; position 98
+1794084442787873917,queued,E2c.dhkem-p256.keygen.r2.a2,repeat:other; position 203
+1794084442812589296,checkpoint,,2 block(s) queued; 355 remaining
+1794084442815929794,block_start,E2c.ml-kem-1024.encaps.r2.a1,fast
+1794084443877578567,block_done,E2c.ml-kem-1024.encaps.r2.a1,
+1794084443881089087,block_start,E2.hqc-1.keygen.r2.a1,slow
+1794084646157039924,block_done,E2.hqc-1.keygen.r2.a1,
+1794084646160939786,block_start,E2.dhkem-x25519.decaps.r2.a1,fast
+1794084649100761882,block_done,E2.dhkem-x25519.decaps.r2.a1,
+1794084649103980142,block_start,E2c.ecdsa-p256.verify.r2.a1,fast
+1794084651485404179,block_done,E2c.ecdsa-p256.verify.r2.a1,
+1794084651488531853,block_start,E2.rsa3072-pss.verify.r2.a1,fast
+1794084656848058793,block_done,E2.rsa3072-pss.verify.r2.a1,
+1794084656851161414,block_start,E2c.ml-dsa-65.verify.r1.a2,fast
+1794084657790892430,block_done,E2c.ml-dsa-65.verify.r1.a2,
+1794084657794095117,block_start,E2c.hqc-5.encaps.r2.a1,fast
+1794084659362961168,block_done,E2c.hqc-5.encaps.r2.a1,
+1794084659366617037,block_start,E2c.dhkem-p256.encaps.r2.a1,fast
+1794084661857753508,block_done,E2c.dhkem-p256.encaps.r2.a1,
+1794084662080303493,prep,falcon-padded-1024.r3,pool 256 e10 false 163488803 ns
+1794084662083664305,block_start,E2.falcon-padded-1024.keygen.r3.a1,slow
+1794084842835535858,block_done,E2.falcon-padded-1024.keygen.r3.a1,
+1794084842924556286,prep,ecdsa-p256.r3,pool 256 e10 false 39297131 ns
+1794084842927869504,block_start,E2.ecdsa-p256.sign.r3.a1,fast
+1794084847344210116,block_done,E2.ecdsa-p256.sign.r3.a1,
+1794084847547680957,prep,falcon-1024.r3,pool 256 e10 false 157178002 ns
+1794084847551681783,block_start,E2c.falcon-1024.keygen.r3.a1,fast
+1794084848484901175,block_done,E2c.falcon-1024.keygen.r3.a1,
+1794084848487888509,block_start,E2c.falcon-1024.verify.r3.a1,fast
+1794084849458937731,block_done,E2c.falcon-1024.verify.r3.a1,
+1794084849593622720,prep,dhkem-p256.r3,pool 256 e10 false 84087360 ns
+1794084849597138321,block_start,E2c.dhkem-p256.keygen.r3.a1,fast
+1794084850045558414,block_done,E2c.dhkem-p256.keygen.r3.a1,
+1794084850149061649,prep,ml-dsa-44.r3,pool 256 e10 false 38238175 ns
+1794084850153068268,block_start,E2c.ml-dsa-44.keygen.r3.a1,fast
+1794084851086552144,block_done,E2c.ml-dsa-44.keygen.r3.a1,
+1794084851089215577,block_start,E2c.ml-dsa-44.verify.r3.a1,fast
+1794084852003285843,block_done,E2c.ml-dsa-44.verify.r3.a1,
+1794084856286392954,prep,hqc-3.r3,pool 256 e10 false 4236746411 ns
+1794084856290226914,block_start,E2.hqc-3.keygen.r3.a1,slow
+1794085055691099843,block_done,E2.hqc-3.keygen.r3.a1,
+1794085057220333447,canary,,12 periodic ratio 1.00049 
+1794085057243983623,queued,E2.falcon-padded-1024.keygen.r3.a2,repeat:other; position 337
+1794085057268687648,queued,E2.hqc-1.keygen.r2.a2,repeat:other; position 305
+1794085057272207787,queued,E2.hqc-5.encaps.r2.a2,repeat:other; position 261
+1794085057296779915,checkpoint,,3 block(s) queued; 342 remaining
+1794085057300640847,block_start,E2c.ml-dsa-65.keygen.r1.a2,fast
+1794085058231698977,block_done,E2c.ml-dsa-65.keygen.r1.a2,
+1794085058234587450,block_start,E2c.dhkem-p256.encaps.r3.a1,fast
+1794085060676287732,block_done,E2c.dhkem-p256.encaps.r3.a1,
+1794085060784752646,prep,ml-dsa-87.r3,pool 256 e10 false 74235272 ns
+1794085060788381305,block_start,E2c.ml-dsa-87.sign.r3.a1,fast
+1794085061665110877,block_done,E2c.ml-dsa-87.sign.r3.a1,
+1794085061736866382,prep,dhkem-x25519.r3,pool 256 e10 false 46313809 ns
+1794085061740210869,block_start,E2.dhkem-x25519.encaps.r3.a1,fast
+1794085066685353572,block_done,E2.dhkem-x25519.encaps.r3.a1,
+1794085067967729642,prep,rsa3072-pss.r3,pool 256 e10 false 1246435898 ns
+1794085067971769783,block_start,E2c.rsa3072-pss.keygen.r3.a1,fast
+1794085068339479480,block_done,E2c.rsa3072-pss.keygen.r3.a1,
+1794085068342954643,block_start,E2.ecdsa-p256.verify.r3.a1,fast
+1794085071707198395,block_done,E2.ecdsa-p256.verify.r3.a1,
+1794085071710393272,block_start,E2c.hqc-3.keygen.r3.a1,fast
+1794085072731217549,block_done,E2c.hqc-3.keygen.r3.a1,
+1794085072799823025,prep,ml-kem-1024.r3,pool 256 e10 false 21705052 ns
+1794085072803640603,block_start,E2c.ml-kem-1024.decaps.r3.a1,fast
+1794085073773009652,block_done,E2c.ml-kem-1024.decaps.r3.a1,
+1794085073846754086,prep,ml-kem-768.r3,pool 256 e10 false 15584450 ns
+1794085073850819483,block_start,E2c.ml-kem-768.decaps.r3.a1,fast
+1794085074784126055,block_done,E2c.ml-kem-768.decaps.r3.a1,
+1794085074787227580,block_start,E2.ml-dsa-44.keygen.r1.a2,fast
+1794085076757426228,block_done,E2.ml-dsa-44.keygen.r1.a2,
+1794085076760484369,block_start,E2c.dhkem-x25519.encaps.r3.a1,fast
+1794085078085398529,block_done,E2c.dhkem-x25519.encaps.r3.a1,
+1794085078088827883,block_start,E2.falcon-1024.sign.r3.a1,fast
+1794085096072823334,block_done,E2.falcon-1024.sign.r3.a1,
+1794085096075576035,block_start,E2.hqc-3.keygen.r1.a2,slow
+1794085295584143385,block_done,E2.hqc-3.keygen.r1.a2,
+1794085305878521474,prep,hqc-5.r3,pool 256 e10 false 10232137868 ns
+1794085305882241125,block_start,E2.hqc-5.encaps.r3.a1,slow
+1794085757871426011,block_done,E2.hqc-5.encaps.r3.a1,
+1794085759438747928,canary,,13 periodic ratio 0.99936 
+1794085759485209366,checkpoint,,0 block(s) queued; 328 remaining
+1794085759488608476,block_start,E2c.ml-kem-1024.keygen.r3.a1,fast
+1794085760459816157,block_done,E2c.ml-kem-1024.keygen.r3.a1,
+1794085760462879124,block_start,E2c.ml-dsa-87.keygen.r3.a1,fast
+1794085761468187728,block_done,E2c.ml-dsa-87.keygen.r3.a1,
+1794085761592960633,prep,ml-dsa-65.r3,pool 256 e10 false 57961497 ns
+1794085761596799352,block_start,E2c.ml-dsa-65.sign.r3.a1,fast
+1794085762504567553,block_done,E2c.ml-dsa-65.sign.r3.a1,
+1794085762507744258,block_start,E2.falcon-1024.verify.r3.a1,fast
+1794085766068390329,block_done,E2.falcon-1024.verify.r3.a1,
+1794085766190181497,prep,falcon-padded-512.r3,pool 256 e10 false 76599398 ns
+1794085766193856278,block_start,E2.falcon-padded-512.verify.r3.a1,fast
+1794085768143656336,block_done,E2.falcon-padded-512.verify.r3.a1,
+1794085768146790642,block_start,E2c.ml-kem-1024.keygen.r1.a2,fast
+1794085769089579667,block_done,E2c.ml-kem-1024.keygen.r1.a2,
+1794085769092659378,block_start,E2c.hqc-3.encaps.r3.a1,fast
+1794085770323335950,block_done,E2c.hqc-3.encaps.r3.a1,
+1794085770326523348,block_start,E2c.falcon-padded-512.keygen.r3.a1,fast
+1794085771099649955,block_done,E2c.falcon-padded-512.keygen.r3.a1,
+1794085772564037707,prep,hqc-1.r3,pool 256 e10 false 1427146589 ns
+1794085772567751832,block_start,E2.hqc-1.keygen.r3.a1,slow
+1794085974861864309,block_done,E2.hqc-1.keygen.r3.a1,
+1794085974939931576,prep,ed25519.r3,pool 256 e10 false 53931352 ns
+1794085974943297360,block_start,E2.ed25519.verify.r3.a1,fast
+1794085979192471805,block_done,E2.ed25519.verify.r3.a1,
+1794085979195942812,block_start,E2c.falcon-padded-512.sign.r3.a1,fast
+1794085979992435791,block_done,E2c.falcon-padded-512.sign.r3.a1,
+1794085979995822544,block_start,E2.falcon-padded-1024.sign.r3.a1,fast
+1794085997971860874,block_done,E2.falcon-padded-1024.sign.r3.a1,
+1794085997974772876,block_start,E2c.ml-kem-768.keygen.r3.a1,fast
+1794085998913298440,block_done,E2c.ml-kem-768.keygen.r3.a1,
+1794085998916005236,block_start,E2.ml-dsa-44.keygen.r3.a1,fast
+1794086000881735055,block_done,E2.ml-dsa-44.keygen.r3.a1,
+1794086000915209006,prep,ml-kem-512.r3,pool 256 e10 false 10938040 ns
+1794086000918616219,block_start,E2c.ml-kem-512.decaps.r3.a1,fast
+1794086001910665198,block_done,E2c.ml-kem-512.decaps.r3.a1,
+1794086001913816005,block_start,E2.ml-kem-512.encaps.r3.a1,fast
+1794086003425911854,block_done,E2.ml-kem-512.encaps.r3.a1,
+1794086003429738741,block_start,E2c.hqc-3.decaps.r3.a1,fast
+1794086004490101688,block_done,E2c.hqc-3.decaps.r3.a1,
+1794086004616593549,prep,falcon-512.r3,pool 256 e10 false 74992232 ns
+1794086004620348828,block_start,E2c.falcon-512.sign.r3.a1,fast
+1794086005477913204,block_done,E2c.falcon-512.sign.r3.a1,
+1794086005480639378,block_start,E2.ml-kem-1024.keygen.r3.a1,fast
+1794086007318979583,block_done,E2.ml-kem-1024.keygen.r3.a1,
+1794086007322238150,block_start,E2.dhkem-x25519.keygen.r3.a1,fast
+1794086008718569722,block_done,E2.dhkem-x25519.keygen.r3.a1,
+1794086008721708933,block_start,E2c.hqc-1.decaps.r3.a1,fast
+1794086009676154513,block_done,E2c.hqc-1.decaps.r3.a1,
+1794086009679484204,block_start,E2c.falcon-padded-512.verify.r3.a1,fast
+1794086010576057044,block_done,E2c.falcon-padded-512.verify.r3.a1,
+1794086010579500714,block_start,E2.hqc-1.decaps.r3.a1,slow
+1794086191782554819,block_done,E2.hqc-1.decaps.r3.a1,
+1794086191785309089,block_start,E2c.ed25519.sign.r3.a1,fast
+1794086197975873749,block_done,E2c.ed25519.sign.r3.a1,
+1794086197978977826,block_start,E2c.hqc-5.keygen.r3.a1,fast
+1794086199241237977,block_done,E2c.hqc-5.keygen.r3.a1,
+1794086199244514689,block_start,E2c.falcon-512.verify.r3.a1,fast
+1794086200178255594,block_done,E2c.falcon-512.verify.r3.a1,
+1794086200181561061,block_start,E2.ed25519.sign.r3.a1,fast
+1794086206565865275,block_done,E2.ed25519.sign.r3.a1,
+1794086206569008007,block_start,E2.hqc-3.encaps.r3.a1,slow
+1794086656940007680,block_done,E2.hqc-3.encaps.r3.a1,
+1794086658473301251,canary,,14 periodic ratio 0.99767 
+1794086658498904447,queued,E2.hqc-1.keygen.r3.a2,repeat:other; position 239
+1794086658517896605,queued,E2.hqc-5.encaps.r3.a2,repeat:other; position 275
+1794086658545754180,checkpoint,,2 block(s) queued; 302 remaining
+1794086658549279399,block_start,E2.ml-dsa-65.keygen.r3.a1,fast
+1794086661522573896,block_done,E2.ml-dsa-65.keygen.r3.a1,
+1794086661525762103,block_start,E2c.hqc-1.keygen.r3.a1,fast
+1794086662414397464,block_done,E2c.hqc-1.keygen.r3.a1,
+1794086662417520847,block_start,E2c.rsa3072-pss.sign.r3.a1,fast
+1794086694253824636,block_done,E2c.rsa3072-pss.sign.r3.a1,
+1794086694256798544,block_start,E2c.falcon-512.keygen.r3.a1,fast
+1794086695129568317,block_done,E2c.falcon-512.keygen.r3.a1,
+1794086695133058959,block_start,E2c.rsa3072-pss.keygen.r2.a2,fast
+1794086695506612627,block_done,E2c.rsa3072-pss.keygen.r2.a2,
+1794086695509385545,block_start,E2.falcon-padded-1024.verify.r3.a1,fast
+1794086698988772600,block_done,E2.falcon-padded-1024.verify.r3.a1,
+1794086698991536191,block_start,E2.dhkem-x25519.decaps.r3.a1,fast
+1794086701875393143,block_done,E2.dhkem-x25519.decaps.r3.a1,
+1794086701878379848,block_start,E2.ml-kem-768.keygen.r3.a1,fast
+1794086703344485081,block_done,E2.ml-kem-768.keygen.r3.a1,
+1794086703347708155,block_start,E2.ml-dsa-65.sign.r3.a1,fast
+1794086711172754092,block_done,E2.ml-dsa-65.sign.r3.a1,
+1794086711176356070,block_start,E2c.dhkem-x25519.decaps.r3.a1,fast
+1794086717951599820,block_done,E2c.dhkem-x25519.decaps.r3.a1,
+1794086717954939331,block_start,E2.falcon-512.keygen.r3.a1,slow
+1794086898896154166,block_done,E2.falcon-512.keygen.r3.a1,
+1794086898899317954,block_start,E2c.ml-kem-512.encaps.r3.a1,fast
+1794086899953365422,block_done,E2c.ml-kem-512.encaps.r3.a1,
+1794086899956897058,block_start,E2c.ecdsa-p256.keygen.r1.a2,fast
+1794086900355695640,block_done,E2c.ecdsa-p256.keygen.r1.a2,
+1794086900358826665,block_start,E2c.ed25519.keygen.r3.a1,fast
+1794086900725850274,block_done,E2c.ed25519.keygen.r3.a1,
+1794086900728684329,block_start,E2.dhkem-p256.keygen.r3.a1,fast
+1794086902150466981,block_done,E2.dhkem-p256.keygen.r3.a1,
+1794086902153783117,block_start,E2.ml-dsa-87.keygen.r3.a1,fast
+1794086906469053884,block_done,E2.ml-dsa-87.keygen.r3.a1,
+1794086906472604807,block_start,E2.hqc-1.encaps.r3.a1,slow
+1794087362942543063,block_done,E2.hqc-1.encaps.r3.a1,
+1794087364486486338,canary,,15 periodic ratio 1.00341 
+1794087364512955751,queued,E2.falcon-512.keygen.r3.a2,repeat:other; position 260
+1794087364589936679,checkpoint,,1 block(s) queued; 286 remaining
+1794087364593154586,block_start,E2c.ml-dsa-87.verify.r3.a1,fast
+1794087365461095382,block_done,E2c.ml-dsa-87.verify.r3.a1,
+1794087365464315723,block_start,E2.hqc-5.decaps.r3.a1,slow
+1794087546197515901,block_done,E2.hqc-5.decaps.r3.a1,
+1794087546200826579,block_start,E2.ml-kem-512.keygen.r3.a1,fast
+1794087547311552568,block_done,E2.ml-kem-512.keygen.r3.a1,
+1794087547314643851,block_start,E2.falcon-512.sign.r3.a1,fast
+1794087556666389674,block_done,E2.falcon-512.sign.r3.a1,
+1794087556669273196,block_start,E2.hqc-5.keygen.r3.a1,slow
+1794087755546049936,block_done,E2.hqc-5.keygen.r3.a1,
+1794087755549184838,block_start,E2.ml-dsa-44.verify.r3.a1,fast
+1794087757243183988,block_done,E2.ml-dsa-44.verify.r3.a1,
+1794087757246516994,block_start,E2c.ecdsa-p256.verify.r3.a1,fast
+1794087759557146815,block_done,E2c.ecdsa-p256.verify.r3.a1,
+1794087759559794339,block_start,E2.falcon-512.verify.r3.a1,fast
+1794087761511110599,block_done,E2.falcon-512.verify.r3.a1,
+1794087761514052636,block_start,E2c.falcon-padded-1024.sign.r3.a1,fast
+1794087762326252521,block_done,E2c.falcon-padded-1024.sign.r3.a1,
+1794087762329510050,block_start,E2.ed25519.keygen.r3.a1,fast
+1794087763824603495,block_done,E2.ed25519.keygen.r3.a1,
+1794087763827900633,block_start,E2.ecdsa-p256.keygen.r3.a1,fast
+1794087765220823010,block_done,E2.ecdsa-p256.keygen.r3.a1,
+1794087765224219232,block_start,E2.dhkem-p256.encaps.r3.a1,fast
+1794087775336606109,block_done,E2.dhkem-p256.encaps.r3.a1,
+1794087775340128163,block_start,E2c.falcon-padded-1024.verify.r3.a1,fast
+1794087776250226012,block_done,E2c.falcon-padded-1024.verify.r3.a1,
+1794087776253201855,block_start,E2.ml-dsa-65.verify.r3.a1,fast
+1794087778751631394,block_done,E2.ml-dsa-65.verify.r3.a1,
+1794087778755471857,block_start,E2.rsa3072-pss.verify.r3.a1,fast
+1794087784112881385,block_done,E2.rsa3072-pss.verify.r3.a1,
+1794087784116287853,block_start,E2c.ml-kem-1024.encaps.r3.a1,fast
+1794087785142644729,block_done,E2c.ml-kem-1024.encaps.r3.a1,
+1794087785145902649,block_start,E2c.rsa3072-pss.verify.r3.a1,fast
+1794087796675148873,block_done,E2c.rsa3072-pss.verify.r3.a1,
+1794087796678169467,block_start,E2c.ml-kem-768.encaps.r3.a1,fast
+1794087797763195238,block_done,E2c.ml-kem-768.encaps.r3.a1,
+1794087797766613375,block_start,E2c.ed25519.verify.r3.a1,fast
+1794087798964616990,block_done,E2c.ed25519.verify.r3.a1,
+1794087798967930284,block_start,E2c.ecdsa-p256.keygen.r3.a1,fast
+1794087799367878052,block_done,E2c.ecdsa-p256.keygen.r3.a1,
+1794087799371311799,block_start,E2.falcon-padded-512.sign.r3.a1,fast
+1794087808780071260,block_done,E2.falcon-padded-512.sign.r3.a1,
+1794087808783494893,block_start,E2c.dhkem-p256.decaps.r3.a1,fast
+1794087811493583033,block_done,E2c.dhkem-p256.decaps.r3.a1,
+1794087811496650733,block_start,E2c.ml-kem-512.keygen.r3.a1,fast
+1794087812421042344,block_done,E2c.ml-kem-512.keygen.r3.a1,
+1794087812424288652,block_start,E2.hqc-1.encaps.r2.a2,slow
+1794088268093545926,block_done,E2.hqc-1.encaps.r2.a2,
+1794088269643332459,canary,,16 periodic ratio 1.00025 
+1794088269669682820,queued,E2.hqc-1.encaps.r3.a2,repeat:other; position 73
+1794088269751647742,checkpoint,,1 block(s) queued; 263 remaining
+1794088269755504452,block_start,E2.ml-dsa-44.sign.r3.a1,fast
+1794088274973082739,block_done,E2.ml-dsa-44.sign.r3.a1,
+1794088274976242178,block_start,E2.ml-dsa-87.sign.r3.a1,fast
+1794088284843184250,block_done,E2.ml-dsa-87.sign.r3.a1,
+1794088284846862579,block_start,E2c.hqc-5.decaps.r3.a1,fast
+1794088286139058571,block_done,E2c.hqc-5.decaps.r3.a1,
+1794088286142227242,block_start,E2c.ecdsa-p256.sign.r3.a1,fast
+1794088288669063370,block_done,E2c.ecdsa-p256.sign.r3.a1,
+1794088288671956435,block_start,E2.ml-kem-512.decaps.r3.a1,fast
+1794088289704603033,block_done,E2.ml-kem-512.decaps.r3.a1,
+1794088289707606351,block_start,E2c.hqc-5.encaps.r3.a1,fast
+1794088291127185115,block_done,E2c.hqc-5.encaps.r3.a1,
+1794088291130440304,block_start,E2c.ml-dsa-44.sign.r3.a1,fast
+1794088291930453986,block_done,E2c.ml-dsa-44.sign.r3.a1,
+1794088291933632748,block_start,E2.ml-kem-768.decaps.r3.a1,fast
+1794088293329014538,block_done,E2.ml-kem-768.decaps.r3.a1,
+1794088293332660266,block_start,E2c.falcon-1024.sign.r3.a1,fast
+1794088294209893569,block_done,E2c.falcon-1024.sign.r3.a1,
+1794088294212475430,block_start,E2.falcon-1024.keygen.r3.a1,slow
+1794088475000481117,block_done,E2.falcon-1024.keygen.r3.a1,
+1794088475004114465,block_start,E2c.hqc-1.encaps.r3.a1,fast
+1794088476127709125,block_done,E2c.hqc-1.encaps.r3.a1,
+1794088476131031928,block_start,E2.dhkem-p256.decaps.r3.a1,fast
+1794088481554070816,block_done,E2.dhkem-p256.decaps.r3.a1,
+1794088481557396467,block_start,E2.ml-kem-768.encaps.r3.a1,fast
+1794088483722564221,block_done,E2.ml-kem-768.encaps.r3.a1,
+1794088483725711026,block_start,E2.rsa3072-pss.sign.r3.a1,slow
+1794088669775321080,block_done,E2.rsa3072-pss.sign.r3.a1,
+1794088669778764142,block_start,E2.hqc-3.decaps.r3.a1,slow
+1794088850413317907,block_done,E2.hqc-3.decaps.r3.a1,
+1794088850416688906,block_start,E2.ml-kem-1024.decaps.r3.a1,fast
+1794088852273996150,block_done,E2.ml-kem-1024.decaps.r3.a1,
+1794088852278138842,block_start,E2.falcon-padded-512.keygen.r3.a1,slow
+1794089033246331494,block_done,E2.falcon-padded-512.keygen.r3.a1,
+1794089034800676501,canary,,17 periodic ratio 0.99924 
+1794089034831280211,queued,E2.hqc-1.encaps.r2.a3,repeat:other; position 230
+1794089034885500853,queued,E2.hqc-3.decaps.r3.a2,repeat:other; position 113
+1794089034911622736,checkpoint,,2 block(s) queued; 248 remaining
+1794089034915350511,block_start,E2c.dhkem-x25519.keygen.r3.a1,fast
+1794089035310645938,block_done,E2c.dhkem-x25519.keygen.r3.a1,
+1794089035313787302,block_start,E2.ml-dsa-87.verify.r3.a1,fast
+1794089039003906932,block_done,E2.ml-dsa-87.verify.r3.a1,
+1794089039007157505,block_start,E2c.ml-dsa-65.verify.r3.a1,fast
+1794089039975038680,block_done,E2c.ml-dsa-65.verify.r3.a1,
+1794089039977566096,block_start,E2.rsa3072-pss.keygen.r3.a1,slow
+1794089169698829422,block_done,E2.rsa3072-pss.keygen.r3.a1,
+1794089169702188478,block_start,E2c.ml-dsa-65.keygen.r3.a1,fast
+1794089170701879515,block_done,E2c.ml-dsa-65.keygen.r3.a1,
+1794089170704670746,block_start,E2c.falcon-padded-1024.keygen.r3.a1,fast
+1794089171671193249,block_done,E2c.falcon-padded-1024.keygen.r3.a1,
+1794089171674406581,block_start,E2.ml-kem-1024.encaps.r3.a1,fast
+1794089174569698134,block_done,E2.ml-kem-1024.encaps.r3.a1,
+1794089184889924685,prep,hqc-5.r4,pool 256 e10 false 10254305845 ns
+1794089184893792272,block_start,E2c.hqc-5.encaps.r4.a1,fast
+1794089186362394600,block_done,E2c.hqc-5.encaps.r4.a1,
+1794089186558544751,prep,falcon-padded-1024.r4,pool 256 e10 false 157237214 ns
+1794089186562396087,block_start,E2c.falcon-padded-1024.sign.r4.a1,fast
+1794089187409174810,block_done,E2c.falcon-padded-1024.sign.r4.a1,
+1794089187602316344,prep,falcon-1024.r4,pool 256 e10 false 148334707 ns
+1794089187605773433,block_start,E2.falcon-1024.sign.r4.a1,fast
+1794089205555788716,block_done,E2.falcon-1024.sign.r4.a1,
+1794089205592037990,prep,ml-kem-512.r4,pool 256 e10 false 11003743 ns
+1794089205596010469,block_start,E2c.ml-kem-512.keygen.r4.a1,fast
+1794089206466626589,block_done,E2c.ml-kem-512.keygen.r4.a1,
+1794089206584394841,prep,dhkem-p256.r4,pool 256 e10 false 82760523 ns
+1794089206587997708,block_start,E2c.dhkem-p256.encaps.r4.a1,fast
+1794089209019133559,block_done,E2c.dhkem-p256.encaps.r4.a1,
+1794089209106317654,prep,ml-dsa-44.r4,pool 256 e10 false 40143841 ns
+1794089209109647757,block_start,E2c.ml-dsa-44.keygen.r4.a1,fast
+1794089210069189622,block_done,E2c.ml-dsa-44.keygen.r4.a1,
+1794089210165877558,prep,ed25519.r4,pool 256 e10 false 52435821 ns
+1794089210169254735,block_start,E2c.ed25519.keygen.r4.a1,fast
+1794089210589001790,block_done,E2c.ed25519.keygen.r4.a1,
+1794089210591896905,block_start,E2.falcon-padded-1024.verify.r4.a1,fast
+1794089214063499737,block_done,E2.falcon-padded-1024.verify.r4.a1,
+1794089214066238750,block_start,E2c.ed25519.sign.r4.a1,fast
+1794089220351306233,block_done,E2c.ed25519.sign.r4.a1,
+1794089220354359068,block_start,E2.ml-dsa-44.verify.r4.a1,fast
+1794089222118859909,block_done,E2.ml-dsa-44.verify.r4.a1,
+1794089222212398701,prep,ml-kem-1024.r4,pool 256 e10 false 21163580 ns
+1794089222216178960,block_start,E2.ml-kem-1024.keygen.r4.a1,fast
+1794089224064972522,block_done,E2.ml-kem-1024.keygen.r4.a1,
+1794089225091144215,prep,rsa3072-pss.r4,pool 256 e10 false 992796420 ns
+1794089225094918292,block_start,E2.rsa3072-pss.keygen.r4.a1,slow
+1794089352195996310,block_done,E2.rsa3072-pss.keygen.r4.a1,
+1794089353698300164,prep,hqc-1.r4,pool 256 e10 false 1425350077 ns
+1794089353702164438,block_start,E2c.hqc-1.encaps.r4.a1,fast
+1794089354877943007,block_done,E2c.hqc-1.encaps.r4.a1,
+1794089354881270947,block_start,E2c.dhkem-p256.keygen.r4.a1,fast
+1794089355360965419,block_done,E2c.dhkem-p256.keygen.r4.a1,
+1794089355363927977,block_start,E2c.falcon-1024.keygen.r4.a1,fast
+1794089356324237504,block_done,E2c.falcon-1024.keygen.r4.a1,
+1794089356327242434,block_start,E2.falcon-1024.keygen.r4.a1,slow
+1794089537053427510,block_done,E2.falcon-1024.keygen.r4.a1,
+1794089537056166292,block_start,E2c.rsa3072-pss.sign.r4.a1,fast
+1794089568941409820,block_done,E2c.rsa3072-pss.sign.r4.a1,
+1794089568944223629,block_start,E2.falcon-padded-1024.sign.r4.a1,fast
+1794089586935342848,block_done,E2.falcon-padded-1024.sign.r4.a1,
+1794089586938129682,block_start,E2c.ml-dsa-44.sign.r4.a1,fast
+1794089587737463814,block_done,E2c.ml-dsa-44.sign.r4.a1,
+1794089587786884068,prep,ml-kem-768.r4,pool 256 e10 false 16241002 ns
+1794089587790633075,block_start,E2.ml-kem-768.decaps.r4.a1,fast
+1794089589196429768,block_done,E2.ml-kem-768.decaps.r4.a1,
+1794089589199730392,block_start,E2c.ml-dsa-44.verify.r4.a1,fast
+1794089590103374236,block_done,E2c.ml-dsa-44.verify.r4.a1,
+1794089594384615812,prep,hqc-3.r4,pool 256 e10 false 4230133307 ns
+1794089594388435902,block_start,E2c.hqc-3.encaps.r4.a1,fast
+1794089595596174692,block_done,E2c.hqc-3.encaps.r4.a1,
+1794089595599363713,block_start,E2.ml-kem-512.encaps.r1.a2,fast
+1794089597127942701,block_done,E2.ml-kem-512.encaps.r1.a2,
+1794089597237199272,prep,ml-dsa-87.r4,pool 256 e10 false 73585653 ns
+1794089597242045289,block_start,E2c.ml-dsa-87.verify.r4.a1,fast
+1794089598061281664,block_done,E2c.ml-dsa-87.verify.r4.a1,
+1794089598064225007,block_start,E2c.hqc-3.keygen.r4.a1,fast
+1794089599077241275,block_done,E2c.hqc-3.keygen.r4.a1,
+1794089599081217159,block_start,E2c.falcon-1024.sign.r4.a1,fast
+1794089599916338377,block_done,E2c.falcon-1024.sign.r4.a1,
+1794089599919429509,block_start,E2.hqc-1.decaps.r2.a2,slow
+1794089781202770568,block_done,E2.hqc-1.decaps.r2.a2,
+1794089782765836176,canary,,18 periodic ratio 0.99238 
+1794089782831456725,checkpoint,,0 block(s) queued; 214 remaining
+1794089782966737285,prep,falcon-512.r4,pool 256 e10 false 78913154 ns
+1794089782971062087,block_start,E2c.falcon-512.sign.r4.a1,fast
+1794089783857677919,block_done,E2c.falcon-512.sign.r4.a1,
+1794089783947511469,prep,dhkem-x25519.r4,pool 256 e10 false 47647518 ns
+1794089783951201575,block_start,E2.dhkem-x25519.decaps.r4.a1,fast
+1794089786880931981,block_done,E2.dhkem-x25519.decaps.r4.a1,
+1794089786884101945,block_start,E2c.hqc-5.decaps.r4.a1,fast
+1794089788162562636,block_done,E2c.hqc-5.decaps.r4.a1,
+1794089788165530064,block_start,E2.hqc-3.keygen.r4.a1,slow
+1794089987633967926,block_done,E2.hqc-3.keygen.r4.a1,
+1794089987637140057,block_start,E2.ml-dsa-44.keygen.r4.a1,fast
+1794089989584429026,block_done,E2.ml-dsa-44.keygen.r4.a1,
+1794089989587490609,block_start,E2.ml-dsa-87.keygen.r4.a1,fast
+1794089993894578669,block_done,E2.ml-dsa-87.keygen.r4.a1,
+1794089993898031293,block_start,E2.rsa3072-pss.sign.r4.a1,slow
+1794090180033297660,block_done,E2.rsa3072-pss.sign.r4.a1,
+1794090180102479120,prep,ecdsa-p256.r4,pool 256 e10 false 42068541 ns
+1794090180106006904,block_start,E2.ecdsa-p256.verify.r4.a1,fast
+1794090183549489471,block_done,E2.ecdsa-p256.verify.r4.a1,
+1794090183552409882,block_start,E2c.dhkem-x25519.keygen.r4.a1,fast
+1794090183915770075,block_done,E2c.dhkem-x25519.keygen.r4.a1,
+1794090183918734191,block_start,E2.hqc-3.encaps.r2.a2,slow
+1794090634300769317,block_done,E2.hqc-3.encaps.r2.a2,
+1794090635830508743,canary,,19 periodic ratio 1.00073 
+1794090635864987349,queued,E2.dhkem-x25519.decaps.r4.a2,repeat:other; position 100
+1794090635886456890,queued,E2.hqc-1.decaps.r2.a3,repeat:other; position 89
+1794090635890179423,queued,E2.hqc-3.keygen.r4.a2,repeat:other; position 81
+1794090635894440810,queued,E2.rsa3072-pss.sign.r4.a2,repeat:other; position 169
+1794090635897812783,queued,E2c.falcon-512.sign.r4.a2,repeat:other; position 145
+1794090635924495362,checkpoint,,5 block(s) queued; 209 remaining
+1794090635928198330,block_start,E2c.falcon-512.keygen.r4.a1,fast
+1794090636830009831,block_done,E2c.falcon-512.keygen.r4.a1,
+1794090636833593515,block_start,E2c.dhkem-x25519.encaps.r4.a1,fast
+1794090638160566731,block_done,E2c.dhkem-x25519.encaps.r4.a1,
+1794090638164375846,block_start,E2.falcon-1024.verify.r4.a1,fast
+1794090641648606846,block_done,E2.falcon-1024.verify.r4.a1,
+1794090641651713838,block_start,E2.ml-kem-768.encaps.r4.a1,fast
+1794090643827791383,block_done,E2.ml-kem-768.encaps.r4.a1,
+1794090643831078676,block_start,E2c.ml-kem-512.decaps.r4.a1,fast
+1794090644843453516,block_done,E2c.ml-kem-512.decaps.r4.a1,
+1794090644846628673,block_start,E2.falcon-512.keygen.r4.a1,slow
+1794090825818450144,block_done,E2.falcon-512.keygen.r4.a1,
+1794090825821498698,block_start,E2.hqc-1.keygen.r4.a1,slow
+1794091027964609565,block_done,E2.hqc-1.keygen.r4.a1,
+1794091027967989830,block_start,E2.ml-kem-512.encaps.r4.a1,fast
+1794091029493859158,block_done,E2.ml-kem-512.encaps.r4.a1,
+1794091029497480111,block_start,E2c.ml-kem-1024.keygen.r4.a1,fast
+1794091030459085758,block_done,E2c.ml-kem-1024.keygen.r4.a1,
+1794091030461995574,block_start,E2c.ml-kem-512.encaps.r4.a1,fast
+1794091031553803396,block_done,E2c.ml-kem-512.encaps.r4.a1,
+1794091031556886049,block_start,E2.ml-kem-512.decaps.r4.a1,fast
+1794091032609185886,block_done,E2.ml-kem-512.decaps.r4.a1,
+1794091032612608343,block_start,E2c.rsa3072-pss.verify.r4.a1,fast
+1794091044288783174,block_done,E2c.rsa3072-pss.verify.r4.a1,
+1794091044291790290,block_start,E2.hqc-1.encaps.r3.a2,slow
+1794091499981543317,block_done,E2.hqc-1.encaps.r3.a2,
+1794091501514102745,canary,,20 periodic ratio 1.00382 
+1794091501575312472,checkpoint,,0 block(s) queued; 196 remaining
+1794091501578983841,block_start,E2.falcon-512.sign.r4.a1,fast
+1794091510944007277,block_done,E2.falcon-512.sign.r4.a1,
+1794091511033149258,prep,ml-dsa-65.r4,pool 256 e10 false 56864255 ns
+1794091511037140260,block_start,E2c.ml-dsa-65.verify.r4.a1,fast
+1794091511934343740,block_done,E2c.ml-dsa-65.verify.r4.a1,
+1794091511937613898,block_start,E2.ecdsa-p256.sign.r4.a1,fast
+1794091516301818675,block_done,E2.ecdsa-p256.sign.r4.a1,
+1794091516304865496,block_start,E2c.hqc-1.decaps.r4.a1,fast
+1794091517257841080,block_done,E2c.hqc-1.decaps.r4.a1,
+1794091517261264947,block_start,E2.hqc-3.encaps.r4.a1,slow
+1794091968894187236,block_done,E2.hqc-3.encaps.r4.a1,
+1794091968897656217,block_start,E2.ml-kem-1024.encaps.r4.a1,fast
+1794091971809271027,block_done,E2.ml-kem-1024.encaps.r4.a1,
+1794091971812202751,block_start,E2.ecdsa-p256.keygen.r4.a1,fast
+1794091973241072361,block_done,E2.ecdsa-p256.keygen.r4.a1,
+1794091973244829897,block_start,E2c.ecdsa-p256.keygen.r4.a1,fast
+1794091973686724180,block_done,E2c.ecdsa-p256.keygen.r4.a1,
+1794091973695158975,block_start,E2c.ml-kem-768.decaps.r4.a1,fast
+1794091974657179627,block_done,E2c.ml-kem-768.decaps.r4.a1,
+1794091974660970537,block_start,E2.rsa3072-pss.verify.r4.a1,fast
+1794091979968174544,block_done,E2.rsa3072-pss.verify.r4.a1,
+1794091979971375299,block_start,E2.hqc-5.keygen.r4.a1,slow
+1794092178812384409,block_done,E2.hqc-5.keygen.r4.a1,
+1794092180358330870,canary,,21 periodic ratio 1.00144 
+1794092180447073510,checkpoint,,0 block(s) queued; 185 remaining
+1794092180450957586,block_start,E2.ed25519.sign.r4.a1,fast
+1794092186821568547,block_done,E2.ed25519.sign.r4.a1,
+1794092186824515039,block_start,E2.falcon-padded-1024.keygen.r4.a1,slow
+1794092367609952176,block_done,E2.falcon-padded-1024.keygen.r4.a1,
+1794092367612686217,block_start,E2.ml-kem-1024.decaps.r4.a1,fast
+1794092369408383361,block_done,E2.ml-kem-1024.decaps.r4.a1,
+1794092369411178131,block_start,E2.ml-kem-512.keygen.r4.a1,fast
+1794092370560893489,block_done,E2.ml-kem-512.keygen.r4.a1,
+1794092370564023112,block_start,E2c.ml-dsa-87.keygen.r4.a1,fast
+1794092371513575545,block_done,E2c.ml-dsa-87.keygen.r4.a1,
+1794092371516671721,block_start,E2c.ecdsa-p256.sign.r4.a1,fast
+1794092374039634540,block_done,E2c.ecdsa-p256.sign.r4.a1,
+1794092374042577517,block_start,E2.ml-dsa-44.sign.r4.a1,fast
+1794092379230647140,block_done,E2.ml-dsa-44.sign.r4.a1,
+1794092379233623544,block_start,E2c.hqc-1.keygen.r4.a1,fast
+1794092380125428570,block_done,E2c.hqc-1.keygen.r4.a1,
+1794092380128484260,block_start,E2.hqc-1.decaps.r4.a1,slow
+1794092561330655958,block_done,E2.hqc-1.decaps.r4.a1,
+1794092561446370957,prep,falcon-padded-512.r4,pool 256 e10 false 80364641 ns
+1794092561449960888,block_start,E2.falcon-padded-512.keygen.r4.a1,slow
+1794092742405929678,block_done,E2.falcon-padded-512.keygen.r4.a1,
+1794092742409953794,block_start,E2c.falcon-padded-512.sign.r4.a1,fast
+1794092743243368493,block_done,E2c.falcon-padded-512.sign.r4.a1,
+1794092743247191756,block_start,E2.falcon-padded-512.sign.r4.a1,fast
+1794092752714945863,block_done,E2.falcon-padded-512.sign.r4.a1,
+1794092752718390152,block_start,E2c.falcon-1024.verify.r4.a1,fast
+1794092753723952322,block_done,E2c.falcon-1024.verify.r4.a1,
+1794092753726916113,block_start,E2c.ed25519.keygen.r1.a2,fast
+1794092754171757264,block_done,E2c.ed25519.keygen.r1.a2,
+1794092754174539049,block_start,E2.ml-dsa-87.verify.r4.a1,fast
+1794092757928724885,block_done,E2.ml-dsa-87.verify.r4.a1,
+1794092757932163857,block_start,E2.ml-dsa-65.sign.r4.a1,fast
+1794092765787048226,block_done,E2.ml-dsa-65.sign.r4.a1,
+1794092765790371395,block_start,E2c.ed25519.verify.r4.a1,fast
+1794092766924323877,block_done,E2c.ed25519.verify.r4.a1,
+1794092766927387700,block_start,E2c.falcon-512.verify.r4.a1,fast
+1794092767890366161,block_done,E2c.falcon-512.verify.r4.a1,
+1794092767893283108,block_start,E2c.falcon-padded-1024.keygen.r4.a1,fast
+1794092768842474109,block_done,E2c.falcon-padded-1024.keygen.r4.a1,
+1794092768845845091,block_start,E2c.ml-dsa-65.sign.r4.a1,fast
+1794092769725909142,block_done,E2c.ml-dsa-65.sign.r4.a1,
+1794092769728955349,block_start,E2c.dhkem-p256.keygen.r2.a2,fast
+1794092770183134648,block_done,E2c.dhkem-p256.keygen.r2.a2,
+1794092770186797890,block_start,E2.dhkem-p256.keygen.r4.a1,fast
+1794092771686375943,block_done,E2.dhkem-p256.keygen.r4.a1,
+1794092771689650779,block_start,E2.hqc-5.decaps.r2.a2,slow
+1794092952386010955,block_done,E2.hqc-5.decaps.r2.a2,
+1794092953918713692,canary,,22 periodic ratio 0.99953 
+1794092953956227977,queued,E2.falcon-padded-1024.keygen.r4.a2,repeat:other; position 108
+1794092953961311259,queued,E2.falcon-padded-512.keygen.r4.a2,repeat:other; position 112
+1794092953964833601,queued,E2.hqc-1.decaps.r4.a2,repeat:other; position 3
+1794092953970047868,queued,E2.hqc-5.keygen.r4.a2,repeat:other; position 32
+1794092953997531526,checkpoint,,4 block(s) queued; 166 remaining
+1794092954001183291,block_start,E2c.ml-dsa-65.keygen.r4.a1,fast
+1794092954947456373,block_done,E2c.ml-dsa-65.keygen.r4.a1,
+1794092954950731623,block_start,E2c.ml-kem-1024.encaps.r4.a1,fast
+1794092955977737688,block_done,E2c.ml-kem-1024.encaps.r4.a1,
+1794092955980991091,block_start,E2c.ml-dsa-87.sign.r4.a1,fast
+1794092956843086206,block_done,E2c.ml-dsa-87.sign.r4.a1,
+1794092956846546622,block_start,E2.hqc-1.decaps.r4.a2,slow
+1794093138033310711,block_done,E2.hqc-1.decaps.r4.a2,
+1794093138036559268,block_start,E2.hqc-3.decaps.r4.a1,slow
+1794093318654157812,block_done,E2.hqc-3.decaps.r4.a1,
+1794093318657483668,block_start,E2c.falcon-padded-1024.verify.r4.a1,fast
+1794093319560347190,block_done,E2c.falcon-padded-1024.verify.r4.a1,
+1794093319563564102,block_start,E2c.falcon-padded-512.verify.r4.a1,fast
+1794093320457406353,block_done,E2c.falcon-padded-512.verify.r4.a1,
+1794093320460870219,block_start,E2c.dhkem-p256.decaps.r4.a1,fast
+1794093323086974128,block_done,E2c.dhkem-p256.decaps.r4.a1,
+1794093323090016669,block_start,E2.falcon-padded-512.verify.r4.a1,fast
+1794093325054291351,block_done,E2.falcon-padded-512.verify.r4.a1,
+1794093325057508593,block_start,E2.falcon-512.verify.r4.a1,fast
+1794093327004573116,block_done,E2.falcon-512.verify.r4.a1,
+1794093327007984433,block_start,E2c.ml-kem-768.keygen.r4.a1,fast
+1794093327935388041,block_done,E2c.ml-kem-768.keygen.r4.a1,
+1794093327938346263,block_start,E2.hqc-5.encaps.r4.a1,slow
+1794093779510192844,block_done,E2.hqc-5.encaps.r4.a1,
+1794093781042181110,canary,,23 periodic ratio 1.00225 
+1794093781080604447,queued,E2.hqc-1.decaps.r4.a3,repeat:other; position 130
+1794093781091267877,queued,E2.hqc-3.decaps.r4.a2,repeat:other; position 114
+1794093781121730081,checkpoint,,2 block(s) queued; 156 remaining
+1794093781124842407,block_start,E2.dhkem-p256.encaps.r4.a1,fast
+1794093791173148228,block_done,E2.dhkem-p256.encaps.r4.a1,
+1794093791176192708,block_start,E2.ed25519.keygen.r4.a1,fast
+1794093792665475724,block_done,E2.ed25519.keygen.r4.a1,
+1794093792669042839,block_start,E2.hqc-5.decaps.r4.a1,slow
+1794093973355128487,block_done,E2.hqc-5.decaps.r4.a1,
+1794093973358027368,block_start,E2c.ml-kem-768.encaps.r4.a1,fast
+1794093974434774477,block_done,E2c.ml-kem-768.encaps.r4.a1,
+1794093974437510673,block_start,E2c.hqc-5.keygen.r4.a1,fast
+1794093975680537662,block_done,E2c.hqc-5.keygen.r4.a1,
+1794093975683271872,block_start,E2.ml-kem-768.keygen.r4.a1,fast
+1794093977143359009,block_done,E2.ml-kem-768.keygen.r4.a1,
+1794093977146789932,block_start,E2.dhkem-p256.decaps.r4.a1,fast
+1794093982534563916,block_done,E2.dhkem-p256.decaps.r4.a1,
+1794093982538078952,block_start,E2.dhkem-x25519.keygen.r4.a1,fast
+1794093983937897830,block_done,E2.dhkem-x25519.keygen.r4.a1,
+1794093983941389161,block_start,E2.ml-dsa-65.verify.r4.a1,fast
+1794093986432369279,block_done,E2.ml-dsa-65.verify.r4.a1,
+1794093986435279469,block_start,E2c.rsa3072-pss.keygen.r4.a1,fast
+1794093986800008249,block_done,E2c.rsa3072-pss.keygen.r4.a1,
+1794093986802774684,block_start,E2.dhkem-x25519.encaps.r4.a1,fast
+1794093991734921930,block_done,E2.dhkem-x25519.encaps.r4.a1,
+1794093991738062167,block_start,E2.hqc-3.decaps.r3.a2,slow
+1794094172372643484,block_done,E2.hqc-3.decaps.r3.a2,
+1794094172375472226,block_start,E2c.ecdsa-p256.verify.r4.a1,fast
+1794094174689881920,block_done,E2c.ecdsa-p256.verify.r4.a1,
+1794094174692609520,block_start,E2c.dhkem-x25519.decaps.r4.a1,fast
+1794094181412846709,block_done,E2c.dhkem-x25519.decaps.r4.a1,
+1794094181416050378,block_start,E2c.hqc-3.decaps.r4.a1,fast
+1794094182511670615,block_done,E2c.hqc-3.decaps.r4.a1,
+1794094182514679082,block_start,E2c.falcon-padded-512.keygen.r4.a1,fast
+1794094183296741553,block_done,E2c.falcon-padded-512.keygen.r4.a1,
+1794094183300383742,block_start,E2c.ml-kem-1024.decaps.r4.a1,fast
+1794094184304327657,block_done,E2c.ml-kem-1024.decaps.r4.a1,
+1794094184307293840,block_start,E2.ed25519.verify.r4.a1,fast
+1794094188568409073,block_done,E2.ed25519.verify.r4.a1,
+1794094188571320066,block_start,E2.hqc-5.keygen.r1.a2,slow
+1794094387528200397,block_done,E2.hqc-5.keygen.r1.a2,
+1794094389095964239,canary,,24 periodic ratio 1.00383 
+1794094389134110483,queued,E2.hqc-3.decaps.r3.a3,repeat:other; position 28
+1794094389174636092,queued,E2.hqc-5.encaps.r4.a2,repeat:other; position 117
+1794094389204513130,checkpoint,,2 block(s) queued; 139 remaining
+1794094389207351948,block_start,E2.hqc-1.encaps.r4.a1,slow
+1794094843955808067,block_done,E2.hqc-1.encaps.r4.a1,
+1794094843959064410,block_start,E2.hqc-5.keygen.r4.a2,slow
+1794095042913171490,block_done,E2.hqc-5.keygen.r4.a2,
+1794095044445600427,canary,,25 periodic ratio 0.99756 
+1794095044484585817,queued,E2.hqc-1.encaps.r4.a2,repeat:other; position 35
+1794095044518494262,checkpoint,,1 block(s) queued; 138 remaining
+1794095044521859385,block_start,E2.ml-dsa-87.sign.r4.a1,fast
+1794095054256746740,block_done,E2.ml-dsa-87.sign.r4.a1,
+1794095054259790599,block_start,E2.ml-dsa-65.keygen.r4.a1,fast
+1794095057231019100,block_done,E2.ml-dsa-65.keygen.r4.a1,
+1794095057413258967,prep,falcon-1024.r5,pool 256 e10 false 150302942 ns
+1794095057417132612,block_start,E2.falcon-1024.keygen.r5.a1,slow
+1794095238180852175,block_done,E2.falcon-1024.keygen.r5.a1,
+1794095238184368708,block_start,E2.hqc-3.keygen.r4.a2,slow
+1794095437593616586,block_done,E2.hqc-3.keygen.r4.a2,
+1794095437718251457,prep,ml-dsa-65.r5,pool 256 e10 false 57717057 ns
+1794095437722106843,block_start,E2c.ml-dsa-65.sign.r5.a1,fast
+1794095438568673158,block_done,E2c.ml-dsa-65.sign.r5.a1,
+1794095438571451881,block_start,E2c.falcon-1024.keygen.r5.a1,fast
+1794095439496524773,block_done,E2c.falcon-1024.keygen.r5.a1,
+1794095439583534328,prep,dhkem-x25519.r5,pool 256 e10 false 45256464 ns
+1794095439586866477,block_start,E2.dhkem-x25519.decaps.r5.a1,fast
+1794095442535788934,block_done,E2.dhkem-x25519.decaps.r5.a1,
+1794095442631718641,prep,ml-dsa-44.r5,pool 256 e10 false 38354571 ns
+1794095442635557796,block_start,E2.ml-dsa-44.sign.r5.a1,fast
+1794095447908165091,block_done,E2.ml-dsa-44.sign.r5.a1,
+1794095449440461508,prep,rsa3072-pss.r5,pool 256 e10 false 1461381537 ns
+1794095449444481158,block_start,E2c.rsa3072-pss.keygen.r5.a1,fast
+1794095449881795358,block_done,E2c.rsa3072-pss.keygen.r5.a1,
+1794095449988376196,prep,ecdsa-p256.r5,pool 256 e10 false 41059370 ns
+1794095449991939229,block_start,E2.ecdsa-p256.keygen.r5.a1,fast
+1794095451483542353,block_done,E2.ecdsa-p256.keygen.r5.a1,
+1794095451486439135,block_start,E2c.falcon-1024.sign.r5.a1,fast
+1794095452309530644,block_done,E2c.falcon-1024.sign.r5.a1,
+1794095453820894111,prep,hqc-1.r5,pool 256 e10 false 1474891631 ns
+1794095453824606375,block_start,E2c.hqc-1.keygen.r5.a1,fast
+1794095454730905672,block_done,E2c.hqc-1.keygen.r5.a1,
+1794095454733799047,block_start,E2.hqc-1.decaps.r2.a3,slow
+1794095635937412062,block_done,E2.hqc-1.decaps.r2.a3,
+1794095635940728947,block_start,E2.ecdsa-p256.keygen.r1.a2,fast
+1794095637338761515,block_done,E2.ecdsa-p256.keygen.r1.a2,
+1794095637443316546,prep,falcon-padded-512.r5,pool 256 e10 false 75717011 ns
+1794095637446887389,block_start,E2c.falcon-padded-512.sign.r5.a1,fast
+1794095638262332550,block_done,E2c.falcon-padded-512.sign.r5.a1,
+1794095638309810589,prep,ml-kem-768.r5,pool 256 e10 false 16823403 ns
+1794095638314034595,block_start,E2c.ml-kem-768.encaps.r5.a1,fast
+1794095639488732927,block_done,E2c.ml-kem-768.encaps.r5.a1,
+1794095639664239892,prep,falcon-padded-1024.r5,pool 256 e10 false 148544517 ns
+1794095639667963536,block_start,E2.falcon-padded-1024.sign.r5.a1,fast
+1794095657905571227,block_done,E2.falcon-padded-1024.sign.r5.a1,
+1794095659431926961,canary,,26 periodic ratio 0.99515 
+1794095659471899700,queued,E2.falcon-1024.keygen.r5.a2,repeat:other; position 58
+1794095659480988969,queued,E2c.falcon-1024.keygen.r5.a2,diagnostic:drift 0.0395 > 0.0300; position 8
+1794095659485976184,queued,E2c.falcon-1024.sign.r3.a2,diagnostic:drift 0.0463 > 0.0300; position 52
+1794095659489872705,queued,E2c.hqc-1.keygen.r5.a2,diagnostic:drift 0.0636 > 0.0300; position 55
+1794095659493674469,queued,E2c.ml-dsa-65.sign.r4.a2,diagnostic:drift 0.0408 > 0.0300; position 98
+1794095659497297573,queued,E2c.ml-kem-768.encaps.r1.a2,diagnostic:drift 0.0506 > 0.0300; position 66
+1794095659501135608,queued,E2c.ml-kem-768.encaps.r4.a2,diagnostic:drift 0.0398 > 0.0300; position 32
+1794095659536669710,checkpoint,,7 block(s) queued; 128 remaining
+1794095659643848176,prep,dhkem-p256.r5,pool 256 e10 false 83770455 ns
+1794095659647372415,block_start,E2c.dhkem-p256.encaps.r5.a1,fast
+1794095662070697319,block_done,E2c.dhkem-p256.encaps.r5.a1,
+1794095662121777895,prep,ml-kem-1024.r5,pool 256 e10 false 21061317 ns
+1794095662125576974,block_start,E2.ml-kem-1024.decaps.r5.a1,fast
+1794095663937941461,block_done,E2.ml-kem-1024.decaps.r5.a1,
+1794095663941053339,block_start,E2.falcon-padded-512.keygen.r5.a1,slow
+1794095844864753080,block_done,E2.falcon-padded-512.keygen.r5.a1,
+1794095844868441350,block_start,E2.falcon-1024.verify.r5.a1,fast
+1794095848302048528,block_done,E2.falcon-1024.verify.r5.a1,
+1794095848306008162,block_start,E2.hqc-5.decaps.r1.a2,slow
+1794096029038403943,block_done,E2.hqc-5.decaps.r1.a2,
+1794096029041594891,block_start,E2.ml-dsa-65.keygen.r5.a1,fast
+1794096032033895075,block_done,E2.ml-dsa-65.keygen.r5.a1,
+1794096032037546965,block_start,E2.rsa3072-pss.verify.r5.a1,fast
+1794096037379743492,block_done,E2.rsa3072-pss.verify.r5.a1,
+1794096037382887519,block_start,E2.dhkem-x25519.decaps.r4.a2,fast
+1794096040270657465,block_done,E2.dhkem-x25519.decaps.r4.a2,
+1794096040274087444,block_start,E2c.falcon-1024.keygen.r5.a2,fast
+1794096041185592805,block_done,E2c.falcon-1024.keygen.r5.a2,
+1794096041188773257,block_start,E2.dhkem-x25519.encaps.r1.a2,fast
+1794096046157691713,block_done,E2.dhkem-x25519.encaps.r1.a2,
+1794096046161087506,block_start,E2.hqc-3.decaps.r3.a3,slow
+1794096226823553193,block_done,E2.hqc-3.decaps.r3.a3,
+1794096237188929974,prep,hqc-5.r5,pool 256 e10 false 10292140311 ns
+1794096237192674961,block_start,E2c.hqc-5.decaps.r5.a1,fast
+1794096238456497133,block_done,E2c.hqc-5.decaps.r5.a1,
+1794096238460424769,block_start,E2c.hqc-5.keygen.r5.a1,fast
+1794096239713204336,block_done,E2c.hqc-5.keygen.r5.a1,
+1794096239716375177,block_start,E2c.dhkem-x25519.decaps.r5.a1,fast
+1794096246552275632,block_done,E2c.dhkem-x25519.decaps.r5.a1,
+1794096246555475804,block_start,E2.ecdsa-p256.verify.r5.a1,fast
+1794096249946805073,block_done,E2.ecdsa-p256.verify.r5.a1,
+1794096249950517940,block_start,E2.hqc-5.decaps.r5.a1,slow
+1794096430640875014,block_done,E2.hqc-5.decaps.r5.a1,
+1794096432173606566,canary,,27 periodic ratio 0.99911 
+1794096432217130810,queued,E2.ecdsa-p256.verify.r5.a2,repeat:other; position 28
+1794096432226197900,queued,E2.falcon-padded-1024.sign.r5.a2,repeat:other; position 94
+1794096432230110997,queued,E2c.dhkem-x25519.decaps.r5.a2,diagnostic:drift 0.0548 > 0.0300; position 112
+1794096432235330589,queued,E2c.hqc-5.keygen.r4.a2,diagnostic:drift 0.0333 > 0.0300; position 22
+1794096432239471544,queued,E2c.ml-kem-768.encaps.r5.a2,diagnostic:drift 0.0540 > 0.0300; position 112
+1794096432270701794,checkpoint,,5 block(s) queued; 117 remaining
+1794096432274059825,block_start,E2.dhkem-x25519.keygen.r5.a1,fast
+1794096433724228058,block_done,E2.dhkem-x25519.keygen.r5.a1,
+1794096433845107256,prep,ml-dsa-87.r5,pool 256 e10 false 76735646 ns
+1794096433848980931,block_start,E2c.ml-dsa-87.sign.r5.a1,fast
+1794096434709595431,block_done,E2c.ml-dsa-87.sign.r5.a1,
+1794096434712565122,block_start,E2.falcon-padded-512.sign.r5.a1,fast
+1794096444049511110,block_done,E2.falcon-padded-512.sign.r5.a1,
+1794096444052310374,block_start,E2.hqc-1.encaps.r4.a2,slow
+1794096899426533971,block_done,E2.hqc-1.encaps.r4.a2,
+1794096899429604342,block_start,E2c.ml-dsa-65.verify.r5.a1,fast
+1794096900379014365,block_done,E2c.ml-dsa-65.verify.r5.a1,
+1794096900382290201,block_start,E2c.hqc-5.encaps.r5.a1,fast
+1794096901860147386,block_done,E2c.hqc-5.encaps.r5.a1,
+1794096901863314598,block_start,E2c.ml-dsa-44.keygen.r5.a1,fast
+1794096902827495153,block_done,E2c.ml-dsa-44.keygen.r5.a1,
+1794096902863225066,prep,ml-kem-512.r5,pool 256 e10 false 11210094 ns
+1794096902867221934,block_start,E2.ml-kem-512.keygen.r5.a1,fast
+1794096904014253335,block_done,E2.ml-kem-512.keygen.r5.a1,
+1794096908318592208,prep,hqc-3.r5,pool 256 e10 false 4219972129 ns
+1794096908322574923,block_start,E2c.hqc-3.keygen.r5.a1,fast
+1794096909328549107,block_done,E2c.hqc-3.keygen.r5.a1,
+1794096909331719291,block_start,E2.hqc-3.keygen.r5.a1,slow
+1794097108682929889,block_done,E2.hqc-3.keygen.r5.a1,
+1794097110260500878,canary,,28 periodic ratio 1.00079 
+1794097110300836750,queued,E2.dhkem-x25519.keygen.r5.a2,repeat:other; position 47
+1794097110355061938,queued,E2.hqc-1.encaps.r4.a3,repeat:other; position 88
+1794097110359593373,queued,E2.hqc-5.decaps.r5.a2,repeat:other; position 6
+1794097110363270254,queued,E2c.hqc-3.keygen.r4.a2,diagnostic:drift 0.0362 > 0.0300; position 68
+1794097110366457766,queued,E2c.hqc-5.encaps.r2.a2,diagnostic:drift 0.0362 > 0.0300; position 43
+1794097110369545475,queued,E2c.hqc-5.encaps.r4.a2,diagnostic:drift 0.0306 > 0.0300; position 31
+1794097110373198751,queued,E2c.hqc-5.encaps.r5.a2,diagnostic:drift 0.0382 > 0.0300; position 44
+1794097110377207924,queued,E2c.ml-dsa-44.keygen.r2.a2,diagnostic:drift 0.0313 > 0.0300; position 5
+1794097110380415507,queued,E2c.ml-dsa-44.keygen.r3.a2,diagnostic:drift 0.0344 > 0.0300; position 14
+1794097110383556407,queued,E2c.ml-dsa-44.keygen.r4.a2,diagnostic:drift 0.0341 > 0.0300; position 54
+1794097110386782235,queued,E2c.ml-dsa-44.keygen.r5.a2,diagnostic:drift 0.0375 > 0.0300; position 115
+1794097110391098169,queued,E2c.ml-dsa-65.verify.r3.a2,diagnostic:drift 0.0328 > 0.0300; position 112
+1794097110394652942,queued,E2c.ml-dsa-87.sign.r5.a2,repeat:other; position 102
+1794097110434720689,checkpoint,,13 block(s) queued; 120 remaining
+1794097110437965604,block_start,E2.ml-dsa-65.verify.r5.a1,fast
+1794097113021666268,block_done,E2.ml-dsa-65.verify.r5.a1,
+1794097113025007272,block_start,E2c.falcon-1024.verify.r5.a1,fast
+1794097113963523004,block_done,E2c.falcon-1024.verify.r5.a1,
+1794097113966318991,block_start,E2.falcon-1024.sign.r5.a1,fast
+1794097131875229971,block_done,E2.falcon-1024.sign.r5.a1,
+1794097131955723722,prep,ed25519.r5,pool 256 e10 false 51644957 ns
+1794097131959339749,block_start,E2.ed25519.verify.r5.a1,fast
+1794097136176510366,block_done,E2.ed25519.verify.r5.a1,
+1794097136179743692,block_start,E2.hqc-5.encaps.r2.a2,slow
+1794097587818564337,block_done,E2.hqc-5.encaps.r2.a2,
+1794097587821514819,block_start,E2c.ml-dsa-44.keygen.r2.a2,fast
+1794097588744119150,block_done,E2c.ml-dsa-44.keygen.r2.a2,
+1794097588747628722,block_start,E2c.rsa3072-pss.sign.r5.a1,fast
+1794097621030434686,block_done,E2c.rsa3072-pss.sign.r5.a1,
+1794097621033443710,block_start,E2.hqc-5.decaps.r5.a2,slow
+1794097801713181910,block_done,E2.hqc-5.decaps.r5.a2,
+1794097803245152378,canary,,29 periodic ratio 0.99142 
+1794097803289270344,queued,E2c.falcon-1024.verify.r1.a2,diagnostic:drift 0.0302 > 0.0300; position 36
+1794097803295270746,queued,E2c.falcon-1024.verify.r2.a2,diagnostic:drift 0.0372 > 0.0300; position 10
+1794097803299473056,queued,E2c.falcon-1024.verify.r5.a2,diagnostic:drift 0.0302 > 0.0300; position 19
+1794097803303639727,queued,E2c.rsa3072-pss.sign.r1.a2,diagnostic:drift 0.0862 > 0.0300; position 25
+1794097803307698305,queued,E2c.rsa3072-pss.sign.r3.a2,diagnostic:drift 0.0863 > 0.0300; position 9
+1794097803340186754,checkpoint,,5 block(s) queued; 117 remaining
+1794097803344565148,block_start,E2c.ml-kem-768.encaps.r4.a2,fast
+1794097804393199488,block_done,E2c.ml-kem-768.encaps.r4.a2,
+1794097804396205417,block_start,E2.hqc-1.keygen.r5.a1,slow
+1794098006651428430,block_done,E2.hqc-1.keygen.r5.a1,
+1794098006654731732,block_start,E2c.dhkem-p256.keygen.r5.a1,fast
+1794098007062588447,block_done,E2c.dhkem-p256.keygen.r5.a1,
+1794098007066127912,block_start,E2c.dhkem-x25519.keygen.r5.a1,fast
+1794098007420262433,block_done,E2c.dhkem-x25519.keygen.r5.a1,
+1794098007523769567,prep,falcon-512.r5,pool 256 e10 false 77172133 ns
+1794098007527618998,block_start,E2c.falcon-512.sign.r5.a1,fast
+1794098008340547926,block_done,E2c.falcon-512.sign.r5.a1,
+1794098008343813342,block_start,E2c.ecdsa-p256.keygen.r5.a1,fast
+1794098008763869526,block_done,E2c.ecdsa-p256.keygen.r5.a1,
+1794098008766627078,block_start,E2c.ml-dsa-44.keygen.r3.a2,fast
+1794098009670326062,block_done,E2c.ml-dsa-44.keygen.r3.a2,
+1794098009673132791,block_start,E2c.hqc-5.keygen.r4.a2,fast
+1794098010910029315,block_done,E2c.hqc-5.keygen.r4.a2,
+1794098010913459085,block_start,E2.ml-dsa-87.verify.r5.a1,fast
+1794098014578406219,block_done,E2.ml-dsa-87.verify.r5.a1,
+1794098014581531961,block_start,E2c.rsa3072-pss.sign.r3.a2,fast
+1794098046908165436,block_done,E2c.rsa3072-pss.sign.r3.a2,
+1794098046911045297,block_start,E2.ecdsa-p256.sign.r5.a1,fast
+1794098051311352782,block_done,E2.ecdsa-p256.sign.r5.a1,
+1794098051314402207,block_start,E2c.falcon-1024.verify.r2.a2,fast
+1794098052252129846,block_done,E2c.falcon-1024.verify.r2.a2,
+1794098052254997453,block_start,E2.rsa3072-pss.sign.r5.a1,slow
+1794098238337702986,block_done,E2.rsa3072-pss.sign.r5.a1,
+1794098238341000316,block_start,E2.hqc-3.encaps.r5.a1,slow
+1794098689394631565,block_done,E2.hqc-3.encaps.r5.a1,
+1794098690958194505,canary,,30 periodic ratio 1.00268 
+1794098691003334577,queued,E2.hqc-1.keygen.r5.a2,repeat:other; position 21
+1794098691036838250,queued,E2.hqc-5.decaps.r5.a3,repeat:other; position 53
+1794098691041208533,queued,E2.rsa3072-pss.sign.r5.a2,repeat:other; position 90
+1794098691073051304,checkpoint,,3 block(s) queued; 106 remaining
+1794098691076750723,block_start,E2.ml-kem-1024.keygen.r5.a1,fast
+1794098692934896100,block_done,E2.ml-kem-1024.keygen.r5.a1,
+1794098692937714840,block_start,E2.ml-dsa-44.keygen.r5.a1,fast
+1794098694953982494,block_done,E2.ml-dsa-44.keygen.r5.a1,
+1794098694956994128,block_start,E2.ecdsa-p256.verify.r5.a2,fast
+1794098698408496386,block_done,E2.ecdsa-p256.verify.r5.a2,
+1794098698412770544,block_start,E2c.ml-kem-512.decaps.r5.a1,fast
+1794098699481922101,block_done,E2c.ml-kem-512.decaps.r5.a1,
+1794098699484513300,block_start,E2.ml-dsa-87.keygen.r5.a1,fast
+1794098703773091846,block_done,E2.ml-dsa-87.keygen.r5.a1,
+1794098703776046416,block_start,E2c.falcon-padded-1024.keygen.r5.a1,fast
+1794098704667800486,block_done,E2c.falcon-padded-1024.keygen.r5.a1,
+1794098704670738442,block_start,E2c.falcon-1024.verify.r5.a2,fast
+1794098705586981239,block_done,E2c.falcon-1024.verify.r5.a2,
+1794098705590190968,block_start,E2c.ml-dsa-65.keygen.r5.a1,fast
+1794098706526069540,block_done,E2c.ml-dsa-65.keygen.r5.a1,
+1794098706528792177,block_start,E2.hqc-5.encaps.r5.a1,slow
+1794099158059035135,block_done,E2.hqc-5.encaps.r5.a1,
+1794099158062636820,block_start,E2.ml-dsa-87.sign.r5.a1,fast
+1794099167832002327,block_done,E2.ml-dsa-87.sign.r5.a1,
+1794099167835415951,block_start,E2c.ml-dsa-44.sign.r5.a1,fast
+1794099168631694692,block_done,E2c.ml-dsa-44.sign.r5.a1,
+1794099168634693230,block_start,E2.hqc-1.keygen.r3.a2,slow
+1794099370941747290,block_done,E2.hqc-1.keygen.r3.a2,
+1794099372476873411,canary,,31 periodic ratio 1.00228 
+1794099372520845724,queued,E2.hqc-5.encaps.r5.a2,repeat:other; position 55
+1794099372527545973,queued,E2c.falcon-padded-1024.keygen.r1.a3,diagnostic:drift 0.0467 > 0.0300; position 50
+1794099372530967387,queued,E2c.falcon-padded-1024.keygen.r4.a2,diagnostic:drift 0.0467 > 0.0300; position 11
+1794099372534771792,queued,E2c.ml-dsa-65.keygen.r3.a2,diagnostic:drift 0.0568 > 0.0300; position 12
+1794099372537795757,queued,E2c.ml-kem-512.decaps.r5.a2,diagnostic:drift 0.1742 > 0.0300; position 76
+1794099372568167359,checkpoint,,5 block(s) queued; 99 remaining
+1794099372571420043,block_start,E2c.rsa3072-pss.sign.r1.a2,fast
+1794099404490636604,block_done,E2c.rsa3072-pss.sign.r1.a2,
+1794099404493483359,block_start,E2c.dhkem-p256.decaps.r5.a1,fast
+1794099407117245396,block_done,E2c.dhkem-p256.decaps.r5.a1,
+1794099407120127390,block_start,E2c.falcon-1024.sign.r3.a2,fast
+1794099407952819919,block_done,E2c.falcon-1024.sign.r3.a2,
+1794099407956225704,block_start,E2c.hqc-5.encaps.r4.a2,fast
+1794099409382165858,block_done,E2c.hqc-5.encaps.r4.a2,
+1794099409385463731,block_start,E2c.ed25519.verify.r5.a1,fast
+1794099410499063401,block_done,E2c.ed25519.verify.r5.a1,
+1794099410502420641,block_start,E2c.falcon-512.sign.r4.a2,fast
+1794099411317329189,block_done,E2c.falcon-512.sign.r4.a2,
+1794099411320457708,block_start,E2c.hqc-1.keygen.r5.a2,fast
+1794099412216708063,block_done,E2c.hqc-1.keygen.r5.a2,
+1794099412219997729,block_start,E2.ml-kem-768.decaps.r5.a1,fast
+1794099413622570161,block_done,E2.ml-kem-768.decaps.r5.a1,
+1794099413625865858,block_start,E2c.ml-kem-512.keygen.r5.a1,fast
+1794099414499800713,block_done,E2c.ml-kem-512.keygen.r5.a1,
+1794099414502486920,block_start,E2.hqc-1.keygen.r5.a2,slow
+1794099616611986223,block_done,E2.hqc-1.keygen.r5.a2,
+1794099616615105030,block_start,E2.ml-kem-512.encaps.r5.a1,fast
+1794099618145348300,block_done,E2.ml-kem-512.encaps.r5.a1,
+1794099618148914699,block_start,E2c.falcon-padded-1024.keygen.r4.a2,fast
+1794099619068249147,block_done,E2c.falcon-padded-1024.keygen.r4.a2,
+1794099619071595961,block_start,E2c.ml-dsa-65.keygen.r3.a2,fast
+1794099620007320243,block_done,E2c.ml-dsa-65.keygen.r3.a2,
+1794099620010914727,block_start,E2c.falcon-padded-512.keygen.r5.a1,fast
+1794099620776398002,block_done,E2c.falcon-padded-512.keygen.r5.a1,
+1794099620779966085,block_start,E2c.ml-dsa-44.verify.r5.a1,fast
+1794099621658874418,block_done,E2c.ml-dsa-44.verify.r5.a1,
+1794099621661890986,block_start,E2.falcon-1024.keygen.r5.a2,slow
+1794099802485641617,block_done,E2.falcon-1024.keygen.r5.a2,
+1794099802488695598,block_start,E2.dhkem-p256.keygen.r5.a1,fast
+1794099803997582143,block_done,E2.dhkem-p256.keygen.r5.a1,
+1794099804001095550,block_start,E2c.falcon-1024.verify.r1.a2,fast
+1794099804998888624,block_done,E2c.falcon-1024.verify.r1.a2,
+1794099805001745044,block_start,E2.hqc-1.keygen.r1.a2,slow
+1794100007180794544,block_done,E2.hqc-1.keygen.r1.a2,
+1794100008708607304,canary,,32 periodic ratio 1.00417 
+1794100008754296555,queued,E2c.falcon-padded-512.keygen.r2.a2,diagnostic:drift 0.0525 > 0.0300; position 66
+1794100008759967424,queued,E2c.ml-kem-512.keygen.r3.a2,diagnostic:drift 0.0371 > 0.0300; position 24
+1794100008794713523,checkpoint,,2 block(s) queued; 82 remaining
+1794100008798252557,block_start,E2.hqc-5.keygen.r5.a1,slow
+1794100207659025971,block_done,E2.hqc-5.keygen.r5.a1,
+1794100207661837259,block_start,E2c.hqc-5.encaps.r5.a2,fast
+1794100209086646348,block_done,E2c.hqc-5.encaps.r5.a2,
+1794100209089395598,block_start,E2c.hqc-5.encaps.r2.a2,fast
+1794100210488406046,block_done,E2c.hqc-5.encaps.r2.a2,
+1794100210491489943,block_start,E2.hqc-1.encaps.r5.a1,slow
+1794100666514241180,block_done,E2.hqc-1.encaps.r5.a1,
+1794100668045598821,canary,,33 periodic ratio 0.99941 
+1794100668127103672,checkpoint,,0 block(s) queued; 78 remaining
+1794100668130732373,block_start,E2c.ml-kem-768.encaps.r1.a2,fast
+1794100669231494177,block_done,E2c.ml-kem-768.encaps.r1.a2,
+1794100669234965187,block_start,E2.falcon-padded-1024.keygen.r4.a2,slow
+1794100849965155413,block_done,E2.falcon-padded-1024.keygen.r4.a2,
+1794100849968801720,block_start,E2c.falcon-padded-1024.sign.r5.a1,fast
+1794100850777696652,block_done,E2c.falcon-padded-1024.sign.r5.a1,
+1794100850781192405,block_start,E2c.ml-kem-1024.decaps.r5.a1,fast
+1794100851751489462,block_done,E2c.ml-kem-1024.decaps.r5.a1,
+1794100851754685249,block_start,E2.dhkem-x25519.keygen.r5.a2,fast
+1794100853144314840,block_done,E2.dhkem-x25519.keygen.r5.a2,
+1794100853148305650,block_start,E2c.ml-dsa-44.keygen.r4.a2,fast
+1794100854063557490,block_done,E2c.ml-dsa-44.keygen.r4.a2,
+1794100854066684695,block_start,E2c.hqc-3.decaps.r5.a1,fast
+1794100855113178477,block_done,E2c.hqc-3.decaps.r5.a1,
+1794100855116610977,block_start,E2.falcon-padded-512.keygen.r4.a2,slow
+1794101036025397479,block_done,E2.falcon-padded-512.keygen.r4.a2,
+1794101036028653074,block_start,E2c.falcon-512.keygen.r5.a1,fast
+1794101036895902063,block_done,E2c.falcon-512.keygen.r5.a1,
+1794101036898907030,block_start,E2.ed25519.sign.r5.a1,fast
+1794101043332894286,block_done,E2.ed25519.sign.r5.a1,
+1794101043336411401,block_start,E2.ml-dsa-65.sign.r5.a1,fast
+1794101051161427349,block_done,E2.ml-dsa-65.sign.r5.a1,
+1794101051164371732,block_start,E2c.dhkem-x25519.encaps.r5.a1,fast
+1794101052509028121,block_done,E2c.dhkem-x25519.encaps.r5.a1,
+1794101052511805680,block_start,E2c.ed25519.keygen.r5.a1,fast
+1794101052903148044,block_done,E2c.ed25519.keygen.r5.a1,
+1794101052906160058,block_start,E2.ml-kem-768.encaps.r5.a1,fast
+1794101055078531412,block_done,E2.ml-kem-768.encaps.r5.a1,
+1794101055081531873,block_start,E2c.falcon-padded-512.verify.r5.a1,fast
+1794101056007025110,block_done,E2c.falcon-padded-512.verify.r5.a1,
+1794101056009990805,block_start,E2c.ml-kem-1024.encaps.r5.a1,fast
+1794101057067205044,block_done,E2c.ml-kem-1024.encaps.r5.a1,
+1794101057070608542,block_start,E2.falcon-512.keygen.r5.a1,slow
+1794101238029257217,block_done,E2.falcon-512.keygen.r5.a1,
+1794101238032342309,block_start,E2.falcon-1024.keygen.r1.a2,slow
+1794101418827338073,block_done,E2.falcon-1024.keygen.r1.a2,
+1794101420360797002,canary,,34 periodic ratio 1.00779 
+1794101420410255441,queued,E2.falcon-padded-1024.keygen.r4.a3,repeat:other; position 0
+1794101420420787186,queued,E2.hqc-1.encaps.r5.a2,repeat:other; position 37
+1794101420424122560,queued,E2c.falcon-512.keygen.r1.a2,diagnostic:drift 0.0423 > 0.0300; position 57
+1794101420427340756,queued,E2c.falcon-512.keygen.r4.a2,diagnostic:drift 0.0457 > 0.0300; position 46
+1794101420430986413,queued,E2c.ml-kem-1024.encaps.r1.a2,diagnostic:drift 0.0317 > 0.0300; position 16
+1794101420435136931,queued,E2c.ml-kem-1024.encaps.r5.a2,diagnostic:drift 0.0440 > 0.0300; position 21
+1794101420468181323,checkpoint,,6 block(s) queued; 66 remaining
+1794101420471248024,block_start,E2.falcon-padded-1024.keygen.r4.a3,slow
+1794101601215973925,block_done,E2.falcon-padded-1024.keygen.r4.a3,
+1794101601219296483,block_start,E2c.falcon-padded-1024.verify.r5.a1,fast
+1794101602142083618,block_done,E2c.falcon-padded-1024.verify.r5.a1,
+1794101602145282976,block_start,E2.hqc-3.decaps.r4.a2,slow
+1794101782743106324,block_done,E2.hqc-3.decaps.r4.a2,
+1794101782746448756,block_start,E2c.ml-kem-512.keygen.r3.a2,fast
+1794101783632607158,block_done,E2c.ml-kem-512.keygen.r3.a2,
+1794101783635249350,block_start,E2.hqc-5.decaps.r5.a3,slow
+1794101964325703556,block_done,E2.hqc-5.decaps.r5.a3,
+1794101964328848902,block_start,E2.hqc-1.keygen.r2.a2,slow
+1794102166543153783,block_done,E2.hqc-1.keygen.r2.a2,
+1794102168071112767,canary,,35 periodic ratio 1.00031 
+1794102168124345489,queued,E2.hqc-3.decaps.r4.a3,repeat:other; position 46
+1794102168130325805,queued,E2c.falcon-padded-1024.verify.r1.a2,diagnostic:drift 0.0452 > 0.0300; position 17
+1794102168134500239,queued,E2c.falcon-padded-1024.verify.r2.a2,diagnostic:drift 0.0880 > 0.0300; position 1
+1794102168168750388,checkpoint,,3 block(s) queued; 63 remaining
+1794102168172208872,block_start,E2.rsa3072-pss.sign.r4.a2,slow
+1794102354228080052,block_done,E2.rsa3072-pss.sign.r4.a2,
+1794102354231086616,block_start,E2c.falcon-padded-1024.verify.r2.a2,fast
+1794102355117963441,block_done,E2c.falcon-padded-1024.verify.r2.a2,
+1794102355120995004,block_start,E2c.ecdsa-p256.verify.r5.a1,fast
+1794102357389093251,block_done,E2c.ecdsa-p256.verify.r5.a1,
+1794102357392308793,block_start,E2.ml-dsa-65.verify.r1.a2,fast
+1794102359926943657,block_done,E2.ml-dsa-65.verify.r1.a2,
+1794102359930287277,block_start,E2.ml-kem-512.decaps.r5.a1,fast
+1794102361004941928,block_done,E2.ml-kem-512.decaps.r5.a1,
+1794102361007796079,block_start,E2c.hqc-3.keygen.r4.a2,fast
+1794102362038345703,block_done,E2c.hqc-3.keygen.r4.a2,
+1794102362041416835,block_start,E2c.hqc-1.encaps.r5.a1,fast
+1794102363128418776,block_done,E2c.hqc-1.encaps.r5.a1,
+1794102363131618036,block_start,E2.falcon-512.sign.r5.a1,fast
+1794102372511422627,block_done,E2.falcon-512.sign.r5.a1,
+1794102372514638700,block_start,E2c.falcon-padded-1024.keygen.r1.a3,fast
+1794102373434551699,block_done,E2c.falcon-padded-1024.keygen.r1.a3,
+1794102373437586910,block_start,E2.rsa3072-pss.keygen.r5.a1,slow
+1794102501657655850,block_done,E2.rsa3072-pss.keygen.r5.a1,
+1794102501661065310,block_start,E2.falcon-padded-512.verify.r5.a1,fast
+1794102503668859309,block_done,E2.falcon-padded-512.verify.r5.a1,
+1794102503672345078,block_start,E2c.ml-kem-1024.encaps.r1.a2,fast
+1794102504711930629,block_done,E2c.ml-kem-1024.encaps.r1.a2,
+1794102504714764453,block_start,E2.falcon-512.verify.r5.a1,fast
+1794102506682048832,block_done,E2.falcon-512.verify.r5.a1,
+1794102506685484574,block_start,E2c.rsa3072-pss.verify.r5.a1,fast
+1794102518617998275,block_done,E2c.rsa3072-pss.verify.r5.a1,
+1794102518620835642,block_start,E2.hqc-5.encaps.r3.a2,slow
+1794102970516439512,block_done,E2.hqc-5.encaps.r3.a2,
+1794102972052075928,canary,,36 periodic ratio 1.00157 
+1794102972101777345,queued,E2.rsa3072-pss.keygen.r2.a2,diagnostic:drift 0.1591 > 0.1491; position 29
+1794102972110049407,queued,E2.rsa3072-pss.keygen.r5.a2,repeat:other; position 17
+1794102972113417103,queued,E2c.hqc-1.encaps.r5.a2,diagnostic:drift 0.0370 > 0.0300; position 36
+1794102972146740184,checkpoint,,3 block(s) queued; 51 remaining
+1794102972150041582,block_start,E2.hqc-5.encaps.r5.a2,slow
+1794103423933913982,block_done,E2.hqc-5.encaps.r5.a2,
+1794103423936933059,block_start,E2c.ml-kem-1024.encaps.r5.a2,fast
+1794103424945234966,block_done,E2c.ml-kem-1024.encaps.r5.a2,
+1794103424948134749,block_start,E2.dhkem-x25519.encaps.r5.a1,fast
+1794103429965083890,block_done,E2.dhkem-x25519.encaps.r5.a1,
+1794103429968301208,block_start,E2c.falcon-padded-1024.verify.r1.a2,fast
+1794103430886102515,block_done,E2c.falcon-padded-1024.verify.r1.a2,
+1794103430888843006,block_start,E2.falcon-512.keygen.r3.a2,slow
+1794103611805262412,block_done,E2.falcon-512.keygen.r3.a2,
+1794103613335035842,canary,,37 periodic ratio 1.00080 
+1794103613384741924,queued,E2.hqc-5.encaps.r5.a3,repeat:other; position 20
+1794103613418892135,checkpoint,,1 block(s) queued; 47 remaining
+1794103613422673825,block_start,E2c.ml-kem-512.encaps.r5.a1,fast
+1794103614459475924,block_done,E2c.ml-kem-512.encaps.r5.a1,
+1794103614462163883,block_start,E2c.ml-dsa-65.sign.r4.a2,fast
+1794103615298767089,block_done,E2c.ml-dsa-65.sign.r4.a2,
+1794103615301684744,block_start,E2.falcon-padded-1024.keygen.r5.a1,slow
+1794103796046466054,block_done,E2.falcon-padded-1024.keygen.r5.a1,
+1794103796049706013,block_start,E2.hqc-1.decaps.r4.a3,slow
+1794103977244544003,block_done,E2.hqc-1.decaps.r4.a3,
+1794103977247384217,block_start,E2c.ml-dsa-87.keygen.r5.a1,fast
+1794103978225332978,block_done,E2c.ml-dsa-87.keygen.r5.a1,
+1794103978228721947,block_start,E2.dhkem-p256.encaps.r5.a1,fast
+1794103988384754166,block_done,E2.dhkem-p256.encaps.r5.a1,
+1794103988387536208,block_start,E2c.hqc-3.encaps.r5.a1,fast
+1794103989597850727,block_done,E2c.hqc-3.encaps.r5.a1,
+1794103989600940762,block_start,E2.hqc-5.encaps.r4.a2,slow
+1794104441231004427,block_done,E2.hqc-5.encaps.r4.a2,
+1794104442762779425,canary,,38 periodic ratio 1.00169 
+1794104442817435787,queued,E2.dhkem-p256.encaps.r5.a2,repeat:other; position 20
+1794104442825156435,queued,E2.falcon-512.keygen.r3.a3,repeat:other; position 34
+1794104442829562562,queued,E2.falcon-padded-1024.keygen.r5.a2,repeat:other; position 2
+1794104442832922142,queued,E2c.ml-dsa-87.keygen.r1.a2,diagnostic:drift 0.0335 > 0.0300; position 0
+1794104442836889831,queued,E2c.ml-dsa-87.keygen.r3.a2,diagnostic:drift 0.0506 > 0.0300; position 42
+1794104442840522154,queued,E2c.ml-dsa-87.keygen.r5.a2,repeat:other; position 14
+1794104442845272344,queued,E2c.ml-kem-512.encaps.r1.a2,diagnostic:drift 0.0398 > 0.0300; position 21
+1794104442849585287,queued,E2c.ml-kem-512.encaps.r5.a2,repeat:other; position 1
+1794104442887046485,checkpoint,,8 block(s) queued; 47 remaining
+1794104442890499926,block_start,E2c.ml-dsa-87.keygen.r1.a2,fast
+1794104443875679409,block_done,E2c.ml-dsa-87.keygen.r1.a2,
+1794104443879174325,block_start,E2c.ml-kem-512.encaps.r5.a2,fast
+1794104444909148472,block_done,E2c.ml-kem-512.encaps.r5.a2,
+1794104444912264776,block_start,E2.hqc-3.decaps.r1.a2,slow
+1794104625511793641,block_done,E2.hqc-3.decaps.r1.a2,
+1794104625514641481,block_start,E2.hqc-3.decaps.r5.a1,slow
+1794104806152925270,block_done,E2.hqc-3.decaps.r5.a1,
+1794104806156087616,block_start,E2.falcon-padded-1024.keygen.r5.a2,slow
+1794104986878554690,block_done,E2.falcon-padded-1024.keygen.r5.a2,
+1794104986882010940,block_start,E2.falcon-padded-1024.sign.r5.a2,fast
+1794105005191522602,block_done,E2.falcon-padded-1024.sign.r5.a2,
+1794105005194800231,block_start,E2c.ml-dsa-87.verify.r5.a1,fast
+1794105006023375125,block_done,E2c.ml-dsa-87.verify.r5.a1,
+1794105006026531770,block_start,E2.rsa3072-pss.keygen.r5.a2,slow
+1794105134399687731,block_done,E2.rsa3072-pss.keygen.r5.a2,
+1794105135945137170,canary,,39 periodic ratio 1.00019 
+1794105135999003576,queued,E2.hqc-5.encaps.r4.a3,repeat:other; position 32
+1794105136013898151,queued,E2c.ml-dsa-87.verify.r3.a2,diagnostic:drift 0.0565 > 0.0300; position 9
+1794105136047453076,checkpoint,,2 block(s) queued; 41 remaining
+1794105136051022845,block_start,E2.hqc-1.encaps.r4.a3,slow
+1794105592609918320,block_done,E2.hqc-1.encaps.r4.a3,
+1794105592613044727,block_start,E2.hqc-1.decaps.r5.a1,slow
+1794105773838219307,block_done,E2.hqc-1.decaps.r5.a1,
+1794105775389878821,canary,,40 periodic ratio 0.96604 
+1794105775442217896,queued,E2.rsa3072-pss.keygen.r5.a3,repeat:other; position 12
+1794105775493490646,checkpoint,,1 block(s) queued; 40 remaining
+1794105775497492888,block_start,E2.hqc-1.encaps.r2.a3,slow
+1794106230766004567,block_done,E2.hqc-1.encaps.r2.a3,
+1794106230768740825,block_start,E2.hqc-1.encaps.r5.a2,slow
+1794106684987900986,block_done,E2.hqc-1.encaps.r5.a2,
+1794106686518968634,canary,,41 periodic ratio 1.00087 
+1794106686573789917,queued,E2.hqc-1.decaps.r5.a2,repeat:other;canary; position 0
+1794106686611254648,checkpoint,,1 block(s) queued; 39 remaining
+1794106686614191967,block_start,E2.hqc-1.decaps.r5.a2,slow
+1794106867820542123,block_done,E2.hqc-1.decaps.r5.a2,
+1794106867823869592,block_start,E2c.ml-kem-512.decaps.r5.a2,fast
+1794106868829712834,block_done,E2c.ml-kem-512.decaps.r5.a2,
+1794106868832658485,block_start,E2c.ml-kem-768.keygen.r5.a1,fast
+1794106869750670155,block_done,E2c.ml-kem-768.keygen.r5.a1,
+1794106869754093361,block_start,E2.falcon-padded-1024.verify.r5.a1,fast
+1794106873246735795,block_done,E2.falcon-padded-1024.verify.r5.a1,
+1794106873249842940,block_start,E2c.ml-dsa-87.keygen.r5.a2,fast
+1794106874196452206,block_done,E2c.ml-dsa-87.keygen.r5.a2,
+1794106874199474857,block_start,E2.hqc-5.encaps.r5.a3,slow
+1794107325852019242,block_done,E2.hqc-5.encaps.r5.a3,
+1794107327408083967,canary,,42 periodic ratio 1.00311 
+1794107327463335554,queued,E2.hqc-1.encaps.r5.a3,repeat:canary; position 5
+1794107327496079939,queued,E2c.ml-dsa-87.keygen.r5.a3,diagnostic:drift 0.0402 > 0.0300; position 7
+1794107327499752753,queued,E2c.ml-kem-768.keygen.r4.a2,diagnostic:drift 0.0484 > 0.0300; position 30
+1794107327503707737,queued,E2c.ml-kem-768.keygen.r5.a2,diagnostic:drift 0.0447 > 0.0300; position 15
+1794107327538267598,checkpoint,,4 block(s) queued; 37 remaining
+1794107327541621961,block_start,E2c.ml-dsa-87.verify.r3.a2,fast
+1794107328445638479,block_done,E2c.ml-dsa-87.verify.r3.a2,
+1794107328448717222,block_start,E2c.ecdsa-p256.sign.r5.a1,fast
+1794107331010218195,block_done,E2c.ecdsa-p256.sign.r5.a1,
+1794107331013125584,block_start,E2c.ml-dsa-87.sign.r5.a2,fast
+1794107331933318014,block_done,E2c.ml-dsa-87.sign.r5.a2,
+1794107331936433278,block_start,E2c.hqc-5.decaps.r1.a2,fast
+1794107333262810741,block_done,E2c.hqc-5.decaps.r1.a2,
+1794107333266424641,block_start,E2c.hqc-1.decaps.r5.a1,fast
+1794107334263542544,block_done,E2c.hqc-1.decaps.r5.a1,
+1794107334266423761,block_start,E2.hqc-1.encaps.r5.a3,slow
+1794107790998673199,block_done,E2.hqc-1.encaps.r5.a3,
+1794107791001832055,block_start,E2.rsa3072-pss.keygen.r5.a3,slow
+1794107921360108234,block_done,E2.rsa3072-pss.keygen.r5.a3,
+1794107921363290719,block_start,E2c.ml-dsa-87.keygen.r5.a3,fast
+1794107922323672696,block_done,E2c.ml-dsa-87.keygen.r5.a3,
+1794107922326829941,block_start,E2.rsa3072-pss.sign.r5.a2,slow
+1794108108379810318,block_done,E2.rsa3072-pss.sign.r5.a2,
+1794108109917164607,canary,,43 periodic ratio 0.99879 
+1794108110010982639,checkpoint,,0 block(s) queued; 28 remaining
+1794108110015779741,block_start,E2c.ml-kem-512.encaps.r1.a2,fast
+1794108111069875345,block_done,E2c.ml-kem-512.encaps.r1.a2,
+1794108111073375311,block_start,E2.rsa3072-pss.keygen.r2.a2,slow
+1794108237800846200,block_done,E2.rsa3072-pss.keygen.r2.a2,
+1794108237804238238,block_start,E2c.falcon-512.keygen.r4.a2,fast
+1794108238740280908,block_done,E2c.falcon-512.keygen.r4.a2,
+1794108238743719433,block_start,E2.dhkem-p256.encaps.r5.a2,fast
+1794108248796845061,block_done,E2.dhkem-p256.encaps.r5.a2,
+1794108248800021255,block_start,E2c.ml-kem-1024.keygen.r5.a1,fast
+1794108249732144238,block_done,E2c.ml-kem-1024.keygen.r5.a1,
+1794108249734828871,block_start,E2c.falcon-padded-512.keygen.r2.a2,fast
+1794108250468519712,block_done,E2c.falcon-padded-512.keygen.r2.a2,
+1794108250471531233,block_start,E2c.ml-kem-768.keygen.r5.a2,fast
+1794108251394853443,block_done,E2c.ml-kem-768.keygen.r5.a2,
+1794108251397911047,block_start,E2.ml-dsa-87.keygen.r2.a2,fast
+1794108255678315597,block_done,E2.ml-dsa-87.keygen.r2.a2,
+1794108255681587802,block_start,E2.hqc-3.decaps.r4.a3,slow
+1794108436355327266,block_done,E2.hqc-3.decaps.r4.a3,
+1794108436358357458,block_start,E2c.hqc-1.encaps.r5.a2,fast
+1794108437492540528,block_done,E2c.hqc-1.encaps.r5.a2,
+1794108437495591223,block_start,E2c.ml-kem-768.decaps.r5.a1,fast
+1794108438513473439,block_done,E2c.ml-kem-768.decaps.r5.a1,
+1794108438516761033,block_start,E2.dhkem-p256.decaps.r5.a1,fast
+1794108443880207791,block_done,E2.dhkem-p256.decaps.r5.a1,
+1794108443883587194,block_start,E2.ed25519.keygen.r5.a1,fast
+1794108445390585027,block_done,E2.ed25519.keygen.r5.a1,
+1794108445393787495,block_start,E2.ml-dsa-44.verify.r5.a1,fast
+1794108447111921551,block_done,E2.ml-dsa-44.verify.r5.a1,
+1794108447114770116,block_start,E2c.ed25519.sign.r5.a1,fast
+1794108453241728125,block_done,E2c.ed25519.sign.r5.a1,
+1794108453244514799,block_start,E2c.falcon-512.verify.r5.a1,fast
+1794108454282596612,block_done,E2c.falcon-512.verify.r5.a1,
+1794108454286220695,block_start,E2c.ml-dsa-65.verify.r3.a2,fast
+1794108455244324493,block_done,E2c.ml-dsa-65.verify.r3.a2,
+1794108455247240293,block_start,E2c.ml-kem-768.encaps.r5.a2,fast
+1794108456342100097,block_done,E2c.ml-kem-768.encaps.r5.a2,
+1794108456345195298,block_start,E2.falcon-512.keygen.r3.a3,slow
+1794108637309157905,block_done,E2.falcon-512.keygen.r3.a3,
+1794108637312666716,block_start,E2.hqc-5.encaps.r4.a3,slow
+1794109089409531183,block_done,E2.hqc-5.encaps.r4.a3,
+1794109090940718375,canary,,44 periodic ratio 1.00265 
+1794109090999417507,queued,E2c.ed25519.sign.r4.a2,diagnostic:drift 0.0369 > 0.0300; position 1
+1794109091006938851,queued,E2c.falcon-512.verify.r1.a2,diagnostic:drift 0.1766 > 0.0300; position 4
+1794109091011344450,queued,E2c.falcon-512.verify.r2.a2,diagnostic:drift 0.0898 > 0.0300; position 9
+1794109091014848516,queued,E2c.ml-kem-1024.keygen.r1.a3,diagnostic:drift 0.0626 > 0.0300; position 10
+1794109091018079069,queued,E2c.ml-kem-1024.keygen.r5.a2,diagnostic:drift 0.0516 > 0.0300; position 9
+1794109091053918837,checkpoint,,5 block(s) queued; 13 remaining
+1794109091057033371,block_start,E2c.falcon-512.keygen.r1.a2,fast
+1794109091950415661,block_done,E2c.falcon-512.keygen.r1.a2,
+1794109091953274036,block_start,E2c.ed25519.sign.r4.a2,fast
+1794109098134165759,block_done,E2c.ed25519.sign.r4.a2,
+1794109098137679896,block_start,E2.falcon-padded-1024.keygen.r3.a2,slow
+1794109278946961953,block_done,E2.falcon-padded-1024.keygen.r3.a2,
+1794109278949945993,block_start,E2c.ml-kem-768.keygen.r4.a2,fast
+1794109279883509412,block_done,E2c.ml-kem-768.keygen.r4.a2,
+1794109279886893787,block_start,E2c.falcon-512.verify.r1.a2,fast
+1794109280807239567,block_done,E2c.falcon-512.verify.r1.a2,
+1794109280810213517,block_start,E2c.dhkem-x25519.decaps.r5.a2,fast
+1794109287552632767,block_done,E2c.dhkem-x25519.decaps.r5.a2,
+1794109287555587352,block_start,E2c.ml-dsa-44.keygen.r5.a2,fast
+1794109288478410507,block_done,E2c.ml-dsa-44.keygen.r5.a2,
+1794109288481849228,block_start,E2.ml-kem-1024.encaps.r5.a1,fast
+1794109291364326199,block_done,E2.ml-kem-1024.encaps.r5.a1,
+1794109291368046560,block_start,E2c.ml-dsa-87.keygen.r3.a2,fast
+1794109292324714716,block_done,E2c.ml-dsa-87.keygen.r3.a2,
+1794109292327953888,block_start,E2c.ml-kem-1024.keygen.r5.a2,fast
+1794109293240850559,block_done,E2c.ml-kem-1024.keygen.r5.a2,
+1794109293243909770,block_start,E2c.falcon-512.verify.r2.a2,fast
+1794109294186037262,block_done,E2c.falcon-512.verify.r2.a2,
+1794109294189626138,block_start,E2c.ml-kem-1024.keygen.r1.a3,fast
+1794109295110249047,block_done,E2c.ml-kem-1024.keygen.r1.a3,
+1794109295113633213,block_start,E2.ml-kem-768.keygen.r5.a1,fast
+1794109296573695393,block_done,E2.ml-kem-768.keygen.r5.a1,
+1794109298114833729,canary,,45 end ratio 1.00207 
+1794109323311683188,batch_done,,669 attempt(s)

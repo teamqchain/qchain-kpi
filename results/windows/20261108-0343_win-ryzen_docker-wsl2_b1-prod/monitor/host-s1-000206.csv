@@ -1,0 +1,13 @@
+utc_ns,other_pct,throttle,on_ac,alert,detail
+1794121743991855000,10.619,0,1,0,total=24.5;runtime=13.1;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=144.3;temp_c=78;battery_pct=100;energy_saver=Disabled;found=none;busiest_other=BackgroundDownload:34.4
+1794121748976171800,9.902,0,1,0,total=23.6;runtime=12.6;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=144.0;temp_c=78;battery_pct=100;energy_saver=Disabled;found=none;busiest_other=BackgroundDownload:37.5
+1794121753830741200,9.296,0,1,0,total=22.2;runtime=12.3;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=144.3;temp_c=78;battery_pct=100;energy_saver=Disabled;found=none;busiest_other=BackgroundDownload:40.6
+1794121758891020700,9.628,0,1,0,total=23.0;runtime=12.7;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=143.2;temp_c=78;battery_pct=100;energy_saver=Disabled;found=none;busiest_other=BackgroundDownload:25.0
+1794121763989924100,10.682,0,1,0,total=24.3;runtime=13.0;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=143.0;temp_c=78;battery_pct=100;energy_saver=Disabled;found=none;busiest_other=BackgroundDownload:43.8
+1794121768756315400,12.490,0,1,0,total=25.7;runtime=12.6;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=138.6;temp_c=76;battery_pct=100;energy_saver=Disabled;found=none;busiest_other=BackgroundDownload:37.5
+1794121773827562800,7.859,0,1,0,total=20.9;runtime=12.4;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=137.2;temp_c=76;battery_pct=100;energy_saver=Disabled;found=none;busiest_other=BackgroundDownload:28.1
+1794121778873268300,6.994,0,1,0,total=19.9;runtime=12.3;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=139.8;temp_c=77;battery_pct=100;energy_saver=Disabled;found=none;busiest_other=BackgroundDownload:37.5
+1794121783881267900,11.027,0,1,0,total=24.0;runtime=12.5;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=128.3;temp_c=77;battery_pct=100;energy_saver=Disabled;found=none;busiest_other=BackgroundDownload:25.0
+1794121788383689400,1.961,0,1,0,total=15.3;runtime=12.8;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=141.6;temp_c=78;battery_pct=100;energy_saver=Disabled;found=none
+1794121793404882600,0.583,0,1,0,total=13.5;runtime=12.4;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=146.2;temp_c=79;battery_pct=100;energy_saver=Disabled;found=none
+1794121798400768400,3.466,0,1,0,total=16.2;runtime=12.3;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=143.1;temp_c=79;battery_pct=100;energy_saver=Disabled;found=none

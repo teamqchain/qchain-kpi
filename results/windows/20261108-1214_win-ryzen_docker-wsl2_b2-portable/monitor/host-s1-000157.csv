@@ -1,0 +1,13 @@
+utc_ns,other_pct,throttle,on_ac,alert,detail
+1794149410276186600,5.563,0,1,0,total=19.3;runtime=13.1;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=142.2;temp_c=75;battery_pct=100;energy_saver=Disabled;found=none;busiest_other=WhatsApp.Root:3.1
+1794149415010567800,11.716,0,1,0,total=25.3;runtime=12.5;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=133.0;temp_c=75;battery_pct=100;energy_saver=Disabled;found=none
+1794149420019576100,6.122,0,1,0,total=19.2;runtime=12.5;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=143.1;temp_c=75;battery_pct=100;energy_saver=Disabled;found=none
+1794149424496601000,1.225,0,1,0,total=14.6;runtime=12.8;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=147.3;temp_c=75;battery_pct=100;energy_saver=Disabled;found=none
+1794149429492115500,2.056,0,1,0,total=14.9;runtime=12.3;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=144.5;temp_c=75;battery_pct=100;energy_saver=Disabled;found=none
+1794149434503963900,1.413,0,1,0,total=14.3;runtime=12.5;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=144.9;temp_c=75;battery_pct=100;energy_saver=Disabled;found=none
+1794149439483551900,1.151,0,1,0,total=14.4;runtime=12.7;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=147.6;temp_c=75;battery_pct=100;energy_saver=Disabled;found=none
+1794149445030799600,9.342,0,1,0,total=22.6;runtime=12.6;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=132.5;temp_c=75;battery_pct=100;energy_saver=Disabled;found=none
+1794149450170557700,24.909,0,1,0,total=38.4;runtime=12.6;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=145.6;temp_c=76;battery_pct=100;energy_saver=Disabled;found=none
+1794149455063721700,28.894,0,1,0,total=42.2;runtime=12.6;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=138.7;temp_c=76;battery_pct=100;energy_saver=Disabled;found=none;busiest_other=OpenConsole:3.1
+1794149460078809700,15.432,0,1,0,total=28.5;runtime=12.4;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=125.7;temp_c=77;battery_pct=100;energy_saver=Disabled;found=none
+1794149465095515200,14.307,0,1,0,total=27.4;runtime=12.5;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=119.9;temp_c=78;battery_pct=100;energy_saver=Disabled;found=none;busiest_other=AnyDesk:3.1

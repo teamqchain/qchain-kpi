@@ -1,0 +1,573 @@
+utc_ns,event,key,detail
+1794067932651480560,session_start,,session 1; host offset -154839357 ns
+1794067932924865809,e0,,e0-s1.json
+1794067934453609386,canary,,1 start ratio 0.97822 
+1794067934457295436,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r1.a1,window
+1794067975143246282,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r1.a1,
+1794067975146190962,block_start,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w4.r1.a1,window
+1794068010303997563,block_done,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w4.r1.a1,
+1794068010306733712,block_start,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w8.r1.a1,window
+1794068045697667290,block_done,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w8.r1.a1,
+1794068045700666103,block_start,E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w4.r1.a1,window
+1794068080907954871,block_done,E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w4.r1.a1,
+1794068080911093602,block_start,E12.falcon-512+ml-kem-512.issuance-n10-v16-w8.r1.a1,window
+1794068116197535724,block_done,E12.falcon-512+ml-kem-512.issuance-n10-v16-w8.r1.a1,
+1794068116200752439,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w2.r1.a1,window
+1794068154045512746,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w2.r1.a1,
+1794068154048510925,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r1.a1,window
+1794068189125073249,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r1.a1,
+1794068189128001293,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w8.r1.a1,window
+1794068235423426787,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w8.r1.a1,
+1794068235426288348,block_start,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r1.a1,window
+1794068270679833040,block_done,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r1.a1,
+1794068270682713356,block_start,E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w1.r1.a1,window
+1794068305782689186,block_done,E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w1.r1.a1,
+1794068305785678484,block_start,E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w2.r1.a1,window
+1794068340878364963,block_done,E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w2.r1.a1,
+1794068340881279327,block_start,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w1.r1.a1,window
+1794068375977083280,block_done,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w1.r1.a1,
+1794068375980238502,block_start,E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w8.r1.a1,window
+1794068411220486945,block_done,E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w8.r1.a1,
+1794068411223408250,block_start,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w8.r1.a1,window
+1794068446446731512,block_done,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w8.r1.a1,
+1794068446449541517,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w1.r1.a1,window
+1794068482898848801,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w1.r1.a1,
+1794068482901934313,block_start,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w1.r1.a1,window
+1794068517994831355,block_done,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w1.r1.a1,
+1794068517997830618,block_start,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w4.r1.a1,window
+1794068553208564957,block_done,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w4.r1.a1,
+1794068554747312494,canary,,2 periodic ratio 0.98009 
+1794068554752336160,queued,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r1.a2,repeat:other; position 4
+1794068554755933693,queued,E12.falcon-512+ml-kem-512.issuance-n10-v16-w8.r1.a2,repeat:other; position 2
+1794068554759356968,queued,E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w8.r1.a2,repeat:other; position 57
+1794068554763089536,queued,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r1.a2,repeat:other; position 118
+1794068554766757344,queued,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w2.r1.a2,repeat:other; position 50
+1794068554770731029,queued,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r1.a2,repeat:other; position 65
+1794068554774153703,queued,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w8.r1.a2,repeat:other; position 106
+1794068554791943845,checkpoint,,7 block(s) queued; 150 remaining
+1794068554795065774,block_start,E12.falcon-512+ml-kem-512.issuance-n10-v16-w2.r1.a1,window
+1794068589934114351,block_done,E12.falcon-512+ml-kem-512.issuance-n10-v16-w2.r1.a1,
+1794068589937231547,block_start,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w2.r1.a1,window
+1794068625102999554,block_done,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w2.r1.a1,
+1794068625105849242,block_start,E12.falcon-512+ml-kem-512.issuance-n10-v16-w8.r1.a2,window
+1794068660435281250,block_done,E12.falcon-512+ml-kem-512.issuance-n10-v16-w8.r1.a2,
+1794068660438285238,block_start,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w2.r1.a1,window
+1794068695623936654,block_done,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w2.r1.a1,
+1794068695626899541,block_start,E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w1.r1.a1,window
+1794068730713545988,block_done,E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w1.r1.a1,
+1794068730716927882,block_start,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r1.a2,window
+1794068765914982276,block_done,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r1.a2,
+1794068765917849194,block_start,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w1.r1.a1,window
+1794068800992462045,block_done,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w1.r1.a1,
+1794068800995454492,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w1.r1.a1,window
+1794068836128712503,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w1.r1.a1,
+1794068836132138246,block_start,E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w2.r1.a1,window
+1794068871277004223,block_done,E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w2.r1.a1,
+1794068871280296082,block_start,E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w8.r1.a1,window
+1794068906503748294,block_done,E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w8.r1.a1,
+1794068906506539959,block_start,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w4.r1.a1,window
+1794068941728484530,block_done,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w4.r1.a1,
+1794068941731388779,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w2.r1.a1,window
+1794068976789587063,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w2.r1.a1,
+1794068976792598663,block_start,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w8.r1.a1,window
+1794069012064595276,block_done,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w8.r1.a1,
+1794069012067456271,block_start,E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w4.r1.a1,window
+1794069047213494880,block_done,E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w4.r1.a1,
+1794069047216343810,block_start,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w2.r1.a1,window
+1794069082317891462,block_done,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w2.r1.a1,
+1794069082320871658,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w8.r1.a1,window
+1794069117428185985,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w8.r1.a1,
+1794069117431154557,block_start,E12.falcon-512+ml-kem-512.issuance-n10-v16-w1.r1.a1,window
+1794069152526866528,block_done,E12.falcon-512+ml-kem-512.issuance-n10-v16-w1.r1.a1,
+1794069152529716912,block_start,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w2.r2.a1,window
+1794069187673237993,block_done,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w2.r2.a1,
+1794069189203894712,canary,,3 periodic ratio 0.97705 
+1794069189209549524,queued,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w4.r1.a2,repeat:other; position 20
+1794069189213288345,queued,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w8.r1.a2,repeat:other; position 100
+1794069189216546459,queued,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r1.a3,repeat:other; position 71
+1794069189219777209,queued,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w2.r1.a2,repeat:other; position 37
+1794069189222971780,queued,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w4.r1.a2,repeat:other; position 127
+1794069189240032447,checkpoint,,5 block(s) queued; 137 remaining
+1794069189243651303,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w1.r2.a1,window
+1794069224309852489,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w1.r2.a1,
+1794069224312559710,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w8.r2.a1,window
+1794069259434385121,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w8.r2.a1,
+1794069259437356142,block_start,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w4.r2.a1,window
+1794069294574446993,block_done,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w4.r2.a1,
+1794069294577264023,block_start,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w1.r2.a1,window
+1794069329696500033,block_done,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w1.r2.a1,
+1794069329699572839,block_start,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w4.r2.a1,window
+1794069364927326883,block_done,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w4.r2.a1,
+1794069364930195099,block_start,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w2.r2.a1,window
+1794069400070695050,block_done,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w2.r2.a1,
+1794069400073816267,block_start,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w8.r2.a1,window
+1794069435489954934,block_done,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w8.r2.a1,
+1794069435493335458,block_start,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w2.r2.a1,window
+1794069470614872898,block_done,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w2.r2.a1,
+1794069470618151667,block_start,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w1.r2.a1,window
+1794069505731114117,block_done,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w1.r2.a1,
+1794069505734073883,block_start,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r2.a1,window
+1794069540949506823,block_done,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r2.a1,
+1794069540952527320,block_start,E12.falcon-512+ml-kem-512.issuance-n10-v16-w8.r2.a1,window
+1794069576278956208,block_done,E12.falcon-512+ml-kem-512.issuance-n10-v16-w8.r2.a1,
+1794069576281864475,block_start,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w1.r2.a1,window
+1794069611378437915,block_done,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w1.r2.a1,
+1794069611381404358,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r2.a1,window
+1794069652075922658,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r2.a1,
+1794069652078934292,block_start,E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w8.r2.a1,window
+1794069687333631452,block_done,E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w8.r2.a1,
+1794069687336568864,block_start,E12.falcon-512+ml-kem-512.issuance-n10-v16-w2.r2.a1,window
+1794069722481607282,block_done,E12.falcon-512+ml-kem-512.issuance-n10-v16-w2.r2.a1,
+1794069722484618607,block_start,E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w2.r2.a1,window
+1794069757585292492,block_done,E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w2.r2.a1,
+1794069757588206558,block_start,E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w4.r2.a1,window
+1794069792753633462,block_done,E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w4.r2.a1,
+1794069794279378698,canary,,4 periodic ratio 0.97825 
+1794069794286425107,queued,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w2.r2.a2,repeat:other; position 24
+1794069794289802508,queued,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r2.a2,repeat:other; position 61
+1794069794293183813,queued,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w2.r2.a2,repeat:other; position 63
+1794069794296605400,queued,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w8.r2.a2,repeat:other; position 33
+1794069794300696890,queued,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r2.a2,repeat:other; position 53
+1794069794318967546,checkpoint,,5 block(s) queued; 125 remaining
+1794069794322018111,block_start,E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w2.r2.a1,window
+1794069829534352324,block_done,E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w2.r2.a1,
+1794069829537240412,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w2.r2.a1,window
+1794069867382667229,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w2.r2.a1,
+1794069867385621185,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w8.r2.a1,window
+1794069913663190232,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w8.r2.a1,
+1794069913666416376,block_start,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w4.r1.a2,window
+1794069948874229689,block_done,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w4.r1.a2,
+1794069948877199051,block_start,E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w1.r2.a1,window
+1794069983968234153,block_done,E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w1.r2.a1,
+1794069983970966053,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r2.a1,window
+1794070019147086427,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r2.a1,
+1794070019150272090,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w2.r2.a1,window
+1794070054218330286,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w2.r2.a1,
+1794070054221108672,block_start,E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w8.r2.a1,window
+1794070089439533887,block_done,E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w8.r2.a1,
+1794070089442107409,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w1.r2.a1,window
+1794070125878403465,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w1.r2.a1,
+1794070125881383751,block_start,E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w1.r2.a1,window
+1794070160958125168,block_done,E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w1.r2.a1,
+1794070160961194584,block_start,E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w4.r2.a1,window
+1794070196112865835,block_done,E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w4.r2.a1,
+1794070196115869695,block_start,E12.falcon-512+ml-kem-512.issuance-n10-v16-w1.r2.a1,window
+1794070231211590028,block_done,E12.falcon-512+ml-kem-512.issuance-n10-v16-w1.r2.a1,
+1794070231214422118,block_start,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w8.r2.a1,window
+1794070266427737879,block_done,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w8.r2.a1,
+1794070266430765312,block_start,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w4.r2.a1,window
+1794070301639588246,block_done,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w4.r2.a1,
+1794070301642661205,block_start,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w8.r2.a1,window
+1794070336899009874,block_done,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w8.r2.a1,
+1794070336902246620,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w8.r3.a1,window
+1794070372016030636,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w8.r3.a1,
+1794070372018784378,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w2.r1.a2,window
+1794070409842925905,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w2.r1.a2,
+1794070411370912760,canary,,5 periodic ratio 0.98762 
+1794070411379006433,queued,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w4.r1.a3,repeat:other; position 72
+1794070411382422549,queued,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w4.r2.a2,repeat:other; position 26
+1794070411385617136,queued,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w8.r2.a2,repeat:other; position 21
+1794070411389219627,queued,E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w8.r2.a2,repeat:other; position 33
+1794070411392854891,queued,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r2.a2,repeat:other; position 63
+1794070411396723710,queued,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w8.r3.a2,repeat:other; position 88
+1794070411414613716,checkpoint,,6 block(s) queued; 114 remaining
+1794070411417670925,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w1.r3.a1,window
+1794070446484313041,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w1.r3.a1,
+1794070446487292662,block_start,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w8.r3.a1,window
+1794070481743203991,block_done,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w8.r3.a1,
+1794070481746056777,block_start,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w1.r3.a1,window
+1794070516846393534,block_done,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w1.r3.a1,
+1794070516849212983,block_start,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w2.r1.a2,window
+1794070552011848498,block_done,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w2.r1.a2,
+1794070552014674631,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w2.r3.a1,window
+1794070587084771088,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w2.r3.a1,
+1794070587087580188,block_start,E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w4.r3.a1,window
+1794070622233808001,block_done,E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w4.r3.a1,
+1794070622236749228,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w2.r3.a1,window
+1794070660091411885,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w2.r3.a1,
+1794070660094941050,block_start,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w2.r2.a2,window
+1794070695237192029,block_done,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w2.r2.a2,
+1794070695240466223,block_start,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w1.r3.a1,window
+1794070730322357159,block_done,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w1.r3.a1,
+1794070730325831981,block_start,E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w8.r1.a2,window
+1794070765564990886,block_done,E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w8.r1.a2,
+1794070765568246254,block_start,E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w2.r3.a1,window
+1794070800755197270,block_done,E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w2.r3.a1,
+1794070800758475330,block_start,E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w1.r3.a1,window
+1794070835884906494,block_done,E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w1.r3.a1,
+1794070835888187130,block_start,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r3.a1,window
+1794070871089978022,block_done,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r3.a1,
+1794070871092842522,block_start,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w2.r3.a1,window
+1794070906194215480,block_done,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w2.r3.a1,
+1794070906197612264,block_start,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w8.r3.a1,window
+1794070941626214081,block_done,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w8.r3.a1,
+1794070941629247058,block_start,E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w2.r3.a1,window
+1794070976761116765,block_done,E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w2.r3.a1,
+1794070976764227098,block_start,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w8.r2.a2,window
+1794071012137049344,block_done,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w8.r2.a2,
+1794071013670882412,canary,,6 periodic ratio 0.98222 
+1794071013680793385,queued,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w2.r3.a2,repeat:other; position 40
+1794071013685060369,queued,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r3.a2,repeat:other; position 2
+1794071013689010808,queued,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w8.r3.a2,repeat:other; position 77
+1794071013693648409,queued,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w2.r3.a2,repeat:other; position 58
+1794071013716866426,checkpoint,,4 block(s) queued; 101 remaining
+1794071013720740094,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r1.a2,window
+1794071054415498736,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r1.a2,
+1794071054418823539,block_start,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w2.r3.a1,window
+1794071089609519748,block_done,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w2.r3.a1,
+1794071089612347506,block_start,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r3.a2,window
+1794071124858422789,block_done,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r3.a2,
+1794071124861786988,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w8.r3.a1,window
+1794071171060242654,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w8.r3.a1,
+1794071171063803144,block_start,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w8.r3.a1,window
+1794071206288033979,block_done,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w8.r3.a1,
+1794071206290857317,block_start,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w8.r2.a2,window
+1794071241570700781,block_done,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w8.r2.a2,
+1794071241579035028,block_start,E12.falcon-512+ml-kem-512.issuance-n10-v16-w8.r3.a1,window
+1794071276869945606,block_done,E12.falcon-512+ml-kem-512.issuance-n10-v16-w8.r3.a1,
+1794071276873334219,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r3.a1,window
+1794071317520487426,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r3.a1,
+1794071317523694724,block_start,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w4.r3.a1,window
+1794071352728019561,block_done,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w4.r3.a1,
+1794071352731349475,block_start,E12.falcon-512+ml-kem-512.issuance-n10-v16-w2.r3.a1,window
+1794071387875184787,block_done,E12.falcon-512+ml-kem-512.issuance-n10-v16-w2.r3.a1,
+1794071387878405117,block_start,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w1.r3.a1,window
+1794071422993169822,block_done,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w1.r3.a1,
+1794071422996305467,block_start,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w4.r2.a2,window
+1794071458200970425,block_done,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w4.r2.a2,
+1794071458204498168,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r3.a1,window
+1794071493292576758,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r3.a1,
+1794071493296090613,block_start,E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w1.r3.a1,window
+1794071528392469716,block_done,E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w1.r3.a1,
+1794071528395779804,block_start,E12.falcon-512+ml-kem-512.issuance-n10-v16-w1.r3.a1,window
+1794071563508862563,block_done,E12.falcon-512+ml-kem-512.issuance-n10-v16-w1.r3.a1,
+1794071563512505497,block_start,E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w4.r3.a1,window
+1794071598696327875,block_done,E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w4.r3.a1,
+1794071598699809907,block_start,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w4.r3.a1,window
+1794071633870972072,block_done,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w4.r3.a1,
+1794071635403909426,canary,,7 periodic ratio 0.98199 
+1794071635414684053,queued,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w2.r3.a2,repeat:other; position 0
+1794071635418982152,queued,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w4.r2.a3,repeat:other; position 15
+1794071635423137638,queued,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w8.r2.a3,repeat:other; position 9
+1794071635426961363,queued,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w8.r3.a2,repeat:other; position 41
+1794071635430722946,queued,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r3.a3,repeat:other; position 19
+1794071635433945518,queued,E12.falcon-512+ml-kem-512.issuance-n10-v16-w8.r3.a2,repeat:other; position 8
+1794071635437463060,queued,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r3.a2,repeat:other; position 62
+1794071635441800989,queued,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r1.a3,repeat:other; position 9
+1794071635445334451,queued,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r3.a2,repeat:other; position 61
+1794071635470272559,checkpoint,,9 block(s) queued; 93 remaining
+1794071635474418989,block_start,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w2.r3.a2,window
+1794071670615302658,block_done,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w2.r3.a2,
+1794071670618792758,block_start,E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w8.r2.a2,window
+1794071705895237491,block_done,E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w8.r2.a2,
+1794071705898196466,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w1.r3.a1,window
+1794071742378464586,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w1.r3.a1,
+1794071742381854358,block_start,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w4.r3.a1,window
+1794071777606134503,block_done,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w4.r3.a1,
+1794071777609947474,block_start,E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w8.r3.a1,window
+1794071812831220828,block_done,E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w8.r3.a1,
+1794071812834195415,block_start,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w2.r3.a1,window
+1794071848014560472,block_done,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w2.r3.a1,
+1794071848017604862,block_start,E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w8.r3.a1,window
+1794071883302925993,block_done,E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w8.r3.a1,
+1794071883306288581,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r2.a2,window
+1794071923947396128,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r2.a2,
+1794071923950624531,block_start,E12.falcon-512+ml-kem-512.issuance-n10-v16-w8.r3.a2,window
+1794071959248991692,block_done,E12.falcon-512+ml-kem-512.issuance-n10-v16-w8.r3.a2,
+1794071959252326731,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r1.a3,window
+1794071999919063088,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r1.a3,
+1794071999922209433,block_start,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w2.r4.a1,window
+1794072035058577497,block_done,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w2.r4.a1,
+1794072035062483181,block_start,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w8.r2.a3,window
+1794072070324681793,block_done,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w8.r2.a3,
+1794072070327648188,block_start,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w4.r4.a1,window
+1794072105486397324,block_done,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w4.r4.a1,
+1794072105490209789,block_start,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w1.r4.a1,window
+1794072140600751017,block_done,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w1.r4.a1,
+1794072140604079080,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w1.r4.a1,window
+1794072177072859629,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w1.r4.a1,
+1794072177076362042,block_start,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r1.a3,window
+1794072212284546221,block_done,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r1.a3,
+1794072212288201284,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r4.a1,window
+1794072252990553215,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r4.a1,
+1794072254523011261,canary,,8 periodic ratio 0.97348 
+1794072254542128786,queued,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w1.r4.a2,repeat:other; position 74
+1794072254546524613,queued,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w2.r4.a2,repeat:other; position 33
+1794072254550094938,queued,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w4.r4.a2,repeat:other; position 43
+1794072254553917725,queued,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w2.r3.a2,repeat:other; position 7
+1794072254557764470,queued,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w1.r4.a2,repeat:other; position 72
+1794072254561420702,queued,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r2.a3,repeat:other; position 68
+1794072254594723207,checkpoint,,6 block(s) queued; 82 remaining
+1794072254598340052,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w2.r4.a1,window
+1794072289673226613,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w2.r4.a1,
+1794072289676830812,block_start,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w4.r2.a3,window
+1794072324894736252,block_done,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w4.r2.a3,
+1794072324898201355,block_start,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r4.a1,window
+1794072360111412287,block_done,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r4.a1,
+1794072360114804193,block_start,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w4.r4.a1,window
+1794072395353256564,block_done,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w4.r4.a1,
+1794072395356756326,block_start,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r3.a3,window
+1794072430559339563,block_done,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r3.a3,
+1794072430563060193,block_start,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r2.a2,window
+1794072465811985037,block_done,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r2.a2,
+1794072465816092375,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w8.r4.a1,window
+1794072500928728398,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w8.r4.a1,
+1794072500932339365,block_start,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w2.r3.a2,window
+1794072536113500038,block_done,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w2.r3.a2,
+1794072536116894193,block_start,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w2.r2.a2,window
+1794072571256101457,block_done,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w2.r2.a2,
+1794072571259688653,block_start,E12.falcon-512+ml-kem-512.issuance-n10-v16-w8.r4.a1,window
+1794072606575208567,block_done,E12.falcon-512+ml-kem-512.issuance-n10-v16-w8.r4.a1,
+1794072606578453819,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w8.r4.a1,window
+1794072652899906187,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w8.r4.a1,
+1794072652903123854,block_start,E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w2.r4.a1,window
+1794072688044106382,block_done,E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w2.r4.a1,
+1794072688047475304,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w2.r4.a1,window
+1794072725888444776,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w2.r4.a1,
+1794072725891502011,block_start,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w8.r4.a1,window
+1794072761113965327,block_done,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w8.r4.a1,
+1794072761117343244,block_start,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w2.r3.a2,window
+1794072796219295721,block_done,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w2.r3.a2,
+1794072796222240178,block_start,E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w8.r4.a1,window
+1794072831468679551,block_done,E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w8.r4.a1,
+1794072831472178601,block_start,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w2.r4.a1,window
+1794072866662987005,block_done,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w2.r4.a1,
+1794072868195432990,canary,,9 periodic ratio 0.98367 
+1794072868208254029,queued,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r2.a3,repeat:other; position 47
+1794072868213151929,queued,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r4.a2,repeat:other; position 8
+1794072868217179090,queued,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w2.r3.a3,repeat:thermal; position 48
+1794072868220405932,queued,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w8.r4.a2,repeat:thermal; position 21
+1794072868223783689,queued,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r4.a2,repeat:other; position 36
+1794072868227879435,queued,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w8.r4.a2,repeat:other; position 43
+1794072868251277735,checkpoint,,6 block(s) queued; 71 remaining
+1794072868254484828,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r4.a1,window
+1794072903352145127,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r4.a1,
+1794072903355481453,block_start,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w8.r4.a1,window
+1794072938647623643,block_done,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w8.r4.a1,
+1794072938650735672,block_start,E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w4.r4.a1,window
+1794072973836112386,block_done,E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w4.r4.a1,
+1794072973840321105,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w1.r4.a1,window
+1794073008905718713,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w1.r4.a1,
+1794073008909202272,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r2.a2,window
+1794073044019832892,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r2.a2,
+1794073044023079578,block_start,E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w8.r4.a1,window
+1794073079266745560,block_done,E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w8.r4.a1,
+1794073079269807305,block_start,E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w1.r4.a1,window
+1794073114402046745,block_done,E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w1.r4.a1,
+1794073114405072969,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w8.r1.a2,window
+1794073160573948346,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w8.r1.a2,
+1794073160577245159,block_start,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r4.a2,window
+1794073195775688774,block_done,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r4.a2,
+1794073195778882676,block_start,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w1.r4.a1,window
+1794073230913008521,block_done,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w1.r4.a1,
+1794073230916601104,block_start,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w1.r4.a1,window
+1794073266049902828,block_done,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w1.r4.a1,
+1794073266053005897,block_start,E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w1.r4.a1,window
+1794073301158646334,block_done,E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w1.r4.a1,
+1794073301162950777,block_start,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w8.r3.a2,window
+1794073336442784155,block_done,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w8.r3.a2,
+1794073336446197036,block_start,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w8.r4.a1,window
+1794073371871855390,block_done,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w8.r4.a1,
+1794073371875349210,block_start,E12.falcon-512+ml-kem-512.issuance-n10-v16-w2.r4.a1,window
+1794073407064547683,block_done,E12.falcon-512+ml-kem-512.issuance-n10-v16-w2.r4.a1,
+1794073407068076579,block_start,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w2.r4.a1,window
+1794073442237214559,block_done,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w2.r4.a1,
+1794073442240608790,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w2.r3.a2,window
+1794073480069837347,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w2.r3.a2,
+1794073481601213749,canary,,10 periodic ratio 0.98241 
+1794073481614812133,queued,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w8.r3.a3,repeat:other; position 5
+1794073481618699199,queued,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r4.a3,repeat:other; position 37
+1794073481621960464,queued,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w8.r4.a2,repeat:other; position 0
+1794073481625706285,queued,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r2.a3,repeat:other; position 1
+1794073481628965737,queued,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r4.a2,repeat:other; position 22
+1794073481652475290,checkpoint,,5 block(s) queued; 59 remaining
+1794073481656222858,block_start,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w8.r4.a2,window
+1794073517068922489,block_done,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w8.r4.a2,
+1794073517072153592,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r2.a3,window
+1794073552166410411,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r2.a3,
+1794073552169268158,block_start,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w4.r4.a1,window
+1794073587372464659,block_done,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w4.r4.a1,
+1794073587375789455,block_start,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w2.r4.a2,window
+1794073622473522677,block_done,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w2.r4.a2,
+1794073622476462987,block_start,E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w2.r4.a1,window
+1794073657582123909,block_done,E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w2.r4.a1,
+1794073657584853466,block_start,E12.falcon-512+ml-kem-512.issuance-n10-v16-w1.r4.a1,window
+1794073692695473608,block_done,E12.falcon-512+ml-kem-512.issuance-n10-v16-w1.r4.a1,
+1794073692698494560,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w8.r4.a2,window
+1794073727811588145,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w8.r4.a2,
+1794073727814809180,block_start,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w8.r3.a3,window
+1794073763038064263,block_done,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w8.r3.a3,
+1794073763041446693,block_start,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w4.r1.a3,window
+1794073798252515938,block_done,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w4.r1.a3,
+1794073798255622965,block_start,E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w4.r4.a1,window
+1794073833405317940,block_done,E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w4.r4.a1,
+1794073833408787372,block_start,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w8.r1.a2,window
+1794073868696904623,block_done,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w8.r1.a2,
+1794073868699833820,block_start,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w8.r5.a1,window
+1794073903961863694,block_done,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w8.r5.a1,
+1794073903965236108,block_start,E12.falcon-512+ml-kem-512.issuance-n10-v16-w2.r5.a1,window
+1794073939118347983,block_done,E12.falcon-512+ml-kem-512.issuance-n10-v16-w2.r5.a1,
+1794073939121341046,block_start,E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w1.r5.a1,window
+1794073974202743884,block_done,E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w1.r5.a1,
+1794073974205885077,block_start,E12.falcon-512+ml-kem-512.issuance-n10-v16-w1.r5.a1,window
+1794074009302404401,block_done,E12.falcon-512+ml-kem-512.issuance-n10-v16-w1.r5.a1,
+1794074009305284299,block_start,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w4.r4.a2,window
+1794074044444722190,block_done,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w4.r4.a2,
+1794074044447781413,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r1.a2,window
+1794074079546997845,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r1.a2,
+1794074079550422658,block_start,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w2.r5.a1,window
+1794074114700434058,block_done,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w2.r5.a1,
+1794074116231987646,canary,,11 periodic ratio 0.98534 
+1794074116247632554,queued,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w4.r4.a2,repeat:other; position 39
+1794074116251698573,queued,E12.falcon-512+ml-kem-512.issuance-n10-v16-w1.r4.a2,repeat:other; position 35
+1794074116255699360,queued,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r1.a3,repeat:other; position 39
+1794074116279920114,checkpoint,,3 block(s) queued; 44 remaining
+1794074116283635788,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r3.a2,window
+1794074156957662944,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r3.a2,
+1794074156960694687,block_start,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w8.r5.a1,window
+1794074192180452336,block_done,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w8.r5.a1,
+1794074192183574268,block_start,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w4.r5.a1,window
+1794074227323386282,block_done,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w4.r5.a1,
+1794074227326568833,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r3.a2,window
+1794074262417067835,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r3.a2,
+1794074262420255939,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r4.a2,window
+1794074297515412580,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r4.a2,
+1794074297518553435,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r4.a2,window
+1794074338170721766,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r4.a2,
+1794074338174101762,block_start,E12.falcon-512+ml-kem-512.issuance-n10-v16-w8.r5.a1,window
+1794074373478409737,block_done,E12.falcon-512+ml-kem-512.issuance-n10-v16-w8.r5.a1,
+1794074373481799794,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w8.r3.a2,window
+1794074408607539547,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w8.r3.a2,
+1794074408610974585,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w2.r5.a1,window
+1794074447887532704,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w2.r5.a1,
+1794074447890915584,block_start,E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w4.r5.a1,window
+1794074483084157826,block_done,E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w4.r5.a1,
+1794074483087492366,block_start,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w4.r5.a1,window
+1794074518354723651,block_done,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w4.r5.a1,
+1794074518357864587,block_start,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w8.r3.a2,window
+1794074553791284430,block_done,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w8.r3.a2,
+1794074553794658059,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w8.r4.a2,window
+1794074600009068579,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w8.r4.a2,
+1794074600012018543,block_start,E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w2.r5.a1,window
+1794074635114028411,block_done,E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w2.r5.a1,
+1794074635117374286,block_start,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w2.r5.a1,window
+1794074670254189439,block_done,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w2.r5.a1,
+1794074670257402684,block_start,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w4.r5.a1,window
+1794074705468933453,block_done,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w4.r5.a1,
+1794074705472148450,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w1.r5.a1,window
+1794074741920708236,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w1.r5.a1,
+1794074743453599747,canary,,12 periodic ratio 0.98480 
+1794074743469395512,queued,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w4.r5.a2,repeat:other; position 18
+1794074743473667234,queued,E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w4.r5.a2,repeat:other; position 12
+1794074743477466852,queued,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r3.a3,repeat:other; position 28
+1794074743481181879,queued,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r4.a3,repeat:other; position 13
+1794074743484669824,queued,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w8.r3.a3,repeat:other; position 22
+1794074743488616585,queued,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w2.r5.a2,repeat:thermal;other; position 10
+1794074743492635250,queued,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r3.a3,repeat:other; position 33
+1794074743496439657,queued,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r4.a3,repeat:other; position 5
+1794074743519719445,checkpoint,,8 block(s) queued; 35 remaining
+1794074743522590759,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r5.a1,window
+1794074784180239543,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r5.a1,
+1794074784183621382,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w2.r5.a1,window
+1794074819251266438,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w2.r5.a1,
+1794074819254776661,block_start,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w8.r5.a1,window
+1794074854642641758,block_done,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w8.r5.a1,
+1794074854645547387,block_start,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w2.r3.a3,window
+1794074889791388899,block_done,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w2.r3.a3,
+1794074889794398554,block_start,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r2.a3,window
+1794074925014542965,block_done,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r2.a3,
+1794074925017602187,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r4.a3,window
+1794074965681980925,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r4.a3,
+1794074965685078949,block_start,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r4.a3,window
+1794075000920077071,block_done,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r4.a3,
+1794075000923924213,block_start,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r5.a1,window
+1794075036138229981,block_done,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r5.a1,
+1794075036142475632,block_start,E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w8.r5.a1,window
+1794075071380266392,block_done,E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w8.r5.a1,
+1794075071383393199,block_start,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w2.r5.a1,window
+1794075106513709231,block_done,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w2.r5.a1,
+1794075106516969998,block_start,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w1.r5.a1,window
+1794075141631091564,block_done,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w1.r5.a1,
+1794075141633735761,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w2.r5.a2,window
+1794075179496504483,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w2.r5.a2,
+1794075179499568680,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r2.a3,window
+1794075220175950212,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r2.a3,
+1794075220178732822,block_start,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w1.r5.a1,window
+1794075255259239150,block_done,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w1.r5.a1,
+1794075255262445457,block_start,E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w4.r5.a2,window
+1794075290451279225,block_done,E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w4.r5.a2,
+1794075290454535844,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r4.a3,window
+1794075325568470314,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r4.a3,
+1794075325571839746,block_start,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w4.r1.a2,window
+1794075360796389894,block_done,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w4.r1.a2,
+1794075362327006090,canary,,13 periodic ratio 0.98021 
+1794075362343993753,queued,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r5.a2,repeat:other; position 10
+1794075362348334403,queued,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r5.a2,repeat:other; position 0
+1794075362389886545,checkpoint,,2 block(s) queued; 20 remaining
+1794075362392868355,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r5.a2,window
+1794075403023512218,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r5.a2,
+1794075403026733011,block_start,E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w4.r5.a1,window
+1794075438180197033,block_done,E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w4.r5.a1,
+1794075438183175194,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w8.r5.a1,window
+1794075473294188093,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w8.r5.a1,
+1794075473297977669,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w1.r4.a2,window
+1794075509766905655,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w1.r4.a2,
+1794075509770043056,block_start,E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w2.r5.a1,window
+1794075544950021069,block_done,E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w2.r5.a1,
+1794075544953359782,block_start,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w1.r5.a1,window
+1794075580063539768,block_done,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w1.r5.a1,
+1794075580066733121,block_start,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w4.r5.a2,window
+1794075615295021246,block_done,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w4.r5.a2,
+1794075615298320152,block_start,E12.falcon-512+ml-kem-512.issuance-n10-v16-w1.r4.a2,window
+1794075650401222788,block_done,E12.falcon-512+ml-kem-512.issuance-n10-v16-w1.r4.a2,
+1794075650404084800,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w8.r3.a3,window
+1794075685518536814,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w8.r3.a3,
+1794075685521690767,block_start,E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w1.r5.a1,window
+1794075720642392904,block_done,E12.ml-dsa-44+ml-kem-768.issuance-n10-v16-w1.r5.a1,
+1794075720645872995,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w1.r5.a1,window
+1794075755722584638,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w1.r5.a1,
+1794075755726125192,block_start,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r5.a2,window
+1794075790960794465,block_done,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r5.a2,
+1794075790963824824,block_start,E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w8.r5.a1,window
+1794075826218057952,block_done,E12.ml-dsa-44+ml-kem-768.verification-n10-k5-v16-w8.r5.a1,
+1794075826221452894,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r1.a3,window
+1794075861325574383,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r1.a3,
+1794075861329049382,block_start,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w1.r4.a2,window
+1794075896442153534,block_done,E12.ecdsa-p256+dhkem-p256.verification-n10-k5-v16-w1.r4.a2,
+1794075896445492813,block_start,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w4.r4.a2,window
+1794075931687543384,block_done,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w4.r4.a2,
+1794075931690505838,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r5.a1,window
+1794075966782983776,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r5.a1,
+1794075968316232469,canary,,14 periodic ratio 0.98050 
+1794075968334169459,queued,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r5.a3,repeat:other; position 2
+1794075968339330559,queued,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w4.r5.a3,repeat:other; position 1
+1794075968342953180,queued,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w1.r4.a3,repeat:other; position 2
+1794075968346185111,queued,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r5.a3,repeat:other; position 6
+1794075968370533047,checkpoint,,4 block(s) queued; 7 remaining
+1794075968373765077,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r3.a3,window
+1794076003460424078,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r3.a3,
+1794076003464072493,block_start,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w4.r5.a3,window
+1794076038682203448,block_done,E12.falcon-512+ml-kem-512.verification-n10-k5-v16-w4.r5.a3,
+1794076038685578142,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w1.r4.a3,window
+1794076075155623826,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w1.r4.a3,
+1794076075158710916,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w8.r5.a1,window
+1794076121379099255,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w8.r5.a1,
+1794076121382298107,block_start,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r5.a3,window
+1794076156579528408,block_done,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r5.a3,
+1794076156582878478,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r3.a3,window
+1794076197262419708,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r3.a3,
+1794076197265895733,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r5.a3,window
+1794076237904082413,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r5.a3,
+1794076239437305103,canary,,15 end ratio 0.97732 
+1794076274500339156,queued,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w4.r4.a3,repeat:other; position 0
+1794076274507908466,queued,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r5.a2,repeat:other; position 1
+1794076274525930242,block_start,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w4.r4.a3,window
+1794076309726330337,block_done,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w4.r4.a3,
+1794076309729223142,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r5.a2,window
+1794076344814132850,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r5.a2,
+1794076346344192434,canary,,16 end ratio 0.98261 
+1794076396420102424,queued,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r5.a3,repeat:other; position 0
+1794076396447226555,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r5.a3,window
+1794076431539753295,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r5.a3,
+1794076433072237872,canary,,17 end ratio 0.98380 
+1794076458150124208,batch_done,,233 attempt(s)

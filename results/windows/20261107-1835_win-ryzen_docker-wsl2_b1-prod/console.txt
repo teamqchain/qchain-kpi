@@ -1,0 +1,934 @@
+[22:35:59] canary 1 (start): 2220249 hashes/s, ratio 0.9759 
+[22:36:00] prepared ml-dsa-87.r1: P=256 in 0.1s
+[22:36:01] 1/540 E2c.ml-dsa-87.sign.r1.a1 fast p50 5.21us (n=10000) first 12.11us
+[22:36:05] prepared hqc-3.r1: P=256 in 4.3s
+[22:39:25] 2/540 E2.hqc-3.keygen.r1.a1 slow p50 3.278ms (n=18004) first 5.202ms
+[22:42:26] 3/540 E2.hqc-3.decaps.r1.a1 slow p50 10.232ms (n=5748) first 10.460ms
+[22:42:26] prepared dhkem-x25519.r1: P=256 in 0.1s
+[22:42:32] 4/540 E2.dhkem-x25519.encaps.r1.a1 fast p50 89.92us (n=10000) first 1.520ms
+[22:42:32] prepared ml-dsa-65.r1: P=256 in 0.1s
+[22:42:35] 5/540 E2.ml-dsa-65.verify.r1.a1 fast p50 54.88us (n=10000) first 185.94us
+[22:42:35] prepared ml-dsa-44.r1: P=256 in 0.0s
+[22:42:37] 6/540 E2.ml-dsa-44.keygen.r1.a1 fast p50 33.13us (n=10000) first 1.768ms
+[22:42:37] prepared ml-kem-512.r1: P=256 in 0.0s
+[22:42:38] 7/540 E2.ml-kem-512.decaps.r1.a1 fast p50 15.11us (n=10000) first 118.16us
+[22:42:39] prepared dhkem-p256.r1: P=256 in 0.1s
+[22:42:50] 8/540 E2.dhkem-p256.encaps.r1.a1 fast p50 143.92us (n=10000) first 1.771ms
+[22:42:50] prepared ecdsa-p256.r1: P=256 in 0.0s
+[22:42:51] 9/540 E2c.ecdsa-p256.keygen.r1.a1 fast p50 115ns (n=10000) first 42.57us
+[22:42:52] 10/540 E2.ecdsa-p256.keygen.r1.a1 fast p50 41.60us (n=10000) first 1.079ms
+[22:43:01] 11/540 E2c.dhkem-x25519.decaps.r1.a1 fast p50 90ns (n=10000) first 1.17us
+[22:43:01] prepared falcon-padded-512.r1: P=256 in 0.1s
+[22:43:12] 12/540 E2.falcon-padded-512.sign.r1.a1 fast p50 229.23us (n=10000) first 2.174ms
+[22:43:13] 13/540 E2c.ml-dsa-65.verify.r1.a1 fast p50 2.21us (n=10000) first 4.77us
+[22:43:13] prepared ml-kem-1024.r1: P=256 in 0.0s
+[22:43:14] 14/540 E2c.ml-kem-1024.keygen.r1.a1 fast p50 568ns (n=10000) first 4.11us
+[22:43:16] 15/540 E2.ml-kem-512.encaps.r1.a1 fast p50 13.19us (n=10000) first 3.091ms
+[22:43:17] 16/540 E2c.ml-dsa-65.keygen.r1.a1 fast p50 390ns (n=10000) first 22.50us
+[22:43:17] prepared falcon-padded-1024.r1: P=256 in 0.2s
+[22:43:18] 17/540 E2c.falcon-padded-1024.keygen.r1.a1 fast p50 446ns (n=10000) first 12.87us
+[22:43:18] prepared ed25519.r1: P=256 in 0.1s
+[22:43:23] 18/540 E2.ed25519.verify.r1.a1 fast p50 109.00us (n=10000) first 340.38us
+[22:43:35] prepared hqc-5.r1: P=256 in 11.5s
+[22:46:35] 19/540 E2.hqc-5.decaps.r1.a1 slow p50 24.322ms (n=2437) first 25.374ms
+[22:46:37] canary 2 (periodic): 2281921 hashes/s, ratio 1.0030 
+[22:46:37] queued E2.dhkem-p256.encaps.r1.a2 (repeat:other) at position 70
+[22:46:37] queued E2.dhkem-x25519.encaps.r1.a2 (repeat:other) at position 432
+[22:46:37] queued E2.ecdsa-p256.keygen.r1.a2 (repeat:other) at position 423
+[22:46:37] queued E2.ed25519.verify.r1.a2 (repeat:other) at position 154
+[22:46:37] queued E2.falcon-padded-512.sign.r1.a2 (repeat:other) at position 174
+[22:46:37] queued E2.hqc-3.decaps.r1.a2 (repeat:other) at position 510
+[22:46:37] queued E2.hqc-3.keygen.r1.a2 (repeat:other) at position 218
+[22:46:37] queued E2.ml-dsa-44.keygen.r1.a2 (repeat:other) at position 216
+[22:46:37] queued E2.ml-dsa-65.verify.r1.a2 (repeat:other) at position 499
+[22:46:37] queued E2.ml-kem-512.decaps.r1.a2 (repeat:other) at position 162
+[22:46:37] queued E2.ml-kem-512.encaps.r1.a2 (repeat:other) at position 333
+[22:46:37] queued E2c.dhkem-x25519.decaps.r1.a2 (repeat:other) at position 94
+[22:46:37] queued E2c.ecdsa-p256.keygen.r1.a2 (repeat:other) at position 261
+[22:46:37] queued E2c.falcon-padded-1024.keygen.r1.a2 (repeat:other) at position 85
+[22:46:37] queued E2c.ml-dsa-65.keygen.r1.a2 (repeat:other) at position 211
+[22:46:37] queued E2c.ml-dsa-65.verify.r1.a2 (repeat:other) at position 201
+[22:46:37] queued E2c.ml-kem-1024.keygen.r1.a2 (repeat:other) at position 231
+[22:49:56] 20/557 E2.hqc-5.keygen.r1.a1 slow p50 7.959ms (n=7478) first 10.868ms
+[22:49:57] 21/557 E2c.ml-dsa-44.keygen.r1.a1 fast p50 357ns (n=10000) first 3.11us
+[22:49:58] prepared hqc-1.r1: P=256 in 1.4s
+[22:49:59] 22/557 E2c.hqc-1.decaps.r1.a1 fast p50 5.29us (n=10000) first 12.54us
+[22:50:00] 23/557 E2c.ml-dsa-65.sign.r1.a1 fast p50 4.35us (n=10000) first 7.92us
+[22:50:01] 24/557 E2c.dhkem-x25519.keygen.r1.a1 fast p50 68ns (n=10000) first 1.01us
+[22:50:02] 25/557 E2c.hqc-5.decaps.r1.a1 fast p50 16.47us (n=10000) first 27.18us
+[22:50:02] prepared ml-kem-768.r1: P=256 in 0.0s
+[22:50:04] 26/557 E2.ml-kem-768.decaps.r1.a1 fast p50 23.82us (n=10000) first 136.00us
+[22:50:05] prepared rsa3072-pss.r1: P=256 in 1.3s
+[22:50:37] 27/557 E2c.rsa3072-pss.sign.r1.a1 fast p50 2.31us (n=10000) first 3.64us
+[22:50:43] 28/557 E2c.ed25519.sign.r1.a1 fast p50 71ns (n=10000) first 1.28us
+[22:50:45] 29/557 E2.dhkem-p256.keygen.r1.a1 fast p50 37.28us (n=10000) first 1.277ms
+[22:50:46] 30/557 E2c.ml-kem-768.encaps.r1.a1 fast p50 1.31us (n=10000) first 3.07us
+[22:50:49] 31/557 E2.dhkem-x25519.decaps.r1.a1 fast p50 39.15us (n=10000) first 124.83us
+[22:50:50] 32/557 E2c.falcon-padded-512.sign.r1.a1 fast p50 1.44us (n=10000) first 2.75us
+[22:50:51] 33/557 E2c.hqc-5.keygen.r1.a1 fast p50 508ns (n=10000) first 4.24us
+[22:50:52] 34/557 E2c.hqc-3.encaps.r1.a1 fast p50 4.77us (n=10000) first 8.88us
+[22:50:55] 35/557 E2c.dhkem-p256.decaps.r1.a1 fast p50 101ns (n=10000) first 1.33us
+[22:50:56] 36/557 E2c.ml-kem-768.decaps.r1.a1 fast p50 1.40us (n=10000) first 4.48us
+[22:50:56] prepared falcon-512.r1: P=256 in 0.1s
+[22:50:57] 37/557 E2c.falcon-512.sign.r1.a1 fast p50 1.44us (n=10000) first 2.75us
+[22:58:28] 38/557 E2.hqc-3.encaps.r1.a1 slow p50 6.493ms (n=9154) first 8.322ms
+[22:58:30] canary 3 (periodic): 2274659 hashes/s, ratio 0.9998 
+[22:58:30] queued E2.hqc-5.decaps.r1.a2 (repeat:other) at position 424
+[22:58:30] queued E2.hqc-5.keygen.r1.a2 (repeat:other) at position 404
+[22:58:30] queued E2c.hqc-5.decaps.r1.a2 (repeat:other) at position 511
+[22:58:35] 39/560 E2.ml-dsa-44.sign.r1.a1 fast p50 79.99us (n=10000) first 1.950ms
+[23:01:36] 40/560 E2.hqc-1.decaps.r1.a1 slow p50 3.305ms (n=17908) first 3.545ms
+[23:01:37] 41/560 E2c.ml-dsa-44.sign.r1.a1 fast p50 2.85us (n=10000) first 10.22us
+[23:01:39] 42/560 E2.ml-dsa-44.verify.r1.a1 fast p50 31.89us (n=10000) first 206.09us
+[23:01:40] 43/560 E2c.dhkem-p256.keygen.r1.a1 fast p50 112ns (n=10000) first 1.10us
+[23:01:41] 44/560 E2c.ml-dsa-87.keygen.r1.a1 fast p50 377ns (n=10000) first 3.09us
+[23:01:42] 45/560 E2c.hqc-3.keygen.r1.a1 fast p50 509ns (n=10000) first 4.15us
+[23:01:43] 46/560 E2c.hqc-5.encaps.r1.a1 fast p50 8.03us (n=10000) first 12.85us
+[23:09:15] 47/560 E2.hqc-5.encaps.r1.a1 slow p50 15.832ms (n=3765) first 18.229ms
+[23:09:17] canary 4 (periodic): 2283605 hashes/s, ratio 1.0037 
+[23:09:17] queued E2.hqc-1.decaps.r1.a2 (repeat:other) at position 26
+[23:09:19] 48/561 E2c.ecdsa-p256.sign.r1.a1 fast p50 70ns (n=10000) first 1.85us
+[23:09:25] 49/561 E2.dhkem-p256.decaps.r1.a1 fast p50 116.86us (n=10000) first 307.62us
+[23:09:29] 50/561 E2.ecdsa-p256.sign.r1.a1 fast p50 24.94us (n=10000) first 941.23us
+[23:09:31] 51/561 E2.falcon-512.verify.r1.a1 fast p50 38.89us (n=10000) first 689.90us
+[23:09:31] 52/561 E2c.rsa3072-pss.keygen.r1.a1 fast p50 646ns (n=10000) first 2.50us
+[23:09:33] 53/561 E2.ml-kem-1024.decaps.r1.a1 fast p50 34.18us (n=10000) first 158.35us
+[23:09:35] 54/561 E2.ml-kem-1024.keygen.r1.a1 fast p50 28.73us (n=10000) first 1.976ms
+[23:09:36] 55/561 E2c.dhkem-x25519.encaps.r1.a1 fast p50 68ns (n=10000) first 1.21us
+[23:09:37] 56/561 E2c.ml-kem-512.decaps.r1.a1 fast p50 906ns (n=10000) first 2.40us
+[23:09:42] 57/561 E2.ml-dsa-87.keygen.r1.a1 fast p50 92.00us (n=10000) first 2.406ms
+[23:09:43] 58/561 E2c.falcon-512.keygen.r1.a1 fast p50 403ns (n=10000) first 3.32us
+[23:09:43] 59/561 E2c.falcon-padded-512.verify.r1.a1 fast p50 1.00us (n=10000) first 1.99us
+[23:09:44] 60/561 E2c.ml-kem-1024.encaps.r1.a1 fast p50 1.71us (n=10000) first 3.56us
+[23:09:45] 61/561 E2c.falcon-padded-1024.verify.r1.a1 fast p50 1.99us (n=10000) first 4.35us
+[23:09:49] 62/561 E2.ml-dsa-87.verify.r1.a1 fast p50 88.26us (n=10000) first 192.27us
+[23:09:52] 63/561 E2.ecdsa-p256.verify.r1.a1 fast p50 59.22us (n=10000) first 145.93us
+[23:09:55] 64/561 E2c.dhkem-p256.encaps.r1.a1 fast p50 105ns (n=10000) first 1.50us
+[23:09:56] 65/561 E2c.hqc-1.keygen.r1.a1 fast p50 495ns (n=10000) first 1.70us
+[23:09:57] 66/561 E2c.ml-dsa-87.verify.r1.a1 fast p50 2.85us (n=10000) first 6.54us
+[23:09:58] 67/561 E2c.ml-dsa-44.verify.r1.a1 fast p50 1.48us (n=10000) first 5.32us
+[23:10:09] 68/561 E2c.rsa3072-pss.verify.r1.a1 fast p50 561ns (n=10000) first 1.86us
+[23:10:09] prepared falcon-1024.r1: P=256 in 0.2s
+[23:10:13] 69/561 E2.falcon-1024.verify.r1.a1 fast p50 81.91us (n=10000) first 157.06us
+[23:10:14] 70/561 E2c.ml-kem-768.keygen.r1.a1 fast p50 544ns (n=10000) first 2.97us
+[23:10:23] 71/561 E2.falcon-512.sign.r1.a1 fast p50 211.13us (n=10000) first 1.934ms
+[23:10:29] 72/561 E2.rsa3072-pss.verify.r1.a1 fast p50 37.52us (n=10000) first 244.20us
+[23:13:35] 73/561 E2.rsa3072-pss.sign.r1.a1 slow p50 1.531ms (n=38521) first 3.061ms
+[23:16:36] 74/561 E2.hqc-1.decaps.r1.a2 slow p50 3.300ms (n=17979) first 3.622ms
+[23:16:38] 75/561 E2.falcon-padded-512.verify.r1.a1 fast p50 38.83us (n=10000) first 159.46us
+[23:16:39] 76/561 E2c.ml-kem-512.encaps.r1.a1 fast p50 912ns (n=10000) first 2.16us
+[23:16:42] 77/561 E2.falcon-padded-1024.verify.r1.a1 fast p50 81.87us (n=10000) first 350.40us
+[23:16:45] 78/561 E2.ml-dsa-65.keygen.r1.a1 fast p50 55.00us (n=10000) first 1.830ms
+[23:16:48] 79/561 E2.ml-kem-768.encaps.r1.a1 fast p50 20.67us (n=10000) first 1.803ms
+[23:16:54] 80/561 E2.ed25519.sign.r1.a1 fast p50 37.98us (n=10000) first 127.52us
+[23:20:17] 81/561 E2.hqc-1.keygen.r1.a1 slow p50 1.076ms (n=54660) first 2.936ms
+[23:20:18] canary 5 (periodic): 2281029 hashes/s, ratio 1.0026 
+[23:20:19] 82/561 E2c.hqc-3.decaps.r1.a1 fast p50 9.99us (n=10000) first 15.13us
+[23:20:20] 83/561 E2c.ed25519.keygen.r1.a1 fast p50 67ns (n=10000) first 1.49us
+[23:23:20] 84/561 E2.falcon-padded-512.keygen.r1.a1 slow p50 5.604ms (n=9704) first 6.706ms
+[23:23:28] 85/561 E2.ml-dsa-65.sign.r1.a1 fast p50 124.88us (n=10000) first 2.040ms
+[23:26:29] 86/561 E2.falcon-padded-1024.keygen.r1.a1 slow p50 15.858ms (n=3415) first 23.861ms
+[23:26:47] 87/561 E2.falcon-padded-1024.sign.r1.a1 fast p50 414.22us (n=10000) first 2.264ms
+[23:26:48] 88/561 E2c.falcon-1024.verify.r1.a1 fast p50 1.99us (n=10000) first 3.58us
+[23:26:49] 89/561 E2c.hqc-1.encaps.r1.a1 fast p50 2.44us (n=10000) first 3.88us
+[23:26:50] 90/561 E2c.falcon-padded-1024.sign.r1.a1 fast p50 2.58us (n=10000) first 10.12us
+[23:27:00] 91/561 E2.dhkem-p256.encaps.r1.a2 fast p50 131.52us (n=10000) first 1.015ms
+[23:27:01] 92/561 E2c.ml-kem-512.keygen.r1.a1 fast p50 534ns (n=10000) first 2.58us
+[23:27:02] 93/561 E2.ml-kem-768.keygen.r1.a1 fast p50 20.41us (n=10000) first 2.310ms
+[23:29:08] 94/561 E2.rsa3072-pss.keygen.r1.a1 slow p50 461.769ms (n=107) first 641.630ms
+[23:29:10] 95/561 E2c.ecdsa-p256.verify.r1.a1 fast p50 105ns (n=10000) first 2.27us
+[23:29:12] 96/561 E2.dhkem-x25519.keygen.r1.a1 fast p50 40.06us (n=10000) first 802.89us
+[23:29:13] 97/561 E2c.ml-kem-1024.decaps.r1.a1 fast p50 1.99us (n=10000) first 3.58us
+[23:29:14] 98/561 E2c.falcon-512.verify.r1.a1 fast p50 1.01us (n=10000) first 2.54us
+[23:36:49] 99/561 E2.hqc-1.encaps.r1.a1 slow p50 2.167ms (n=27340) first 4.267ms
+[23:36:50] canary 6 (periodic): 2282164 hashes/s, ratio 1.0031 
+[23:36:50] queued E2.hqc-1.keygen.r1.a2 (repeat:other) at position 414
+[23:36:50] queued E2c.ed25519.keygen.r1.a2 (repeat:other) at position 309
+[23:39:51] 100/563 E2.falcon-1024.keygen.r1.a1 slow p50 15.772ms (n=3436) first 22.849ms
+[23:40:09] 101/563 E2.falcon-1024.sign.r1.a1 fast p50 416.12us (n=10000) first 2.162ms
+[23:40:10] 102/563 E2c.falcon-1024.sign.r1.a1 fast p50 2.60us (n=10000) first 6.21us
+[23:40:13] 103/563 E2.ml-kem-1024.encaps.r1.a1 fast p50 29.20us (n=10000) first 1.701ms
+[23:40:13] 104/563 E2c.falcon-padded-512.keygen.r1.a1 fast p50 406ns (n=10000) first 3.32us
+[23:40:14] 105/563 E2.ml-kem-512.keygen.r1.a1 fast p50 12.19us (n=10000) first 1.826ms
+[23:40:15] 106/563 E2c.falcon-padded-1024.keygen.r1.a2 fast p50 415ns (n=10000) first 2.40us
+[23:40:16] 107/563 E2c.ed25519.verify.r1.a1 fast p50 69ns (n=10000) first 1.30us
+[23:40:18] 108/563 E2.ed25519.keygen.r1.a1 fast p50 41.70us (n=10000) first 701.46us
+[23:40:28] 109/563 E2.ml-dsa-87.sign.r1.a1 fast p50 153.73us (n=10000) first 2.181ms
+[23:40:29] 110/563 E2c.falcon-1024.keygen.r1.a1 fast p50 394ns (n=10000) first 2.69us
+[23:43:30] 111/563 E2.falcon-512.keygen.r1.a1 slow p50 5.625ms (n=9650) first 9.475ms
+[23:43:34] prepared hqc-3.r2: P=256 in 4.2s
+[23:51:05] 112/563 E2.hqc-3.encaps.r2.a1 slow p50 6.523ms (n=9079) first 8.312ms
+[23:51:06] canary 7 (periodic): 2277194 hashes/s, ratio 1.0009 
+[23:51:06] queued E2.falcon-1024.keygen.r1.a2 (repeat:other) at position 417
+[23:51:06] prepared ml-kem-512.r2: P=256 in 0.0s
+[23:51:07] 113/564 E2c.ml-kem-512.keygen.r2.a1 fast p50 527ns (n=10000) first 2.98us
+[23:51:07] prepared falcon-512.r2: P=256 in 0.1s
+[23:54:08] 114/564 E2.falcon-512.keygen.r2.a1 slow p50 5.601ms (n=9670) first 6.378ms
+[23:54:09] prepared ecdsa-p256.r2: P=256 in 0.0s
+[23:54:12] 115/564 E2.ecdsa-p256.verify.r2.a1 fast p50 59.14us (n=10000) first 132.50us
+[23:54:19] 116/564 E2c.dhkem-x25519.decaps.r1.a2 fast p50 71ns (n=10000) first 1.57us
+[23:54:19] prepared ml-dsa-44.r2: P=256 in 0.0s
+[23:54:24] 117/564 E2.ml-dsa-44.sign.r2.a1 fast p50 80.09us (n=10000) first 1.937ms
+[23:54:24] prepared falcon-padded-1024.r2: P=256 in 0.1s
+[23:57:25] 118/564 E2.falcon-padded-1024.keygen.r2.a1 slow p50 15.754ms (n=3459) first 23.453ms
+[23:57:27] 119/564 E2.falcon-512.verify.r2.a1 fast p50 38.94us (n=10000) first 160.82us
+[23:57:37] prepared hqc-5.r2: P=256 in 10.2s
+[23:57:38] 120/564 E2c.hqc-5.decaps.r2.a1 fast p50 16.22us (n=10000) first 24.10us
+[23:57:41] 121/564 E2c.ecdsa-p256.sign.r2.a1 fast p50 71ns (n=10000) first 1.36us
+[23:57:41] prepared falcon-padded-512.r2: P=256 in 0.1s
+[00:00:42] 122/564 E2.falcon-padded-512.keygen.r2.a1 slow p50 5.595ms (n=9721) first 9.196ms
+[00:00:43] 123/564 E2c.hqc-5.keygen.r2.a1 fast p50 525ns (n=10000) first 4.35us
+[00:00:43] prepared ed25519.r2: P=256 in 0.1s
+[00:00:48] 124/564 E2.ed25519.verify.r2.a1 fast p50 100.16us (n=10000) first 159.87us
+[00:00:48] prepared falcon-1024.r2: P=256 in 0.2s
+[00:03:49] 125/564 E2.falcon-1024.keygen.r2.a1 slow p50 15.797ms (n=3430) first 17.762ms
+[00:03:50] canary 8 (periodic): 2276053 hashes/s, ratio 1.0004 
+[00:03:50] queued E2.hqc-3.encaps.r2.a2 (repeat:other) at position 247
+[00:03:50] prepared ml-dsa-65.r2: P=256 in 0.1s
+[00:03:51] 126/565 E2c.ml-dsa-65.sign.r2.a1 fast p50 4.32us (n=10000) first 7.71us
+[00:03:51] prepared dhkem-x25519.r2: P=256 in 0.0s
+[00:03:56] 127/565 E2.dhkem-x25519.encaps.r2.a1 fast p50 77.53us (n=10000) first 826.10us
+[00:03:56] prepared ml-dsa-87.r2: P=256 in 0.1s
+[00:04:00] 128/565 E2.ml-dsa-87.verify.r2.a1 fast p50 87.64us (n=10000) first 196.29us
+[00:04:01] 129/565 E2.ecdsa-p256.keygen.r2.a1 fast p50 38.85us (n=10000) first 833.65us
+[00:04:02] 130/565 E2c.falcon-512.keygen.r2.a1 fast p50 383ns (n=10000) first 3.57us
+[00:04:02] prepared ml-kem-1024.r2: P=256 in 0.0s
+[00:04:04] 131/565 E2.ml-kem-1024.keygen.r2.a1 fast p50 28.73us (n=10000) first 1.812ms
+[00:04:05] 132/565 E2c.falcon-1024.keygen.r2.a1 fast p50 397ns (n=10000) first 2.65us
+[00:04:05] 133/565 E2c.ecdsa-p256.keygen.r2.a1 fast p50 111ns (n=10000) first 1.09us
+[00:04:10] 134/565 E2.ecdsa-p256.sign.r2.a1 fast p50 24.61us (n=10000) first 1.310ms
+[00:04:11] prepared hqc-1.r2: P=256 in 1.4s
+[00:07:13] 135/565 E2.hqc-1.decaps.r2.a1 slow p50 3.305ms (n=17964) first 3.363ms
+[00:07:14] 136/565 E2c.ml-kem-512.decaps.r2.a1 fast p50 908ns (n=10000) first 2.44us
+[00:07:14] 137/565 E2c.ml-dsa-65.keygen.r2.a1 fast p50 375ns (n=10000) first 2.06us
+[00:07:15] 138/565 E2c.falcon-padded-1024.keygen.r2.a1 fast p50 441ns (n=10000) first 3.89us
+[00:07:16] 139/565 E2c.falcon-512.sign.r2.a1 fast p50 1.45us (n=10000) first 3.29us
+[00:07:17] 140/565 E2c.falcon-padded-512.verify.r2.a1 fast p50 1.00us (n=10000) first 2.19us
+[00:07:18] 141/565 E2c.ed25519.verify.r2.a1 fast p50 68ns (n=10000) first 1.37us
+[00:07:18] prepared ml-kem-768.r2: P=256 in 0.0s
+[00:07:20] 142/565 E2.ml-kem-768.decaps.r2.a1 fast p50 24.00us (n=10000) first 135.95us
+[00:07:21] 143/565 E2.ml-kem-512.encaps.r2.a1 fast p50 12.79us (n=10000) first 1.692ms
+[00:07:23] 144/565 E2.ml-kem-768.encaps.r2.a1 fast p50 20.59us (n=10000) first 1.801ms
+[00:07:28] 145/565 E2.ml-dsa-87.keygen.r2.a1 fast p50 92.07us (n=10000) first 1.802ms
+[00:07:29] prepared rsa3072-pss.r2: P=256 in 1.4s
+[00:07:30] 146/565 E2c.rsa3072-pss.keygen.r2.a1 fast p50 646ns (n=10000) first 2.00us
+[00:07:33] 147/565 E2.ml-kem-1024.encaps.r2.a1 fast p50 29.23us (n=10000) first 1.776ms
+[00:07:39] 148/565 E2c.dhkem-x25519.decaps.r2.a1 fast p50 72ns (n=10000) first 1.89us
+[00:10:40] 149/565 E2.hqc-3.decaps.r2.a1 slow p50 9.831ms (n=6029) first 10.485ms
+[00:10:41] 150/565 E2.ed25519.keygen.r2.a1 fast p50 41.83us (n=10000) first 829.67us
+[00:10:42] 151/565 E2c.ml-dsa-44.verify.r2.a1 fast p50 1.48us (n=10000) first 5.24us
+[00:10:52] 152/565 E2.falcon-512.sign.r2.a1 fast p50 208.66us (n=10000) first 1.911ms
+[00:10:53] 153/565 E2c.falcon-1024.sign.r2.a1 fast p50 2.60us (n=10000) first 5.52us
+[00:10:53] prepared dhkem-p256.r2: P=256 in 0.1s
+[00:10:58] 154/565 E2.dhkem-p256.decaps.r2.a1 fast p50 117.70us (n=10000) first 229.71us
+[00:11:01] 155/565 E2.ml-dsa-65.verify.r2.a1 fast p50 53.30us (n=10000) first 156.41us
+[00:11:02] 156/565 E2c.ml-dsa-65.verify.r2.a1 fast p50 2.11us (n=10000) first 4.42us
+[00:11:02] 157/565 E2c.falcon-padded-512.sign.r2.a1 fast p50 1.45us (n=10000) first 2.90us
+[00:11:03] 158/565 E2c.hqc-1.decaps.r2.a1 fast p50 5.33us (n=10000) first 10.73us
+[00:11:04] 159/565 E2c.hqc-3.keygen.r2.a1 fast p50 504ns (n=10000) first 3.81us
+[00:11:06] 160/565 E2c.hqc-3.encaps.r2.a1 fast p50 4.77us (n=10000) first 8.63us
+[00:11:07] 161/565 E2.ml-kem-512.decaps.r2.a1 fast p50 14.70us (n=10000) first 89.74us
+[00:11:18] 162/565 E2c.rsa3072-pss.verify.r2.a1 fast p50 552ns (n=10000) first 1.65us
+[00:11:19] 163/565 E2c.ml-kem-1024.decaps.r2.a1 fast p50 1.97us (n=10000) first 2.83us
+[00:11:25] 164/565 E2c.ed25519.sign.r2.a1 fast p50 71ns (n=10000) first 1.50us
+[00:14:45] 165/565 E2.hqc-3.keygen.r2.a1 slow p50 3.281ms (n=18009) first 5.327ms
+[00:14:46] canary 9 (periodic): 2271426 hashes/s, ratio 0.9984 
+[00:14:46] queued E2.hqc-1.decaps.r2.a2 (repeat:other) at position 198
+[00:14:46] queued E2.hqc-3.decaps.r2.a2 (repeat:other) at position 43
+[00:14:46] queued E2.ml-dsa-87.keygen.r2.a2 (repeat:other) at position 394
+[00:14:46] queued E2c.rsa3072-pss.keygen.r2.a2 (repeat:other) at position 114
+[00:14:47] 166/569 E2c.falcon-padded-1024.sign.r2.a1 fast p50 2.60us (n=10000) first 5.86us
+[00:14:51] 167/569 E2.falcon-1024.verify.r2.a1 fast p50 81.55us (n=10000) first 219.03us
+[00:17:52] 168/569 E2.hqc-5.decaps.r2.a1 slow p50 23.979ms (n=2490) first 24.297ms
+[00:21:10] 169/569 E2.hqc-5.keygen.r2.a1 slow p50 7.994ms (n=7455) first 9.935ms
+[00:21:12] 170/569 E2.dhkem-x25519.keygen.r2.a1 fast p50 40.02us (n=10000) first 697.87us
+[00:23:20] 171/569 E2.rsa3072-pss.keygen.r2.a1 slow p50 499.458ms (n=109) first 470.069ms
+[00:23:21] 172/569 E2c.ml-dsa-87.verify.r2.a1 fast p50 2.83us (n=10000) first 6.62us
+[00:23:22] 173/569 E2c.ml-kem-768.decaps.r2.a1 fast p50 1.41us (n=10000) first 4.42us
+[00:23:22] 174/569 E2c.hqc-1.keygen.r2.a1 fast p50 492ns (n=10000) first 3.69us
+[00:23:24] 175/569 E2.ml-kem-1024.decaps.r2.a1 fast p50 34.15us (n=10000) first 124.15us
+[00:23:42] 176/569 E2.falcon-padded-1024.sign.r2.a1 fast p50 421.05us (n=10000) first 2.432ms
+[00:23:47] 177/569 E2.ed25519.verify.r1.a2 fast p50 100.99us (n=10000) first 174.06us
+[00:23:48] 178/569 E2.dhkem-p256.keygen.r2.a1 fast p50 37.45us (n=10000) first 814.01us
+[00:23:49] 179/569 E2c.ml-kem-512.encaps.r2.a1 fast p50 906ns (n=10000) first 2.85us
+[00:23:50] 180/569 E2c.ml-kem-768.encaps.r2.a1 fast p50 1.31us (n=10000) first 2.73us
+[00:23:58] 181/569 E2.ml-dsa-65.sign.r2.a1 fast p50 127.08us (n=10000) first 1.931ms
+[00:23:59] 182/569 E2c.falcon-padded-1024.verify.r2.a1 fast p50 2.03us (n=10000) first 20.15us
+[00:31:35] 183/569 E2.hqc-1.encaps.r2.a1 slow p50 2.168ms (n=27330) first 3.813ms
+[00:31:36] canary 10 (periodic): 2278025 hashes/s, ratio 1.0013 
+[00:31:36] queued E2.hqc-5.decaps.r2.a2 (repeat:other) at position 237
+[00:31:38] 184/570 E2c.dhkem-x25519.encaps.r2.a1 fast p50 69ns (n=10000) first 1.46us
+[00:31:39] 185/570 E2.ml-kem-512.decaps.r1.a2 fast p50 14.80us (n=10000) first 75.17us
+[00:31:40] 186/570 E2c.ml-kem-768.keygen.r2.a1 fast p50 547ns (n=10000) first 3.09us
+[00:31:46] 187/570 E2.ed25519.sign.r2.a1 fast p50 38.12us (n=10000) first 85.74us
+[00:31:48] 188/570 E2.ml-dsa-44.verify.r2.a1 fast p50 32.04us (n=10000) first 133.90us
+[00:31:49] 189/570 E2c.ml-dsa-44.sign.r2.a1 fast p50 2.85us (n=10000) first 6.55us
+[00:31:50] 190/570 E2c.ml-kem-1024.keygen.r2.a1 fast p50 558ns (n=10000) first 3.66us
+[00:32:08] 191/570 E2.falcon-1024.sign.r2.a1 fast p50 416.31us (n=10000) first 2.244ms
+[00:32:40] 192/570 E2c.rsa3072-pss.sign.r2.a1 fast p50 2.13us (n=10000) first 3.35us
+[00:32:43] 193/570 E2.falcon-padded-1024.verify.r2.a1 fast p50 81.76us (n=10000) first 193.91us
+[00:32:43] 194/570 E2c.dhkem-x25519.keygen.r2.a1 fast p50 68ns (n=10000) first 1.09us
+[00:32:44] 195/570 E2c.falcon-1024.verify.r2.a1 fast p50 1.98us (n=10000) first 4.43us
+[00:32:47] 196/570 E2c.dhkem-p256.decaps.r2.a1 fast p50 100ns (n=10000) first 1.05us
+[00:32:47] 197/570 E2c.ed25519.keygen.r2.a1 fast p50 67ns (n=10000) first 1.18us
+[00:32:57] 198/570 E2.falcon-padded-512.sign.r1.a2 fast p50 208.88us (n=10000) first 1.826ms
+[00:32:58] 199/570 E2c.hqc-3.decaps.r2.a1 fast p50 9.98us (n=10000) first 15.42us
+[00:32:59] 200/570 E2c.dhkem-p256.keygen.r2.a1 fast p50 117ns (n=10000) first 1.07us
+[00:32:59] 201/570 E2c.falcon-padded-512.keygen.r2.a1 fast p50 414ns (n=10000) first 2.84us
+[00:33:01] 202/570 E2.falcon-padded-512.verify.r2.a1 fast p50 38.95us (n=10000) first 95.55us
+[00:33:03] 203/570 E2.ml-kem-512.keygen.r2.a1 fast p50 12.17us (n=10000) first 1.690ms
+[00:33:12] 204/570 E2.ml-dsa-87.sign.r2.a1 fast p50 153.18us (n=10000) first 2.129ms
+[00:33:13] 205/570 E2c.ml-dsa-87.sign.r2.a1 fast p50 5.25us (n=10000) first 8.48us
+[00:36:19] 206/570 E2.rsa3072-pss.sign.r2.a1 slow p50 1.526ms (n=38575) first 2.966ms
+[00:36:20] 207/570 E2c.hqc-1.encaps.r2.a1 fast p50 2.42us (n=10000) first 4.41us
+[00:36:21] 208/570 E2c.ml-dsa-87.keygen.r2.a1 fast p50 381ns (n=10000) first 2.86us
+[00:39:22] 209/570 E2.hqc-3.decaps.r2.a2 slow p50 9.805ms (n=6047) first 10.027ms
+[00:39:23] 210/570 E2c.ml-dsa-44.keygen.r2.a1 fast p50 352ns (n=10000) first 2.79us
+[00:39:24] 211/570 E2c.falcon-512.verify.r2.a1 fast p50 998ns (n=10000) first 2.44us
+[00:39:26] 212/570 E2.ml-dsa-44.keygen.r2.a1 fast p50 32.10us (n=10000) first 1.740ms
+[00:39:36] 213/570 E2.dhkem-p256.encaps.r2.a1 fast p50 131.52us (n=10000) first 1.022ms
+[00:39:37] 214/570 E2.ml-kem-768.keygen.r2.a1 fast p50 20.44us (n=10000) first 2.035ms
+[00:39:40] 215/570 E2.ml-dsa-65.keygen.r2.a1 fast p50 55.22us (n=10000) first 1.712ms
+[00:39:50] 216/570 E2.falcon-padded-512.sign.r2.a1 fast p50 208.28us (n=10000) first 1.870ms
+[00:47:21] 217/570 E2.hqc-5.encaps.r2.a1 slow p50 15.903ms (n=3750) first 17.731ms
+[00:47:22] canary 11 (periodic): 2277656 hashes/s, ratio 1.0011 
+[00:47:22] queued E2.hqc-1.encaps.r2.a2 (repeat:other) at position 98
+[00:47:22] queued E2c.dhkem-p256.keygen.r2.a2 (repeat:other) at position 203
+[00:47:23] 218/572 E2c.ml-kem-1024.encaps.r2.a1 fast p50 1.72us (n=10000) first 3.80us
+[00:50:46] 219/572 E2.hqc-1.keygen.r2.a1 slow p50 1.081ms (n=54187) first 3.085ms
+[00:50:49] 220/572 E2.dhkem-x25519.decaps.r2.a1 fast p50 39.07us (n=10000) first 171.90us
+[00:50:51] 221/572 E2c.ecdsa-p256.verify.r2.a1 fast p50 106ns (n=10000) first 1.51us
+[00:50:56] 222/572 E2.rsa3072-pss.verify.r2.a1 fast p50 37.44us (n=10000) first 124.18us
+[00:50:57] 223/572 E2c.ml-dsa-65.verify.r1.a2 fast p50 2.12us (n=10000) first 7.54us
+[00:50:59] 224/572 E2c.hqc-5.encaps.r2.a1 fast p50 8.17us (n=10000) first 12.81us
+[00:51:01] 225/572 E2c.dhkem-p256.encaps.r2.a1 fast p50 105ns (n=10000) first 1.66us
+[00:51:02] prepared falcon-padded-1024.r3: P=256 in 0.2s
+[00:54:02] 226/572 E2.falcon-padded-1024.keygen.r3.a1 slow p50 15.743ms (n=3441) first 17.203ms
+[00:54:02] prepared ecdsa-p256.r3: P=256 in 0.0s
+[00:54:07] 227/572 E2.ecdsa-p256.sign.r3.a1 fast p50 24.77us (n=10000) first 688.56us
+[00:54:07] prepared falcon-1024.r3: P=256 in 0.2s
+[00:54:08] 228/572 E2c.falcon-1024.keygen.r3.a1 fast p50 396ns (n=10000) first 2.56us
+[00:54:09] 229/572 E2c.falcon-1024.verify.r3.a1 fast p50 1.99us (n=10000) first 4.36us
+[00:54:09] prepared dhkem-p256.r3: P=256 in 0.1s
+[00:54:10] 230/572 E2c.dhkem-p256.keygen.r3.a1 fast p50 111ns (n=10000) first 1.01us
+[00:54:10] prepared ml-dsa-44.r3: P=256 in 0.0s
+[00:54:11] 231/572 E2c.ml-dsa-44.keygen.r3.a1 fast p50 350ns (n=10000) first 2.48us
+[00:54:12] 232/572 E2c.ml-dsa-44.verify.r3.a1 fast p50 1.48us (n=10000) first 4.67us
+[00:54:16] prepared hqc-3.r3: P=256 in 4.2s
+[00:57:35] 233/572 E2.hqc-3.keygen.r3.a1 slow p50 3.271ms (n=18120) first 5.094ms
+[00:57:37] canary 12 (periodic): 2276253 hashes/s, ratio 1.0005 
+[00:57:37] queued E2.falcon-padded-1024.keygen.r3.a2 (repeat:other) at position 337
+[00:57:37] queued E2.hqc-1.keygen.r2.a2 (repeat:other) at position 305
+[00:57:37] queued E2.hqc-5.encaps.r2.a2 (repeat:other) at position 261
+[00:57:38] 234/575 E2c.ml-dsa-65.keygen.r1.a2 fast p50 369ns (n=10000) first 1.81us
+[00:57:40] 235/575 E2c.dhkem-p256.encaps.r3.a1 fast p50 106ns (n=10000) first 1.26us
+[00:57:40] prepared ml-dsa-87.r3: P=256 in 0.1s
+[00:57:41] 236/575 E2c.ml-dsa-87.sign.r3.a1 fast p50 5.24us (n=10000) first 8.37us
+[00:57:41] prepared dhkem-x25519.r3: P=256 in 0.0s
+[00:57:46] 237/575 E2.dhkem-x25519.encaps.r3.a1 fast p50 78.75us (n=10000) first 787.43us
+[00:57:47] prepared rsa3072-pss.r3: P=256 in 1.2s
+[00:57:48] 238/575 E2c.rsa3072-pss.keygen.r3.a1 fast p50 646ns (n=10000) first 1.44us
+[00:57:51] 239/575 E2.ecdsa-p256.verify.r3.a1 fast p50 59.12us (n=10000) first 194.45us
+[00:57:52] 240/575 E2c.hqc-3.keygen.r3.a1 fast p50 508ns (n=10000) first 5.39us
+[00:57:52] prepared ml-kem-1024.r3: P=256 in 0.0s
+[00:57:53] 241/575 E2c.ml-kem-1024.decaps.r3.a1 fast p50 1.99us (n=10000) first 3.11us
+[00:57:53] prepared ml-kem-768.r3: P=256 in 0.0s
+[00:57:54] 242/575 E2c.ml-kem-768.decaps.r3.a1 fast p50 1.39us (n=10000) first 5.17us
+[00:57:56] 243/575 E2.ml-dsa-44.keygen.r1.a2 fast p50 32.14us (n=10000) first 1.690ms
+[00:57:58] 244/575 E2c.dhkem-x25519.encaps.r3.a1 fast p50 69ns (n=10000) first 1.03us
+[00:58:16] 245/575 E2.falcon-1024.sign.r3.a1 fast p50 420.35us (n=10000) first 2.349ms
+[01:01:35] 246/575 E2.hqc-3.keygen.r1.a2 slow p50 3.265ms (n=18187) first 5.083ms
+[01:01:45] prepared hqc-5.r3: P=256 in 10.2s
+[01:09:17] 247/575 E2.hqc-5.encaps.r3.a1 slow p50 15.874ms (n=3760) first 17.880ms
+[01:09:19] canary 13 (periodic): 2273683 hashes/s, ratio 0.9994 
+[01:09:20] 248/575 E2c.ml-kem-1024.keygen.r3.a1 fast p50 564ns (n=10000) first 14.03us
+[01:09:21] 249/575 E2c.ml-dsa-87.keygen.r3.a1 fast p50 377ns (n=10000) first 1.91us
+[01:09:21] prepared ml-dsa-65.r3: P=256 in 0.1s
+[01:09:22] 250/575 E2c.ml-dsa-65.sign.r3.a1 fast p50 4.35us (n=10000) first 7.90us
+[01:09:26] 251/575 E2.falcon-1024.verify.r3.a1 fast p50 81.64us (n=10000) first 212.51us
+[01:09:26] prepared falcon-padded-512.r3: P=256 in 0.1s
+[01:09:28] 252/575 E2.falcon-padded-512.verify.r3.a1 fast p50 38.91us (n=10000) first 113.45us
+[01:09:29] 253/575 E2c.ml-kem-1024.keygen.r1.a2 fast p50 557ns (n=10000) first 4.08us
+[01:09:30] 254/575 E2c.hqc-3.encaps.r3.a1 fast p50 4.81us (n=10000) first 8.82us
+[01:09:31] 255/575 E2c.falcon-padded-512.keygen.r3.a1 fast p50 409ns (n=10000) first 2.21us
+[01:09:32] prepared hqc-1.r3: P=256 in 1.4s
+[01:12:54] 256/575 E2.hqc-1.keygen.r3.a1 slow p50 1.077ms (n=54399) first 2.752ms
+[01:12:54] prepared ed25519.r3: P=256 in 0.1s
+[01:12:59] 257/575 E2.ed25519.verify.r3.a1 fast p50 101.16us (n=10000) first 176.68us
+[01:12:59] 258/575 E2c.falcon-padded-512.sign.r3.a1 fast p50 1.44us (n=10000) first 3.08us
+[01:13:17] 259/575 E2.falcon-padded-1024.sign.r3.a1 fast p50 420.56us (n=10000) first 2.430ms
+[01:13:18] 260/575 E2c.ml-kem-768.keygen.r3.a1 fast p50 544ns (n=10000) first 3.78us
+[01:13:20] 261/575 E2.ml-dsa-44.keygen.r3.a1 fast p50 32.18us (n=10000) first 1.886ms
+[01:13:20] prepared ml-kem-512.r3: P=256 in 0.0s
+[01:13:21] 262/575 E2c.ml-kem-512.decaps.r3.a1 fast p50 924ns (n=10000) first 2.67us
+[01:13:23] 263/575 E2.ml-kem-512.encaps.r3.a1 fast p50 12.91us (n=10000) first 1.812ms
+[01:13:24] 264/575 E2c.hqc-3.decaps.r3.a1 fast p50 9.96us (n=10000) first 18.11us
+[01:13:24] prepared falcon-512.r3: P=256 in 0.1s
+[01:13:25] 265/575 E2c.falcon-512.sign.r3.a1 fast p50 1.45us (n=10000) first 2.62us
+[01:13:27] 266/575 E2.ml-kem-1024.keygen.r3.a1 fast p50 28.87us (n=10000) first 1.788ms
+[01:13:28] 267/575 E2.dhkem-x25519.keygen.r3.a1 fast p50 40.12us (n=10000) first 722.36us
+[01:13:29] 268/575 E2c.hqc-1.decaps.r3.a1 fast p50 5.36us (n=10000) first 10.37us
+[01:13:30] 269/575 E2c.falcon-padded-512.verify.r3.a1 fast p50 1.00us (n=10000) first 12.39us
+[01:16:31] 270/575 E2.hqc-1.decaps.r3.a1 slow p50 3.308ms (n=17952) first 3.417ms
+[01:16:37] 271/575 E2c.ed25519.sign.r3.a1 fast p50 72ns (n=10000) first 1.30us
+[01:16:39] 272/575 E2c.hqc-5.keygen.r3.a1 fast p50 510ns (n=10000) first 4.56us
+[01:16:40] 273/575 E2c.falcon-512.verify.r3.a1 fast p50 1.00us (n=10000) first 2.50us
+[01:16:46] 274/575 E2.ed25519.sign.r3.a1 fast p50 37.98us (n=10000) first 84.06us
+[01:24:16] 275/575 E2.hqc-3.encaps.r3.a1 slow p50 6.521ms (n=9100) first 8.212ms
+[01:24:18] canary 14 (periodic): 2269855 hashes/s, ratio 0.9977 
+[01:24:18] queued E2.hqc-1.keygen.r3.a2 (repeat:other) at position 239
+[01:24:18] queued E2.hqc-5.encaps.r3.a2 (repeat:other) at position 275
+[01:24:21] 276/577 E2.ml-dsa-65.keygen.r3.a1 fast p50 54.95us (n=10000) first 2.016ms
+[01:24:22] 277/577 E2c.hqc-1.keygen.r3.a1 fast p50 490ns (n=10000) first 2.20us
+[01:24:54] 278/577 E2c.rsa3072-pss.sign.r3.a1 fast p50 2.31us (n=10000) first 3.11us
+[01:24:55] 279/577 E2c.falcon-512.keygen.r3.a1 fast p50 392ns (n=10000) first 3.69us
+[01:24:55] 280/577 E2c.rsa3072-pss.keygen.r2.a2 fast p50 651ns (n=10000) first 1.55us
+[01:24:58] 281/577 E2.falcon-padded-1024.verify.r3.a1 fast p50 81.68us (n=10000) first 184.12us
+[01:25:01] 282/577 E2.dhkem-x25519.decaps.r3.a1 fast p50 39.29us (n=10000) first 124.26us
+[01:25:03] 283/577 E2.ml-kem-768.keygen.r3.a1 fast p50 20.56us (n=10000) first 1.667ms
+[01:25:11] 284/577 E2.ml-dsa-65.sign.r3.a1 fast p50 125.25us (n=10000) first 2.032ms
+[01:25:17] 285/577 E2c.dhkem-x25519.decaps.r3.a1 fast p50 71ns (n=10000) first 1.28us
+[01:28:18] 286/577 E2.falcon-512.keygen.r3.a1 slow p50 5.633ms (n=9684) first 6.863ms
+[01:28:19] 287/577 E2c.ml-kem-512.encaps.r3.a1 fast p50 910ns (n=10000) first 2.17us
+[01:28:20] 288/577 E2c.ecdsa-p256.keygen.r1.a2 fast p50 110ns (n=10000) first 1.13us
+[01:28:20] 289/577 E2c.ed25519.keygen.r3.a1 fast p50 67ns (n=10000) first 1.20us
+[01:28:22] 290/577 E2.dhkem-p256.keygen.r3.a1 fast p50 37.37us (n=10000) first 1.093ms
+[01:28:26] 291/577 E2.ml-dsa-87.keygen.r3.a1 fast p50 91.61us (n=10000) first 1.825ms
+[01:36:02] 292/577 E2.hqc-1.encaps.r3.a1 slow p50 2.165ms (n=27412) first 4.044ms
+[01:36:04] canary 15 (periodic): 2282915 hashes/s, ratio 1.0034 
+[01:36:04] queued E2.falcon-512.keygen.r3.a2 (repeat:other) at position 260
+[01:36:05] 293/578 E2c.ml-dsa-87.verify.r3.a1 fast p50 2.85us (n=10000) first 6.71us
+[01:39:06] 294/578 E2.hqc-5.decaps.r3.a1 slow p50 23.996ms (n=2490) first 24.466ms
+[01:39:07] 295/578 E2.ml-kem-512.keygen.r3.a1 fast p50 12.10us (n=10000) first 1.836ms
+[01:39:16] 296/578 E2.falcon-512.sign.r3.a1 fast p50 208.32us (n=10000) first 1.895ms
+[01:42:35] 297/578 E2.hqc-5.keygen.r3.a1 slow p50 7.982ms (n=7468) first 9.778ms
+[01:42:37] 298/578 E2.ml-dsa-44.verify.r3.a1 fast p50 32.09us (n=10000) first 134.51us
+[01:42:39] 299/578 E2c.ecdsa-p256.verify.r3.a1 fast p50 107ns (n=10000) first 1.62us
+[01:42:41] 300/578 E2.falcon-512.verify.r3.a1 fast p50 38.82us (n=10000) first 97.30us
+[01:42:42] 301/578 E2c.falcon-padded-1024.sign.r3.a1 fast p50 2.60us (n=10000) first 9.44us
+[01:42:43] 302/578 E2.ed25519.keygen.r3.a1 fast p50 41.85us (n=10000) first 792.67us
+[01:42:45] 303/578 E2.ecdsa-p256.keygen.r3.a1 fast p50 38.07us (n=10000) first 1.006ms
+[01:42:55] 304/578 E2.dhkem-p256.encaps.r3.a1 fast p50 131.57us (n=10000) first 835.57us
+[01:42:56] 305/578 E2c.falcon-padded-1024.verify.r3.a1 fast p50 1.98us (n=10000) first 13.24us
+[01:42:58] 306/578 E2.ml-dsa-65.verify.r3.a1 fast p50 53.06us (n=10000) first 185.70us
+[01:43:04] 307/578 E2.rsa3072-pss.verify.r3.a1 fast p50 37.63us (n=10000) first 143.77us
+[01:43:05] 308/578 E2c.ml-kem-1024.encaps.r3.a1 fast p50 1.71us (n=10000) first 4.04us
+[01:43:16] 309/578 E2c.rsa3072-pss.verify.r3.a1 fast p50 550ns (n=10000) first 2.86us
+[01:43:17] 310/578 E2c.ml-kem-768.encaps.r3.a1 fast p50 1.31us (n=10000) first 3.20us
+[01:43:18] 311/578 E2c.ed25519.verify.r3.a1 fast p50 70ns (n=10000) first 1.21us
+[01:43:19] 312/578 E2c.ecdsa-p256.keygen.r3.a1 fast p50 111ns (n=10000) first 1.07us
+[01:43:28] 313/578 E2.falcon-padded-512.sign.r3.a1 fast p50 210.49us (n=10000) first 1.930ms
+[01:43:31] 314/578 E2c.dhkem-p256.decaps.r3.a1 fast p50 100ns (n=10000) first 1.41us
+[01:43:32] 315/578 E2c.ml-kem-512.keygen.r3.a1 fast p50 535ns (n=10000) first 3.74us
+[01:51:08] 316/578 E2.hqc-1.encaps.r2.a2 slow p50 2.166ms (n=27394) first 3.889ms
+[01:51:09] canary 16 (periodic): 2275726 hashes/s, ratio 1.0003 
+[01:51:09] queued E2.hqc-1.encaps.r3.a2 (repeat:other) at position 73
+[01:51:14] 317/579 E2.ml-dsa-44.sign.r3.a1 fast p50 79.51us (n=10000) first 1.850ms
+[01:51:24] 318/579 E2.ml-dsa-87.sign.r3.a1 fast p50 154.57us (n=10000) first 1.837ms
+[01:51:26] 319/579 E2c.hqc-5.decaps.r3.a1 fast p50 16.23us (n=10000) first 23.34us
+[01:51:28] 320/579 E2c.ecdsa-p256.sign.r3.a1 fast p50 70ns (n=10000) first 1.65us
+[01:51:29] 321/579 E2.ml-kem-512.decaps.r3.a1 fast p50 14.70us (n=10000) first 120.97us
+[01:51:31] 322/579 E2c.hqc-5.encaps.r3.a1 fast p50 8.02us (n=10000) first 12.74us
+[01:51:31] 323/579 E2c.ml-dsa-44.sign.r3.a1 fast p50 2.84us (n=10000) first 6.26us
+[01:51:33] 324/579 E2.ml-kem-768.decaps.r3.a1 fast p50 23.86us (n=10000) first 349.93us
+[01:51:34] 325/579 E2c.falcon-1024.sign.r3.a1 fast p50 2.60us (n=10000) first 7.51us
+[01:54:35] 326/579 E2.falcon-1024.keygen.r3.a1 slow p50 15.834ms (n=3432) first 18.903ms
+[01:54:36] 327/579 E2c.hqc-1.encaps.r3.a1 fast p50 2.40us (n=10000) first 4.33us
+[01:54:41] 328/579 E2.dhkem-p256.decaps.r3.a1 fast p50 116.68us (n=10000) first 292.91us
+[01:54:43] 329/579 E2.ml-kem-768.encaps.r3.a1 fast p50 20.57us (n=10000) first 2.363ms
+[01:57:49] 330/579 E2.rsa3072-pss.sign.r3.a1 slow p50 1.525ms (n=38595) first 3.380ms
+[02:00:50] 331/579 E2.hqc-3.decaps.r3.a1 slow p50 9.841ms (n=6023) first 10.317ms
+[02:00:52] 332/579 E2.ml-kem-1024.decaps.r3.a1 fast p50 34.33us (n=10000) first 139.01us
+[02:03:53] 333/579 E2.falcon-padded-512.keygen.r3.a1 slow p50 5.625ms (n=9696) first 7.255ms
+[02:03:54] canary 17 (periodic): 2273416 hashes/s, ratio 0.9992 
+[02:03:54] queued E2.hqc-1.encaps.r2.a3 (repeat:other) at position 230
+[02:03:54] queued E2.hqc-3.decaps.r3.a2 (repeat:other) at position 113
+[02:03:55] 334/581 E2c.dhkem-x25519.keygen.r3.a1 fast p50 68ns (n=10000) first 1.39us
+[02:03:59] 335/581 E2.ml-dsa-87.verify.r3.a1 fast p50 87.54us (n=10000) first 309.29us
+[02:03:59] 336/581 E2c.ml-dsa-65.verify.r3.a1 fast p50 2.12us (n=10000) first 4.36us
+[02:06:09] 337/581 E2.rsa3072-pss.keygen.r3.a1 slow p50 463.794ms (n=98) first 294.913ms
+[02:06:10] 338/581 E2c.ml-dsa-65.keygen.r3.a1 fast p50 367ns (n=10000) first 2.93us
+[02:06:11] 339/581 E2c.falcon-padded-1024.keygen.r3.a1 fast p50 425ns (n=10000) first 3.87us
+[02:06:14] 340/581 E2.ml-kem-1024.encaps.r3.a1 fast p50 29.51us (n=10000) first 1.895ms
+[02:06:24] prepared hqc-5.r4: P=256 in 10.3s
+[02:06:26] 341/581 E2c.hqc-5.encaps.r4.a1 fast p50 8.03us (n=10000) first 13.44us
+[02:06:26] prepared falcon-padded-1024.r4: P=256 in 0.2s
+[02:06:27] 342/581 E2c.falcon-padded-1024.sign.r4.a1 fast p50 2.60us (n=10000) first 5.93us
+[02:06:27] prepared falcon-1024.r4: P=256 in 0.1s
+[02:06:45] 343/581 E2.falcon-1024.sign.r4.a1 fast p50 420.64us (n=10000) first 2.320ms
+[02:06:45] prepared ml-kem-512.r4: P=256 in 0.0s
+[02:06:46] 344/581 E2c.ml-kem-512.keygen.r4.a1 fast p50 534ns (n=10000) first 2.28us
+[02:06:46] prepared dhkem-p256.r4: P=256 in 0.1s
+[02:06:49] 345/581 E2c.dhkem-p256.encaps.r4.a1 fast p50 104ns (n=10000) first 1.65us
+[02:06:49] prepared ml-dsa-44.r4: P=256 in 0.0s
+[02:06:50] 346/581 E2c.ml-dsa-44.keygen.r4.a1 fast p50 364ns (n=10000) first 3.11us
+[02:06:50] prepared ed25519.r4: P=256 in 0.1s
+[02:06:50] 347/581 E2c.ed25519.keygen.r4.a1 fast p50 67ns (n=10000) first 1.28us
+[02:06:54] 348/581 E2.falcon-padded-1024.verify.r4.a1 fast p50 80.46us (n=10000) first 138.02us
+[02:07:00] 349/581 E2c.ed25519.sign.r4.a1 fast p50 72ns (n=10000) first 1.32us
+[02:07:02] 350/581 E2.ml-dsa-44.verify.r4.a1 fast p50 32.11us (n=10000) first 124.82us
+[02:07:02] prepared ml-kem-1024.r4: P=256 in 0.0s
+[02:07:04] 351/581 E2.ml-kem-1024.keygen.r4.a1 fast p50 28.71us (n=10000) first 1.707ms
+[02:07:05] prepared rsa3072-pss.r4: P=256 in 1.0s
+[02:09:12] 352/581 E2.rsa3072-pss.keygen.r4.a1 slow p50 505.709ms (n=100) first 713.252ms
+[02:09:13] prepared hqc-1.r4: P=256 in 1.4s
+[02:09:14] 353/581 E2c.hqc-1.encaps.r4.a1 fast p50 2.42us (n=10000) first 4.19us
+[02:09:15] 354/581 E2c.dhkem-p256.keygen.r4.a1 fast p50 112ns (n=10000) first 1.05us
+[02:09:16] 355/581 E2c.falcon-1024.keygen.r4.a1 fast p50 394ns (n=10000) first 2.62us
+[02:12:17] 356/581 E2.falcon-1024.keygen.r4.a1 slow p50 15.759ms (n=3431) first 21.528ms
+[02:12:48] 357/581 E2c.rsa3072-pss.sign.r4.a1 fast p50 2.10us (n=10000) first 3.62us
+[02:13:06] 358/581 E2.falcon-padded-1024.sign.r4.a1 fast p50 421.76us (n=10000) first 2.155ms
+[02:13:07] 359/581 E2c.ml-dsa-44.sign.r4.a1 fast p50 2.84us (n=10000) first 6.80us
+[02:13:07] prepared ml-kem-768.r4: P=256 in 0.0s
+[02:13:09] 360/581 E2.ml-kem-768.decaps.r4.a1 fast p50 23.85us (n=10000) first 140.11us
+[02:13:10] 361/581 E2c.ml-dsa-44.verify.r4.a1 fast p50 1.48us (n=10000) first 4.73us
+[02:13:14] prepared hqc-3.r4: P=256 in 4.2s
+[02:13:15] 362/581 E2c.hqc-3.encaps.r4.a1 fast p50 4.81us (n=10000) first 8.18us
+[02:13:17] 363/581 E2.ml-kem-512.encaps.r1.a2 fast p50 12.86us (n=10000) first 1.610ms
+[02:13:17] prepared ml-dsa-87.r4: P=256 in 0.1s
+[02:13:18] 364/581 E2c.ml-dsa-87.verify.r4.a1 fast p50 2.83us (n=10000) first 6.44us
+[02:13:19] 365/581 E2c.hqc-3.keygen.r4.a1 fast p50 498ns (n=10000) first 7.11us
+[02:13:19] 366/581 E2c.falcon-1024.sign.r4.a1 fast p50 2.60us (n=10000) first 5.95us
+[02:16:21] 367/581 E2.hqc-1.decaps.r2.a2 slow p50 3.311ms (n=17817) first 3.437ms
+[02:16:22] canary 18 (periodic): 2257808 hashes/s, ratio 0.9924 
+[02:16:22] prepared falcon-512.r4: P=256 in 0.1s
+[02:16:23] 368/581 E2c.falcon-512.sign.r4.a1 fast p50 1.45us (n=10000) first 4.47us
+[02:16:23] prepared dhkem-x25519.r4: P=256 in 0.0s
+[02:16:26] 369/581 E2.dhkem-x25519.decaps.r4.a1 fast p50 39.38us (n=10000) first 135.11us
+[02:16:28] 370/581 E2c.hqc-5.decaps.r4.a1 fast p50 16.30us (n=10000) first 26.90us
+[02:19:47] 371/581 E2.hqc-3.keygen.r4.a1 slow p50 3.283ms (n=17989) first 5.001ms
+[02:19:49] 372/581 E2.ml-dsa-44.keygen.r4.a1 fast p50 32.20us (n=10000) first 2.019ms
+[02:19:53] 373/581 E2.ml-dsa-87.keygen.r4.a1 fast p50 92.51us (n=10000) first 1.764ms
+[02:23:00] 374/581 E2.rsa3072-pss.sign.r4.a1 slow p50 1.529ms (n=38467) first 2.941ms
+[02:23:00] prepared ecdsa-p256.r4: P=256 in 0.0s
+[02:23:03] 375/581 E2.ecdsa-p256.verify.r4.a1 fast p50 59.74us (n=10000) first 233.28us
+[02:23:03] 376/581 E2c.dhkem-x25519.keygen.r4.a1 fast p50 69ns (n=10000) first 1.24us
+[02:30:34] 377/581 E2.hqc-3.encaps.r2.a2 slow p50 6.517ms (n=9081) first 8.219ms
+[02:30:35] canary 19 (periodic): 2276802 hashes/s, ratio 1.0007 
+[02:30:35] queued E2.dhkem-x25519.decaps.r4.a2 (repeat:other) at position 100
+[02:30:35] queued E2.hqc-1.decaps.r2.a3 (repeat:other) at position 89
+[02:30:35] queued E2.hqc-3.keygen.r4.a2 (repeat:other) at position 81
+[02:30:35] queued E2.rsa3072-pss.sign.r4.a2 (repeat:other) at position 169
+[02:30:35] queued E2c.falcon-512.sign.r4.a2 (repeat:other) at position 145
+[02:30:36] 378/586 E2c.falcon-512.keygen.r4.a1 fast p50 403ns (n=10000) first 4.47us
+[02:30:38] 379/586 E2c.dhkem-x25519.encaps.r4.a1 fast p50 69ns (n=10000) first 1.29us
+[02:30:41] 380/586 E2.falcon-1024.verify.r4.a1 fast p50 81.43us (n=10000) first 221.02us
+[02:30:43] 381/586 E2.ml-kem-768.encaps.r4.a1 fast p50 20.43us (n=10000) first 1.642ms
+[02:30:44] 382/586 E2c.ml-kem-512.decaps.r4.a1 fast p50 920ns (n=10000) first 2.35us
+[02:33:45] 383/586 E2.falcon-512.keygen.r4.a1 slow p50 5.610ms (n=9711) first 8.311ms
+[02:37:07] 384/586 E2.hqc-1.keygen.r4.a1 slow p50 1.079ms (n=54244) first 2.793ms
+[02:37:09] 385/586 E2.ml-kem-512.encaps.r4.a1 fast p50 12.98us (n=10000) first 1.769ms
+[02:37:10] 386/586 E2c.ml-kem-1024.keygen.r4.a1 fast p50 552ns (n=10000) first 4.78us
+[02:37:11] 387/586 E2c.ml-kem-512.encaps.r4.a1 fast p50 904ns (n=10000) first 2.21us
+[02:37:12] 388/586 E2.ml-kem-512.decaps.r4.a1 fast p50 14.73us (n=10000) first 111.05us
+[02:37:24] 389/586 E2c.rsa3072-pss.verify.r4.a1 fast p50 557ns (n=10000) first 1.58us
+[02:44:59] 390/586 E2.hqc-1.encaps.r3.a2 slow p50 2.163ms (n=27451) first 3.848ms
+[02:45:01] canary 20 (periodic): 2283839 hashes/s, ratio 1.0038 
+[02:45:10] 391/586 E2.falcon-512.sign.r4.a1 fast p50 210.59us (n=10000) first 2.010ms
+[02:45:11] prepared ml-dsa-65.r4: P=256 in 0.1s
+[02:45:11] 392/586 E2c.ml-dsa-65.verify.r4.a1 fast p50 2.12us (n=10000) first 4.04us
+[02:45:16] 393/586 E2.ecdsa-p256.sign.r4.a1 fast p50 24.57us (n=10000) first 738.09us
+[02:45:17] 394/586 E2c.hqc-1.decaps.r4.a1 fast p50 5.33us (n=10000) first 11.75us
+[02:52:48] 395/586 E2.hqc-3.encaps.r4.a1 slow p50 6.512ms (n=9116) first 8.272ms
+[02:52:51] 396/586 E2.ml-kem-1024.encaps.r4.a1 fast p50 29.47us (n=10000) first 1.828ms
+[02:52:53] 397/586 E2.ecdsa-p256.keygen.r4.a1 fast p50 38.53us (n=10000) first 794.89us
+[02:52:53] 398/586 E2c.ecdsa-p256.keygen.r4.a1 fast p50 113ns (n=10000) first 1.58us
+[02:52:54] 399/586 E2c.ml-kem-768.decaps.r4.a1 fast p50 1.39us (n=10000) first 4.42us
+[02:52:59] 400/586 E2.rsa3072-pss.verify.r4.a1 fast p50 37.62us (n=10000) first 148.14us
+[02:56:18] 401/586 E2.hqc-5.keygen.r4.a1 slow p50 7.953ms (n=7483) first 11.664ms
+[02:56:20] canary 21 (periodic): 2278420 hashes/s, ratio 1.0014 
+[02:56:26] 402/586 E2.ed25519.sign.r4.a1 fast p50 38.05us (n=10000) first 81.40us
+[02:59:27] 403/586 E2.falcon-padded-1024.keygen.r4.a1 slow p50 15.726ms (n=3466) first 18.057ms
+[02:59:29] 404/586 E2.ml-kem-1024.decaps.r4.a1 fast p50 34.20us (n=10000) first 148.15us
+[02:59:30] 405/586 E2.ml-kem-512.keygen.r4.a1 fast p50 12.09us (n=10000) first 1.644ms
+[02:59:31] 406/586 E2c.ml-dsa-87.keygen.r4.a1 fast p50 383ns (n=10000) first 2.79us
+[02:59:34] 407/586 E2c.ecdsa-p256.sign.r4.a1 fast p50 70ns (n=10000) first 1.53us
+[02:59:39] 408/586 E2.ml-dsa-44.sign.r4.a1 fast p50 82.38us (n=10000) first 2.152ms
+[02:59:40] 409/586 E2c.hqc-1.keygen.r4.a1 fast p50 495ns (n=10000) first 2.23us
+[03:02:41] 410/586 E2.hqc-1.decaps.r4.a1 slow p50 3.302ms (n=17929) first 3.439ms
+[03:02:41] prepared falcon-padded-512.r4: P=256 in 0.1s
+[03:05:42] 411/586 E2.falcon-padded-512.keygen.r4.a1 slow p50 5.612ms (n=9675) first 7.131ms
+[03:05:43] 412/586 E2c.falcon-padded-512.sign.r4.a1 fast p50 1.43us (n=10000) first 2.40us
+[03:05:52] 413/586 E2.falcon-padded-512.sign.r4.a1 fast p50 210.29us (n=10000) first 2.163ms
+[03:05:53] 414/586 E2c.falcon-1024.verify.r4.a1 fast p50 1.98us (n=10000) first 4.42us
+[03:05:54] 415/586 E2c.ed25519.keygen.r1.a2 fast p50 67ns (n=10000) first 1.05us
+[03:05:57] 416/586 E2.ml-dsa-87.verify.r4.a1 fast p50 87.49us (n=10000) first 214.62us
+[03:06:05] 417/586 E2.ml-dsa-65.sign.r4.a1 fast p50 126.72us (n=10000) first 1.973ms
+[03:06:06] 418/586 E2c.ed25519.verify.r4.a1 fast p50 69ns (n=10000) first 1.10us
+[03:06:07] 419/586 E2c.falcon-512.verify.r4.a1 fast p50 1.00us (n=10000) first 2.67us
+[03:06:08] 420/586 E2c.falcon-padded-1024.keygen.r4.a1 fast p50 424ns (n=10000) first 13.42us
+[03:06:09] 421/586 E2c.ml-dsa-65.sign.r4.a1 fast p50 4.35us (n=10000) first 7.58us
+[03:06:10] 422/586 E2c.dhkem-p256.keygen.r2.a2 fast p50 113ns (n=10000) first 1.03us
+[03:06:11] 423/586 E2.dhkem-p256.keygen.r4.a1 fast p50 37.85us (n=10000) first 931.94us
+[03:09:12] 424/586 E2.hqc-5.decaps.r2.a2 slow p50 23.891ms (n=2498) first 24.073ms
+[03:09:13] canary 22 (periodic): 2274076 hashes/s, ratio 0.9995 
+[03:09:13] queued E2.falcon-padded-1024.keygen.r4.a2 (repeat:other) at position 108
+[03:09:13] queued E2.falcon-padded-512.keygen.r4.a2 (repeat:other) at position 112
+[03:09:13] queued E2.hqc-1.decaps.r4.a2 (repeat:other) at position 3
+[03:09:13] queued E2.hqc-5.keygen.r4.a2 (repeat:other) at position 32
+[03:09:14] 425/590 E2c.ml-dsa-65.keygen.r4.a1 fast p50 374ns (n=10000) first 1.72us
+[03:09:15] 426/590 E2c.ml-kem-1024.encaps.r4.a1 fast p50 1.72us (n=10000) first 3.45us
+[03:09:16] 427/590 E2c.ml-dsa-87.sign.r4.a1 fast p50 5.22us (n=10000) first 8.62us
+[03:12:18] 428/590 E2.hqc-1.decaps.r4.a2 slow p50 3.304ms (n=17932) first 3.450ms
+[03:15:18] 429/590 E2.hqc-3.decaps.r4.a1 slow p50 9.835ms (n=6031) first 10.107ms
+[03:15:19] 430/590 E2c.falcon-padded-1024.verify.r4.a1 fast p50 1.98us (n=10000) first 3.90us
+[03:15:20] 431/590 E2c.falcon-padded-512.verify.r4.a1 fast p50 1.00us (n=10000) first 2.42us
+[03:15:23] 432/590 E2c.dhkem-p256.decaps.r4.a1 fast p50 100ns (n=10000) first 1.40us
+[03:15:25] 433/590 E2.falcon-padded-512.verify.r4.a1 fast p50 39.13us (n=10000) first 154.47us
+[03:15:27] 434/590 E2.falcon-512.verify.r4.a1 fast p50 38.86us (n=10000) first 95.71us
+[03:15:27] 435/590 E2c.ml-kem-768.keygen.r4.a1 fast p50 545ns (n=10000) first 4.20us
+[03:22:59] 436/590 E2.hqc-5.encaps.r4.a1 slow p50 15.921ms (n=3747) first 17.810ms
+[03:23:01] canary 23 (periodic): 2280265 hashes/s, ratio 1.0022 
+[03:23:01] queued E2.hqc-1.decaps.r4.a3 (repeat:other) at position 130
+[03:23:01] queued E2.hqc-3.decaps.r4.a2 (repeat:other) at position 114
+[03:23:11] 437/592 E2.dhkem-p256.encaps.r4.a1 fast p50 131.06us (n=10000) first 1.139ms
+[03:23:12] 438/592 E2.ed25519.keygen.r4.a1 fast p50 41.71us (n=10000) first 789.04us
+[03:26:13] 439/592 E2.hqc-5.decaps.r4.a1 slow p50 23.943ms (n=2495) first 24.832ms
+[03:26:14] 440/592 E2c.ml-kem-768.encaps.r4.a1 fast p50 1.31us (n=10000) first 3.09us
+[03:26:15] 441/592 E2c.hqc-5.keygen.r4.a1 fast p50 523ns (n=10000) first 2.17us
+[03:26:17] 442/592 E2.ml-kem-768.keygen.r4.a1 fast p50 20.41us (n=10000) first 1.761ms
+[03:26:22] 443/592 E2.dhkem-p256.decaps.r4.a1 fast p50 116.87us (n=10000) first 260.88us
+[03:26:23] 444/592 E2.dhkem-x25519.keygen.r4.a1 fast p50 40.18us (n=10000) first 786.68us
+[03:26:26] 445/592 E2.ml-dsa-65.verify.r4.a1 fast p50 53.09us (n=10000) first 244.62us
+[03:26:26] 446/592 E2c.rsa3072-pss.keygen.r4.a1 fast p50 641ns (n=10000) first 1.41us
+[03:26:31] 447/592 E2.dhkem-x25519.encaps.r4.a1 fast p50 78.01us (n=10000) first 784.48us
+[03:29:32] 448/592 E2.hqc-3.decaps.r3.a2 slow p50 9.815ms (n=6057) first 9.980ms
+[03:29:34] 449/592 E2c.ecdsa-p256.verify.r4.a1 fast p50 106ns (n=10000) first 1.32us
+[03:29:41] 450/592 E2c.dhkem-x25519.decaps.r4.a1 fast p50 71ns (n=10000) first 1.56us
+[03:29:42] 451/592 E2c.hqc-3.decaps.r4.a1 fast p50 10.01us (n=10000) first 15.85us
+[03:29:43] 452/592 E2c.falcon-padded-512.keygen.r4.a1 fast p50 412ns (n=10000) first 2.21us
+[03:29:44] 453/592 E2c.ml-kem-1024.decaps.r4.a1 fast p50 2.00us (n=10000) first 3.70us
+[03:29:48] 454/592 E2.ed25519.verify.r4.a1 fast p50 101.04us (n=10000) first 154.10us
+[03:33:07] 455/592 E2.hqc-5.keygen.r1.a2 slow p50 7.987ms (n=7461) first 9.769ms
+[03:33:09] canary 24 (periodic): 2283852 hashes/s, ratio 1.0038 
+[03:33:09] queued E2.hqc-3.decaps.r3.a3 (repeat:other) at position 28
+[03:33:09] queued E2.hqc-5.encaps.r4.a2 (repeat:other) at position 117
+[03:40:43] 456/594 E2.hqc-1.encaps.r4.a1 slow p50 2.171ms (n=27255) first 3.880ms
+[03:44:02] 457/594 E2.hqc-5.keygen.r4.a2 slow p50 7.977ms (n=7467) first 9.947ms
+[03:44:04] canary 25 (periodic): 2269608 hashes/s, ratio 0.9976 
+[03:44:04] queued E2.hqc-1.encaps.r4.a2 (repeat:other) at position 35
+[03:44:14] 458/595 E2.ml-dsa-87.sign.r4.a1 fast p50 153.68us (n=10000) first 1.845ms
+[03:44:17] 459/595 E2.ml-dsa-65.keygen.r4.a1 fast p50 54.94us (n=10000) first 1.853ms
+[03:44:17] prepared falcon-1024.r5: P=256 in 0.2s
+[03:47:18] 460/595 E2.falcon-1024.keygen.r5.a1 slow p50 15.756ms (n=3427) first 17.312ms
+[03:50:37] 461/595 E2.hqc-3.keygen.r4.a2 slow p50 3.272ms (n=18142) first 5.320ms
+[03:50:37] prepared ml-dsa-65.r5: P=256 in 0.1s
+[03:50:38] 462/595 E2c.ml-dsa-65.sign.r5.a1 fast p50 4.34us (n=10000) first 7.55us
+[03:50:39] 463/595 E2c.falcon-1024.keygen.r5.a1 fast p50 412ns (n=10000) first 3.49us
+[03:50:39] prepared dhkem-x25519.r5: P=256 in 0.0s
+[03:50:42] 464/595 E2.dhkem-x25519.decaps.r5.a1 fast p50 39.08us (n=10000) first 126.77us
+[03:50:42] prepared ml-dsa-44.r5: P=256 in 0.0s
+[03:50:47] 465/595 E2.ml-dsa-44.sign.r5.a1 fast p50 79.42us (n=10000) first 1.913ms
+[03:50:49] prepared rsa3072-pss.r5: P=256 in 1.5s
+[03:50:49] 466/595 E2c.rsa3072-pss.keygen.r5.a1 fast p50 646ns (n=10000) first 1.79us
+[03:50:49] prepared ecdsa-p256.r5: P=256 in 0.0s
+[03:50:51] 467/595 E2.ecdsa-p256.keygen.r5.a1 fast p50 38.12us (n=10000) first 836.10us
+[03:50:52] 468/595 E2c.falcon-1024.sign.r5.a1 fast p50 2.60us (n=10000) first 15.17us
+[03:50:53] prepared hqc-1.r5: P=256 in 1.5s
+[03:50:54] 469/595 E2c.hqc-1.keygen.r5.a1 fast p50 500ns (n=10000) first 4.12us
+[03:53:55] 470/595 E2.hqc-1.decaps.r2.a3 slow p50 3.307ms (n=17904) first 3.391ms
+[03:53:57] 471/595 E2.ecdsa-p256.keygen.r1.a2 fast p50 37.97us (n=10000) first 1.058ms
+[03:53:57] prepared falcon-padded-512.r5: P=256 in 0.1s
+[03:53:58] 472/595 E2c.falcon-padded-512.sign.r5.a1 fast p50 1.44us (n=10000) first 2.43us
+[03:53:58] prepared ml-kem-768.r5: P=256 in 0.0s
+[03:53:59] 473/595 E2c.ml-kem-768.encaps.r5.a1 fast p50 1.35us (n=10000) first 2.98us
+[03:53:59] prepared falcon-padded-1024.r5: P=256 in 0.1s
+[03:54:17] 474/595 E2.falcon-padded-1024.sign.r5.a1 fast p50 423.28us (n=10000) first 2.176ms
+[03:54:19] canary 26 (periodic): 2264108 hashes/s, ratio 0.9951 
+[03:54:19] queued E2.falcon-1024.keygen.r5.a2 (repeat:other) at position 58
+[03:54:19] queued E2c.falcon-1024.keygen.r5.a2 (diagnostic:drift 0.0395 > 0.0300) at position 8
+[03:54:19] queued E2c.falcon-1024.sign.r3.a2 (diagnostic:drift 0.0463 > 0.0300) at position 52
+[03:54:19] queued E2c.hqc-1.keygen.r5.a2 (diagnostic:drift 0.0636 > 0.0300) at position 55
+[03:54:19] queued E2c.ml-dsa-65.sign.r4.a2 (diagnostic:drift 0.0408 > 0.0300) at position 98
+[03:54:19] queued E2c.ml-kem-768.encaps.r1.a2 (diagnostic:drift 0.0506 > 0.0300) at position 66
+[03:54:19] queued E2c.ml-kem-768.encaps.r4.a2 (diagnostic:drift 0.0398 > 0.0300) at position 32
+[03:54:19] prepared dhkem-p256.r5: P=256 in 0.1s
+[03:54:22] 475/602 E2c.dhkem-p256.encaps.r5.a1 fast p50 105ns (n=10000) first 1.26us
+[03:54:22] prepared ml-kem-1024.r5: P=256 in 0.0s
+[03:54:23] 476/602 E2.ml-kem-1024.decaps.r5.a1 fast p50 34.24us (n=10000) first 122.51us
+[03:57:24] 477/602 E2.falcon-padded-512.keygen.r5.a1 slow p50 5.586ms (n=9769) first 8.739ms
+[03:57:28] 478/602 E2.falcon-1024.verify.r5.a1 fast p50 82.03us (n=10000) first 191.21us
+[04:00:29] 479/602 E2.hqc-5.decaps.r1.a2 slow p50 23.884ms (n=2499) first 27.292ms
+[04:00:32] 480/602 E2.ml-dsa-65.keygen.r5.a1 fast p50 54.92us (n=10000) first 1.826ms
+[04:00:37] 481/602 E2.rsa3072-pss.verify.r5.a1 fast p50 37.51us (n=10000) first 137.82us
+[04:00:40] 482/602 E2.dhkem-x25519.decaps.r4.a2 fast p50 39.25us (n=10000) first 140.77us
+[04:00:41] 483/602 E2c.falcon-1024.keygen.r5.a2 fast p50 399ns (n=10000) first 2.37us
+[04:00:46] 484/602 E2.dhkem-x25519.encaps.r1.a2 fast p50 78.91us (n=10000) first 1.056ms
+[04:03:46] 485/602 E2.hqc-3.decaps.r3.a3 slow p50 9.815ms (n=6057) first 10.340ms
+[04:03:57] prepared hqc-5.r5: P=256 in 10.3s
+[04:03:58] 486/602 E2c.hqc-5.decaps.r5.a1 fast p50 16.25us (n=10000) first 24.29us
+[04:03:59] 487/602 E2c.hqc-5.keygen.r5.a1 fast p50 517ns (n=10000) first 7.47us
+[04:04:06] 488/602 E2c.dhkem-x25519.decaps.r5.a1 fast p50 72ns (n=10000) first 1.61us
+[04:04:09] 489/602 E2.ecdsa-p256.verify.r5.a1 fast p50 59.75us (n=10000) first 265.56us
+[04:07:10] 490/602 E2.hqc-5.decaps.r5.a1 slow p50 23.972ms (n=2488) first 25.305ms
+[04:07:12] canary 27 (periodic): 2273136 hashes/s, ratio 0.9991 
+[04:07:12] queued E2.ecdsa-p256.verify.r5.a2 (repeat:other) at position 28
+[04:07:12] queued E2.falcon-padded-1024.sign.r5.a2 (repeat:other) at position 94
+[04:07:12] queued E2c.dhkem-x25519.decaps.r5.a2 (diagnostic:drift 0.0548 > 0.0300) at position 112
+[04:07:12] queued E2c.hqc-5.keygen.r4.a2 (diagnostic:drift 0.0333 > 0.0300) at position 22
+[04:07:12] queued E2c.ml-kem-768.encaps.r5.a2 (diagnostic:drift 0.0540 > 0.0300) at position 112
+[04:07:13] 491/607 E2.dhkem-x25519.keygen.r5.a1 fast p50 40.51us (n=10000) first 794.40us
+[04:07:13] prepared ml-dsa-87.r5: P=256 in 0.1s
+[04:07:14] 492/607 E2c.ml-dsa-87.sign.r5.a1 fast p50 5.20us (n=10000) first 8.11us
+[04:07:24] 493/607 E2.falcon-padded-512.sign.r5.a1 fast p50 210.39us (n=10000) first 1.900ms
+[04:14:59] 494/607 E2.hqc-1.encaps.r4.a2 slow p50 2.166ms (n=27382) first 4.121ms
+[04:15:00] 495/607 E2c.ml-dsa-65.verify.r5.a1 fast p50 2.11us (n=10000) first 4.11us
+[04:15:01] 496/607 E2c.hqc-5.encaps.r5.a1 fast p50 7.99us (n=10000) first 13.08us
+[04:15:02] 497/607 E2c.ml-dsa-44.keygen.r5.a1 fast p50 349ns (n=10000) first 3.55us
+[04:15:02] prepared ml-kem-512.r5: P=256 in 0.0s
+[04:15:04] 498/607 E2.ml-kem-512.keygen.r5.a1 fast p50 12.17us (n=10000) first 1.668ms
+[04:15:08] prepared hqc-3.r5: P=256 in 4.2s
+[04:15:09] 499/607 E2c.hqc-3.keygen.r5.a1 fast p50 504ns (n=10000) first 3.00us
+[04:18:28] 500/607 E2.hqc-3.keygen.r5.a1 slow p50 3.272ms (n=18059) first 5.098ms
+[04:18:30] canary 28 (periodic): 2276957 hashes/s, ratio 1.0008 
+[04:18:30] queued E2.dhkem-x25519.keygen.r5.a2 (repeat:other) at position 47
+[04:18:30] queued E2.hqc-1.encaps.r4.a3 (repeat:other) at position 88
+[04:18:30] queued E2.hqc-5.decaps.r5.a2 (repeat:other) at position 6
+[04:18:30] queued E2c.hqc-3.keygen.r4.a2 (diagnostic:drift 0.0362 > 0.0300) at position 68
+[04:18:30] queued E2c.hqc-5.encaps.r2.a2 (diagnostic:drift 0.0362 > 0.0300) at position 43
+[04:18:30] queued E2c.hqc-5.encaps.r4.a2 (diagnostic:drift 0.0306 > 0.0300) at position 31
+[04:18:30] queued E2c.hqc-5.encaps.r5.a2 (diagnostic:drift 0.0382 > 0.0300) at position 44
+[04:18:30] queued E2c.ml-dsa-44.keygen.r2.a2 (diagnostic:drift 0.0313 > 0.0300) at position 5
+[04:18:30] queued E2c.ml-dsa-44.keygen.r3.a2 (diagnostic:drift 0.0344 > 0.0300) at position 14
+[04:18:30] queued E2c.ml-dsa-44.keygen.r4.a2 (diagnostic:drift 0.0341 > 0.0300) at position 54
+[04:18:30] queued E2c.ml-dsa-44.keygen.r5.a2 (diagnostic:drift 0.0375 > 0.0300) at position 115
+[04:18:30] queued E2c.ml-dsa-65.verify.r3.a2 (diagnostic:drift 0.0328 > 0.0300) at position 112
+[04:18:30] queued E2c.ml-dsa-87.sign.r5.a2 (repeat:other) at position 102
+[04:18:33] 501/620 E2.ml-dsa-65.verify.r5.a1 fast p50 53.17us (n=10000) first 157.85us
+[04:18:33] 502/620 E2c.falcon-1024.verify.r5.a1 fast p50 2.00us (n=10000) first 3.40us
+[04:18:51] 503/620 E2.falcon-1024.sign.r5.a1 fast p50 419.85us (n=10000) first 2.232ms
+[04:18:51] prepared ed25519.r5: P=256 in 0.1s
+[04:18:56] 504/620 E2.ed25519.verify.r5.a1 fast p50 100.78us (n=10000) first 168.50us
+[04:26:27] 505/620 E2.hqc-5.encaps.r2.a2 slow p50 15.901ms (n=3748) first 17.706ms
+[04:26:28] 506/620 E2c.ml-dsa-44.keygen.r2.a2 fast p50 366ns (n=10000) first 2.10us
+[04:27:01] 507/620 E2c.rsa3072-pss.sign.r5.a1 fast p50 2.10us (n=10000) first 3.50us
+[04:30:01] 508/620 E2.hqc-5.decaps.r5.a2 slow p50 23.919ms (n=2495) first 24.457ms
+[04:30:03] canary 29 (periodic): 2255619 hashes/s, ratio 0.9914 
+[04:30:03] queued E2c.falcon-1024.verify.r1.a2 (diagnostic:drift 0.0302 > 0.0300) at position 36
+[04:30:03] queued E2c.falcon-1024.verify.r2.a2 (diagnostic:drift 0.0372 > 0.0300) at position 10
+[04:30:03] queued E2c.falcon-1024.verify.r5.a2 (diagnostic:drift 0.0302 > 0.0300) at position 19
+[04:30:03] queued E2c.rsa3072-pss.sign.r1.a2 (diagnostic:drift 0.0862 > 0.0300) at position 25
+[04:30:03] queued E2c.rsa3072-pss.sign.r3.a2 (diagnostic:drift 0.0863 > 0.0300) at position 9
+[04:30:04] 509/625 E2c.ml-kem-768.encaps.r4.a2 fast p50 1.31us (n=10000) first 2.92us
+[04:33:26] 510/625 E2.hqc-1.keygen.r5.a1 slow p50 1.077ms (n=54604) first 2.961ms
+[04:33:27] 511/625 E2c.dhkem-p256.keygen.r5.a1 fast p50 111ns (n=10000) first 1.20us
+[04:33:27] 512/625 E2c.dhkem-x25519.keygen.r5.a1 fast p50 68ns (n=10000) first 1.01us
+[04:33:27] prepared falcon-512.r5: P=256 in 0.1s
+[04:33:28] 513/625 E2c.falcon-512.sign.r5.a1 fast p50 1.44us (n=10000) first 2.54us
+[04:33:28] 514/625 E2c.ecdsa-p256.keygen.r5.a1 fast p50 109ns (n=10000) first 1.44us
+[04:33:29] 515/625 E2c.ml-dsa-44.keygen.r3.a2 fast p50 354ns (n=10000) first 2.63us
+[04:33:30] 516/625 E2c.hqc-5.keygen.r4.a2 fast p50 507ns (n=10000) first 2.00us
+[04:33:34] 517/625 E2.ml-dsa-87.verify.r5.a1 fast p50 88.34us (n=10000) first 196.50us
+[04:34:06] 518/625 E2c.rsa3072-pss.sign.r3.a2 fast p50 2.31us (n=10000) first 3.86us
+[04:34:11] 519/625 E2.ecdsa-p256.sign.r5.a1 fast p50 24.64us (n=10000) first 669.39us
+[04:34:12] 520/625 E2c.falcon-1024.verify.r2.a2 fast p50 1.98us (n=10000) first 3.46us
+[04:37:18] 521/625 E2.rsa3072-pss.sign.r5.a1 slow p50 1.526ms (n=38472) first 2.958ms
+[04:44:49] 522/625 E2.hqc-3.encaps.r5.a1 slow p50 6.512ms (n=9112) first 8.479ms
+[04:44:50] canary 30 (periodic): 2281256 hashes/s, ratio 1.0027 
+[04:44:51] queued E2.hqc-1.keygen.r5.a2 (repeat:other) at position 21
+[04:44:51] queued E2.hqc-5.decaps.r5.a3 (repeat:other) at position 53
+[04:44:51] queued E2.rsa3072-pss.sign.r5.a2 (repeat:other) at position 90
+[04:44:52] 523/628 E2.ml-kem-1024.keygen.r5.a1 fast p50 28.59us (n=10000) first 2.217ms
+[04:44:54] 524/628 E2.ml-dsa-44.keygen.r5.a1 fast p50 32.24us (n=10000) first 1.683ms
+[04:44:58] 525/628 E2.ecdsa-p256.verify.r5.a2 fast p50 59.20us (n=10000) first 140.41us
+[04:44:59] 526/628 E2c.ml-kem-512.decaps.r5.a1 fast p50 1.08us (n=10000) first 3.21us
+[04:45:03] 527/628 E2.ml-dsa-87.keygen.r5.a1 fast p50 92.11us (n=10000) first 1.780ms
+[04:45:04] 528/628 E2c.falcon-padded-1024.keygen.r5.a1 fast p50 435ns (n=10000) first 6.53us
+[04:45:05] 529/628 E2c.falcon-1024.verify.r5.a2 fast p50 1.98us (n=10000) first 13.30us
+[04:45:06] 530/628 E2c.ml-dsa-65.keygen.r5.a1 fast p50 371ns (n=10000) first 7.62us
+[04:52:38] 531/628 E2.hqc-5.encaps.r5.a1 slow p50 15.883ms (n=3754) first 17.704ms
+[04:52:47] 532/628 E2.ml-dsa-87.sign.r5.a1 fast p50 153.12us (n=10000) first 2.032ms
+[04:52:48] 533/628 E2c.ml-dsa-44.sign.r5.a1 fast p50 2.85us (n=10000) first 7.54us
+[04:56:10] 534/628 E2.hqc-1.keygen.r3.a2 slow p50 1.080ms (n=54299) first 2.778ms
+[04:56:12] canary 31 (periodic): 2280345 hashes/s, ratio 1.0023 
+[04:56:12] queued E2.hqc-5.encaps.r5.a2 (repeat:other) at position 55
+[04:56:12] queued E2c.falcon-padded-1024.keygen.r1.a3 (diagnostic:drift 0.0467 > 0.0300) at position 50
+[04:56:12] queued E2c.falcon-padded-1024.keygen.r4.a2 (diagnostic:drift 0.0467 > 0.0300) at position 11
+[04:56:12] queued E2c.ml-dsa-65.keygen.r3.a2 (diagnostic:drift 0.0568 > 0.0300) at position 12
+[04:56:12] queued E2c.ml-kem-512.decaps.r5.a2 (diagnostic:drift 0.1742 > 0.0300) at position 76
+[04:56:44] 535/633 E2c.rsa3072-pss.sign.r1.a2 fast p50 2.29us (n=10000) first 2.92us
+[04:56:47] 536/633 E2c.dhkem-p256.decaps.r5.a1 fast p50 100ns (n=10000) first 1.34us
+[04:56:47] 537/633 E2c.falcon-1024.sign.r3.a2 fast p50 2.60us (n=10000) first 15.63us
+[04:56:49] 538/633 E2c.hqc-5.encaps.r4.a2 fast p50 8.04us (n=10000) first 13.85us
+[04:56:50] 539/633 E2c.ed25519.verify.r5.a1 fast p50 69ns (n=10000) first 1.68us
+[04:56:51] 540/633 E2c.falcon-512.sign.r4.a2 fast p50 1.44us (n=10000) first 2.98us
+[04:56:52] 541/633 E2c.hqc-1.keygen.r5.a2 fast p50 490ns (n=10000) first 2.14us
+[04:56:53] 542/633 E2.ml-kem-768.decaps.r5.a1 fast p50 23.71us (n=10000) first 139.44us
+[04:56:54] 543/633 E2c.ml-kem-512.keygen.r5.a1 fast p50 535ns (n=10000) first 3.30us
+[05:00:16] 544/633 E2.hqc-1.keygen.r5.a2 slow p50 1.080ms (n=54214) first 3.522ms
+[05:00:18] 545/633 E2.ml-kem-512.encaps.r5.a1 fast p50 12.77us (n=10000) first 1.717ms
+[05:00:19] 546/633 E2c.falcon-padded-1024.keygen.r4.a2 fast p50 419ns (n=10000) first 4.40us
+[05:00:20] 547/633 E2c.ml-dsa-65.keygen.r3.a2 fast p50 375ns (n=10000) first 1.71us
+[05:00:20] 548/633 E2c.falcon-padded-512.keygen.r5.a1 fast p50 419ns (n=10000) first 2.56us
+[05:00:21] 549/633 E2c.ml-dsa-44.verify.r5.a1 fast p50 1.48us (n=10000) first 4.40us
+[05:03:22] 550/633 E2.falcon-1024.keygen.r5.a2 slow p50 15.788ms (n=3431) first 16.441ms
+[05:03:24] 551/633 E2.dhkem-p256.keygen.r5.a1 fast p50 37.88us (n=10000) first 796.26us
+[05:03:25] 552/633 E2c.falcon-1024.verify.r1.a2 fast p50 1.97us (n=10000) first 5.06us
+[05:06:47] 553/633 E2.hqc-1.keygen.r1.a2 slow p50 1.077ms (n=54678) first 2.884ms
+[05:06:48] canary 32 (periodic): 2284641 hashes/s, ratio 1.0042 
+[05:06:48] queued E2c.falcon-padded-512.keygen.r2.a2 (diagnostic:drift 0.0525 > 0.0300) at position 66
+[05:06:48] queued E2c.ml-kem-512.keygen.r3.a2 (diagnostic:drift 0.0371 > 0.0300) at position 24
+[05:10:07] 554/635 E2.hqc-5.keygen.r5.a1 slow p50 7.972ms (n=7475) first 9.636ms
+[05:10:09] 555/635 E2c.hqc-5.encaps.r5.a2 fast p50 8.08us (n=10000) first 18.92us
+[05:10:10] 556/635 E2c.hqc-5.encaps.r2.a2 fast p50 7.99us (n=10000) first 13.94us
+[05:17:46] 557/635 E2.hqc-1.encaps.r5.a1 slow p50 2.168ms (n=27309) first 3.967ms
+[05:17:48] canary 33 (periodic): 2273817 hashes/s, ratio 0.9994 
+[05:17:49] 558/635 E2c.ml-kem-768.encaps.r1.a2 fast p50 1.32us (n=10000) first 2.99us
+[05:20:49] 559/635 E2.falcon-padded-1024.keygen.r4.a2 slow p50 15.778ms (n=3449) first 26.104ms
+[05:20:50] 560/635 E2c.falcon-padded-1024.sign.r5.a1 fast p50 2.60us (n=10000) first 9.17us
+[05:20:51] 561/635 E2c.ml-kem-1024.decaps.r5.a1 fast p50 1.98us (n=10000) first 3.15us
+[05:20:53] 562/635 E2.dhkem-x25519.keygen.r5.a2 fast p50 40.10us (n=10000) first 790.42us
+[05:20:54] 563/635 E2c.ml-dsa-44.keygen.r4.a2 fast p50 354ns (n=10000) first 2.87us
+[05:20:55] 564/635 E2c.hqc-3.decaps.r5.a1 fast p50 9.96us (n=10000) first 14.59us
+[05:23:56] 565/635 E2.falcon-padded-512.keygen.r4.a2 slow p50 5.582ms (n=9745) first 6.243ms
+[05:23:56] 566/635 E2c.falcon-512.keygen.r5.a1 fast p50 384ns (n=10000) first 11.93us
+[05:24:03] 567/635 E2.ed25519.sign.r5.a1 fast p50 38.12us (n=10000) first 230.57us
+[05:24:11] 568/635 E2.ml-dsa-65.sign.r5.a1 fast p50 126.41us (n=10000) first 1.950ms
+[05:24:12] 569/635 E2c.dhkem-x25519.encaps.r5.a1 fast p50 69ns (n=10000) first 1.58us
+[05:24:12] 570/635 E2c.ed25519.keygen.r5.a1 fast p50 67ns (n=10000) first 1.08us
+[05:24:15] 571/635 E2.ml-kem-768.encaps.r5.a1 fast p50 20.37us (n=10000) first 1.744ms
+[05:24:16] 572/635 E2c.falcon-padded-512.verify.r5.a1 fast p50 1.00us (n=10000) first 2.63us
+[05:24:17] 573/635 E2c.ml-kem-1024.encaps.r5.a1 fast p50 1.71us (n=10000) first 3.12us
+[05:27:18] 574/635 E2.falcon-512.keygen.r5.a1 slow p50 5.612ms (n=9740) first 7.073ms
+[05:30:18] 575/635 E2.falcon-1024.keygen.r1.a2 slow p50 15.777ms (n=3446) first 27.855ms
+[05:30:20] canary 34 (periodic): 2292879 hashes/s, ratio 1.0078 
+[05:30:20] queued E2.falcon-padded-1024.keygen.r4.a3 (repeat:other) at position 0
+[05:30:20] queued E2.hqc-1.encaps.r5.a2 (repeat:other) at position 37
+[05:30:20] queued E2c.falcon-512.keygen.r1.a2 (diagnostic:drift 0.0423 > 0.0300) at position 57
+[05:30:20] queued E2c.falcon-512.keygen.r4.a2 (diagnostic:drift 0.0457 > 0.0300) at position 46
+[05:30:20] queued E2c.ml-kem-1024.encaps.r1.a2 (diagnostic:drift 0.0317 > 0.0300) at position 16
+[05:30:20] queued E2c.ml-kem-1024.encaps.r5.a2 (diagnostic:drift 0.0440 > 0.0300) at position 21
+[05:33:21] 576/641 E2.falcon-padded-1024.keygen.r4.a3 slow p50 15.854ms (n=3418) first 25.862ms
+[05:33:22] 577/641 E2c.falcon-padded-1024.verify.r5.a1 fast p50 1.99us (n=10000) first 3.55us
+[05:36:22] 578/641 E2.hqc-3.decaps.r4.a2 slow p50 9.824ms (n=6028) first 9.965ms
+[05:36:23] 579/641 E2c.ml-kem-512.keygen.r3.a2 fast p50 534ns (n=10000) first 3.23us
+[05:39:24] 580/641 E2.hqc-5.decaps.r5.a3 slow p50 23.983ms (n=2492) first 25.402ms
+[05:42:46] 581/641 E2.hqc-1.keygen.r2.a2 slow p50 1.082ms (n=54327) first 2.868ms
+[05:42:48] canary 35 (periodic): 2275845 hashes/s, ratio 1.0003 
+[05:42:48] queued E2.hqc-3.decaps.r4.a3 (repeat:other) at position 46
+[05:42:48] queued E2c.falcon-padded-1024.verify.r1.a2 (diagnostic:drift 0.0452 > 0.0300) at position 17
+[05:42:48] queued E2c.falcon-padded-1024.verify.r2.a2 (diagnostic:drift 0.0880 > 0.0300) at position 1
+[05:45:54] 582/644 E2.rsa3072-pss.sign.r4.a2 slow p50 1.527ms (n=38602) first 2.973ms
+[05:45:55] 583/644 E2c.falcon-padded-1024.verify.r2.a2 fast p50 1.98us (n=10000) first 3.45us
+[05:45:57] 584/644 E2c.ecdsa-p256.verify.r5.a1 fast p50 105ns (n=10000) first 1.67us
+[05:45:59] 585/644 E2.ml-dsa-65.verify.r1.a2 fast p50 53.30us (n=10000) first 160.67us
+[05:46:01] 586/644 E2.ml-kem-512.decaps.r5.a1 fast p50 14.71us (n=10000) first 122.67us
+[05:46:02] 587/644 E2c.hqc-3.keygen.r4.a2 fast p50 503ns (n=10000) first 3.01us
+[05:46:03] 588/644 E2c.hqc-1.encaps.r5.a1 fast p50 2.41us (n=10000) first 3.97us
+[05:46:12] 589/644 E2.falcon-512.sign.r5.a1 fast p50 208.68us (n=10000) first 2.103ms
+[05:46:13] 590/644 E2c.falcon-padded-1024.keygen.r1.a3 fast p50 430ns (n=10000) first 4.78us
+[05:48:21] 591/644 E2.rsa3072-pss.keygen.r5.a1 slow p50 554.104ms (n=96) first 758.956ms
+[05:48:23] 592/644 E2.falcon-padded-512.verify.r5.a1 fast p50 39.30us (n=10000) first 138.10us
+[05:48:24] 593/644 E2c.ml-kem-1024.encaps.r1.a2 fast p50 1.71us (n=10000) first 3.55us
+[05:48:26] 594/644 E2.falcon-512.verify.r5.a1 fast p50 38.90us (n=10000) first 117.47us
+[05:48:38] 595/644 E2c.rsa3072-pss.verify.r5.a1 fast p50 558ns (n=10000) first 1.92us
+[05:56:10] 596/644 E2.hqc-5.encaps.r3.a2 slow p50 15.915ms (n=3751) first 17.772ms
+[05:56:12] canary 36 (periodic): 2278724 hashes/s, ratio 1.0016 
+[05:56:12] queued E2.rsa3072-pss.keygen.r2.a2 (diagnostic:drift 0.1591 > 0.1491) at position 29
+[05:56:12] queued E2.rsa3072-pss.keygen.r5.a2 (repeat:other) at position 17
+[05:56:12] queued E2c.hqc-1.encaps.r5.a2 (diagnostic:drift 0.0370 > 0.0300) at position 36
+[06:03:43] 597/647 E2.hqc-5.encaps.r5.a2 slow p50 15.899ms (n=3747) first 17.598ms
+[06:03:44] 598/647 E2c.ml-kem-1024.encaps.r5.a2 fast p50 1.71us (n=10000) first 4.03us
+[06:03:49] 599/647 E2.dhkem-x25519.encaps.r5.a1 fast p50 78.92us (n=10000) first 876.30us
+[06:03:50] 600/647 E2c.falcon-padded-1024.verify.r1.a2 fast p50 1.99us (n=10000) first 13.45us
+[06:06:51] 601/647 E2.falcon-512.keygen.r3.a2 slow p50 5.615ms (n=9676) first 7.577ms
+[06:06:53] canary 37 (periodic): 2276969 hashes/s, ratio 1.0008 
+[06:06:53] queued E2.hqc-5.encaps.r5.a3 (repeat:other) at position 20
+[06:06:54] 602/648 E2c.ml-kem-512.encaps.r5.a1 fast p50 906ns (n=10000) first 2.40us
+[06:06:55] 603/648 E2c.ml-dsa-65.sign.r4.a2 fast p50 4.36us (n=10000) first 10.33us
+[06:09:56] 604/648 E2.falcon-padded-1024.keygen.r5.a1 slow p50 15.835ms (n=3420) first 17.172ms
+[06:12:57] 605/648 E2.hqc-1.decaps.r4.a3 slow p50 3.303ms (n=17937) first 3.432ms
+[06:12:58] 606/648 E2c.ml-dsa-87.keygen.r5.a1 fast p50 384ns (n=10000) first 2.54us
+[06:13:08] 607/648 E2.dhkem-p256.encaps.r5.a1 fast p50 130.93us (n=10000) first 1.011ms
+[06:13:09] 608/648 E2c.hqc-3.encaps.r5.a1 fast p50 4.80us (n=10000) first 9.31us
+[06:20:41] 609/648 E2.hqc-5.encaps.r4.a2 slow p50 15.910ms (n=3743) first 17.649ms
+[06:20:42] canary 38 (periodic): 2278997 hashes/s, ratio 1.0017 
+[06:20:42] queued E2.dhkem-p256.encaps.r5.a2 (repeat:other) at position 20
+[06:20:42] queued E2.falcon-512.keygen.r3.a3 (repeat:other) at position 34
+[06:20:42] queued E2.falcon-padded-1024.keygen.r5.a2 (repeat:other) at position 2
+[06:20:42] queued E2c.ml-dsa-87.keygen.r1.a2 (diagnostic:drift 0.0335 > 0.0300) at position 0
+[06:20:42] queued E2c.ml-dsa-87.keygen.r3.a2 (diagnostic:drift 0.0506 > 0.0300) at position 42
+[06:20:42] queued E2c.ml-dsa-87.keygen.r5.a2 (repeat:other) at position 14
+[06:20:42] queued E2c.ml-kem-512.encaps.r1.a2 (diagnostic:drift 0.0398 > 0.0300) at position 21
+[06:20:42] queued E2c.ml-kem-512.encaps.r5.a2 (repeat:other) at position 1
+[06:20:43] 610/656 E2c.ml-dsa-87.keygen.r1.a2 fast p50 386ns (n=10000) first 2.65us
+[06:20:44] 611/656 E2c.ml-kem-512.encaps.r5.a2 fast p50 904ns (n=10000) first 1.87us
+[06:23:45] 612/656 E2.hqc-3.decaps.r1.a2 slow p50 9.810ms (n=6055) first 10.036ms
+[06:26:46] 613/656 E2.hqc-3.decaps.r5.a1 slow p50 9.829ms (n=6053) first 9.875ms
+[06:29:46] 614/656 E2.falcon-padded-1024.keygen.r5.a2 slow p50 15.796ms (n=3422) first 15.531ms
+[06:30:05] 615/656 E2.falcon-padded-1024.sign.r5.a2 fast p50 421.74us (n=10000) first 2.165ms
+[06:30:06] 616/656 E2c.ml-dsa-87.verify.r5.a1 fast p50 2.85us (n=10000) first 7.44us
+[06:32:14] 617/656 E2.rsa3072-pss.keygen.r5.a2 slow p50 495.146ms (n=100) first 442.629ms
+[06:32:15] canary 39 (periodic): 2275590 hashes/s, ratio 1.0002 
+[06:32:15] queued E2.hqc-5.encaps.r4.a3 (repeat:other) at position 32
+[06:32:16] queued E2c.ml-dsa-87.verify.r3.a2 (diagnostic:drift 0.0565 > 0.0300) at position 9
+[06:39:52] 618/658 E2.hqc-1.encaps.r4.a3 slow p50 2.164ms (n=27374) first 3.900ms
+[06:42:53] 619/658 E2.hqc-1.decaps.r5.a1 slow p50 3.301ms (n=17982) first 3.430ms
+[06:42:55] canary 40 (periodic): 2197874 hashes/s, ratio 0.9660 
+[06:42:55] queued E2.rsa3072-pss.keygen.r5.a3 (repeat:other) at position 12
+[06:50:30] 620/659 E2.hqc-1.encaps.r2.a3 slow p50 2.168ms (n=27332) first 3.842ms
+[06:58:04] 621/659 E2.hqc-1.encaps.r5.a2 slow p50 2.170ms (n=27242) first 4.024ms
+[06:58:06] canary 41 (periodic): 2277128 hashes/s, ratio 1.0009 
+[06:58:06] queued E2.hqc-1.decaps.r5.a2 (repeat:other;canary) at position 0
+[07:01:07] 622/660 E2.hqc-1.decaps.r5.a2 slow p50 3.299ms (n=18021) first 3.570ms
+[07:01:08] 623/660 E2c.ml-kem-512.decaps.r5.a2 fast p50 934ns (n=10000) first 2.27us
+[07:01:09] 624/660 E2c.ml-kem-768.keygen.r5.a1 fast p50 545ns (n=10000) first 3.77us
+[07:01:13] 625/660 E2.falcon-padded-1024.verify.r5.a1 fast p50 82.30us (n=10000) first 190.56us
+[07:01:14] 626/660 E2c.ml-dsa-87.keygen.r5.a2 fast p50 371ns (n=10000) first 2.81us
+[07:08:45] 627/660 E2.hqc-5.encaps.r5.a3 slow p50 15.907ms (n=3755) first 17.717ms
+[07:08:47] canary 42 (periodic): 2282228 hashes/s, ratio 1.0031 
+[07:08:47] queued E2.hqc-1.encaps.r5.a3 (repeat:canary) at position 5
+[07:08:47] queued E2c.ml-dsa-87.keygen.r5.a3 (diagnostic:drift 0.0402 > 0.0300) at position 7
+[07:08:47] queued E2c.ml-kem-768.keygen.r4.a2 (diagnostic:drift 0.0484 > 0.0300) at position 30
+[07:08:47] queued E2c.ml-kem-768.keygen.r5.a2 (diagnostic:drift 0.0447 > 0.0300) at position 15
+[07:08:48] 628/664 E2c.ml-dsa-87.verify.r3.a2 fast p50 2.85us (n=10000) first 6.38us
+[07:08:51] 629/664 E2c.ecdsa-p256.sign.r5.a1 fast p50 70ns (n=10000) first 1.56us
+[07:08:51] 630/664 E2c.ml-dsa-87.sign.r5.a2 fast p50 5.24us (n=10000) first 9.57us
+[07:08:53] 631/664 E2c.hqc-5.decaps.r1.a2 fast p50 16.21us (n=10000) first 23.57us
+[07:08:54] 632/664 E2c.hqc-1.decaps.r5.a1 fast p50 5.31us (n=10000) first 9.87us
+[07:16:31] 633/664 E2.hqc-1.encaps.r5.a3 slow p50 2.161ms (n=27483) first 3.885ms
+[07:18:41] 634/664 E2.rsa3072-pss.keygen.r5.a3 slow p50 582.298ms (n=100) first 312.336ms
+[07:18:42] 635/664 E2c.ml-dsa-87.keygen.r5.a3 fast p50 383ns (n=10000) first 3.11us
+[07:21:48] 636/664 E2.rsa3072-pss.sign.r5.a2 slow p50 1.528ms (n=38564) first 2.820ms
+[07:21:49] canary 43 (periodic): 2272407 hashes/s, ratio 0.9988 
+[07:21:51] 637/664 E2c.ml-kem-512.encaps.r1.a2 fast p50 902ns (n=10000) first 2.09us
+[07:23:57] 638/664 E2.rsa3072-pss.keygen.r2.a2 slow p50 488.255ms (n=106) first 312.524ms
+[07:23:58] 639/664 E2c.falcon-512.keygen.r4.a2 fast p50 412ns (n=10000) first 25.51us
+[07:24:08] 640/664 E2.dhkem-p256.encaps.r5.a2 fast p50 130.95us (n=10000) first 913.29us
+[07:24:09] 641/664 E2c.ml-kem-1024.keygen.r5.a1 fast p50 554ns (n=10000) first 9.54us
+[07:24:10] 642/664 E2c.falcon-padded-512.keygen.r2.a2 fast p50 421ns (n=10000) first 4.09us
+[07:24:11] 643/664 E2c.ml-kem-768.keygen.r5.a2 fast p50 541ns (n=10000) first 2.72us
+[07:24:15] 644/664 E2.ml-dsa-87.keygen.r2.a2 fast p50 91.85us (n=10000) first 2.038ms
+[07:27:16] 645/664 E2.hqc-3.decaps.r4.a3 slow p50 9.793ms (n=6075) first 9.938ms
+[07:27:17] 646/664 E2c.hqc-1.encaps.r5.a2 fast p50 2.42us (n=10000) first 4.84us
+[07:27:18] 647/664 E2c.ml-kem-768.decaps.r5.a1 fast p50 1.40us (n=10000) first 4.82us
+[07:27:23] 648/664 E2.dhkem-p256.decaps.r5.a1 fast p50 116.72us (n=10000) first 215.28us
+[07:27:25] 649/664 E2.ed25519.keygen.r5.a1 fast p50 41.73us (n=10000) first 712.55us
+[07:27:27] 650/664 E2.ml-dsa-44.verify.r5.a1 fast p50 32.07us (n=10000) first 151.79us
+[07:27:33] 651/664 E2c.ed25519.sign.r5.a1 fast p50 71ns (n=10000) first 1.47us
+[07:27:34] 652/664 E2c.falcon-512.verify.r5.a1 fast p50 1.00us (n=10000) first 2.30us
+[07:27:35] 653/664 E2c.ml-dsa-65.verify.r3.a2 fast p50 2.12us (n=10000) first 13.24us
+[07:27:36] 654/664 E2c.ml-kem-768.encaps.r5.a2 fast p50 1.31us (n=10000) first 3.77us
+[07:30:37] 655/664 E2.falcon-512.keygen.r3.a3 slow p50 5.616ms (n=9692) first 6.809ms
+[07:38:09] 656/664 E2.hqc-5.encaps.r4.a3 slow p50 15.856ms (n=3753) first 17.993ms
+[07:38:10] canary 44 (periodic): 2281170 hashes/s, ratio 1.0026 
+[07:38:10] queued E2c.ed25519.sign.r4.a2 (diagnostic:drift 0.0369 > 0.0300) at position 1
+[07:38:11] queued E2c.falcon-512.verify.r1.a2 (diagnostic:drift 0.1766 > 0.0300) at position 4
+[07:38:11] queued E2c.falcon-512.verify.r2.a2 (diagnostic:drift 0.0898 > 0.0300) at position 9
+[07:38:11] queued E2c.ml-kem-1024.keygen.r1.a3 (diagnostic:drift 0.0626 > 0.0300) at position 10
+[07:38:11] queued E2c.ml-kem-1024.keygen.r5.a2 (diagnostic:drift 0.0516 > 0.0300) at position 9
+[07:38:11] 657/669 E2c.falcon-512.keygen.r1.a2 fast p50 408ns (n=10000) first 2.42us
+[07:38:18] 658/669 E2c.ed25519.sign.r4.a2 fast p50 72ns (n=10000) first 1.70us
+[07:41:18] 659/669 E2.falcon-padded-1024.keygen.r3.a2 slow p50 15.705ms (n=3449) first 16.805ms
+[07:41:19] 660/669 E2c.ml-kem-768.keygen.r4.a2 fast p50 540ns (n=10000) first 11.42us
+[07:41:20] 661/669 E2c.falcon-512.verify.r1.a2 fast p50 990ns (n=10000) first 2.97us
+[07:41:27] 662/669 E2c.dhkem-x25519.decaps.r5.a2 fast p50 71ns (n=10000) first 1.25us
+[07:41:28] 663/669 E2c.ml-dsa-44.keygen.r5.a2 fast p50 352ns (n=10000) first 3.23us
+[07:41:31] 664/669 E2.ml-kem-1024.encaps.r5.a1 fast p50 29.33us (n=10000) first 1.726ms
+[07:41:32] 665/669 E2c.ml-dsa-87.keygen.r3.a2 fast p50 385ns (n=10000) first 1.92us
+[07:41:33] 666/669 E2c.ml-kem-1024.keygen.r5.a2 fast p50 555ns (n=10000) first 2.75us
+[07:41:34] 667/669 E2c.falcon-512.verify.r2.a2 fast p50 1.00us (n=10000) first 2.22us
+[07:41:35] 668/669 E2c.ml-kem-1024.keygen.r1.a3 fast p50 550ns (n=10000) first 6.79us
+[07:41:36] 669/669 E2.ml-kem-768.keygen.r5.a1 fast p50 20.44us (n=10000) first 1.777ms
+[07:41:38] canary 45 (end): 2279866 hashes/s, ratio 1.0021 
+[07:42:04] batch complete: 669 attempt(s); 1785 file(s) in SHA256SUMS

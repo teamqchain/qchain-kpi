@@ -1,0 +1,13 @@
+utc_ns,other_pct,throttle,on_ac,alert,detail
+1794043980482612400,0.913,0,1,0,total=14.3;runtime=12.8;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=147.7;temp_c=67;battery_pct=100;energy_saver=Disabled;found=none
+1794043985183215900,1.898,0,1,0,total=16.5;runtime=13.3;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=147.9;temp_c=67;battery_pct=100;energy_saver=Disabled;found=none
+1794043990185132300,1.158,0,1,0,total=14.4;runtime=12.7;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=147.1;temp_c=67;battery_pct=100;energy_saver=Disabled;found=none
+1794043995186142900,2.032,0,1,0,total=15.2;runtime=12.7;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=143.6;temp_c=67;battery_pct=100;energy_saver=Disabled;found=none
+1794044000209235400,0.735,0,1,0,total=13.8;runtime=12.5;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=147.9;temp_c=67;battery_pct=100;energy_saver=Disabled;found=none
+1794044005223508600,0.731,0,1,0,total=13.9;runtime=12.6;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=148.0;temp_c=68;battery_pct=100;energy_saver=Disabled;found=none
+1794044010781622700,6.402,0,1,0,total=19.8;runtime=12.9;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=140.1;temp_c=68;battery_pct=100;energy_saver=Disabled;found=none;busiest_other=Docker_Desktop:3.1
+1794044015307088800,2.422,0,1,0,total=15.5;runtime=12.5;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=143.9;temp_c=69;battery_pct=100;energy_saver=Disabled;found=none
+1794044020317067700,1.515,0,1,0,total=14.7;runtime=12.7;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=145.1;temp_c=70;battery_pct=100;energy_saver=Disabled;found=none
+1794044025312850300,1.599,0,1,0,total=14.7;runtime=12.7;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=145.2;temp_c=70;battery_pct=100;energy_saver=Disabled;found=none
+1794044030840546800,14.234,0,1,0,total=29.9;runtime=15.2;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=141.7;temp_c=71;battery_pct=100;energy_saver=Disabled;found=none;busiest_other=HP.ContextAware:3.1
+1794044035337302800,2.224,0,1,0,total=15.4;runtime=12.6;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=145.8;temp_c=71;battery_pct=100;energy_saver=Disabled;found=none

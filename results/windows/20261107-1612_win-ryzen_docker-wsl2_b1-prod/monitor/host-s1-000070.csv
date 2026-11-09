@@ -1,0 +1,13 @@
+utc_ns,other_pct,throttle,on_ac,alert,detail
+1794072074787713100,25.528,0,1,0,total=82.2;runtime=55.5;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=125.3;temp_c=70;battery_pct=100;energy_saver=Disabled;found=none
+1794072079410331300,33.060,0,1,0,total=86.7;runtime=51.4;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=127.9;temp_c=70;battery_pct=100;energy_saver=Disabled;found=none
+1794072084313771900,40.771,0,1,0,total=89.8;runtime=47.9;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=127.3;temp_c=69;battery_pct=100;energy_saver=Disabled;found=none
+1794072089673619800,35.186,0,1,0,total=85.7;runtime=49.4;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=126.9;temp_c=69;battery_pct=100;energy_saver=Disabled;found=none;busiest_other=WindowsTerminal:6.3
+1794072094401054100,32.015,0,1,0,total=83.7;runtime=50.6;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=122.6;temp_c=69;battery_pct=100;energy_saver=Disabled;found=none
+1794072099374683200,25.941,0,1,0,total=80.7;runtime=53.8;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=121.3;temp_c=69;battery_pct=100;energy_saver=Disabled;found=none
+1794072104371737400,36.467,0,1,0,total=88.8;runtime=51.2;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=125.1;temp_c=69;battery_pct=100;energy_saver=Disabled;found=none;busiest_other=BackgroundTransferHost:34.4
+1794072109206687200,30.525,0,1,0,total=60.0;runtime=28.5;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=118.8;temp_c=68;battery_pct=100;energy_saver=Disabled;found=none;busiest_other=WhatsApp.Root:6.3
+1794072114313727600,34.380,0,1,0,total=48.9;runtime=13.8;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=114.6;temp_c=68;battery_pct=100;energy_saver=Disabled;found=none;busiest_other=WindowsTerminal:3.1
+1794072119135273800,22.908,0,1,0,total=38.1;runtime=14.5;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=115.9;temp_c=69;battery_pct=100;energy_saver=Disabled;found=none
+1794072124202181000,16.143,0,1,0,total=31.1;runtime=14.3;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=118.8;temp_c=70;battery_pct=100;energy_saver=Disabled;found=none;busiest_other=SearchHost:6.3
+1794072129525202600,29.056,0,1,0,total=44.5;runtime=14.6;perf_limit=100.0;limit_flags=0;passive_limit=100.0;proc_perf=126.6;temp_c=70;battery_pct=100;energy_saver=Disabled;found=none;busiest_other=backgroundTaskHost:31.3
