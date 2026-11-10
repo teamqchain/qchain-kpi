@@ -17,9 +17,15 @@
       "started_utc": "2026-11-08T12:14:08Z",
       "start_unix_ns": 1794140048356503260,
       "host_offset_ns": -154625154
+    },
+    {
+      "n": 2,
+      "started_utc": "2026-11-09T21:27:28Z",
+      "start_unix_ns": 1794259648507140813,
+      "host_offset_ns": -148404156
     }
   ],
-  "planned_blocks": 450,
+  "planned_blocks": 452,
   "queue": [],
   "done": [
     "E4.hqc-1.decaps.r1.a1",
@@ -556,7 +562,9 @@
     "E4.slh-dsa-shake-128s.verify.r5.a2",
     "E4.slh-dsa-shake-256f.verify.r5.a2",
     "E4.slh-dsa-shake-256f.verify.r5.a3",
-    "E4.falcon-1024.sign.r5.a3"
+    "E4.falcon-1024.sign.r5.a3",
+    "E4.falcon-1024.keygen.r4.a4",
+    "E4.slh-dsa-sha2-128f.verify.r5.a4"
   ],
   "classification": {},
   "requeued": {
@@ -567,6 +575,7 @@
     "E4.ed25519.verify.r5.a1": true,
     "E4.falcon-1024.keygen.r4.a1": true,
     "E4.falcon-1024.keygen.r4.a2": true,
+    "E4.falcon-1024.keygen.r4.a3": true,
     "E4.falcon-1024.sign.r5.a1": true,
     "E4.falcon-1024.sign.r5.a2": true,
     "E4.falcon-1024.verify.r3.a1": true,
@@ -602,6 +611,7 @@
     "E4.rsa3072-pss.verify.r5.a1": true,
     "E4.slh-dsa-sha2-128f.verify.r5.a1": true,
     "E4.slh-dsa-sha2-128f.verify.r5.a2": true,
+    "E4.slh-dsa-sha2-128f.verify.r5.a3": true,
     "E4.slh-dsa-sha2-128s.keygen.r4.a1": true,
     "E4.slh-dsa-sha2-128s.sign.r3.a1": true,
     "E4.slh-dsa-sha2-128s.sign.r4.a1": true,
@@ -648,9 +658,9 @@
     "E4.slh-dsa-sha2-192s.keygen.r5": true,
     "E4.slh-dsa-shake-128s.keygen.r3": true
   },
-  "canary_seq": 43,
+  "canary_seq": 45,
   "first_canary_rate": 2253739.707841513,
-  "last_canary_unix_ns": 1794166249836772388,
+  "last_canary_unix_ns": 1794259781558451691,
   "preps": {
     "dhkem-p256.r1": {
       "pool": 256,
@@ -815,10 +825,10 @@
     },
     "falcon-1024.r4": {
       "pool": 256,
-      "prep_ns": 2176466851,
-      "fingerprint": "cabdd001069dc8a7",
+      "prep_ns": 2221731202,
+      "fingerprint": "4f94a882b1ee87f7",
       "e10": false,
-      "session": 1
+      "session": 2
     },
     "falcon-1024.r5": {
       "pool": 256,
@@ -1312,10 +1322,10 @@
     },
     "slh-dsa-sha2-128f.r5": {
       "pool": 256,
-      "prep_ns": 5631016109,
-      "fingerprint": "49d1d4c1641a0d62",
+      "prep_ns": 5624745781,
+      "fingerprint": "f2ca3191e93155b1",
       "e10": false,
-      "session": 1
+      "session": 2
     },
     "slh-dsa-sha2-128s.r1": {
       "pool": 64,
@@ -1702,6 +1712,23 @@
       "e10": false,
       "session": 1
     }
+  },
+  "extensions": [
+    {
+      "session": 2,
+      "blocks": [
+        "E4.falcon-1024.keygen.r4",
+        "E4.slh-dsa-sha2-128f.verify.r5"
+      ],
+      "old_image_id": "sha256:3e0c14b3b2502adb2488b05260bb764af9837ae9b7ccbdd7d2d7d8b55d2f015d",
+      "old_harness_commit": "7999c37dfe6d6a48a15ef5e56929526612dc95d9",
+      "new_image_id": "sha256:3e0c14b3b2502adb2488b05260bb764af9837ae9b7ccbdd7d2d7d8b55d2f015d",
+      "new_harness_commit": "7999c37dfe6d6a48a15ef5e56929526612dc95d9"
+    }
+  ],
+  "extension_base": {
+    "E4.falcon-1024.keygen.r4": 3,
+    "E4.slh-dsa-sha2-128f.verify.r5": 3
   },
   "cell_reps": {
     "E4.dhkem-p256.decaps": 5,

@@ -1647,3 +1647,39 @@ utc_ns,event,key,detail
 1794109296573695393,block_done,E2.ml-kem-768.keygen.r5.a1,
 1794109298114833729,canary,,45 end ratio 1.00207 
 1794109323311683188,batch_done,,669 attempt(s)
+1794261426382940681,extension_queued,E2.hqc-1.decaps.r2.a4,"block had 3 attempt(s), none clean"
+1794261426441767259,extension_queued,E2.hqc-1.decaps.r4.a4,"block had 3 attempt(s), none clean"
+1794261426446229874,extension_queued,E2.hqc-1.encaps.r2.a4,"block had 3 attempt(s), none clean"
+1794261426449310687,extension_queued,E2.hqc-1.encaps.r4.a4,"block had 3 attempt(s), none clean"
+1794261426452608076,extension_queued,E2.hqc-1.encaps.r5.a4,"block had 3 attempt(s), none clean"
+1794261426463701086,session_start,,session 2; host offset -112470510 ns
+1794261426775204159,e0,,e0-s2.json
+1794261428356669801,canary,,46 extend ratio 0.98802 
+1794261429814081648,prep,hqc-1.r2,pool 256 e10 false 1419196471 ns
+1794261429817941957,block_start,E2.hqc-1.decaps.r2.a4,slow
+1794261611085093241,block_done,E2.hqc-1.decaps.r2.a4,
+1794261612593135502,prep,hqc-1.r4,pool 256 e10 false 1450600671 ns
+1794261612596884591,block_start,E2.hqc-1.decaps.r4.a4,slow
+1794261793831824215,block_done,E2.hqc-1.decaps.r4.a4,
+1794261793835021618,block_start,E2.hqc-1.encaps.r2.a4,slow
+1794262249513727147,block_done,E2.hqc-1.encaps.r2.a4,
+1794262251046566645,canary,,47 periodic ratio 0.99879 
+1794262251151937305,checkpoint,,0 block(s) queued; 2 remaining
+1794262251155686866,block_start,E2.hqc-1.encaps.r4.a4,slow
+1794262705799589621,block_done,E2.hqc-1.encaps.r4.a4,
+1794262707251369256,prep,hqc-1.r5,pool 256 e10 false 1409274526 ns
+1794262707255232209,block_start,E2.hqc-1.encaps.r5.a4,slow
+1794263162320481727,block_done,E2.hqc-1.encaps.r5.a4,
+1794263163854195626,canary,,48 end ratio 0.99724 
+1794263168942018859,queued,E2.hqc-1.encaps.r2.a5,repeat:other; position 0
+1794263168949980210,queued,E2.hqc-1.encaps.r4.a5,repeat:other; position 0
+1794263168975903887,block_start,E2.hqc-1.encaps.r4.a5,slow
+1794263624093773968,block_done,E2.hqc-1.encaps.r4.a5,
+1794263624096996653,block_start,E2.hqc-1.encaps.r2.a5,slow
+1794264079739076041,block_done,E2.hqc-1.encaps.r2.a5,
+1794264081268182484,canary,,49 end ratio 0.99773 
+1794264126477393284,queued,E2.hqc-1.encaps.r4.a6,repeat:other; position 0
+1794264126507540869,block_start,E2.hqc-1.encaps.r4.a6,slow
+1794264583104789570,block_done,E2.hqc-1.encaps.r4.a6,
+1794264584648494027,canary,,50 end ratio 1.00216 
+1794264614839659010,batch_done,,677 attempt(s)

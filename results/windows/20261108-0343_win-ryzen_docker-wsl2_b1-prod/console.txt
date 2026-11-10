@@ -3193,3 +3193,20 @@
 [16:06:09] 2824/2824 E11.slh-dsa-sha2-128s+ml-kem-512.issuance-n64-v16.r5.a3 slow p50 430.331ms (n=139) first 429.809ms
 [16:06:10] canary 51 (end): 2279193 hashes/s, ratio 1.0018 
 [16:07:06] batch complete: 2824 attempt(s); 3853 file(s) in SHA256SUMS
+
+=== extension session (blocks without a clean attempt) ===
+[01:48:37] resuming 20261108-0343_win-ryzen_docker-wsl2_b1-prod: 0 block(s) queued, 2824 done, 0 temporary file(s) removed
+[01:48:39] canary 52 (extend): 2288465 hashes/s, ratio 1.0059 
+[01:48:43] 2825/2828 E11.ml-dsa-44+ml-kem-768.issuance-n64-v256.r2.a4 fast p50 1.384ms (n=2000) first 3.160ms
+[01:49:45] 2826/2828 E11.slh-dsa-sha2-128s+ml-kem-512.issuance-n64-v16.r5.a4 slow p50 434.275ms (n=138) first 432.667ms
+[01:50:49] 2827/2828 E11.slh-dsa-sha2-128s.presentation-k3-v16.r4.a4 slow p50 432.694ms (n=139) first 431.288ms
+[01:51:52] 2828/2828 E11.slh-dsa-sha2-128s.presentation-k64-v16.r1.a4 slow p50 430.385ms (n=140) first 430.485ms
+[01:51:53] canary 53 (end): 2274060 hashes/s, ratio 0.9995 
+[01:52:44] queued E11.ml-dsa-44+ml-kem-768.issuance-n64-v256.r2.a5 (repeat:other) at position 0
+[01:52:44] queued E11.slh-dsa-sha2-128s.presentation-k3-v16.r4.a5 (repeat:other) at position 0
+[01:52:44] queued E11.slh-dsa-sha2-128s.presentation-k64-v16.r1.a5 (repeat:other) at position 1
+[01:53:47] 2829/2831 E11.slh-dsa-sha2-128s.presentation-k3-v16.r4.a5 slow p50 431.013ms (n=139) first 434.692ms
+[01:54:50] 2830/2831 E11.slh-dsa-sha2-128s.presentation-k64-v16.r1.a5 slow p50 429.739ms (n=140) first 431.893ms
+[01:54:53] 2831/2831 E11.ml-dsa-44+ml-kem-768.issuance-n64-v256.r2.a5 fast p50 1.355ms (n=2000) first 3.244ms
+[01:54:54] canary 54 (end): 2278147 hashes/s, ratio 1.0013 
+[01:55:40] batch complete: 2831 attempt(s); 3891 file(s) in SHA256SUMS

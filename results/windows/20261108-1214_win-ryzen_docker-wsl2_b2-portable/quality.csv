@@ -446,7 +446,7 @@ E4.slh-dsa-shake-256f.keygen.r5.a1,E4.slh-dsa-shake-256f.keygen.r5,E4,slh-dsa-sh
 E4.ml-dsa-44.keygen.r5.a1,E4.ml-dsa-44.keygen.r5,E4,ml-dsa-44,keygen,5,1,false,flagged,canary,no,0.0078,0.0300,0.0000,0.0000,0.9850,0.9850,0,1,true,false,false,false,0.9990,0.9642,,,false,record
 E4.falcon-padded-512.sign.r5.a1,E4.falcon-padded-512.sign.r5,E4,falcon-padded-512,sign,5,1,false,flagged,canary,no,0.0017,0.0300,0.0000,0.3652,1.8500,2.2152,0,9,true,false,false,false,0.9990,0.9642,,,false,record
 E4.ml-dsa-44.verify.r5.a1,E4.ml-dsa-44.verify.r5,E4,ml-dsa-44,verify,5,1,false,flagged,canary,no,0.0011,0.0300,0.0000,0.2326,1.8500,2.0826,0,2,true,false,false,false,0.9990,0.9642,,,false,record
-E4.falcon-1024.keygen.r4.a3,E4.falcon-1024.keygen.r4,E4,falcon-1024,keygen,4,3,false,flagged,canary,no,0.0033,0.0361,0.0000,0.1076,1.4520,1.5596,0,13,true,false,false,false,0.9990,0.9642,,,false,exhausted
+E4.falcon-1024.keygen.r4.a3,E4.falcon-1024.keygen.r4,E4,falcon-1024,keygen,4,3,false,flagged,canary,no,0.0033,0.0361,0.0000,0.1076,1.4520,1.5596,0,13,true,false,false,false,0.9990,0.9642,,,false,record
 E4.slh-dsa-shake-192f.sign.r4.a2,E4.slh-dsa-shake-192f.sign.r4,E4,slh-dsa-shake-192f,sign,4,2,false,flagged,canary,no,0.0041,0.0300,0.0000,0.1426,2.0120,2.1546,0,14,true,false,false,false,0.9990,0.9642,,,false,record
 E4.rsa3072-pss.verify.r5.a1,E4.rsa3072-pss.verify.r5,E4,rsa3072-pss,verify,5,1,false,flagged,canary,no,0.0084,0.0300,0.0000,0.1206,0.9170,1.0376,0,1,true,false,false,false,0.9990,0.9642,,,false,record
 E4.ecdsa-p256.verify.r5.a1,E4.ecdsa-p256.verify.r5,E4,ecdsa-p256,verify,5,1,false,flagged,canary,no,0.0000,0.0300,0.0000,0.0382,0.9170,0.9552,0,1,true,false,false,false,0.9990,0.9642,,,false,record
@@ -501,7 +501,7 @@ E4.slh-dsa-shake-128s.keygen.r3.a4,E4.slh-dsa-shake-128s.keygen.r3,E4,slh-dsa-sh
 E4.slh-dsa-shake-192f.verify.r5.a1,E4.slh-dsa-shake-192f.verify.r5,E4,slh-dsa-shake-192f,verify,5,1,false,ok,,no,0.0026,0.0300,0.0000,0.3411,2.6920,3.0331,0,13,true,false,false,false,0.9979,1.0006,,,true,
 E4.falcon-512.keygen.r5.a1,E4.falcon-512.keygen.r5,E4,falcon-512,keygen,5,1,false,ok,,no,0.0022,0.0300,0.0000,0.2078,1.7150,1.9228,0,13,true,false,false,false,0.9979,1.0006,,,true,
 E4.slh-dsa-sha2-192s.keygen.r5.a2,E4.slh-dsa-sha2-192s.keygen.r5,E4,slh-dsa-sha2-192s,keygen,5,2,true,ok,,no,0.0010,0.0300,0.0000,0.0963,4.7520,4.8483,0,13,true,false,false,false,0.9979,1.0006,,,false,
-E4.slh-dsa-sha2-128f.verify.r5.a3,E4.slh-dsa-sha2-128f.verify.r5,E4,slh-dsa-sha2-128f,verify,5,3,false,flagged,other,no,0.0129,0.0300,0.0000,0.2769,7.4970,7.7739,0,13,true,false,false,false,0.9979,1.0006,,,false,exhausted
+E4.slh-dsa-sha2-128f.verify.r5.a3,E4.slh-dsa-sha2-128f.verify.r5,E4,slh-dsa-sha2-128f,verify,5,3,false,flagged,other,no,0.0129,0.0300,0.0000,0.2769,7.4970,7.7739,0,13,true,false,false,false,0.9979,1.0006,,,false,record
 E4.slh-dsa-shake-256s.sign.r5.a1,E4.slh-dsa-shake-256s.sign.r5,E4,slh-dsa-shake-256s,sign,5,1,false,flagged,other,no,0.0020,0.0300,0.0000,0.0846,11.9460,12.0306,0,14,true,false,false,false,0.9979,1.0006,,,false,record
 E4.slh-dsa-shake-128f.verify.r5.a1,E4.slh-dsa-shake-128f.verify.r5,E4,slh-dsa-shake-128f,verify,5,1,false,flagged,other,no,0.0153,0.0300,0.0000,0.2993,11.0350,11.3343,0,13,true,false,false,false,0.9979,1.0006,,,false,record
 E4.ml-kem-1024.encaps.r3.a2,E4.ml-kem-1024.encaps.r3,E4,ml-kem-1024,encaps,3,2,true,ok,,yes,0.0429,0.0300,0.0000,0.9054,2.1530,3.0584,0,2,true,false,false,false,0.9979,1.0006,,,false,
@@ -534,3 +534,5 @@ E4.slh-dsa-shake-128s.verify.r5.a2,E4.slh-dsa-shake-128s.verify.r5,E4,slh-dsa-sh
 E4.slh-dsa-shake-256f.verify.r5.a2,E4.slh-dsa-shake-256f.verify.r5,E4,slh-dsa-shake-256f,verify,5,2,false,flagged,other,no,0.0001,0.0300,0.0000,0.1750,4.9130,5.0880,0,13,true,false,false,false,0.9887,0.9975,,,false,record
 E4.slh-dsa-shake-256f.verify.r5.a3,E4.slh-dsa-shake-256f.verify.r5,E4,slh-dsa-shake-256f,verify,5,3,false,ok,,no,0.0037,0.0300,0.0000,0.1435,1.7820,1.9255,0,13,true,false,false,false,0.9975,1.0014,,,true,
 E4.falcon-1024.sign.r5.a3,E4.falcon-1024.sign.r5,E4,falcon-1024,sign,5,3,false,ok,,no,0.0015,0.0300,0.0000,0.1411,2.3550,2.4961,0,19,true,false,false,false,0.9975,1.0014,,,true,
+E4.falcon-1024.keygen.r4.a4,E4.falcon-1024.keygen.r4,E4,falcon-1024,keygen,4,4,false,ok,,no,0.0096,0.0337,0.0000,0.3471,1.9880,2.3351,0,13,true,false,false,false,0.9963,1.0001,,,true,
+E4.slh-dsa-sha2-128f.verify.r5.a4,E4.slh-dsa-sha2-128f.verify.r5,E4,slh-dsa-sha2-128f,verify,5,4,false,ok,,no,0.0082,0.0300,0.0000,0.1934,2.0720,2.2654,0,13,true,false,false,false,0.9963,1.0001,,,true,

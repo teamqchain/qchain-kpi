@@ -17,9 +17,15 @@
       "started_utc": "2026-11-08T03:44:02Z",
       "start_unix_ns": 1794109442305422876,
       "host_offset_ns": -163217609
+    },
+    {
+      "n": 2,
+      "started_utc": "2026-11-09T21:48:37Z",
+      "start_unix_ns": 1794260917859640930,
+      "host_offset_ns": -128267604
     }
   ],
-  "planned_blocks": 2505,
+  "planned_blocks": 2509,
   "queue": [],
   "done": [
     "E11.slh-dsa-sha2-128s+ml-kem-512.issuance-n10-v16.r1.a1",
@@ -2845,7 +2851,14 @@
     "E11.ml-dsa-44+ml-kem-768.verification-n10-k1-v16.r5.a2",
     "E11.ml-dsa-65+ml-kem-768.verification-n64-k64-v16.r3.a2",
     "E11.rsa3072-pss+dhkem-p256.verification-n20-k20-v16.r4.a2",
-    "E11.slh-dsa-sha2-128s+ml-kem-512.issuance-n64-v16.r5.a3"
+    "E11.slh-dsa-sha2-128s+ml-kem-512.issuance-n64-v16.r5.a3",
+    "E11.ml-dsa-44+ml-kem-768.issuance-n64-v256.r2.a4",
+    "E11.slh-dsa-sha2-128s+ml-kem-512.issuance-n64-v16.r5.a4",
+    "E11.slh-dsa-sha2-128s.presentation-k3-v16.r4.a4",
+    "E11.slh-dsa-sha2-128s.presentation-k64-v16.r1.a4",
+    "E11.slh-dsa-sha2-128s.presentation-k3-v16.r4.a5",
+    "E11.slh-dsa-sha2-128s.presentation-k64-v16.r1.a5",
+    "E11.ml-dsa-44+ml-kem-768.issuance-n64-v256.r2.a5"
   ],
   "classification": {},
   "requeued": {
@@ -2930,6 +2943,8 @@
     "E11.ml-dsa-44+ml-kem-768.issuance-n20-v256.r3.a1": true,
     "E11.ml-dsa-44+ml-kem-768.issuance-n64-v256.r2.a1": true,
     "E11.ml-dsa-44+ml-kem-768.issuance-n64-v256.r2.a2": true,
+    "E11.ml-dsa-44+ml-kem-768.issuance-n64-v256.r2.a3": true,
+    "E11.ml-dsa-44+ml-kem-768.issuance-n64-v256.r2.a4": true,
     "E11.ml-dsa-44+ml-kem-768.issuance-n64-v256.r3.a1": true,
     "E11.ml-dsa-44+ml-kem-768.issuance-n64-v4096.r3.a1": true,
     "E11.ml-dsa-44+ml-kem-768.issuance-n64-v4096.r4.a1": true,
@@ -3031,6 +3046,7 @@
     "E11.slh-dsa-sha2-128s+ml-kem-512.issuance-n64-v16.r3.a1": true,
     "E11.slh-dsa-sha2-128s+ml-kem-512.issuance-n64-v16.r5.a1": true,
     "E11.slh-dsa-sha2-128s+ml-kem-512.issuance-n64-v16.r5.a2": true,
+    "E11.slh-dsa-sha2-128s+ml-kem-512.issuance-n64-v16.r5.a3": true,
     "E11.slh-dsa-sha2-128s+ml-kem-512.verification-n1-k1-v16.r3.a1": true,
     "E11.slh-dsa-sha2-128s+ml-kem-512.verification-n10-k1-v16.r3.a1": true,
     "E11.slh-dsa-sha2-128s+ml-kem-512.verification-n10-k1-v16.r4.a1": true,
@@ -3049,12 +3065,16 @@
     "E11.slh-dsa-sha2-128s.presentation-k3-v16.r3.a1": true,
     "E11.slh-dsa-sha2-128s.presentation-k3-v16.r4.a1": true,
     "E11.slh-dsa-sha2-128s.presentation-k3-v16.r4.a2": true,
+    "E11.slh-dsa-sha2-128s.presentation-k3-v16.r4.a3": true,
+    "E11.slh-dsa-sha2-128s.presentation-k3-v16.r4.a4": true,
     "E11.slh-dsa-sha2-128s.presentation-k3-v16.r5.a1": true,
     "E11.slh-dsa-sha2-128s.presentation-k32-v16.r3.a1": true,
     "E11.slh-dsa-sha2-128s.presentation-k32-v16.r5.a1": true,
     "E11.slh-dsa-sha2-128s.presentation-k5-v16.r3.a1": true,
     "E11.slh-dsa-sha2-128s.presentation-k64-v16.r1.a1": true,
     "E11.slh-dsa-sha2-128s.presentation-k64-v16.r1.a2": true,
+    "E11.slh-dsa-sha2-128s.presentation-k64-v16.r1.a3": true,
+    "E11.slh-dsa-sha2-128s.presentation-k64-v16.r1.a4": true,
     "E11.slh-dsa-sha2-192f+ml-kem-768.issuance-n1-v16.r4.a1": true,
     "E11.slh-dsa-sha2-192f+ml-kem-768.issuance-n10-v16.r2.a1": true,
     "E11.slh-dsa-sha2-192f+ml-kem-768.issuance-n10-v16.r2.a2": true,
@@ -3171,10 +3191,31 @@
     "E11.slh-dsa-sha2-128s+ml-kem-512.verification-n5-k5-v16.r4": true,
     "E11.slh-dsa-sha2-192f+ml-kem-768.verification-n64-k64-v16.r5": true
   },
-  "canary_seq": 51,
+  "canary_seq": 54,
   "first_canary_rate": 2263056.9351646104,
-  "last_canary_unix_ns": 1794139570612525083,
+  "last_canary_unix_ns": 1794261294848845276,
   "preps": {},
+  "extensions": [
+    {
+      "session": 2,
+      "blocks": [
+        "E11.ml-dsa-44+ml-kem-768.issuance-n64-v256.r2",
+        "E11.slh-dsa-sha2-128s+ml-kem-512.issuance-n64-v16.r5",
+        "E11.slh-dsa-sha2-128s.presentation-k3-v16.r4",
+        "E11.slh-dsa-sha2-128s.presentation-k64-v16.r1"
+      ],
+      "old_image_id": "sha256:edfdeec773fab3b18b23ad3399616c00c768beac5c48523ac4c64f24e3309797",
+      "old_harness_commit": "7999c37dfe6d6a48a15ef5e56929526612dc95d9",
+      "new_image_id": "sha256:edfdeec773fab3b18b23ad3399616c00c768beac5c48523ac4c64f24e3309797",
+      "new_harness_commit": "7999c37dfe6d6a48a15ef5e56929526612dc95d9"
+    }
+  ],
+  "extension_base": {
+    "E11.ml-dsa-44+ml-kem-768.issuance-n64-v256.r2": 3,
+    "E11.slh-dsa-sha2-128s+ml-kem-512.issuance-n64-v16.r5": 3,
+    "E11.slh-dsa-sha2-128s.presentation-k3-v16.r4": 3,
+    "E11.slh-dsa-sha2-128s.presentation-k64-v16.r1": 3
+  },
   "cell_reps": {
     "E11.dhkem-p256.retrieval-n1-v16": 5,
     "E11.dhkem-p256.retrieval-n10-v16": 5,

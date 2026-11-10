@@ -6068,3 +6068,30 @@ utc_ns,event,key,detail
 1794139569103702758,block_done,E11.slh-dsa-sha2-128s+ml-kem-512.issuance-n64-v16.r5.a3,
 1794139570634365223,canary,,51 end ratio 1.00178 
 1794139625929218565,batch_done,,2824 attempt(s)
+1794260917995125572,extension_queued,E11.ml-dsa-44+ml-kem-768.issuance-n64-v256.r2.a4,"block had 3 attempt(s), none clean"
+1794260918004505716,extension_queued,E11.slh-dsa-sha2-128s+ml-kem-512.issuance-n64-v16.r5.a4,"block had 3 attempt(s), none clean"
+1794260918009156857,extension_queued,E11.slh-dsa-sha2-128s.presentation-k3-v16.r4.a4,"block had 3 attempt(s), none clean"
+1794260918012053127,extension_queued,E11.slh-dsa-sha2-128s.presentation-k64-v16.r1.a4,"block had 3 attempt(s), none clean"
+1794260918026301290,session_start,,session 2; host offset -128267604 ns
+1794260918289844311,e0,,e0-s2.json
+1794260919823694879,canary,,52 extend ratio 1.00585 
+1794260919827765681,block_start,E11.ml-dsa-44+ml-kem-768.issuance-n64-v256.r2.a4,fast
+1794260923103606395,block_done,E11.ml-dsa-44+ml-kem-768.issuance-n64-v256.r2.a4,
+1794260923106576620,block_start,E11.slh-dsa-sha2-128s+ml-kem-512.issuance-n64-v16.r5.a4,slow
+1794260985949116589,block_done,E11.slh-dsa-sha2-128s+ml-kem-512.issuance-n64-v16.r5.a4,
+1794260985952215983,block_start,E11.slh-dsa-sha2-128s.presentation-k3-v16.r4.a4,slow
+1794261049008413334,block_done,E11.slh-dsa-sha2-128s.presentation-k3-v16.r4.a4,
+1794261049011296986,block_start,E11.slh-dsa-sha2-128s.presentation-k64-v16.r1.a4,slow
+1794261112207274703,block_done,E11.slh-dsa-sha2-128s.presentation-k64-v16.r1.a4,
+1794261113742997699,canary,,53 end ratio 0.99952 
+1794261164019087332,queued,E11.ml-dsa-44+ml-kem-768.issuance-n64-v256.r2.a5,repeat:other; position 0
+1794261164027019713,queued,E11.slh-dsa-sha2-128s.presentation-k3-v16.r4.a5,repeat:other; position 0
+1794261164030593647,queued,E11.slh-dsa-sha2-128s.presentation-k64-v16.r1.a5,repeat:other; position 1
+1794261164067777994,block_start,E11.slh-dsa-sha2-128s.presentation-k3-v16.r4.a5,slow
+1794261226998511901,block_done,E11.slh-dsa-sha2-128s.presentation-k3-v16.r4.a5,
+1794261227001768673,block_start,E11.slh-dsa-sha2-128s.presentation-k64-v16.r1.a5,slow
+1794261290090346210,block_done,E11.slh-dsa-sha2-128s.presentation-k64-v16.r1.a5,
+1794261290093230083,block_start,E11.ml-dsa-44+ml-kem-768.issuance-n64-v256.r2.a5,fast
+1794261293340588061,block_done,E11.ml-dsa-44+ml-kem-768.issuance-n64-v256.r2.a5,
+1794261294869443567,canary,,54 end ratio 1.00132 
+1794261340142696404,batch_done,,2831 attempt(s)

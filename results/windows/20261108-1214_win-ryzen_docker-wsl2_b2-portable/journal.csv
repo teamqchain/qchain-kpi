@@ -1390,3 +1390,16 @@ utc_ns,event,key,detail
 1794166248327604588,block_done,E4.falcon-1024.sign.r5.a3,
 1794166249859957327,canary,,43 end ratio 1.00144 
 1794166274979227315,batch_done,,535 attempt(s)
+1794259648541348785,extension_queued,E4.falcon-1024.keygen.r4.a4,"block had 3 attempt(s), none clean"
+1794259648547848782,extension_queued,E4.slh-dsa-sha2-128f.verify.r5.a4,"block had 3 attempt(s), none clean"
+1794259648560387467,session_start,,session 2; host offset -148404156 ns
+1794259648850450639,e0,,e0-s2.json
+1794259650386123589,canary,,44 extend ratio 0.99631 
+1794259652639342131,prep,falcon-1024.r4,pool 256 e10 false 2221731202 ns
+1794259652644114247,block_start,E4.falcon-1024.keygen.r4.a4,slow
+1794259713252187521,block_done,E4.falcon-1024.keygen.r4.a4,
+1794259718953114806,prep,slh-dsa-sha2-128f.r5,pool 256 e10 false 5624745781 ns
+1794259718956822900,block_start,E4.slh-dsa-sha2-128f.verify.r5.a4,slow
+1794259780048778430,block_done,E4.slh-dsa-sha2-128f.verify.r5.a4,
+1794259781583477306,canary,,45 end ratio 1.00014 
+1794259836752517291,batch_done,,537 attempt(s)

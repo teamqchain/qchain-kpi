@@ -17,9 +17,15 @@
       "started_utc": "2026-11-07T18:35:58Z",
       "start_unix_ns": 1794076558041776704,
       "host_offset_ns": -164046288
+    },
+    {
+      "n": 2,
+      "started_utc": "2026-11-09T21:57:06Z",
+      "start_unix_ns": 1794261426316564816,
+      "host_offset_ns": -112470510
     }
   ],
-  "planned_blocks": 540,
+  "planned_blocks": 545,
   "queue": [],
   "done": [
     "E2c.ml-dsa-87.sign.r1.a1",
@@ -690,7 +696,15 @@
     "E2c.ml-kem-1024.keygen.r5.a2",
     "E2c.falcon-512.verify.r2.a2",
     "E2c.ml-kem-1024.keygen.r1.a3",
-    "E2.ml-kem-768.keygen.r5.a1"
+    "E2.ml-kem-768.keygen.r5.a1",
+    "E2.hqc-1.decaps.r2.a4",
+    "E2.hqc-1.decaps.r4.a4",
+    "E2.hqc-1.encaps.r2.a4",
+    "E2.hqc-1.encaps.r4.a4",
+    "E2.hqc-1.encaps.r5.a4",
+    "E2.hqc-1.encaps.r4.a5",
+    "E2.hqc-1.encaps.r2.a5",
+    "E2.hqc-1.encaps.r4.a6"
   ],
   "classification": {},
   "requeued": {
@@ -716,16 +730,24 @@
     "E2.hqc-1.decaps.r1.a1": true,
     "E2.hqc-1.decaps.r2.a1": true,
     "E2.hqc-1.decaps.r2.a2": true,
+    "E2.hqc-1.decaps.r2.a3": true,
     "E2.hqc-1.decaps.r4.a1": true,
     "E2.hqc-1.decaps.r4.a2": true,
+    "E2.hqc-1.decaps.r4.a3": true,
     "E2.hqc-1.decaps.r5.a1": true,
     "E2.hqc-1.encaps.r2.a1": true,
     "E2.hqc-1.encaps.r2.a2": true,
+    "E2.hqc-1.encaps.r2.a3": true,
+    "E2.hqc-1.encaps.r2.a4": true,
     "E2.hqc-1.encaps.r3.a1": true,
     "E2.hqc-1.encaps.r4.a1": true,
     "E2.hqc-1.encaps.r4.a2": true,
+    "E2.hqc-1.encaps.r4.a3": true,
+    "E2.hqc-1.encaps.r4.a4": true,
+    "E2.hqc-1.encaps.r4.a5": true,
     "E2.hqc-1.encaps.r5.a1": true,
     "E2.hqc-1.encaps.r5.a2": true,
+    "E2.hqc-1.encaps.r5.a3": true,
     "E2.hqc-1.keygen.r1.a1": true,
     "E2.hqc-1.keygen.r2.a1": true,
     "E2.hqc-1.keygen.r3.a1": true,
@@ -826,9 +848,9 @@
     "E2c.rsa3072-pss.sign.r1": true,
     "E2c.rsa3072-pss.sign.r3": true
   },
-  "canary_seq": 45,
+  "canary_seq": 50,
   "first_canary_rate": 2220249.133987366,
-  "last_canary_unix_ns": 1794109298082655245,
+  "last_canary_unix_ns": 1794264584615259996,
   "preps": {
     "dhkem-p256.r1": {
       "pool": 256,
@@ -1119,10 +1141,10 @@
     },
     "hqc-1.r2": {
       "pool": 256,
-      "prep_ns": 1407715957,
-      "fingerprint": "2a7a375a57064fa0",
+      "prep_ns": 1419196471,
+      "fingerprint": "c7b1b15ba0e86696",
       "e10": false,
-      "session": 1
+      "session": 2
     },
     "hqc-1.r3": {
       "pool": 256,
@@ -1133,17 +1155,17 @@
     },
     "hqc-1.r4": {
       "pool": 256,
-      "prep_ns": 1425350077,
-      "fingerprint": "a0b88d990e91b4ea",
+      "prep_ns": 1450600671,
+      "fingerprint": "477bc6026ba6f859",
       "e10": false,
-      "session": 1
+      "session": 2
     },
     "hqc-1.r5": {
       "pool": 256,
-      "prep_ns": 1474891631,
-      "fingerprint": "c30102a46ee1eac2",
+      "prep_ns": 1409274526,
+      "fingerprint": "42d602e0f2524030",
       "e10": false,
-      "session": 1
+      "session": 2
     },
     "hqc-3.r1": {
       "pool": 256,
@@ -1460,6 +1482,29 @@
       "e10": false,
       "session": 1
     }
+  },
+  "extensions": [
+    {
+      "session": 2,
+      "blocks": [
+        "E2.hqc-1.decaps.r2",
+        "E2.hqc-1.decaps.r4",
+        "E2.hqc-1.encaps.r2",
+        "E2.hqc-1.encaps.r4",
+        "E2.hqc-1.encaps.r5"
+      ],
+      "old_image_id": "sha256:edfdeec773fab3b18b23ad3399616c00c768beac5c48523ac4c64f24e3309797",
+      "old_harness_commit": "7999c37dfe6d6a48a15ef5e56929526612dc95d9",
+      "new_image_id": "sha256:edfdeec773fab3b18b23ad3399616c00c768beac5c48523ac4c64f24e3309797",
+      "new_harness_commit": "7999c37dfe6d6a48a15ef5e56929526612dc95d9"
+    }
+  ],
+  "extension_base": {
+    "E2.hqc-1.decaps.r2": 3,
+    "E2.hqc-1.decaps.r4": 3,
+    "E2.hqc-1.encaps.r2": 3,
+    "E2.hqc-1.encaps.r4": 3,
+    "E2.hqc-1.encaps.r5": 3
   },
   "cell_reps": {
     "E2.dhkem-p256.decaps": 5,

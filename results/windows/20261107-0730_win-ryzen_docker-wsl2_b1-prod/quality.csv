@@ -161,7 +161,7 @@ E1.ml-dsa-65.keygen.r2.a1,E1.ml-dsa-65.keygen.r2,E1,ml-dsa-65,keygen,2,1,false,o
 E1.ml-dsa-65.sign.r2.a1,E1.ml-dsa-65.sign.r2,E1,ml-dsa-65,sign,2,1,false,ok,,no,0.0073,0.0300,0.0000,0.2876,1.8030,2.0906,0,1,true,false,false,false,0.9975,1.0014,,,true,
 E1.falcon-padded-1024.sign.r2.a1,E1.falcon-padded-1024.sign.r2,E1,falcon-padded-1024,sign,2,1,false,ok,,no,0.0049,0.0300,0.0000,0.2262,1.8030,2.0292,0,2,true,false,false,false,0.9975,1.0014,,,true,
 E1.rsa3072-pss.keygen.r2.a1,E1.rsa3072-pss.keygen.r2,E1,rsa3072-pss,keygen,2,1,false,ok,,no,0.0000,0.1767,0.0000,0.0796,2.8700,2.9496,0,13,true,false,false,false,0.9975,1.0014,,,true,
-E1.hqc-3.encaps.r1.a3,E1.hqc-3.encaps.r1,E1,hqc-3,encaps,1,3,false,flagged,other,no,0.0007,0.0300,0.0000,0.1629,8.4380,8.6009,0,31,true,false,false,false,0.9975,1.0014,,,false,exhausted
+E1.hqc-3.encaps.r1.a3,E1.hqc-3.encaps.r1,E1,hqc-3,encaps,1,3,false,flagged,other,no,0.0007,0.0300,0.0000,0.1629,8.4380,8.6009,0,31,true,false,false,false,0.9975,1.0014,,,false,record
 E1.ml-dsa-87.keygen.r2.a1,E1.ml-dsa-87.keygen.r2,E1,ml-dsa-87,keygen,2,1,false,ok,,no,0.0027,0.0300,0.0000,0.5426,1.6010,2.1436,0,1,true,false,false,false,0.9975,1.0014,,,true,
 E1.slh-dsa-sha2-192s.keygen.r1.a2,E1.slh-dsa-sha2-192s.keygen.r1,E1,slh-dsa-sha2-192s,keygen,1,2,false,flagged,other,no,0.0002,0.0300,0.0000,0.0950,7.4620,7.5570,0,13,true,false,false,false,0.9975,1.0014,,,false,record
 E1.rsa3072-pss.verify.r2.a1,E1.rsa3072-pss.verify.r2,E1,rsa3072-pss,verify,2,1,false,ok,,no,0.0002,0.0300,0.0000,0.0000,1.4620,1.4620,0,1,true,false,false,false,0.9975,1.0014,,,true,
@@ -455,7 +455,7 @@ E1.ml-dsa-65.keygen.r5.a1,E1.ml-dsa-65.keygen.r5,E1,ml-dsa-65,keygen,5,1,false,o
 E1.slh-dsa-shake-128s.sign.r5.a1,E1.slh-dsa-shake-128s.sign.r5,E1,slh-dsa-shake-128s,sign,5,1,false,flagged,other,no,0.0000,0.0300,0.0000,0.0926,9.0210,9.1136,0,14,true,false,false,false,1.0004,0.9997,,,false,record
 E1.ml-kem-512.decaps.r5.a1,E1.ml-kem-512.decaps.r5,E1,ml-kem-512,decaps,5,1,false,ok,,no,0.0034,0.0300,0.0000,0.0000,2.4310,2.4310,0,2,true,false,false,false,1.0004,0.9997,,,true,
 E1.slh-dsa-shake-256s.sign.r5.a1,E1.slh-dsa-shake-256s.sign.r5,E1,slh-dsa-shake-256s,sign,5,1,false,ok,,no,0.0012,0.0300,0.0000,0.0765,2.5940,2.6705,0,14,true,false,false,false,1.0004,0.9997,,,true,
-E1.slh-dsa-shake-128s.keygen.r2.a3,E1.slh-dsa-shake-128s.keygen.r2,E1,slh-dsa-shake-128s,keygen,2,3,false,flagged,other,no,0.0005,0.0300,0.0000,0.0807,8.6300,8.7107,0,13,true,false,false,false,1.0004,0.9997,,,false,exhausted
+E1.slh-dsa-shake-128s.keygen.r2.a3,E1.slh-dsa-shake-128s.keygen.r2,E1,slh-dsa-shake-128s,keygen,2,3,false,flagged,other,no,0.0005,0.0300,0.0000,0.0807,8.6300,8.7107,0,13,true,false,false,false,1.0004,0.9997,,,false,record
 E1.slh-dsa-shake-256f.sign.r5.a1,E1.slh-dsa-shake-256f.sign.r5,E1,slh-dsa-shake-256f,sign,5,1,false,ok,,no,0.0009,0.0300,0.0000,0.1110,1.6520,1.7630,0,13,true,false,false,false,1.0004,0.9997,,,true,
 E1.slh-dsa-sha2-256s.keygen.r5.a1,E1.slh-dsa-sha2-256s.keygen.r5,E1,slh-dsa-sha2-256s,keygen,5,1,false,ok,,no,0.0009,0.0300,0.0000,0.1044,1.9320,2.0364,0,13,true,false,false,false,1.0004,0.9997,,,true,
 E1.ml-dsa-65.sign.r5.a1,E1.ml-dsa-65.sign.r5,E1,ml-dsa-65,sign,5,1,false,ok,,no,0.0016,0.0300,0.0000,0.0000,0.7960,0.7960,0,2,true,false,false,false,1.0004,0.9997,,,true,
@@ -487,7 +487,7 @@ E1.slh-dsa-sha2-256f.verify.r2.a2,E1.slh-dsa-sha2-256f.verify.r2,E1,slh-dsa-sha2
 E1.slh-dsa-sha2-256f.sign.r5.a1,E1.slh-dsa-sha2-256f.sign.r5,E1,slh-dsa-sha2-256f,sign,5,1,false,flagged,other,no,0.0022,0.0300,0.0000,0.0742,5.8640,5.9382,0,13,true,false,false,false,1.0004,1.0032,,,false,record
 E1.slh-dsa-sha2-128f.keygen.r5.a1,E1.slh-dsa-sha2-128f.keygen.r5,E1,slh-dsa-sha2-128f,keygen,5,1,false,ok,,no,0.0015,0.0300,0.0000,0.4211,1.8110,2.2321,0,3,true,false,false,false,1.0004,1.0032,,,true,
 E1.slh-dsa-sha2-256f.verify.r5.a1,E1.slh-dsa-sha2-256f.verify.r5,E1,slh-dsa-sha2-256f,verify,5,1,false,ok,,no,0.0016,0.0300,0.0000,0.1802,2.7170,2.8972,0,13,true,false,false,false,1.0004,1.0032,,,true,
-E1.slh-dsa-shake-128f.sign.r2.a3,E1.slh-dsa-shake-128f.sign.r2,E1,slh-dsa-shake-128f,sign,2,3,false,flagged,other,no,0.0037,0.0300,0.0000,0.0952,6.7500,6.8452,0,14,true,false,false,false,1.0004,1.0032,,,false,exhausted
+E1.slh-dsa-shake-128f.sign.r2.a3,E1.slh-dsa-shake-128f.sign.r2,E1,slh-dsa-shake-128f,sign,2,3,false,flagged,other,no,0.0037,0.0300,0.0000,0.0952,6.7500,6.8452,0,14,true,false,false,false,1.0004,1.0032,,,false,record
 E1.slh-dsa-shake-128s.sign.r5.a2,E1.slh-dsa-shake-128s.sign.r5,E1,slh-dsa-shake-128s,sign,5,2,false,ok,,no,0.0007,0.0300,0.0000,0.4387,2.1210,2.5597,0,14,true,false,false,false,1.0032,1.0039,,,true,
 E1.dhkem-x25519.encaps.r5.a1,E1.dhkem-x25519.encaps.r5,E1,dhkem-x25519,encaps,5,1,false,ok,,no,0.0245,0.0300,0.0000,0.4500,1.3910,1.8410,0,2,true,false,false,false,1.0032,1.0039,,,true,
 E1.slh-dsa-sha2-192s.keygen.r5.a1,E1.slh-dsa-sha2-192s.keygen.r5,E1,slh-dsa-sha2-192s,keygen,5,1,false,ok,,no,0.0023,0.0300,0.0000,0.1009,1.8280,1.9289,0,13,true,false,false,false,1.0032,1.0039,,,true,
@@ -546,7 +546,7 @@ E1.ml-kem-1024.decaps.r5.a1,E1.ml-kem-1024.decaps.r5,E1,ml-kem-1024,decaps,5,1,f
 E1.hqc-5.decaps.r5.a2,E1.hqc-5.decaps.r5,E1,hqc-5,decaps,5,2,false,ok,,no,0.0014,0.0300,0.0000,0.0770,1.9650,2.0420,0,13,true,false,false,false,1.0012,1.0003,,,true,
 E1.ml-dsa-65.verify.r5.a1,E1.ml-dsa-65.verify.r5,E1,ml-dsa-65,verify,5,1,false,ok,,no,0.0000,0.0300,0.0000,0.1390,0.6420,0.7810,0,1,true,false,false,false,1.0012,1.0003,,,true,
 E1.ecdsa-p256.verify.r5.a2,E1.ecdsa-p256.verify.r5,E1,ecdsa-p256,verify,5,2,false,ok,,no,0.0046,0.0300,0.0000,0.0000,0.8220,0.8220,0,2,true,false,false,false,1.0012,1.0003,,,true,
-E1.hqc-1.decaps.r2.a3,E1.hqc-1.decaps.r2,E1,hqc-1,decaps,2,3,false,flagged,other,no,0.0017,0.0300,0.0000,0.3243,8.8150,9.1393,0,13,true,false,false,false,1.0012,1.0003,,,false,exhausted
+E1.hqc-1.decaps.r2.a3,E1.hqc-1.decaps.r2,E1,hqc-1,decaps,2,3,false,flagged,other,no,0.0017,0.0300,0.0000,0.3243,8.8150,9.1393,0,13,true,false,false,false,1.0012,1.0003,,,false,record
 E1.slh-dsa-shake-192s.keygen.r5.a1,E1.slh-dsa-shake-192s.keygen.r5,E1,slh-dsa-shake-192s,keygen,5,1,false,ok,,no,0.0002,0.0300,0.0000,0.0839,2.2750,2.3589,0,13,true,false,false,false,1.0003,1.0006,,,true,
 E1.slh-dsa-shake-128f.verify.r5.a1,E1.slh-dsa-shake-128f.verify.r5,E1,slh-dsa-shake-128f,verify,5,1,false,ok,,no,0.0000,0.0300,0.0000,0.1948,2.5540,2.7488,0,13,true,false,false,false,1.0003,1.0006,,,true,
 E1.hqc-5.keygen.r5.a1,E1.hqc-5.keygen.r5,E1,hqc-5,keygen,5,1,false,ok,,no,0.0023,0.0300,0.0000,0.2498,2.3020,2.5518,0,14,true,false,false,false,1.0003,1.0006,,,true,
@@ -557,3 +557,11 @@ E1.slh-dsa-sha2-128s.keygen.r5.a1,E1.slh-dsa-sha2-128s.keygen.r5,E1,slh-dsa-sha2
 E1.slh-dsa-shake-128f.keygen.r5.a1,E1.slh-dsa-shake-128f.keygen.r5,E1,slh-dsa-shake-128f,keygen,5,1,false,ok,,no,0.0028,0.0300,0.0000,0.3278,1.9140,2.2418,0,13,true,false,false,false,1.0003,1.0006,,,true,
 E1.falcon-1024.verify.r5.a2,E1.falcon-1024.verify.r5,E1,falcon-1024,verify,5,2,true,ok,,no,0.0057,0.0300,0.0000,0.1025,0.5780,0.6805,0,1,true,false,false,false,1.0003,1.0006,,,false,
 E1.hqc-5.encaps.r5.a3,E1.hqc-5.encaps.r5,E1,hqc-5,encaps,5,3,false,ok,,no,0.0020,0.0300,0.0000,0.1067,3.9480,4.0547,0,32,true,false,false,false,1.0003,1.0006,,,true,
+E1.hqc-1.decaps.r2.a4,E1.hqc-1.decaps.r2,E1,hqc-1,decaps,2,4,false,ok,,no,0.0013,0.0300,0.0000,0.2098,3.4970,3.7068,0,13,true,false,false,false,0.9986,0.9949,,,true,
+E1.hqc-3.encaps.r1.a4,E1.hqc-3.encaps.r1,E1,hqc-3,encaps,1,4,false,flagged,other,no,0.0002,0.0300,0.0000,0.2632,11.3690,11.6322,0,31,true,false,false,false,0.9986,0.9949,,,false,record
+E1.slh-dsa-shake-128f.sign.r2.a4,E1.slh-dsa-shake-128f.sign.r2,E1,slh-dsa-shake-128f,sign,2,4,false,flagged,other,no,0.0006,0.0300,0.0000,0.1193,7.0240,7.1433,0,14,true,false,false,false,0.9986,0.9949,,,false,record
+E1.slh-dsa-shake-128s.keygen.r2.a4,E1.slh-dsa-shake-128s.keygen.r2,E1,slh-dsa-shake-128s,keygen,2,4,false,ok,,no,0.0010,0.0300,0.0000,0.1024,2.4900,2.5924,0,13,true,false,false,false,0.9986,0.9949,,,true,
+E1.slh-dsa-shake-128f.sign.r2.a5,E1.slh-dsa-shake-128f.sign.r2,E1,slh-dsa-shake-128f,sign,2,5,false,flagged,other,no,0.0010,0.0300,0.0000,0.1272,5.6190,5.7462,0,14,true,false,false,false,0.9949,1.0012,,,false,record
+E1.hqc-3.encaps.r1.a5,E1.hqc-3.encaps.r1,E1,hqc-3,encaps,1,5,false,flagged,other,no,0.0000,0.0300,0.0000,0.1696,5.6190,5.7886,0,31,true,false,false,false,0.9949,1.0012,,,false,record
+E1.hqc-3.encaps.r1.a6,E1.hqc-3.encaps.r1,E1,hqc-3,encaps,1,6,false,flagged,other,no,0.0013,0.0300,0.0000,0.2096,5.0210,5.2306,0,31,true,false,false,false,1.0012,1.0024,,,false,exhausted
+E1.slh-dsa-shake-128f.sign.r2.a6,E1.slh-dsa-shake-128f.sign.r2,E1,slh-dsa-shake-128f,sign,2,6,false,ok,,no,0.0057,0.0300,0.0000,0.1296,2.8690,2.9986,0,13,true,false,false,false,1.0012,1.0024,,,true,

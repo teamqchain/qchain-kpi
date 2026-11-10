@@ -9,7 +9,7 @@
     "sha256": "cb88aa8bd47025816de6c45ebc943cb1b7a73634774a615ffe50c61150f8bdc6",
     "reps": 5,
     "canary_every_s": 600,
-    "planned_blocks": 450
+    "planned_blocks": 454
   },
   "seed": 4220015670762193815,
   "image_id": "sha256:edfdeec773fab3b18b23ad3399616c00c768beac5c48523ac4c64f24e3309797",
@@ -838,7 +838,7 @@
     "memory_max": "3221225472",
     "memory_swap_max": "0",
     "net_interfaces": "lo",
-    "out_free_gb": "994.3",
+    "out_free_gb": "993.2",
     "tz": "Asia/Dubai"
   },
   "host": {
@@ -855,7 +855,7 @@
     "low_power_mode": "0",
     "power": "AC",
     "runtime": "docker-wsl2",
-    "thermal_at_start": "40",
+    "thermal_at_start": "55",
     "vm_cpus": "8",
     "vm_mem_gb": "3.45",
     "wsl": "2.7.12.0 (kernel 6.18.33.2-microsoft-standard-WSL2)"
@@ -866,20 +866,44 @@
       "started_utc": "2026-11-07T07:30:59Z",
       "start_unix_ns": 1794036659063551619,
       "host_offset_ns": -153995207
+    },
+    {
+      "n": 2,
+      "started_utc": "2026-11-09T21:31:39Z",
+      "start_unix_ns": 1794259899134962909,
+      "host_offset_ns": -152924330
     }
   ],
   "status": "done",
   "started_utc": "2026-11-07T07:30:59Z",
-  "updated_utc": "2026-11-07T14:41:57Z",
+  "updated_utc": "2026-11-09T21:46:47Z",
   "counts": {
-    "attempts": 558,
+    "attempts": 566,
     "blocks": 450,
-    "blocks_with_headline": 446,
+    "blocks_with_headline": 449,
     "diagnostic_attempts": 2,
     "drift_flags": 8,
-    "exhausted_blocks": 4,
-    "flagged_attempts": 110,
-    "repeat_attempts": 106
+    "exhausted_blocks": 1,
+    "flagged_attempts": 115,
+    "repeat_attempts": 114
   },
-  "cgroup_memory_peak_bytes": 480964608
+  "notes": [
+    "session 2 extended this run: blocks E1.hqc-1.decaps.r2, E1.hqc-3.encaps.r1, E1.slh-dsa-shake-128f.sign.r2, E1.slh-dsa-shake-128s.keygen.r2 had no clean attempt and were run again (attempt numbers continue); input sets were regenerated (same message seeds, new keys)"
+  ],
+  "extensions": [
+    {
+      "session": 2,
+      "blocks": [
+        "E1.hqc-1.decaps.r2",
+        "E1.hqc-3.encaps.r1",
+        "E1.slh-dsa-shake-128f.sign.r2",
+        "E1.slh-dsa-shake-128s.keygen.r2"
+      ],
+      "old_image_id": "sha256:edfdeec773fab3b18b23ad3399616c00c768beac5c48523ac4c64f24e3309797",
+      "old_harness_commit": "7999c37dfe6d6a48a15ef5e56929526612dc95d9",
+      "new_image_id": "sha256:edfdeec773fab3b18b23ad3399616c00c768beac5c48523ac4c64f24e3309797",
+      "new_harness_commit": "7999c37dfe6d6a48a15ef5e56929526612dc95d9"
+    }
+  ],
+  "cgroup_memory_peak_bytes": 67289088
 }

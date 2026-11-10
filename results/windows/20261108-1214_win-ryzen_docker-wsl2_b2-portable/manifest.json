@@ -9,7 +9,7 @@
     "sha256": "963d59af5f0edd63682640028f4ed3b2545596edbdd6fa83a905db7d5c5181aa",
     "reps": 5,
     "canary_every_s": 600,
-    "planned_blocks": 450
+    "planned_blocks": 452
   },
   "seed": 5958422925918817122,
   "image_id": "sha256:3e0c14b3b2502adb2488b05260bb764af9837ae9b7ccbdd7d2d7d8b55d2f015d",
@@ -838,7 +838,7 @@
     "memory_max": "3221225472",
     "memory_swap_max": "0",
     "net_interfaces": "lo",
-    "out_free_gb": "993.8",
+    "out_free_gb": "993.3",
     "tz": "Asia/Dubai"
   },
   "host": {
@@ -855,7 +855,7 @@
     "low_power_mode": "0",
     "power": "AC",
     "runtime": "docker-wsl2",
-    "thermal_at_start": "39",
+    "thermal_at_start": "62",
     "vm_cpus": "8",
     "vm_mem_gb": "3.45",
     "wsl": "2.7.12.0 (kernel 6.18.33.2-microsoft-standard-WSL2)"
@@ -866,20 +866,41 @@
       "started_utc": "2026-11-08T12:14:08Z",
       "start_unix_ns": 1794140048356503260,
       "host_offset_ns": -154625154
+    },
+    {
+      "n": 2,
+      "started_utc": "2026-11-09T21:27:28Z",
+      "start_unix_ns": 1794259648507140813,
+      "host_offset_ns": -148404156
     }
   ],
   "status": "done",
   "started_utc": "2026-11-08T12:14:08Z",
-  "updated_utc": "2026-11-08T19:31:14Z",
+  "updated_utc": "2026-11-09T21:30:36Z",
   "counts": {
-    "attempts": 535,
+    "attempts": 537,
     "blocks": 450,
-    "blocks_with_headline": 448,
+    "blocks_with_headline": 450,
     "diagnostic_attempts": 6,
     "drift_flags": 12,
-    "exhausted_blocks": 2,
     "flagged_attempts": 83,
-    "repeat_attempts": 79
+    "repeat_attempts": 81
   },
-  "cgroup_memory_peak_bytes": 439910400
+  "notes": [
+    "session 2 extended this run: blocks E4.falcon-1024.keygen.r4, E4.slh-dsa-sha2-128f.verify.r5 had no clean attempt and were run again (attempt numbers continue); input sets were regenerated (same message seeds, new keys)"
+  ],
+  "extensions": [
+    {
+      "session": 2,
+      "blocks": [
+        "E4.falcon-1024.keygen.r4",
+        "E4.slh-dsa-sha2-128f.verify.r5"
+      ],
+      "old_image_id": "sha256:3e0c14b3b2502adb2488b05260bb764af9837ae9b7ccbdd7d2d7d8b55d2f015d",
+      "old_harness_commit": "7999c37dfe6d6a48a15ef5e56929526612dc95d9",
+      "new_image_id": "sha256:3e0c14b3b2502adb2488b05260bb764af9837ae9b7ccbdd7d2d7d8b55d2f015d",
+      "new_harness_commit": "7999c37dfe6d6a48a15ef5e56929526612dc95d9"
+    }
+  ],
+  "cgroup_memory_peak_bytes": 63361024
 }

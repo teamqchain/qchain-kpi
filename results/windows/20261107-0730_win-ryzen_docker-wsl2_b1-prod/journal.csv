@@ -1456,3 +1456,38 @@ utc_ns,event,key,detail
 1794062505570828678,block_done,E1.hqc-5.encaps.r5.a3,
 1794062507099266216,canary,,41 end ratio 1.00061 
 1794062517186366527,batch_done,,558 attempt(s)
+1794259899177161345,extension_queued,E1.hqc-1.decaps.r2.a4,"block had 3 attempt(s), none clean"
+1794259899183617539,extension_queued,E1.hqc-3.encaps.r1.a4,"block had 3 attempt(s), none clean"
+1794259899188340510,extension_queued,E1.slh-dsa-shake-128f.sign.r2.a4,"block had 3 attempt(s), none clean"
+1794259899191936627,extension_queued,E1.slh-dsa-shake-128s.keygen.r2.a4,"block had 3 attempt(s), none clean"
+1794259899207408876,session_start,,session 2; host offset -152924330 ns
+1794259899542141203,e0,,e0-s2.json
+1794259901085479409,canary,,42 extend ratio 0.99864 
+1794259902572982625,prep,hqc-1.r2,pool 256 e10 false 1443844203 ns
+1794259902576686242,block_start,E1.hqc-1.decaps.r2.a4,slow
+1794259963023656997,block_done,E1.hqc-1.decaps.r2.a4,
+1794259967273905204,prep,hqc-3.r1,pool 256 e10 false 4204652833 ns
+1794259967277730620,block_start,E1.hqc-3.encaps.r1.a4,slow
+1794260117818266739,block_done,E1.hqc-3.encaps.r1.a4,
+1794260129089798432,prep,slh-dsa-shake-128f.r2,pool 256 e10 false 11213514962 ns
+1794260129093596860,block_start,E1.slh-dsa-shake-128f.sign.r2.a4,slow
+1794260192952695596,block_done,E1.slh-dsa-shake-128f.sign.r2.a4,
+1794260248421444657,prep,slh-dsa-shake-128s.r2,pool 64 e10 false 55433794252 ns
+1794260248425545273,block_start,E1.slh-dsa-shake-128s.keygen.r2.a4,slow
+1794260318667305928,block_done,E1.slh-dsa-shake-128s.keygen.r2.a4,
+1794260320204269808,canary,,43 end ratio 0.99489 
+1794260320251791895,queued,E1.hqc-3.encaps.r1.a5,repeat:other; position 0
+1794260320258114478,queued,E1.slh-dsa-shake-128f.sign.r2.a5,repeat:other; position 0
+1794260320282083261,block_start,E1.slh-dsa-shake-128f.sign.r2.a5,slow
+1794260384202147760,block_done,E1.slh-dsa-shake-128f.sign.r2.a5,
+1794260384205279911,block_start,E1.hqc-3.encaps.r1.a5,slow
+1794260534803058760,block_done,E1.hqc-3.encaps.r1.a5,
+1794260536345545651,canary,,44 end ratio 1.00123 
+1794260561440135738,queued,E1.hqc-3.encaps.r1.a6,repeat:other; position 0
+1794260561475740702,queued,E1.slh-dsa-shake-128f.sign.r2.a6,repeat:other; position 1
+1794260561502353607,block_start,E1.hqc-3.encaps.r1.a6,slow
+1794260712050969408,block_done,E1.hqc-3.encaps.r1.a6,
+1794260712054488742,block_start,E1.slh-dsa-shake-128f.sign.r2.a6,slow
+1794260775938225804,block_done,E1.slh-dsa-shake-128f.sign.r2.a6,
+1794260777486345171,canary,,45 end ratio 1.00244 
+1794260807627959329,batch_done,,566 attempt(s)

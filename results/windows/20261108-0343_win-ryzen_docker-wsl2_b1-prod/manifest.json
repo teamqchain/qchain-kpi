@@ -9,7 +9,7 @@
     "sha256": "dd41f7421bb25d94b6ef8be14e6165a17153ccdaca5351507dbcb62006def262",
     "reps": 5,
     "canary_every_s": 600,
-    "planned_blocks": 2505
+    "planned_blocks": 2509
   },
   "seed": 15636998846210311902,
   "image_id": "sha256:edfdeec773fab3b18b23ad3399616c00c768beac5c48523ac4c64f24e3309797",
@@ -838,7 +838,7 @@
     "memory_max": "3221225472",
     "memory_swap_max": "0",
     "net_interfaces": "lo",
-    "out_free_gb": "994.3",
+    "out_free_gb": "993.2",
     "tz": "Asia/Dubai"
   },
   "host": {
@@ -855,7 +855,7 @@
     "low_power_mode": "0",
     "power": "AC",
     "runtime": "docker-wsl2",
-    "thermal_at_start": "40",
+    "thermal_at_start": "56",
     "vm_cpus": "8",
     "vm_mem_gb": "3.45",
     "wsl": "2.7.12.0 (kernel 6.18.33.2-microsoft-standard-WSL2)"
@@ -866,20 +866,43 @@
       "started_utc": "2026-11-08T03:44:02Z",
       "start_unix_ns": 1794109442305422876,
       "host_offset_ns": -163217609
+    },
+    {
+      "n": 2,
+      "started_utc": "2026-11-09T21:48:37Z",
+      "start_unix_ns": 1794260917859640930,
+      "host_offset_ns": -128267604
     }
   ],
   "status": "done",
   "started_utc": "2026-11-08T03:44:02Z",
-  "updated_utc": "2026-11-08T12:07:05Z",
+  "updated_utc": "2026-11-09T21:55:40Z",
   "counts": {
-    "attempts": 2824,
+    "attempts": 2831,
     "blocks": 2505,
-    "blocks_with_headline": 2501,
+    "blocks_with_headline": 2505,
     "diagnostic_attempts": 75,
     "drift_flags": 146,
-    "exhausted_blocks": 4,
-    "flagged_attempts": 251,
-    "repeat_attempts": 244
+    "flagged_attempts": 254,
+    "repeat_attempts": 251
   },
-  "cgroup_memory_peak_bytes": 170070016
+  "notes": [
+    "session 2 extended this run: blocks E11.ml-dsa-44+ml-kem-768.issuance-n64-v256.r2, E11.slh-dsa-sha2-128s+ml-kem-512.issuance-n64-v16.r5, E11.slh-dsa-sha2-128s.presentation-k3-v16.r4, E11.slh-dsa-sha2-128s.presentation-k64-v16.r1 had no clean attempt and were run again (attempt numbers continue); input sets were regenerated (same message seeds, new keys)"
+  ],
+  "extensions": [
+    {
+      "session": 2,
+      "blocks": [
+        "E11.ml-dsa-44+ml-kem-768.issuance-n64-v256.r2",
+        "E11.slh-dsa-sha2-128s+ml-kem-512.issuance-n64-v16.r5",
+        "E11.slh-dsa-sha2-128s.presentation-k3-v16.r4",
+        "E11.slh-dsa-sha2-128s.presentation-k64-v16.r1"
+      ],
+      "old_image_id": "sha256:edfdeec773fab3b18b23ad3399616c00c768beac5c48523ac4c64f24e3309797",
+      "old_harness_commit": "7999c37dfe6d6a48a15ef5e56929526612dc95d9",
+      "new_image_id": "sha256:edfdeec773fab3b18b23ad3399616c00c768beac5c48523ac4c64f24e3309797",
+      "new_harness_commit": "7999c37dfe6d6a48a15ef5e56929526612dc95d9"
+    }
+  ],
+  "cgroup_memory_peak_bytes": 27713536
 }

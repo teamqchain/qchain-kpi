@@ -856,3 +856,27 @@
 [18:41:45] 558/558 E1.hqc-5.encaps.r5.a3 slow p50 15.926ms (n=3750) first 18.335ms
 [18:41:47] canary 41 (end): 2276530 hashes/s, ratio 1.0006 
 [18:41:57] batch complete: 558 attempt(s); 1444 file(s) in SHA256SUMS
+
+=== extension session (blocks without a clean attempt) ===
+[01:31:39] resuming 20261107-0730_win-ryzen_docker-wsl2_b1-prod: 0 block(s) queued, 558 done, 0 temporary file(s) removed
+[01:31:41] canary 42 (extend): 2272049 hashes/s, ratio 0.9986 
+[01:31:42] prepared hqc-1.r2: P=256 in 1.4s
+[01:32:43] 559/562 E1.hqc-1.decaps.r2.a4 slow p50 3.298ms (n=18054) first 3.549ms
+[01:32:47] prepared hqc-3.r1: P=256 in 4.2s
+[01:35:17] 560/562 E1.hqc-3.encaps.r1.a4 slow p50 6.510ms (n=9096) first 8.355ms
+[01:35:29] prepared slh-dsa-shake-128f.r2: P=256 in 11.2s
+[01:36:32] 561/562 E1.slh-dsa-shake-128f.sign.r2.a4 slow p50 41.323ms (n=1449) first 43.303ms
+[01:37:28] prepared slh-dsa-shake-128s.r2: P=64 in 55.4s
+[01:38:38] 562/562 E1.slh-dsa-shake-128s.keygen.r2.a4 slow p50 113.406ms (n=529) first 114.907ms
+[01:38:40] canary 43 (end): 2263524 hashes/s, ratio 0.9949 
+[01:38:40] queued E1.hqc-3.encaps.r1.a5 (repeat:other) at position 0
+[01:38:40] queued E1.slh-dsa-shake-128f.sign.r2.a5 (repeat:other) at position 0
+[01:39:44] 563/564 E1.slh-dsa-shake-128f.sign.r2.a5 slow p50 41.308ms (n=1449) first 42.222ms
+[01:42:14] 564/564 E1.hqc-3.encaps.r1.a5 slow p50 6.512ms (n=9116) first 8.807ms
+[01:42:16] canary 44 (end): 2277951 hashes/s, ratio 1.0012 
+[01:42:41] queued E1.hqc-3.encaps.r1.a6 (repeat:other) at position 0
+[01:42:41] queued E1.slh-dsa-shake-128f.sign.r2.a6 (repeat:other) at position 1
+[01:45:12] 565/566 E1.hqc-3.encaps.r1.a6 slow p50 6.503ms (n=9102) first 8.162ms
+[01:46:15] 566/566 E1.slh-dsa-shake-128f.sign.r2.a6 slow p50 41.110ms (n=1457) first 42.996ms
+[01:46:17] canary 45 (end): 2280703 hashes/s, ratio 1.0024 
+[01:46:47] batch complete: 566 attempt(s); 1497 file(s) in SHA256SUMS

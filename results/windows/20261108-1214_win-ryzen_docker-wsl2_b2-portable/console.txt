@@ -812,3 +812,13 @@
 [23:30:48] 535/535 E4.falcon-1024.sign.r5.a3 fast p50 8.235ms (n=10000) first 10.881ms
 [23:30:49] canary 43 (end): 2278430 hashes/s, ratio 1.0014 
 [23:31:15] batch complete: 535 attempt(s); 1433 file(s) in SHA256SUMS
+
+=== extension session (blocks without a clean attempt) ===
+[01:27:28] resuming 20261108-1214_win-ryzen_docker-wsl2_b2-portable: 0 block(s) queued, 535 done, 0 temporary file(s) removed
+[01:27:30] canary 44 (extend): 2266747 hashes/s, ratio 0.9963 
+[01:27:32] prepared falcon-1024.r4: P=256 in 2.2s
+[01:28:33] 536/537 E4.falcon-1024.keygen.r4.a4 slow p50 32.909ms (n=1588) first 31.427ms
+[01:28:38] prepared slh-dsa-sha2-128f.r5: P=256 in 5.6s
+[01:29:40] 537/537 E4.slh-dsa-sha2-128f.verify.r5.a4 slow p50 1.235ms (n=48218) first 1.265ms
+[01:29:41] canary 45 (end): 2275467 hashes/s, ratio 1.0001 
+[01:30:36] batch complete: 537 attempt(s); 1458 file(s) in SHA256SUMS
