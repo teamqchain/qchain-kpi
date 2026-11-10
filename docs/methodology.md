@@ -244,3 +244,16 @@ Reasons: sizes (E8, E13) depend on the algorithm, not the processor; E7 is a rat
 - **E11:** an E11 item with `"suites": "curated"` (`internal/plan/e11_curated.go`) keeps every cell of the 16 curated suites at every N and k, the production suite's 256- and 4096-byte value cells and the 13 chained runs: 501 of the 991 cells (16 activations, 90 issuances, 50 retrievals, 98 presentations, 234 verifications, 13 chained). The 490 cells it drops exist only for the all-pairs sweep (N = 10, k = 5). Its add-on trial `trial-e11-curated` probes the same 501 cells.
 - **E12:** the Mac's design (4 suites, 2 stages, 30 s windows, 5 repetitions) with W = 1, 2, 4 and 8 on Windows (`e12-windows`) and W = 1 and 2 on the VM (`e12-vm`). The VM's E12 was first planned as one test of at most 15 min; on 25 Oct it became the full set, with the VM's whole run set to finish within 2 days.
 - **E4:** the same plan as the Mac's; the liboqs build is the launcher's `--variant`.
+
+## 10. Analysis (after the runs, 10 Nov 2026)
+
+The analysis code is in `analysis/` ([analysis/README.md](../analysis/README.md)); its results are in `results/combined/` and are written up in [results-windows.md](results-windows.md) and [results-comparison.md](results-comparison.md). The rules were fixed by plan section 9 before the runs; the details below are the choices made when they were implemented.
+
+- **What enters a result:** the headline attempt of every block (the first attempt without an external flag). Drift re-runs never do. A block without a headline attempt (all three, and later six, attempts flagged) has no headline result.
+- **Cell value:** the median over the repetitions of each repetition's median, with a 95 % percentile bootstrap interval resampled over the repetitions (10,000 resamples, seed 20261110). Fast cells use `p50_ns`; tails use the median of each repetition's `p99_ns`.
+- **Comparing machines:** the ratio of cell medians with a bootstrap interval (each machine resampled separately), and Cliff's delta over the repetition medians. A ratio between two arms of one block (E2) is paired per repetition. With five repetitions per machine the exact two-sided Mann-Whitney p-value cannot be below 0.008, so a Holm correction over many cells has no power; this is why ratios, intervals and Cliff's delta are reported.
+- **Equivalence (E10):** TOST on the paired per-repetition log-ratio of holder to issuer, with the 90 % t-interval inside the machine's margin from `config/thresholds.json`.
+- **Sensitivity analysis (pre-declared in plan section 9):** the same cells computed from all non-diagnostic attempts, and from attempts under 8 % combined other CPU. It is the only source of numbers for blocks without a headline attempt (the laptop's E12 cells at four workers); table `T14` compares the headline and all-attempts medians of every cell.
+- **Lifecycle (E11):** the sum of the five stage medians at 10 attributes, 5 disclosed, 16-byte values (activation and issuance and verification with the suite, retrieval with the KEM, presentation with the signature scheme); a chained run is reported separately.
+- **Machines are compared only where the experiment ran on both** ([section 9](#9-which-experiments-run-on-which-machine-decided-21-oct-2026)); experiments run on the Mac alone are reported for the Mac.
+

@@ -1,0 +1,12 @@
+machine,plan,cells,cells_with_extra_attempts,median_abs_diff_pct,p95_abs_diff_pct,max_abs_diff_pct,cells_over_1pct,cells_over_3pct
+mac-m1,e1,90,29,0.0,0.03,0.24,0,0
+mac-m1,e2,634,210,0.0,0.14,1.1,1,0
+mac-m1,e11,1385,206,0.0,0.04,1.65,3,0
+mac-m1,e6,220,69,0.0,0.12,0.64,0,0
+mac-m1,e3,287,90,0.0,0.04,0.71,0,0
+vm-x86v2,e1,90,67,0.0,1.2,3.88,6,2
+vm-x86v2,e2-noslh,382,98,0.0,0.71,5.48,17,1
+vm-x86v2,e11-curated,735,413,0.0,1.44,4.52,57,2
+win-ryzen,e1,90,59,0.0,0.16,0.34,0,0
+win-ryzen,e2-noslh,382,136,0.0,0.25,2.25,7,0
+win-ryzen,e11-curated,735,265,0.0,0.58,2.19,18,0

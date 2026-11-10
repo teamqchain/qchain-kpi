@@ -1,0 +1,44 @@
+# Combined results
+
+Tables and figures that combine the runs of the Mac, the university VM and the Windows laptop. **Generated, never edited by hand:** `python3 analysis/run_all.py` rewrites everything here from `results/mac`, `results/linux` and `results/windows`. How each number is made: [analysis/README.md](../../analysis/README.md). What they say: [docs/results-comparison.md](../../docs/results-comparison.md) and [docs/results-windows.md](../../docs/results-windows.md).
+
+## `tables/` (CSV)
+
+| Table | Content | Machines |
+|---|---|---|
+| `T0_run_quality.csv` | blocks, attempts, flagged share and causes, blocks without a headline, canary range, temperature, per run | all |
+| `T1_E8_sizes.csv` | key, signature and ciphertext sizes of the 30 algorithms | Mac (sizes do not depend on the machine) |
+| `T2_E1_primitive_latency.csv` | median, bootstrap interval, p99, mean, CoV, first call, per cell | all |
+| `T2b_E1_machine_ratios.csv` | ratio of medians between machines with interval and Cliff's delta | all pairs |
+| `T3_E2_integration_overhead.csv` | reuse, reinit and production arms, ratios, components | all (SLH-DSA on the Mac only) |
+| `T3b_E11_lifecycle_per_suite.csv` | the five lifecycle stages and their sum per suite | all (176 pairs on the Mac, 16 suites elsewhere) |
+| `T3c_E11_scaling_production_suite.csv` | issuance and verification against attributes and value size | all |
+| `T4_E9_memory.csv` | stack, heap, Go heap, process memory per cell | all |
+| `T5_E13_ledger_issue_credential.csv`, `T5b_E13_ipfs_envelope_bytes.csv` | ledger bytes per `issueCredential` (measured and projected) and IPFS envelope bytes | Mac (model) |
+| `T6_E10_issuer_holder_equivalence.csv` | TOST per machine and ML-DSA set | all |
+| `T7_E4_build_sensitivity.csv` | variant against production build, per cell | Mac, laptop, VM |
+| `T8_E3_integration_layers.csv` | C, Go-to-C, Go binding and Go standard library per cell | Mac |
+| `T9_E5_native_vs_container.csv` | native macOS against the container | Mac |
+| `T10_E6_message_size.csv` | sign and verify against message size | Mac |
+| `T11_E7_rejection_timing.csv` | rejection against acceptance time | Mac |
+| `T12_E12_concurrency.csv` | throughput, speed-up, efficiency, latency against workers, with sensitivity columns | all |
+| `T13_E14_fabric_latency.csv` | Fabric transaction latency against payload size | Mac |
+| `T14_sensitivity_headline_vs_all_attempts.csv` | difference between headline and all-attempts cell medians | all |
+
+## `figures/` (PDF and PNG)
+
+| Figure | Content |
+|---|---|
+| `F0_run_quality` | share of flagged attempts per run |
+| `F1_signature_latency`, `F2_kem_latency` | every operation of every algorithm on the three machines (log scale; median to p99) |
+| `F3_latency_tails` | complementary ECDF of individual calls (ML-DSA-44 signing, Falcon-512 signing, ML-KEM-768 decapsulation) |
+| `F4_size_vs_speed` | public key plus signature against sign plus verify, with Pareto frontiers |
+| `F5_lifecycle_per_suite` | lifecycle cost per suite and the share of each stage |
+| `F6_pair_heatmap` | lifecycle cost of all 176 signature and KEM pairs (Mac) |
+| `F7_envelope_scaling` | issuance and verification time and IPFS envelope size against attributes and value size |
+| `F8_integration_cost` | Go binding (E3) and deployed pattern (E2) against the library call |
+| `F9_platform_comparison`, `F9b_build_sensitivity` | machine ratios by family; build variants against production |
+| `F10_memory_stack` | stack high-water mark per call |
+| `F11_ledger_footprint` | bytes per credential, credentials per block, GB per million credentials |
+| `F12_concurrency_scaling` | throughput speed-up against workers |
+| `F13_negative_path_and_message_size` | rejection timing (E7) and message-size scaling (E6) |
