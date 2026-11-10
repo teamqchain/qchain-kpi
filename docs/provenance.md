@@ -6,7 +6,7 @@ This file records where every piece of code, library and test data in the harnes
 
 The harness measures QChain's own functions. It does not reimplement them. They were copied from the QChain main repository at commit `9026aba` (decision of 10 Oct 2026: "copy the real functions").
 
-**Source repositories since 9 November 2026.** `9026aba` is a commit of the former single repository `QChain-PQC-blockchain` (28 Sep 2026, "QWallet: Some build configuration"; its twin on GitHub `main` was `ad271e1`). That repository was split into separate repositories under `teamqchain`. Every file cited in this document as `<path> @ 9026aba` exists byte for byte, with the same line numbers, in the new repositories at these commits (checked on 11 Nov 2026):
+**Source repositories since 9 November 2026.** `9026aba` is a commit of the former single repository `QChain-PQC-blockchain` (28 Sep 2026, "QWallet: Some build configuration"; its twin on GitHub `main` was `ad271e1`). That repository was split into separate repositories under `teamqchain`. Every file cited in this document as `<path> @ 9026aba` exists byte for byte, with the same line numbers, in the new repositories at these commits (checked on 10 Nov 2026):
 
 | Cited path @ 9026aba | Now | Commit |
 |---|---|---|
