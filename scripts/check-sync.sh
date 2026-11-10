@@ -3,14 +3,21 @@
 # main repository at commit 9026aba, apart from the edits listed in
 # docs/provenance.md. Read-only on both repositories.
 #
-#   scripts/check-sync.sh [MAIN_REPO]     (default: ../QChain-PQC-blockchain)
+# "The main repository" is the former single repository QChain-PQC-blockchain, split
+# into the qchain-* repositories on 9 November 2026. Commit 9026aba exists only in
+# its local clone, which is kept for this check; the same files are in the new
+# repositories (see "Source repositories" in docs/provenance.md).
+#
+#   scripts/check-sync.sh [MAIN_REPO]
+#   default: ../../QChain-PQC-blockchain, i.e. /Applications/Programs for Fun/QChain-PQC-blockchain
+#   when this repository is at /Applications/Programs for Fun/teamqchain/qchain-kpi
 #
 # For each copy, the documented edits are undone in memory and every copied
 # line range of the original must then appear in the copy, unchanged and in
 # one piece. Exit 0 = all copies match; 1 = a difference (printed).
 set -euo pipefail
 repo="$(cd "$(dirname "$0")/.." && pwd -P)"
-main="${1:-$repo/../QChain-PQC-blockchain}"
+main="${1:-$repo/../../QChain-PQC-blockchain}"
 [ -d "$main/.git" ] || { echo "check-sync: $main is not a git repository" >&2; exit 2; }
 git -C "$main" cat-file -e "9026aba^{commit}" 2>/dev/null || { echo "check-sync: commit 9026aba not found in $main" >&2; exit 2; }
 

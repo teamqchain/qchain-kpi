@@ -6,6 +6,16 @@ This file records where every piece of code, library and test data in the harnes
 
 The harness measures QChain's own functions. It does not reimplement them. They were copied from the QChain main repository at commit `9026aba` (decision of 10 Oct 2026: "copy the real functions").
 
+**Source repositories since 9 November 2026.** `9026aba` is a commit of the former single repository `QChain-PQC-blockchain` (28 Sep 2026, "QWallet: Some build configuration"; its twin on GitHub `main` was `ad271e1`). That repository was split into separate repositories under `teamqchain`. Every file cited in this document as `<path> @ 9026aba` exists byte for byte, with the same line numbers, in the new repositories at these commits (checked on 11 Nov 2026):
+
+| Cited path @ 9026aba | Now | Commit |
+|---|---|---|
+| `offchain/<file>` | `qchain-backend`, `<file>`. At that commit the Go files sat at the repository root; later commits moved them into packages, so cite this commit, not `main`. | `d2c0629` |
+| `qchain-network/<path>` | `qchain-network`, `<path>` (the classical network; this commit carries the tag `classical-network-final`) | `35edaf0` |
+| `UI_App/<path>` | `qchain-wallet`, `<path>` | `135bbf9` |
+
+`9026aba` itself exists only in the local clone of the former repository on the Mac, which `scripts/check-sync.sh` reads. The commit IDs above are those of the new repositories, whose histories were rewritten by the split.
+
 The only edits are:
 - the package clause (`main` → `qchain`);
 - trimmed import blocks;
