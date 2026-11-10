@@ -730,3 +730,154 @@ utc_ns,event,key,detail
 1794266585428080010,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r4.a6,
 1794266586960811770,canary,,22 end ratio 0.97993 
 1794266597022564987,batch_done,,283 attempt(s)
+1794280839550901300,extension_queued,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w4.r2.a7,"block had 6 attempt(s), none clean"
+1794280839607134597,extension_queued,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r1.a7,"block had 6 attempt(s), none clean"
+1794280839610863824,extension_queued,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r2.a7,"block had 6 attempt(s), none clean"
+1794280839614241426,extension_queued,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r3.a7,"block had 6 attempt(s), none clean"
+1794280839618815720,extension_queued,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r4.a7,"block had 6 attempt(s), none clean"
+1794280839621935224,extension_queued,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r5.a7,"block had 6 attempt(s), none clean"
+1794280839624730528,extension_queued,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r1.a7,"block had 6 attempt(s), none clean"
+1794280839628508555,extension_queued,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r2.a7,"block had 6 attempt(s), none clean"
+1794280839631907037,extension_queued,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r3.a7,"block had 6 attempt(s), none clean"
+1794280839635378523,extension_queued,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r4.a7,"block had 6 attempt(s), none clean"
+1794280839638401880,extension_queued,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r5.a7,"block had 6 attempt(s), none clean"
+1794280839641233680,extension_queued,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r1.a7,"block had 6 attempt(s), none clean"
+1794280839645122277,extension_queued,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r2.a7,"block had 6 attempt(s), none clean"
+1794280839648230840,extension_queued,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r3.a7,"block had 6 attempt(s), none clean"
+1794280839650853167,extension_queued,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r4.a7,"block had 6 attempt(s), none clean"
+1794280839653531553,extension_queued,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r5.a7,"block had 6 attempt(s), none clean"
+1794280839664387334,session_start,,session 3; host offset -149720252 ns
+1794280839972497681,e0,,e0-s3.json
+1794280841533187981,canary,,23 extend ratio 0.98250 
+1794280841537317612,block_start,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w4.r2.a7,window
+1794280876766865925,block_done,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w4.r2.a7,
+1794280876770019971,block_start,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r1.a7,window
+1794280911975743646,block_done,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r1.a7,
+1794280911978866370,block_start,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r2.a7,window
+1794280947192578454,block_done,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r2.a7,
+1794280947196071657,block_start,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r3.a7,window
+1794280982406311938,block_done,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r3.a7,
+1794280982409410616,block_start,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r4.a7,window
+1794281017622190367,block_done,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r4.a7,
+1794281017625596889,block_start,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r5.a7,window
+1794281052837171559,block_done,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r5.a7,
+1794281052840561813,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r1.a7,window
+1794281087930804649,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r1.a7,
+1794281087933879184,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r2.a7,window
+1794281123026865157,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r2.a7,
+1794281123030339354,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r3.a7,window
+1794281158126387626,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r3.a7,
+1794281158129628263,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r4.a7,window
+1794281193211033417,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r4.a7,
+1794281193213905645,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r5.a7,window
+1794281228318342166,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r5.a7,
+1794281228321640290,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r1.a7,window
+1794281268956236929,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r1.a7,
+1794281268959581891,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r2.a7,window
+1794281309634660467,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r2.a7,
+1794281309637638399,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r3.a7,window
+1794281350329629268,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r3.a7,
+1794281350333075354,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r4.a7,window
+1794281391013795137,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r4.a7,
+1794281391017482631,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r5.a7,window
+1794281431679243901,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r5.a7,
+1794281433205840261,canary,,24 end ratio 0.97835 
+1794281443255386839,queued,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w4.r2.a8,repeat:other; position 0
+1794281443271798358,queued,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r1.a8,repeat:other; position 1
+1794281443275975774,queued,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r2.a8,repeat:other; position 2
+1794281443280024105,queued,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r3.a8,repeat:other; position 2
+1794281443284062436,queued,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r4.a8,repeat:other; position 2
+1794281443287838377,queued,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r5.a8,repeat:other; position 4
+1794281443292423652,queued,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r1.a8,repeat:other; position 5
+1794281443296183952,queued,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r2.a8,repeat:other; position 0
+1794281443300192693,queued,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r3.a8,repeat:other; position 2
+1794281443304276355,queued,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r4.a8,repeat:other; position 5
+1794281443307914257,queued,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r5.a8,repeat:other; position 9
+1794281443311291255,queued,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r1.a8,repeat:other; position 10
+1794281443315414731,queued,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r2.a8,repeat:other; position 4
+1794281443318717547,queued,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r3.a8,repeat:other; position 5
+1794281443322346677,queued,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r4.a8,repeat:other; position 11
+1794281443326367422,queued,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r5.a8,repeat:other; position 7
+1794281443354082631,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r2.a8,window
+1794281478522913796,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r2.a8,
+1794281478526026625,block_start,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w4.r2.a8,window
+1794281513743403499,block_done,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w4.r2.a8,
+1794281513746698431,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r3.a8,window
+1794281548886256873,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r3.a8,
+1794281548889712125,block_start,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r1.a8,window
+1794281584128503569,block_done,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r1.a8,
+1794281584132118881,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r2.a8,window
+1794281624905736748,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r2.a8,
+1794281624908906398,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r3.a8,window
+1794281665594240028,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r3.a8,
+1794281665598163162,block_start,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r4.a8,window
+1794281700820383565,block_done,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r4.a8,
+1794281700823426632,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r5.a8,window
+1794281741486230543,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r5.a8,
+1794281741489829133,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r4.a8,window
+1794281776581011031,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r4.a8,
+1794281776584074017,block_start,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r3.a8,window
+1794281811771278976,block_done,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r3.a8,
+1794281811774725388,block_start,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r5.a8,window
+1794281846964127237,block_done,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r5.a8,
+1794281846967237612,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r1.a8,window
+1794281882060748794,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r1.a8,
+1794281882064119170,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r4.a8,window
+1794281922696564661,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r4.a8,
+1794281922699997774,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r5.a8,window
+1794281957788138896,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r5.a8,
+1794281957791414821,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r1.a8,window
+1794281998427257023,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r1.a8,
+1794281998430528577,block_start,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r2.a8,window
+1794282033633283614,block_done,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r2.a8,
+1794282035164432281,canary,,25 end ratio 0.97561 
+1794282040198763414,queued,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w4.r2.a9,repeat:other; position 0
+1794282040202980587,queued,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r1.a9,repeat:other; position 0
+1794282040206464467,queued,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r2.a9,repeat:other; position 2
+1794282040209874481,queued,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r3.a9,repeat:other; position 3
+1794282040213539180,queued,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r4.a9,repeat:other; position 1
+1794282040216596094,queued,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r5.a9,repeat:other; position 3
+1794282040220073491,queued,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r1.a9,repeat:other; position 0
+1794282040224282147,queued,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r2.a9,repeat:other; position 4
+1794282040227773146,queued,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r3.a9,repeat:other; position 4
+1794282040231277653,queued,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r4.a9,repeat:other; position 0
+1794282040235246674,queued,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r5.a9,repeat:other; position 4
+1794282040238848568,queued,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r1.a9,repeat:other; position 6
+1794282040242393629,queued,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r2.a9,repeat:other; position 2
+1794282040246251270,queued,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r3.a9,repeat:other; position 1
+1794282040250230281,queued,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r4.a9,repeat:other; position 5
+1794282040253545748,queued,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r5.a9,repeat:other; position 1
+1794282040278847552,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r4.a9,window
+1794282075369350536,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r4.a9,
+1794282075372799028,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r5.a9,window
+1794282116058006111,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r5.a9,
+1794282116061102145,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r3.a9,window
+1794282156778919841,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r3.a9,
+1794282156782438677,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r1.a9,window
+1794282191882450537,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r1.a9,
+1794282191885852296,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r2.a9,window
+1794282232568594823,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r2.a9,
+1794282232571907752,block_start,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r1.a9,window
+1794282267780461423,block_done,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r1.a9,
+1794282267783415211,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r4.a9,window
+1794282308478741114,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r4.a9,
+1794282308482144887,block_start,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r4.a9,window
+1794282343703468016,block_done,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r4.a9,
+1794282343706693156,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r5.a9,window
+1794282378811416886,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r5.a9,
+1794282378814932105,block_start,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w4.r2.a9,window
+1794282414063080530,block_done,E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w4.r2.a9,
+1794282414066338259,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r1.a9,window
+1794282454737948378,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r1.a9,
+1794282454741648797,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r3.a9,window
+1794282489824718084,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r3.a9,
+1794282489827987894,block_start,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r2.a9,window
+1794282524967575418,block_done,E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r2.a9,
+1794282524970548950,block_start,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r5.a9,window
+1794282560173071031,block_done,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r5.a9,
+1794282560177231216,block_start,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r2.a9,window
+1794282595390591059,block_done,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r2.a9,
+1794282595393926850,block_start,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r3.a9,window
+1794282630629186993,block_done,E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r3.a9,
+1794282632160343662,canary,,26 end ratio 0.96770 
+1794282637238127641,batch_done,,331 attempt(s)

@@ -675,4 +675,7 @@ E2.hqc-1.encaps.r4.a4,E2.hqc-1.encaps.r4,E2,hqc-1,encaps,4,4,false,flagged,other
 E2.hqc-1.encaps.r5.a4,E2.hqc-1.encaps.r5,E2,hqc-1,encaps,5,4,false,ok,,no,0.0013,0.0300,0.0000,0.2415,4.0870,4.3285,0,92,true,false,false,false,0.9988,0.9972,,,true,
 E2.hqc-1.encaps.r4.a5,E2.hqc-1.encaps.r4,E2,hqc-1,encaps,4,5,false,flagged,other,no,0.0007,0.0300,0.0000,0.3116,7.6420,7.9536,0,92,true,false,false,false,0.9972,0.9977,,,false,record
 E2.hqc-1.encaps.r2.a5,E2.hqc-1.encaps.r2,E2,hqc-1,encaps,2,5,false,ok,,no,0.0028,0.0300,0.0000,0.3348,4.0850,4.4198,0,92,true,false,false,false,0.9972,0.9977,,,true,
-E2.hqc-1.encaps.r4.a6,E2.hqc-1.encaps.r4,E2,hqc-1,encaps,4,6,false,flagged,other,no,0.0003,0.0300,0.0000,0.3339,26.7330,27.0669,0,92,true,false,false,false,0.9977,1.0022,,,false,exhausted
+E2.hqc-1.encaps.r4.a6,E2.hqc-1.encaps.r4,E2,hqc-1,encaps,4,6,false,flagged,other,no,0.0003,0.0300,0.0000,0.3339,26.7330,27.0669,0,92,true,false,false,false,0.9977,1.0022,,,false,record
+E2.hqc-1.encaps.r4.a7,E2.hqc-1.encaps.r4,E2,hqc-1,encaps,4,7,false,flagged,other,no,0.0031,0.0300,0.0000,0.3611,5.3440,5.7051,0,92,true,false,false,false,0.9979,1.0032,,,false,record
+E2.hqc-1.encaps.r4.a8,E2.hqc-1.encaps.r4,E2,hqc-1,encaps,4,8,false,flagged,other,no,0.0018,0.0300,0.0000,0.2905,21.8880,22.1785,0,92,true,false,false,false,1.0032,0.9701,,,false,record
+E2.hqc-1.encaps.r4.a9,E2.hqc-1.encaps.r4,E2,hqc-1,encaps,4,9,false,flagged,other,no,0.0171,0.0300,0.0000,0.3180,16.4200,16.7380,0,92,true,false,false,false,0.9701,0.9962,,,false,exhausted

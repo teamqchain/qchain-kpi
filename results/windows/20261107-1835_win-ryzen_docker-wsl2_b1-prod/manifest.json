@@ -9,7 +9,7 @@
     "sha256": "ba2329ff3773513d321869eb5785de6771dfc60c35e9bf6a9f0c56c5942bed1c",
     "reps": 5,
     "canary_every_s": 600,
-    "planned_blocks": 545
+    "planned_blocks": 546
   },
   "seed": 13516384375765103510,
   "image_id": "sha256:edfdeec773fab3b18b23ad3399616c00c768beac5c48523ac4c64f24e3309797",
@@ -855,7 +855,7 @@
     "low_power_mode": "0",
     "power": "AC",
     "runtime": "docker-wsl2",
-    "thermal_at_start": "56",
+    "thermal_at_start": "54",
     "vm_cpus": "8",
     "vm_mem_gb": "3.45",
     "wsl": "2.7.12.0 (kernel 6.18.33.2-microsoft-standard-WSL2)"
@@ -872,23 +872,30 @@
       "started_utc": "2026-11-09T21:57:06Z",
       "start_unix_ns": 1794261426316564816,
       "host_offset_ns": -112470510
+    },
+    {
+      "n": 3,
+      "started_utc": "2026-11-10T02:55:31Z",
+      "start_unix_ns": 1794279331310791851,
+      "host_offset_ns": -159015615
     }
   ],
   "status": "done",
   "started_utc": "2026-11-07T18:35:58Z",
-  "updated_utc": "2026-11-09T22:50:14Z",
+  "updated_utc": "2026-11-10T03:19:35Z",
   "counts": {
-    "attempts": 677,
+    "attempts": 680,
     "blocks": 540,
     "blocks_with_headline": 539,
     "diagnostic_attempts": 49,
     "drift_flags": 92,
     "exhausted_blocks": 1,
-    "flagged_attempts": 90,
-    "repeat_attempts": 88
+    "flagged_attempts": 93,
+    "repeat_attempts": 91
   },
   "notes": [
-    "session 2 extended this run: blocks E2.hqc-1.decaps.r2, E2.hqc-1.decaps.r4, E2.hqc-1.encaps.r2, E2.hqc-1.encaps.r4, E2.hqc-1.encaps.r5 had no clean attempt and were run again (attempt numbers continue); input sets were regenerated (same message seeds, new keys)"
+    "session 2 extended this run: blocks E2.hqc-1.decaps.r2, E2.hqc-1.decaps.r4, E2.hqc-1.encaps.r2, E2.hqc-1.encaps.r4, E2.hqc-1.encaps.r5 had no clean attempt and were run again (attempt numbers continue); input sets were regenerated (same message seeds, new keys)",
+    "session 3 extended this run: blocks E2.hqc-1.encaps.r4 had no clean attempt and were run again (attempt numbers continue); input sets were regenerated (same message seeds, new keys)"
   ],
   "extensions": [
     {
@@ -904,7 +911,17 @@
       "old_harness_commit": "7999c37dfe6d6a48a15ef5e56929526612dc95d9",
       "new_image_id": "sha256:edfdeec773fab3b18b23ad3399616c00c768beac5c48523ac4c64f24e3309797",
       "new_harness_commit": "7999c37dfe6d6a48a15ef5e56929526612dc95d9"
+    },
+    {
+      "session": 3,
+      "blocks": [
+        "E2.hqc-1.encaps.r4"
+      ],
+      "old_image_id": "sha256:edfdeec773fab3b18b23ad3399616c00c768beac5c48523ac4c64f24e3309797",
+      "old_harness_commit": "7999c37dfe6d6a48a15ef5e56929526612dc95d9",
+      "new_image_id": "sha256:edfdeec773fab3b18b23ad3399616c00c768beac5c48523ac4c64f24e3309797",
+      "new_harness_commit": "7999c37dfe6d6a48a15ef5e56929526612dc95d9"
     }
   ],
-  "cgroup_memory_peak_bytes": 42090496
+  "cgroup_memory_peak_bytes": 38469632
 }

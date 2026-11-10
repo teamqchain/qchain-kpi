@@ -1683,3 +1683,20 @@ utc_ns,event,key,detail
 1794264583104789570,block_done,E2.hqc-1.encaps.r4.a6,
 1794264584648494027,canary,,50 end ratio 1.00216 
 1794264614839659010,batch_done,,677 attempt(s)
+1794279331379833963,extension_queued,E2.hqc-1.encaps.r4.a7,"block had 6 attempt(s), none clean"
+1794279331398346997,session_start,,session 3; host offset -159015615 ns
+1794279331663417451,e0,,e0-s3.json
+1794279333195884649,canary,,51 extend ratio 0.99789 
+1794279334703363903,prep,hqc-1.r4,pool 256 e10 false 1466971861 ns
+1794279334706921839,block_start,E2.hqc-1.encaps.r4.a7,slow
+1794279790031455324,block_done,E2.hqc-1.encaps.r4.a7,
+1794279791584302322,canary,,52 end ratio 1.00322 
+1794279811722720118,queued,E2.hqc-1.encaps.r4.a8,repeat:other; position 0
+1794279811749941615,block_start,E2.hqc-1.encaps.r4.a8,slow
+1794280266750437369,block_done,E2.hqc-1.encaps.r4.a8,
+1794280268285332511,canary,,53 end ratio 0.97008 
+1794280298468233435,queued,E2.hqc-1.encaps.r4.a9,repeat:other; position 0
+1794280298501272697,block_start,E2.hqc-1.encaps.r4.a9,slow
+1794280753829881497,block_done,E2.hqc-1.encaps.r4.a9,
+1794280755369615407,canary,,54 end ratio 0.99623 
+1794280775526344366,batch_done,,680 attempt(s)

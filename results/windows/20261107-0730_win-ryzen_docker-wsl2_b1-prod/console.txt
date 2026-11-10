@@ -880,3 +880,17 @@
 [01:46:15] 566/566 E1.slh-dsa-shake-128f.sign.r2.a6 slow p50 41.110ms (n=1457) first 42.996ms
 [01:46:17] canary 45 (end): 2280703 hashes/s, ratio 1.0024 
 [01:46:47] batch complete: 566 attempt(s); 1497 file(s) in SHA256SUMS
+
+=== extension session (blocks without a clean attempt) ===
+[06:45:24] resuming 20261107-0730_win-ryzen_docker-wsl2_b1-prod: 0 block(s) queued, 566 done, 0 temporary file(s) removed
+[06:45:26] canary 46 (extend): 1951335 hashes/s, ratio 0.8577 
+[06:45:31] prepared hqc-3.r1: P=256 in 4.7s
+[06:48:01] 567/567 E1.hqc-3.encaps.r1.a7 slow p50 6.866ms (n=8362) first 8.921ms
+[06:48:02] canary 47 (end): 2231766 hashes/s, ratio 0.9809 
+[06:48:28] queued E1.hqc-3.encaps.r1.a8 (repeat:other;canary) at position 0
+[06:50:58] 568/568 E1.hqc-3.encaps.r1.a8 slow p50 6.518ms (n=9103) first 8.687ms
+[06:51:00] canary 48 (end): 2269208 hashes/s, ratio 0.9974 
+[06:51:30] queued E1.hqc-3.encaps.r1.a9 (repeat:other) at position 0
+[06:54:00] 569/569 E1.hqc-3.encaps.r1.a9 slow p50 6.520ms (n=9073) first 8.761ms
+[06:54:02] canary 49 (end): 2274337 hashes/s, ratio 0.9996 
+[06:54:27] batch complete: 569 attempt(s); 1535 file(s) in SHA256SUMS

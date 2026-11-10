@@ -23,9 +23,15 @@
       "started_utc": "2026-11-09T21:57:06Z",
       "start_unix_ns": 1794261426316564816,
       "host_offset_ns": -112470510
+    },
+    {
+      "n": 3,
+      "started_utc": "2026-11-10T02:55:31Z",
+      "start_unix_ns": 1794279331310791851,
+      "host_offset_ns": -159015615
     }
   ],
-  "planned_blocks": 545,
+  "planned_blocks": 546,
   "queue": [],
   "done": [
     "E2c.ml-dsa-87.sign.r1.a1",
@@ -704,7 +710,10 @@
     "E2.hqc-1.encaps.r5.a4",
     "E2.hqc-1.encaps.r4.a5",
     "E2.hqc-1.encaps.r2.a5",
-    "E2.hqc-1.encaps.r4.a6"
+    "E2.hqc-1.encaps.r4.a6",
+    "E2.hqc-1.encaps.r4.a7",
+    "E2.hqc-1.encaps.r4.a8",
+    "E2.hqc-1.encaps.r4.a9"
   ],
   "classification": {},
   "requeued": {
@@ -745,6 +754,9 @@
     "E2.hqc-1.encaps.r4.a3": true,
     "E2.hqc-1.encaps.r4.a4": true,
     "E2.hqc-1.encaps.r4.a5": true,
+    "E2.hqc-1.encaps.r4.a6": true,
+    "E2.hqc-1.encaps.r4.a7": true,
+    "E2.hqc-1.encaps.r4.a8": true,
     "E2.hqc-1.encaps.r5.a1": true,
     "E2.hqc-1.encaps.r5.a2": true,
     "E2.hqc-1.encaps.r5.a3": true,
@@ -848,9 +860,9 @@
     "E2c.rsa3072-pss.sign.r1": true,
     "E2c.rsa3072-pss.sign.r3": true
   },
-  "canary_seq": 50,
+  "canary_seq": 54,
   "first_canary_rate": 2220249.133987366,
-  "last_canary_unix_ns": 1794264584615259996,
+  "last_canary_unix_ns": 1794280755341877045,
   "preps": {
     "dhkem-p256.r1": {
       "pool": 256,
@@ -1155,10 +1167,10 @@
     },
     "hqc-1.r4": {
       "pool": 256,
-      "prep_ns": 1450600671,
-      "fingerprint": "477bc6026ba6f859",
+      "prep_ns": 1466971861,
+      "fingerprint": "6d20c74a813d4ec4",
       "e10": false,
-      "session": 2
+      "session": 3
     },
     "hqc-1.r5": {
       "pool": 256,
@@ -1497,13 +1509,23 @@
       "old_harness_commit": "7999c37dfe6d6a48a15ef5e56929526612dc95d9",
       "new_image_id": "sha256:edfdeec773fab3b18b23ad3399616c00c768beac5c48523ac4c64f24e3309797",
       "new_harness_commit": "7999c37dfe6d6a48a15ef5e56929526612dc95d9"
+    },
+    {
+      "session": 3,
+      "blocks": [
+        "E2.hqc-1.encaps.r4"
+      ],
+      "old_image_id": "sha256:edfdeec773fab3b18b23ad3399616c00c768beac5c48523ac4c64f24e3309797",
+      "old_harness_commit": "7999c37dfe6d6a48a15ef5e56929526612dc95d9",
+      "new_image_id": "sha256:edfdeec773fab3b18b23ad3399616c00c768beac5c48523ac4c64f24e3309797",
+      "new_harness_commit": "7999c37dfe6d6a48a15ef5e56929526612dc95d9"
     }
   ],
   "extension_base": {
     "E2.hqc-1.decaps.r2": 3,
     "E2.hqc-1.decaps.r4": 3,
     "E2.hqc-1.encaps.r2": 3,
-    "E2.hqc-1.encaps.r4": 3,
+    "E2.hqc-1.encaps.r4": 6,
     "E2.hqc-1.encaps.r5": 3
   },
   "cell_reps": {

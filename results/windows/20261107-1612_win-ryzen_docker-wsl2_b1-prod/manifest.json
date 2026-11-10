@@ -9,7 +9,7 @@
     "sha256": "b9ba823ad39f6d1fb6b80d2f4ef59b827cbb035f047b17e1d1c4ff3a2930a65f",
     "reps": 5,
     "canary_every_s": 600,
-    "planned_blocks": 177
+    "planned_blocks": 193
   },
   "seed": 371331778516659328,
   "image_id": "sha256:edfdeec773fab3b18b23ad3399616c00c768beac5c48523ac4c64f24e3309797",
@@ -855,7 +855,7 @@
     "low_power_mode": "0",
     "power": "AC",
     "runtime": "docker-wsl2",
-    "thermal_at_start": "53",
+    "thermal_at_start": "54",
     "vm_cpus": "8",
     "vm_mem_gb": "3.45",
     "wsl": "2.7.12.0 (kernel 6.18.33.2-microsoft-standard-WSL2)"
@@ -872,21 +872,28 @@
       "started_utc": "2026-11-09T22:51:17Z",
       "start_unix_ns": 1794264677022963984,
       "host_offset_ns": -166833859
+    },
+    {
+      "n": 3,
+      "started_utc": "2026-11-10T03:20:39Z",
+      "start_unix_ns": 1794280839523813158,
+      "host_offset_ns": -149720252
     }
   ],
   "status": "done",
   "started_utc": "2026-11-07T16:12:12Z",
-  "updated_utc": "2026-11-09T23:23:17Z",
+  "updated_utc": "2026-11-10T03:50:37Z",
   "counts": {
-    "attempts": 283,
+    "attempts": 331,
     "blocks": 160,
     "blocks_with_headline": 144,
     "exhausted_blocks": 16,
-    "flagged_attempts": 139,
-    "repeat_attempts": 123
+    "flagged_attempts": 187,
+    "repeat_attempts": 171
   },
   "notes": [
-    "session 2 extended this run: blocks E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w4.r2, E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w8.r2, E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r1, E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r2, E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r3, E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r4, E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r5, E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r1, E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r2, E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r3, E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r4, E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r5, E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r1, E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r2, E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r3, E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r4, E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r5 had no clean attempt and were run again (attempt numbers continue); input sets were regenerated (same message seeds, new keys)"
+    "session 2 extended this run: blocks E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w4.r2, E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w8.r2, E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r1, E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r2, E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r3, E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r4, E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r5, E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r1, E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r2, E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r3, E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r4, E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r5, E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r1, E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r2, E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r3, E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r4, E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r5 had no clean attempt and were run again (attempt numbers continue); input sets were regenerated (same message seeds, new keys)",
+    "session 3 extended this run: blocks E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w4.r2, E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r1, E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r2, E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r3, E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r4, E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r5, E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r1, E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r2, E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r3, E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r4, E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r5, E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r1, E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r2, E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r3, E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r4, E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r5 had no clean attempt and were run again (attempt numbers continue); input sets were regenerated (same message seeds, new keys)"
   ],
   "extensions": [
     {
@@ -914,7 +921,32 @@
       "old_harness_commit": "7999c37dfe6d6a48a15ef5e56929526612dc95d9",
       "new_image_id": "sha256:edfdeec773fab3b18b23ad3399616c00c768beac5c48523ac4c64f24e3309797",
       "new_harness_commit": "7999c37dfe6d6a48a15ef5e56929526612dc95d9"
+    },
+    {
+      "session": 3,
+      "blocks": [
+        "E12.ecdsa-p256+dhkem-p256.issuance-n10-v16-w4.r2",
+        "E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r1",
+        "E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r2",
+        "E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r3",
+        "E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r4",
+        "E12.falcon-512+ml-kem-512.issuance-n10-v16-w4.r5",
+        "E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r1",
+        "E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r2",
+        "E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r3",
+        "E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r4",
+        "E12.slh-dsa-sha2-128f+ml-kem-512.issuance-n10-v16-w4.r5",
+        "E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r1",
+        "E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r2",
+        "E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r3",
+        "E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r4",
+        "E12.slh-dsa-sha2-128f+ml-kem-512.verification-n10-k5-v16-w4.r5"
+      ],
+      "old_image_id": "sha256:edfdeec773fab3b18b23ad3399616c00c768beac5c48523ac4c64f24e3309797",
+      "old_harness_commit": "7999c37dfe6d6a48a15ef5e56929526612dc95d9",
+      "new_image_id": "sha256:edfdeec773fab3b18b23ad3399616c00c768beac5c48523ac4c64f24e3309797",
+      "new_harness_commit": "7999c37dfe6d6a48a15ef5e56929526612dc95d9"
     }
   ],
-  "cgroup_memory_peak_bytes": 61485056
+  "cgroup_memory_peak_bytes": 52797440
 }
