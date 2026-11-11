@@ -16,4 +16,4 @@ The paper describes this machine only as a tested environment: a virtualised x86
 - **Steal time** on the pinned vCPU is measured for every block. CPU sharing is treated as a studied factor.
 - **Exclusive use.** QChain's services are stopped on this machine for the whole study.
 
-The Linux launcher and monitor arrive in phase 1b.
+The Linux launcher (`scripts/run-linux.sh`) and host monitor (`scripts/monitor-linux.sh`) ran every VM run from 25 Oct to 31 Oct 2026; the results are analysed in `docs/results-vm.md`.
