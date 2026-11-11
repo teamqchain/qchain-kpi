@@ -28,7 +28,7 @@ def table(name):
 
 def save(fig, name):
     os.makedirs(OUT_FIGS, exist_ok=True)
-    fig.savefig(os.path.join(OUT_FIGS, name + ".pdf"))
+    fig.savefig(os.path.join(OUT_FIGS, name + ".pdf"), metadata={"CreationDate": None})  # reproducible files
     fig.savefig(os.path.join(OUT_FIGS, name + ".png"), dpi=170)
     plt.close(fig)
     return name

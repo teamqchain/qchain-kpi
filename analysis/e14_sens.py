@@ -13,19 +13,29 @@ from e1 import family  # noqa
 
 
 def e14():
-    d = glob.glob(os.path.join(RESULTS, "mac", "*fabric2.5.15"))[0]
+    """The MAIN E14 run (plan e14, kind main), aggregated per payload point and mode over its repetitions."""
+    import json
+    d = None
+    for cand in sorted(glob.glob(os.path.join(RESULTS, "mac", "*fabric2.5.15"))):
+        m = json.load(open(os.path.join(cand, "manifest.json")))
+        if m["plan"]["kind"] == "main" and m.get("status") == "done":
+            d = cand
+    rows_in = read_csv(os.path.join(d, "blocks.csv"))
+    groups = defaultdict(list)
+    for r in rows_in:
+        groups[(r["point"], r["mode"])].append(r)
     rows = []
-    for r in read_csv(os.path.join(d, "blocks.csv")):
-        rows.append([r["point"], r["mode"], r["rep"], r["n"], r["payload_bytes"], r["envelope_mean"],
-                     round(fnum(r["total_p50_ns"]) / 1e6, 1), round(fnum(r["total_p99_ns"]) / 1e6, 1),
-                     round(fnum(r["endorse_p50_ns"]) / 1e6, 2), round(fnum(r["commit_p50_ns"]) / 1e6, 1),
-                     r["ledger_blocks"], r["mvcc_conflicts"]])
+    for (point, mode), rs in sorted(groups.items()):
+        med = lambda c: float(np.median([fnum(r[c]) for r in rs]))
+        rows.append([point, mode, len(rs), sum(int(r["n"]) for r in rs), int(med("payload_bytes")), int(med("envelope_mean")),
+                     round(med("total_p50_ns") / 1e6, 1), round(med("total_p99_ns") / 1e6, 1), round(med("endorse_p50_ns") / 1e6, 2),
+                     round(med("commit_p50_ns") / 1e6, 1), sum(int(r["mvcc_conflicts"]) for r in rs), os.path.basename(d)])
     os.makedirs(OUT_TABLES, exist_ok=True)
     path = os.path.join(OUT_TABLES, "T13_E14_fabric_latency.csv")
     with open(path, "w", newline="") as f:
         w = csv.writer(f, lineterminator="\n")
-        w.writerow(["point", "mode", "rep", "transactions", "payload_bytes", "envelope_bytes", "total_p50_ms", "total_p99_ms",
-                    "endorse_p50_ms", "commit_p50_ms", "ledger_blocks", "mvcc_conflicts"])
+        w.writerow(["point", "mode", "blocks", "transactions", "payload_bytes", "envelope_bytes", "total_p50_ms", "total_p99_ms",
+                    "endorse_p50_ms", "commit_p50_ms", "mvcc_conflicts", "run"])
         w.writerows(rows)
     return rows
 

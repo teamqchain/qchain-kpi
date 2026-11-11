@@ -180,7 +180,7 @@ def f10():
 def f11():
     L = table("T5_E13_ledger_issue_credential.csv")
     scen = ("measured", "projected-ml-dsa-44")
-    sigs = sorted({r["sig_scheme"] for r in L}, key=lambda a: float([r for r in L if r["sig_scheme"] == a and r["scenario"] == "measured" and r["attributes_n"] == "10" and r["quantity"] == "envelope"][0]["median"]))
+    sigs = sorted({r["sig_scheme"] for r in L}, key=lambda a: (float([r for r in L if r["sig_scheme"] == a and r["scenario"] == "measured" and r["attributes_n"] == "10" and r["quantity"] == "envelope"][0]["median"]), a))  # name breaks ties: set order varies per process
     fig, axs = plt.subplots(1, 3, figsize=(10.5, 4.8), sharey=True)
     for ax, (q, title, f) in zip(axs, (("envelope", "bytes per issueCredential transaction (n = 10)", 1), ("per_block_max", "issueCredential transactions that fit in one block", 1))):
         pass
