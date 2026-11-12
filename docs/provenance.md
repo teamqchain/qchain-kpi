@@ -11,7 +11,7 @@ The harness measures QChain's own functions. It does not reimplement them. They 
 | Cited path @ 9026aba | Now | Commit |
 |---|---|---|
 | `offchain/<file>` | `qchain-backend`, `<file>`. At that commit the Go files sat at the repository root; later commits moved them into packages, so cite this commit, not `main`. | `d2c0629` |
-| `qchain-network/<path>` | `qchain-network`, `<path>` (the classical network; this commit carries the tag `classical-network-final`) | `35edaf0` |
+| `qchain-network/<path>` | `qchain-network`, `<path>` (the network files as measured; this commit carries the tag `classical-network-final`) | `35edaf0` |
 | `UI_App/<path>` | `qchain-wallet`, `<path>` | `135bbf9` |
 
 `9026aba` itself exists only in the local clone of the former repository on the Mac, which `scripts/check-sync.sh` reads. The commit IDs above are those of the new repositories, whose histories were rewritten by the split.

@@ -15,7 +15,7 @@ How the KPI study went, from the first plan to the analysis, in the order things
  Oct 31            progress report 2 delivered (Mac results)
  Nov 06 ─ Nov 10   Windows laptop: set-up, trial, runs, reruns    results/windows
  Nov 10            all three machines reverted; analysis          analysis/, results/combined, docs/results-*.md
- Nov 11            documentation completed; E13 check prepared
+ Nov 11            documentation completed
 ```
 
 ---
@@ -53,7 +53,7 @@ How the KPI study went, from the first plan to the analysis, in the order things
   | 21 to 22 Oct | E14 Fabric latency on QChain's network rebuilt in Colima | `20261021-2135` |
 
 - **21 October: scope per machine.** To finish in time, experiments whose answer does not depend on the processor (E3, E5, E6, E7, E8, E13, E14) stayed Mac-only; the VM and the laptop run E1, E2 without SLH-DSA, E4, E9, E10, E11 on 16 curated suites and E12 ([methodology §9](methodology.md#9-which-experiments-run-on-which-machine-decided-21-oct-2026)).
-- **22 October: a finding about QChain itself.** E14 showed that QChain's two peers shared one CouchDB, so bursts of transactions met MVCC read conflicts (410 of 1,800 burst transactions). The user chose to record them rather than change the network. The post-quantum network deployed on 7 November no longer uses CouchDB.
+- **22 October: a finding about QChain itself.** E14 showed that QChain's two peers shared one CouchDB, so bursts of transactions met MVCC read conflicts (410 of 1,800 burst transactions). The user chose to record them rather than change the network.
 - **23 October.** The Mac's own settings (Spotlight, Siri, Live Text, automatic updates) were restored; Colima, Go and the native toolchain stayed until the end of the study.
 
 ---
@@ -86,12 +86,10 @@ The laptop is Obeid's own computer, reached over AnyDesk with a free licence (se
 
 - **10 November: everything reverted.** The VM's last leftovers (the E13 capture folder, three logs and a builder image) and the Mac's tools (Colima's virtual machine, Docker, Go, the native toolchain and caches) were removed. The test environments of all three machines are back to their state before the study. No run can be repeated without a new set-up.
 - **10 November: analysis.** `analysis/` was written and run; 19 tables and 15 figures in `results/combined/`. Two figure defects and several mistakes in the first drafts of the results documents were found by checking every claim against the data and were fixed.
-- **11 November: documentation.** The results of the Mac and the VM got their own documents; the E14 table was corrected to use the main run (6,360 transactions) instead of the smoke run; the figures were made reproducible (two runs of the analysis now give byte-identical files); this history, a glossary and a documentation guide were added; every README was rewritten in the style of the team's other repositories. A read-only check of E13's projection against a real block of the deployed post-quantum network was prepared.
+- **11 November: documentation.** The results of the Mac and the VM got their own documents; the E14 table was corrected to use the main run (6,360 transactions) instead of the smoke run; the figures were made reproducible (two runs of the analysis now give byte-identical files); this history, a glossary and a documentation guide were added; every README was rewritten in the style of the team's other repositories.
 
 ---
 
-## What changed in QChain during the study
+## Where the measured code lives now
 
-The KPI study measured QChain's code as it was on 10 October (commit `9026aba` of the then monorepo). Two later changes matter when reading the results:
-- **7 November:** QChain's Fabric network moved to post-quantum identities (ML-DSA-44 for every Fabric identity) and dropped CouchDB. E13's "projected" scenario is this configuration; E14 measured the earlier classical network.
-- **9 to 10 November:** the monorepo was split into eight repositories (`qchain-backend`, `qchain-network`, ...). [provenance.md](provenance.md) maps the copied code from `9026aba` to its new home (`qchain-backend` commit `d2c0629`, byte-identical).
+The KPI study measured QChain's code as it was on 10 October (commit `9026aba` of the then single repository). On 9 and 10 November that repository was split into eight (`qchain-backend`, `qchain-network`, ...). [provenance.md](provenance.md) maps the copied code from `9026aba` to its new home (`qchain-backend` commit `d2c0629`, byte-identical).

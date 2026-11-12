@@ -23,7 +23,7 @@ Captured from the university VM with commands relayed one at a time. Nothing was
 
 | Item | Value |
 |---|---|
-| Network | QChain's **classical** Fabric network of October 2026: ECDSA P-256 Fabric identities, credentials signed with ML-DSA-44 |
+| Network | QChain's Fabric network as it was then: ECDSA P-256 Fabric identities, credentials signed with ML-DSA-44 |
 | Fabric peer | v2.5.15, `docker-peer0.general.uae.com-1` |
 | Ledger file | `blockfile_000000`, 942,077 bytes, SHA-256 `e6c965b62bc0b4415c2fe29b72623612ea5c34f92d57cecba0c7a15685a0f271` (copied with `docker exec ... cat`, hash checked on both sides) |
 | Contents | 61 blocks, 61 transactions (one per block) |
@@ -52,16 +52,3 @@ Only byte lengths, counts, validation codes, algorithm OIDs, and the public chai
 Block-file layout (Fabric v2.5.15 `common/ledger/blkstorage/block_serialization.go`), protobuf framing of every message, two endorsements (General and Government), ECDSA P-256 certificates and signatures, orderer metadata per block, and IPFS dag-pb/UnixFS wrapping (single block: file + 8, 11 or 14 bytes; 256 KiB chunks). `go test ./internal/ledger` reproduces every transaction and block of the capture from these rules.
 
 ---
-
-## As captured and projected
-
-E13 reports two ledger scenarios (table `T5` in [results/combined](../../../results/combined/README.md)):
-
-| Scenario | Fabric identities | `issueCredential`, 10 attributes, ML-DSA-44 |
-|---|---|---|
-| **As captured** | ECDSA P-256 (the network of 13 October) | 22,299 bytes (the model, which reproduces every captured transaction to the byte) |
-| **Projected** | ML-DSA-44 certificates and signatures (the network deployed on 7 November 2026) | 48,825 bytes, a model |
-
-> **Open check.** The projection has not yet been compared with a real block of the deployed ML-DSA-44 network. The plan is a
-> read-only fetch of the newest `issueCredential` blocks on the VM, recording their byte sizes and attribute counts, and a
-> comparison with the model at the same attribute count. Until then the projected figure is reported as a model.

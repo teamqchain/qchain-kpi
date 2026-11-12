@@ -46,6 +46,8 @@ def e13():
         i = next(k for k, l in enumerate(lines) if l.startswith("scenario,tx"))
         for l in lines[i + 1:]:
             s, tx, kem, n, v, q, lo, p50, hi = l.split(",")
+            if s.startswith("projected"):
+                continue  # not part of the study: the analysis reads the measured and what-if scenarios only
             if tx == "issueCredential" and v == "16" and q in ("envelope", "frame_1", "per_block_max", "share_max") and n in ("1", "10", "64"):
                 rows.append([alg, s, int(n), q, int(lo), int(float(p50)), int(hi)])
     write("T5_E13_ledger_issue_credential.csv", ["sig_scheme", "scenario", "attributes_n", "quantity", "min", "median", "max"], rows)
@@ -130,7 +132,7 @@ if __name__ == "__main__":
     r13, ip = e13()
     print("E13 rows", len(r13))
     for r in r13:
-        if r[0] in ("ml-dsa-44", "falcon-512", "slh-dsa-sha2-128f", "ecdsa-p256") and r[2] == 10 and r[1] in ("measured", "projected-ml-dsa-44") and r[3] in ("envelope", "per_block_max"):
+        if r[0] in ("ml-dsa-44", "falcon-512", "slh-dsa-sha2-128f", "ecdsa-p256") and r[2] == 10 and r[1] == "measured" and r[3] in ("envelope", "per_block_max"):
             print("  ", r)
     r3, null = e3()
     print("E3 rows", len(r3), "null", {k: round(v, 1) for k, v in null.items()})

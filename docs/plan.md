@@ -27,7 +27,7 @@ We benchmark the NIST-approved and NIST-selected post-quantum algorithms in libo
 
 - **Independent.** A new top-level folder `kpi-benchmarking/` with its own Dockerfile, `go.mod`, tests and scripts. It imports nothing from `offchain/`, `UI_App/`, `UI_WebApp/`, `shared/` or the chaincode.
 - **Never touches the live system.** No use of the VM's Fabric network, MySQL, IPFS, backend or frontends. Containers run with `--network none`. During the study the QChain services on the VM are stopped (§13.1).
-- **Application layer only.** PQC inside Fabric's identity layer (Obeid's MSP track) is out of scope.
+- **Application layer only.** Fabric's own identity layer is out of scope.
 - **PQC from liboqs only.**
 - **Phone and wallet timing are out of scope entirely**, not even listed as future work.
 - **Nothing is assumed.** Open points are asked (§15).
@@ -152,7 +152,7 @@ Source for the standards status: the NIST CSRC page (5 Aug 2026), where only FIP
   - RSA-3072 + DHKEM(P-256)
 
 **E14 design (decided 21–22 Oct; this replaces the separate E14 plan, `docs/e14-plan.md`, which was merged here and deleted):**
-- **Question.** E13 computed bytes; E14 measures how long a transaction takes on a real Fabric network and whether QChain's post-quantum payload sizes change it, and checks E13's block model (how many transactions fit in a block). Not measured: post-quantum identities (Fabric 2.5 cannot use them; E13's projection covers that) and chaincode cryptography (QChain's chaincode has none).
+- **Question.** E13 computed bytes; E14 measures how long a transaction takes on a real Fabric network and whether QChain's post-quantum payload sizes change it, and checks E13's block model (how many transactions fit in a block). Not measured: chaincode cryptography (QChain's chaincode has none).
 - **Decisions (user, 21 Oct):** on the Mac only; mirror the live network; 8 representative schemes plus the smallest transaction; sequential and burst; a synthetic JavaScript chaincode; **run quality recorded, not repeated** (approved with the plan, 22 Oct); **keep the live shared CouchDB** (22 Oct, after phase A found that both peers write every record to the same document, one of them after a revision conflict and a retry).
 - **Network.** QChain's `qchain-network` (commit `71a1db6`) in Colima: Government and General organisations, one peer each, one Raft orderer, one CouchDB shared by both peers, three Fabric CAs, TLS, `mychannel`, BatchTimeout 2 s, MaxMessageCount 10, PreferredMaxBytes 512 KB, majority endorsement (both organisations); Fabric 2.5.15, Fabric CA 1.5.15, CouchDB 3.3.2 pinned. QChain's enrolment, environment, channel-profile, CLI and CA files are copied byte for byte; `scripts/e14-network.sh` uses plain `docker run` (no compose on the Mac) with the live names, environment variables and mount points (volume sub-paths); no host ports. The decoded channel configuration matched the live one.
 - **Chaincode** `kpipayload` 1.0: QChain's `issueCredential` pattern (role check, holder read, existence check, one sorted-key JSON write, short result) with an N-byte hex payload; same libraries as QChain's chaincode, versions pinned.
@@ -431,7 +431,7 @@ PDFs are in `~/Desktop/QChain_Project_Context/QChain_KPI_Literature/` (36 files)
 | Computers 15:116 (2026) | Windows 11 CPUs, signatures and KEMs, 10 repetitions, shows integration choices matter | Different algorithms (HAWK, SQIsign, SNOVA, BIKE); a Python TCP boundary |
 | Applied Sciences 16:5781 (2026) | C, Go (CIRCL) and Python on a Ryzen and an ESP32; memory, determinism | Different library per language, not one library behind different bindings |
 | Kotukh et al. 2026 (OCaml liboqs) | OCaml FFI cost under 10 ns per call; *asserts* about 50 ns for Go/cgo, unmeasured | → our integration-pattern measurement |
-| Abbas et al. 2024 (Networking Letters) | Fabric hybrid X.509 certificates via liboqs-go (identity layer) | Identity layer; relevant to Obeid's track, not ours |
+| Abbas et al. 2024 (Networking Letters) | Fabric hybrid X.509 certificates via liboqs-go (identity layer) | Identity layer; not ours |
 | BDEC, Li et al. (ProvSec 2024, LNCS) | Post-quantum *digital learning credentials*, the same domain as QChain | **Paywalled; abstract withheld by the publisher; not read.** Ask the authors for a copy (Zoey Ziyi Li, Hui Cui et al.) |
 
 **Novelty claims:**

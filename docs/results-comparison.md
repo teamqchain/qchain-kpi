@@ -19,7 +19,7 @@ Analysis of all main runs of the Mac, the university VM and the Windows laptop, 
 4. **The whole credential lifecycle of the production suite costs 0.69 ms (Mac), 0.96 ms (laptop) and 1.32 ms (VM)**, which is 0.86, 0.78 and 1.13 times the classical suite. The post-quantum suite is cheaper than the classical one on both machines with the optimised code and 13 % dearer on the VM.
 5. **The integration pattern, not the cryptography, is the avoidable cost.** The deployed code adds 6 to 13 % to ML-DSA calls and 14 to 28 % to ML-KEM calls (hex conversion), and up to 2.2 times to classical calls (key import per call). The Go binding itself adds a median of 0.3 %.
 6. **Signing identity does not matter for speed:** issuer-side and holder-side ML-DSA signing are statistically equivalent on all three machines (9 of 9 tests).
-7. **The storage cost is the real price.** A credential's `issueCredential` transaction is 22.3 KB with ML-DSA-44 (7.9 KB with ECDSA) as captured, and 48.8 KB when Fabric's own identities also use ML-DSA-44, the configuration deployed on 7 November. A block holds 10 such transactions.
+7. **The storage cost is the real price.** A credential's `issueCredential` transaction is 22.3 KB with ML-DSA-44 against 7.9 KB with ECDSA, 2.8 times as much. A block holds 10 such transactions.
 8. **Flagging rules hardly change any result.** Over 5,030 cells, headline and all-attempts medians differ by 0.0 % in the median and by at most 5.5 %.
 
 ## 1. Data quality across the machines
@@ -141,19 +141,19 @@ Sum of the five stages for 10 attributes of 16 bytes with 5 disclosed (E11, tabl
 
 ## 6. RQ5: storage
 
-**Ledger bytes (E13, Mac; a model calibrated on a block captured from the live network and validated against it on 60 transactions, 61 blocks, 71 IPFS objects and 238 certificates; table `T5_E13_ledger_issue_credential.csv`, figure F11).** Bytes of one `issueCredential` transaction with 10 attributes of 16 bytes, as captured (Fabric's own identities ECDSA) and projected with Fabric's identities on ML-DSA-44, which is the configuration QChain has run since 7 November:
+**Ledger bytes (E13, Mac; a model calibrated on a block captured from the live network and validated against it on 60 transactions, 61 blocks, 71 IPFS objects and 238 certificates; table `T5_E13_ledger_issue_credential.csv`, figure F11).** Bytes of one `issueCredential` transaction with 10 attributes of 16 bytes, on the network as captured (Fabric's own identities ECDSA; only the credential's signature changes with the scheme):
 
-| Issuer's signature scheme | As captured | Per block | Projected, Fabric on ML-DSA-44 | Per block |
-|---|---|---|---|---|
-| ECDSA P-256 | 7,911 | 10 | 34,441 | 10 |
-| Falcon-512 | 13,575 | 10 | 40,105 | 10 |
-| ML-DSA-44 (production) | 22,299 | 10 | 48,825 | 10 |
-| ML-DSA-65 | 28,415 | 10 | 54,941 | 9 |
-| ML-DSA-87 | 36,248 | 10 | 62,773 | 8 |
-| SLH-DSA-SHA2-128f | 75,863 | 6 | 102,388 | 5 |
-| SLH-DSA-SHA2-256f | 207,064 | 2 | 233,589 | 2 |
+| Issuer's signature scheme | Bytes per transaction | Transactions per block |
+|---|---|---|
+| ECDSA P-256 | 7,911 | 10 |
+| Falcon-512 | 13,575 | 10 |
+| ML-DSA-44 (production) | 22,299 | 10 |
+| ML-DSA-65 | 28,415 | 10 |
+| ML-DSA-87 | 36,248 | 10 |
+| SLH-DSA-SHA2-128f | 75,863 | 6 |
+| SLH-DSA-SHA2-256f | 207,064 | 2 |
 
-(Progress report 2 quoted 21,529 bytes for ML-DSA-44 and about 7,100 for ECDSA: the same model at 5 attributes; the table uses 10.) At 48.8 KB a transaction, **a million credentials need about 49 GB per peer** in the production configuration (22 GB as captured); a block closes at the transaction count (10) or at 512 KB, whichever is first, and ML-DSA-44 fits ten. **More than half of the projected bytes come from moving Fabric's own certificates and signatures to ML-DSA** (26.5 KB of the 48.8 KB for the production issuer). **The projection has not yet been compared with a real block of the deployed ML-DSA-44 network**; that check is open (see below).
+(Progress report 2 quoted 21,529 bytes for ML-DSA-44 and about 7,100 for ECDSA: the same model at 5 attributes; the table uses 10.) At 22.3 KB a transaction, **a million credentials need about 22 GB per peer** with the production scheme (both peers store the whole ledger); a block closes at the transaction count (10) or at 512 KB, whichever is first, and ML-DSA-44 fits ten. The signature scheme sets the size: ML-DSA-44 makes a credential transaction 2.8 times the ECDSA one, SLH-DSA-256f 26 times.
 
 **IPFS (E13, table `T5b_E13_ipfs_envelope_bytes.csv`).** The encrypted envelope for 10 attributes of 16 bytes is 5,948 bytes with ML-KEM-768 (5,308 and 6,909 for 512 and 1024), 3,838 with X25519, 3,902 with ECDH on P-256, and 12,633 / 21,723 / 32,609 with HQC-1 / 3 / 5. It grows by about 340 bytes per attribute for 16-byte values (24,092 bytes for 64 attributes) and by the values themselves: 64 attributes of 4 KiB take 546 KB.
 
@@ -175,7 +175,7 @@ TOST on the paired per-repetition log-ratio, 90 % interval inside the machine's 
 - **Concurrency (E12, `T12`, F12):** production suite issuance, calls per second at 1 / 2 / 4 workers: Mac 4,487 / 8,414 / 12,730; laptop 2,629 / 4,641 / 7,607 (9,599 at 8); VM 1,996 / 3,000 at two workers. Efficiency at four workers is 0.71 to 0.78 on the Mac and the laptop; at two workers the VM reaches 0.75 for issuance and 0.86 for verification. The 99th percentile grows 2 to 5 times between one and the highest worker count.
 - **Message size (E6, Mac, `T10`, F13):** ML-DSA-44 signing takes 59.8 µs for 64 bytes, 62.5 µs for 1 KiB, 228 µs for 100 KiB and 1.79 ms for 1 MiB (585 MB/s); verification 604 MB/s at 1 MiB; Ed25519 703 MB/s. QChain signs a 64-character hex hash, so message size does not matter for it.
 - **Rejection timing (E7, Mac, `T11`, F13):** rejecting a bit-flipped signature, a wrong message or a tampered ciphertext takes as long as accepting a valid one in 51 of 52 comparisons (within 3.1 %): signature schemes verify in constant time with respect to the failure, and ML-KEM and HQC decapsulation reject implicitly. The exception is ECDH on P-256, which refuses a malformed point after 0.14 of the normal time (the check is on a public value and is by design).
-- **Fabric (E14, Mac; QChain's classical network rebuilt in Docker, ECDSA identities, payloads sized like post-quantum credentials; `T13`):** a transaction sent alone takes 2.05 to 2.07 s whatever its size (a 4 KB payload with ML-DSA-44, 50 KB with SLH-DSA-256f), because the orderer cuts a lone transaction only at its 2-second batch timeout; endorsement takes 13 to 23 ms. Bursts of 40 transactions released at once complete at a median of 164 ms (tiny payload), 195 ms (ML-DSA-44 sized) and 705 ms (SLH-DSA-256f sized); 410 of the 1,800 burst transactions were marked MVCC_READ_CONFLICT because both peers of that network shared one CouchDB (the deployed post-quantum network has no CouchDB). The main run has 6,360 transactions. **Fabric's own latency is two to three orders of magnitude above the cryptography's.**
+- **Fabric (E14, Mac; QChain's Fabric network rebuilt in Docker with ECDSA identities and one CouchDB shared by both peers, payloads sized like post-quantum credentials; `T13`):** a transaction sent alone takes 2.05 to 2.07 s whatever its size (a 4 KB payload with ML-DSA-44, 50 KB with SLH-DSA-256f), because the orderer cuts a lone transaction only at its 2-second batch timeout; endorsement takes 13 to 23 ms. Bursts of 40 transactions released at once complete at a median of 164 ms (tiny payload), 195 ms (ML-DSA-44 sized) and 705 ms (SLH-DSA-256f sized); 410 of the 1,800 burst transactions were marked MVCC_READ_CONFLICT because both peers of that network shared one CouchDB. The main run has 6,360 transactions. **Fabric's own latency is two to three orders of magnitude above the cryptography's.**
 
 ## 9. Limits and threats to validity
 
@@ -184,8 +184,8 @@ TOST on the paired per-repetition log-ratio, 90 % interval inside the machine's 
 - **Noise levels differ.** The Mac is quietest; the VM has neighbours; the laptop is a shared working computer. Quality rules and thresholds are per machine, so each machine's flagged share is not comparable one to one.
 - **Seventeen laptop blocks without a clean attempt**; the sensitivity analysis shows the effect is small.
 - **Experiments run on one machine only** (E3, E5, E6, E7, E8, E13, E14 on the Mac) are by design: their question is a ratio or a size that does not depend on the processor ([methodology section 9](methodology.md)). E5 says native macOS equals the container on the Mac, not on other machines.
-- **E13 is a model**, calibrated on one captured block and validated against 60 transactions of it; it is not a measurement of the deployed ML-DSA-44 network.
-- **E14 measured the classical network**, not the deployed post-quantum one.
+- **E13 is a model**, calibrated on one captured block and validated against 60 transactions of it.
+- **E14 measured one Fabric configuration** (ECDSA identities, one CouchDB shared by both peers, one organisation pair); other configurations would give other latencies.
 - **Frequency scaling and thermal state** are recorded but not controlled on the Mac and the laptop; the canary, the monitor and the drift rule detect them.
 - **Multiple comparisons.** With five repetitions per machine the exact Mann-Whitney test cannot give a two-sided p-value below 0.008, so a Holm correction over dozens of cells has no power. We report ratios with bootstrap intervals over the repetitions and Cliff's delta (`T2b`): in 83 to 89 of 90 cells every repetition of one machine is slower than every repetition of the other (delta of exactly 1).
 
@@ -197,11 +197,10 @@ TOST on the paired per-repetition log-ratio, 90 % interval inside the machine's 
 | RQ2 lifecycle | The production suite's full lifecycle costs 0.69 to 1.32 ms, between 0.78 and 1.13 times the classical suite; cost is set by the signature scheme and grows linearly with attributes. |
 | RQ3 integration | The Go binding adds a median of 0.3 %; the deployed hex-string pattern adds 6 to 13 % to ML-DSA and 14 to 28 % to ML-KEM; classical calls pay up to 2.2 times for key import. |
 | RQ4 hardware | The optimised x86 (AVX2) and ARM code is 1.8 to 2.8 times faster than the VM's code without AVX2 for ML-DSA and ML-KEM and 17 to 25 times for Falcon signing; SLH-DSA (SHA-2) and HQC do not depend on the processor. Docker costs nothing on a Mac; a native build gains nothing; a portable build costs 1.4 to 2.35 times. |
-| RQ5 storage | An `issueCredential` transaction is 22.3 KB (ML-DSA-44, as captured) to 48.8 KB (Fabric's identities also ML-DSA-44), 10 per block, about 49 GB per million credentials per peer; the IPFS envelope is 5.9 KB for 10 attributes with ML-KEM-768. |
+| RQ5 storage | An `issueCredential` transaction is 22.3 KB with ML-DSA-44 (7.9 KB with ECDSA), 10 per block, about 22 GB per million credentials per peer; the IPFS envelope is 5.9 KB for 10 attributes with ML-KEM-768. |
 | RQ6 equivalence | Issuer-side and holder-side ML-DSA signing are equivalent in all nine tests. |
 
 ## Open items for the final report
 
-- **Compare E13's projection (48.8 KB for an `issueCredential` with 10 attributes) with a real `issueCredential` block of the deployed ML-DSA-44 network.** The network has run since 7 November; the check is read-only.
 - **The two reruns' conclusions** are final: no limit changes, no further runs; the 17 laptop blocks stay as described.
 - **The dashboard** (plan section 10) and the paper's figures are not yet assembled; the 15 figures here are in PDF and PNG for that.

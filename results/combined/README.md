@@ -38,7 +38,7 @@
 | `T3b_E11_lifecycle_per_suite.csv` | the five lifecycle stages and their sum per suite | all (176 pairs on the Mac, 16 suites elsewhere) |
 | `T3c_E11_scaling_production_suite.csv` | issuance and verification against attributes and value size | all |
 | `T4_E9_memory.csv` | stack, C heap, Go heap and process memory per cell | all |
-| `T5_E13_ledger_issue_credential.csv` | ledger bytes per `issueCredential`, as captured and projected with ML-DSA-44 Fabric identities | Mac (model) |
+| `T5_E13_ledger_issue_credential.csv` | ledger bytes per `issueCredential` on the network as captured (`measured`), and three hypothetical encodings (`whatif-*`) | Mac (model) |
 | `T5b_E13_ipfs_envelope_bytes.csv` | IPFS envelope bytes against attributes and value size | Mac (model) |
 | `T6_E10_issuer_holder_equivalence.csv` | TOST per machine and ML-DSA set | all |
 | `T7_E4_build_sensitivity.csv` | build variant against the production build, per cell | Mac and laptop (b2, b3), VM (b4) |

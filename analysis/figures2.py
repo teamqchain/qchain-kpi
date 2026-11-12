@@ -178,40 +178,28 @@ def f10():
 
 
 def f11():
-    L = table("T5_E13_ledger_issue_credential.csv")
-    scen = ("measured", "projected-ml-dsa-44")
-    sigs = sorted({r["sig_scheme"] for r in L}, key=lambda a: (float([r for r in L if r["sig_scheme"] == a and r["scenario"] == "measured" and r["attributes_n"] == "10" and r["quantity"] == "envelope"][0]["median"]), a))  # name breaks ties: set order varies per process
+    L = [r for r in table("T5_E13_ledger_issue_credential.csv") if r["scenario"] == "measured" and r["attributes_n"] == "10"]
+
+    def val(a, q):
+        return float([r for r in L if r["sig_scheme"] == a and r["quantity"] == q][0]["median"])
+
+    sigs = sorted({r["sig_scheme"] for r in L}, key=lambda a: (val(a, "envelope"), a))  # name breaks ties: set order varies per process
     fig, axs = plt.subplots(1, 3, figsize=(10.5, 4.8), sharey=True)
-    for ax, (q, title, f) in zip(axs, (("envelope", "bytes per issueCredential transaction (n = 10)", 1), ("per_block_max", "issueCredential transactions that fit in one block", 1))):
-        pass
-    ax = axs[0]
-    for sc, c, off in (("measured", "#0072B2", -0.18), ("projected-ml-dsa-44", "#D55E00", 0.18)):
-        v = [float([r for r in L if r["sig_scheme"] == a and r["scenario"] == sc and r["attributes_n"] == "10" and r["quantity"] == "envelope"][0]["median"]) / 1000 for a in sigs]
-        ax.barh(np.arange(len(sigs)) + off, v, height=0.34, color=c, label={"measured": "as captured (Fabric ECDSA identities)", "projected-ml-dsa-44": "projected: Fabric identities on ML-DSA-44"}[sc], linewidth=0)
-    ax.set_yticks(np.arange(len(sigs)))
-    ax.set_yticklabels(sigs)
-    ax.invert_yaxis()
-    ax.set_xscale("log")
-    ax.set_xlabel("kilobytes per issueCredential transaction (n = 10)")
-    ax.grid(axis="x")
-    ax = axs[1]
-    for sc, c, off in (("measured", "#0072B2", -0.18), ("projected-ml-dsa-44", "#D55E00", 0.18)):
-        v = [float([r for r in L if r["sig_scheme"] == a and r["scenario"] == sc and r["attributes_n"] == "10" and r["quantity"] == "per_block_max"][0]["median"]) for a in sigs]
-        ax.barh(np.arange(len(sigs)) + off, v, height=0.34, color=c, linewidth=0)
-    ax.set_xlabel("credentials per full block")
-    ax.grid(axis="x")
-    ax = axs[2]
-    for sc, c, off in (("measured", "#0072B2", -0.18), ("projected-ml-dsa-44", "#D55E00", 0.18)):
-        v = []
-        for a in sigs:
-            e = float([r for r in L if r["sig_scheme"] == a and r["scenario"] == sc and r["attributes_n"] == "10" and r["quantity"] == "envelope"][0]["median"])
-            v.append(e * 1e6 / 1e9)
-        ax.barh(np.arange(len(sigs)) + off, v, height=0.34, color=c, linewidth=0)
-    ax.set_xscale("log")
-    ax.set_xlabel("gigabytes per million credentials (one peer)")
-    ax.grid(axis="x")
-    h, l = axs[0].get_legend_handles_labels()
-    fig.legend(h, l, loc="lower center", ncol=2, frameon=False, bbox_to_anchor=(0.5, -0.03))
+    y = np.arange(len(sigs))
+    panels = (
+        ([val(a, "envelope") / 1000 for a in sigs], "kilobytes per issueCredential transaction (n = 10)", True),
+        ([val(a, "per_block_max") for a in sigs], "credentials per full block", False),
+        ([val(a, "envelope") * 1e6 / 1e9 for a in sigs], "gigabytes per million credentials (one peer)", True),
+    )
+    for ax, (v, label, log) in zip(axs, panels):
+        ax.barh(y, v, height=0.62, color="#0072B2", linewidth=0)
+        if log:
+            ax.set_xscale("log")
+        ax.set_xlabel(label)
+        ax.grid(axis="x")
+    axs[0].set_yticks(y)
+    axs[0].set_yticklabels(sigs)
+    axs[0].invert_yaxis()
     fig.suptitle("F11  Ledger footprint of a credential by signature scheme (E13 model, calibrated on a captured block)", y=1.0, fontsize=9)
     fig.tight_layout()
     save(fig, "F11_ledger_footprint")

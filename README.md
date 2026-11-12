@@ -29,7 +29,7 @@
 | **Analysis** | complete (10 Nov 2026): 19 tables and 15 figures in [`results/combined/`](results/combined/README.md), written up in [`docs/`](docs/README.md) |
 | **Data quality** | every block has a clean headline attempt except 17 on the laptop (16 E12 blocks at four workers, one E2 block), reported through the pre-declared sensitivity analysis; no limit was changed after the runs |
 | **Test machines** | all three returned to their state before the study (10 Nov 2026); a new run needs the set-up under [Running the harness](#running-the-harness) |
-| **Next** | the paper and the project's final report; a read-only check of the E13 ledger model against a real block of the deployed post-quantum network |
+| **Next** | the paper and the project's final report |
 
 > ⚠️ **Private until publication.** This repository becomes public when the paper is published. Credentials never enter
 > any file, and every run folder passed an automatic privacy scan before it was committed.
@@ -50,7 +50,7 @@ The six research questions ([plan §1](docs/plan.md#1-purpose-and-research-quest
 | **RQ2** | What does the whole credential lifecycle cost? | 0.69 ms (Mac), 0.96 ms (laptop), 1.32 ms (VM) for the production suite: 0.86, 0.78 and 1.13 times the classical suite. |
 | **RQ3** | What does QChain's integration add? | The Go binding a median of 0.3 %; the deployed hex-string pattern 6 to 13 % (ML-DSA) and 14 to 28 % (ML-KEM). |
 | **RQ4** | How much do hardware, runtime and build matter? | Hardware a lot (no AVX2: 2.6× for ML-DSA, 25× for Falcon signing); Docker and a native build nothing measurable; a portable build 1.4 to 2.4× for ML-DSA and up to 27× for Falcon signing. |
-| **RQ5** | What does it cost in storage? | 22.3 KB per credential transaction as captured, 48.8 KB with post-quantum Fabric identities; about 49 GB per million credentials per peer. |
+| **RQ5** | What does it cost in storage? | An ML-DSA-44 credential transaction is 22.3 KB on the ledger (7.9 KB with ECDSA), ten to a block; about 22 GB per million credentials per peer. |
 | **RQ6** | Are issuer-side and holder-side signing equivalent? | Yes, in all nine tests (three ML-DSA sets on three machines). |
 
 ---
@@ -71,7 +71,7 @@ The six research questions ([plan §1](docs/plan.md#1-purpose-and-research-quest
 - **The post-quantum production suite is cheaper than the classical one on hardware with the optimised code**, and 13 % dearer on a processor without AVX2.
 - **The cost of a suite is set by its signature scheme.** Falcon pays at key generation (5 to 33 ms), SLH-DSA at signing (21 ms to 1.5 s); on the Mac, HQC multiplies the cheapest suites' cost by 8.6 to 52.
 - **The avoidable cost is the integration pattern**, not the library: hex conversion for the lattice schemes, key import on every call for the classical ones.
-- **Storage is the real price:** a block holds ten credential transactions of 48.8 KB each once Fabric's own identities are post-quantum.
+- **Storage is the real price:** an ML-DSA-44 credential transaction is 22.3 KB on the ledger against 7.9 KB with ECDSA, 2.8 times as much; a block holds ten of them.
 - **The noise controls change almost nothing:** over 5,030 cells, the headline and all-attempts medians differ by 0.0 % in the median and by at most 5.5 %.
 
 Full results: [Mac](docs/results-mac.md) · [VM](docs/results-vm.md) · [Windows laptop](docs/results-windows.md) · [**the three compared**](docs/results-comparison.md).
@@ -347,7 +347,6 @@ The whole story, with the reasons for each turn, is in [docs/history.md](docs/hi
 - [x] VM and Windows laptop: the reduced scope
 - [x] Analysis: tables, figures, results documents
 - [x] Test machines reverted
-- [ ] E13's projection checked against a real block of the deployed post-quantum network (read-only)
 - [ ] Paper draft and the project's final report
 - [ ] Interactive dashboard for the co-authors ([plan §10](docs/plan.md#10-outputs-and-visualisation))
 - [ ] Public release with the paper
@@ -412,7 +411,7 @@ The Mac's runs were made before these renames. Their run folders (`console.txt`,
 | [qchain-wallet](https://github.com/teamqchain/qchain-wallet) | QWallet, the holder's mobile app |
 | [qchain-shared](https://github.com/teamqchain/qchain-shared) | the shared Flutter package: certificate template and viewer |
 | [qchain-backend](https://github.com/teamqchain/qchain-backend) | the Go API whose production functions this harness copies |
-| [qchain-network](https://github.com/teamqchain/qchain-network) | the Hyperledger Fabric network with ML-DSA-44 identities, and the chaincode |
+| [qchain-network](https://github.com/teamqchain/qchain-network) | the Hyperledger Fabric network and the chaincode |
 | [qchain-docs](https://github.com/teamqchain/qchain-docs) | reports, the setup guide and the earlier ML-DSA benchmarks this study builds on |
 | [qchain-kpi](https://github.com/teamqchain/qchain-kpi) | this repository |
 | [teamqchain.github.io](https://github.com/teamqchain/teamqchain.github.io) | the project website |
@@ -446,5 +445,6 @@ See [LICENSE](LICENSE).
 
 This is an academic research project. The measurements describe three specific machines under controlled conditions
 and QChain's code of 10 October 2026; they are not a certification of any algorithm or product. The virtualised x86
-server is a tested environment only. E13 is a model calibrated on one captured block, and E14 timed QChain's earlier
-classical Fabric network; both are labelled as such wherever they are used.
+server is a tested environment only. E13 is a model calibrated on one captured block, and E14 timed QChain's Fabric network as it was
+configured for the study (ECDSA Fabric identities, one CouchDB shared by both peers); both are labelled as such
+wherever they are used.
