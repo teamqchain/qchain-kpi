@@ -243,8 +243,6 @@ Source for the standards status: the NIST CSRC page (5 Aug 2026), where only FIP
 - **T5:** ledger footprint.
 - **T6:** equivalence result.
 
-**Dashboard:** an interactive HTML page so all four co-authors can explore the data.
-
 ## 11. Repository layout (code and results together, on branch `kpi-benchmarking`)
 
 ```
@@ -259,7 +257,7 @@ kpi-benchmarking/
   docker/    Dockerfile (liboqs 0.16.0 pinned; build args select B1–B4)
   scripts/   run.sh (macOS/Linux)  run.ps1 (Windows)  native-mac.sh  [native-windows.ps1 optional]
   testdata/  golden/  rfc9180/
-  analysis/  requirements.txt  analyze.py  figures.py  dashboard/
+  analysis/  requirements.txt  analyze.py  figures.py
   docs/      plan.md  methodology.md  experiment-matrix.md  qchain-flow.md
              literature.md  references.bib  decisions-log.md
   results/
@@ -406,7 +404,7 @@ kpi-benchmarking/
 | Then | 30-minute trial run (calibrates the thresholds, the canary limit and the E10 margin); main runs on all three machines |
 | Phase 2 code | C helper and memory measurements, lifecycle composites, build variants, concurrency, ledger model, analysis |
 | Run window | The window communicated to Omnia was 8–15 Oct; she said any time, so it may extend. Maqqavi informs Omnia |
-| 20–24 Oct | Analysis, figures, tables, dashboard; results-section draft; PR2 preliminary results |
+| 20–24 Oct | Analysis, figures, tables; results-section draft; PR2 preliminary results |
 | 21–22 Oct | E14 planned and coded on the Mac (moved forward from November, user 21 Oct); paper writing follows |
 
 **Run order per machine:** Mac first (fully under our control), then the VM, then Windows. A late failure on one machine then leaves two complete result sets.

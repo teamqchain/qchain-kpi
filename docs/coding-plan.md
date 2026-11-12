@@ -229,7 +229,7 @@ qchain-kpi/
    - Then: Mac smoke run → Mac trial → calibrate → commit the Mac thresholds → **Mac main runs begin** (E1 first).
 2. **Phase 1b:** E2, E8, `run.ps1` + Windows monitor, Linux monitor + VM preflight → push → Obeid's laptop (McAfee + counters + access check, clone, build, smoke, trial, main nights).
 3. **Phase 1c:** E11 (+ golden cross-check) and E13. On every machine **E11 runs before any priority-2/3 experiment**. VM: read-only inventory, **real block/record capture**, stop QChain, clone, build, smoke, trial, main runs (24/7).
-4. **Phase 2:** E3, E4, E5, E6, E7, E9, E12, analysis/figures/dashboard, README complete.
+4. **Phase 2:** E3, E4, E5, E6, E7, E9, E12, analysis/figures, README complete.
 
 ## 12. Runtime budget (rough; exact numbers come from `estimate` after each trial)
 - **Per machine:**

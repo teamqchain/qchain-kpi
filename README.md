@@ -352,7 +352,6 @@ The whole story, with the reasons for each turn, is in [docs/history.md](docs/hi
 - [x] Figures and presentation tables for the paper, per experiment and per machine
 - [x] Test machines reverted
 - [ ] Paper draft and the project's final report
-- [ ] Interactive dashboard for the co-authors ([plan §10](docs/plan.md#10-outputs-and-visualisation))
 - [ ] Public release with the paper
 
 ---

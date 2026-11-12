@@ -111,5 +111,4 @@ The index of every table and figure, and of where each experiment appears, is [r
 
 ## Not here
 
-- The interactive dashboard of plan section 10 (on the roadmap).
 - LaTeX versions of the presentation tables (to be added when the journal requires them).

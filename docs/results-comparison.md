@@ -203,4 +203,4 @@ TOST on the paired per-repetition log-ratio, 90 % interval inside the machine's 
 ## Open items for the final report
 
 - **The two reruns' conclusions** are final: no limit changes, no further runs; the 17 laptop blocks stay as described.
-- **The dashboard** (plan section 10) is not built. For the paper, 26 figures (PDF and PNG) and presentation tables for every experiment are in `results/combined/` ([index](../results/combined/README.md)).
+- **Figures and tables for the paper** are in `results/combined/` (26 figures in PDF and PNG, presentation tables for every experiment; [index](../results/combined/README.md)).
