@@ -126,19 +126,19 @@ def f5b(machine, outdir):
 def f14():
     S = table("T1_E8_sizes.csv")
     size = {(r["alg"], r["item"]): float(r["median_bytes"]) for r in S}
-    var = {(r["alg"], r["item"]) for r in S if r["min_bytes"] != r["max_bytes"]}
     sigs, kems = order(SIGS), order(KEMS)
     fig = plt.figure(figsize=(7.4, 11.6), layout="constrained")
     gs = fig.add_gridspec(2, 1, height_ratios=[len(sigs), len(kems) + 1.5])
     for k, (cats, second, title) in enumerate(((sigs, "sig", "signature schemes"), (kems, "ct", "key-encapsulation mechanisms"))):
         ax = fig.add_subplot(gs[k])
-        series = [("public key", NEUTRAL, [size[(a, "pk")] for a in cats]),
-                  ("signature" if second == "sig" else "ciphertext", NEUTRAL_LIGHT, [size[(a, second)] for a in cats])]
+        # each algorithm in its family colour (as in F4 and F10): darker shade = public key, lighter shade = signature or ciphertext
+        series = [("public key", [FAMCOL[family(a)] for a in cats], [size[(a, "pk")] for a in cats]),
+                  ("signature" if second == "sig" else "ciphertext", [tint(FAMCOL[family(a)]) for a in cats], [size[(a, second)] for a in cats])]
         bars(fig, ax, cats, series, unit="B", fmt=fmt_bytes, label="bytes", fam_of=family, fontsize=5.5)
         ax.set_title(title)
-    hh = [Patch(color=NEUTRAL), Patch(color=NEUTRAL_LIGHT)]
+    hh = [Patch(color=FAMCOL[f]) for f in FAMILIES] + [Patch(color="#555555"), Patch(color=tint("#555555"))]
     headline(fig, "F14  Sizes of public keys, signatures and ciphertexts (E8; Falcon and ECDSA signatures vary: median of 1,000)",
-             hh, ["public key", "signature or ciphertext"], ncol=2)
+             hh, FAMILIES + ["darker bar: public key", "lighter bar: signature or ciphertext"], ncol=4)
     save(fig, "F14_key_and_signature_sizes")
 
 

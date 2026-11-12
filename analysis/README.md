@@ -90,7 +90,7 @@ The index of every table and figure, and of where each experiment appears, is [r
 
 ## Figure rules
 
-- **Machines** keep one colour everywhere and are always listed in the same order: Mac M1 blue, laptop green, VM orange (Okabe-Ito, colour-blind safe). Algorithm families, lifecycle stages and size series use colours of their own, checked to differ from the machine colours for normal and colour-blind vision, so a colour never means two things.
+- **Machines** keep one colour everywhere and are always listed in the same order: Mac M1 blue, laptop green, VM orange (Okabe-Ito, colour-blind safe). Algorithm families and lifecycle stages use colours of their own, checked to differ from the machine colours for normal and colour-blind vision, so a colour never means two things; F14 draws each algorithm in its family colour (darker shade: public key, lighter shade: signature or ciphertext).
 - **Logarithmic axes** say "(log scale)" in their label, and their ticks are plain units: 1 µs, 10 µs, 1 ms, 1 s; 1 KB, 10 KB; 1×, 2×, 5×.
 - **Bar charts** print the value at the end of every bar; the axis is widened until every label fits.
 - **Layout check.** After drawing a figure, `save()` measures every text (title, legend, axis labels, tick labels, value labels) and reports any two that overlap, any value label that leaves its panel and anything outside the saved image. `run_all.py` lists them at the end; the current figures have none. Every figure was also opened and looked at.

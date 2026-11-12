@@ -96,6 +96,13 @@ def fmt_ratio(v, digits=2):
     return ("%." + str(digits) + "f×") % v
 
 
+def tint(colour, f=0.55):
+    """A lighter shade of a colour (f of the way to white): the second bar of a family-coloured pair."""
+    from matplotlib.colors import to_rgb
+    r, g, b = to_rgb(colour)
+    return (r + (1 - r) * f, g + (1 - g) * f, b + (1 - b) * f)
+
+
 # ------------------------------------------------------------------------------------------------ log axes in plain units
 
 TIME_TICKS = [(0.1, "0.1 µs"), (1, "1 µs"), (10, "10 µs"), (100, "100 µs"), (1e3, "1 ms"), (1e4, "10 ms"), (1e5, "100 ms"), (1e6, "1 s"), (1e7, "10 s")]

@@ -272,37 +272,43 @@ TESTS = [("badsig_over_valid", "o", "corrupted signature"), ("wrongmsg_over_vali
 
 
 def f13():
+    """E7 as one row per family (range of its tests and their median, zoomed on 1×; an outlier is written out), and E6."""
     S = table("T11_E7_rejection_timing.csv")
     M = table("T10_E6_message_size.csv")
-    fig = plt.figure(figsize=(10.5, 7.2), layout="constrained")
-    gs = fig.add_gridspec(2, 2, width_ratios=[1.05, 1])
-    ax = fig.add_subplot(gs[:, 0])
-    S = sorted(S, key=lambda r: (FAM_ORDER[family(r["alg"])], r["alg"]))
-    y = np.arange(len(S))
-    for (col, mk, _), off in zip(TESTS, (-0.22, 0.0, 0.22)):
-        for yi, r in zip(y, S):
-            if r[col]:
-                v = float(r[col])
-                ax.scatter(v, yi + off, s=16, marker=mk, color=COL["mac-m1"], linewidths=0, zorder=3)
-                if v < 0.9:
-                    ax.annotate("%s: %.2f×, the malformed point is\nrefused before any computation (by design)" % (r["alg"], v), (v, yi + off),
-                                xytext=(8, 0), textcoords="offset points", fontsize=5.8, va="center")
+    rat = [(float(r[c]), r, name) for r in S for c, _, name in TESTS if r[c]]
+    usual = [x for x in rat if x[0] >= 0.9]
+    odd = [x for x in rat if x[0] < 0.9]
+    fig = plt.figure(figsize=(10.5, 3.9), layout="constrained")
+    gs = fig.add_gridspec(1, 3, width_ratios=[1.15, 1, 1])
+    ax = fig.add_subplot(gs[0, 0])
+    y = np.arange(len(FAMILIES))
+    for yi, fam in zip(y, FAMILIES):
+        v = [x for x, r, _ in usual if family(r["alg"]) == fam]
+        lo, hi, med = min(v), max(v), float(np.median(v))
+        ax.hlines(yi, lo, hi, color=COL["mac-m1"], linewidth=2.2, alpha=0.45, zorder=2)
+        ax.scatter(med, yi, s=26, color=COL["mac-m1"], zorder=3, linewidths=0)
+        ax.annotate("%d tests: %.3f× (%.3f–%.3f)" % (len(v), med, lo, hi), (hi, yi), xytext=(5, 0), textcoords="offset points", fontsize=5.8, va="center")
     ax.axvline(1, color="#999999", linewidth=0.7, zorder=1)
     ax.set_yticks(y)
-    ax.set_yticklabels(["%s (%s)" % (r["alg"], {"verify": "verify", "decaps": "decaps"}.get(r["op"], r["op"])) for r in S], fontsize=6)
-    ax.set_ylim(len(S) - 0.5, -0.5)
-    ax.set_xlim(0, 1.25)
-    ax.set_xticks([0, 0.25, 0.5, 0.75, 1.0, 1.25])
-    ax.set_xticklabels(["0×", "0.25×", "0.5×", "0.75×", "1×", "1.25×"])
-    ax.set_xlabel("time to reject an invalid input ÷ time to accept a valid one")
-    ratios = [float(r[c]) for r in S for c, _, _ in TESTS if r[c]]
-    usual = [x for x in ratios if x >= 0.9]
-    ax.set_title("E7 (Mac): rejection takes as long as acceptance\n(%d of %d tests within %.1f %%)" % (len(usual), len(ratios), 100 * max(abs(x - 1) for x in usual)))
+    ax.set_yticklabels(FAMILIES)
+    ax.set_ylim(len(FAMILIES) - 0.4, -0.6)
+    ax.set_xlim(0.96, 1.04)
+    ax.set_xticks([0.96, 0.98, 1.0, 1.02, 1.04])
+    ax.set_xticklabels(["%.2f×" % t for t in (0.96, 0.98, 1.0, 1.02, 1.04)])
+    ax.set_xlabel("time to reject ÷ time to accept (line: range of the tests; dot: median)")
+    if odd:
+        note = "\n".join("Not shown: %s, %s, %.2f×%s" % (r["alg"], "tampered public point" if r["alg"].startswith("dhkem") else name, v,
+                          "\n(the malformed point is refused before any computation, by design)" if r["alg"].startswith("dhkem") else "")
+                          for v, r, name in odd)
+        ax.text(0.01, -0.33, note, transform=ax.transAxes, fontsize=5.8, va="top")
+        ax._labels_may_leave = True
+    ax.set_title("E7 (Mac): rejecting an invalid input takes as long as accepting a valid one\n(%d of %d tests within %.1f %%)"
+                 % (len(usual), len(rat), 100 * max(abs(x[0] - 1) for x in usual)), fontsize=8)
     ax.grid(axis="x")
     sizes = [(64, "64 B"), (1024, "1 KiB"), (10240, "10 KiB"), (102400, "100 KiB"), (1048576, "1 MiB")]
     algs = (("ml-dsa-44", "ML-DSA"), ("falcon-512", "Falcon"), ("slh-dsa-sha2-128f", "SLH-DSA"), ("ed25519", "classical"))
     for k, op in enumerate(("sign", "verify")):
-        ax = fig.add_subplot(gs[k, 1])
+        ax = fig.add_subplot(gs[0, k + 1])
         allv = []
         for alg, fam in algs:
             rows = sorted([r for r in M if r["alg"] == alg and r["op"] == op], key=lambda r: int(r["message_bytes"]))
@@ -313,13 +319,10 @@ def f13():
         ax.set_xlim(40, 1.7e6)
         time_axis(ax, "y", "%s latency" % {"sign": "signing", "verify": "verification"}[op])
         ax.set_ylim(min(allv) / 1.6, max(allv) * 1.6)
-        ax.set_title("E6 (Mac): %s cost against message size" % {"sign": "signing", "verify": "verification"}[op])
+        ax.set_title("E6 (Mac): %s against message size" % {"sign": "signing", "verify": "verification"}[op])
         ax.grid(True)
-    h = [Line2D([0], [0], marker=mk, linestyle="", color=COL["mac-m1"], markersize=4) for _, mk, _ in TESTS]
-    l = ["E7: " + name for _, _, name in TESTS]
-    h += [Line2D([0], [0], color=FAMCOL[fam], marker="o", markersize=3) for _, fam in algs]
-    l += ["E6: " + alg for alg, _ in algs]
-    headline(fig, "F13  Rejection timing (E7) and message-size scaling (E6), Mac", h, l, ncol=4)
+    h = [Line2D([0], [0], color=FAMCOL[fam], marker="o", markersize=3) for _, fam in algs]
+    headline(fig, "F13  Rejection timing (E7) and message-size scaling (E6), Mac", h, ["E6: " + alg for alg, _ in algs], ncol=4)
     save(fig, "F13_negative_path_and_message_size")
 
 

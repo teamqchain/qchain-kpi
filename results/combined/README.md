@@ -93,7 +93,7 @@
 
 ## `figures/` (PDF and PNG)
 
-PDF for the paper, PNG for reports and slides. Every logarithmic axis says "(log scale)" and is labelled in plain units (10 µs, 1 ms, 1 KB, 2×); every bar carries its value. The machines keep their colours (Mac blue, laptop green, VM orange); algorithm families, lifecycle stages and sizes use other colours, so a colour never means two things.
+PDF for the paper, PNG for reports and slides. Every logarithmic axis says "(log scale)" and is labelled in plain units (10 µs, 1 ms, 1 KB, 2×); every bar carries its value. The machines keep their colours (Mac blue, laptop green, VM orange); algorithm families and lifecycle stages use other colours, so a colour never means two things.
 
 | Figure | Content |
 |---|---|
@@ -113,8 +113,8 @@ PDF for the paper, PNG for reports and slides. Every logarithmic axis says "(log
 | `F10_memory_stack` | stack high-water mark per call |
 | `F11_ledger_footprint` | bytes per credential, credentials per block, GB per million credentials |
 | `F12_concurrency_scaling` | throughput speed-up against workers |
-| `F13_negative_path_and_message_size` | rejection timing, one row per algorithm with the ratio on the x-axis (E7); signing and verification against message size (E6) |
-| `F14_key_and_signature_sizes` | public keys, signatures and ciphertexts, bytes (E8) |
+| `F13_negative_path_and_message_size` | rejection timing by family: the range of the tests and their median, ratio on the x-axis, zoomed on 1× (E7); signing and verification against message size (E6) |
+| `F14_key_and_signature_sizes` | public keys, signatures and ciphertexts, bytes, each algorithm in its family colour (darker: public key; lighter: signature or ciphertext) (E8) |
 | `F15_issuer_holder_equivalence` | holder-side against issuer-side signing with the 90 % interval and each machine's margin (E10) |
 | `F16_native_vs_container` | native macOS against the container, by family (E5) |
 | `F17_fabric_latency` | Fabric latency per payload size, one at a time and in bursts, and the MVCC conflicts of the bursts (E14) |
