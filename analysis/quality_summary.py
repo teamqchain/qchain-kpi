@@ -38,11 +38,36 @@ def summarise(run):
         "extension_sessions": max(0, len(run["manifest"].get("sessions", [])) - 1),
         "canary_min": round(min(canary), 4) if canary else "", "canary_max": round(max(canary), 4) if canary else "",
         "temp_c_max": max(temp) if temp else "", "host_throttle_rows": thermal_rows if hm else "",
+        "note": UNTIMED.get(run["plan"], ""),
+    }
+
+
+UNTIMED = {"e8": "sizes, not timed: never flagged", "e9": "memory, not timed: never flagged", "e13": "bytes, not timed: never flagged"}
+
+
+def summarise_e14(run):
+    """E14 (Fabric latency) has its own layout: one attempt per block, recorded and never repeated (methodology, E14)."""
+    b = read_csv(os.path.join(run["dir"], "blocks.csv"))
+    rates = [fnum(r["median_rate_per_s"]) for r in read_csv(os.path.join(run["dir"], "canary.csv"))]
+    canary = [x / rates[0] for x in rates] if rates else []
+    return {
+        "machine": run["machine"], "plan": run["plan"], "variant": run["variant"], "run": run["id"],
+        "blocks": len(b), "attempts": len(b), "attempts_per_block_max": 1,
+        "flagged_attempts": "", "flagged_pct": "", "flag_other": "", "flag_canary": "", "flag_thermal": "", "flag_steal": "",
+        "blocks_without_headline": "", "extension_sessions": max(0, len(run["manifest"].get("sessions", [])) - 1),
+        "canary_min": round(min(canary), 4) if canary else "", "canary_max": round(max(canary), 4) if canary else "",
+        "temp_c_max": "", "host_throttle_rows": "",
+        "note": "Fabric latency: every block recorded once; quality flags not applied (decision of 21 Oct)",
     }
 
 
 def main():
-    rows = [summarise(r) for r in runs() if os.path.exists(os.path.join(r["dir"], "quality.csv"))]  # E14 has its own layout
+    rows = []
+    for r in runs():
+        if os.path.exists(os.path.join(r["dir"], "quality.csv")):
+            rows.append(summarise(r))
+        elif r["plan"] == "e14":
+            rows.append(summarise_e14(r))
     os.makedirs(OUT_TABLES, exist_ok=True)
     path = os.path.join(OUT_TABLES, "T0_run_quality.csv")
     with open(path, "w", newline="") as f:

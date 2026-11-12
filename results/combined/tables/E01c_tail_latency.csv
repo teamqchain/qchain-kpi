@@ -1,0 +1,91 @@
+Family,Algorithm,Operation,"p99, Mac M1","p99, Laptop","p99, VM","p99 ÷ median, Mac M1","p99 ÷ median, Laptop","p99 ÷ median, VM"
+ML-DSA,ml-dsa-44,key generation,36.4,62.02,101.4,1.2,1.94,1.31
+ML-DSA,ml-dsa-44,signing,218.3,312.9,826.6,3.62,3.95,4.01
+ML-DSA,ml-dsa-44,verification,32.57,59.36,102.1,1.15,1.85,1.3
+ML-DSA,ml-dsa-65,key generation,67.34,95.26,170.3,1.27,1.73,1.29
+ML-DSA,ml-dsa-65,signing,328.2,493.6,1324.5,3.44,3.94,4.13
+ML-DSA,ml-dsa-65,verification,53.85,91.74,144.6,1.13,1.73,1.34
+ML-DSA,ml-dsa-87,key generation,107.9,141.0,234.0,1.19,1.66,1.28
+ML-DSA,ml-dsa-87,signing,388.1,497.2,1454.9,2.78,3.24,3.5
+ML-DSA,ml-dsa-87,verification,93.33,138.3,227.1,1.12,1.7,1.24
+Falcon,falcon-1024,key generation,32292.1,35909.0,83941.0,2.17,2.27,2.55
+Falcon,falcon-1024,signing,317.0,527.9,8455.5,1.09,1.27,1.07
+Falcon,falcon-1024,verification,48.6,130.6,104.1,1.14,1.61,1.33
+Falcon,falcon-512,key generation,9701.0,13276.5,27830.1,2.02,2.36,2.4
+Falcon,falcon-512,signing,166.5,301.6,3902.2,1.15,1.43,1.06
+Falcon,falcon-512,verification,24.2,71.5,54.02,1.12,1.74,1.49
+Falcon,falcon-padded-1024,key generation,32281.7,35755.8,89987.2,2.18,2.26,2.72
+Falcon,falcon-padded-1024,signing,316.0,550.8,8488.7,1.1,1.31,1.07
+Falcon,falcon-padded-1024,verification,47.93,128.0,105.1,1.15,1.58,1.32
+Falcon,falcon-padded-512,key generation,9582.5,13312.5,27953.2,2.0,2.37,2.43
+Falcon,falcon-padded-512,signing,165.4,297.8,3898.2,1.14,1.43,1.07
+Falcon,falcon-padded-512,verification,24.2,71.93,54.96,1.11,1.75,1.45
+SLH-DSA,slh-dsa-sha2-128f,key generation,939.7,1111.5,1055.5,1.06,1.25,1.08
+SLH-DSA,slh-dsa-sha2-128f,signing,21515.7,22173.0,23991.2,1.04,1.07,1.06
+SLH-DSA,slh-dsa-sha2-128f,verification,1344.7,1462.7,1528.7,1.07,1.16,1.1
+SLH-DSA,slh-dsa-sha2-128s,key generation,58816.1,60101.3,64342.1,1.04,1.07,1.05
+SLH-DSA,slh-dsa-sha2-128s,signing,436268.8,451001.1,489655.6,1.01,1.05,1.04
+SLH-DSA,slh-dsa-sha2-128s,verification,473.5,560.4,550.0,1.11,1.28,1.17
+SLH-DSA,slh-dsa-sha2-192f,key generation,1372.1,1494.8,1520.5,1.06,1.16,1.08
+SLH-DSA,slh-dsa-sha2-192f,signing,34963.9,37439.7,39116.6,1.03,1.09,1.06
+SLH-DSA,slh-dsa-sha2-192f,verification,1932.7,2109.9,2187.1,1.06,1.15,1.1
+SLH-DSA,slh-dsa-sha2-192s,key generation,85449.0,85590.0,93259.3,1.03,1.05,1.04
+SLH-DSA,slh-dsa-sha2-192s,signing,762614.5,805977.5,867939.3,1.01,1.04,1.04
+SLH-DSA,slh-dsa-sha2-192s,verification,689.2,761.9,798.1,1.09,1.19,1.1
+SLH-DSA,slh-dsa-sha2-256f,key generation,3619.7,3991.5,3948.3,1.06,1.15,1.07
+SLH-DSA,slh-dsa-sha2-256f,signing,71640.9,77064.4,80159.8,1.03,1.08,1.05
+SLH-DSA,slh-dsa-sha2-256f,verification,1984.2,2239.8,2256.0,1.06,1.17,1.09
+SLH-DSA,slh-dsa-sha2-256s,key generation,56344.1,58858.0,61908.2,1.03,1.07,1.06
+SLH-DSA,slh-dsa-sha2-256s,signing,673985.8,733123.6,779046.1,1.01,1.04,1.04
+SLH-DSA,slh-dsa-sha2-256s,verification,1002.9,1186.9,1153.6,1.08,1.25,1.11
+SLH-DSA,slh-dsa-shake-128f,key generation,1184.6,1949.9,1742.6,1.06,1.15,1.08
+SLH-DSA,slh-dsa-shake-128f,signing,27017.6,44401.5,39745.0,1.03,1.07,1.06
+SLH-DSA,slh-dsa-shake-128f,verification,1677.3,2819.1,2480.6,1.08,1.19,1.1
+SLH-DSA,slh-dsa-shake-128s,key generation,73295.2,117209.7,107409.5,1.03,1.03,1.05
+SLH-DSA,slh-dsa-shake-128s,signing,556829.7,886878.3,817609.0,1.01,1.03,1.04
+SLH-DSA,slh-dsa-shake-128s,verification,596.8,957.2,868.6,1.11,1.23,1.12
+SLH-DSA,slh-dsa-shake-192f,key generation,1731.1,2847.5,2536.2,1.06,1.15,1.07
+SLH-DSA,slh-dsa-shake-192f,signing,44804.5,70853.5,65151.8,1.04,1.06,1.06
+SLH-DSA,slh-dsa-shake-192f,verification,2438.6,4009.8,3564.0,1.07,1.13,1.09
+SLH-DSA,slh-dsa-shake-192s,key generation,107382.0,172262.3,157474.3,1.03,1.04,1.05
+SLH-DSA,slh-dsa-shake-192s,signing,996185.7,1526878.8,1442130.6,1.01,1.02,1.03
+SLH-DSA,slh-dsa-shake-192s,verification,854.0,1386.3,1263.3,1.09,1.19,1.11
+SLH-DSA,slh-dsa-shake-256f,key generation,4562.3,6665.1,6633.1,1.05,1.1,1.07
+SLH-DSA,slh-dsa-shake-256f,signing,92259.7,134125.4,133913.7,1.03,1.08,1.06
+SLH-DSA,slh-dsa-shake-256f,verification,2488.9,3732.6,3662.2,1.07,1.14,1.09
+SLH-DSA,slh-dsa-shake-256s,key generation,70967.8,100831.8,104144.1,1.03,1.05,1.04
+SLH-DSA,slh-dsa-shake-256s,signing,896238.2,1247007.7,1293189.7,1.01,1.02,1.04
+SLH-DSA,slh-dsa-shake-256s,verification,1260.0,1916.6,1844.8,1.08,1.18,1.11
+ML-KEM,ml-kem-1024,key generation,23.7,54.16,76.53,1.18,1.9,1.38
+ML-KEM,ml-kem-1024,encapsulation,25.65,56.3,76.16,1.22,1.91,1.42
+ML-KEM,ml-kem-1024,decapsulation,26.36,60.89,81.27,1.11,1.79,1.39
+ML-KEM,ml-kem-512,key generation,10.33,25.93,36.14,1.24,2.17,1.51
+ML-KEM,ml-kem-512,encapsulation,11.49,27.63,43.15,1.26,2.15,1.66
+ML-KEM,ml-kem-512,decapsulation,11.74,29.37,42.97,1.16,2.02,1.64
+ML-KEM,ml-kem-768,key generation,16.2,37.98,54.53,1.22,1.87,1.47
+ML-KEM,ml-kem-768,encapsulation,18.32,42.02,58.42,1.31,2.04,1.5
+ML-KEM,ml-kem-768,decapsulation,18.41,42.06,59.65,1.15,1.77,1.48
+HQC,hqc-1,key generation,952.3,1368.3,1449.3,1.06,1.27,1.18
+HQC,hqc-1,encapsulation,1870.0,2573.3,2761.5,1.04,1.19,1.11
+HQC,hqc-1,decapsulation,2849.6,3776.5,4124.7,1.04,1.14,1.11
+HQC,hqc-3,key generation,2451.8,3875.5,3898.3,1.05,1.18,1.07
+HQC,hqc-3,encapsulation,4882.3,7451.4,7749.9,1.05,1.14,1.07
+HQC,hqc-3,decapsulation,7364.3,10921.2,11656.7,1.05,1.11,1.07
+HQC,hqc-5,key generation,6195.2,8869.9,9436.0,1.05,1.11,1.07
+HQC,hqc-5,encapsulation,12211.1,17022.1,18817.8,1.03,1.07,1.06
+HQC,hqc-5,decapsulation,18274.1,25873.5,28328.4,1.03,1.08,1.06
+classical,dhkem-p256,key generation,31.69,77.02,59.85,1.22,2.06,1.56
+classical,dhkem-p256,encapsulation,124.1,222.0,191.4,1.13,1.7,1.38
+classical,dhkem-p256,decapsulation,117.3,206.2,169.8,1.18,1.77,1.35
+classical,dhkem-x25519,key generation,37.02,77.44,62.77,1.16,1.94,1.47
+classical,dhkem-x25519,encapsulation,77.0,147.3,123.7,1.14,1.89,1.37
+classical,dhkem-x25519,decapsulation,43.52,74.75,68.49,1.16,1.91,1.52
+classical,ecdsa-p256,key generation,31.61,82.1,61.78,1.22,2.14,1.51
+classical,ecdsa-p256,signing,25.45,56.29,50.54,1.28,2.31,1.64
+classical,ecdsa-p256,verification,60.84,103.4,102.7,1.12,1.76,1.31
+classical,ed25519,key generation,37.69,78.56,67.2,1.17,1.88,1.44
+classical,ed25519,signing,38.86,80.09,59.99,1.28,2.1,1.49
+classical,ed25519,verification,91.16,161.4,136.0,1.12,1.59,1.33
+classical,rsa3072-pss,key generation,1231200.5,1486649.3,1543241.4,3.06,2.84,3.02
+classical,rsa3072-pss,signing,2101.8,2156.0,2870.0,1.31,1.41,1.32
+classical,rsa3072-pss,verification,38.31,68.78,75.45,1.16,1.86,1.42

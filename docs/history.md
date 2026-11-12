@@ -16,6 +16,7 @@ How the KPI study went, from the first plan to the analysis, in the order things
  Nov 06 ─ Nov 10   Windows laptop: set-up, trial, runs, reruns    results/windows
  Nov 10            all three machines reverted; analysis          analysis/, results/combined, docs/results-*.md
  Nov 11            documentation completed
+ Nov 12            figures and presentation tables for the paper    results/combined, results/<machine>/
 ```
 
 ---
@@ -87,6 +88,8 @@ The laptop is Obeid's own computer, reached over AnyDesk with a free licence (se
 - **10 November: everything reverted.** The VM's last leftovers (the E13 capture folder, three logs and a builder image) and the Mac's tools (Colima's virtual machine, Docker, Go, the native toolchain and caches) were removed. The test environments of all three machines are back to their state before the study. No run can be repeated without a new set-up.
 - **10 November: analysis.** `analysis/` was written and run; 19 tables and 15 figures in `results/combined/`. Two figure defects and several mistakes in the first drafts of the results documents were found by checking every claim against the data and were fixed.
 - **11 November: documentation.** The results of the Mac and the VM got their own documents; the E14 table was corrected to use the main run (6,360 transactions) instead of the smoke run; the figures were made reproducible (two runs of the analysis now give byte-identical files); this history, a glossary and a documentation guide were added; every README was rewritten in the style of the team's other repositories.
+
+- **12 November: figures and tables for the paper.** Bar charts in the style of the project poster were added for every E1 operation and the lifecycle, for the three machines together and for each machine alone, with new figures for E8, E10, E5 and E14; E7 was redrawn with the ratio on the x-axis; every log axis now says "(log scale)" and is labelled in plain units; the machine colours were made exclusive; presentation tables (CSV and Markdown) were added for every experiment, and the analysis tables moved to `results/combined/analysis_tables/`. Two gaps found on the way were closed: the E14 run was missing from the run-quality table, and the native builds (E4, b3) were in no figure.
 
 ---
 

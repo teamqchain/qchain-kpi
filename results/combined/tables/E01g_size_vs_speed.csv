@@ -1,0 +1,23 @@
+Family,Algorithm,Public key + signature (bytes),"Sign + verify, Mac M1 (µs)","Sign + verify, Laptop (µs)","Sign + verify, VM (µs)"
+ML-DSA,ml-dsa-44,3732,88.62,111.2,284.7
+ML-DSA,ml-dsa-65,5261,143.1,178.3,429.1
+ML-DSA,ml-dsa-87,7219,223.2,234.7,598.8
+Falcon,falcon-1024,3064,333.0,498.0,7989.3
+Falcon,falcon-512,1552,166.9,251.4,3703.1
+Falcon,falcon-padded-1024,3073,329.2,500.2,8010.7
+Falcon,falcon-padded-512,1563,166.5,249.0,3693.4
+SLH-DSA,slh-dsa-sha2-128f,17120,22000.6,22081.3,24044.4
+SLH-DSA,slh-dsa-sha2-128s,7888,431775.9,430382.4,470585.3
+SLH-DSA,slh-dsa-sha2-192f,35712,35625.1,36187.1,38741.1
+SLH-DSA,slh-dsa-sha2-192s,16272,758214.1,775017.1,838993.9
+SLH-DSA,slh-dsa-sha2-256f,49920,71339.2,73368.9,78722.2
+SLH-DSA,slh-dsa-sha2-256s,29856,668682.1,703223.1,749980.5
+SLH-DSA,slh-dsa-shake-128f,17120,27710.0,43686.8,39812.1
+SLH-DSA,slh-dsa-shake-128s,7888,553320.8,862281.3,789919.1
+SLH-DSA,slh-dsa-shake-192f,35712,45504.4,70505.0,64950.3
+SLH-DSA,slh-dsa-shake-192s,16272,982931.9,1503919.0,1405408.5
+SLH-DSA,slh-dsa-shake-256f,49920,91666.7,127943.0,130272.3
+SLH-DSA,slh-dsa-shake-256s,29856,887775.4,1225579.1,1249582.0
+classical,ecdsa-p256,136,74.46,83.24,109.2
+classical,ed25519,96,111.9,139.5,142.2
+classical,rsa3072-pss,806,1638.0,1563.8,2229.2

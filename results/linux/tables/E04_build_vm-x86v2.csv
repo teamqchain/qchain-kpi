@@ -1,0 +1,91 @@
+Variant,Family,Algorithm,Operation,Production (b1),Variant,Variant ÷ b1,95 % CI,Cliff's delta
+no OpenSSL (b4),ML-DSA,ml-dsa-44,key generation,77.34,72.81,0.941,0.872–0.998,-0.92
+no OpenSSL (b4),ML-DSA,ml-dsa-44,signing,206.0,207.2,1.006,0.954–1.035,-0.04
+no OpenSSL (b4),ML-DSA,ml-dsa-44,verification,78.69,79.38,1.009,0.998–1.09,0.68
+no OpenSSL (b4),ML-DSA,ml-dsa-65,key generation,132.3,132.6,1.002,0.959–1.033,0.04
+no OpenSSL (b4),ML-DSA,ml-dsa-65,signing,321.0,320.0,0.997,0.955–1.006,-0.36
+no OpenSSL (b4),ML-DSA,ml-dsa-65,verification,108.2,109.8,1.016,0.963–1.054,0.28
+no OpenSSL (b4),ML-DSA,ml-dsa-87,key generation,183.2,183.6,1.002,0.952–1.023,-0.04
+no OpenSSL (b4),ML-DSA,ml-dsa-87,signing,415.2,412.5,0.993,0.982–1.024,0.12
+no OpenSSL (b4),ML-DSA,ml-dsa-87,verification,183.5,182.1,0.992,0.964–1.041,0.2
+no OpenSSL (b4),Falcon,falcon-1024,key generation,32969.2,32877.3,0.997,0.984–1.017,-0.2
+no OpenSSL (b4),Falcon,falcon-1024,signing,7911.1,7906.4,0.999,0.982–1.001,-0.68
+no OpenSSL (b4),Falcon,falcon-1024,verification,78.27,80.87,1.033,0.947–1.069,0.28
+no OpenSSL (b4),Falcon,falcon-512,key generation,11581.4,11529.8,0.996,0.99–1.008,-0.28
+no OpenSSL (b4),Falcon,falcon-512,signing,3666.9,3645.6,0.994,0.991–1.002,-0.76
+no OpenSSL (b4),Falcon,falcon-512,verification,36.23,36.36,1.004,0.932–1.089,0.04
+no OpenSSL (b4),Falcon,falcon-padded-1024,key generation,33077.2,32967.3,0.997,0.966–1.03,-0.04
+no OpenSSL (b4),Falcon,falcon-padded-1024,signing,7931.3,7922.9,0.999,0.965–1.03,-0.28
+no OpenSSL (b4),Falcon,falcon-padded-1024,verification,79.41,80.28,1.011,0.955–1.047,0.04
+no OpenSSL (b4),Falcon,falcon-padded-512,key generation,11508.3,11561.7,1.005,0.945–1.018,0.04
+no OpenSSL (b4),Falcon,falcon-padded-512,signing,3655.5,3639.1,0.996,0.969–1.0,-0.68
+no OpenSSL (b4),Falcon,falcon-padded-512,verification,37.95,36.78,0.969,0.947–1.002,-0.76
+no OpenSSL (b4),SLH-DSA,slh-dsa-sha2-128f,key generation,980.8,974.2,0.993,0.932–1.014,-0.36
+no OpenSSL (b4),SLH-DSA,slh-dsa-sha2-128f,signing,22650.6,22485.3,0.993,0.958–1.023,-0.36
+no OpenSSL (b4),SLH-DSA,slh-dsa-sha2-128f,verification,1393.7,1375.8,0.987,0.977–1.022,-0.6
+no OpenSSL (b4),SLH-DSA,slh-dsa-sha2-128s,key generation,61057.6,61420.2,1.006,0.993–1.024,0.52
+no OpenSSL (b4),SLH-DSA,slh-dsa-sha2-128s,signing,470114.3,471074.5,1.002,0.955–1.019,-0.04
+no OpenSSL (b4),SLH-DSA,slh-dsa-sha2-128s,verification,471.0,480.4,1.02,0.99–1.044,0.76
+no OpenSSL (b4),SLH-DSA,slh-dsa-sha2-192f,key generation,1403.7,1419.7,1.011,0.996–1.015,0.6
+no OpenSSL (b4),SLH-DSA,slh-dsa-sha2-192f,signing,36745.2,36777.0,1.001,0.98–1.012,-0.2
+no OpenSSL (b4),SLH-DSA,slh-dsa-sha2-192f,verification,1995.9,2027.7,1.016,1.002–1.026,1.0
+no OpenSSL (b4),SLH-DSA,slh-dsa-sha2-192s,key generation,90011.6,88512.8,0.983,0.967–1.006,-0.52
+no OpenSSL (b4),SLH-DSA,slh-dsa-sha2-192s,signing,838269.5,841193.3,1.003,0.977–1.015,0.04
+no OpenSSL (b4),SLH-DSA,slh-dsa-sha2-192s,verification,724.4,721.1,0.995,0.962–1.026,-0.28
+no OpenSSL (b4),SLH-DSA,slh-dsa-sha2-256f,key generation,3673.8,3706.3,1.009,0.998–1.016,0.76
+no OpenSSL (b4),SLH-DSA,slh-dsa-sha2-256f,signing,76654.8,76139.1,0.993,0.963–1.014,-0.36
+no OpenSSL (b4),SLH-DSA,slh-dsa-sha2-256f,verification,2067.4,2060.5,0.997,0.969–1.009,-0.04
+no OpenSSL (b4),SLH-DSA,slh-dsa-sha2-256s,key generation,58676.8,59018.0,1.006,0.987–1.027,0.2
+no OpenSSL (b4),SLH-DSA,slh-dsa-sha2-256s,signing,748938.1,741318.9,0.99,0.964–1.017,-0.44
+no OpenSSL (b4),SLH-DSA,slh-dsa-sha2-256s,verification,1042.3,1019.7,0.978,0.969–0.99,-1.0
+no OpenSSL (b4),SLH-DSA,slh-dsa-shake-128f,key generation,1621.0,1601.5,0.988,0.958–1.001,-0.68
+no OpenSSL (b4),SLH-DSA,slh-dsa-shake-128f,signing,37564.5,37528.5,0.999,0.979–1.014,-0.2
+no OpenSSL (b4),SLH-DSA,slh-dsa-shake-128f,verification,2247.6,2226.0,0.99,0.97–1.007,-0.52
+no OpenSSL (b4),SLH-DSA,slh-dsa-shake-128s,key generation,102508.4,100912.4,0.984,0.975–1.002,-0.68
+no OpenSSL (b4),SLH-DSA,slh-dsa-shake-128s,signing,789142.8,781660.8,0.991,0.979–1.007,-0.68
+no OpenSSL (b4),SLH-DSA,slh-dsa-shake-128s,verification,776.3,767.3,0.988,0.967–1.043,-0.04
+no OpenSSL (b4),SLH-DSA,slh-dsa-shake-192f,key generation,2361.2,2339.6,0.991,0.985–1.006,-0.44
+no OpenSSL (b4),SLH-DSA,slh-dsa-shake-192f,signing,61681.1,60634.2,0.983,0.96–0.997,-0.92
+no OpenSSL (b4),SLH-DSA,slh-dsa-shake-192f,verification,3269.2,3233.1,0.989,0.974–1.001,-0.76
+no OpenSSL (b4),SLH-DSA,slh-dsa-shake-192s,key generation,150322.7,150082.6,0.998,0.968–1.007,-0.2
+no OpenSSL (b4),SLH-DSA,slh-dsa-shake-192s,signing,1404274.9,1379366.5,0.982,0.952–0.994,-0.92
+no OpenSSL (b4),SLH-DSA,slh-dsa-shake-192s,verification,1133.5,1126.3,0.994,0.972–1.008,-0.36
+no OpenSSL (b4),SLH-DSA,slh-dsa-shake-256f,key generation,6201.2,6174.9,0.996,0.98–1.02,-0.44
+no OpenSSL (b4),SLH-DSA,slh-dsa-shake-256f,signing,126908.4,125793.3,0.991,0.957–1.012,-0.44
+no OpenSSL (b4),SLH-DSA,slh-dsa-shake-256f,verification,3363.9,3308.3,0.983,0.976–1.007,-0.6
+no OpenSSL (b4),SLH-DSA,slh-dsa-shake-256s,key generation,100020.9,98977.0,0.99,0.974–1.019,-0.36
+no OpenSSL (b4),SLH-DSA,slh-dsa-shake-256s,signing,1247914.6,1224579.2,0.981,0.932–1.038,-0.68
+no OpenSSL (b4),SLH-DSA,slh-dsa-shake-256s,verification,1667.4,1668.9,1.001,0.982–1.022,0.12
+no OpenSSL (b4),ML-KEM,ml-kem-1024,decapsulation,58.62,60.19,1.027,0.974–1.067,0.6
+no OpenSSL (b4),ML-KEM,ml-kem-1024,encapsulation,53.7,51.26,0.954,0.939–1.036,-0.28
+no OpenSSL (b4),ML-KEM,ml-kem-1024,key generation,55.45,54.01,0.974,0.95–0.999,-0.84
+no OpenSSL (b4),ML-KEM,ml-kem-512,decapsulation,26.2,26.88,1.026,0.977–1.076,0.52
+no OpenSSL (b4),ML-KEM,ml-kem-512,encapsulation,26.06,23.33,0.895,0.827–0.944,-1.0
+no OpenSSL (b4),ML-KEM,ml-kem-512,key generation,23.96,21.38,0.892,0.881–0.992,-0.92
+no OpenSSL (b4),ML-KEM,ml-kem-768,decapsulation,40.31,40.4,1.002,0.956–1.034,0.04
+no OpenSSL (b4),ML-KEM,ml-kem-768,encapsulation,38.89,35.21,0.905,0.881–0.96,-1.0
+no OpenSSL (b4),ML-KEM,ml-kem-768,key generation,37.06,35.38,0.955,0.897–1.003,-0.76
+no OpenSSL (b4),HQC,hqc-1,decapsulation,3729.8,3676.7,0.986,0.981–1.007,-0.6
+no OpenSSL (b4),HQC,hqc-1,encapsulation,2478.5,2414.2,0.974,0.963–0.998,-0.92
+no OpenSSL (b4),HQC,hqc-1,key generation,1231.0,1215.3,0.987,0.968–0.994,-1.0
+no OpenSSL (b4),HQC,hqc-3,decapsulation,10942.2,11199.6,1.024,1.014–1.032,1.0
+no OpenSSL (b4),HQC,hqc-3,encapsulation,7269.6,7306.3,1.005,0.964–1.009,-0.28
+no OpenSSL (b4),HQC,hqc-3,key generation,3659.4,3680.9,1.006,0.991–1.012,0.2
+no OpenSSL (b4),HQC,hqc-5,decapsulation,26782.5,27464.0,1.025,0.997–1.031,0.76
+no OpenSSL (b4),HQC,hqc-5,encapsulation,17703.1,18113.0,1.023,1.003–1.029,0.84
+no OpenSSL (b4),HQC,hqc-5,key generation,8854.2,9075.2,1.025,1.009–1.036,1.0
+no OpenSSL (b4),classical,dhkem-p256,decapsulation,125.6,122.3,0.974,0.951–1.041,-0.04
+no OpenSSL (b4),classical,dhkem-p256,encapsulation,138.3,144.8,1.047,0.961–1.055,0.52
+no OpenSSL (b4),classical,dhkem-p256,key generation,38.47,38.23,0.994,0.969–1.051,0.12
+no OpenSSL (b4),classical,dhkem-x25519,decapsulation,45.06,45.9,1.019,1.009–1.05,1.0
+no OpenSSL (b4),classical,dhkem-x25519,encapsulation,90.28,90.67,1.004,0.984–1.025,0.2
+no OpenSSL (b4),classical,dhkem-x25519,key generation,42.6,44.62,1.047,0.973–1.061,0.52
+no OpenSSL (b4),classical,ecdsa-p256,key generation,40.79,39.1,0.958,0.947–1.008,-0.6
+no OpenSSL (b4),classical,ecdsa-p256,signing,30.89,31.27,1.012,0.976–1.066,0.52
+no OpenSSL (b4),classical,ecdsa-p256,verification,78.36,72.57,0.926,0.913–1.046,-0.36
+no OpenSSL (b4),classical,ed25519,key generation,46.69,45.91,0.983,0.953–1.001,-0.68
+no OpenSSL (b4),classical,ed25519,signing,40.3,40.33,1.001,0.993–1.058,-0.04
+no OpenSSL (b4),classical,ed25519,verification,101.9,98.02,0.962,0.948–1.007,-0.68
+no OpenSSL (b4),classical,rsa3072-pss,key generation,510364.1,550772.1,1.079,0.931–1.22,0.68
+no OpenSSL (b4),classical,rsa3072-pss,signing,2175.9,2158.8,0.992,0.989–1.004,-0.36
+no OpenSSL (b4),classical,rsa3072-pss,verification,53.27,53.27,1.0,0.973–1.061,0.12

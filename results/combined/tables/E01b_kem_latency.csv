@@ -1,0 +1,9 @@
+Family,Algorithm,"Key generation, Mac M1","Key generation, Laptop","Key generation, VM","Encapsulation, Mac M1","Encapsulation, Laptop","Encapsulation, VM","Decapsulation, Mac M1","Decapsulation, Laptop","Decapsulation, VM"
+ML-KEM,ml-kem-1024,20.16,28.52,55.45,20.99,29.42,53.7,23.66,34.04,58.62
+ML-KEM,ml-kem-512,8.33,11.92,23.97,9.12,12.84,26.06,10.12,14.52,26.2
+ML-KEM,ml-kem-768,13.33,20.26,37.06,14.04,20.56,38.89,16.08,23.74,40.31
+HQC,hqc-1,894.2,1077.6,1231.0,1790.9,2164.9,2478.5,2727.7,3301.3,3729.8
+HQC,hqc-3,2345.1,3274.7,3659.4,4667.8,6511.8,7269.6,7044.8,9798.9,10942.2
+HQC,hqc-5,5921.6,7963.1,8854.2,11812.9,15896.8,17703.1,17808.5,23901.5,26782.5
+classical,dhkem-p256,25.99,37.47,38.47,110.3,130.7,138.3,99.45,116.7,125.6
+classical,dhkem-x25519,31.94,39.9,42.6,67.38,77.79,90.28,37.52,39.16,45.06

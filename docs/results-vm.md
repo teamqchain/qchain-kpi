@@ -1,6 +1,6 @@
 # Results: the virtualised x86 server (`vm-x86v2`)
 
-> **Where this fits.** One of three per-machine result documents ([Mac](results-mac.md) · [VM](results-vm.md) · [Windows laptop](results-windows.md)); the comparison of the three is [results-comparison.md](results-comparison.md). All numbers come from `python3 analysis/run_all.py`: tables in `../results/combined/tables/`, figures in `../results/combined/figures/`.
+> **Where this fits.** One of three per-machine result documents ([Mac](results-mac.md) · [VM](results-vm.md) · [Windows laptop](results-windows.md)); the comparison of the three is [results-comparison.md](results-comparison.md). All numbers come from `python3 analysis/run_all.py`: analysis tables in `../results/combined/analysis_tables/` (T0–T14), presentation tables in `../results/combined/tables/`, figures in `../results/combined/figures/`, and this machine's own bar charts and tables in [`../results/linux/`](../results/linux/README.md).
 
 > ⚠️ **How to describe this machine.** In the paper and in reports it is *a tested environment: a virtualised x86 server*. It is never described as QChain's deployment or production environment ([`results/linux/MACHINE.md`](../results/linux/MACHINE.md)).
 
@@ -44,7 +44,7 @@ The VM ran the reduced scope decided on 21 October 2026 ([methodology section 9]
 
 ## 1. Primitives (E1)
 
-Median microseconds per call (table `T2`):
+Median microseconds per call (table `T2`; as bars: figures F1a–F1c and F2a–F2c, and the VM's own in `results/linux/figures/`):
 
 | Algorithm | Key generation | Sign / encapsulate | Verify / decapsulate |
 |---|---|---|---|
@@ -77,7 +77,7 @@ Production against a reused key, median over each family (table `T3`): ML-DSA 1.
 
 ## 3. The lifecycle (E11)
 
-Sum of the five stages at 10 attributes, 5 disclosed (table `T3b`), milliseconds:
+Sum of the five stages at 10 attributes, 5 disclosed (table `T3b`, figures F5a and the VM's F5b), milliseconds:
 
 | Suite | Activation | Issuance | Retrieval | Presentation | Verification | **Total** | Against ECDSA + ECDH P-256 |
 |---|---|---|---|---|---|---|---|
@@ -103,7 +103,7 @@ The VM has two vCPUs, so E12 ran with one and two workers (table `T12`). Product
 
 ## 5. Equivalence, memory and build (E10, E9, E4)
 
-- **E10** (table `T6`): holder against issuer -0.30 % (ML-DSA-44), -0.15 % (65), -0.57 % (87). All three are equivalent within the VM's own margins, and their 90 % intervals (all within ±1.7 %) would also pass the Mac's 2 % margin.
+- **E10** (table `T6`, figure F15): holder against issuer -0.30 % (ML-DSA-44), -0.15 % (65), -0.57 % (87). All three are equivalent within the VM's own margins, and their 90 % intervals (all within ±1.7 %) would also pass the Mac's 2 % margin.
 - **E9** (table `T4`): the heap figures equal the Mac's and the laptop's in every cell; the stack differs by at most 3 %; the resident memory is about 10 % higher than on the Mac.
 - **E4, liboqs without OpenSSL** (table `T7`): only the operations that draw random numbers change (ML-KEM key generation and encapsulation 5 to 11 % faster, probably liboqs's own random-number generator against OpenSSL's), every other family stays within 1 %; since the classical controls also vary by up to 8 % between days, this is reported with caution.
 
@@ -121,4 +121,4 @@ The VM has two vCPUs, so E12 ran with one and two workers (table `T12`). Product
 ## Files
 
 - Raw data: [`results/linux/`](../results/linux/) (7 main runs, the smoke runs, the trial and the add-on trials; [`INDEX.md`](../results/linux/INDEX.md)).
-- Tables and figures: [`results/combined/`](../results/combined/README.md).
+- Tables and figures: [`results/combined/`](../results/combined/README.md); this machine's own: [`results/linux/`](../results/linux/README.md).

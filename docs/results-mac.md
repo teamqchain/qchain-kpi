@@ -1,6 +1,6 @@
 # Results: the Mac (`mac-m1`)
 
-> **Where this fits.** One of three per-machine result documents ([Mac](results-mac.md) · [VM](results-vm.md) · [Windows laptop](results-windows.md)); the comparison of the three is [results-comparison.md](results-comparison.md). All numbers come from `python3 analysis/run_all.py`: tables in `../results/combined/tables/`, figures in `../results/combined/figures/`.
+> **Where this fits.** One of three per-machine result documents ([Mac](results-mac.md) · [VM](results-vm.md) · [Windows laptop](results-windows.md)); the comparison of the three is [results-comparison.md](results-comparison.md). All numbers come from `python3 analysis/run_all.py`: analysis tables in `../results/combined/analysis_tables/` (T0–T14), presentation tables in `../results/combined/tables/`, figures in `../results/combined/figures/`, and this machine's own bar charts and tables in [`../results/mac/`](../results/mac/README.md).
 
 The Mac was the first machine of the study and the only one that ran **every** experiment, E0 to E14. Its runs were made between 10 and 22 October 2026 (run ids are in UTC). It is also the machine whose numbers were reported in progress report 2 (31 October 2026); this document gives the same numbers, plus the parts the report did not have room for.
 
@@ -51,7 +51,7 @@ Full description: [`results/mac/MACHINE.md`](../results/mac/MACHINE.md). Two thi
 
 ## 1. Primitives (E1, E8)
 
-Median microseconds per call (table `T2`), sizes in bytes (table `T1`):
+Median microseconds per call (table `T2`; as bars: figures F1a–F1c and F2a–F2c), sizes in bytes (table `T1`, figure F14):
 
 | Algorithm | Key generation | Sign / encapsulate | Verify / decapsulate | Public key | Signature / ciphertext |
 |---|---|---|---|---|---|
@@ -98,7 +98,7 @@ The Mac measured all **176 pairs** of the 22 signature schemes and 8 KEMs at 10 
 
 ## 4. Native macOS against the container (E5)
 
-All 90 E1 cells were measured again natively (table `T9`). The native medians are 0.97 to 1.09 times the container's by family (ML-DSA 1.03, ML-KEM 0.99, Falcon 1.09, HQC 0.97, SLH-DSA 0.97, classical 0.98). **Docker in Colima costs nothing measurable on the Mac.** The small differences in both directions probably come from the compilers (Apple clang natively, gcc 12 in the image) and from the core the scheduler chose.
+All 90 E1 cells were measured again natively (table `T9`, figure F16). The native medians are 0.97 to 1.09 times the container's by family (ML-DSA 1.03, ML-KEM 0.99, Falcon 1.09, HQC 0.97, SLH-DSA 0.97, classical 0.98). **Docker in Colima costs nothing measurable on the Mac.** The small differences in both directions probably come from the compilers (Apple clang natively, gcc 12 in the image) and from the core the scheduler chose.
 
 ---
 
@@ -134,7 +134,7 @@ Production suite, calls per second (table `T12`): issuance 4,487 with one worker
 ## 8. Storage (E13) and Fabric (E14)
 
 - **E13** is a byte-exact model of QChain's ledger and IPFS objects, calibrated on a block and IPFS store captured read-only from the live system on 13 October 2026 (`internal/ledger/vmcapture/`). One `issueCredential` with 10 attributes: 22,299 bytes with ML-DSA-44 (Fabric's own identities ECDSA), 7,911 bytes with ECDSA; 10 transactions per block. Tables `T5`, `T5b`, figure F11; discussed in [results-comparison.md](results-comparison.md#6-rq5-storage).
-- **E14** rebuilt QChain's Fabric network (ECDSA identities, one shared CouchDB) in Colima and timed 6,360 transactions shaped like post-quantum credentials (table `T13`). A transaction sent alone takes 2.05 to 2.07 s whatever its payload (1 byte to 50 KB), because the orderer cuts a lone transaction at its 2-second batch timeout; endorsement takes 13 to 23 ms. Bursts of 40 complete at a median of 164 ms (tiny payload), 195 ms (ML-DSA-44 sized) and 705 ms (SLH-DSA-256f sized). **410 of the 1,800 burst transactions were marked MVCC_READ_CONFLICT**, because both peers of that network shared one CouchDB ([methodology](methodology.md), E14).
+- **E14** rebuilt QChain's Fabric network (ECDSA identities, one shared CouchDB) in Colima and timed 6,360 transactions shaped like post-quantum credentials (table `T13`, figure F17). A transaction sent alone takes 2.05 to 2.07 s whatever its payload (1 byte to 50 KB), because the orderer cuts a lone transaction at its 2-second batch timeout; endorsement takes 13 to 23 ms. Bursts of 40 complete at a median of 164 ms (tiny payload), 195 ms (ML-DSA-44 sized) and 705 ms (SLH-DSA-256f sized). **410 of the 1,800 burst transactions were marked MVCC_READ_CONFLICT**, because both peers of that network shared one CouchDB ([methodology](methodology.md), E14).
 
 ---
 
@@ -150,5 +150,5 @@ Production suite, calls per second (table `T12`): issuance 4,487 with one worker
 ## Files
 
 - Raw data: [`results/mac/`](../results/mac/) (15 main runs, plus smoke runs, the trial and the add-on trials; [`INDEX.md`](../results/mac/INDEX.md)).
-- Tables and figures: [`results/combined/`](../results/combined/README.md).
+- Tables and figures: [`results/combined/`](../results/combined/README.md); this machine's own: [`results/mac/`](../results/mac/README.md).
 - Earlier write-up of these numbers: progress report 2 (31 October 2026, chapters 6 and 7), in the project's report repository.

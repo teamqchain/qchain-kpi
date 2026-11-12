@@ -1,0 +1,31 @@
+Machine,Experiment,Run,Blocks,Attempts,Flagged,Flags by cause,Blocks without a headline,Extension sessions,Canary range,Note
+Mac M1,E1 primitive latency,20261010-2057_mac-m1_colima-vz_b1-prod,450,498,9.6,48 other,0,1,0.9708–1.0,
+Mac M1,E10 issuer and holder,20261011-0402_mac-m1_colima-vz_b1-prod,15,15,0.0,none,0,0,0.9822–1.0,
+Mac M1,E2 integration cost,20261011-0514_mac-m1_colima-vz_b1-prod,900,1002,10.2,"89 other, 22 canary",0,1,0.9596–1.0012,
+Mac M1,E8 sizes,20261012-0309_mac-m1_colima-vz_b1-prod,60,60,0.0,none,0,0,0.982–1.0,"sizes, not timed: never flagged"
+Mac M1,E11 lifecycle (all 176 pairs),20261012-0605_mac-m1_colima-vz_b1-prod,4955,5152,3.8,197 other,0,1,0.9811–1.0015,
+Mac M1,E13 ledger and IPFS bytes,20261013-1252_mac-m1_colima-vz_b1-prod,30,30,0.0,none,0,0,0.9856–1.0,"bytes, not timed: never flagged"
+Mac M1,E6 message size,20261013-2220_mac-m1_colima-vz_b1-prod,1100,1197,8.1,97 other,0,1,0.9795–1.0007,
+Mac M1,E7 rejection timing,20261014-1822_mac-m1_colima-vz_b1-prod,150,161,6.8,11 other,0,0,0.9767–1.0,
+Mac M1,E9 memory,20261015-0300_mac-m1_colima-vz_b1-prod,1350,1350,0.0,none,0,0,0.9788–1.0,"memory, not timed: never flagged"
+Mac M1,E12 concurrency,20261015-0837_mac-m1_colima-vz_b1-prod,120,125,4.0,5 other,0,0,0.9814–1.0,
+Mac M1,E3 integration layers,20261016-1904_mac-m1_colima-vz_b1-prod,455,514,11.5,59 other,0,2,0.9799–1.0006,
+Mac M1,"E4 build sensitivity, portable build (b2)",20261018-2205_mac-m1_colima-vz_b2-portable,450,481,6.4,31 other,0,0,0.9811–1.0007,
+Mac M1,"E4 build sensitivity, native build (b3)",20261019-1901_mac-m1_colima-vz_b3-native,450,465,3.2,15 other,0,0,0.9817–1.0012,
+Mac M1,E5 native macOS,20261020-1525_mac-m1_native-macos_b1-prod,450,457,1.5,7 other,0,0,0.9804–1.0002,
+Mac M1,E14 Fabric latency,20261021-2135_mac-m1_colima-vz_fabric2.5.15,93,93,,–,,0,0.9999–1.0023,Fabric latency: every block recorded once; quality flags not applied (decision of 21 Oct)
+Laptop,E1 primitive latency,20261107-0730_win-ryzen_docker-wsl2_b1-prod,450,567,20.6,"97 other, 33 canary",0,2,0.8577–1.0068,
+Laptop,E10 issuer and holder,20261107-1443_win-ryzen_docker-wsl2_b1-prod,15,16,6.2,1 other,0,0,0.9842–0.9996,
+Laptop,E9 memory,20261107-1448_win-ryzen_docker-wsl2_b1-prod,1350,1350,0.0,none,0,0,0.9975–1.0021,"memory, not timed: never flagged"
+Laptop,E12 concurrency,20261107-1612_win-ryzen_docker-wsl2_b1-prod,160,331,56.5,"185 other, 33 canary, 3 thermal",16,2,0.9575–0.9876,
+Laptop,E2 integration cost (no SLH-DSA),20261107-1835_win-ryzen_docker-wsl2_b1-prod,540,631,14.6,"91 other, 4 canary",1,2,0.966–1.0078,
+Laptop,E11 lifecycle (16 suites),20261108-0343_win-ryzen_docker-wsl2_b1-prod,2505,2756,9.1,"168 other, 132 canary",0,1,0.8664–1.0078,
+Laptop,"E4 build sensitivity, portable build (b2)",20261108-1214_win-ryzen_docker-wsl2_b2-portable,450,531,15.3,"56 other, 28 canary",0,1,0.9642–1.0084,
+Laptop,"E4 build sensitivity, native build (b3)",20261108-1937_win-ryzen_docker-wsl2_b3-native,450,490,8.2,40 other,0,0,0.9943–1.0042,
+VM,E1 primitive latency,20261026-0852_vm-x86v2_docker_b1-prod,450,560,19.6,"13 other, 99 canary",0,0,0.9446–1.0461,
+VM,E10 issuer and holder,20261026-1602_vm-x86v2_docker_b1-prod,15,15,0.0,none,0,0,0.9561–0.9637,
+VM,E9 memory,20261026-1608_vm-x86v2_docker_b1-prod,1350,1350,0.0,none,0,0,0.9438–1.0216,"memory, not timed: never flagged"
+VM,E12 concurrency,20261026-1732_vm-x86v2_docker_b1-prod,80,121,33.9,41 canary,0,1,0.9437–1.0608,
+VM,E2 integration cost (no SLH-DSA),20261030-1946_vm-x86v2_docker_b1-prod,540,573,5.8,"5 other, 28 canary",0,0,0.9579–1.0563,
+VM,E11 lifecycle (16 suites),20261031-0244_vm-x86v2_docker_b1-prod,2505,2925,14.4,"30 other, 397 canary, 1 steal",0,1,0.9515–1.0648,
+VM,"E4 build sensitivity, no OpenSSL (b4)",20261031-1140_vm-x86v2_docker_b4-noossl,450,453,0.7,3 other,0,0,0.9573–1.0396,

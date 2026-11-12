@@ -1,6 +1,6 @@
 # Results: the Windows laptop (`win-ryzen`)
 
-Complete analysis of the laptop's main runs, written on 10 November 2026 from commit `ba0990e` of the results (7 and 8 November, with two rerun rounds on 10 November). Every number below can be regenerated with `python3 analysis/run_all.py`; the tables are in `results/combined/tables/` and the figures in `results/combined/figures/`. The comparison with the Mac and the VM is in [results-comparison.md](results-comparison.md).
+Complete analysis of the laptop's main runs, written on 10 November 2026 from commit `ba0990e` of the results (7 and 8 November, with two rerun rounds on 10 November). Every number below can be regenerated with `python3 analysis/run_all.py`; the analysis tables are in `results/combined/analysis_tables/`, the presentation tables in `results/combined/tables/`, the figures in `results/combined/figures/`, and the laptop's own bar charts and tables in [`results/windows/`](../results/windows/README.md). The comparison with the Mac and the VM is in [results-comparison.md](results-comparison.md).
 
 **The machine:** an HP laptop with an AMD Ryzen 5 7520U (4 cores, 8 threads, 15 W, AVX2), 8 GB of memory, Windows 11, measured inside Docker Desktop on WSL2. The container is pinned to one WSL2 virtual CPU, with no CPU quota, no swap and no network ([machine description](../results/windows/MACHINE.md)). The scope follows [methodology section 9](methodology.md): E1, E2 (without SLH-DSA), E4 (portable and native builds), E9, E10, E11 (the 16 curated suites) and E12 (1, 2, 4 and 8 workers).
 
@@ -54,7 +54,7 @@ The main series ran from Saturday 7 November 11:15 to Monday 9 November 05:44 (4
 
 ## 3. Primitive latency (E1)
 
-Median latency of one call, microseconds (table `T2_E1_primitive_latency.csv`, 5 repetitions each; the 95 % bootstrap intervals over the repetitions are in the table and are under 4 % of the median in 87 of the 90 cells; the exceptions are Falcon-1024 verification, where one repetition ran 1.5 times slower, RSA key generation, whose time is random, and X25519 encapsulation at 4.6 %). Figure F1 and F2 show all 30 algorithms.
+Median latency of one call, microseconds (table `T2_E1_primitive_latency.csv`; as bars: figures F1a–F1c, F2a–F2c and the laptop's own in `results/windows/figures/`; 5 repetitions each; the 95 % bootstrap intervals over the repetitions are in the table and are under 4 % of the median in 87 of the 90 cells; the exceptions are Falcon-1024 verification, where one repetition ran 1.5 times slower, RSA key generation, whose time is random, and X25519 encapsulation at 4.6 %). Figure F1 and F2 show all 30 algorithms.
 
 | Algorithm | Key generation | Sign or encapsulate | Verify or decapsulate |
 |---|---|---|---|
@@ -88,7 +88,7 @@ Median latency of one call, microseconds (table `T2_E1_primitive_latency.csv`, 5
 | 65 | 126.2 µs | 126.6 µs | +0.20 % | -0.25 % to +0.65 % | 2.00 % | yes |
 | 87 | 154.0 µs | 153.9 µs | +0.33 % | -0.05 % to +0.71 % | 2.00 % | yes |
 
-The margins come from the laptop's trial (twice the upper bound of the A/A floor, at least 2 %); ML-DSA-44 has a wider margin because its A/A floor was 3.0 %. The A/A comparison (issuer against issuer again) gives -0.29 % to +0.16 %, so the instrument's own noise is smaller than every margin except the one for ML-DSA-44. Table `T6_E10_issuer_holder_equivalence.csv`.
+The margins come from the laptop's trial (twice the upper bound of the A/A floor, at least 2 %); ML-DSA-44 has a wider margin because its A/A floor was 3.0 %. The A/A comparison (issuer against issuer again) gives -0.29 % to +0.16 %, so the instrument's own noise is smaller than every margin except the one for ML-DSA-44. Table `T6_E10_issuer_holder_equivalence.csv`, figure F15.
 
 ## 5. What the deployed integration adds (E2)
 
@@ -167,7 +167,7 @@ Variant against the production build, median over the cells of the family (table
 
 ## Files
 
-- Tables: `results/combined/tables/` (`T0`, `T2` to `T14`).
-- Figures: `results/combined/figures/` (`F0` to `F13`, PDF and PNG).
+- Tables: `results/combined/analysis_tables/` (`T0`, `T2` to `T14`), `results/combined/tables/` (presentation tables) and the laptop's own in `results/windows/tables/`.
+- Figures: `results/combined/figures/` (`F0` to `F17`, PDF and PNG) and the laptop's own bar charts in `results/windows/figures/`.
 - Code: `analysis/` (`run_all.py` regenerates everything; see [analysis/README.md](../analysis/README.md)).
 - Raw data: `results/windows/` (8 main runs, 7 smoke runs, the trial and the two add-on trials).

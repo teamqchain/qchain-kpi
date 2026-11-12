@@ -6,13 +6,13 @@
 
 <p align="center">
   <b>The code that turns every run folder into the tables and figures of the study.</b><br/>
-  Written on 10 November 2026, after the last measurement · <a href="../README.md">back to the main README</a>
+  Written on 10 November 2026, after the last measurement; figures and tables extended on 12 November · <a href="../README.md">back to the main README</a>
 </p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.9%2B-3776AB" alt="Python" />
   <img src="https://img.shields.io/badge/needs-numpy%20%C2%B7%20scipy%20%C2%B7%20matplotlib-4C72B0" alt="Dependencies" />
-  <img src="https://img.shields.io/badge/output-19%20tables%20%C2%B7%2015%20figures-2EA44F" alt="Output" />
+  <img src="https://img.shields.io/badge/output-20%20analysis%20%C2%B7%2066%20presentation%20tables%20%C2%B7%2050%20figures-2EA44F" alt="Output" />
   <img src="https://img.shields.io/badge/deterministic-seed%2020261110-555555" alt="Deterministic" />
 </p>
 
@@ -21,28 +21,33 @@
 ## Run it
 
 ```bash
-python3 analysis/run_all.py      # about 20 seconds; rewrites results/combined/tables and results/combined/figures
+python3 analysis/run_all.py      # about one minute; rewrites every generated table and figure, then lists any layout problem
 ```
 
 | | |
 |---|---|
 | **Needs** | only numpy, scipy and matplotlib (the Mac's system Python 3.9 has them; no pandas, no virtual environment) |
 | **Reads** | `results/<machine>/<run-id>/` for `mac`, `linux` and `windows`, and `config/thresholds.json` |
-| **Writes** | `results/combined/tables/*.csv` and `results/combined/figures/*.{pdf,png}`, nothing else |
-| **Deterministic** | the bootstrap seed is 20261110; CSV files are written with `\n` line endings on every system |
+| **Writes** | `results/combined/analysis_tables/` (T0–T14, CSV), `results/combined/tables/` (presentation tables, CSV + Markdown), `results/combined/figures/` (F0–F17, PDF + PNG), and for each machine `results/<machine>/figures/`, `results/<machine>/tables/` and `results/<machine>/README.md`; nothing else |
+| **Deterministic** | the bootstrap seed is 20261110; CSV files use `\n` line endings, the PDFs carry no creation date and every sort has a tie-breaker, so two runs give byte-identical files |
 
 ```
  results/mac/…   results/linux/…   results/windows/…            config/thresholds.json
-        │  blocks.csv · quality.csv · manifest.json · raw/             │  E10 margins, limits
+        │  blocks.csv · quality.csv · manifest.json · env/ · raw/      │  E10 margins, limits
         └─────────────────────────────┬────────────────────────────────┘
                                       ▼
                   common.py   headline attempts → cells → bootstrap
                                       │
-   ┌─────────┬─────────┬──────────┬───┴─────┬───────────┬─────────────┬───────────────┐
- e1.py     e2.py     e11.py    e9/e10.py  e4/e12.py  mac_only.py  e14_sens.py  figures1/2.py
-   └─────────┴─────────┴──────────┴───┬─────┴───────────┴─────────────┴───────────────┘
+   ┌─────────┬─────────┬──────────┬───┴─────┬───────────┬─────────────┐
+ e1.py     e2.py     e11.py    e9/e10.py  e4/e12.py  mac_only.py  e14_sens.py
+   └─────────┴─────────┴──────────┴───┬─────┴───────────┴─────────────┘
                                       ▼
-             results/combined/tables (T0–T14)  ·  results/combined/figures (F0–F13)
+                     results/combined/analysis_tables  (T0–T14)
+                                      │
+         ┌────────────────────────────┼─────────────────────────────┐
+  figures1/2.py · figures3.py    paper_tables.py              (per machine)
+         ▼                            ▼                              ▼
+ results/combined/figures   results/combined/tables   results/<machine>/figures, tables
 ```
 
 ---
@@ -62,8 +67,8 @@ python3 analysis/run_all.py      # about 20 seconds; rewrites results/combined/t
 
 | File | Produces |
 |---|---|
-| `common.py` | run discovery, joining `blocks.csv` and `quality.csv`, cells, bootstrap; the machine ids `mac-m1`, `vm-x86v2`, `win-ryzen` |
-| `quality_summary.py` | `T0` the quality of every run |
+| `common.py` | run discovery, joining `blocks.csv` and `quality.csv`, cells, bootstrap; the output folders; the machine ids `mac-m1`, `vm-x86v2`, `win-ryzen` and the experiment names |
+| `quality_summary.py` | `T0` the quality of every run (E14 included: recorded once, not flagged) |
 | `e1.py` | `T2` primitive latency, `T2b` ratios between machines |
 | `e2.py` | `T3` integration overhead (production, reinit and reuse arms, components) |
 | `e11.py` | `T3b` lifecycle per suite, `T3c` scaling of the production suite |
@@ -71,12 +76,24 @@ python3 analysis/run_all.py      # about 20 seconds; rewrites results/combined/t
 | `e10.py` | `T6` issuer and holder equivalence |
 | `e4.py` | `T7` build sensitivity |
 | `e12.py` | `T12` concurrency, with the sensitivity columns for blocks without a headline |
-| `mac_only.py` | `T1` sizes (E8), `T5`, `T5b` ledger and IPFS bytes (E13), `T8` integration layers (E3), `T9` native macOS (E5), `T10` message size (E6), `T11` rejection timing (E7) |
+| `mac_only.py` | `T1` sizes (E8), `T5`, `T5b`, `T5c` ledger and IPFS bytes (E13), `T8` integration layers (E3), `T9` native macOS (E5), `T10` message size (E6), `T11` rejection timing (E7) |
 | `e14_sens.py` | `T13` Fabric latency (E14, from the main run `20261021-2135`, selected through its manifest), `T14` sensitivity |
-| `figures_common.py`, `figures1.py`, `figures2.py` | `F0` to `F13` (PDF for the paper, PNG for reports); Okabe-Ito colours (colour-blind safe), one colour per machine |
-| `run_all.py` | runs everything in order |
+| `figures_common.py` | the figure rules: machine colours and order, family and stage colours, log axes in plain units, value labels, and the layout check |
+| `figures1.py`, `figures2.py` | `F0` to `F13` and `F9b` |
+| `figures3.py` | the bar charts: `F1a`–`F1c`, `F2a`–`F2c`, `F5a`, `F14`–`F17`, and each machine's own charts in `results/<machine>/figures/` |
+| `paper_tables.py` | the presentation tables (CSV + Markdown) in `results/combined/tables/` and `results/<machine>/tables/`, their index and each machine's `README.md` |
+| `run_all.py` | runs everything in order and prints the layout problems, if any |
 
-The index of every table and figure is [results/combined/README.md](../results/combined/README.md). The results are written up in [results-mac.md](../docs/results-mac.md), [results-vm.md](../docs/results-vm.md), [results-windows.md](../docs/results-windows.md) and [results-comparison.md](../docs/results-comparison.md).
+The index of every table and figure, and of where each experiment appears, is [results/combined/README.md](../results/combined/README.md). The results are written up in [results-mac.md](../docs/results-mac.md), [results-vm.md](../docs/results-vm.md), [results-windows.md](../docs/results-windows.md) and [results-comparison.md](../docs/results-comparison.md).
+
+---
+
+## Figure rules
+
+- **Machines** keep one colour everywhere and are always listed in the same order: Mac M1 blue, laptop green, VM orange (Okabe-Ito, colour-blind safe). Algorithm families, lifecycle stages and size series use colours of their own, checked to differ from the machine colours for normal and colour-blind vision, so a colour never means two things.
+- **Logarithmic axes** say "(log scale)" in their label, and their ticks are plain units: 1 µs, 10 µs, 1 ms, 1 s; 1 KB, 10 KB; 1×, 2×, 5×.
+- **Bar charts** print the value at the end of every bar; the axis is widened until every label fits.
+- **Layout check.** After drawing a figure, `save()` measures every text (title, legend, axis labels, tick labels, value labels) and reports any two that overlap, any value label that leaves its panel and anything outside the saved image. `run_all.py` lists them at the end; the current figures have none. Every figure was also opened and looked at.
 
 ---
 
@@ -85,13 +102,14 @@ The index of every table and figure is [results/combined/README.md](../results/c
 - The median recomputed from the raw per-call samples equals the median in `blocks.csv` to the nanosecond (three cells on three machines).
 - E1, E2 and E10 agree with each other on the same operation (ML-DSA-44 signing on the laptop: 79.3, 80.0 and 79.5 µs).
 - The heap figures of memory are identical on all machines; the ML-DSA and ML-KEM sizes match FIPS 204 and FIPS 203.
-- Every figure was opened and read after it was drawn. This found and fixed panels that shared axis labels over different sort orders (F1, F2, F10), F3 reading the byte column instead of the latencies, and the F4 frontier and labels.
+- Every figure was opened and read after it was drawn. This found and fixed panels that shared axis labels over different sort orders (F1, F2, F10), F3 reading the byte column instead of the latencies, the F4 frontier and labels, and on 12 November a legend over F2's title, a cut-off axis label in F9, and log axes without a "(log scale)" label.
 - Every number in the four results documents was checked against the tables, and the claims that did not hold were corrected (10 and 11 November).
 - **11 November:** `T13` had been computed from the E14 smoke run; `e14_sens.py` now selects the main run through its manifest (6,360 transactions) and aggregates per payload point and mode.
+- **12 November:** `T0` gained the E14 run, which had been left out; F9b gained the native builds (b3), which were in `T7` but in no figure.
 
 ---
 
 ## Not here
 
 - The interactive dashboard of plan section 10 (on the roadmap).
-- Raw-sample analyses beyond F3 (the distribution tails): the per-call files in `results/*/*/raw/` can be read with the same `common.py`.
+- LaTeX versions of the presentation tables (to be added when the journal requires them).

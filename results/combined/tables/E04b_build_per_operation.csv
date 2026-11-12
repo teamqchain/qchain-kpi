@@ -1,0 +1,91 @@
+Family,Algorithm,Operation,"Mac M1, portable (b2)","Mac M1, native (b3)","Laptop, portable (b2)","Laptop, native (b3)","VM, no OpenSSL (b4)"
+ML-DSA,ml-dsa-44,key generation,1.284,1.017,2.372,0.987,0.941
+ML-DSA,ml-dsa-44,signing,1.706,0.998,3.062,0.983,1.006
+ML-DSA,ml-dsa-44,verification,1.375,0.984,2.347,0.982,1.009
+ML-DSA,ml-dsa-65,key generation,1.479,0.999,2.301,0.987,1.002
+ML-DSA,ml-dsa-65,signing,1.7,1.006,3.025,0.986,0.997
+ML-DSA,ml-dsa-65,verification,1.336,1.0,2.221,0.986,1.016
+ML-DSA,ml-dsa-87,key generation,1.197,0.984,2.182,0.988,1.002
+ML-DSA,ml-dsa-87,signing,1.539,0.992,3.137,0.984,0.993
+ML-DSA,ml-dsa-87,verification,1.274,1.013,2.347,0.985,0.992
+Falcon,falcon-1024,key generation,2.157,0.994,2.087,0.992,0.997
+Falcon,falcon-1024,signing,27.069,0.99,19.759,0.993,0.999
+Falcon,falcon-1024,verification,1.259,0.985,0.961,0.996,1.033
+Falcon,falcon-512,key generation,2.245,1.0,2.123,0.999,0.996
+Falcon,falcon-512,signing,24.867,0.996,18.044,0.988,0.994
+Falcon,falcon-512,verification,1.272,0.999,0.946,1.008,1.004
+Falcon,falcon-padded-1024,key generation,2.15,0.998,2.126,0.994,0.997
+Falcon,falcon-padded-1024,signing,27.354,1.013,19.667,0.988,0.999
+Falcon,falcon-padded-1024,verification,1.274,1.003,0.965,1.002,1.011
+Falcon,falcon-padded-512,key generation,2.244,1.0,2.117,1.004,1.005
+Falcon,falcon-padded-512,signing,24.946,1.002,18.267,0.998,0.996
+Falcon,falcon-padded-512,verification,1.245,0.995,0.948,1.003,0.969
+SLH-DSA,slh-dsa-sha2-128f,key generation,1.0,1.001,0.991,1.05,0.993
+SLH-DSA,slh-dsa-sha2-128f,signing,1.0,0.999,0.997,1.049,0.993
+SLH-DSA,slh-dsa-sha2-128f,verification,0.999,1.001,0.983,1.053,0.987
+SLH-DSA,slh-dsa-sha2-128s,key generation,1.0,1.0,0.998,1.063,1.006
+SLH-DSA,slh-dsa-sha2-128s,signing,1.0,1.0,1.002,1.055,1.002
+SLH-DSA,slh-dsa-sha2-128s,verification,1.005,1.007,0.984,1.037,1.02
+SLH-DSA,slh-dsa-sha2-192f,key generation,1.0,1.0,0.997,1.058,1.011
+SLH-DSA,slh-dsa-sha2-192f,signing,1.001,1.0,0.998,1.036,1.001
+SLH-DSA,slh-dsa-sha2-192f,verification,1.002,1.002,0.996,1.046,1.016
+SLH-DSA,slh-dsa-sha2-192s,key generation,1.0,1.0,0.997,1.055,0.983
+SLH-DSA,slh-dsa-sha2-192s,signing,1.0,1.0,1.001,1.03,1.003
+SLH-DSA,slh-dsa-sha2-192s,verification,1.0,1.003,0.994,1.033,0.995
+SLH-DSA,slh-dsa-sha2-256f,key generation,1.0,1.0,1.0,1.041,1.009
+SLH-DSA,slh-dsa-sha2-256f,signing,1.0,1.0,0.998,1.025,0.993
+SLH-DSA,slh-dsa-sha2-256f,verification,0.999,0.997,0.994,1.034,0.997
+SLH-DSA,slh-dsa-sha2-256s,key generation,1.0,1.0,1.0,1.041,1.006
+SLH-DSA,slh-dsa-sha2-256s,signing,1.0,1.0,1.004,1.012,0.99
+SLH-DSA,slh-dsa-sha2-256s,verification,1.0,1.0,0.991,1.025,0.978
+SLH-DSA,slh-dsa-shake-128f,key generation,1.0,0.999,0.974,0.766,0.988
+SLH-DSA,slh-dsa-shake-128f,signing,1.004,1.008,0.935,0.733,0.999
+SLH-DSA,slh-dsa-shake-128f,verification,1.004,1.002,0.994,0.766,0.99
+SLH-DSA,slh-dsa-shake-128s,key generation,1.015,1.006,0.953,0.725,0.984
+SLH-DSA,slh-dsa-shake-128s,signing,0.997,0.99,0.962,0.732,0.991
+SLH-DSA,slh-dsa-shake-128s,verification,1.001,1.007,1.003,0.804,0.988
+SLH-DSA,slh-dsa-shake-192f,key generation,0.999,1.004,0.99,0.767,0.991
+SLH-DSA,slh-dsa-shake-192f,signing,1.008,1.001,0.992,0.745,0.983
+SLH-DSA,slh-dsa-shake-192f,verification,1.001,1.003,1.001,0.75,0.989
+SLH-DSA,slh-dsa-shake-192s,key generation,0.999,1.0,0.977,0.725,0.998
+SLH-DSA,slh-dsa-shake-192s,signing,0.995,0.996,0.984,0.746,0.982
+SLH-DSA,slh-dsa-shake-192s,verification,1.002,1.006,0.999,0.786,0.994
+SLH-DSA,slh-dsa-shake-256f,key generation,0.996,0.998,0.998,0.833,0.996
+SLH-DSA,slh-dsa-shake-256f,signing,1.002,1.007,0.996,0.83,0.991
+SLH-DSA,slh-dsa-shake-256f,verification,1.0,0.997,0.996,0.832,0.983
+SLH-DSA,slh-dsa-shake-256s,key generation,1.001,0.998,0.999,0.833,0.99
+SLH-DSA,slh-dsa-shake-256s,signing,0.991,0.996,0.989,0.828,0.981
+SLH-DSA,slh-dsa-shake-256s,verification,0.999,0.999,1.0,0.837,1.001
+ML-KEM,ml-kem-1024,decapsulation,1.404,1.016,1.711,0.987,1.027
+ML-KEM,ml-kem-1024,encapsulation,1.37,1.018,1.756,0.987,0.954
+ML-KEM,ml-kem-1024,key generation,1.623,0.988,1.804,0.985,0.974
+ML-KEM,ml-kem-512,decapsulation,1.47,1.0,1.885,0.979,1.026
+ML-KEM,ml-kem-512,encapsulation,1.448,1.014,1.838,0.979,0.895
+ML-KEM,ml-kem-512,key generation,1.546,1.001,1.801,0.982,0.892
+ML-KEM,ml-kem-768,decapsulation,1.4,0.982,1.72,0.983,1.002
+ML-KEM,ml-kem-768,encapsulation,1.404,1.015,1.728,0.98,0.905
+ML-KEM,ml-kem-768,key generation,1.619,1.016,1.707,0.991,0.955
+HQC,hqc-1,decapsulation,0.863,0.863,0.997,0.964,0.986
+HQC,hqc-1,encapsulation,0.862,0.861,0.998,0.967,0.974
+HQC,hqc-1,key generation,0.866,0.868,1.001,0.967,0.987
+HQC,hqc-3,decapsulation,0.999,0.999,1.0,0.97,1.024
+HQC,hqc-3,encapsulation,1.0,0.997,1.001,0.971,1.005
+HQC,hqc-3,key generation,1.001,0.999,0.998,0.971,1.006
+HQC,hqc-5,decapsulation,1.0,0.999,1.001,0.979,1.025
+HQC,hqc-5,encapsulation,0.999,0.998,1.0,0.979,1.023
+HQC,hqc-5,key generation,0.999,0.999,1.0,0.978,1.025
+classical,dhkem-p256,decapsulation,1.001,1.001,0.997,0.999,0.974
+classical,dhkem-p256,encapsulation,1.004,1.001,0.999,1.006,1.047
+classical,dhkem-p256,key generation,0.984,0.997,0.991,1.0,0.994
+classical,dhkem-x25519,decapsulation,1.005,1.019,0.994,1.0,1.019
+classical,dhkem-x25519,encapsulation,1.002,1.001,0.993,0.986,1.004
+classical,dhkem-x25519,key generation,0.984,0.985,1.003,1.002,1.047
+classical,ecdsa-p256,key generation,0.997,1.001,0.994,0.994,0.958
+classical,ecdsa-p256,signing,1.003,1.005,0.997,0.99,1.012
+classical,ecdsa-p256,verification,1.001,1.002,1.0,0.996,0.926
+classical,ed25519,key generation,1.002,0.998,1.0,1.004,0.983
+classical,ed25519,signing,1.002,1.005,0.996,0.997,1.001
+classical,ed25519,verification,1.003,1.003,1.0,1.0,0.962
+classical,rsa3072-pss,key generation,1.078,1.042,0.943,1.018,1.079
+classical,rsa3072-pss,signing,0.998,0.998,0.999,0.999,0.992
+classical,rsa3072-pss,verification,1.004,1.001,0.998,1.001,1.0

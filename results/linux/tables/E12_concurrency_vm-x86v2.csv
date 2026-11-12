@@ -1,0 +1,17 @@
+Suite,Stage,Workers,Calls/s,Speed-up,Efficiency,p99 (µs)
+ecdsa-p256+dhkem-p256,issuance,1,2244.4,1.0,1.0,831.5
+ecdsa-p256+dhkem-p256,issuance,2,3337.7,1.487,0.74,2572.3
+ecdsa-p256+dhkem-p256,verification,1,3972.9,1.0,1.0,440.3
+ecdsa-p256+dhkem-p256,verification,2,6893.0,1.735,0.87,1019.9
+falcon-512+ml-kem-512,issuance,1,253.7,1.0,1.0,4489.2
+falcon-512+ml-kem-512,issuance,2,486.5,1.917,0.96,6520.8
+falcon-512+ml-kem-512,verification,1,5835.0,1.0,1.0,280.6
+falcon-512+ml-kem-512,verification,2,10199.1,1.748,0.87,536.6
+ml-dsa-44+ml-kem-768,issuance,1,1995.8,1.0,1.0,1138.7
+ml-dsa-44+ml-kem-768,issuance,2,2999.9,1.503,0.75,2703.4
+ml-dsa-44+ml-kem-768,verification,1,3716.7,1.0,1.0,432.1
+ml-dsa-44+ml-kem-768,verification,2,6381.2,1.717,0.86,1269.8
+slh-dsa-sha2-128f+ml-kem-512,issuance,1,43.5,1.0,1.0,25296.9
+slh-dsa-sha2-128f+ml-kem-512,issuance,2,86.4,1.988,0.99,28180.5
+slh-dsa-sha2-128f+ml-kem-512,verification,1,333.0,1.0,1.0,3948.5
+slh-dsa-sha2-128f+ml-kem-512,verification,2,625.5,1.878,0.94,5275.6

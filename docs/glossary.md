@@ -6,6 +6,7 @@ The study's own vocabulary, in alphabetical order. Where a term has a precise de
 |---|---|
 | **A/A floor** | The difference the instrument measures between two identical arms (E10's `issuer` and `issuer-again`). It sets the E10 equivalence margin: twice its upper bound, at least 2 %. |
 | **Add-on trial** | A short probe run made after a machine's first trial, for an experiment whose cells the first trial did not cover (E2, E6, E7, E11). It adds batch sizes or fast/slow classes to the machine's thresholds and changes nothing else. |
+| **Analysis table** | A generated CSV in `results/combined/analysis_tables/` (T0 to T14): every number at full precision, one row per cell. |
 | **Arm** | One measured variant inside a block, for example `reuse`, `reinit` and `prod` in E2, or `issuer`, `holder`, `issuer-again` in E10. Arms of one block are interleaved in a seeded random order. |
 | **Attempt** | One execution of a block. `a1` is the first; a flagged block is repeated as `a2`, `a3`; an extension continues with `a4` to `a6` and, after a second extension, `a7` to `a9`. |
 | **Batch** | One run of a plan by `kpi-batch`: a queue of blocks, canaries, checkpoints and quality verdicts, resumable after an interruption. |
@@ -28,6 +29,7 @@ The study's own vocabulary, in alphabetical order. Where a term has a precise de
 | **Headline attempt** | The first attempt of a block without an external flag. Only headline attempts enter the results. |
 | **Lifecycle** | E11's sum of five stages: activation, issuance, retrieval, presentation, verification. |
 | **Plan** | A JSON file in `plans/<machine>/` that lists the blocks of a batch: `smoke`, `trial`, `trial-e*` (add-on), or a main plan such as `e1` or `e11-curated`. |
+| **Presentation table** | A generated table in `results/combined/tables/` or `results/<machine>/tables/`, as CSV (to paste) and Markdown (to read): one or more per experiment, numbers rounded for reading. |
 | **Probe** | Five calls of every operation in a trial, used to classify cells as fast or slow and to estimate run times. |
 | **Production pattern (`prod`)** | E2's arm that runs QChain's own production functions: keys and outputs as hex strings, the library object initialised for every call. |
 | **Repetition (`r1` to `r5`)** | Five independent processes per cell, shuffled through the batch. |

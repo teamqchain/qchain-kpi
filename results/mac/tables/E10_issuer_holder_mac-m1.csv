@@ -1,0 +1,4 @@
+Machine,ML-DSA set,Issuer (µs),Holder (µs),Holder vs issuer,90 % CI,Margin,Equivalent,A/A difference
+Mac M1,ML-DSA-44,60.14,60.14,-0.15,-0.0044–0.0015,0.02,yes,-0.24
+Mac M1,ML-DSA-65,96.41,96.03,-0.11,-0.0066–0.0045,0.020928648680280763,yes,0.14
+Mac M1,ML-DSA-87,139.1,138.8,0.08,-0.0032–0.0048,0.02,yes,-0.14

@@ -26,7 +26,7 @@
 | | |
 |---|---|
 | **Measurements** | complete on all three machines: the Mac (10 to 22 Oct 2026), the virtualised x86 server (26 to 31 Oct) and the Windows laptop (7 to 10 Nov) |
-| **Analysis** | complete (10 Nov 2026): 19 tables and 15 figures in [`results/combined/`](results/combined/README.md), written up in [`docs/`](docs/README.md) |
+| **Analysis** | complete (10 Nov 2026; figures and tables for the paper 12 Nov): 20 analysis tables, 33 presentation tables covering every experiment and 26 figures in [`results/combined/`](results/combined/README.md), each machine's own charts and tables in `results/<machine>/`, written up in [`docs/`](docs/README.md) |
 | **Data quality** | every block has a clean headline attempt except 17 on the laptop (16 E12 blocks at four workers, one E2 block), reported through the pre-declared sensitivity analysis; no limit was changed after the runs |
 | **Test machines** | all three returned to their state before the study (10 Nov 2026); a new run needs the set-up under [Running the harness](#running-the-harness) |
 | **Next** | the paper and the project's final report |
@@ -97,7 +97,8 @@ Full results: [Mac](docs/results-mac.md) · [VM](docs/results-vm.md) · [Windows
    results/<machine>/<run-id>/    manifest · blocks.csv · quality.csv · canary.csv · raw/*.csv.gz · SHA256SUMS
                  │
                  ▼
-   analysis/run_all.py  ──▶  results/combined/tables (T0–T14)  +  results/combined/figures (F0–F13)
+   analysis/run_all.py  ──▶  results/combined/analysis_tables (T0–T14) · tables (presentation) · figures (F0–F17)
+                        ──▶  results/<machine>/figures · tables (one machine's bar charts and tables)
                  │
                  ▼
    docs/results-mac.md · results-vm.md · results-windows.md · results-comparison.md
@@ -113,7 +114,7 @@ Full results: [Mac](docs/results-mac.md) · [VM](docs/results-vm.md) · [Windows
 | `scripts/run-linux.sh`, `monitor-linux.sh` | The VM's launcher and monitor: the same steps with the VM's checks. Detaches into tmux under `systemd-inhibit`, so the SSH, VS Code or AnyDesk session can be closed. |
 | `scripts/run-windows.ps1`, `monitor-windows.ps1` | The Windows laptop (PowerShell 5.1, Docker Desktop on WSL2): the same steps with the laptop's checks. The run stays in its window; Ctrl-C asks for a stop after the current block. |
 | `scripts/e5-setup-mac.sh`, `e5-run-mac.sh` | E5 only: liboqs and OpenSSL built with Apple clang into `/Users/Shared/qchain-kpi-native` (nothing installed system-wide) and a native launcher with `run-mac.sh`'s own checks. |
-| `analysis/run_all.py` | Turns every run folder into the tables and figures of `results/combined/`. |
+| `analysis/run_all.py` | Turns every run folder into the analysis tables, presentation tables and figures of `results/combined/`, and each machine's own in `results/<machine>/`. |
 
 Each run uses its own container and its own Docker volume. The container is pinned to one CPU (E12: the CPUs its plan names), with no CPU-time quota, no network and memory without swap. Results leave the container only by `docker cp`, after the batch has finished. **Quality control:** a block disturbed by an external cause (steal, other CPU use, heat, a slow canary) is flagged and repeated, and only its first clean attempt, the **headline**, enters the results. Each machine's limits are calibrated from its own trial and frozen before its main runs.
 
@@ -203,8 +204,9 @@ qchain-kpi/
 ├── testdata/                RFC 9180 vectors, a synthetic block file, the fake docker for launcher tests
 ├── analysis/                the analysis code: python3 analysis/run_all.py
 ├── results/
-│   ├── mac/  linux/  windows/    MACHINE.md, INDEX.md and one folder per run (every sample, gzipped)
-│   └── combined/                 the generated tables (CSV) and figures (PDF, PNG)
+│   ├── mac/  linux/  windows/    README.md, MACHINE.md, INDEX.md, one folder per run (every sample, gzipped),
+│   │                             and figures/ and tables/: that machine's own bar charts and tables
+│   └── combined/                 analysis_tables/ (T0–T14), tables/ (presentation), figures/ (F0–F17)
 └── docs/                    plan, methodology, data dictionary, provenance, decisions, history,
                              glossary and the four results documents (start at docs/README.md)
 ```
@@ -217,10 +219,10 @@ Each experiment's code sits in its own `eN.go` file in `cmd/kpi-prim`, `cmd/kpi-
 
 ```bash
 git clone https://github.com/teamqchain/qchain-kpi.git && cd qchain-kpi
-python3 analysis/run_all.py        # about 20 s; needs numpy, scipy and matplotlib only
+python3 analysis/run_all.py        # about one minute; needs numpy, scipy and matplotlib only
 ```
 
-It reads every run folder in `results/` and `config/thresholds.json` and rewrites `results/combined/`. A cell's value is the median over its five repetitions of each repetition's median (headline attempts only), with a 95 % bootstrap interval over the repetitions; machines are compared by ratios, intervals and Cliff's delta, and E10's equivalence by TOST. Details: [analysis/README.md](analysis/README.md) and [methodology §10](docs/methodology.md#10-analysis-after-the-runs-10-nov-2026).
+It reads every run folder in `results/` and `config/thresholds.json` and rewrites `results/combined/` and the `figures/` and `tables/` folders of each machine; two runs give identical files. A cell's value is the median over its five repetitions of each repetition's median (headline attempts only), with a 95 % bootstrap interval over the repetitions; machines are compared by ratios, intervals and Cliff's delta, and E10's equivalence by TOST. Details: [analysis/README.md](analysis/README.md) and [methodology §10](docs/methodology.md#10-analysis-after-the-runs-10-nov-2026).
 
 To check a run's integrity: `cd results/<machine>/<run-id> && shasum -a 256 -c SHA256SUMS`.
 
@@ -329,6 +331,7 @@ powershell -ExecutionPolicy Bypass -File scripts\run-windows-series.ps1 status|s
 
 ## Recent updates
 
+- **12 November 2026: figures and tables for the paper.** Bar charts for every E1 operation and the lifecycle, on the three machines together and on each machine alone; new figures for E8 sizes, E10 equivalence, E5 native builds and E14 Fabric latency; E7 redrawn; every log axis labelled "(log scale)" with ticks in plain units; presentation tables (CSV + Markdown) for every experiment; the analysis tables moved to `results/combined/analysis_tables/`.
 - **11 November 2026: documentation completed.** Results documents for the Mac and the VM, a history of the study, a glossary and a documentation guide; every README rewritten; the E14 table corrected to use the main run instead of the smoke run.
 - **10 November 2026: analysis and revert.** `analysis/` written; tables and figures in `results/combined/`; the laptop's reruns closed (17 blocks reported through the sensitivity analysis); all three test machines returned to their original state.
 - **7 to 9 November 2026:** the Windows laptop's main series (42.5 hours), after its trial and add-on trials on 7 November.
@@ -346,6 +349,7 @@ The whole story, with the reasons for each turn, is in [docs/history.md](docs/hi
 - [x] Mac: E0 to E14
 - [x] VM and Windows laptop: the reduced scope
 - [x] Analysis: tables, figures, results documents
+- [x] Figures and presentation tables for the paper, per experiment and per machine
 - [x] Test machines reverted
 - [ ] Paper draft and the project's final report
 - [ ] Interactive dashboard for the co-authors ([plan §10](docs/plan.md#10-outputs-and-visualisation))
@@ -367,7 +371,9 @@ The whole story, with the reasons for each turn, is in [docs/history.md](docs/hi
 | [docs/provenance.md](docs/provenance.md) | where every copied line of code and every test vector comes from |
 | [docs/decisions-log.md](docs/decisions-log.md) | dated technical decisions and their reasons |
 | [docs/plan.md](docs/plan.md) · [docs/coding-plan.md](docs/coding-plan.md) | the research plan and the harness design (snapshots of 10 Oct 2026) |
-| [analysis/README.md](analysis/README.md) · [results/combined/README.md](results/combined/README.md) | how the numbers are made, and the index of tables and figures |
+| [analysis/README.md](analysis/README.md) · [results/combined/README.md](results/combined/README.md) | how the numbers are made, and where every experiment's tables and figures are |
+| [results/combined/tables/README.md](results/combined/tables/README.md) | the presentation tables, every experiment (CSV to paste, Markdown to read) |
+| [results/mac/README.md](results/mac/README.md) · [linux](results/linux/README.md) · [windows](results/windows/README.md) | each machine's runs, figures and tables |
 | [plans/README.md](plans/README.md) | every run plan, per machine |
 
 ---

@@ -1,0 +1,4 @@
+Machine,ML-DSA set,Issuer (µs),Holder (µs),Holder vs issuer,90 % CI,Margin,Equivalent,A/A difference
+VM,ML-DSA-44,212.8,210.7,-0.3,-0.0161–0.0102,0.06993661691772256,yes,0.37
+VM,ML-DSA-65,329.8,329.0,-0.15,-0.0082–0.0053,0.03322164564227171,yes,-0.86
+VM,ML-DSA-87,423.2,420.6,-0.57,-0.0093–-0.002,0.21669259906678934,yes,-0.45

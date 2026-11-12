@@ -1,0 +1,9 @@
+Family,KEM,Transaction (envelope),Stored record
+ML-KEM,ml-kem-1024,16422,5872
+ML-KEM,ml-kem-512,13350,4336
+ML-KEM,ml-kem-768,14886,5104
+HQC,hqc-1,19118,7218
+HQC,hqc-3,28210,11764
+HQC,hqc-5,39114,17210
+classical,dhkem-p256,10410,2866
+classical,dhkem-x25519,10277,2800

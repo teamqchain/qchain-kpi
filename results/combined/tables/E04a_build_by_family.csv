@@ -1,0 +1,7 @@
+Family,"Mac M1, portable (b2)","Mac M1, native (b3)","Laptop, portable (b2)","Laptop, native (b3)","VM, no OpenSSL (b4)"
+ML-DSA,1.375,0.999,2.347,0.986,1.002
+Falcon,2.2,0.998,2.12,0.997,0.998
+SLH-DSA,1.0,1.0,0.996,0.924,0.993
+ML-KEM,1.448,1.014,1.756,0.983,0.955
+HQC,0.999,0.998,1.0,0.971,1.006
+classical,1.002,1.001,0.997,1.0,1.0

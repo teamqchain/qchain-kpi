@@ -1,0 +1,181 @@
+Variant,Family,Algorithm,Operation,Production (b1),Variant,Variant ÷ b1,95 % CI,Cliff's delta
+portable (b2),ML-DSA,ml-dsa-44,key generation,31.99,75.9,2.372,2.277–2.387,1.0
+portable (b2),ML-DSA,ml-dsa-44,signing,79.2,242.5,3.062,2.993–3.118,1.0
+portable (b2),ML-DSA,ml-dsa-44,verification,32.02,75.16,2.347,2.33–2.364,1.0
+portable (b2),ML-DSA,ml-dsa-65,key generation,55.01,126.6,2.301,2.294–2.318,1.0
+portable (b2),ML-DSA,ml-dsa-65,signing,125.1,378.6,3.025,3.008–3.072,1.0
+portable (b2),ML-DSA,ml-dsa-65,verification,53.14,118.1,2.221,2.201–2.231,1.0
+portable (b2),ML-DSA,ml-dsa-87,key generation,85.22,185.9,2.182,2.111–2.206,1.0
+portable (b2),ML-DSA,ml-dsa-87,signing,153.4,481.2,3.137,3.117–3.183,1.0
+portable (b2),ML-DSA,ml-dsa-87,verification,81.33,190.9,2.347,2.326–2.368,1.0
+portable (b2),Falcon,falcon-1024,key generation,15838.1,33060.2,2.087,2.066–2.109,1.0
+portable (b2),Falcon,falcon-1024,signing,416.9,8238.3,19.759,19.514–19.854,1.0
+portable (b2),Falcon,falcon-1024,verification,81.05,77.88,0.961,0.626–0.97,-1.0
+portable (b2),Falcon,falcon-512,key generation,5619.9,11930.7,2.123,2.097–2.143,1.0
+portable (b2),Falcon,falcon-512,signing,210.3,3795.0,18.044,17.961–18.345,1.0
+portable (b2),Falcon,falcon-512,verification,41.04,38.82,0.946,0.942–0.955,-1.0
+portable (b2),Falcon,falcon-padded-1024,key generation,15797.8,33579.4,2.126,2.075–2.143,1.0
+portable (b2),Falcon,falcon-padded-1024,signing,419.4,8248.7,19.667,19.572–19.87,1.0
+portable (b2),Falcon,falcon-padded-1024,verification,80.74,77.9,0.965,0.962–0.969,-1.0
+portable (b2),Falcon,falcon-padded-512,key generation,5614.1,11886.1,2.117,2.105–2.14,1.0
+portable (b2),Falcon,falcon-padded-512,signing,207.9,3798.4,18.267,18.036–18.357,1.0
+portable (b2),Falcon,falcon-padded-512,verification,41.03,38.91,0.948,0.942–0.953,-1.0
+portable (b2),SLH-DSA,slh-dsa-sha2-128f,key generation,889.9,882.0,0.991,0.982–1.004,-0.52
+portable (b2),SLH-DSA,slh-dsa-sha2-128f,signing,20817.2,20758.5,0.997,0.989–1.0,-0.6
+portable (b2),SLH-DSA,slh-dsa-sha2-128f,verification,1264.0,1242.2,0.983,0.977–0.993,-0.92
+portable (b2),SLH-DSA,slh-dsa-sha2-128s,key generation,55976.6,55870.7,0.998,0.993–1.006,-0.2
+portable (b2),SLH-DSA,slh-dsa-sha2-128s,signing,429944.9,430925.5,1.002,0.994–1.006,-0.04
+portable (b2),SLH-DSA,slh-dsa-sha2-128s,verification,437.6,430.7,0.984,0.975–0.993,-1.0
+portable (b2),SLH-DSA,slh-dsa-sha2-192f,key generation,1286.5,1282.2,0.997,0.995–1.001,-0.68
+portable (b2),SLH-DSA,slh-dsa-sha2-192f,signing,34347.1,34279.3,0.998,0.996–1.003,-0.28
+portable (b2),SLH-DSA,slh-dsa-sha2-192f,verification,1840.0,1832.1,0.996,0.989–1.005,-0.6
+portable (b2),SLH-DSA,slh-dsa-sha2-192s,key generation,81564.9,81284.8,0.997,0.993–1.038,-0.6
+portable (b2),SLH-DSA,slh-dsa-sha2-192s,signing,774376.3,775048.3,1.001,0.997–1.007,0.04
+portable (b2),SLH-DSA,slh-dsa-sha2-192s,verification,640.8,636.7,0.994,0.985–0.998,-0.84
+portable (b2),SLH-DSA,slh-dsa-sha2-256f,key generation,3461.9,3462.6,1.0,0.997–1.004,0.12
+portable (b2),SLH-DSA,slh-dsa-sha2-256f,signing,71458.6,71350.7,0.998,0.996–1.0,-0.76
+portable (b2),SLH-DSA,slh-dsa-sha2-256f,verification,1910.3,1899.3,0.994,0.99–0.996,-1.0
+portable (b2),SLH-DSA,slh-dsa-sha2-256s,key generation,54866.7,54844.4,1.0,0.998–1.002,0.12
+portable (b2),SLH-DSA,slh-dsa-sha2-256s,signing,702269.8,704840.4,1.004,0.997–1.005,0.44
+portable (b2),SLH-DSA,slh-dsa-sha2-256s,verification,953.2,944.3,0.991,0.983–1.001,-0.76
+portable (b2),SLH-DSA,slh-dsa-shake-128f,key generation,1695.7,1650.9,0.974,0.95–0.979,-1.0
+portable (b2),SLH-DSA,slh-dsa-shake-128f,signing,41314.2,38627.9,0.935,0.924–0.941,-1.0
+portable (b2),SLH-DSA,slh-dsa-shake-128f,verification,2372.6,2359.2,0.994,0.977–1.016,-0.68
+portable (b2),SLH-DSA,slh-dsa-shake-128s,key generation,113317.6,107966.5,0.953,0.916–0.96,-1.0
+portable (b2),SLH-DSA,slh-dsa-shake-128s,signing,861501.6,828478.5,0.962,0.958–0.965,-1.0
+portable (b2),SLH-DSA,slh-dsa-shake-128s,verification,779.7,782.1,1.003,0.994–1.014,0.36
+portable (b2),SLH-DSA,slh-dsa-shake-192f,key generation,2483.0,2458.6,0.99,0.987–0.995,-1.0
+portable (b2),SLH-DSA,slh-dsa-shake-192f,signing,66970.1,66412.7,0.992,0.985–1.0,-0.84
+portable (b2),SLH-DSA,slh-dsa-shake-192f,verification,3534.8,3539.1,1.001,0.995–1.004,-0.12
+portable (b2),SLH-DSA,slh-dsa-shake-192s,key generation,166066.3,162174.6,0.977,0.976–0.993,-1.0
+portable (b2),SLH-DSA,slh-dsa-shake-192s,signing,1502757.4,1478415.4,0.984,0.977–0.994,-1.0
+portable (b2),SLH-DSA,slh-dsa-shake-192s,verification,1161.6,1160.4,0.999,0.992–1.003,-0.36
+portable (b2),SLH-DSA,slh-dsa-shake-256f,key generation,6054.3,6044.6,0.998,0.997–1.001,-0.52
+portable (b2),SLH-DSA,slh-dsa-shake-256f,signing,124677.5,124149.2,0.996,0.994–0.998,-1.0
+portable (b2),SLH-DSA,slh-dsa-shake-256f,verification,3265.6,3253.3,0.996,0.992–0.999,-0.92
+portable (b2),SLH-DSA,slh-dsa-shake-256s,key generation,96074.1,95930.5,0.999,0.997–1.022,-0.44
+portable (b2),SLH-DSA,slh-dsa-shake-256s,signing,1223961.7,1210543.6,0.989,0.988–0.991,-1.0
+portable (b2),SLH-DSA,slh-dsa-shake-256s,verification,1617.4,1616.8,1.0,0.994–1.003,-0.28
+portable (b2),ML-KEM,ml-kem-1024,decapsulation,34.04,58.23,1.711,1.681–1.759,1.0
+portable (b2),ML-KEM,ml-kem-1024,encapsulation,29.42,51.66,1.756,1.719–1.826,1.0
+portable (b2),ML-KEM,ml-kem-1024,key generation,28.52,51.45,1.804,1.792–1.82,1.0
+portable (b2),ML-KEM,ml-kem-512,decapsulation,14.52,27.37,1.885,1.867–1.896,1.0
+portable (b2),ML-KEM,ml-kem-512,encapsulation,12.84,23.6,1.838,1.822–1.85,1.0
+portable (b2),ML-KEM,ml-kem-512,key generation,11.92,21.47,1.801,1.785–1.81,1.0
+portable (b2),ML-KEM,ml-kem-768,decapsulation,23.74,40.84,1.72,1.716–1.775,1.0
+portable (b2),ML-KEM,ml-kem-768,encapsulation,20.56,35.52,1.728,1.721–1.797,1.0
+portable (b2),ML-KEM,ml-kem-768,key generation,20.26,34.59,1.707,1.691–1.721,1.0
+portable (b2),HQC,hqc-1,decapsulation,3301.3,3292.4,0.997,0.996–1.002,-0.6
+portable (b2),HQC,hqc-1,encapsulation,2164.9,2160.8,0.998,0.997–1.001,-0.52
+portable (b2),HQC,hqc-1,key generation,1077.6,1078.8,1.001,0.997–1.003,0.04
+portable (b2),HQC,hqc-3,decapsulation,9798.9,9799.8,1.0,0.998–1.002,0.12
+portable (b2),HQC,hqc-3,encapsulation,6511.8,6515.4,1.001,0.998–1.004,-0.12
+portable (b2),HQC,hqc-3,key generation,3274.7,3267.3,0.998,0.997–1.0,-0.76
+portable (b2),HQC,hqc-5,decapsulation,23901.5,23920.0,1.001,0.998–1.002,0.12
+portable (b2),HQC,hqc-5,encapsulation,15896.8,15894.6,1.0,0.997–1.002,-0.2
+portable (b2),HQC,hqc-5,key generation,7963.1,7967.0,1.0,0.997–1.002,-0.04
+portable (b2),classical,dhkem-p256,decapsulation,116.7,116.4,0.997,0.989–1.007,-0.2
+portable (b2),classical,dhkem-p256,encapsulation,130.7,130.6,0.999,0.994–1.008,-0.2
+portable (b2),classical,dhkem-p256,key generation,37.47,37.13,0.991,0.981–1.01,-0.52
+portable (b2),classical,dhkem-x25519,decapsulation,39.16,38.94,0.994,0.986–1.011,-0.28
+portable (b2),classical,dhkem-x25519,encapsulation,77.79,77.28,0.993,0.97–1.015,-0.36
+portable (b2),classical,dhkem-x25519,key generation,39.9,40.0,1.003,0.993–1.006,0.2
+portable (b2),classical,ecdsa-p256,key generation,38.41,38.17,0.994,0.984–0.999,-0.92
+portable (b2),classical,ecdsa-p256,signing,24.36,24.29,0.997,0.989–1.016,0.04
+portable (b2),classical,ecdsa-p256,verification,58.88,58.86,1.0,0.985–1.006,-0.28
+portable (b2),classical,ed25519,key generation,41.69,41.7,1.0,0.992–1.008,0.12
+portable (b2),classical,ed25519,signing,38.08,37.94,0.996,0.992–0.999,-0.92
+portable (b2),classical,ed25519,verification,101.4,101.4,1.0,0.998–1.008,0.2
+portable (b2),classical,rsa3072-pss,key generation,523698.3,493638.1,0.943,0.809–1.062,-0.52
+portable (b2),classical,rsa3072-pss,signing,1526.9,1525.4,0.999,0.997–1.004,0.12
+portable (b2),classical,rsa3072-pss,verification,36.92,36.84,0.998,0.993–1.009,-0.36
+native (b3),ML-DSA,ml-dsa-44,key generation,31.99,31.59,0.987,0.982–0.994,-1.0
+native (b3),ML-DSA,ml-dsa-44,signing,79.2,77.82,0.983,0.96–1.044,-0.28
+native (b3),ML-DSA,ml-dsa-44,verification,32.02,31.44,0.982,0.975–0.997,-0.92
+native (b3),ML-DSA,ml-dsa-65,key generation,55.01,54.27,0.987,0.983–0.99,-1.0
+native (b3),ML-DSA,ml-dsa-65,signing,125.1,123.4,0.986,0.981–0.996,-0.92
+native (b3),ML-DSA,ml-dsa-65,verification,53.14,52.4,0.986,0.983–0.991,-1.0
+native (b3),ML-DSA,ml-dsa-87,key generation,85.22,84.21,0.988,0.956–1.009,-0.44
+native (b3),ML-DSA,ml-dsa-87,signing,153.4,150.9,0.984,0.977–0.994,-1.0
+native (b3),ML-DSA,ml-dsa-87,verification,81.33,80.13,0.985,0.979–0.994,-1.0
+native (b3),Falcon,falcon-1024,key generation,15838.1,15714.6,0.992,0.987–0.997,-1.0
+native (b3),Falcon,falcon-1024,signing,416.9,413.8,0.993,0.98–1.006,-0.76
+native (b3),Falcon,falcon-1024,verification,81.05,80.76,0.996,0.649–1.007,-0.2
+native (b3),Falcon,falcon-512,key generation,5619.9,5612.1,0.999,0.995–1.007,-0.12
+native (b3),Falcon,falcon-512,signing,210.3,207.8,0.988,0.983–1.004,-0.44
+native (b3),Falcon,falcon-512,verification,41.04,41.37,1.008,1.0–1.018,0.72
+native (b3),Falcon,falcon-padded-1024,key generation,15797.8,15705.7,0.994,0.984–1.002,-0.52
+native (b3),Falcon,falcon-padded-1024,signing,419.4,414.5,0.988,0.981–1.012,-0.44
+native (b3),Falcon,falcon-padded-1024,verification,80.74,80.89,1.002,0.999–1.007,0.52
+native (b3),Falcon,falcon-padded-512,key generation,5614.1,5634.7,1.004,1.0–1.01,0.84
+native (b3),Falcon,falcon-padded-512,signing,207.9,207.5,0.998,0.985–1.01,-0.04
+native (b3),Falcon,falcon-padded-512,verification,41.03,41.14,1.003,0.996–1.008,0.52
+native (b3),SLH-DSA,slh-dsa-sha2-128f,key generation,889.9,934.6,1.05,1.04–1.062,1.0
+native (b3),SLH-DSA,slh-dsa-sha2-128f,signing,20817.2,21834.5,1.049,1.047–1.052,1.0
+native (b3),SLH-DSA,slh-dsa-sha2-128f,verification,1264.0,1330.7,1.053,1.043–1.061,1.0
+native (b3),SLH-DSA,slh-dsa-sha2-128s,key generation,55976.6,59525.4,1.063,1.058–1.066,1.0
+native (b3),SLH-DSA,slh-dsa-sha2-128s,signing,429944.9,453423.2,1.055,1.047–1.058,1.0
+native (b3),SLH-DSA,slh-dsa-sha2-128s,verification,437.6,453.9,1.037,1.031–1.05,1.0
+native (b3),SLH-DSA,slh-dsa-sha2-192f,key generation,1286.5,1360.5,1.058,1.055–1.061,1.0
+native (b3),SLH-DSA,slh-dsa-sha2-192f,signing,34347.1,35579.2,1.036,1.034–1.042,1.0
+native (b3),SLH-DSA,slh-dsa-sha2-192f,verification,1840.0,1925.2,1.046,1.042–1.048,1.0
+native (b3),SLH-DSA,slh-dsa-sha2-192s,key generation,81564.9,86068.5,1.055,1.053–1.059,1.0
+native (b3),SLH-DSA,slh-dsa-sha2-192s,signing,774376.3,797966.4,1.03,1.026–1.032,1.0
+native (b3),SLH-DSA,slh-dsa-sha2-192s,verification,640.8,662.1,1.033,1.028–1.038,1.0
+native (b3),SLH-DSA,slh-dsa-sha2-256f,key generation,3461.9,3604.6,1.041,1.037–1.061,1.0
+native (b3),SLH-DSA,slh-dsa-sha2-256f,signing,71458.6,73257.6,1.025,1.023–1.027,1.0
+native (b3),SLH-DSA,slh-dsa-sha2-256f,verification,1910.3,1974.7,1.034,1.029–1.048,1.0
+native (b3),SLH-DSA,slh-dsa-sha2-256s,key generation,54866.7,57102.9,1.041,1.038–1.058,1.0
+native (b3),SLH-DSA,slh-dsa-sha2-256s,signing,702269.8,710393.5,1.012,1.007–1.027,1.0
+native (b3),SLH-DSA,slh-dsa-sha2-256s,verification,953.2,977.5,1.025,1.018–1.032,1.0
+native (b3),SLH-DSA,slh-dsa-shake-128f,key generation,1695.7,1299.5,0.766,0.761–0.769,-1.0
+native (b3),SLH-DSA,slh-dsa-shake-128f,signing,41314.2,30264.8,0.733,0.732–0.742,-1.0
+native (b3),SLH-DSA,slh-dsa-shake-128f,verification,2372.6,1816.8,0.766,0.753–0.77,-1.0
+native (b3),SLH-DSA,slh-dsa-shake-128s,key generation,113317.6,82126.7,0.725,0.724–0.728,-1.0
+native (b3),SLH-DSA,slh-dsa-shake-128s,signing,861501.6,630421.6,0.732,0.73–0.733,-1.0
+native (b3),SLH-DSA,slh-dsa-shake-128s,verification,779.7,627.3,0.804,0.799–0.814,-1.0
+native (b3),SLH-DSA,slh-dsa-shake-192f,key generation,2483.0,1904.5,0.767,0.766–0.769,-1.0
+native (b3),SLH-DSA,slh-dsa-shake-192f,signing,66970.1,49890.6,0.745,0.743–0.747,-1.0
+native (b3),SLH-DSA,slh-dsa-shake-192f,verification,3534.8,2651.5,0.75,0.747–0.754,-1.0
+native (b3),SLH-DSA,slh-dsa-shake-192s,key generation,166066.3,120370.8,0.725,0.724–0.726,-1.0
+native (b3),SLH-DSA,slh-dsa-shake-192s,signing,1502757.4,1120718.1,0.746,0.744–0.748,-1.0
+native (b3),SLH-DSA,slh-dsa-shake-192s,verification,1161.6,913.2,0.786,0.782–0.789,-1.0
+native (b3),SLH-DSA,slh-dsa-shake-256f,key generation,6054.3,5043.1,0.833,0.829–0.835,-1.0
+native (b3),SLH-DSA,slh-dsa-shake-256f,signing,124677.5,103433.9,0.83,0.827–0.831,-1.0
+native (b3),SLH-DSA,slh-dsa-shake-256f,verification,3265.6,2718.3,0.832,0.829–0.835,-1.0
+native (b3),SLH-DSA,slh-dsa-shake-256s,key generation,96074.1,79984.4,0.833,0.83–0.834,-1.0
+native (b3),SLH-DSA,slh-dsa-shake-256s,signing,1223961.7,1013351.6,0.828,0.827–0.83,-1.0
+native (b3),SLH-DSA,slh-dsa-shake-256s,verification,1617.4,1354.4,0.837,0.832–0.839,-1.0
+native (b3),ML-KEM,ml-kem-1024,decapsulation,34.04,33.6,0.987,0.97–1.007,-0.44
+native (b3),ML-KEM,ml-kem-1024,encapsulation,29.42,29.03,0.987,0.966–1.011,-0.36
+native (b3),ML-KEM,ml-kem-1024,key generation,28.52,28.07,0.985,0.98–0.991,-1.0
+native (b3),ML-KEM,ml-kem-512,decapsulation,14.52,14.21,0.979,0.967–0.983,-1.0
+native (b3),ML-KEM,ml-kem-512,encapsulation,12.84,12.56,0.979,0.972–0.984,-1.0
+native (b3),ML-KEM,ml-kem-512,key generation,11.92,11.71,0.982,0.975–0.998,-0.88
+native (b3),ML-KEM,ml-kem-768,decapsulation,23.74,23.33,0.983,0.977–0.985,-1.0
+native (b3),ML-KEM,ml-kem-768,encapsulation,20.56,20.15,0.98,0.976–0.988,-1.0
+native (b3),ML-KEM,ml-kem-768,key generation,20.26,20.07,0.991,0.983–0.996,-1.0
+native (b3),HQC,hqc-1,decapsulation,3301.3,3182.7,0.964,0.962–0.967,-1.0
+native (b3),HQC,hqc-1,encapsulation,2164.9,2092.9,0.967,0.965–0.97,-1.0
+native (b3),HQC,hqc-1,key generation,1077.6,1042.4,0.967,0.964–0.968,-1.0
+native (b3),HQC,hqc-3,decapsulation,9798.9,9501.5,0.97,0.968–0.972,-1.0
+native (b3),HQC,hqc-3,encapsulation,6511.8,6323.3,0.971,0.969–0.973,-1.0
+native (b3),HQC,hqc-3,key generation,3274.7,3178.5,0.971,0.968–0.972,-1.0
+native (b3),HQC,hqc-5,decapsulation,23901.5,23398.2,0.979,0.976–0.979,-1.0
+native (b3),HQC,hqc-5,encapsulation,15896.8,15556.9,0.979,0.976–0.98,-1.0
+native (b3),HQC,hqc-5,key generation,7963.1,7787.7,0.978,0.976–0.98,-1.0
+native (b3),classical,dhkem-p256,decapsulation,116.7,116.6,0.999,0.991–1.01,-0.04
+native (b3),classical,dhkem-p256,encapsulation,130.7,131.5,1.006,1.0–1.014,0.84
+native (b3),classical,dhkem-p256,key generation,37.47,37.47,1.0,0.994–1.015,0.24
+native (b3),classical,dhkem-x25519,decapsulation,39.16,39.15,1.0,0.995–1.017,-0.04
+native (b3),classical,dhkem-x25519,encapsulation,77.79,76.73,0.986,0.963–1.008,-0.68
+native (b3),classical,dhkem-x25519,key generation,39.9,39.99,1.002,0.996–1.006,0.28
+native (b3),classical,ecdsa-p256,key generation,38.41,38.17,0.994,0.981–1.006,-0.68
+native (b3),classical,ecdsa-p256,signing,24.36,24.13,0.99,0.981–1.004,-0.52
+native (b3),classical,ecdsa-p256,verification,58.88,58.62,0.996,0.983–1.008,-0.28
+native (b3),classical,ed25519,key generation,41.69,41.84,1.004,0.994–1.012,0.44
+native (b3),classical,ed25519,signing,38.08,37.95,0.997,0.99–1.002,-0.68
+native (b3),classical,ed25519,verification,101.4,101.3,1.0,0.998–1.005,0.04
+native (b3),classical,rsa3072-pss,key generation,523698.3,532939.4,1.018,0.824–1.146,-0.12
+native (b3),classical,rsa3072-pss,signing,1526.9,1525.0,0.999,0.997–1.003,-0.04
+native (b3),classical,rsa3072-pss,verification,36.92,36.94,1.001,0.999–1.004,0.32

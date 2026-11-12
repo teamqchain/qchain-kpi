@@ -1,0 +1,67 @@
+Family,Algorithm,Operation,Median,95 % CI,p99,Mean,CoV,First call,Repetitions,Attempts
+ML-DSA,ml-dsa-44,key generation,77.34,76.62–80.41,101.4,76.15,0.12,1823.0,5,5
+ML-DSA,ml-dsa-44,signing,206.0,200.2–217.2,826.6,255.5,0.62,2224.8,5,5
+ML-DSA,ml-dsa-44,verification,78.69,72.85–79.53,102.1,77.11,0.12,212.1,5,5
+ML-DSA,ml-dsa-65,key generation,132.3,128.3–133.2,170.3,135.1,0.1,1854.6,5,5
+ML-DSA,ml-dsa-65,signing,321.0,319.0–329.2,1324.5,401.8,0.64,2235.9,5,5
+ML-DSA,ml-dsa-65,verification,108.2,108.1–114.0,144.6,114.6,0.11,250.1,5,5
+ML-DSA,ml-dsa-87,key generation,183.2,181.1–191.6,234.0,187.7,0.09,1924.5,5,5
+ML-DSA,ml-dsa-87,signing,415.2,405.6–418.7,1454.9,492.6,0.53,2291.2,5,5
+ML-DSA,ml-dsa-87,verification,183.5,178.3–188.9,227.1,185.2,0.09,333.0,5,5
+Falcon,falcon-1024,key generation,32969.2,32704.5–33166.3,83941.0,37138.1,0.37,28838.9,5,5
+Falcon,falcon-1024,signing,7911.1,7907.8–7929.9,8455.5,7893.3,0.04,10207.9,5,5
+Falcon,falcon-1024,verification,78.27,76.14–81.91,104.1,80.51,0.16,168.4,5,5
+Falcon,falcon-512,key generation,11581.4,11436.6–11603.4,27830.1,12881.0,0.32,12284.4,5,5
+Falcon,falcon-512,signing,3666.9,3639.4–3673.5,3902.2,3703.0,0.05,5594.8,5,5
+Falcon,falcon-512,verification,36.23,33.39–38.23,54.02,38.43,0.15,97.49,5,5
+Falcon,falcon-padded-1024,key generation,33077.2,32045.8–33399.7,89987.2,37456.9,0.38,60493.4,5,5
+Falcon,falcon-padded-1024,signing,7931.3,7689.7–8159.0,8488.7,7992.9,0.05,10316.3,5,5
+Falcon,falcon-padded-1024,verification,79.41,76.7–81.45,105.1,80.27,0.11,170.3,5,5
+Falcon,falcon-padded-512,key generation,11508.3,11357.9–11766.5,27953.2,12789.3,0.32,15946.7,5,5
+Falcon,falcon-padded-512,signing,3655.5,3639.1–3738.0,3898.2,3669.6,0.05,5765.7,5,5
+Falcon,falcon-padded-512,verification,37.95,37.47–38.35,54.96,39.77,0.14,83.48,5,5
+SLH-DSA,slh-dsa-sha2-128f,key generation,980.8,962.8–986.7,1055.5,977.4,0.05,2867.9,5,5
+SLH-DSA,slh-dsa-sha2-128f,signing,22650.6,21978.6–22864.6,23991.2,22620.4,0.04,24558.4,5,5
+SLH-DSA,slh-dsa-sha2-128f,verification,1393.7,1346.6–1407.6,1528.7,1392.1,0.06,1460.0,5,5
+SLH-DSA,slh-dsa-sha2-128s,key generation,61057.6,60233.3–61393.9,64342.1,60985.6,0.03,61776.5,5,5
+SLH-DSA,slh-dsa-sha2-128s,signing,470114.3,464353.3–471559.5,489655.6,470582.0,0.02,464950.5,5,5
+SLH-DSA,slh-dsa-sha2-128s,verification,471.0,460.2–485.4,550.0,470.3,0.08,552.2,5,5
+SLH-DSA,slh-dsa-sha2-192f,key generation,1403.7,1399.0–1425.0,1520.5,1395.6,0.06,3027.0,5,5
+SLH-DSA,slh-dsa-sha2-192f,signing,36745.2,36443.8–37398.2,39116.6,36729.5,0.03,38271.2,5,5
+SLH-DSA,slh-dsa-sha2-192f,verification,1995.9,1983.4–2018.2,2187.1,1980.2,0.06,2051.4,5,5
+SLH-DSA,slh-dsa-sha2-192s,key generation,90011.6,88110.0–91178.4,93259.3,89737.5,0.02,90279.1,5,5
+SLH-DSA,slh-dsa-sha2-192s,signing,838269.5,835280.3–848119.9,867939.3,838404.7,0.02,848440.7,5,5
+SLH-DSA,slh-dsa-sha2-192s,verification,724.4,703.9–726.3,798.1,722.4,0.06,779.5,5,5
+SLH-DSA,slh-dsa-sha2-256f,key generation,3673.8,3654.9–3705.4,3948.3,3643.0,0.05,5043.8,5,5
+SLH-DSA,slh-dsa-sha2-256f,signing,76654.8,75593.8–77866.6,80159.8,76628.0,0.02,80654.0,5,5
+SLH-DSA,slh-dsa-sha2-256f,verification,2067.4,2049.7–2080.7,2256.0,2072.9,0.06,2151.5,5,5
+SLH-DSA,slh-dsa-sha2-256s,key generation,58676.8,57555.5–59283.9,61908.2,58340.5,0.03,60911.2,5,5
+SLH-DSA,slh-dsa-sha2-256s,signing,748938.1,744026.5–756671.8,779046.1,747840.4,0.02,755336.8,5,5
+SLH-DSA,slh-dsa-sha2-256s,verification,1042.3,1038.7–1051.8,1153.6,1041.4,0.06,1125.2,5,5
+SLH-DSA,slh-dsa-shake-128f,key generation,1621.0,1606.8–1632.1,1742.6,1623.5,0.04,3326.7,5,5
+SLH-DSA,slh-dsa-shake-128f,signing,37564.5,37385.7–38327.3,39745.0,37683.6,0.03,39703.0,5,5
+SLH-DSA,slh-dsa-shake-128f,verification,2247.6,2214.9–2287.6,2480.6,2244.1,0.06,2368.2,5,5
+SLH-DSA,slh-dsa-shake-128s,key generation,102508.4,101223.2–103025.2,107409.5,102275.0,0.03,102131.4,5,5
+SLH-DSA,slh-dsa-shake-128s,signing,789142.8,775906.7–795635.2,817609.0,787626.2,0.02,788369.6,5,5
+SLH-DSA,slh-dsa-shake-128s,verification,776.3,735.8–793.0,868.6,776.0,0.06,832.3,5,5
+SLH-DSA,slh-dsa-shake-192f,key generation,2361.2,2335.0–2371.3,2536.2,2357.2,0.05,4177.8,5,5
+SLH-DSA,slh-dsa-shake-192f,signing,61681.1,61486.1–62331.6,65151.8,61780.2,0.03,63455.5,5,5
+SLH-DSA,slh-dsa-shake-192f,verification,3269.2,3251.6–3321.0,3564.0,3268.6,0.05,3273.7,5,5
+SLH-DSA,slh-dsa-shake-192s,key generation,150322.7,149349.2–153940.6,157474.3,149838.3,0.03,150866.2,5,5
+SLH-DSA,slh-dsa-shake-192s,signing,1404274.9,1395579.0–1419865.2,1442130.6,1399188.3,0.02,1416279.3,5,5
+SLH-DSA,slh-dsa-shake-192s,verification,1133.5,1120.3–1155.5,1263.3,1131.8,0.07,1214.7,5,5
+SLH-DSA,slh-dsa-shake-256f,key generation,6201.2,6174.7–6255.0,6633.1,6223.5,0.04,7854.2,5,5
+SLH-DSA,slh-dsa-shake-256f,signing,126908.4,125311.3–129046.8,133913.7,126818.6,0.02,128414.4,5,5
+SLH-DSA,slh-dsa-shake-256f,verification,3363.9,3284.9–3382.6,3662.2,3370.2,0.05,3351.1,5,5
+SLH-DSA,slh-dsa-shake-256s,key generation,100020.9,97106.5–100654.9,104144.1,99988.5,0.03,100223.9,5,5
+SLH-DSA,slh-dsa-shake-256s,signing,1247914.6,1180219.3–1255170.3,1293189.7,1248373.8,0.02,1266922.8,5,5
+SLH-DSA,slh-dsa-shake-256s,verification,1667.4,1633.7–1670.5,1844.8,1663.4,0.06,1780.1,5,5
+classical,ecdsa-p256,key generation,40.79,38.79–41.26,61.78,43.16,0.15,1037.4,5,5
+classical,ecdsa-p256,signing,30.89,29.34–31.48,50.54,33.04,0.21,721.9,5,5
+classical,ecdsa-p256,verification,78.36,72.41–78.54,102.7,75.68,0.17,250.7,5,5
+classical,ed25519,key generation,46.69,46.22–47.06,67.2,49.17,0.14,841.6,5,5
+classical,ed25519,signing,40.3,38.11–40.62,59.99,42.94,0.16,92.97,5,5
+classical,ed25519,verification,101.9,97.34–102.9,136.0,105.3,0.11,166.3,5,5
+classical,rsa3072-pss,key generation,510364.1,476636.8–591475.7,1543241.4,578257.5,0.53,1021128.2,5,5
+classical,rsa3072-pss,signing,2175.9,2155.2–2182.7,2870.0,2211.5,0.06,3731.0,5,5
+classical,rsa3072-pss,verification,53.27,50.2–53.44,75.45,56.55,0.21,211.0,5,5

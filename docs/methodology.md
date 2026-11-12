@@ -247,7 +247,7 @@ Reasons: sizes (E8, E13) depend on the algorithm, not the processor; E7 is a rat
 
 ## 10. Analysis (after the runs, 10 Nov 2026)
 
-The analysis code is in `analysis/` ([analysis/README.md](../analysis/README.md)); its results are in `results/combined/` and are written up in [results-windows.md](results-windows.md) and [results-comparison.md](results-comparison.md). The rules were fixed by plan section 9 before the runs; the details below are the choices made when they were implemented.
+The analysis code is in `analysis/` ([analysis/README.md](../analysis/README.md)); its results are in `results/combined/` (analysis tables, presentation tables and figures) and in each machine's `results/<machine>/figures/` and `tables/`, and are written up in [results-windows.md](results-windows.md) and [results-comparison.md](results-comparison.md). The rules were fixed by plan section 9 before the runs; the details below are the choices made when they were implemented.
 
 - **What enters a result:** the headline attempt of every block (the first attempt without an external flag). Drift re-runs never do. A block without a headline attempt (all three, and later six, attempts flagged) has no headline result.
 - **Cell value:** the median over the repetitions of each repetition's median, with a 95 % percentile bootstrap interval resampled over the repetitions (10,000 resamples, seed 20261110). Fast cells use `p50_ns`; tails use the median of each repetition's `p99_ns`.
@@ -255,5 +255,6 @@ The analysis code is in `analysis/` ([analysis/README.md](../analysis/README.md)
 - **Equivalence (E10):** TOST on the paired per-repetition log-ratio of holder to issuer, with the 90 % t-interval inside the machine's margin from `config/thresholds.json`.
 - **Sensitivity analysis (pre-declared in plan section 9):** the same cells computed from all non-diagnostic attempts, and from attempts under 8 % combined other CPU. It is the only source of numbers for blocks without a headline attempt (the laptop's E12 cells at four workers); table `T14` compares the headline and all-attempts medians of every cell.
 - **Lifecycle (E11):** the sum of the five stage medians at 10 attributes, 5 disclosed, 16-byte values (activation and issuance and verification with the suite, retrieval with the KEM, presentation with the signature scheme); a chained run is reported separately.
+- **Figures and presentation tables (12 Nov 2026):** every logarithmic axis says "(log scale)" and is labelled in plain units (10 µs, 1 ms, 1 KB, 2×); bar charts print every value; the machines keep one colour each (Mac blue, laptop green, VM orange) that no other quantity uses; a layout check reports overlapping or cut-off text. The presentation tables round the numbers for reading; the analysis tables keep full precision.
 - **Machines are compared only where the experiment ran on both** ([section 9](#9-which-experiments-run-on-which-machine-decided-21-oct-2026)); experiments run on the Mac alone are reported for the Mac.
 

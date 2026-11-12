@@ -39,7 +39,7 @@ def e8():
 
 def e13():
     run = runs("mac", plan="e13")[0]
-    rows = []
+    rows, every = [], []
     for f in sorted(glob.glob(os.path.join(run["dir"], "raw", "E13", "*", "ledger-r1-a1.csv.gz"))):
         alg = f.split("/")[-2]
         lines = gzip.open(f, "rt").read().splitlines()
@@ -48,9 +48,12 @@ def e13():
             s, tx, kem, n, v, q, lo, p50, hi = l.split(",")
             if s.startswith("projected"):
                 continue  # not part of the study: the analysis reads the measured and what-if scenarios only
-            if tx == "issueCredential" and v == "16" and q in ("envelope", "frame_1", "per_block_max", "share_max") and n in ("1", "10", "64"):
+            if tx == "issueCredential" and v == "16" and q in ("envelope", "frame_1", "per_block_max", "share_max"):
                 rows.append([alg, s, int(n), q, int(lo), int(float(p50)), int(hi)])
+            if s == "measured" and v == "16" and q in ("envelope", "record", "args", "message", "frame_1"):
+                every.append([alg, tx, kem, int(n), q, int(lo), int(float(p50)), int(hi)])
     write("T5_E13_ledger_issue_credential.csv", ["sig_scheme", "scenario", "attributes_n", "quantity", "min", "median", "max"], rows)
+    write("T5c_E13_ledger_every_transaction.csv", ["sig_scheme", "tx", "kem", "attributes_n", "quantity", "min", "median", "max"], every)
     ipfs = []
     for r in attempts(run):
         if r["op"] == "ipfs" and r["headline"] and r["arm"].startswith("env-"):

@@ -1,0 +1,4 @@
+Machine,ML-DSA set,Issuer (µs),Holder (µs),Holder vs issuer,90 % CI,Margin,Equivalent,A/A difference
+Laptop,ML-DSA-44,79.53,78.16,-1.04,-0.029–0.0086,0.060894519568408495,yes,-0.18
+Laptop,ML-DSA-65,126.2,126.6,0.2,-0.0025–0.0065,0.02,yes,-0.29
+Laptop,ML-DSA-87,154.0,153.9,0.33,-0.0005–0.0071,0.02,yes,0.16

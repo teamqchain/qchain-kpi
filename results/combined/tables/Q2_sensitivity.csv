@@ -1,0 +1,12 @@
+Machine,Experiment,Cells,Cells with extra attempts,Median difference,95th percentile,Largest,Cells over 1 %,Cells over 3 %
+Mac M1,E1 primitive latency,90,29,0.0,0.03,0.24,0,0
+Mac M1,E2 integration cost,634,210,0.0,0.14,1.1,1,0
+Mac M1,E11 lifecycle (all 176 pairs),1385,206,0.0,0.04,1.65,3,0
+Mac M1,E6 message size,220,69,0.0,0.12,0.64,0,0
+Mac M1,E3 integration layers,287,90,0.0,0.04,0.71,0,0
+Laptop,E1 primitive latency,90,59,0.0,0.16,0.34,0,0
+Laptop,E2 integration cost (no SLH-DSA),382,136,0.0,0.25,2.25,7,0
+Laptop,E11 lifecycle (16 suites),735,265,0.0,0.58,2.19,18,0
+VM,E1 primitive latency,90,67,0.0,1.2,3.88,6,2
+VM,E2 integration cost (no SLH-DSA),382,98,0.0,0.71,5.48,17,1
+VM,E11 lifecycle (16 suites),735,413,0.0,1.44,4.52,57,2

@@ -26,7 +26,7 @@
 | why a technical choice was made | [decisions-log.md](decisions-log.md) |
 | the original research plan and its decision log | [plan.md](plan.md) |
 | how the harness was designed before it was built | [coding-plan.md](coding-plan.md) |
-| how the tables and figures are made | [analysis/README.md](../analysis/README.md), [results/combined/README.md](../results/combined/README.md) |
+| how the tables and figures are made | [analysis/README.md](../analysis/README.md), [results/combined/README.md](../results/combined/README.md), [the presentation tables](../results/combined/tables/README.md), each machine's [Mac](../results/mac/README.md) · [VM](../results/linux/README.md) · [laptop](../results/windows/README.md) |
 
 ---
 

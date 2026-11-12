@@ -1,0 +1,25 @@
+Suite,Stage,Workers,Calls/s,Speed-up,Efficiency,p99 (µs)
+ecdsa-p256+dhkem-p256,issuance,1,3355.5,1.0,1.0,358.4
+ecdsa-p256+dhkem-p256,issuance,2,6286.9,1.874,0.94,569.3
+ecdsa-p256+dhkem-p256,issuance,4,9341.1,2.784,0.7,2441.2
+ecdsa-p256+dhkem-p256,verification,1,5316.1,1.0,1.0,222.2
+ecdsa-p256+dhkem-p256,verification,2,10233.4,1.925,0.96,309.2
+ecdsa-p256+dhkem-p256,verification,4,16134.2,3.035,0.76,2039.8
+falcon-512+ml-kem-512,issuance,1,3354.6,1.0,1.0,444.4
+falcon-512+ml-kem-512,issuance,2,6363.2,1.897,0.95,561.2
+falcon-512+ml-kem-512,issuance,4,9759.6,2.909,0.73,2375.7
+falcon-512+ml-kem-512,verification,1,8768.2,1.0,1.0,152.6
+falcon-512+ml-kem-512,verification,2,16337.0,1.863,0.93,276.5
+falcon-512+ml-kem-512,verification,4,23581.0,2.689,0.67,1450.0
+ml-dsa-44+ml-kem-768,issuance,1,4487.4,1.0,1.0,387.1
+ml-dsa-44+ml-kem-768,issuance,2,8414.2,1.875,0.94,493.6
+ml-dsa-44+ml-kem-768,issuance,4,12729.9,2.837,0.71,1941.5
+ml-dsa-44+ml-kem-768,verification,1,6426.9,1.0,1.0,193.5
+ml-dsa-44+ml-kem-768,verification,2,12075.5,1.879,0.94,337.9
+ml-dsa-44+ml-kem-768,verification,4,18994.1,2.955,0.74,1548.3
+slh-dsa-sha2-128f+ml-kem-512,issuance,1,46.9,1.0,1.0,21889.0
+slh-dsa-sha2-128f+ml-kem-512,issuance,2,91.6,1.953,0.98,22413.3
+slh-dsa-sha2-128f+ml-kem-512,issuance,4,175.0,3.731,0.93,28966.9
+slh-dsa-sha2-128f+ml-kem-512,verification,1,359.2,1.0,1.0,2900.0
+slh-dsa-sha2-128f+ml-kem-512,verification,2,696.5,1.939,0.97,2998.3
+slh-dsa-sha2-128f+ml-kem-512,verification,4,1298.5,3.615,0.9,5931.0

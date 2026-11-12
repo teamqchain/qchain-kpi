@@ -1,6 +1,6 @@
 # Results: the three machines compared
 
-Analysis of all main runs of the Mac, the university VM and the Windows laptop, written on 10 November 2026. It answers the six research questions of [the plan](plan.md#1-purpose-and-research-questions) in turn. The laptop alone is analysed in [results-windows.md](results-windows.md). Every number can be regenerated with `python3 analysis/run_all.py`; tables are in `results/combined/tables/` (`T0` to `T14`) and figures in `results/combined/figures/` (`F0` to `F13`).
+Analysis of all main runs of the Mac, the university VM and the Windows laptop, written on 10 November 2026. It answers the six research questions of [the plan](plan.md#1-purpose-and-research-questions) in turn. The laptop alone is analysed in [results-windows.md](results-windows.md). Every number can be regenerated with `python3 analysis/run_all.py`; analysis tables are in `results/combined/analysis_tables/` (`T0` to `T14`), presentation tables in `results/combined/tables/` and figures in `results/combined/figures/` (`F0` to `F17`); each machine's own are in `results/<machine>/`.
 
 | | Mac (`mac-m1`) | VM (`vm-x86v2`) | Laptop (`win-ryzen`) |
 |---|---|---|---|
@@ -203,4 +203,4 @@ TOST on the paired per-repetition log-ratio, 90 % interval inside the machine's 
 ## Open items for the final report
 
 - **The two reruns' conclusions** are final: no limit changes, no further runs; the 17 laptop blocks stay as described.
-- **The dashboard** (plan section 10) and the paper's figures are not yet assembled; the 15 figures here are in PDF and PNG for that.
+- **The dashboard** (plan section 10) is not built. For the paper, 26 figures (PDF and PNG) and presentation tables for every experiment are in `results/combined/` ([index](../results/combined/README.md)).
